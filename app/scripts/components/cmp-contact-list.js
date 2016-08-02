@@ -31,7 +31,7 @@
         //vm.detailsValid = true; //TODO new
         vm.contactList = [];
         vm.$onInit = function () {
-            console.log("Contactlist is amend "+vm.isAmend())
+
             vm.detailsValid = true;
             vm.focused = false;
             vm.tableRowExpanded = false;
@@ -45,7 +45,7 @@
         }
 
         vm.$onChanges=function(changes){
-            console.log("*****on changes::contactList"+JSON.stringify(changes))
+         
             // if(changes.addresses.previousValue.length>0) return;
             vm.contactList=changes.contacts.currentValue;
         }

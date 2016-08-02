@@ -34,7 +34,7 @@
         vm.detailsValid = true;
 
         vm.$onChanges=function(changes){
-            console.log("*****on changes::addressList"+JSON.stringify(changes))
+
             vm.addressList=changes.addresses.currentValue;
 
         }
