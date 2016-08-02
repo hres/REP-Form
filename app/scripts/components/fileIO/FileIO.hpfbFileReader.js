@@ -346,9 +346,9 @@
             var makeStrSave = JSON.stringify(jsonObj);
             var blob = new Blob([makeStrSave], {type: "text/plain;charset=utf-8"});
             if (!fileName) {
-                fileName = "hpfbDraft.hpfb"
+                fileName = "hpfbDraft.json"
             } else {
-                fileName += ".hpfb";
+                fileName += ".json";
             }
             saveAs(blob, fileName);
         }
