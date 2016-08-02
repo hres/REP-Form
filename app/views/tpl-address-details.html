@@ -1,0 +1,138 @@
+<div class="container-fluid">
+    <ng-form name="addressForm">
+        <h2>Company Details</h2>
+        <div class="row">
+
+            <div class="form-group" ng-show="adr.isAmend()">
+                <input class="formControl" id="chk-amend-rec_{{$id}}" type="checkbox"
+                       ng-model="adr.addressModel.amendRecord"/>
+                <label class="form-checkbox" for="chk-amend-rec_{{$id}}">
+                    {{'AMEND_RECORD'|translate}}
+                </label>
+            </div>
+        </div>
+        <div>
+            <div>
+                <cmp-address-role record="adr.addressModel.addressRole" form-name="addressForm"
+                                  on-update="adr.onAddressRoleUpdate($event.roles)"></cmp-address-role>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12" ng-class="{'has-error':adr.showError(addressForm.companyName)}">
+                    <label for="companyName" class="required full-width">
+                        <span class="field-name">{{"COMPANYNAME_FULL" |translate}}</span>
+                        <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                        <input type="text" id="companyName" name="companyName"
+                               ng-model="adr.addressModel.companyName" ng-change="adr.updateAddressModel()"
+                               data-ng-model-options="adr.ngModelOptSetting"
+                               class="form-control full-width" maxlength="80" size="60"
+                               ng-readonly="adr.setNotEditable()"
+                               required/>
+                        <strong id="companyName-error" class="error" ng-if="adr.showError(addressForm.companyName)">
+                        <span class="label label-danger" ng-messages="addressForm.companyName.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12" ng-class="{'has-error':adr.showError(addressForm.companyName)}">
+                    <label for="street_{{$id}}" class="required full-width">
+                        <span class="field-name">{{"STREET" |translate}}</span>
+                        <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                        <input type="text" class="form-control full-width" maxlength="120" id="street_{{$id}}"
+                               name="street" ng-readonly="adr.setNotEditable()"
+                               data-ng-model="adr.addressModel.street" ng-change="adr.updateAddressModel()"
+                               data-ng-model-options="adr.ngModelOptSetting" required/>
+                        <strong id="street-error" class="error" ng-if="adr.showError(addressForm.street)">
+                        <span class="label label-danger" ng-messages="addressForm.street.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6" ng-class="{'has-error':adr.showError(addressForm.city)}">
+                    <label for="city_{{$id}}" class="required full-width">
+                        <span class="field-name">{{"CITY_TOWN" |translate}}</span>
+                        <strong class="required"> {{"REQUIRED" |translate}} </strong>
+                        <input type="text" id="city_{{$id}}" name="city" data-ng-model="adr.addressModel.city"
+                               class="form-control  full-width" maxlength="60" ng-change="adr.updateAddressModel()"
+                               data-ng-model-options="adr.ngModelOptSetting" ng-readonly="adr.setNotEditable()"
+                               required/>
+                        <strong id="city-error" class="error" ng-if="adr.showError(addressForm.city)">
+                        <span class="label label-danger" ng-messages="addressForm.city.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                        </strong>
+                    </label>
+
+                </div>
+                <div class="col-md-6">
+                    <cmp-country-select form-name="addressForm" selected-country="adr.addressModel.country"
+                                        countries="adr.countries"
+                                        country-change="adr.onSelectedCountryChange($event.country)"
+                    ></cmp-country-select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group" ng-if="adr.hideProvinceText">
+                        <label for="provinceList_{{$id}}" class="required">
+                            <span class="field-name">{{adr.provListLabel |translate}}</span>
+                            <strong class="required"> {{"REQUIRED" |translate}} </strong>
+                            <select class="form-control full-width" data-ng-model="adr.addressModel.provState"
+                                    id="provinceList_{{$id}}" name="provinceList"
+                                    data-ng-options="province |translate for province in adr.provinces"
+                                    ng-change="adr.updateAddressModel()" ng-disabled="adr.setNotEditable()"
+                                    data-ng-model-options="adr.ngModelOptSetting"></select>
+                            <strong id="provinceList-error" class="error"
+                                    ng-if="adr.showError(addressForm.provinceList)">
+                        <span class="label label-danger"
+                              ng-messages={'has-error':"adr.showError(addressForm.provinceList)}">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                            </strong>
+                        </label>
+                    </div>
+                    <div class="form-group " ng-if="adr.hideProvinceDdl">
+                        <label for="stateText_{{$id}}">{{"PROVSTATE" |translate}}</label>
+                        <input type="text" id="stateText_{{$id}}" name="provinceText"
+                               data-ng-model="adr.addressModel.stateText" class="form-control full-width" maxlength="40"
+                               size="40" ng-change="adr.updateAddressModel()" ng-readonly="adr.setNotEditable()"
+                               data-ng-model-options="adr.ngModelOptSetting"/>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="postal_{{$id}}" ng-class="{required:adr.isPostalRequired}">
+                        <span class="field-name">{{adr.postalLabel |translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}} </strong>
+                        <input type="text" id="postal_{{$id}}" name="postal" data-ng-model="adr.addressModel.postalCode"
+                               ng-change="adr.updateAddressModel()" data-ng-model-options="adr.ngModelOptSetting"
+                               class="form-control full-width" ng-maxlength="7" ng-required="adr.isPostalRequired"
+                               maxlength="7" ng-pattern="adr.postalPattern" ng-readonly="adr.setNotEditable()"/>
+                        <strong id="postal-error" class="error" ng-if="adr.showError(addressForm.postal)">
+                            <span class="label label-danger" ng-messages="addressForm.postal.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}} </span>
+                            <span ng-message="pattern" ng-if="(adr.addressModel.country === 'CAN')">Please specify a valid canadian postal code </span>
+                            <span ng-message="pattern" ng-if="(adr.addressModel.country === 'USA')">Please specify a valid american zip code </span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+           <!-- <pre>addressModel: {{adr.addressModel | json : spacing}}</pre>-->
+            <div class="btn-group-sm col-md-12 mrgn-bttm-md text-right">
+                <!--<input type="submit" value="Discard" class="btn btn-default" ng-click="adr.onDiscardButtonClick()">-->
+                <!-- <input type="submit" value="Save" class="btn btn-default" ng-click="adr.saveButtonClick()" ng-focus="adr.isfocused()">-->
+                <input type="submit" value="Delete" class="btn btn-danger" ng-click="adr.onDeleteButtonClick()">
+                <!--<input type="submit" value="Save" class="btn btn-primary"
+                       ng-disabled="(addressForm.$dirty && !addressForm.$valid) || (addressForm.$pristine)" ng-click="adr.save()">-->
+            </div>
+        </div>
+    </ng-form>
+</div>

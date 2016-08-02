@@ -1,0 +1,19 @@
+strong.error {
+    display: inline-block;
+    width: 100%;
+    font-size: 125%;
+/* TODO what is being overridden in wet white-space: normal;*/
+}
+/* Specifically nesting inputs so need to add this*/
+label > input {
+    margin-top: 5px;
+    font-weight: normal;
+}
+
+label > select {
+    margin-top: 5px;
+    font-weight: normal;
+}
+.hd1rep {
+    color:white;
+}

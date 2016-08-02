@@ -1,0 +1,51 @@
+<fieldset>
+    <legend class="required">
+        <span class="field-name">{{"ROLES_SELECT" |translate}}</span>
+        <strong class="required"> {{"REQUIRED" |translate}}</strong>
+        <strong id="address-role-error" class="error" ng-if="ar.showError(ar.formName.addressRole)">
+                        <span class="label label-danger" ng-messages="ar.formName.addressRole.$error">
+                            <span ng-message="required">{{"MSG_ERR_ROLE"|translate}}</span>
+                        </span>
+        </strong>
+    </legend>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="checkbox">
+                <label for="chk-manufacturer_{{$id}}">
+                    <input type="checkbox" name="addressRole" ng-model="ar.roleModel.manufacturer"
+                           id="chk-manufacturer_{{$id}}" ng-change="ar.updateRoleModel()"
+                           ng-required="!ar.someSelected()"> Manufacturer
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="checkbox">
+                <label for="chk-mailing_{{$id}}">
+                    <input type="checkbox" name="addressRole" ng-model="ar.roleModel.mailing"
+                           id="chk-mailing_{{$id}}" tabindex="0"
+                           ng-change="ar.updateRoleModel()" ng-required="!ar.someSelected()"> Mailing Address
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="checkbox">
+                <label for="chk-billing_{{$id}}">
+                    <input type="checkbox" name="addressRole" ng-model="ar.roleModel.billing"
+                           id="chk-billing_{{$id}}" tabindex="0"
+                           ng-change="ar.updateRoleModel()" ng-required="!ar.someSelected()"> Billing Address
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="checkbox">
+                <label for="chk-importer_{{$id}}">
+                    <input type="checkbox" name="addressRole" ng-model="ar.roleModel.importer"
+                           id="chk-importer_{{$id}}" tabindex="0"
+                           ng-change="ar.updateRoleModel()" ng-required="!ar.someSelected()"> Importer Address
+                </label>
+            </div>
+        </div>
+    </div>
+</fieldset>

@@ -1,0 +1,15 @@
+{
+  "CITY": "City",
+  "COUNTRY": "Country",
+  "PROVINCE": "Province",
+  "POSTAL": "Postal Code",
+  "PROVSTATE": "Province or State",
+  "STATE": "State",
+  "STREET": "Street Address",
+  "ZIP": "Zip Code",
+  "COMPANYNAME_FULL": "Full Company Name",
+  "COMPANY": "Company",
+  "ADD_ADDRESS": "Add Address",
+  "CITY_TOWN":  "City or Town"
+
+}

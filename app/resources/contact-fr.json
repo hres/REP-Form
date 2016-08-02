@@ -1,0 +1,14 @@
+{
+  "FIRST_NAME": "First Name",
+  "LAST_NAME": "Last Name",
+  "INITIALS": "Initials",
+  "LANGUAGE_CORRESPONDENCE": "Language of Correspondance",
+  "JOB_TITLE": "Job Title",
+  "SALUTATION": "Salutation",
+  "SALUT_MR": "M.",
+  "SALUT_MS": "Mme",
+  "SALUT_DR": "Dr.",
+  "SALUT_MRS": "Mlle",
+  "ROLE_PRIMARY": "fr_Primary",
+  "ROLE_SECONDARY": "fr_Alternate"
+}
