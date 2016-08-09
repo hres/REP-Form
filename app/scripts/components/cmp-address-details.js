@@ -43,13 +43,13 @@
             vm.addressModel = {
                 addressID: "",
                 isDetailValid: false,
-                amendRecord: false,
-                addressRole: {
+                //amendRecord: false,
+                /*addressRole: {
                     manufacturer: false,
                     mailing: false,
                     billing: false,
                     importer: false
-                },
+                },*/
                 companyName: "",
                 street: "",
                 city: "",
@@ -112,8 +112,8 @@
         }
 
         vm.onAddressRoleUpdate = function (newRole) {
-            vm.addressModel.addressRole = newRole;
-            vm.updateAddressModel();
+          //  vm.addressModel.addressRole = newRole;
+           // vm.updateAddressModel();
 
         }
         //update the data model for the main form

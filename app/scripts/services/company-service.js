@@ -61,7 +61,8 @@
                         manufacturer: false,
                         mailing: false,
                         billing: false,
-                        importer: false
+                        repPrimary:false,
+                        repSecondary:false
                     },
                     contactRole: "",
                     salutation: "",
@@ -185,18 +186,23 @@
                 }
                 return list;
             },
-            //right side is original json left side is translation
+            //right side is original json left side is translation ;oading
             getContactList: function (contacts) {
                 var list = [];
                 if (contacts) {
                     for (var i = 0; i < contacts.length; i++) {
                         var contact = {};
-                        contact.contactId = contacts[i].contact_id;
+                        var contact_rec_index=contacts[i].contact_id;
+                        contact.contactId = contact_rec_index;
+                        this.updateContactID(contact_rec_index);
                         contact.amendRecord = contacts[i].amend_record=== 'Y';
-                        contact.manufacturer = contacts[i].manufacturer=== 'Y';
-                        contact.mailing = contacts[i].mailing=== 'Y';
-                        contact.billing = contacts[i].billing=== 'Y';
-                        contact.importer = contacts[i].importer=== 'Y';
+                        contact.addressRole={};
+                        contact.addressRole.manufacturer = contacts[i].manufacturer=== 'Y';
+                        contact.addressRole.mailing = contacts[i].mailing=== 'Y';
+                        contact.addressRole.billing = contacts[i].billing=== 'Y';
+                        contact.addressRole.importer = contacts[i].importer=== 'Y';
+                        contact.addressRole.repPrimary = contacts[i].rep_primary === 'Y';
+                        contact.addressRole.repSecondary=contacts[i].rep_secondary === 'Y';
                         contact.contactRole = contacts[i].company_contact_details.rep_contact_role;
                         contact.salutation = contacts[i].company_contact_details.salutation;
                         contact.givenName = contacts[i].company_contact_details.given_name;
@@ -254,11 +260,13 @@
                 var contact = {};
                 contact.contact_id = contacts[i].contactId;
                 contact.amend_record = contacts[i].amendRecord === true ? 'Y' : 'N';
-                contact.manufacturer = contacts[i].manufacturer === true ? 'Y' : 'N';
-                contact.mailing = contacts[i].mailing === true ? 'Y' : 'N';
-                contact.billing = contacts[i].billing === true ? 'Y' : 'N';
-                contact.importer = contacts[i].importer === true ? 'Y' : 'N';
-                contact.rep_contact_role = contacts[i].contactRole;
+                contact.manufacturer = contacts[i].addressRole.manufacturer === true ? 'Y' : 'N';
+                contact.mailing = contacts[i].addressRole.mailing === true ? 'Y' : 'N';
+                contact.billing = contacts[i].addressRole.billing === true ? 'Y' : 'N';
+                //contact.importer = contacts[i].importer === true ? 'Y' : 'N';
+                contact.rep_primary= contacts[i].addressRole.repPrimary=== true ? 'Y' : 'N';
+                contact.rep_secondary=contacts[i].addressRole.repSecondary === true ? 'Y' : 'N';
+                contact.rep_contact_role = contacts[i].addressRole.contactRole=== true ? 'Y' : 'N';
                 contact.company_contact_details = {};
                 contact.company_contact_details.salutation = contacts[i].salutation;
                 contact.company_contact_details.given_name = contacts[i].givenName;

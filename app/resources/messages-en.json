@@ -1,7 +1,7 @@
 {
  "MSG_ERR_MAND": "This field is required",
  "MSG_ERR_EMAIL_FORMAT": "Please enter a valid email address.",
- "MSG_ERR_ROLE":     "Please select at least one role"
+ "MSG_ERR_ROLE":     "Please select at least one role",
+ "MSG_ERR_CONTACT_NUM": "All the roles have to be used for the contacts",
+ "MSG_ERR_PHONE_FORMAT": "Please specify a valid phone number"
 }
-
-

@@ -1,0 +1,32 @@
+<ng-form name="foo">
+    <section class="panel panel-default">
+        <header class="panel-heading">
+            <h3 class="panel-title">Company Contact List</h3>
+        </header>
+        <div class="panel-body">
+            <div class="row">
+                <!-- Place generic expander here-->
+                <cmp-expanding-table list-items="contactListCtrl.contactList"
+                                     column-def="contactListCtrl.columnDef" select-record="contactListCtrl.selectRecord"
+                                     disable-selection="!contactListCtrl.isDetailValid">
+
+                    <cmp-contact-record on-delete="contactListCtrl.deleteContact(contactId)"
+                                        on-update="contactListCtrl.onUpdateContactRecord(rec)"
+                                        is-amend="contactListCtrl.isAmend()" is-role-selected="contactListCtrl.isREPRoleSelected(roleName,id)"
+                                        is-detail-valid="contactListCtrl.setValid(state)">
+                    </cmp-contact-record>
+
+                </cmp-expanding-table>
+
+                <div class="row mrgn-tp-md mrgn-bttm-lg">
+                    <div class="btn-group-sm col-md-12 text-right">
+                        <input type="submit" value="Add Contact" class="btn btn-primary"
+                               ng-click="contactListCtrl.addContact()" ng-disabled="!contactListCtrl.isDetailValid">
+                        <input type="submit" value="Cancel" class="btn btn-default"
+                               data-ng-show="contactListCtrl.newContactFormShow"
+                               ng-click="contactListCtrl.newAdrFormShow=false">
+                    </div>
+                </div>
+            </div>
+    </section>
+</ng-form>

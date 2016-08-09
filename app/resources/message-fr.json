@@ -1,4 +1,6 @@
 {
   "MSG_ERR_MAND": "fr_This field is required",
-  "MSG_ERR_EMAIL_FORMAT": "Veuillez fournir une adresse électronique valide."
+  "MSG_ERR_EMAIL_FORMAT": "Veuillez fournir une adresse électronique valide.",
+  "MSG_ERR_CONTACT_NUM": "fr_All the roles have to be used for the company contacts",
+  "MSG_ERR_PHONE_FORMAT": "fr_Please specify a valid phone number"
 }

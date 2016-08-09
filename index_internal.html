@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <title>
-        Company Enrolment form for Health Products and Food Branch
+        Company Enrolment form for Health Canada
     </title>
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <!-- Meta data -->
@@ -85,10 +85,10 @@
 </header>
 <main role="main" property="mainContentOfPage" class="container">
     <!--Company Enrol Content starts here -->
-    <div>
-        <form id="reg-company-form" name="companyForm" ng-controller="MainController as main" novalidate="novalidate"
-              ng-init="main.initUser('INT')">
 
+    <div>
+        <ng-form id="reg-company-form" name="main.companyEnrolForm" ng-controller="MainController as main" novalidate="novalidate"
+              ng-init="main.initUser('INT')">
             <section class="panel panel-primary mrgn-tp-lg">
                 <header class="panel-heading">
                     <h2 class="panel-title">Load a Draft Company Enrolment File</h2>
@@ -143,29 +143,32 @@
                             </div>
                         </div>
                     </div>
+
                     <div>
                         <cmp-address-list addresses="main.company.addressList"
                                           form-name="companyForm"
                                           on-update="main.updateAddressRecord(address)" is-amend="main.isAmend()"
-
                                           get-new-address="main.getNewAddress()"></cmp-address-list>
+                        <cmp-contact-list2 contacts="main.company.contactList" get-new-contact="main.getNewContact()" is-amend="main.isAmend()"></cmp-contact-list2>
+                    </div>
+                   <!-- <div>
                         <cmp-contact-list ng-if="main.company.contactList" contacts="main.company.contactList"
                                           form-name="companyForm" get-new-contact="main.getNewContact()"
                                           is-amend="main.isAmend()"
                                           on-update="main.onUpdateContactList(newList)"></cmp-contact-list>
-                    </div>
+                    </div>-->
                 </section>
                 <div class="row">
                     <div class="form-group col-md-3">
-                        <button ng-click="main.saveJson()">Save Working Copy</button>
+                        <button  class="btn-default" ng-click="main.saveJson()">Save Working Copy</button>
                     </div>
                     <div class="form-group col-md-3">
-                        <button ng-click="main.saveXML()">Save Draft for submission</button>
+                        <button class="btn-default" id="btn_xmlSave" ng-click="main.saveXML()">Save Draft for submission</button>
                     </div>
                 </div>
-                <!--  <pre>overall: {{main.company | json : spacing}}</pre>-->
+                 <!-- <pre>overall: {{main.company | json : spacing}}</pre>-->
             </div>
-        </form>
+        </ng-form>
 
     </div>
     <!-end REP content->
@@ -259,6 +262,10 @@
 <script src="app/scripts/components/cmp-contact-details.js"></script>
 <script src="app/scripts/components/cmp-address-list.js"></script>
 <script src="app/scripts/components/cmp-contact-list.js"></script>
+<script src="app/scripts/components/contactRecord/cmp-contact-record.js"></script>
+<script src="app/scripts/components/contactList/cmp-contact-list2.js"></script>
+<script src="app/scripts/components/expandingTable/cmp-expanding-table.js"></script>
+<script src="app/scripts/components/expandingTable/track-record.js"></script>
 <!-- <script> var app = angular.module('app', []); </script>-->
 <!--File IO dependencie -->
 <script src="app/scripts/components/fileIO/FileIO.hpfbFileReader.js"></script>

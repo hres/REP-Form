@@ -7,6 +7,9 @@
             'ngAria',
             'addressList',
             'contactList',
+            'contactRecord',
+            'contactList2',
+            'expandingTable',
             'fileIO'
         ])
 })();
@@ -17,9 +20,9 @@
         .module('dossierApp')
         .controller('MainController', MainController);
 
-    MainController.$inject = ['CompanyService','hpfbFileProcessing','$filter']
+    MainController.$inject = ['CompanyService','hpfbFileProcessing','$filter','$scope']
 
-    function MainController(CompanyService,hpfbFileProcessing,$filter) {
+    function MainController(CompanyService,hpfbFileProcessing,$filter,$scope) {
 
         var vm = this;
         //TODO magic number
@@ -29,7 +32,12 @@
         vm.applTypes = ["NEW", "AMEND", "APPROVED"] //TODO service ofor app types
         vm.setAmendState = _setApplTypeToAmend;
         vm.showContent = _loadFileContent;
-
+       /* if(!vm.companyForm){
+            vm.companyForm={}
+        }*/
+        vm.getFormState=function() {
+            console.log("Is invalid"+vm.companyEnrolForm.$invalid)
+        }
         var _company = new CompanyService();
 
        vm.company = {
@@ -44,19 +52,31 @@
        };
        vm.company = _company.getModelInfo();
 
-        vm.initUser=function(id){
+        vm.initUser=function(id){ //TODO needed?
             if(!id) id='INT'
             vm.userType=id;
         }
+
+        /**
+         * @ngdoc method -returns whether this application is an amendment
+         * @returns {boolean}
+         */
         vm.isAmend=function(){
+            //return true
             return(vm.company.applicationType==="AMEND")
         }
 
+        /**
+         *
+         * @ngdoc method Saves the model content in JSON format
+         */
         vm.saveJson=function(){
             var writeResult=_transformFile()
-            console.log("this is the transform result:\n"+writeResult)
             hpfbFileProcessing.writeAsJson(writeResult, "companyEnrol", vm.rootTag);
         }
+        /**
+         * @ngdoc method - saves the data model as XML format
+         */
         vm.saveXML=function(){
             var writeResult=_transformFile()
             hpfbFileProcessing.writeAsXml(writeResult, "companyEnrol", vm.rootTag);
@@ -72,6 +92,7 @@
                 incrementMinorVersion();
             }
             var writeResult=_company.transformToFileObj(vm.company);
+            console.log("Pre write "+JSON.stringify(vm.company))
             return writeResult;
         }
 
@@ -98,6 +119,11 @@
                 _setComplete();
             }
         };
+
+        /**
+         * ngdoc method to set the application type to amend
+         * @private
+         */
         function _setApplTypeToAmend() {
             //TODO magic number
             vm.company.applicationType = 'AMEND';
@@ -119,31 +145,40 @@
             return result;
         }
 
+        //TODO remove?
         vm.updateAddressRecord=function(address){
             console.log("in app updateAddressRecord"+address)
             if(!address) return;
             var idx = vm.company.addressList.indexOf(
                 $filter('filter')(vm.company.addressList, {addressID: address.addressID}, true)[0]
             );
-            console.log("found an entry "+idx)
             vm.company.addressList[idx] = address
             var temp=vm.company.addressList;
             vm.company.addressList=[];
             vm.company.addressList=temp;
         }
 
+        //TODO remove?
         vm.onUpdateContactList = function (newList) {
             vm.company.contactList = newList;
         }
+
+        /**
+         * @ngdoc method -updates the date field to the current date
+         */
         function updateDate(){
             if(vm.company) {
-
-                vm.company.dateSaved=getTodayDate();
-
+                vm.company.dateSaved=_getTodayDate();
             }
         }
 
-        function getTodayDate(){
+       //TODO: move to a service
+        /**
+         * @ngdoc method gets the current date formatted as YYYY-MM-DD
+         * @returns {string}
+         * @private
+         */
+        function _getTodayDate(){
             var d=new Date();
             var isoDate = d.getFullYear() + '-'
                 + pad(d.getMonth() + 1) + '-'

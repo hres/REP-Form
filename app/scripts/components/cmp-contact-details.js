@@ -20,91 +20,83 @@
         component('cmpContactDetails',{
             templateUrl: 'app/views/tpl-contact-details.html',
             controller: contactCtrl,
-
             bindings: {
                 contactRecord: '<',
                 onUpdate: '&',
-                onDelete: '&',
                 isAmend: '&',
-                updateValid: '&',//tells parent that the details are valid/not valid
-                checkRoles: '&'
+                showErrors:'&'
             }
     });
 
-
-    contactCtrl.$inject = ['$scope', 'getContactLists', 'getRoleLists']
-    function contactCtrl($scope, getContactLists, getRoleLists) {
+    contactCtrl.$inject = ['getContactLists']
+    function contactCtrl( getContactLists) {
         var vm = this;
-
         vm.ngModelOptSetting = {updateOn: 'blur'}
         vm.salutationList = getContactLists.getSalutationList();
-        vm.contactRoleList = getRoleLists.getContactRoles();
         vm.langCorrespondance = getContactLists.getLanguages();
+        vm.phoneReg=/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
+        /* validate phoneNumber /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im*/
+        vm.contactModel = {
+            isDetailValid: false,
+            contactId: "",
+            amendRecord: false,
+            addressRole: {
+                manufacturer: false,
+                mailing: false,
+                billing: false,
+                importer: false
+            },
+            contactRole: "",
+            salutation: "",
+            givenName: "",
+            surname: "",
+            initials: "",
+            title: "",
+            phone: "",
+            PhoneExt: "",
+            fax: ""
+        };
         vm.$onInit = function () {
-            console.log("creating a contact "+vm.checkRoles({roleValue:'ff'}));
 
-            vm.disableRepRole=vm.checkRoles({roleValue:''})
-            ///vm.disableRepRole=true
-            vm.contactModel = {
-                isDetailValid: false,
-                contactId: "",
-                amendRecord: false,
-                addressRole: {
-                    manufacturer: false,
-                    mailing: false,
-                    billing: false,
-                    importer: false
-                },
-                contactRole: "",
-                salutation: "",
-                givenName: "",
-                surname: "",
-                initials: "",
-                title: "",
-                phone: "",
-                PhoneExt: "",
-                fax: ""
-            };
-            if (vm.contactRecord) {
-                vm.contactModel = vm.contactRecord; //workaround
-                //angular.extend(vm.contactModel, vm.contactRecord);
+           if (vm.contactRecord) {
+                //doesn't copy as this is a dumb component
+                vm.contactModel = vm.contactRecord;
             }
         }
         //TODO rename
-        vm.$onChanges=function(){
-             console.log("changes details")
-            vm.disableRepRole=vm.checkRoles({roleValue:''})
-        }
+        vm.$onChanges=function(changes){
+            // console.log("changes details")
+            if(changes.contactRecord){
+                vm.contactModel = changes.contactRecord.currentValue;
 
-        vm.delete = function () {
-            vm.onDelete({contactId: vm.contactModel.contactId});
-        }
-
-
-        vm.onContactRoleUpdate = function (newRole) {
-            vm.contactModel.addressRole = newRole
-            vm.updateContactModel();
-        }
-
-        vm.updateContactModel = function () {
-         vm.contactModel.isDetailValid = $scope.contactForm.$valid;
-            vm.updateValid({validState:vm.contactModel.isDetailValid});
-         //vm.onUpdate({contact: vm.contactModel});
-        }
-        /**
-         * @ngdoc method condition by which to show an error
-         * @param control
-         * @returns {boolean}
-         */
-        vm.showError = function (control) {
-            if (control.$invalid&& !control.$pristine) {
-                return true;
             }
+
         }
+        vm.showError=function(ctrl){
+            if((ctrl.$invalid && ctrl.$touched) || (vm.showErrors()&&ctrl.$invalid )){
+                return true
+            }
+            return false
+        }
+
+        /**
+         * Updates the contact role
+         * @param newRole
+         */
+       /* vm.onContactRoleUpdate = function (newRole) {
+            var aRole={};
+            console.log("Inside contact role update"+JSON.stringify(newRole))
+            angular.extend(aRole,newRole)
+            vm.contactModel.addressRole = aRole;
+            console.log(JSON.stringify(vm.contactModel));
+            vm.updateContactModel();
+        }*/
+
         /**
          * @ngdoc method -determines if the fields should be readonly by default
          * @returns {boolean}
          */
+        //TODO valildated this is needed by the parent
         vm.setNotEditable=function(){
             if(vm.isAmend() &&!vm.contactModel.amendRecord){
                 return true;
@@ -114,3 +106,58 @@
     }
 
 })();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('contactModule')
+        .directive('testValid', testValid)
+
+    /* @ngInject */
+    function testValid() {
+        var directive = {
+            bindToController: true,
+            controller: foo,
+            controllerAs: 'vm',
+            require: 'ngModel',
+            link: link,
+            restrict: 'A',
+            scope: {
+                testValid:'='
+            }
+        };
+        return directive;
+
+       function link (scope, elm, attrs, ctrl) {
+
+            //new validation rule and name of the property
+           ctrl.$validators.integer = function(modelValue, viewValue) {
+                var INTEGER_REGEXP = /^\-?\d+$/;
+
+                if (ctrl.$isEmpty(modelValue)) {
+                    // consider empty models to be valid
+                    return true;
+                }
+
+                if (viewValue==theval) {
+                    // it is valid
+                    return true;
+                }
+
+                // it is invalid
+               modelValue=viewValue
+                return false;
+            };
+        }
+    }
+
+   // ControllerName.$inject = ['dependency'];
+
+    /* @ngInject */
+   function foo() {
+
+    }
+
+})();
+

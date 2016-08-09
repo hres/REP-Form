@@ -10,5 +10,9 @@
   "SALUT_DR": "Dr.",
   "SALUT_MRS": "Mlle",
   "ROLE_PRIMARY": "fr_Primary",
-  "ROLE_SECONDARY": "fr_Alternate"
+  "ROLE_SECONDARY": "fr_Alternate",
+  "EMAIL": "fr_E-mail",
+  "FAX_NUMBER": "fr_Fax Number",
+  "PHONE_EXT": "fr_Phone Extension",
+  "PHONE_NUMBER": "fr_Phone Number"
 }

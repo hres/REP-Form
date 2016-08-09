@@ -1,31 +1,16 @@
 <div class="container-fluid">
     <ng-form name="contactForm">
-        <h2>Contact Details</h2>
-        <div class="row">
-            <div class="form-group" ng-show="$ctrl.isAmend()">
-                <input class="formControl" id="chk-amend-rec_{{$id}}" type="checkbox"
-                       ng-model="$ctrl.contactModel.amendRecord"/>
-                <label class="form-checkbox" for="chk-amend-rec_{{$id}}">
-                    {{'AMEND_RECORD'|translate}}
-                </label>
-            </div>
-        </div>
+       <!-- <pre>{{contactForm.$error  | json : spacing}}</pre>-->
+
         <div class="row">
             <div class="col-md-12 form-group">
-            <cmp-address-role record="$ctrl.contactModel.addressRole" form-name="contactForm"
-                              on-update="$ctrl.onContactRoleUpdate($event.roles)"></cmp-address-role>
+           <!-- <cmp-address-role record="$ctrl.contactModel.addressRole" form-name="contactForm" is-contact="$ctrl.isContact"
+                              on-update="$ctrl.onContactRoleUpdate($event.roles)" child-show-error="$ctrl.showChildError()"></cmp-address-role>-->
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2 form-group">
-                <label for="contact-role-list_{{$id}}">REP Contact Role</label>
-                <select id="contact-role-list_{{$id}}" data-ng-model="$ctrl.contactModel.contactRole"
-                        ng-model-options="$ctrl.ngModelOptSetting" ng-change="$ctrl.updateContactModel()"
-                        ng-disabled="$ctrl.setNotEditable()|| $ctrl.disableRepRole"
-                        class="form-control" ng-options="role |translate for role in $ctrl.contactRoleList">
-                </select>
-            </div>
-            <div class="col-md-3 form-group" ng-class="{'has-error':$ctrl.showError(contactForm.salutation)}">
+
+            <div class="col-md-3 form-group" ng-class="{'has-error':contactForm.salutation.$invalid}">
             <label for="contact-salut_{{$id}}" class="required">
                 <span class="field-name">{{"SALUTATION"|translate}}</span>
                 <strong class="required"> {{"REQUIRED" |translate}}</strong>
@@ -43,7 +28,7 @@
         </div>
         </div>
         <div class="row">
-            <div class="col-md-5 form-group" ng-class="{'has-error':$ctrl.showError(contactForm.firstName)}">
+            <div class="col-md-5 form-group" ng-class="{'has-error':contactForm.firstName.$invalid}">
                 <label for="first-name_{{$id}}" class="required">
                     <span class="field-name">{{'FIRST_NAME'|translate}}</span>
                     <strong class="required">{{"REQUIRED" |translate}}</strong>
@@ -62,13 +47,13 @@
             <div class="col-md-2 form-group">
                 <label for="initials_{{$id}}">
                     <span class="field-name">{{'INITIALS'|translate}}</span>
+                    <input type="text" id="initials_{{$id}}" data-ng-model="$ctrl.contactModel.initials"
+                           ng-model-options="$ctrl.ngModelOptSetting" ng-change="$ctrl.updateContactModel()"
+                           class="form-control full-width" name="contactIntials" maxlength="10" size="10"
+                           ng-readonly="$ctrl.setNotEditable()"/>
                 </label>
-                <input type="text" id="initials_{{$id}}" data-ng-model="$ctrl.contactModel.initials"
-                       ng-model-options="$ctrl.ngModelOptSetting" ng-change="$ctrl.updateContactModel()"
-                       class="form-control full-width" name="contactIntials" maxlength="10" size="10"
-                       ng-readonly="$ctrl.setNotEditable()"/>
             </div>
-            <div class="col-md-5 form-group" ng-class="{'has-error':$ctrl.showError(contactForm.lastName)}">
+            <div class="col-md-5 form-group" ng-class="{'has-error':contactForm.lastName.$invalid}">
                 <label for="last-name_{{$id}}" class="required">
                     <span class="field-name">{{'LAST_NAME'|translate}}</span>
                     <strong class="required">{{"REQUIRED" |translate}}</strong>
@@ -89,14 +74,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 form-group" ng-class="{'has-error':$ctrl.showError(contactForm.langCorrespond)}">
+            <div class="col-md-5 form-group" ng-class="{'has-error':contactForm.langCorrespond.$invalid}">
                 <label for="lang-corresp_{{$id}}" class="required">
                     <span class="field-name">{{'LANGUAGE_CORRESPONDENCE'|translate}}</span>
                     <strong class="required">{{"REQUIRED" |translate}}</strong>
                     <select id="lang-corresp_{{$id}}" name="langCorrespond" data-ng-model="$ctrl.contactModel.language"
                             ng-model-options="$ctrl.ngModelOptSetting" ng-change="$ctrl.updateContactModel()"
-                            class="form-control"   ng-disabled="$ctrl.setNotEditable()"
-                            ng-options="langCorr |translate for langCorr in $ctrl.langCorrespondance">
+                            class="form-control"  ng-disabled="$ctrl.setNotEditable()"
+                            ng-options="langCorr |translate for langCorr in $ctrl.langCorrespondance" required>
                     </select>
                     <strong id="langCorresp-error" class="error" ng-if="$ctrl.showError(contactForm.langCorrespond)">
                         <span class="label label-danger" ng-messages="contactForm.langCorrespond.$error">
@@ -106,7 +91,7 @@
                 </label>
 
             </div>
-            <div class="col-md-6 form-group" ng-class="{'has-error':$ctrl.showError(contactForm.jobTitle)}">
+            <div class="col-md-4 form-group" ng-class="{'has-error':contactForm.jobTitle.$invalid}">
                 <label for="job-title_{{$id}}" class="required">
                     <span class="field-name">{{'JOB_TITLE'|translate}}</span>
                     <strong class="required">{{"REQUIRED"|translate}}</strong>
@@ -123,32 +108,6 @@
                 </label>
 
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 form-group" ng-class="{'has-error':$ctrl.showError(contactForm.phoneNumber)}">
-                <label for="phone-number_{{$id}}" class="required">
-                    <span class="field-name">{{'PHONE_NUMBER'|translate}}</span>
-                    <strong class="required">{{"REQUIRED" |translate}}</strong>
-                    <input type="text" id="phone-number_{{$id}}" data-ng-model="$ctrl.contactModel.phone"
-                           ng-model-options="$ctrl.ngModelOptSetting" ng-change="$ctrl.updateContactModel()"
-                           class="form-control full-width" name="phoneNumber" ng-required="true" maxlength="25"
-                           size="25"   ng-readonly="$ctrl.setNotEditable()"
-                           required/>
-                    <strong id="phoneNum-error" class="error" ng-if="$ctrl.showError(contactForm.phoneNumber)">
-                        <span class="label label-danger" ng-messages="contactForm.phoneNumber.$error">
-                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
-                        </span>
-                    </strong>
-                </label>
-
-            </div>
-            <div class="col-md-2 form-group">
-                <label for="phone-ext_{{$id}}"><span class="field-name">{{'PHONE_EXT'|translate}}</span></label>
-                <input type="text" id="phone-ext_{{$id}}" data-ng-model="$ctrl.contactModel.phoneExt"
-                       ng-model-options="$ctrl.ngModelOptSetting" ng-change="$ctrl.updateContactModel()"
-                       ng-readonly="$ctrl.setNotEditable()"
-                       class="form-control" name="phoneExt" maxlength="10"/>
-            </div>
             <div class="col-md-3 form-group">
                 <label for="fax-number_{{$id}}"><span class="field-name">{{'FAX_NUMBER'|translate}}</span></label>
                 <input type="text" id="fax-number_{{$id}}" data-ng-model="$ctrl.contactModel.fax"
@@ -156,14 +115,42 @@
                        ng-readonly="$ctrl.setNotEditable()"
                        class="form-control full-width" name="faxNumber" maxlength="25" size="25"/>
             </div>
-            <div class="col-md-4 form-group" ng-class="{'has-error':$ctrl.showError(contactForm.contactEmail)}">
+        </div>
+        <div class="row">
+            <div class="col-md-3 form-group" ng-class="{'has-error':contactForm.phoneNumber.$invalid}">
+                <label for="phone-number_{{$id}}" class="required">
+                    <span class="field-name">{{'PHONE_NUMBER'|translate}}</span>
+                    <strong class="required">{{"REQUIRED" |translate}}</strong>
+                    <input type="text" id="phone-number_{{$id}}" data-ng-model="$ctrl.contactModel.phone"
+                           ng-model-options="$ctrl.ngModelOptSetting" ng-change="$ctrl.updateContactModel()"
+                           class="form-control full-width" name="phoneNumber" ng-required="true" maxlength="25"
+                           size="25"   ng-readonly="$ctrl.setNotEditable()"  ng-pattern="$ctrl.phoneReg"
+                           required/>
+                    <strong id="phoneNum-error" class="error" ng-if="$ctrl.showError(contactForm.phoneNumber)">
+                        <span class="label label-danger" ng-messages="contactForm.phoneNumber.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                             <span ng-message="pattern"><span translate="MSG_ERR_PHONE_FORMAT"></span></span>
+                        </span>
+                    </strong>
+                </label>
+
+            </div>
+            <div class="col-md-3 form-group">
+                <label for="phone-ext_{{$id}}"><span class="field-name">{{'PHONE_EXT'|translate}}</span>
+                <input type="text" id="phone-ext_{{$id}}" data-ng-model="$ctrl.contactModel.phoneExt"
+                       ng-model-options="$ctrl.ngModelOptSetting" ng-change="$ctrl.updateContactModel()"
+                       ng-readonly="$ctrl.setNotEditable()"
+                       class="form-control" name="phoneExt" maxlength="10"/>
+                </label>
+            </div>
+            <div class="col-md-6 form-group" ng-class="{'has-error':contactForm.contactEmail.$invalid}">
                 <label for="contact-email_{{$id}}" class="required">
                     <span class="field-name">{{'EMAIL'|translate}}</span>
                     <strong class="required">{{"REQUIRED" |translate}}</strong>
                     <input type="email" id="contact-email_{{$id}}" data-ng-model="$ctrl.contactModel.email"
                            ng-model-options="$ctrl.ngModelOptSetting" ng-change="$ctrl.updateContactModel()"
-                           ng-readonly="$ctrl.setNotEditable()" maxlength="50" size="50"
-                           class="form-control full-width" name="contactEmail" maxlength="50" required/>
+                           ng-readonly="$ctrl.setNotEditable()" maxlength="50" size="60"
+                           class="form-control full-width" name="contactEmail" required/>
                     <strong id="contactEmail-error" class="error" ng-if="$ctrl.showError(contactForm.contactEmail)">
                         <span class="label label-danger" ng-messages="contactForm.contactEmail.$error">
                             <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
@@ -175,10 +162,6 @@
         </div>
 </div>
 <!--<pre>contact model: {{$ctrl.contactRecord | json : spacing}}</pre>-->
-<div class="row">
-    <div class="btn-group-sm col-xs-12 text-right">
-        <input type="submit" value="Delete" class="btn btn-danger" ng-click="$ctrl.delete()">
-    </div>
-</div>
+
 </ng-form>
 </div>

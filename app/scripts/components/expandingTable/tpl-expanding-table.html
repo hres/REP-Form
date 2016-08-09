@@ -1,0 +1,70 @@
+
+   <!-- <section class="panel panel-default">-->
+   <div>
+       <div>
+       <!-- <header class="panel-heading">-->
+         <!--   <input type="text" class="form-control full-width" id="listcon"
+                   name="listcon" data-ng-model="$ctrl.temp" ng-show="false" ng-readonly="true" test-valid="1"/>
+            <strong id="street-error" class="error" ng-if="true">
+                <strong id="contactsList-error" class="error" ng-if="foo.listcon.$invalid">
+                      <span class="label label-danger" ng-messages="foo.listcon.$error">
+                          <span ng-message="integer"><span translate="MSG_ERR_CONTACT_NUM"></span></span>
+                      </span>
+                </strong>
+            </strong>-->
+       <!-- </header>-->
+       </div>
+        <div class="panel-body">
+            <div class="row">
+
+                <div>
+                    <table class="table dataTable table-bordered table-hover table-condensed table-striped"
+                           data-ng-click="expandTblCtrl.focussed=true">
+                        <thead>
+                        <tr>
+                            <th ng-repeat="heading in expandTblCtrl.columnDef">{{heading.label |translate}}</th>
+                          <!--  <th>Salutation</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Title</th>
+                            <th>REP Role</th>-->
+                            <!--<th>Phone Ext.</th>-->
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr id="tr-contact-{{$index}}" class="clickableRow"
+                            data-ng-class="{'selected':$index == expandTblCtrl.tableRowIndexCurrExpanded}" index="{{$index}}"
+                            data-ng-repeat-start="record in expandTblCtrl.listItems"
+                            title="Click to toggle collapse/expand details for this contact."
+                            data-ng-click="expandTblCtrl.selectTableRow($index)">
+                            <td ng-repeat="def in expandTblCtrl.columnDef">{{record[def.binding]}}</td>
+                        </tr>
+                        <tr data-ng-show="!expandTblCtrl.dayDataCollapse[$index]" track-record=record data-ng-repeat-end>
+                            <td colspan="{{expandTblCtrl.numberCols}}">
+                                <div ng-transclude>
+
+                                </div>
+                               <!-- <cmp-contact-record contact-record="contact" is-amend="$ctrl.isAmend()"
+                                                    on-update="$ctrl.onUpdateContactRecord(contact)"
+                                                    update-valid="$ctrl.updateValid(validState)"
+                                                    check-roles="$ctrl.isREPRoleSelected(roleValue)"
+                                                    on-delete="$ctrl.deleteContact(contactId)"></cmp-contact-record>-->
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          <!--  <div class="row mrgn-tp-md mrgn-bttm-lg">
+                <div class="btn-group-sm col-md-12 text-right">
+                    <input type="submit" value="Add Contact" class="btn btn-primary"
+                           ng-click="$ctrl.addContact()" ng-disabled="!$ctrl.detailsValid">
+                    <input type="submit" value="Cancel" class="btn btn-default" data-ng-show="$ctrl.newContactFormShow"
+                           ng-click="$ctrl.newAdrFormShow=false">
+                </div>
+
+            </div>-->
+
+        </div>
+    <!--</section>-->
+   </div>

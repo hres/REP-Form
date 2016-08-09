@@ -155,8 +155,9 @@
         var msg_err_xmlparse = "MSG_ERR_XMLPARSE"; //xml parsing error
         var msg_err_load = "MSG_ERR_FILE_LOAD"; //file load error
         var msg_err_fileType = "MSG_ERR_FILE_TYPE"; //file type error
-        var msg_err_formType = "MSG_ERR_FORM_TYPE"; //fa valid json but incorrect root tag
+        var msg_err_formType = "MSG_ERR_FORM_TYPE"; // valid json but incorrect root tag
         var msg_err_checksum_compareFail = "MSG_ERR_CHECKSUM_FAIL"
+        var draft_file_type="json"; // type of file suffix for JSON files. Can change to process other types
         /**
          * @ngObject: used to store the jsonResult and any messages
          * @type {{jsonResult: string, messages: string}}
@@ -179,7 +180,7 @@
                     if (file) {
                         var splitFile = file.name.split('.');
                         var fileType = splitFile[splitFile.length - 1];
-                        if ((fileType.toLowerCase()) == "json") {
+                        if ((fileType.toLowerCase()) == draft_file_type) {
                             convertToJSONObjects(reader);
                             checkRootTagMatch(reader, scope);
                             if (reader.parseResult.jsonResult) {

@@ -10,6 +10,10 @@
   "SALUT_DR": "Dr.",
   "SALUT_MRS": "Mrs.",
   "ROLE_PRIMARY": "Primary",
-  "ROLE_SECONDARY": "Alternate"
+  "ROLE_SECONDARY": "Alternate",
+  "EMAIL":  "Email",
+  "FAX_NUMBER": "Fax Number",
+  "PHONE_EXT": "Phone Extension",
+  "PHONE_NUMBER":"Phone Number"
 
 }
