@@ -2,8 +2,8 @@
     <label for="country_{{$id}}" class="required">
         <span class="field-name">{{"COUNTRY" |translate}}</span>
         <strong class="required">{{"REQUIRED" |translate}}</strong>
-        <select data-ng-model="ctr.selectedCountry" id="country_{{$id}}" ng-required="true"
-                data-ng-change="ctr.countryChanged(ctr.selectedCountry)" name="country" required="required"
+        <select data-ng-model="ctr.selectedCountry" id="country_{{$id}}" ng-required="true" ng-disabled="ctr.isDisabled"
+                data-ng-change="ctr.countryChanged(ctr.selectedCountry)" name="country"
                 ng-options="country |translate for country in ctr.countries"
                 class="form-control  full-width"></select>
         <strong id="country-error" class="error" ng-if="ctr.formName.country.$invalid && !ctr.formName.country.$pristine">
@@ -13,9 +13,4 @@
                         </span>
         </strong>
     </label>
-
-
-    <!--<select data-ng-model="selectedValue" id="country" ng-required="true" name="country" required="required"
-            ng-options="country |translate for country in countries | orderByTranslatedCountry"
-            class="form-control" style="width:100%;max-width:90%;"></select>-->
 </div>

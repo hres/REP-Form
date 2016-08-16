@@ -2,5 +2,15 @@
   "MSG_ERR_MAND": "fr_This field is required",
   "MSG_ERR_EMAIL_FORMAT": "Veuillez fournir une adresse électronique valide.",
   "MSG_ERR_CONTACT_NUM": "fr_All the roles have to be used for the company contacts",
-  "MSG_ERR_PHONE_FORMAT": "fr_Please specify a valid phone number"
+  "MSG_ERR_PHONE_FORMAT": "fr_Please specify a valid phone number",
+  "MSG_ERR_ALLROLE": "fr_Across the contact records, the roles of  manufacturer, mailing, billing, and REP primary contact must be selected",
+  "MSG_ERR_ADDRESSSROLE": "fr_The roles of manufacturer, mailing,  and billing have not all been selected in the address list",
+  "MSG_ERR_POSTAL": "fr_Please specify a valid postal code.",
+  "MSG_ERR_ZIP": "fr_Please specify a valid zip code.",
+  "MANUFACT_SEL": "fr_Manufacturer Role already Selected",
+  "MAIL_SEL": "fr_Mailing Role already Selected",
+  "BILLING_SEL": "fr_Billing Role already Selected",
+  "IMPORTER_SEL": "fr_Importer Role already Selected",
+  "REPPRIM_SEL": "fr_REP Primary Role already Selected",
+  "REPALT_SEL": "fr_REP Alternate Role already Selected"
 }

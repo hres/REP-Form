@@ -23,14 +23,52 @@
                 contactList: []
             };
             angular.extend(this._default, defaultCompanyData);
-            this.addressID=0;
+            this.addressID = 0;
             this.contactId = 0;
         }
 
         CompanyService.prototype = {
             _default: {},
+
+            getNumberKeys: function (obj) {
+                var numKeys = 0;
+                //get the number of keys in the model
+                for (var prop in obj) {
+                    if (obj.hasOwnProperty(prop)) {
+                        numKeys++;
+                    }
+                }
+                return numKeys;
+            },
+            getApplicationTypes: function () {
+                return (["NEW", "AMEND", "APPROVED"])
+            },
+            getApprovedType: function () {
+                return "APPROVED";
+            },
+            getAmendType: function () {
+                return "AMEND";
+            },
+            createAddressRole: function () {
+                var defaultAddressRole = {
+                    manufacturer: false,
+                    mailing: false,
+                    billing: false,
+                    importer: false
+                }
+                return (defaultAddressRole);
+            },
+            createContactRole: function () {
+                var defaultContactRole = {
+                    manufacturer: false,
+                    mailing: false,
+                    billing: false,
+                    repPrimary: false,
+                    repSecondary: false
+                };
+                return (defaultContactRole);
+            },
             createAddressRecord: function () {
-                console.log("starting create recored")
                 var defaultAddress = {
                     addressID: 1,
                     companyName: "",
@@ -49,11 +87,11 @@
                     country: "",
                     postalCode: ""
                 };
-                defaultAddress.addressID=this.getNextAddressID();
-                return(defaultAddress);
+                defaultAddress.addressID = this.getNextAddressID();
+                return (defaultAddress);
             },
             createContactRecord: function () {
-                console.log("starting create recored")
+
                 var defaultContact = {
                     contactId: "",
                     amendRecord: false,
@@ -61,8 +99,8 @@
                         manufacturer: false,
                         mailing: false,
                         billing: false,
-                        repPrimary:false,
-                        repSecondary:false
+                        repPrimary: false,
+                        repSecondary: false
                     },
                     contactRole: "",
                     salutation: "",
@@ -77,22 +115,22 @@
                 defaultContact.contactId = this.getNextContactID();
                 return (defaultContact);
             },
-            updateAddressID:function(value){
-                if(isNaN(value)) return;
+            updateAddressID: function (value) {
+                if (isNaN(value)) return;
                 if (value > this.addressID) {
                     this.addressID = value;
                 }
             },
-            getNextAddressID:function(){
-                this.addressID=this.addressID+1;
-              return (this.addressID);
+            getNextAddressID: function () {
+                this.addressID = this.addressID + 1;
+                return (this.addressID);
             },
-            resetAddressID:function(value){
-              if(!value){
-                  this.addressID = 0;
-              }else {
-                  this.addressID = value;
-              }
+            resetAddressID: function (value) {
+                if (!value) {
+                    this.addressID = 0;
+                } else {
+                    this.addressID = value;
+                }
             },
             updateContactID: function (value) {
                 if (isNaN(value)) return;
@@ -112,17 +150,18 @@
                 }
             },
 
-
+            /**
+             * @ngdoc mehtod converts the file json to object model
+             * @param jsonObj
+             */
             transformFromFileObj: function (jsonObj) {
-                var rootTag="COMPANY_ENROL"
+                var rootTag = "COMPANY_ENROL"
                 var companyInfo = this.getCompanyInfo(jsonObj[rootTag]);
-                var addressInfo = {addressList:this.getAddressList(jsonObj[rootTag].address_record)};
-                var contactInfo = {contactList:this.getContactList(jsonObj[rootTag].contact_record)};
+                var addressInfo = {addressList: this.getAddressList(jsonObj[rootTag].address_record)};
+                var contactInfo = {contactList: this.getContactList(jsonObj[rootTag].contact_record)};
                 //get rid of previous default
                 this._default = {};
-
-                angular.extend(this._default, companyInfo,addressInfo, contactInfo)
-                console.log("This is the transform " + JSON.stringify(this._default))
+                angular.extend(this._default, companyInfo, addressInfo, contactInfo)
             },
             transformToFileObj: function (jsonObj) {
                 //transform back to needed
@@ -159,64 +198,74 @@
                     contactList: []
                 }
             },
-
             //not sure why this is needed anymore
             getAddressList: function (adrList) {
                 var list = [];
-                if (adrList) {
-                    for (var i = 0; i < adrList.length; i++) {
-                        this.updateAddressID(parseInt(adrList[i].address_id))
-                        var address = {};
-                        address.addressID = adrList[i].address_id;
-                        address.companyName = adrList[i].company_name;
-                        address.amendRecord = adrList[i].amend_record === 'Y';
-                        address.addressRole = {};
-                        address.addressRole.manufacturer = adrList[i].manufacturer === 'Y';
-                        address.addressRole.mailing = adrList[i].mailing === 'Y';
-                        address.addressRole.billing = adrList[i].billing === 'Y';
-                        address.addressRole.importer = adrList[i].importer === 'Y';
-                        address.street = adrList[i].company_address_details.street_address;
-                        address.city = adrList[i].company_address_details.city;
-                        address.stateList=adrList[i].company_address_details.province_lov;
-                        address.stateText = adrList[i].company_address_details.province_text;
-                        address.country = adrList[i].company_address_details.country;
-                        address.postalCode = adrList[i].company_address_details.postal_code;
-                        list.push(address);
-                    }
+                if (!adrList) return list;
+                if (!(adrList instanceof Array)) {
+                    //make it an array, case there is only one
+                    adrList = [adrList]
                 }
+
+
+                for (var i = 0; i < adrList.length; i++) {
+                    this.updateAddressID(parseInt(adrList[i].address_id))
+                    var address = {};
+                    address.addressID = adrList[i].address_id;
+                    address.companyName = adrList[i].company_name;
+                    address.amendRecord = adrList[i].amend_record === 'Y';
+                    address.addressRole = {};
+                    address.addressRole.manufacturer = adrList[i].manufacturer === 'Y';
+                    address.addressRole.mailing = adrList[i].mailing === 'Y';
+                    address.addressRole.billing = adrList[i].billing === 'Y';
+                    address.addressRole.importer = adrList[i].importer === 'Y';
+                    address.street = adrList[i].company_address_details.street_address;
+                    address.city = adrList[i].company_address_details.city;
+                    address.stateList = adrList[i].company_address_details.province_lov;
+                    address.stateText = adrList[i].company_address_details.province_text;
+                    address.country = adrList[i].company_address_details.country;
+                    address.postalCode = adrList[i].company_address_details.postal_code;
+                    list.push(address);
+                }
+
                 return list;
             },
             //right side is original json left side is translation ;oading
             getContactList: function (contacts) {
                 var list = [];
-                if (contacts) {
-                    for (var i = 0; i < contacts.length; i++) {
-                        var contact = {};
-                        var contact_rec_index=contacts[i].contact_id;
-                        contact.contactId = contact_rec_index;
-                        this.updateContactID(contact_rec_index);
-                        contact.amendRecord = contacts[i].amend_record=== 'Y';
-                        contact.addressRole={};
-                        contact.addressRole.manufacturer = contacts[i].manufacturer=== 'Y';
-                        contact.addressRole.mailing = contacts[i].mailing=== 'Y';
-                        contact.addressRole.billing = contacts[i].billing=== 'Y';
-                        contact.addressRole.importer = contacts[i].importer=== 'Y';
-                        contact.addressRole.repPrimary = contacts[i].rep_primary === 'Y';
-                        contact.addressRole.repSecondary=contacts[i].rep_secondary === 'Y';
-                        contact.contactRole = contacts[i].company_contact_details.rep_contact_role;
-                        contact.salutation = contacts[i].company_contact_details.salutation;
-                        contact.givenName = contacts[i].company_contact_details.given_name;
-                        contact.initials = contacts[i].company_contact_details.initials;
-                        contact.surname = contacts[i].company_contact_details.surname;
-                        contact.title = contacts[i].company_contact_details.job_title;
-                        contact.language = contacts[i].company_contact_details.language_correspondance;
-                        contact.phone = contacts[i].company_contact_details.phone_num;
-                        contact.phoneExt = contacts[i].company_contact_details.phone_ext;
-                        contact.fax = contacts[i].company_contact_details.fax_num;
-                        contact.email = contacts[i].company_contact_details.email;
-                        list.push(contact);
-                    }
+                if (!contacts) return list;
+                if (!(contacts instanceof Array)) {
+                    //make it an array, case there is only one
+                    contacts = [contacts]
                 }
+
+                for (var i = 0; i < contacts.length; i++) {
+                    var contact = {};
+                    var contact_rec_index = contacts[i].contact_id;
+                    contact.contactId = contact_rec_index;
+                    this.updateContactID(contact_rec_index);
+                    contact.amendRecord = contacts[i].amend_record === 'Y';
+                    contact.addressRole = {};
+                    contact.addressRole.manufacturer = contacts[i].manufacturer === 'Y';
+                    contact.addressRole.mailing = contacts[i].mailing === 'Y';
+                    contact.addressRole.billing = contacts[i].billing === 'Y';
+                    contact.addressRole.importer = contacts[i].importer === 'Y';
+                    contact.addressRole.repPrimary = contacts[i].rep_primary === 'Y';
+                    contact.addressRole.repSecondary = contacts[i].rep_secondary === 'Y';
+                    contact.contactRole = contacts[i].company_contact_details.rep_contact_role;
+                    contact.salutation = contacts[i].company_contact_details.salutation;
+                    contact.givenName = contacts[i].company_contact_details.given_name;
+                    contact.initials = contacts[i].company_contact_details.initials;
+                    contact.surname = contacts[i].company_contact_details.surname;
+                    contact.title = contacts[i].company_contact_details.job_title;
+                    contact.language = contacts[i].company_contact_details.language_correspondance;
+                    contact.phone = contacts[i].company_contact_details.phone_num;
+                    contact.phoneExt = contacts[i].company_contact_details.phone_ext;
+                    contact.fax = contacts[i].company_contact_details.fax_num;
+                    contact.email = contacts[i].company_contact_details.email;
+                    list.push(contact);
+                }
+
                 return list;
             }
         };
@@ -235,10 +284,10 @@
                 var address = {};
                 address.address_id = adrList[i].addressID;
                 address.amend_record = adrList[i].amendRecord == true ? 'Y' : 'N';
-                address.manufacturer = adrList[i].manufacturer == true ? 'Y' : 'N';
-                address.mailing = adrList[i].mailing== true ? 'Y' : 'N';;
-                address.billing = adrList[i].billing== true ? 'Y' : 'N';;
-                address.importer = adrList[i].importer== true ? 'Y' : 'N';;
+                address.manufacturer = adrList[i].addressRole.manufacturer == true ? 'Y' : 'N';
+                address.mailing = adrList[i].addressRole.mailing == true ? 'Y' : 'N';
+                address.billing = adrList[i].addressRole.billing == true ? 'Y' : 'N';
+                address.importer = adrList[i].addressRole.importer == true ? 'Y' : 'N';
                 address.company_name = adrList[i].companyName;
                 address.company_address_details = {};
                 address.company_address_details.street_address = adrList[i].street;
@@ -264,9 +313,9 @@
                 contact.mailing = contacts[i].addressRole.mailing === true ? 'Y' : 'N';
                 contact.billing = contacts[i].addressRole.billing === true ? 'Y' : 'N';
                 //contact.importer = contacts[i].importer === true ? 'Y' : 'N';
-                contact.rep_primary= contacts[i].addressRole.repPrimary=== true ? 'Y' : 'N';
-                contact.rep_secondary=contacts[i].addressRole.repSecondary === true ? 'Y' : 'N';
-                contact.rep_contact_role = contacts[i].addressRole.contactRole=== true ? 'Y' : 'N';
+                contact.rep_primary = contacts[i].addressRole.repPrimary === true ? 'Y' : 'N';
+                contact.rep_secondary = contacts[i].addressRole.repSecondary === true ? 'Y' : 'N';
+                contact.rep_contact_role = contacts[i].addressRole.contactRole === true ? 'Y' : 'N';
                 contact.company_contact_details = {};
                 contact.company_contact_details.salutation = contacts[i].salutation;
                 contact.company_contact_details.given_name = contacts[i].givenName;

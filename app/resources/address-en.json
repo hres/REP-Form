@@ -10,6 +10,9 @@
   "COMPANYNAME_FULL": "Full Company Name",
   "COMPANY": "Company",
   "ADD_ADDRESS": "Add Address",
-  "CITY_TOWN":  "City or Town"
-
+  "CITY_TOWN": "City or Town",
+  "SAVE_ADDR": "Save Address",
+  "DELETE_ADDR": "Delete Address",
+  "ADDR_INFO": "Address Information",
+  "ADDR_DETAILS": "Address Details"
 }

@@ -7,8 +7,17 @@
   "NEW": "fr_New",
   "AMEND": "fr_Amend",
   "APPROVED": "fr_Approved",
-  "CLICK_TOGGLE":"fr_Click to toggle the collapse or expand details for this address.",
+  "CLICK_TOGGLE": "fr_Click to toggle the collapse or expand details for this address.",
   "AMEND_RECORD": "fr_Amend Record",
   "en": "Anglais",
-  "fr": "Français"
+  "fr": "Français",
+  "DISCARD_CHANGES": "fr_Discard Changes",
+  "REP_ALT": "fr_Alternate REP contact",
+  "REP_PRIM": "fr_Primary REP contact",
+  "MAILING": "fr_Mailing",
+  "BILLING": "fr_Billing",
+  "MANUFACT": "fr_Manufacturer",
+  "IMPORTER": "fr_Importer",
+  "APPROVE_FINAL": "fr_Approve Final XML",
+  "SAVE_DRAFT": "fr_Save Draft for submission"
 }

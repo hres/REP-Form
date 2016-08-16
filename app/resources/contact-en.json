@@ -14,6 +14,8 @@
   "EMAIL":  "Email",
   "FAX_NUMBER": "Fax Number",
   "PHONE_EXT": "Phone Extension",
-  "PHONE_NUMBER":"Phone Number"
+  "ROLES": "Roles",
+  "PHONE_NUMBER": "Phone Number",
+  "CONTACT_INFO": "Contact Information"
 
 }

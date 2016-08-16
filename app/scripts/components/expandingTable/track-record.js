@@ -40,8 +40,6 @@
         }
     }
 
-   // ControllerName.$inject = ['dependency'];
-
     /* @ngInject */
     function trackRecordCtrl() {
 

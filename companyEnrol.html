@@ -71,9 +71,6 @@
         <div class="container">
             <div class="row">
                 <div id="wb-sttl" class="col-md-10">
-                    <!--<a href="http://wet-boew.github.io/v4.0-ci/index-en.html">
-                        <span>Web Experience Toolkit</span>
-                    </a>-->
                     <h1 class="hd1rep">Company Regulatory Enrolment Process (REP)</h1>
                 </div>
                 <object id="wmms" type="image/svg+xml" tabindex="-1" role="img" data="./theme-gcwu-fegc/assets/wmms.svg"
@@ -87,10 +84,9 @@
     <!--Company Enrol Content starts here -->
 
     <div>
-        <ng-form id="reg-company-form" name="main.companyEnrolForm" ng-controller="MainController as main" novalidate="novalidate"
-              ng-init="main.initUser('EXT')">
-
-
+        <ng-form id="reg-company-form" name="main.companyEnrolForm" ng-controller="MainController as main"
+                 novalidate="novalidate"
+                 ng-init="main.initUser('EXT')">
             <section class="panel panel-primary mrgn-tp-lg">
                 <header class="panel-heading">
                     <h2 class="panel-title">Load a Draft Company Enrolment File</h2>
@@ -130,10 +126,18 @@
                                        ng-model="main.company.dateSaved" ng-readonly="true"/>
                             </div>
                             <div class="col-xs-3 form-group">
-                                <label for="company-id-text">Company ID</label>
-                                <input type="text" class="form-control" id="company-id-text"
-                                       ng-readonly="main.isExtern()" maxlength="6"
-                                       ng-model="main.company.companyId"/>
+                                <label for="company-id-text">Company ID
+                                    <input type="text" class="form-control" id="company-id-text"
+                                           ng-readonly="main.isExtern()" maxlength="6" name="companyID"
+                                           ng-model="main.company.companyId" ng-required="!main.isExtern()"/>
+                                    <strong id="code-error" class="error"
+                                    >
+                        <span class="label label-danger" ng-if="main.companyEnrolForm.companyID.$invalid"
+                              ng-messages="main.companyEnrolForm.companyID.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                                    </strong>
+                                </label>
                             </div>
                         </div>
                         <div class="row">
@@ -147,31 +151,28 @@
                     </div>
 
                     <div>
-                        <cmp-address-list addresses="main.company.addressList"
-                                          form-name="companyForm"
-                                          on-update="main.updateAddressRecord(address)" is-amend="main.isAmend()"
-                                          get-new-address="main.getNewAddress()"></cmp-address-list>
-                        <cmp-contact-list2 contacts="main.company.contactList" get-new-contact="main.getNewContact()" is-amend="main.isAmend()"></cmp-contact-list2>
+                        <cmp-company-address-list addresses="main.company.addressList"
+                                                  get-new-address="main.getNewAddress()" is-amend="main.isAmend()"
+                                                  company-service="main.companyService"></cmp-company-address-list>
+
+                        <cmp-company-contact-list contacts="main.company.contactList"
+                                                  get-new-contact="main.getNewContact()" is-amend="main.isAmend()"
+                                                  company-service="main.companyService"></cmp-company-contact-list>
                     </div>
-                   <!-- <div>
-
-
-
-                        <cmp-contact-list ng-if="main.company.contactList" contacts="main.company.contactList"
-                                          form-name="companyForm" get-new-contact="main.getNewContact()"
-                                          is-amend="main.isAmend()"
-                                          on-update="main.onUpdateContactList(newList)"></cmp-contact-list>
-                    </div>-->
                 </section>
                 <div class="row">
                     <div class="form-group col-md-3">
-                        <button  class="btn-default" ng-click="main.saveJson()">Save Working Copy</button>
+                        <button class="btn btn-primary btn-lg active" ng-click="main.saveJson()"
+                        >Save Working Copy
+                        </button>
                     </div>
                     <div class="form-group col-md-3">
-                        <button class="btn-default" id="btn_xmlSave" ng-click="main.saveXML()">Save Draft for submission</button>
+                        <button class="btn btn-default btn-lg active" ng-disabled="main.disableXML" id="btn_xmlSave"
+                                ng-click="main.saveXML()">{{main.saveXMLLabel |translate}}
+                        </button>
                     </div>
                 </div>
-                 <!-- <pre>overall: {{main.company | json : spacing}}</pre>-->
+                <!--<pre>overall: {{main.company | json : spacing}}</pre>-->
             </div>
         </ng-form>
 
@@ -180,7 +181,7 @@
     <dl id="wb-dtmd">
         <dt>Date modified:&#32;</dt>
         <dd>
-            <time property="dateModified">2016-08-13</time>
+            <time property="dateModified">2016-08-14</time>
         </dd>
     </dl>
 </main>
@@ -262,13 +263,18 @@
 <script src="app/scripts/services/company-service.js"></script>
 <script src="app/scripts/services/data-lists.js"></script>
 <script src="app/scripts/components/cmp-country-select.js"></script>
-<script src="app/scripts/components/cmp-address-role.js"></script>
-<script src="app/scripts/components/cmp-address-details.js"></script>
-<script src="app/scripts/components/cmp-contact-details.js"></script>
-<script src="app/scripts/components/cmp-address-list.js"></script>
+<script src="app/scripts/components/addressRole/cmp-address-role.js"></script>
+<script src="app/scripts/components/contactDetails/cmp-contact-details.js"></script>
+//TODO remove
+<!--<script src="app/scripts/components/cmp-address-list.js"></script>-->
 <script src="app/scripts/components/cmp-contact-list.js"></script>
+<script src="app/scripts/components/addressList/cmp-company-address-list.js"></script>
+<script src="app/scripts/components/addressRecord/cmp-address-record.js"></script>
+<script src="app/scripts/components/addressDetails/cmp-address-details.js"></script>
+
+
 <script src="app/scripts/components/contactRecord/cmp-contact-record.js"></script>
-<script src="app/scripts/components/contactList/cmp-contact-list2.js"></script>
+<script src="app/scripts/components/contactList/cmp-company-contact-list.js"></script>
 <script src="app/scripts/components/expandingTable/cmp-expanding-table.js"></script>
 <script src="app/scripts/components/expandingTable/track-record.js"></script>
 <!-- <script> var app = angular.module('app', []); </script>-->

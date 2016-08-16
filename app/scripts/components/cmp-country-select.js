@@ -25,7 +25,8 @@
                 formName: '<',
                 selectedCountry: '<',
                 countries: '<',
-                countryChange: '&'
+                countryChange: '&',
+                isDisabled: '<'
             }
         });
 
@@ -36,11 +37,9 @@
         var vm = this;
 
         vm.$onInit = function(){
-          //  console.log("cmpCountrySelect selectedCountry Value: " + vm.selectedCountry);
         }
 
          vm.countryChanged = function(value){
-             console.log("cmpCountrySelect countryChanged Value: " + value);
             vm.countryChange({$event : {country : value}});
         }
 

@@ -14,5 +14,8 @@
   "EMAIL": "fr_E-mail",
   "FAX_NUMBER": "fr_Fax Number",
   "PHONE_EXT": "fr_Phone Extension",
-  "PHONE_NUMBER": "fr_Phone Number"
+  "ADDR_ROLES":"fr_Roles",
+  "PHONE_NUMBER": "fr_Phone Number",
+  "CONTACT_INFO": "fr_Contact Information"
+
 }

@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-xs-3 form-group">
+        <label for="application-type">{{"APPL_TYPE"| translate}}</label>
+        <select id="application-type"
+                ng-options="type |translate for type in main.applTypes"
+                ng-model="main.company.applicationType" ng-readonly="true"
+                ng-disabled="true"
+                class="form-control full-width"></select>
+    </div>
+    <div class="col-xs-3 form-group">
+        <label for="enr-version-text">Enrolment Version</label>
+        <input type="text" class="form-control" id="enr-version-text" ng-readonly="true"
+               ng-model="main.company.enrolmentVersion" placeholder="Enrolment Version"/>
+    </div>
+    <div class="col-xs-3 form-group">
+        <label for="date-saved-text">Date Last Saved</label>
+        <input type="text" class="form-control" id="date-saved-text"
+               ng-model="main.company.dateSaved" ng-readonly="true"/>
+    </div>
+    <div class="col-xs-3 form-group">
+        <label for="company-id-text">Company ID</label>
+        <input type="text" class="form-control" id="company-id-text"
+               ng-readonly="main.isExtern()" maxlength="6"
+               ng-model="main.company.companyId"/>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-5 form-group">
+        <button class="btn btn-default" ng-click="main.setAmendState()"
+                ng-disabled="main.isIncomplete">
+            Amend Enrolment
+        </button>
+    </div>
+</div>
+</div>

@@ -37,9 +37,6 @@
         vm.numberCols=_getNumberKeys(vm.columnDef)
         vm.dayDataCollapse=_createArray(vm.numberCols,true);
         vm.$onInit = function () {
-            //on init happens right after initialization
-            //vm.dayDataCollapse=_createArray(vm.numberCols,true);
-            console.log("This is the selected row"+vm.selectRecord)
         }
         vm.$onChanges = function (changes) {
 
@@ -53,9 +50,7 @@
                 }
             }
             if(changes.selectRecord){
-                console.log("select record change expanding table")
                 var selectIndex=parseInt(changes.selectRecord.currentValue);
-                console.log("Selected index "+selectIndex)
                 if(selectIndex>=0) {
                     vm.selectTableRow(selectIndex);
                 }else{
@@ -110,9 +105,7 @@
         };
         vm.selectTableRow = function (index) {
             //if selection
-            console.log("Disable selection"+vm.disableExpand)
          if (vm.disableExpand) return;
-            console.log("selecting table row")
             if (vm.dayDataCollapse === 'undefined') {
                 vm.dayDataCollapse = vm.dayDataCollapseFn();
             } else {

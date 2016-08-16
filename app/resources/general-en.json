@@ -10,5 +10,14 @@
   "CLICK_TOGGLE": "Click to toggle the collapse or expand details for this address.",
   "AMEND_RECORD": "Amend Record",
   "en": "English",
-  "fr": "French"
+  "fr": "French",
+  "DISCARD_CHANGES": "Discard Changes",
+  "REP_ALT": "Alternate REP contact",
+  "REP_PRIM": "Primary REP contact",
+  "MAILING": "Mailing",
+  "BILLING": "Billing",
+  "MANUFACT": "Manufacturer",
+  "IMPORTER": "Importer",
+  "APPROVE_FINAL": "Approve Final XML",
+  "SAVE_DRAFT": "Save Draft for submission"
 }

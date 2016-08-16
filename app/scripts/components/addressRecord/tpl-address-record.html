@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <ng-form name="addressRec.addressRecForm">
+        <div>
+            <div>
+                <h2>{{'ADDR_DETAILS'|translate}}</h2>
+
+                <div class="row">
+                    <div class="form-group" ng-show="addressRec.isAmend()">
+                        <input class="formControl" id="chk-amend-rec_{{$id}}" type="checkbox"
+                               ng-change="addressRec.setNotEditable()"
+                               ng-model="addressRec.addressModel.amendRecord"/>
+                        <label class="form-checkbox" for="chk-amend-rec_{{$id}}">
+                            {{'AMEND_RECORD'|translate}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div>
+
+                <cmp-address-role record="addressRec.addressModel"
+                                  is-contact="addressRec.isContact" is-amend="addressRec.isNotEditable"
+                                  on-update="addressRec.onAddressRoleUpdate($event.roles)"
+                                  show-errors="addressRec.showErrors()" already-selected="addressRec.isOneSelected(roleName)"></cmp-address-role>
+
+            </div>
+            <div class="row">
+                <cmp-address-details address-record="addressRec.addressModel" is-amend="addressRec.isNotEditable"
+                                     on-update="addressRec.onUpdateAddressRecord(address)"
+                                     show-errors="addressRec.showErrors()"></cmp-address-details>
+            </div>
+            <div class="row">
+                <div class="btn-group-sm col-xs-12 text-right">
+                    <input type="submit" value="{{'SAVE_ADDR'|translate}}" class="btn btn-primary" name="saveAddress"
+                           id="saveAddress"
+                           ng-click="addressRec.updateAddressModel2()" ng-disabled="addressRec.setNotEditable()">
+                    <input type="submit" value="{{'DELETE_ADDR'|translate}}" class="btn btn-danger"
+                           ng-click="addressRec.delete()">
+                    <input type="submit" value="{{'DISCARD_CHANGES'|translate}}" class="btn btn-default"
+                           ng-click="addressRec.discardChanges()">
+                </div>
+            </div>
+        </div>
+    </ng-form>
+    <!--  <pre>address record model: {{addressRec.addressModel | json : spacing}}</pre>-->
+
+</div>
