@@ -104,7 +104,7 @@
          */
         vm.$onChanges=function(changes){
             //how this is currently wired, this will never fire!
-            if(changes.contactRecord.currentValue) {
+            if (changes.contactRecord) {
                 vm.contactModel = angular.copy(changes.contactRecord.currentValue);
 
             }

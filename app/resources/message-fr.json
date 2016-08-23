@@ -7,10 +7,12 @@
   "MSG_ERR_ADDRESSSROLE": "fr_The roles of manufacturer, mailing,  and billing have not all been selected in the address list",
   "MSG_ERR_POSTAL": "fr_Please specify a valid postal code.",
   "MSG_ERR_ZIP": "fr_Please specify a valid zip code.",
+  "MSG_ERR_DATE_FORMAT": "fr_The date format is incorrect.",
   "MANUFACT_SEL": "fr_Manufacturer Role already Selected",
   "MAIL_SEL": "fr_Mailing Role already Selected",
   "BILLING_SEL": "fr_Billing Role already Selected",
   "IMPORTER_SEL": "fr_Importer Role already Selected",
   "REPPRIM_SEL": "fr_REP Primary Role already Selected",
-  "REPALT_SEL": "fr_REP Alternate Role already Selected"
+  "REPALT_SEL": "fr_REP Alternate Role already Selected",
+  "MSG_LENGTH_6": "Please enter 6 characters."
 }

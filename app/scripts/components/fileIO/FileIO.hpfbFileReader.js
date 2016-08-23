@@ -68,7 +68,7 @@
     FileSelectController.$inject = ['hpfbFileProcessing']
     function FileSelectController(hpfbFileProcessing) {
         var vm = this;
-        vm.fileTypes=".xml, .hcsc"
+        vm.fileTypes = ".xml, .hcsc"
         vm.modelCallback = function (fileContent) {
             vm.status = ""
             if (fileContent) {
@@ -159,7 +159,7 @@
         var msg_err_fileType = "MSG_ERR_FILE_TYPE"; //file type error
         var msg_err_formType = "MSG_ERR_FORM_TYPE"; // valid json but incorrect root tag
         var msg_err_checksum_compareFail = "MSG_ERR_CHECKSUM_FAIL"
-        var draft_file_type="hcsc"; // type of file suffix for JSON files. Can change to process other types
+        var draft_file_type = "hcsc"; // type of file suffix for JSON files. Can change to process other types
         /**
          * @ngObject: used to store the jsonResult and any messages
          * @type {{jsonResult: string, messages: string}}
@@ -349,9 +349,9 @@
             var makeStrSave = JSON.stringify(jsonObj);
             var blob = new Blob([makeStrSave], {type: "text/plain;charset=utf-8"});
             if (!fileName) {
-                fileName = "hpfbDraft."+draft_file_type;
+                fileName = "hpfbDraft." + draft_file_type;
             } else {
-                fileName += "."+draft_file_type;
+                fileName += "." + draft_file_type;
             }
             saveAs(blob, fileName);
         }

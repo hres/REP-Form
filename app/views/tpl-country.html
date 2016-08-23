@@ -1,16 +1,19 @@
-<div class="form-group" ng-class="{'has-error':ctr.formName.country.$invalid && !ctr.formName.country.$pristine}">
+<ng-form name="countryForm">
+    <div class="form-group" ng-class="{'has-error':countryForm.country.$invalid}">
     <label for="country_{{$id}}" class="required">
         <span class="field-name">{{"COUNTRY" |translate}}</span>
         <strong class="required">{{"REQUIRED" |translate}}</strong>
-        <select data-ng-model="ctr.selectedCountry" id="country_{{$id}}" ng-required="true" ng-disabled="ctr.isDisabled"
+        <select data-ng-model="ctr.selectedCountry" id="country_{{$id}}" ng-required="!ctr.isDisabled"
+                ng-disabled="ctr.isDisabled"
                 data-ng-change="ctr.countryChanged(ctr.selectedCountry)" name="country"
                 ng-options="country |translate for country in ctr.countries"
                 class="form-control  full-width"></select>
-        <strong id="country-error" class="error" ng-if="ctr.formName.country.$invalid && !ctr.formName.country.$pristine">
-                        <span class="label label-danger" ng-messages="ctr.formName.country.$error">
-                            <span ng-message="required">This field is required </span>
-
+        <strong id="country-error" class="error" ng-if="countryForm.country.$invalid && countryForm.country.$touched">
+                        <span class="label label-danger" ng-messages="countryForm.country.$error">
+                           <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
                         </span>
         </strong>
     </label>
 </div>
+</ng-form>
+

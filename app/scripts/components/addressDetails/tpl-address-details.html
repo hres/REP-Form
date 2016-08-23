@@ -1,25 +1,7 @@
 <div class="container-fluid">
-    <ng-form name="addressForm">
+    <ng-form name="addressForm" novalidate>
         <div class="row">
-            <div class="form-group col-md-12" ng-class="{'has-error':adr.showError(addressForm.companyName)}">
-                <label for="companyName" class="required full-width">
-                    <span class="field-name">{{"COMPANYNAME_FULL" |translate}}</span>
-                    <strong class="required"> {{"REQUIRED" |translate}}</strong>
-                    <input type="text" id="companyName" name="companyName"
-                           ng-model="adr.addressModel.companyName"
-                           class="form-control full-width" maxlength="80" size="60"
-                           ng-readonly="adr.isAmend"
-                           required/>
-                    <strong id="companyName-error" class="error" ng-if="adr.showError(addressForm.companyName)">
-                        <span class="label label-danger" ng-messages="addressForm.companyName.$error">
-                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
-                        </span>
-                    </strong>
-                </label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-md-12" ng-class="{'has-error':adr.showError(addressForm.companyName)}">
+            <div class="form-group col-md-12" ng-class="{'has-error':addressForm.street.$invalid}">
                 <label for="street_{{$id}}" class="required full-width">
                     <span class="field-name">{{"STREET" |translate}}</span>
                     <strong class="required"> {{"REQUIRED" |translate}}</strong>
@@ -35,7 +17,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="form-group col-md-6" ng-class="{'has-error':adr.showError(addressForm.city)}">
+            <div class="form-group col-md-6" ng-class="{'has-error':addressForm.city.$invalid}">
                 <label for="city_{{$id}}" class="required full-width">
                     <span class="field-name">{{"CITY_TOWN" |translate}}</span>
                     <strong class="required"> {{"REQUIRED" |translate}} </strong>
@@ -59,14 +41,15 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <div class="form-group" ng-if="adr.hideProvinceText">
+                <div class="form-group" ng-if="adr.hideProvinceText"
+                     ng-class="{'has-error':addressForm.provinceList.$invalid}">
                     <label for="provinceList_{{$id}}" class="required">
                         <span class="field-name">{{adr.provListLabel |translate}}</span>
                         <strong class="required"> {{"REQUIRED" |translate}} </strong>
                         <select class="form-control full-width" data-ng-model="adr.addressModel.stateList"
                                 id="provinceList_{{$id}}" name="provinceList"
                                 data-ng-options="province |translate for province in adr.provinces"
-                                ng-disabled="adr.isAmend"></select>
+                                ng-disabled="adr.isAmend" ng-required="adr.hideProvinceText"></select>
                         <strong id="provinceList-error" class="error"
                                 ng-if="adr.showError(addressForm.provinceList)">
                         <span class="label label-danger" ng-messages="addressForm.provinceList.$error">
@@ -75,14 +58,15 @@
                         </strong>
                     </label>
                 </div>
-                <div class="form-group " ng-if="adr.hideProvinceDdl">
+                <div class="form-group " ng-if="adr.hideProvinceDdl"
+                     ng-class="{'has-error':addressForm.provinceText.$invalid}">
                     <label for="stateText_{{$id}}">{{"PROVSTATE" |translate}}</label>
                     <input type="text" id="stateText_{{$id}}" name="provinceText"
                            data-ng-model="adr.addressModel.stateText" class="form-control full-width" maxlength="40"
                            size="40" ng-readonly="adr.isAmend"/>
                 </div>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6" ng-class="{'has-error':addressForm.postal.$invalid}">
                 <label for="postal_{{$id}}" ng-class="{required:adr.isPostalRequired}">
                     <span class="field-name">{{adr.postalLabel |translate}}</span>
                     <strong ng-show="adr.isPostalRequired" class="required">{{"REQUIRED" |translate}} </strong>

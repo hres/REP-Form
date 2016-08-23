@@ -20,8 +20,29 @@
                 <cmp-address-role record="addressRec.addressModel"
                                   is-contact="addressRec.isContact" is-amend="addressRec.isNotEditable"
                                   on-update="addressRec.onAddressRoleUpdate($event.roles)"
-                                  show-errors="addressRec.showErrors()" already-selected="addressRec.isOneSelected(roleName)"></cmp-address-role>
+                                  show-errors="addressRec.showErrors()"
+                                  already-selected="addressRec.isOneSelected(roleName)"></cmp-address-role>
 
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12"
+                     ng-class="{'has-error':addressRec.addressRecForm.companyName.$invalid}">
+                    <label for="companyName" class="required full-width">
+                        <span class="field-name">{{"COMPANYNAME_FULL" |translate}}</span>
+                        <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                        <input type="text" id="companyName" name="companyName"
+                               ng-model="addressRec.addressModel.companyName"
+                               class="form-control full-width" maxlength="80" size="60"
+                               ng-readonly="addressRec.isNotEditable"
+                               required/>
+                        <strong id="companyName-error" class="error"
+                                ng-if="addressRec.showError(addressRec.addressRecForm.companyName.$touched,addressRec.addressRecForm.companyName.$invalid)">
+                        <span class="label label-danger" ng-messages="addressRec.addressRecForm.companyName.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
             </div>
             <div class="row">
                 <cmp-address-details address-record="addressRec.addressModel" is-amend="addressRec.isNotEditable"

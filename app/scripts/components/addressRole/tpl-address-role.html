@@ -12,7 +12,7 @@
             </strong>
         </legend>
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <div class="checkbox">
                     <label for="chk-manufacturer_{{$id}}">
                         <input type="checkbox" ng-model="ar.roleModel.manufacturer" name="manufacturer"
@@ -28,7 +28,7 @@
                 </div>
 
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <div class="checkbox">
                     <label for="chk-mailing{{$id}}">
                         <input type="checkbox" name="mailing" ng-model="ar.roleModel.mailing" name="mailing"
@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <div class="checkbox">
                     <label for="chk-billing_{{$id}}">
                         <input type="checkbox" name="billing" ng-model="ar.roleModel.billing"
@@ -62,7 +62,7 @@
                 </div>
 
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <div ng-show="!ar.isContact" class="checkbox">
                     <label for="chk-importer_{{$id}}">
                         <input type="checkbox" name="importer" ng-model="ar.roleModel.importer"
@@ -79,7 +79,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <div ng-show="ar.isContact" class="checkbox">
                     <label for="chk-rep-primary_{{$id}}">
                         <input type="checkbox" name="repPrimary" ng-model="ar.roleModel.repPrimary"
@@ -94,7 +94,7 @@
                     </label>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <div ng-show="ar.isContact" class="checkbox">
                     <label for="chk-rep-secondary_{{$id}}">
                         <input type="checkbox" name="repSecondary" ng-model="ar.roleModel.repSecondary"

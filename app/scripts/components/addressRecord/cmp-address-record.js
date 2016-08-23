@@ -38,6 +38,7 @@
         vm.savePressed = false;
         vm.isContact = false;
         vm.isNotEditable = false;
+        vm.addressRecForm = "";
         //TODO get  model from a servide
         vm.addressModel = {
             addressID: 1,
@@ -162,6 +163,24 @@
 
             return (vm.savePressed)
         };
+
+        /**
+         * Controls errors state of an individual UI control. Since cannot pass the control for some reason
+         * pass the needed state variables... very annoying
+         * @param isTouched
+         * @param isInvalid
+         * @returns {boolean}
+         */
+        vm.showError = function (isTouched, isInvalid) {
+
+            if ((isInvalid && isTouched) || (vm.showErrors() && isInvalid )) {
+                return true
+            }
+            return false
+        }
+
+
+
         /**
          * @ngdoc method used to determine if record should be editable. Used for amend
          * @returns {boolean}

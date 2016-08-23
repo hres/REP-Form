@@ -1,4 +1,6 @@
 {
+  "Y": "Yes",
+  "N": "No",
   "DELETEROW": "Delete Row",
   "SELECTEDROW": "Selected Row",
   "REQUIRED": "(required)",
@@ -14,10 +16,12 @@
   "DISCARD_CHANGES": "Discard Changes",
   "REP_ALT": "Alternate REP contact",
   "REP_PRIM": "Primary REP contact",
-  "MAILING": "Mailing",
-  "BILLING": "Billing",
-  "MANUFACT": "Manufacturer",
-  "IMPORTER": "Importer",
+  "MAILING": "Regulatory Mailing / Annual Contact",
+  "BILLING": "Billing Address",
+  "MANUFACT": "Manufacturer / Sponsor Mailing Address",
+  "IMPORTER": "Canadian Importer Mailing Address",
   "APPROVE_FINAL": "Approve Final XML",
-  "SAVE_DRAFT": "Save Draft for submission"
+  "SAVE_DRAFT": "Save Draft for submission",
+  "PRIMARY": "Primary",
+  "SECONDARY": "Alternate"
 }

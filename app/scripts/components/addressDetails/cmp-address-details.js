@@ -8,7 +8,6 @@
 
     angular
         .module('addressModule', [
-            'addressRole',
             'countrySelect',
             'dataLists'
         ])
@@ -24,7 +23,7 @@
             controllerAs: 'adr',
             bindings: {
                 addressRecord: '<',
-                onUpdate: '&',
+                onUpdate: '&', //no longer used TBD should be removed
                 showErrors: '&',
                 isAmend: '<'
             }
@@ -40,7 +39,6 @@
         vm.addressModel = {
             addressID: "",
             isDetailValid: false,
-            companyName: "",
             street: "",
             city: "",
             country: "",
@@ -79,6 +77,10 @@
             }
         };
         vm.showError = function (ctrl) {
+
+            if (!ctrl) {
+                return false
+            }
             if ((ctrl.$invalid && ctrl.$touched) || (vm.showErrors() && ctrl.$invalid )) {
                 return true
             }
