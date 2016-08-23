@@ -5,14 +5,14 @@
 <head>
     <meta charset="utf-8">
     <title>
-        Company Enrolment form for Health Canada
+        Transaction Enrolment form for Health Canada
     </title>
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <!-- Meta data -->
     <meta name="description"
-          content="Web Experience Toolkit (WET) includes reusable components for building and maintaining innovative Web sites that are accessible, usable, and interoperable. These reusable components are open source software and free for use by departments and external Web communities">
+          content="Transaction Enrol Form for Health Canada Drug submissions">
     <meta name="dcterms.title"
-          content="Content page - No search, language toggle, site menu or breadcrumb trail - Web Experience Toolkit">
+          content="Health Canada Transaction Enrolment Form">
     <meta name="dcterms.creator" content="French name of the content author / Nom en français de l'auteur du contenu">
     <meta name="dcterms.issued" title="W3CDTF" content="Date published (YYYY-MM-DD) / Date de publication (AAAA-MM-JJ)">
     <meta name="dcterms.modified" title="W3CDTF"
@@ -34,7 +34,7 @@
         <link rel="stylesheet" href="./wet-boew/css/noscript.min.css"/>
     </noscript>
 </head>
-<body vocab="http://schema.org/" typeof="WebPage" ng-app="dossierApp">
+<body vocab="http://schema.org/" typeof="WebPage" ng-app="transactionApp">
 <ul id="wb-tphp">
     <li class="wb-slc">
         <a class="wb-sl" href="#wb-cont">Skip to main content</a>
@@ -71,7 +71,7 @@
         <div class="container">
             <div class="row">
                 <div id="wb-sttl" class="col-md-10">
-                    <h1 class="hd1rep">Company Regulatory Enrolment Process (REP)</h1>
+                    <h1 class="hd1rep">Transaction Regulatory Enrolment Process (REP)</h1>
                 </div>
                 <object id="wmms" type="image/svg+xml" tabindex="-1" role="img" data="./theme-gcwu-fegc/assets/wmms.svg"
                         aria-label="Symbol of the Government of Canada"></object>
@@ -81,20 +81,18 @@
     <span data-trgt="mb-pnl" class="wb-menu hide"></span>
 </header>
 <main role="main" property="mainContentOfPage" class="container">
-    <!--Company Enrol Content starts here -->
-
+    <!--Transaction Enrol Content starts here -->
     <div>
-        <ng-form id="reg-company-form" name="main.companyEnrolForm" ng-controller="MainController as main"
-                 novalidate="novalidate"
-                 ng-init="main.initUser('INT')">
+        <ng-form id="reg-transaction-form" name="main.transactionEnrolForm" ng-controller="MainController as main"
+                 novalidate>
             <section class="panel panel-primary mrgn-tp-lg">
                 <header class="panel-heading">
-                    <h2 class="panel-title">Load a Draft Company Enrolment File</h2>
+                    <h2 class="panel-title">Load a Transaction Enrolment File</h2>
                 </header>
                 <div class="panel-body">
                     <div class="col-md-12">
-
-                        <hpfb-file-select update-model-root="main.showContent(fileContent) " root-elem="COMPANY_ENROL"/>
+                        <hpfb-file-select update-model-root="main.showContent(fileContent) "
+                                          root-elem="{{main.rootTag}}"/>
                     </div>
                 </div>
                 <div>
@@ -103,76 +101,29 @@
             <div>
                 <section class="panel panel-primary mrgn-tp-lg">
                     <header class="panel-heading">
-                        <h3 class="panel-title">Regulatory Company Enrolment</h3>
+                        <h2 class="panel-title">Regulatory Transaction Enrolment</h2>
                     </header>
                     <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-3 form-group">
-                                <label for="application-type">{{"APPL_TYPE"| translate}}</label>
-                                <select id="application-type"
-                                        ng-options="type |translate for type in main.applTypes"
-                                        ng-model="main.company.applicationType" ng-readonly="true"
-                                        ng-disabled="true"
-                                        class="form-control full-width"></select>
-                            </div>
-                            <div class="col-xs-3 form-group">
-                                <label for="enr-version-text">Enrolment Version</label>
-                                <input type="text" class="form-control" id="enr-version-text" ng-readonly="true"
-                                       ng-model="main.company.enrolmentVersion" placeholder="Enrolment Version"/>
-                            </div>
-                            <div class="col-xs-3 form-group">
-                                <label for="date-saved-text">Date Last Saved</label>
-                                <input type="text" class="form-control" id="date-saved-text"
-                                       ng-model="main.company.dateSaved" ng-readonly="true"/>
-                            </div>
-                            <div class="col-xs-3 form-group">
-                                <label for="company-id-text">Company ID
-                                    <input type="text" class="form-control" id="company-id-text"
-                                           ng-readonly="main.isExtern()" maxlength="6" name="companyID"
-                                           ng-model="main.company.companyId" ng-required="!main.isExtern()"/>
-                                    <strong id="code-error" class="error"
-                                    >
-                        <span class="label label-danger" ng-if="main.companyEnrolForm.companyID.$invalid"
-                              ng-messages="main.companyEnrolForm.companyID.$error">
-                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
-                        </span>
-                                    </strong>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-5 form-group">
-                                <button class="btn btn-default" ng-click="main.setAmendState()"
-                                        ng-disabled="main.isIncomplete">
-                                    Amend Enrolment
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                        <cmp-transaction-info transaction-root="main.transaction"
+                                              deprecate-sequence="main.transactionService.deprecateSequenceNumber()"
+                                              reset-ectd="main.transactionService.resetEctdSection()"
+                                              get-transaction="main.transactionService.getNewTransaction()"
+                                              get-rep-contact="main.transactionService.getNewRepContact()"></cmp-transaction-info>
 
-                    <div>
-                        <cmp-company-address-list addresses="main.company.addressList"
-                                                  get-new-address="main.getNewAddress()" is-amend="main.isAmend()"
-                                                  company-service="main.companyService"></cmp-company-address-list>
-
-                        <cmp-company-contact-list contacts="main.company.contactList"
-                                                  get-new-contact="main.getNewContact()" is-amend="main.isAmend()"
-                                                  company-service="main.companyService"></cmp-company-contact-list>
                     </div>
                 </section>
                 <div class="row">
                     <div class="form-group col-md-3">
-                        <button class="btn btn-primary btn-lg active" ng-click="main.saveJson()"
-                        >Save Working Copy
-                        </button>
+                        <button class="btn-default" formnovalidate ng-click="main.saveJson()">Save Working Copy</button>
                     </div>
                     <div class="form-group col-md-3">
-                        <button class="btn btn-default btn-lg active" ng-disabled="main.disableXML" id="btn_xmlSave"
-                                ng-click="main.saveXML()">{{main.saveXMLLabel |translate}}
+                        <button class="btn-default" formnovalidate id="btn_xmlSave" ng-click="main.saveXML()"
+                                ng-disabled="main.transactionEnrolForm.$invalid">Save Draft for
+                            submission
                         </button>
                     </div>
                 </div>
-                <!--<pre>overall: {{main.company | json : spacing}}</pre>-->
+                <!-- <pre>overall: {{main.transaction | json : spacing}}</pre>-->
             </div>
         </ng-form>
 
@@ -181,7 +132,7 @@
     <dl id="wb-dtmd">
         <dt>Date modified:&#32;</dt>
         <dd>
-            <time property="dateModified">2016-08-14</time>
+            <time property="dateModified">2016-08-20</time>
         </dd>
     </dl>
 </main>
@@ -244,29 +195,48 @@
 <!--[if gte IE 9 | !IE ]><!-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 <script src="./wet-boew/js/wet-boew.min.js"></script>
+
 <!--<![endif]-->
 <!--[if lt IE 9]>
 <script src="./wet-boew/js/ie8-wet-boew2.min.js"></script>
 
 <![endif]-->
 <script src="./theme-gcwu-fegc/js/theme.min.js"></script>
+<!--<script src="./wet-boew/js/polyfills/datepicker.min.js"></script>-->
 
-<!-- dan added-->
+<!-- angular and translate dependencies-->
 
 <script src="app/lib/angular.min.js"></script>
 <script src="app/lib/angular-messages.min.js"></script>
 <script src="app/lib/angular-translate.min.js"></script>
 <script src="app/lib/angular-translate-loader-static-files.min.js"></script>
-
 <script src="app/lib/angular-aria.min.js"></script>
-<script src="app/scripts/app.js"></script>
-<script src="app/scripts/services/company-service.js"></script>
+
+<script src="app/scripts/transactionApp.js"></script>
+<script src="app/scripts/services/transaction-service.js"></script>
+<script src="app/scripts/components/transactionInfo/cmp-transaction-info.js"></script>
+<script src="app/scripts/components/transactionCompanyRecord/cmp-transaction-address-record.js"></script>
+<script src="app/scripts/components/addressDetails/cmp-address-details.js"></script>
 <script src="app/scripts/services/data-lists.js"></script>
 <script src="app/scripts/components/cmp-country-select.js"></script>
-<script src="app/scripts/components/addressRole/cmp-address-role.js"></script>
 <script src="app/scripts/components/contactDetails/cmp-contact-details.js"></script>
-//TODO remove
-<!--<script src="app/scripts/components/cmp-address-list.js"></script>-->
+<script src="app/scripts/components/repContactList/cmp-rep-contact-list.js"></script>
+<script src="app/scripts/components/rep-contact-record/cmp-rep-contact-record.js"></script>
+<script src="app/scripts/components/transactionInfo/cmp-transaction-info.js"></script>
+<script src="app/scripts/components/expandingTable/cmp-expanding-table.js"></script>
+<script src="app/scripts/components/expandingTable/track-record.js"></script>
+<script src="app/scripts/services/data-lists.activity.js"></script>
+<script src="app/scripts/services/filter-lists.js"></script>
+<script src="app/scripts/components/lifecycleList/cmp-lifecycle-list.js"></script>
+<script src="app/scripts/components/lifecycleDetails/cmp-lifecycle-details.js"></script>
+<!--<script src="app/scripts/app.js"></script>
+<script src="app/scripts/services/company-service.js"></script>
+
+TODO remove
+<script src="app/scripts/components/addressRole/cmp-address-role.js"></script>
+
+
+&lt;!&ndash;<script src="app/scripts/components/cmp-address-list.js"></script>&ndash;&gt;
 <script src="app/scripts/components/cmp-contact-list.js"></script>
 <script src="app/scripts/components/addressList/cmp-company-address-list.js"></script>
 <script src="app/scripts/components/addressRecord/cmp-address-record.js"></script>
@@ -276,8 +246,8 @@
 <script src="app/scripts/components/contactRecord/cmp-contact-record.js"></script>
 <script src="app/scripts/components/contactList/cmp-company-contact-list.js"></script>
 <script src="app/scripts/components/expandingTable/cmp-expanding-table.js"></script>
-<script src="app/scripts/components/expandingTable/track-record.js"></script>
-<!-- <script> var app = angular.module('app', []); </script>-->
+<script src="app/scripts/components/expandingTable/track-record.js"></script>-->
+
 <!--File IO dependencie -->
 <script src="app/scripts/components/fileIO/FileIO.hpfbFileReader.js"></script>
 <script src="app/scripts/components/fileIO/xml2json.js"></script>

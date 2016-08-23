@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <ng-form name="contactRec.contactRecForm" novalidate="novalidate">
+        <div>
+            <div class="row">
+                <fieldset>
+                    <legend>{{contactRec.contactModel.repRole |translate}} REP Contact</legend>
+                <cmp-contact-details contact-record="contactRec.contactModel" is-amend="false"
+                                     on-update="contactRec.onUpdateContactRecord(contact)"
+                                     show-errors="contactRec.showErrors()"></cmp-contact-details>
+                </fieldset>
+            </div>
+            <div class="row">
+                <div class="btn-group-sm col-xs-12 text-right">
+                    <input type="submit" value="Save Contact" class="btn btn-primary" name="saveContact"
+                           id="saveContact"
+                           ng-click="contactRec.updateContactModel()">
+                    <input type="submit" value="Delete Contact" class="btn btn-danger" ng-click="contactRec.delete()">
+                    <input type="submit" value="Discard Changes" class="btn btn-default"
+                           ng-click="contactRec.discardChanges()">
+                </div>
+            </div>
+        </div>
+    </ng-form>
+    <pre>contact record model: {{contactRec.contactModel | json : spacing}}</pre>
+
+</div>
