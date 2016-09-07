@@ -43,7 +43,7 @@
   "DIN_ABRREV": "DIN",
   "DELETE_ACTIVITY": "Delete Activity",
   "ADD_ACTIVITY": "Add Activity",
-  "AUT_LETTER": "Please submit the authorization letter with this enrolment",
+  "AUT_LETTER": "Please include Third Party Authorization letter in the REP folder when submitting via the CESG",
   "DOSSIER_ID_PREV": "Dossier Id (Previously File Number)",
   "RELATED_ACTIVITY": "Related Activity"
 }
