@@ -79,8 +79,8 @@
             return (vm.isDetailValid);
         }
 
-        vm.showNoRecordError = function () {
-            return vm.isParentDirty || vm.showListErrors();
+        vm.showNoRecordError = function (isInvalid) {
+            return ((vm.isParentDirty && isInvalid  ) || (vm.showListErrors() && isInvalid));
         }
 
         vm.setValid = function (value) {

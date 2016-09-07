@@ -8,7 +8,8 @@
                 <input type="text" id="oneRecord_{{$id}}" name="oneRecord" ng-show="false"
                        ng-model="contactListCtrl.oneRecord" required/>
                 <label>
-                    <strong id="contactNum-role-error" class="error" ng-if="contactListCtrl.showNoRecordError()">
+                    <strong id="contactNum-role-error" class="error"
+                            ng-if="contactListCtrl.showNoRecordError(contactListCtrl.contactListForm.oneRecord.$invalid)">
                              <span class="label label-danger"
                                    ng-messages="contactListCtrl.contactListForm.oneRecord.$error">
                                  <span ng-message="required">{{"MSG_ERR_ONE_REP"|translate}}</span>

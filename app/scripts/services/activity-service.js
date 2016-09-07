@@ -60,6 +60,7 @@
         ActivityService.prototype.createRepContact = function () {
             var contact = _createContactModel();
             contact.repRole = "";
+            contact.amend = false;
             var currentContacts = this._default.contactRecord;
             if (currentContacts.length == 0) {
                 contact.repRole = "PRIMARY";
@@ -323,13 +324,14 @@
 
         var repContact = _transformContactFromFileObj(repObj.rep_submission_contact);
         repContact.repRole = repObj.rep_submission_contact_role;
-
+        repContact.amend = repObj.amend === 'Y';
         return (repContact);
     }
 
     function _mapRepContactToOutput(repObj) {
         var repContact = {};
         repContact.rep_submission_contact_role = repObj.repRole;
+        repContact.amend = repObj.amend === true ? 'Y' : 'N';
         //deflatten the object
         repContact.rep_submission_contact = _mapContactToOutput(repObj);
         return repContact;

@@ -26,5 +26,9 @@
   "TOGGLE_EXPAND": "Click to toggle collapse or expand details of row",
   "SAVE_WORK": "Save Working Copy",
   "CONTROL_NUMBER": "Control Number",
-  "REP_CONTACT_INFO": "Main Contact Information"
+  "REP_CONTACT_INFO": "Main Contact Information",
+  "REP_CONTACT": "REP Contact",
+  "SAVE_CONTACT": "Save Contact",
+  "DELETE_CONTACT": "Delete Contact"
+
 }

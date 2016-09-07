@@ -23,12 +23,14 @@
                 onUpdate: '&',
                 updateValid: '&',
                 onDelete: '&',
-                isDetailValid: '&'
+                isDetailValid: '&',
+                isAmend: '<'
             }
         });
     function contactRecCtrl() {
         var vm = this;
         vm.savePressed = false;
+        vm.formAmend = false;
         vm.isContact = true; //used to set the state of the role
         vm.isNotEditable = false;
         vm.contactModel = {};
@@ -47,6 +49,9 @@
             //how this is currently wired, this will never fire!
             if (changes.contactRecord) {
                 vm.contactModel = angular.copy(changes.contactRecord.currentValue);
+            }
+            if (changes.isAmend) {
+                vm.formAmend = changes.isAmend.currentValue;
             }
         }
 
