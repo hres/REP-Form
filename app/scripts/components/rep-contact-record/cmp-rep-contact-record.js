@@ -26,7 +26,6 @@
                 isDetailValid: '&'
             }
         });
-    //contactRecCtrl.$inject = ['$scope']
     function contactRecCtrl() {
         var vm = this;
         vm.savePressed = false;
@@ -47,9 +46,7 @@
         vm.$onChanges = function (changes) {
             //how this is currently wired, this will never fire!
             if (changes.contactRecord) {
-                console.log("REP contact record has changed")
                 vm.contactModel = angular.copy(changes.contactRecord.currentValue);
-
             }
         }
 

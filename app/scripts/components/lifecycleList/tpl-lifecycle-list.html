@@ -6,12 +6,14 @@
     <div class="panel-body">
         <div class="row">
             <cmp-expanding-table list-items="lifecycleListCtrl.lifecycleList"
+                                 reset-to-collapsed="lifecycleListCtrl.setCollapsed"
                                  column-def="lifecycleListCtrl.columnDef" select-record="lifecycleListCtrl.selectRecord"
                                  disable-selection="!lifecycleListCtrl.isDetailsValid">
 
                 <cmp-lifecycle-details lifecycle-record="$parent.record"
                                        is-detail-valid="lifecycleListCtrl.setValid(state)"
                                        on-delete="lifecycleListCtrl.deleteRecord(id)"
+                                       enable-delete-index="lifecycleListCtrl.lastRecordSequence()"
                                        on-update="lifecycleListCtrl.onUpdateLifecycleRecord(record)"></cmp-lifecycle-details>
 
             </cmp-expanding-table>

@@ -1,0 +1,35 @@
+<ng-form name="activityListCtrl.activityListForm">
+    <section class="panel  panel-default">
+        <header class="panel-heading">
+            <h3 class="panel-title">{{'RELATED_ACTIVITIES'|translate}}</h3>
+        </header>
+        <div class="panel-body">
+            <div class="row">
+                <cmp-expanding-table list-items="activityListCtrl.activityList"
+                                     column-def="activityListCtrl.columnDef"
+                                     select-record="activityListCtrl.selectRecord"
+                                     disable-selection="!activityListCtrl.isDetailsValid">
+
+                    <cmp-activity-record activity-record="$parent.record"
+                                         on-update="activityListCtrl.onUpdateActivityRecord(rec)"
+                                         on-delete="activityListCtrl.deleteActivity(activityID)"
+                                         is-amend="activityListCtrl.isAmend()"
+                                         activity-list="activityListCtrl.activityTypeList"
+                                         is-detail-valid="activityListCtrl.setValid(state)"></cmp-activity-record>
+
+                </cmp-expanding-table>
+
+            </div>
+            <div class="row mrgn-tp-md mrgn-bttm-lg">
+                <div class="btn-group-sm col-md-12 text-right">
+                    <input type="submit" value="{{'ADD_ACTIVITY'|translate}}" class="btn btn-primary"
+                           ng-click="activityListCtrl.addActivity()" name="addAddressBtn" id="addAddressBtn"
+                           ng-disabled="!activityListCtrl.isDetailsValid">
+                    <input type="submit" value="Cancel" class="btn btn-default"
+                           data-ng-show="activityListCtrl.newAdrFormShow"
+                           ng-click="activityListCtrl.newAdrFormShow = false">
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-form>

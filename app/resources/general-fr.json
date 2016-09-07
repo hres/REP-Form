@@ -4,7 +4,6 @@
   "DELETEROW": "fr_Delete Row",
   "SELECTEDROW": "Selected Row",
   "REQUIRED": "(requis)",
-  "APPL_TYPE": "fr_Application Type",
   "ROLES_SELECT": "fr_Select one or more roles for this record",
   "NEW": "fr_New",
   "AMEND": "fr_Amend",
@@ -22,6 +21,10 @@
   "IMPORTER": "fr_Importer",
   "APPROVE_FINAL": "fr_Approve Final XML",
   "SAVE_DRAFT": "fr_Save Draft for submission",
-  "PRIMARY": "Primary",
-  "SECONDARY": "Alternate"
+  "PRIMARY": "fr_Primary",
+  "SECONDARY": "fr_Alternate",
+  "TOGGLE_EXPAND": "fr_Click to toggle collapse or expand details of row",
+  "SAVE_DRAFT":   "fr_Save Working Copy",
+  "CONTROL_NUMBER": "fr_Control Number",
+  "REP_CONTACT_INFO": "fr_Main Contact Information"
 }

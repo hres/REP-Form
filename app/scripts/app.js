@@ -3,14 +3,17 @@
     angular
         .module('dossierApp', [
             'pascalprecht.translate',
+            'companyService',
             'ngMessages',
             'ngAria',
             'addressList2',
             'contactList2',
-            'fileIO'
+            'fileIO',
+            'ngSanitize',
+            'applicationInfo'
         ])
 })();
-
+//TODO replace with service for incrememnting version
 (function () {
     'use strict';
     angular
@@ -25,13 +28,18 @@
         //TODO magic number
         vm.rootTag = 'COMPANY_ENROL'
         vm.isIncomplete = true;
-        vm.userType;
+        vm.userType = "EXT";
         vm.saveXMLLabel = "SAVE_DRAFT"
-
+        vm.updateValues = 0;
         vm.setAmendState = _setApplTypeToAmend;
         vm.showContent = _loadFileContent;
         vm.disableXML;
         var _company = new CompanyService();
+        vm.configCompany = {
+            "label": "COMPANY_ID",
+            "fieldLength": "6",
+            "tagName": "companyId"
+        }
 
 
         //TODO get rid of private variable
@@ -287,11 +295,16 @@
                     {
                         prefix: 'app/resources/contact-',
                         suffix: '.json'
+                    },
+                    {
+                        prefix: 'app/resources/applicationInfo-',
+                        suffix: '.json'
                     }
                 ]
             })
             $translateProvider.preferredLanguage('en');
             //this prevents conflicts with ngMessage
             $translateProvider.directivePriority(1);
+            $translateProvider.useSanitizeValueStrategy('sanitize');
         }]);
 })();

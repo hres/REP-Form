@@ -25,7 +25,8 @@
                 onUpdate: '&',
                 showErrors: '&',
                 isDetailValid: '&',
-                onDelete: '&'
+                onDelete: '&',
+                enableDeleteIndex: '&'
             }
         });
     lifecycleRecCtrl.$inject = ['TransactionLists', '$translate'];
@@ -75,6 +76,13 @@
             vm.setDetailsState();
         }
 
+        vm.disableDeleteState = function () {
+            var value = parseInt(vm.lifecycleModel.sequence);
+            if (value == vm.enableDeleteIndex()) {
+                return false;
+            }
+            return true;
+        }
 
         /**
          * @ngdoc Method -sets the lifecycle Sequence DescriptionValie
@@ -154,13 +162,18 @@
                     vm.descriptionList = TransactionLists.getYbprType()
                     break;
 
+                default:
+                    vm.descriptionList = "";
+                    break;
+
             }
             ///find if the value is in the list
-            if (vm.descriptionList.indexOf(temp) !== -1) {
+            if (temp && vm.descriptionList.indexOf(temp) !== -1) {
                 vm.lifecycleModel.descriptionValue = temp;
             }
         };
         /**
+         * @ngdoc method sets the state of the details field based on
          * @ngdoc method sets the state of the details field based on
          * what was selected for the details description
          */
@@ -420,7 +433,7 @@
                 "Apr", "May", "Jun", "Jul", "Aug", "Sep",
                 "Oct", "Nov", "Dec"];
             var result = ""
-            result = m_names[date.getMonth()] + ". " + date.getDate() + ", " + date.getFullYear();
+            result = m_names[date.getUTCMonth()] + ". " + date.getUTCDate() + ", " + date.getUTCFullYear();
             return result
         }
         /**

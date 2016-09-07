@@ -38,16 +38,16 @@
                             <label for="controlNum_{{$id}}" class="required">
                                 <span class="field-name">{{"Control Number" |translate}}</span>
                                 <strong class="required">{{"REQUIRED" |translate}}</strong>
-                                <input type="text" id="controlNum_{{$id}}" name="controlNum"
+                                <input type="number" id="controlNum_{{$id}}" name="controlNum"
                                        ng-model="lifecycleCtrl.lifecycleModel.controlNumber"
-                                       class="form-control full-width" maxlength="6" ng-minlength="6" size="6"
+                                       class="form-control full-width" min="1000000" max="9999999" size="7"
                                        required/>
                                 <strong id="controlNum-error" class="error"
                                         ng-if="lifecycleCtrl.showError(lifecycleCtrl.lifecycleDetailsForm.controlNum.$invalid,lifecycleCtrl.lifecycleDetailsForm.controlNum.$touched)">
                         <span class="label label-danger"
                               ng-messages="lifecycleCtrl.lifecycleDetailsForm.controlNum.$error">
                             <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
-                            <span ng-message="minlength"><span translate="MSG_LENGTH_6"></span></span>
+                            <span ng-message="minlength"><span translate="MSG_LENGTH_7"></span></span>
                         </span>
                                 </strong>
                             </label>
@@ -56,13 +56,13 @@
                     <div class="row">
                         <div class="form-group  col-md-4"
                              ng-class="{'has-error':lifecycleCtrl.lifecycleDetailsForm.regActivity.$invalid}">
-                            <label for="controlNum_{{$id}}" class="required">
+                            <label for="regActivity_{{$id}}" class="required">
                                 <span class="field-name">{{"REG_ACTIVITY" |translate}}</span>
                                 <strong class="required">{{"REQUIRED" |translate}}</strong>
                                 <select id="regActivity_{{$id}}" name="regActivity"
                                         ng-model="lifecycleCtrl.lifecycleModel.activityType"
                                         data-ng-change="lifecycleCtrl.setSequenceList()"
-                                        class="form-control full-width" required
+                                        class="form-control full-width" ng-required="true"
                                         ng-options="activity |translate for activity in  lifecycleCtrl.activityList | orderByTranslated">
                                 </select>
                                 <strong id="activityType-error" class="error"
@@ -195,7 +195,7 @@
                                    ng-click="lifecycleCtrl.updateLivecycleModel()"
                                    ng-disabled="lifecycleCtrl.setNotEditable()">
                             <input type="submit" value="{{'Delete Record'|translate}}" class="btn btn-danger"
-                                   ng-click="lifecycleCtrl.delete()">
+                                   ng-click="lifecycleCtrl.delete()" ng-disabled="lifecycleCtrl.disableDeleteState()">
                             <input type="submit" value="{{'Discard Changes'| translate }}" class="btn btn-default"
                                    ng-click="lifecycleCtrl.discardChanges()">
                         </div>

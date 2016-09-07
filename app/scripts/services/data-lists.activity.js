@@ -451,7 +451,6 @@
 
         function getSNDSCArray() {
             return ([
-
                 "CANCEL_LETTER", //cancellation letter
                 "POST_NOC_CHANGE", //Post NOC change
                 "PRISTINE_PM", // Pristine PM
@@ -473,7 +472,6 @@
         function getUDPVArray() {
 
             return ([
-
                 "BENEFIT_RISK_ASSESS", //benefit risk assessment
                 "CANCEL_LETTER", //cancellation letter
                 "NOTIFICATION_CHANGE", //notificaiton of change in benefit profile
@@ -491,7 +489,6 @@
         function getUDRAVArray() {
 
             return ([
-
                 "CANCEL_LETTER", //cancellation letter
                 "DIN_DISCONTINUED", // din discontinued
                 "ADVISEMENT_LETTER_RESPONSE", //REspose to Advisement Letter dated

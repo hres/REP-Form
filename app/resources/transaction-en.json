@@ -1,7 +1,6 @@
 {
   "ADD_TRANSACTION": "Add Record",
   "SEQUENCE_NUM": "Sequence Number",
-  "CONTROL_NUMBER": "Control Number",
   "DATE_SUBMITTED": "Date Submitted",
   "SEQUENCE_DESCRIPT": "Sequence Description",
   "IS_ACTCHANGES": "Same as Regulatory Activity Contact for this Submission?",
@@ -37,8 +36,8 @@
   "POST_MARKET_SURV": "Post Marketing Surveillance",
   "POST_NOC_CHANGE": "Post NOC Change",
   "POST_AUTH_DIV1_CHANGE": "Post-Authorization Division 1 Change",
-  "PRESUB_MEETING_PKG": "",
-  "PRIORITY_REVIEW_RQ": "",
+  "PRESUB_MEETING_PKG": "Presubmission Meeting Package",
+  "PRIORITY_REVIEW_RQ": "Priority Review Request",
   "PRISTINE_PM": "Pristine PM",
   "PRISTINE_PM_2LANG": "Pristine PM - Second Language",
   "ADVISEMENT_LETTER_RESPONSE": "Response to Advisement Letter ",

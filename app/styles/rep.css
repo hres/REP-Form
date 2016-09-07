@@ -17,3 +17,43 @@ label > select {
 .hd1rep {
     color:white;
 }
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+.col-center {
+    float: none;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row-even-rep {
+    overflow: hidden;
+}
+
+[class*="colrep-"] {
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}
+
+textarea.fullrep {
+    min-width: 100%
+}
+
+.rep-input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    margin-top: 5px;
+}
+
+
+/*
+.picker-overlay {
+    z-index: 1100 !important;
+}*/

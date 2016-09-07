@@ -10,7 +10,6 @@
         .module('contactModule26', ['contactModule25', 'expandingTable'])
 })();
 
-
 (function () {
     'use strict';
 
@@ -24,8 +23,8 @@
                 contacts: '<',
                 onUpdate: '&',
                 getNewContact: '&',
-                /* isAmend: '&'*/
-                /*companyService:'<'*/
+                showListErrors: '&',
+                parentDirty: '<'
             }
         });
     contactListCtrl.$inject = ['$filter']
@@ -34,6 +33,8 @@
         vm.selectRecord = -1; //the record to select
         vm.isDetailValid = true; //used to track if details valid. If they are  not do not allow expander collapse
         vm.contactList = [];
+        vm.oneRecord = ""; //using required as the validaiton
+        vm.isParentDirty = false;
         vm.columnDef = [
             {
                 label: "FIRST_NAME",
@@ -61,9 +62,13 @@
         }
         vm.$onChanges = function (changes) {
             if (changes.contacts) {
-                console.log("changes to contact List")
                 vm.contactList = changes.contacts.currentValue;
+                vm.updateErrorState();
             }
+            if (changes.parentDirty) {
+                vm.isParentDirty = changes.parentDirty.currentValue;
+            }
+
 
         }
         vm.isAddContact = function () {
@@ -74,16 +79,17 @@
             return (vm.isDetailValid);
         }
 
+        vm.showNoRecordError = function () {
+            return vm.isParentDirty || vm.showListErrors();
+        }
+
         vm.setValid = function (value) {
             vm.isDetailValid = value; //this is a shared value
         }
 
         vm.showError = function () {
 
-            if ((vm.contactListForm.$invalid && !vm.contactListForm.$pristine)) {
-                return true
-            }
-            return false
+            return (vm.contactListForm.$invalid && !vm.contactListForm.$pristine) || (vm.contactListForm.$invalid && vm.showListErrors());
         }
 
         vm.onUpdateContactRecord = function (record) {
@@ -91,9 +97,17 @@
                 $filter('filter')(vm.contactList, {repRole: record.repRole}, true)[0]
             ); //TODO fix filter
             vm.contactList[idx] = angular.copy(record);
-
+            vm.updateErrorState();
         }
 
+        vm.updateErrorState = function () {
+            if (vm.contactList && vm.contactList.length > 0) {
+                vm.oneRecord = "is value";
+            } else {
+                vm.oneRecord = "";
+            }
+
+        }
         vm.deleteContact = function (cID) {
             var idx = vm.contactList.indexOf(
                 $filter('filter')(vm.contactList, {repRole: cID}, true)[0]
@@ -106,6 +120,7 @@
             }
 
             vm.onUpdate({newList: vm.contactList});
+            vm.updateErrorState();
             vm.setValid(true);
             vm.selectRecord = -1
 
@@ -120,6 +135,10 @@
             vm.setValid(true);
             vm.selectRecord = (vm.contactList.length - 1);
             vm.setValid(false);
+        }
+
+        vm.disableAdd = function () {
+            return !(vm.isDetailValid && vm.contactList.length < 2);
         }
     }
 

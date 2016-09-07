@@ -4,7 +4,6 @@
   "DELETEROW": "Delete Row",
   "SELECTEDROW": "Selected Row",
   "REQUIRED": "(required)",
-  "APPL_TYPE": "Application Type",
   "ROLES_SELECT": "Select one or more roles for this record",
   "NEW": "New",
   "AMEND": "Amend",
@@ -23,5 +22,9 @@
   "APPROVE_FINAL": "Approve Final XML",
   "SAVE_DRAFT": "Save Draft for submission",
   "PRIMARY": "Primary",
-  "SECONDARY": "Alternate"
+  "SECONDARY": "Alternate",
+  "TOGGLE_EXPAND": "Click to toggle collapse or expand details of row",
+  "SAVE_WORK": "Save Working Copy",
+  "CONTROL_NUMBER": "Control Number",
+  "REP_CONTACT_INFO": "Main Contact Information"
 }

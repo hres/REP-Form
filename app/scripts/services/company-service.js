@@ -2,10 +2,20 @@
  * Created by Abdessamad on 7/6/2016.
  */
 
+
+(function () {
+    'use strict';
+
+    angular
+        .module('companyService', []);
+
+})();
+
+
 (function () {
     'use strict';
     angular
-        .module('dossierApp')
+        .module('companyService')
         .factory('CompanyService', CompanyService)
 
     function CompanyService() {
@@ -81,7 +91,7 @@
                     },
                     street: "",
                     city: "",
-                    provLov: "",
+                    /// provLov: "",
                     stateList: "",
                     stateText: "",
                     country: "",

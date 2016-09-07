@@ -167,7 +167,7 @@
                 }
             },
             getNextSequenceNumber: function () {
-                this.currSequence++;
+
                 var seqText = "" + this.currSequence;
                 var pad = 4 - seqText.length;
                 var padText = "";
@@ -175,6 +175,8 @@
                     padText = padText + "0";
                 }
                 seqText = padText + seqText;
+                //starts at sequence zero so update after selection
+                this.currSequence++;
                 return (seqText);
             },
             deprecateSequenceNumber: function () {

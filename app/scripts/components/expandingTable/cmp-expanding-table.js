@@ -22,7 +22,8 @@
                 listItems: '<',
                 columnDef:'<',
                 disableSelection:'<',
-                selectRecord:'<'
+                selectRecord: '<',
+                resetToCollapsed: '<'
             }
         });
     expandingTableCtrl.$inject = ['$filter']
@@ -38,15 +39,32 @@
         vm.dayDataCollapse=_createArray(vm.numberCols,true);
         vm.$onInit = function () {
         }
+
+        vm.getExpandedState = function (row) {
+            if (row === vm.tableRowIndexCurrExpanded) {
+                return true;
+            }
+            return false
+        }
+
         vm.$onChanges = function (changes) {
 
-            if(changes.listItems){}
-            {
-                //vm. = changes.listItems.currentValue;
+            if (changes.listItems) {
+                vm.listItems = changes.listItems.currentValue;
             }
+
+            /**
+             Resets the table to collapsed. Note this  is not a true reset
+             If a valid index is selected, toggles (Expands) the row after a reset.
+             This allows expanding the same row index after a row has been added at the beginning
+             For a true reset, first set select record to -1
+             */
             if(changes.resetToCollapsed){
                 if(changes.resetToCollapsed.currentValue){
                     vm.resetTableRow();
+                    if (!changes.selectRecord) {
+                        updateTableRow(vm.selectRecord);
+                    }
                 }
             }
             if(changes.selectRecord){
@@ -61,6 +79,15 @@
                 vm.disableExpand=changes.disableSelection.currentValue;
             }
         }
+        function updateTableRow(textIndex) {
+            var selectIndex = parseInt(textIndex);
+            if (selectIndex >= 0) {
+                vm.selectTableRow(selectIndex);
+            }
+
+        }
+
+
         /**
          * Utility function for determining the number of columns to create
          * @param myobj
@@ -92,10 +119,15 @@
             vm.tableRowExpanded = false;
             vm.tableRowIndexCurrExpanded = "";
         }
+        /**
+         * @ngdoc resets the table to a collapsed state
+         */
         vm.resetTableRow = function () {
             vm.tableRowIndexPrevExpanded = "";
             vm.tableRowExpanded = false;
             vm.tableRowIndexCurrExpanded = "";
+            vm.dayDataCollapse = _createArray(vm.numberCols, true);
+
         }
 
         vm.dayDataCollapseFn = function () {

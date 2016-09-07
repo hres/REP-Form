@@ -1,37 +1,44 @@
+<div>
+    <div>
 
-   <div>
-       <div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
 
-       </div>
-        <div class="panel-body">
-            <div class="row">
-
-                <div>
-                    <table class="table dataTable table-bordered table-hover table-condensed table-striped"
-                           data-ng-click="expandTblCtrl.focussed=true">
-                        <thead>
-                        <tr>
-                            <th ng-repeat="heading in expandTblCtrl.columnDef">{{heading.label |translate}}</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr id="tr-contact-{{$index}}" class="clickableRow"
-                            data-ng-class="{'selected':$index == expandTblCtrl.tableRowIndexCurrExpanded}" index="{{$index}}"
-                            data-ng-repeat-start="record in expandTblCtrl.listItems"
-                            title="Click to toggle collapse/expand details for this contact."
-                            data-ng-click="expandTblCtrl.selectTableRow($index)">
-                            <td ng-repeat="def in expandTblCtrl.columnDef" width="{{def.width}}%">{{record[def.binding]|translate}}</td>
-                        </tr>
-                        <tr data-ng-show="!expandTblCtrl.dayDataCollapse[$index]" track-record=record data-ng-repeat-end>
-                            <td colspan="{{expandTblCtrl.numberCols}}">
-                                <div ng-transclude>
-                                </div>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div>
+                <table class="table dataTable table-bordered table-hover table-condensed table-striped"
+                       data-ng-click="expandTblCtrl.focussed=true">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th ng-repeat="heading in expandTblCtrl.columnDef">{{heading.label |translate}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr id="tr-contact-{{$index}}" class="clickableRow"
+                        data-ng-class="{'selected':$index == expandTblCtrl.tableRowIndexCurrExpanded}"
+                        aria-expanded="expandTblCtrl.getExpandedState($index)" index="{{$index}}"
+                        data-ng-repeat-start="record in expandTblCtrl.listItems"
+                        title="{{'TOGGLE_EXPAND' |translate}} {{$index+1}}"
+                        data-ng-click="expandTblCtrl.selectTableRow($index)">
+                        <td>
+                            <span ng-class="{'fa fa-caret-down fa-lg fa-fw':expandTblCtrl.getExpandedState($index) ,'fa fa-caret-right fa-lg fa-fw':!expandTblCtrl.getExpandedState($index)}"
+                                  ng-class='{open:expandTblCtrl.getExpandedState($index)}'></span>
+                        </td>
+                        <td ng-repeat="def in expandTblCtrl.columnDef" width="{{def.width}}%">
+                            {{record[def.binding]|translate}}
+                        </td>
+                    </tr>
+                    <tr data-ng-show="!expandTblCtrl.dayDataCollapse[$index]" track-record=record data-ng-repeat-end>
+                        <td colspan="{{expandTblCtrl.numberCols+1}}">
+                            <div ng-transclude>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
-
         </div>
-   </div>
+
+    </div>
+</div>
