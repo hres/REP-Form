@@ -1,0 +1,9 @@
+<ng-form name="apf-form">
+    <cmp-expanding-table title="Ingredients List" list-items="ap4Ctrl.ingredientList"
+                         column-def="ap4Ctrl.colNames" select-record="ap4Ctrl.selectRecord"
+                         disable-selection="!ap4Ctrl.isDetailValid">
+
+        <cmp-appendix-four-record record="$parent.record"></cmp-appendix-four-record>
+
+    </cmp-expanding-table>
+</ng-form>

@@ -1,0 +1,25 @@
+<ng-form name="sa-form">
+    <fieldset>
+        <legend>Source From Animal</legend>
+
+    <div class="col col-md-12">
+        <div class="col-xs-6 form-group" ng-repeat="item in saCtrl.model.primateTypeList">
+            <label for="{{item.name}}" ng-class="{'required':item.required}"><span class="field-name">{{item.label|translate}}</span>
+                <strong class="required" ng-if="item.required">({{"REQUIRED" |translate}})</strong></label>
+            <input type="{{item.type}}" class="form-control full-width" id="{{item.name}}" ng-model="item.value" ng-if="item.type !== 'select'"/>
+
+            <select id="{{item.name}}" ng-model="item.value" class="form-control full-width" ng-if="item.type === 'select'">
+                <option>No</option>
+                <option>Yes</option>
+                <option>Unknown</option>
+            </select>
+        </div>
+
+    </div>
+        <div class="col-xs-12 form-group">
+        <cmp-country-list></cmp-country-list>
+            </div>
+
+    </fieldset>
+
+</ng-form>

@@ -1,0 +1,37 @@
+<ng-form name="appendix4-rec-form">
+
+
+        <div class="col-xs-12 form-group">
+            <label for="ing-name">Ingredient Name</label>
+            <input type="text" class="form-control full-width" id="ing-name" ng-model="ap4RecCtrl.model.ingredientName" placeholder="Ingredient Name"/>
+        </div>
+
+        <div class="col-xs-4 form-group">
+
+            <label>Sourced From</label>
+
+        </div>
+        <div class="col-xs-4 form-group">
+            <label for="sourced-human">
+                <input type="checkbox" name="sourced-human" ng-model="ap4RecCtrl.model.humanSourced" id="sourced-human" ng-change=""> Human
+            </label>
+        </div>
+        <div class="col-xs-4 form-group">
+            <label for="sourced-animal">
+                <input type="checkbox" name="sourced-animal" ng-model="ap4RecCtrl.model.animalSourced" id="sourced-animal" ng-change=""> Animal
+            </label>
+        </div>
+
+    <section class="section">
+        <cmp-tissues-fluids-origin ng-if="ap4RecCtrl.model.humanSourced || ap4RecCtrl.model.animalSourced"></cmp-tissues-fluids-origin>
+    </section>
+
+    <section class="section">
+        <cmp-source-animal ng-if="ap4RecCtrl.model.animalSourced"></cmp-source-animal>
+    </section>
+
+
+
+
+
+</ng-form>

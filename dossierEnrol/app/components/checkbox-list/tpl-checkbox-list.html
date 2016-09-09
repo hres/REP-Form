@@ -1,0 +1,17 @@
+<fieldset>
+    <legend class="required">
+        <span class="field-name">{{chkl.title}}</span>
+    </legend>
+
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 form-group" ng-repeat="item in chkl.currentModel">
+        <label class="form-checkbox form-label-inline" for="chk-{{item.name}}-{{$index}}">
+            <input type="checkbox" name="{{chkl.commonName}}" ng-model="item.value" id="chk-{{item.name}}-{{$index}}" ng-required="!chkl.someSelected()"> {{item.label}}
+        </label>
+            <div class="col-xs-12 form-group" ng-if="item.value && item.hasOtherDetails">
+                <!--<label for="proper-name">Proper, Common or Non-Proprietary Name</label>-->
+                <input type="text" class="form-control full-width" id="{{chkl.commonName}}-other-text" ng-model="item.otherText" placeholder="Please specify"/>
+            </div>
+    </div>
+    <!--<pre>currentModel: {{chkl.listItems | json : spacing}}</pre>-->
+
+</fieldset>

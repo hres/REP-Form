@@ -1,0 +1,9 @@
+<ng-form name="tfo-form">
+    <fieldset>
+        <legend>Tissues or fluids of Origin</legend>
+        <div class="col col-md-12">
+        <cmp-checkbox-list ng-repeat="item in tfoCtrl.model" title="{{item.title}}"
+                           common-name="{{item.groupName}}" list-items="item.list"></cmp-checkbox-list>
+        </div>
+    </fieldset>
+</ng-form>
