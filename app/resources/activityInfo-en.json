@@ -20,8 +20,6 @@
   "CHANGE_CONTAIN":"Change in container size for parenteral drug",
   "CHANGE_PACKAGE":"Change in packaging specifications for parenteral / inhalation drug",
   "CHANGE_MATERIAL": "Change in packaging material composition",
-  "COMPANY_ID": "Company Id",
-  "DOSSIER_ID": "Dossier Id",
   "ACTIVITY_LEAD": "Activity Lead",
   "FEE_CLASS": "Fee Class",
   "NOT_LASA": "I confirm that this administrative submission type is NOT a Look-alike Sound-alike (LASA) submission",
