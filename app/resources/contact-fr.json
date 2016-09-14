@@ -1,0 +1,22 @@
+{
+  "FIRST_NAME": "First Name",
+  "LAST_NAME": "Last Name",
+  "INITIALS": "Initials",
+  "LANGUAGE_CORRESPONDENCE": "Language of Correspondance",
+  "JOB_TITLE": "Job Title",
+  "SALUTATION": "Salutation",
+  "SALUT_MR": "M.",
+  "SALUT_MS": "Mme",
+  "SALUT_DR": "Dr.",
+  "SALUT_MRS": "Mlle",
+  "ROLE_PRIMARY": "fr_Primary",
+  "ROLE_SECONDARY": "fr_Alternate",
+  "EMAIL": "fr_E-mail",
+  "FAX_NUMBER": "fr_Fax Number",
+  "PHONE_EXT": "fr_Phone Extension",
+  "ADDR_ROLES":"fr_Roles",
+  "PHONE_NUMBER": "fr_Phone Number",
+  "CONTACT_INFO": "fr_Contact Information",
+  "AMEND": "fr_Amend"
+
+}

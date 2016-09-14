@@ -1,0 +1,45 @@
+<div>
+    <ng-form id="reg-transaction-form" name="main.transactionEnrolForm"
+             novalidate>
+        <section class="panel panel-primary mrgn-tp-lg">
+            <header class="panel-heading">
+                <h2 class="panel-title">Load a Transaction Enrolment File</h2>
+            </header>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <hpfb-file-select update-model-root="main.showContent(fileContent) "
+                                      root-elem="{{main.rootTag}}"/>
+                </div>
+            </div>
+            <div>
+            </div>
+        </section>
+        <div>
+            <section class="panel panel-primary mrgn-tp-lg">
+                <header class="panel-heading">
+                    <h2 class="panel-title">Regulatory Transaction Enrolment</h2>
+                </header>
+                <div class="panel-body">
+                    <cmp-transaction-info transaction-root="main.transaction" show-errors="main.showErrors()"
+                                          deprecate-sequence="main.transactionService.deprecateSequenceNumber()"
+                                          reset-ectd="main.transactionService.resetEctdSection()"
+                                          get-transaction="main.transactionService.getNewTransaction()"
+                                          get-rep-contact="main.transactionService.getNewRepContact()"></cmp-transaction-info>
+
+                </div>
+            </section>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <button class="btn-default" formnovalidate ng-click="main.saveJson()">Save Working Copy</button>
+                </div>
+                <div class="form-group col-md-3">
+                    <button class="btn-default" formnovalidate id="btn_xmlSave" ng-click="main.saveXML()"
+                            ng-disabled="main.transactionEnrolForm.$invalid">{{'SAVE_DRAFT'|translate}}
+                    </button>
+                </div>
+            </div>
+            <!-- <pre>overall: {{main.transaction | json : spacing}}</pre>-->
+        </div>
+    </ng-form>
+
+</div>
