@@ -9,7 +9,7 @@
                             <div class="checkbox">
                                 <label for="chkAmend_{{$id}}">
                                     <input type="checkbox" ng-model="contactRec.contactModel.amend" name="amendRecord"
-                                           id="chkAmend_{{$id}}"/>
+                                           id="chkAmend_{{$id}}" ng-change="contactRec.setEditableState()"/>
                                     {{'AMEND'|translate}}&nbsp;{{contactRec.contactModel.repRole|translate}}&nbsp;{{'REP_CONTACT'|translate}}
                                 </label>
                             </div>
@@ -17,7 +17,7 @@
                     </div>
                     <div class="row">
                         <cmp-contact-details contact-record="contactRec.contactModel"
-                                             is-amend="!contactRec.contactModel.amend"
+                                             is-amend="contactRec.editState"
                                              on-update="contactRec.onUpdateContactRecord(contact)"
                                              show-errors="contactRec.showErrors()"></cmp-contact-details>
                     </div>

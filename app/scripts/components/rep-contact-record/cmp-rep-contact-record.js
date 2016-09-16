@@ -34,7 +34,7 @@
         vm.isContact = true; //used to set the state of the role
         vm.isNotEditable = false;
         vm.contactModel = {};
-
+        vm.editState = true;
 
         vm.$onInit = function () {
             //after init do not initialise variables here onchanges is called first
@@ -49,9 +49,11 @@
             //how this is currently wired, this will never fire!
             if (changes.contactRecord) {
                 vm.contactModel = angular.copy(changes.contactRecord.currentValue);
+                vm.setEditableState();
             }
             if(changes.isAmend){
                 vm.formAmend=changes.isAmend.currentValue;
+                vm.setEditableState();
             }
         }
 
@@ -110,6 +112,19 @@
         vm.showErrors = function () {
             return (vm.savePressed)
         }
+
+        vm.setEditableState = function () {
+
+            if (!vm.formAmend) {
+                vm.editState = true;
+            } else if (vm.formAmend && vm.contactModel.amend) {
+                vm.editState = true;
+            } else {
+                vm.editState = false;
+            }
+        }
+
+
 
     }
 

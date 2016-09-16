@@ -33,6 +33,7 @@
     function addressCtrl( getCountryAndProvinces, getCountriesISO3166) {
 
         var vm = this;
+        vm.isEditable = true;
         //put model updates in ng-change but defer on blur. Now model updates on blur only if it changed
         vm.ngModelOptSetting = {updateOn: 'blur'};
 
@@ -74,6 +75,9 @@
         vm.$onChanges = function (changes) {
             if (changes.addressRecord) {
                 vm.addressModel = changes.addressRecord.currentValue;
+            }
+            if (changes.isAmend) {
+                vm.isEditable = changes.isAmend.currentValue;
             }
         };
         vm.showError = function (ctrl) {

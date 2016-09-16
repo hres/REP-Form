@@ -26,7 +26,8 @@
                 selectedCountry: '<',
                 countries: '<',
                 countryChange: '&',
-                isDisabled: '<'
+                isDisabled: '<',
+                showErrors: '&'
             }
         });
 
@@ -37,13 +38,19 @@
         var vm = this;
 
         vm.$onInit = function(){
+            //if anything needed
         }
 
          vm.countryChanged = function(value){
             vm.countryChange({$event : {country : value}});
         }
 
-
+        vm.showError = function () {
+            return (
+                (vm.countryForm.country.$invalid && vm.countryForm.country.$touched) || (vm.countryForm.country.$invalid && vm.showErrors())
+                || (vm.countryForm.country.$invalid && vm.countryForm.$dirty)
+            )
+        };
     }
 
 })();

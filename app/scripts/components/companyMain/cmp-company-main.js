@@ -36,23 +36,23 @@
         //TODO magic number
         vm.rootTag = 'COMPANY_ENROL';
         vm.isIncomplete = true;
+        vm.formAmendType = false;
         vm.userType = "EXT";
         vm.saveXMLLabel = "SAVE_DRAFT";
         vm.updateValues = 0;
         vm.applicationInfoService = new ApplicationInfoService();
-        vm.setAmendState = _setApplTypeToAmend;
         vm.showContent = _loadFileContent;
-        vm.disableXML;
+        vm.disableXML = true;
         var _company = new CompanyService();
         vm.configCompany = {
             "label": "COMPANY_ID",
             "fieldLength": "6",
             "tagName": "companyId"
-        }
+        };
 
         //TODO get rid of private variable
         vm.companyService = _company;
-        vm.applTypes = vm.companyService.getApplicationTypes()//TODO service ofor app types
+        vm.applTypes = vm.companyService.getApplicationTypes(); //TODO service ofor app types
         vm.company = {
             dataChecksum: "",
             enrolmentVersion: "1",
@@ -74,7 +74,7 @@
              } else {
              vm.saveXMLLabel = "SAVE_DRAFT"
              }*/
-        }
+        };
 
         vm.$onChanges = function (changes) {
             if (changes.formType) {
@@ -86,33 +86,42 @@
                 }
             }
 
-        }
+        };
 
         /**
          * @ngdoc method -returns whether this application is an amendment
          * @returns {boolean}
          */
-        vm.isAmend = function () {
+        vm.setAmend = function () {
 
-            vm.applicationInfoService.get
-            return (vm.company.applicationType === vm.applicationInfoService.getAmendType())
-        }
+            vm.formAmendType = (vm.company.applicationType === vm.applicationInfoService.getAmendType())
+        };
 
         /**
          *
          * @ngdoc method Saves the model content in JSON format
          */
         vm.saveJson = function () {
-            var writeResult = _transformFile()
-            hpfbFileProcessing.writeAsJson(writeResult, "companyEnrol", vm.rootTag);
-        }
+            var writeResult = _transformFile();
+            hpfbFileProcessing.writeAsJson(writeResult, _createFilename(), vm.rootTag);
+        };
         /**
          * @ngdoc method - saves the data model as XML format
          */
         vm.saveXML = function () {
-            var writeResult = _transformFile()
-            hpfbFileProcessing.writeAsXml(writeResult, "companyEnrol", vm.rootTag);
+            var writeResult = _transformFile();
+
+            hpfbFileProcessing.writeAsXml(writeResult, _createFilename(), vm.rootTag);
+        };
+
+        function _createFilename() {
+            var filename = "HC_CO_Enrolment";
+            if (vm.company && vm.company.companyId) {
+                filename = filename + "_" + vm.company.companyId;
+            }
+            return filename;
         }
+
         /**
          * @ngdcc method updates data and increments version before creating json
          */
@@ -126,8 +135,7 @@
             } else {
                 vm.company.enrolmentVersion = vm.applicationInfoService.incrementMinorVersion(vm.company.enrolmentVersion)
             }
-            var writeResult = _company.transformToFileObj(vm.company);
-            return writeResult;
+            return _company.transformToFileObj(vm.company);
         }
 
         $scope.$watch("main.companyEnrolForm.$valid", function () {
@@ -145,11 +153,7 @@
         }
 
         function _setComplete() {
-            if (vm.company.companyId) {
-                vm.isIncomplete = false;
-            } else {
-                vm.isIncomplete = true;
-            }
+            vm.isIncomplete = !vm.company.companyId;
         }
 
         function _loadFileContent(fileContent) {
@@ -157,39 +161,38 @@
             _company = new CompanyService();
             var resultJson = fileContent.jsonResult;
             if (resultJson) {
-                _company.transformFromFileObj(resultJson)
-                vm.company = {}
-                angular.extend(vm.company, _company.getModelInfo())
+                _company.transformFromFileObj(resultJson);
+                vm.company = {};
+                angular.extend(vm.company, _company.getModelInfo());
                 _setComplete();
+                vm.setAmend();
 
             }
             disableXMLSave();
-        };
-
+        }
         /**
          * ngdoc method to set the application type to amend
          * @private
          */
-        function _setApplTypeToAmend() {
+        vm.setApplType = function (type) {
 
-            vm.company.applicationType = vm.companyService.getAmendType();
+            vm.company.applicationType = type;
             disableXMLSave();
+            vm.setAmend();
         }
 
         //used on update
         vm.onUpdateAddressList = function (newList) {
             vm.company.addressList = newList;
-        }
+        };
 
         vm.getNewAddress = function () {
-            var result = _company.createAddressRecord();
-            return result;
-        }
+            return _company.createAddressRecord();
+        };
 
         vm.getNewContact = function () {
-            var result = _company.createContactRecord();
-            return result;
-        }
+            return _company.createContactRecord();
+        };
 
         //TODO remove?
         vm.updateAddressRecord = function (address) {
@@ -197,16 +200,16 @@
             var idx = vm.company.addressList.indexOf(
                 $filter('filter')(vm.company.addressList, {addressID: address.addressID}, true)[0]
             );
-            vm.company.addressList[idx] = address
+            vm.company.addressList[idx] = address;
             var temp = vm.company.addressList;
             vm.company.addressList = [];
             vm.company.addressList = temp;
-        }
+        };
 
         //TODO remove?
         vm.onUpdateContactList = function (newList) {
             vm.company.contactList = newList;
-        }
+        };
 
         /**
          * @ngdoc method -updates the date field to the current date
@@ -219,11 +222,9 @@
 
 
         vm.isExtern = function () {
-            if (vm.userType == "EXT") {
-                return true;
-            }
-            return false;
-        }
+            return vm.userType == "EXT";
+
+        };
         /**
          * @ngdoc method when a form gets approved
          * remove any amendment checkboxes
@@ -237,7 +238,6 @@
                 vm.company.contactList[j].amendRecord = false;
             }
         }
-
 
     }
 })();

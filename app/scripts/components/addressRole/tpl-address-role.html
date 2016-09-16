@@ -17,7 +17,7 @@
                     <label for="chk-manufacturer_{{$id}}">
                         <input type="checkbox" ng-model="ar.roleModel.manufacturer" name="manufacturer"
                                ng-change="ar.oneSelected(ar.roleForm.manufacturer,'manufacturer')"
-                               ng-disabled="ar.isAmend"
+                               ng-disabled="!ar.isEditable"
                                id="chk-manufacturer_{{$id}}"/>{{"MANUFACT"|translate}}
                         <strong id="manufacturer-role-error" class="error" ng-if="ar.roleForm.manufacturer.$invalid">
                  <span class="label label-danger" ng-messages="ar.roleForm.manufacturer.$error">
@@ -32,7 +32,7 @@
                 <div class="checkbox">
                     <label for="chk-mailing{{$id}}">
                         <input type="checkbox" name="mailing" ng-model="ar.roleModel.mailing" name="mailing"
-                               ng-disabled="ar.isAmend"
+                               ng-disabled="!ar.isEditable"
                                ng-change="ar.oneSelected(ar.roleForm.mailing,'mailing')" id="chk-mailing{{$id}}"/>
                         {{"MAILING"|translate}}
                         <strong id="mailing-role-error" class="error" ng-if="ar.roleForm.mailing.$invalid">
@@ -50,7 +50,7 @@
                 <div class="checkbox">
                     <label for="chk-billing_{{$id}}">
                         <input type="checkbox" name="billing" ng-model="ar.roleModel.billing"
-                               ng-disabled="ar.isAmend"
+                               ng-disabled="!ar.isEditable"
                                ng-change="ar.oneSelected(ar.roleForm.billing,'billing')" id="chk-billing_{{$id}}"/>
                         {{"BILLING"|translate}}
                         <strong id="billing-role-error" class="error" ng-if="ar.roleForm.billing.$invalid">
@@ -66,7 +66,7 @@
                 <div ng-show="!ar.isContact" class="checkbox">
                     <label for="chk-importer_{{$id}}">
                         <input type="checkbox" name="importer" ng-model="ar.roleModel.importer"
-                               ng-disabled="ar.isAmend"
+                               ng-disabled="!ar.isEditable"
                                ng-change="ar.oneSelected(ar.roleForm.importer,'importer')" id="chk-importer_{{$id}}"/>
                         {{"IMPORTER"|translate}}
                         <strong id="importer-role-error" class="error" ng-if="ar.roleForm.importer.$invalid">
@@ -83,7 +83,7 @@
                 <div ng-show="ar.isContact" class="checkbox">
                     <label for="chk-rep-primary_{{$id}}">
                         <input type="checkbox" name="repPrimary" ng-model="ar.roleModel.repPrimary"
-                               ng-disabled="ar.isAmend"
+                               ng-disabled="!ar.isEditable"
                                ng-change="ar.oneSelected(ar.roleForm.repPrimary,'repPrimary')"
                                id="chk-rep-primary_{{$id}}"/> {{'REP_PRIM'|translate}}
                         <strong id="repPrimmary-role-error" class="error" ng-if="ar.roleForm.repPrimary.$invalid">
@@ -98,7 +98,7 @@
                 <div ng-show="ar.isContact" class="checkbox">
                     <label for="chk-rep-secondary_{{$id}}">
                         <input type="checkbox" name="repSecondary" ng-model="ar.roleModel.repSecondary"
-                               ng-disabled="ar.isAmend"
+                               ng-disabled="!ar.isEditable"
                                ng-change="ar.oneSelected(ar.roleForm.repSecondary,'repSecondary')"
                                id="chk-rep-secondary_{{$id}}"/> {{'REP_ALT'|translate}}
                         <strong id="repSecondary-role-error" class="error" ng-if="ar.roleForm.repSecondary.$invalid">

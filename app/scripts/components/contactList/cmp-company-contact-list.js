@@ -22,7 +22,7 @@
                 contacts: '<',
                 onUpdate: '&',
                 getNewContact: '&',
-                isAmend: '&',
+                isAmend: '<',
                 companyService:'<'
             }
         });
@@ -33,6 +33,7 @@
         vm.isDetailValid=true; //used to track if details valid. If they are  not do not allow expander collapse
         vm.allRolesSelected=false;
         vm.contactList = [];
+        vm.formAmend = false;
         vm.columnDef = [
             {
                 label: "FIRST_NAME",
@@ -60,15 +61,18 @@
          */
         vm.$onInit = function () {
             vm.focused = false;
-            vm.contactList = vm.contacts; //HERE Is how it is bound
-            updateRolesConcat();
-            vm.allRolesSelected = vm.isAllContactRolesSelected();
+            //vm.contactList = vm.contacts; //HERE Is how it is bound
+            //updateRolesConcat();
+            //vm.allRolesSelected = vm.isAllContactRolesSelected();
         }
         vm.$onChanges = function (changes) {
-            if(changes.contacts && changes.contacts.currentValue) {
+            if (changes.contacts) {
                 vm.contactList = changes.contacts.currentValue;
                 updateRolesConcat();
                 vm.allRolesSelected = vm.isAllContactRolesSelected();
+            }
+            if (changes.isAmend) {
+                vm.formAmend = changes.isAmend.currentValue;
             }
         }
 

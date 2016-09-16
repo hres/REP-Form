@@ -144,6 +144,7 @@
         vm.disableAdd = function () {
             return !(vm.isDetailValid && vm.contactList.length < 2);
         }
+
     }
 
 })();

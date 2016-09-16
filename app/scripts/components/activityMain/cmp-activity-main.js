@@ -40,21 +40,9 @@
             }
         });
 
-    activityMainCtrl.$inject = ['ActivityService', 'ApplicationInfoService', 'hpfbFileProcessing', '$filter', '$scope', '$location'];
-    function activityMainCtrl(ActivityService, ApplicationInfoService, hpfbFileProcessing, $filter, $scope, $location) {
+    activityMainCtrl.$inject = ['ActivityService', 'ApplicationInfoService', 'hpfbFileProcessing', '$scope', '$window','$location','$translate'];
+    function activityMainCtrl(ActivityService, ApplicationInfoService, hpfbFileProcessing, $scope, $window, $location, $translate) {
         var vm = this;
-
-        vm.$onInit = function () {
-        };
-
-        /**
-         *
-         * @param changes
-         */
-
-        var vm = this;
-        //TODO magic number
-
         vm.isIncomplete = true;
         vm.userType = "EXT";
         vm.saveXMLLabel = "SAVE_DRAFT";
@@ -76,7 +64,8 @@
             "tagName": "dstsControlNumber",
             "errorMsg": "MSG_LENGTH_6"
         };
-        vm.yesNoList = ["Y", "N"];
+        vm.yesNoList = ["Y", "N"]; //TODO magic numbers
+
         vm.initUser = function (id) {
             /* if (!id) id = 'EXT';
             vm.userType = id;
@@ -88,6 +77,10 @@
 
         };
 
+        vm.$onInit = function () {
+        };
+
+
         vm.$onChanges = function (changes) {
             if (changes.formType) {
                 vm.userType = changes.formType.currentValue;
@@ -98,7 +91,8 @@
                 }
             }
 
-        }
+
+        };
 
         /**
          * @ngdoc method -returns whether this application is an amendment
@@ -115,7 +109,7 @@
          */
         vm.saveJson = function () {
             var writeResult = _transformFile();
-            hpfbFileProcessing.writeAsJson(writeResult, "activityEnrol", vm.rootTag);
+            hpfbFileProcessing.writeAsJson(writeResult, _createFilename(), vm.rootTag);
             vm.showAllErrors = true;
             _setComplete()
         };
@@ -124,7 +118,7 @@
          */
         vm.saveXML = function () {
             var writeResult = _transformFile();
-            hpfbFileProcessing.writeAsXml(writeResult, "activityEnrol", vm.rootTag);
+            hpfbFileProcessing.writeAsXml(writeResult, _createFilename(), vm.rootTag);
             _setComplete()
         };
 
@@ -152,6 +146,49 @@
             vm.formAmend = vm.activityRoot.applicationType === vm.applicationInfoService.getAmendType();
             disableXMLSave();
         };
+
+        vm.openHelp = function (type) {
+            var helpLink=""
+            var currentLang = $translate.proposedLanguage() ||$translate.use();
+
+            var url=$location.absUrl() //this is the only one that seems to work
+            var split=url.split('/')
+            var length=url.length-split[split.length-1].length;
+            var newUrl=url.substring(0,length);
+            console.log("new url"+newUrl)
+
+            switch (type) {
+                case'activityFile':
+                    helpLink=newUrl+"help-activity-load-"+currentLang+".html";
+                    $window.open(helpLink);
+                    break;
+                case 'activityMain':
+                    helpLink=newUrl+"help-activity-main-"+currentLang+".html";
+                    $window.open(helpLink);
+                    break;
+
+                case 'activityRep':
+                    helpLink=newUrl+"help-activity-rep-"+currentLang+".html";
+                    $window.open(helpLink);
+                    break;
+            }
+
+        }
+
+
+        /**
+         * @ngdoc -creates a filename for activity file. If it exists,adds control number
+         * @returns {string}
+         * @private
+         */
+        function _createFilename() {
+            var filename = "HC_RA_Enrolment";
+            if (vm.activityRoot && vm.activityRoot.dstsControlNumber) {
+                filename = filename + "_" + vm.activityRoot.dstsControlNumber;
+            }
+            return filename;
+        }
+
         /**
          * @ngdcc method updates data and increments version before creating json
          */
@@ -165,8 +202,7 @@
                 vm.activityRoot.enrolmentVersion = vm.applicationInfoService.incrementMinorVersion(vm.activityRoot.enrolmentVersion);
             }
             _updateInfoValues();
-            var writeResult = vm.activityService.transformToFileObj(vm.activityRoot);
-            return writeResult;
+            return vm.activityService.transformToFileObj(vm.activityRoot);
         }
 
         vm.updateActivityType = function () {
@@ -177,7 +213,7 @@
                 vm.activityService.resetNotifiableChanges();
                 vm.isNotifiable = false;
             }
-        }
+        };
 
         function _updateInfoValues() {
             vm.updateValues++;
@@ -190,24 +226,20 @@
         function disableXMLSave() {
 
             vm.disableXML = vm.activityEnrolForm.$invalid || (vm.activityRoot.applicationType == vm.applicationInfoService.getApprovedType() && vm.isExtern());
-        };
-
+        }
         function disableJSONSave() {
 
             vm.disableJson = (vm.activityRoot.applicationType == vm.applicationInfoService.getApprovedType() && vm.isExtern())
-        };
-
+        }
         function _setComplete() {
             vm.isIncomplete = !vm.activityRoot.dstsControlNumber;
-        };
-
+        }
         function _loadFileContent(fileContent) {
             if (!fileContent)return;
             vm.activityService = new ActivityService();
             var resultJson = fileContent.jsonResult;
             if (resultJson) {
                 vm.activityService.transformFromFileObj(resultJson);
-                vm.activityRoot = {};
                 vm.activityRoot = {};
                 angular.extend(vm.activityRoot, vm.activityService.getModelInfo());
                 _setComplete();
@@ -236,12 +268,14 @@
             }
         }
 
+        /**
+         * @ngdoc returns if an external form
+         * @returns {boolean}
+         */
         vm.isExtern = function () {
-            if (vm.userType == "EXT") {
-                return true;
-            }
-            return false;
-        }
+            return vm.userType == "EXT";
+
+        };
 
         /**
          * @ngdoc method when a form gets approved
@@ -249,27 +283,18 @@
          */
         function updateModelOnApproval() {
             //reset any amend selections
-
-            if (activityRoot.relatedActivity) {
-                for (var i = 0; i < activityRoot.relatedActivity.length; i++) {
-                    activityRoot.relatedActivity[i].amendRecord = false;
+            if (!vm.activityRoot) return;
+            if (vm.activityRoot.relatedActivity) {
+                for (var i = 0; i < vm.activityRoot.relatedActivity.length; i++) {
+                    vm.activityRoot.relatedActivity[i].amendRecord = false;
                 }
             }
-            if (activityRoot.contactRecord) {
-                for (var j = 0; i < activityRoot.contactRecord.length; j++) {
-                    activityRoot.contactRecord[j].amend = false;
+            if (vm.activityRoot.contactRecord) {
+                for (var j = 0; j < vm.activityRoot.contactRecord.length; j++) {
+                    vm.activityRoot.contactRecord[j].amend = false;
                 }
             }
-            /*
-             for (var i = 0; i < vm.company.addressList.length; i++) {
-             vm.company.addressList[i].amendRecord = 'N';
-             }
-             for (var j = 0; j < vm.company.contactList.length; j++) {
-             vm.company.contactList[j].amendRecord = 'N';
-             }*/
         }
-
-
     }
 })();
 

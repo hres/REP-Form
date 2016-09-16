@@ -1,5 +1,5 @@
-<ng-form name="countryForm">
-    <div class="form-group" ng-class="{'has-error':countryForm.country.$invalid}">
+<ng-form name="ctr.countryForm">
+    <div class="form-group" ng-class="{'has-error':ctr.countryForm.country.$invalid}">
     <label for="country_{{$id}}" class="required">
         <span class="field-name">{{"COUNTRY" |translate}}</span>
         <strong class="required">{{"REQUIRED" |translate}}</strong>
@@ -8,8 +8,8 @@
                 data-ng-change="ctr.countryChanged(ctr.selectedCountry)" name="country"
                 ng-options="country |translate for country in ctr.countries"
                 class="form-control  full-width"></select>
-        <strong id="country-error" class="error" ng-if="countryForm.country.$invalid && countryForm.country.$touched">
-                        <span class="label label-danger" ng-messages="countryForm.country.$error">
+        <strong id="country-error" class="error" ng-if="ctr.showError()">
+                        <span class="label label-danger" ng-messages="ctr.countryForm.country.$error">
                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
                         </span>
         </strong>

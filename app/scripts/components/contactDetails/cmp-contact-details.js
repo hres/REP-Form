@@ -30,6 +30,7 @@
     contactCtrl.$inject = ['getContactLists']
     function contactCtrl( getContactLists) {
         var vm = this;
+        vm.isEditable = true;
         vm.ngModelOptSetting = {updateOn: 'blur'}
         vm.salutationList = getContactLists.getSalutationList();
         vm.langCorrespondance = getContactLists.getLanguages();
@@ -55,17 +56,20 @@
             fax: ""
         };
         vm.$onInit = function () {
-            console.log("init contact details");
+            /*console.log("init contact details");
            if (vm.contactRecord) {
                 //doesn't copy as this is a dumb component
                 vm.contactModel = vm.contactRecord;
-            }
+             }*/
         }
         //TODO rename
         vm.$onChanges=function(changes){
             if(changes.contactRecord){
                 vm.contactModel = changes.contactRecord.currentValue;
 
+            }
+            if (changes.isAmend) {
+                vm.isEditable = changes.isAmend.currentValue;
             }
 
         }
@@ -76,18 +80,6 @@
             return false
         }
 
-
-        /**
-         * @ngdoc method -determines if the fields should be readonly by default
-         * @returns {boolean}
-         */
-            //TODO refactor
-        vm.setNotEditable=function(){
-            if (vm.isAmend) {
-                return true;
-            }
-            return false
-        }
     }
 
 })();

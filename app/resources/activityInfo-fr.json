@@ -41,5 +41,8 @@
   "AUT_LETTER": "fr_Please include Third Party Authorization letter in the REP folder when submitting via the CESG",
   "DOSSIER_ID_PREV": "fr_Dossier Id (Previously File Number)",
   "RELATED_ACTIVITY": "fr_Related Activity",
-  "AMEND_ACTIVITY": "fr_Amend Related Activity"
+  "AMEND_ACTIVITY": "fr_Amend Related Activity",
+  "HELP_FILE_LOAD": "fr_File Load Help Link",
+  "HELP_ACTIVITY_MAIN": "fr_Activity Help Link",
+  "HELP_ACTIVITY_REP": "fr_REP Contact Help Link"
 }

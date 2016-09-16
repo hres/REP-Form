@@ -19,60 +19,60 @@
             bindings: {
                 addresses: '<',
                 onUpdate: '&',
-                getNewAddress:'&',
-                isAmend:'&',
-                companyService:'<'
+                getNewAddress: '&',
+                isAmend: '<',
+                companyService: '<'
             },
             controller: addressListCtrl,
             controllerAs: 'addressListCtrl'
         });
 
-    addressListCtrl.$inject = ['$filter','CompanyService'];
+    addressListCtrl.$inject = ['$filter', 'CompanyService'];
 
     function addressListCtrl($filter, CompanyService) {
 
         var vm = this;
         vm.selectRecord = -1; //the record to select, initially select non
-        vm.isDetailsValid=true; //used to track if details valid. If they are  not do not allow expander collapse
+        vm.isDetailsValid = true; //used to track if details valid. If they are  not do not allow expander collapse
         vm.addressList = [];
         vm.columnDef = [
             {
                 label: "COMPANY",
-                binding:"companyName",
-                width:"30"
+                binding: "companyName",
+                width: "30"
             },
             {
                 label: "CITY",
-                binding:"city",
-                width:"25"
+                binding: "city",
+                width: "25"
             },
             {
                 label: "COUNTRY",
-                binding:"country",
-                width:"25"
+                binding: "country",
+                width: "25"
             },
             {
                 label: "ROLES",
-                binding:"roleConcat",
-                width:"20"
+                binding: "roleConcat",
+                width: "20"
             }
-        ]
+        ];
 
         vm.$onInit = function () {
             //local var from binding
             vm.addressList = vm.addresses;
             vm.allRolesSelected = vm.isAllRolesSelected();
             updateRolesConcat();
-        }
+        };
 
-        vm.$onChanges=function(changes){
-            if(changes.addresses && changes.addresses.currentValue) {
+        vm.$onChanges = function (changes) {
+            if (changes.addresses && changes.addresses.currentValue) {
                 vm.addressList = changes.addresses.currentValue;
                 vm.allRolesSelected = vm.isAllRolesSelected();
                 updateRolesConcat();
             }
 
-        }
+        };
 
         function updateRolesConcat() {
             if (!vm.addressList) return;
@@ -80,7 +80,6 @@
 
                 _setRolesConcat(vm.addressList[i]);
             }
-
         }
 
         //this is needed on load. Bit of a hack
@@ -102,54 +101,51 @@
                 result = result + " IMP"
             }
             addressModel.roleConcat = result;
-            console.log("THis is the concat" + result)
         }
-
 
         vm.deleteAddress = function (aID) {
             var idx = vm.addressList.indexOf(
                 $filter('filter')(vm.addressList, {addressID: aID}, true)[0]);
             vm.addressList.splice(idx, 1);
-            vm.onUpdate({newList:vm.addressList});
+            vm.onUpdate({newList: vm.addressList});
             vm.selectRecord = 0;
             vm.isDetailsValid = true; //case that incomplete record is deleted
-            vm.allRolesSelected= vm.isAllRolesSelected();
-            //select nothing
-
-        }
+            vm.allRolesSelected = vm.isAllRolesSelected();
+        };
 
         vm.addAddress = function () {
-            var defaultAddress=vm.getNewAddress()
+            var defaultAddress = vm.getNewAddress();
             vm.addressList.push(defaultAddress);
             vm.isDetailsValid = true; //set to true to exapnd
-            vm.selectRecord=(vm.addressList.length - 1);
+            vm.selectRecord = (vm.addressList.length - 1);
             vm.isDetailsValid = false;
-        }
+        };
 
         vm.setValid = function (detailValid) {
             vm.isDetailsValid = detailValid;
-        }
+        };
         vm.onUpdateAddressRecord = function (address) {
             //vm.detailsValid = address.isDetailValid;
             var idx = vm.addressList.indexOf(
                 $filter('filter')(vm.addressList, {addressID: address.addressID}, true)[0]
             );
             vm.addressList[idx] = angular.copy(address);
-            vm.allRolesSelected= vm.isAllRolesSelected();
-
+            vm.allRolesSelected = vm.isAllRolesSelected();
             vm.isDetailsValid = true;
-        }
-        vm.isREPRoleSelected = function (roleToCheck,recordID) {
+        };
+
+        //TODO move to the service
+        vm.isREPRoleSelected = function (roleToCheck, recordID) {
             var rolesSelected = 0;
             //if no role to check, see if all selected
             if (!vm.addressList) return false;
             for (var i = 0; i < vm.addressList.length; i++) {
                 if (vm.addressList[i].addressRole[roleToCheck] == true) {
                     //don't count it if it is the existing record
-                    if(vm.addressList[i].contactId!==recordID) {
+                    if (vm.addressList[i].addressID !== recordID) {
                         rolesSelected = rolesSelected + 1;
                     }
-                    if(rolesSelected>0) {
+                    if (rolesSelected > 0) {
                         return true;
                     }
                 }
@@ -162,7 +158,7 @@
          * @returns {boolean}
          */
         vm.showError = function () {
-            if ((vm.addressListForm.$invalid && !vm.addressListForm.$pristine)) {
+            if (vm.addressListForm.$invalid && !vm.addressListForm.$pristine) {
                 return true
             }
             return false
@@ -173,14 +169,14 @@
          * @returns {boolean}
          */
             //TODO move to a service
-        vm.isAllRolesSelected=function(){
+        vm.isAllRolesSelected = function () {
             var rolesSelected = 0;
             var importerSelected = false;
             if (!vm.addressList) return false;
-            var companyRole= vm.companyService.createAddressRole();
-            var numKeys=vm.companyService.getNumberKeys(companyRole);
+            var companyRole = vm.companyService.createAddressRole();
+            var numKeys = vm.companyService.getNumberKeys(companyRole);
 
-            for(var i=0;i<vm.addressList.length;i++) {
+            for (var i = 0; i < vm.addressList.length; i++) {
                 var obj = vm.addressList[i].addressRole;
                 for (var key in obj) {
                     var attrName = key;
@@ -189,22 +185,16 @@
                         rolesSelected++;
                         if (attrName === "importer") importerSelected = true;
                     }
-
                 }
             }
-            console.log("number of keys" + numKeys);
-            console.log("importer " + importerSelected)
-            if(rolesSelected===numKeys){
+            if (rolesSelected === numKeys) {
                 return true;
             }
-            if ((rolesSelected === (numKeys - 1)) && (!importerSelected)) {
+            else if ((rolesSelected === (numKeys - 1)) && (!importerSelected)) {
                 return true;
+            } else {
+                return false;
             }
-
-            return false;
         }
-
-
-
     }
 })();

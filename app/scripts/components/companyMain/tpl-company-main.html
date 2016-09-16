@@ -22,17 +22,18 @@
                 <div class="panel-body">
 
                     <cmp-application-info record="main.company" user-type="main.userType"
-                                          is-incomplete="main.isIncomplete"
+                                          is-incomplete="main.isIncomplete" set-type="main.setApplType(type)"
                                           configure-id-field="main.configCompany"></cmp-application-info>
+
                 </div>
 
                 <div>
                     <cmp-company-address-list addresses="main.company.addressList"
-                                              get-new-address="main.getNewAddress()" is-amend="main.isAmend()"
+                                              get-new-address="main.getNewAddress()" is-amend="main.formAmendType"
                                               company-service="main.companyService"></cmp-company-address-list>
 
                     <cmp-company-contact-list contacts="main.company.contactList"
-                                              get-new-contact="main.getNewContact()" is-amend="main.isAmend()"
+                                              get-new-contact="main.getNewContact()" is-amend="main.formAmendType"
                                               company-service="main.companyService"></cmp-company-contact-list>
                 </div>
             </section>

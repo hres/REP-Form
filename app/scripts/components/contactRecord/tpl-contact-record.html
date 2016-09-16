@@ -5,9 +5,9 @@
                 <h3>Contact Details</h3>
 
                 <div class="row">
-                    <div class="form-group" ng-show="contactRec.isAmend()">
+                    <div class="form-group" ng-show="contactRec.formAmend">
                         <input class="formControl" id="chk-amend-rec_{{$id}}" type="checkbox"
-                               ng-model="contactRec.contactModel.amendRecord" ng-change="contactRec.setNotEditable()"/>
+                               ng-model="contactRec.contactModel.amendRecord" ng-change="contactRec.setEditable()"/>
                         <label class="form-checkbox" for="chk-amend-rec_{{$id}}">
                             {{'AMEND_RECORD'|translate}}
                         </label>
@@ -16,13 +16,13 @@
             </div>
             <div>
                 <cmp-address-role record="contactRec.contactModel"
-                                  is-contact="contactRec.isContact" is-amend="contactRec.isNotEditable"
+                                  is-contact="contactRec.isContact" is-amend="contactRec.isEditable"
                                   on-update="contactRec.onContactRoleUpdate($event.roles)"
                                   show-errors="contactRec.showErrors()" already-selected="contactRec.isOneSelected(roleName)"></cmp-address-role>
 
             </div>
             <div class="row">
-                <cmp-contact-details contact-record="contactRec.contactModel" is-amend="contactRec.isNotEditable"
+                <cmp-contact-details contact-record="contactRec.contactModel" is-amend="contactRec.isEditable"
                                      on-update="contactRec.onUpdateContactRecord(contact)"
                                      show-errors="contactRec.showErrors()"></cmp-contact-details>
             </div>

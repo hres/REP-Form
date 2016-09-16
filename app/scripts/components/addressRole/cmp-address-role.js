@@ -35,6 +35,7 @@
         var vm = this;
         vm.isReq=true;
         vm.isSelected="";
+        vm.isEditable = true;
         vm.roleModel = {
             manufacturer: false,
             mailing: false,
@@ -56,6 +57,9 @@
                vm.roleModel=(changes.record.currentValue.addressRole);
                vm.oneSelected();
            }
+            if (changes.isAmend) {
+                vm.isEditable = changes.isAmend.currentValue;
+            }
         }
 
         vm.oneSelected = function (ctrl, toCheck) {

@@ -8,13 +8,13 @@
             controllerAs: 'main'
         });
 
-    TransactionMainCtrl.$inject = ['TransactionService', 'hpfbFileProcessing', '$filter']
+    TransactionMainCtrl.$inject = ['TransactionService', 'hpfbFileProcessing', '$filter'];
 
     function TransactionMainCtrl(TransactionService, hpfbFileProcessing, $filter) {
 
         var vm = this;
         vm.savePressed = false;
-        vm.userType;
+        vm.userType = "EXT";
         vm.transactionService = new TransactionService();
         vm.rootTag = vm.transactionService.getRootTag();
         vm.transaction = vm.transactionService.getModelInfo();
@@ -24,25 +24,41 @@
          * @ngdoc method Saves the model content in JSON format
          */
         vm.saveJson = function () {
-            var writeResult = _transformFile()
+            var writeResult = _transformFile();
             vm.rootTag = vm.transactionService.getRootTag();
-            hpfbFileProcessing.writeAsJson(writeResult, "transactionEnrol", vm.rootTag)
+            hpfbFileProcessing.writeAsJson(writeResult, _getFileName(), vm.rootTag);
             vm.savePressed = true;
-        }
+        };
         /**
          * @ngdoc method - saves the data model as XML format
          */
         vm.saveXML = function () {
-            var writeResult = _transformFile()
-            hpfbFileProcessing.writeAsXml(writeResult, "transactionEnrol", vm.rootTag);
+            var writeResult = _transformFile();
+            hpfbFileProcessing.writeAsXml(writeResult, _getFileName(), vm.rootTag);
             vm.savePressed = true;
+        };
+
+        function _getFileName() {
+            var date = new Date();
+            var filename = "HC_RT";
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            if (month < 10) {
+                month = "0" + month;
+            }
+            if (day < 10) {
+                day = "0" + day;
+            }
+            filename = filename + "_" + date.getFullYear() + "_" + month + "_" + day + "_" + date.getHours() + date.getMinutes();
+            return (filename);
         }
+
+
         /**
          * @ngdcc method updates data and increments version before creating json
          */
         function _transformFile() {
-            var writeResult = vm.transactionService.transformToFileObj(vm.transaction);
-            return writeResult;
+            return vm.transactionService.transformToFileObj(vm.transaction);
         }
 
         function _loadFileContent(fileContent) {
@@ -51,17 +67,14 @@
             var resultJson = fileContent.jsonResult;
 
             if (resultJson) {
-                vm.transactionService.transformFromFileObj(resultJson)
-                vm.transaction = {}
+                vm.transactionService.transformFromFileObj(resultJson);
+                vm.transaction = {};
                 angular.extend(vm.transaction, vm.transactionService.getModelInfo())
             }
-        };
-
-
-        vm.getNewRepContact = function () {
-            var result = vm.transactionService.createRepContact();
-            return result;
         }
+        vm.getNewRepContact = function () {
+            return vm.transactionService.createRepContact();
+        };
 
         //TODO remove?
         vm.updateAddressRecord = function (address) {
@@ -69,18 +82,16 @@
             var idx = vm.company.addressList.indexOf(
                 $filter('filter')(vm.company.addressList, {addressID: address.addressID}, true)[0]
             );
-            vm.company.addressList[idx] = address
+            vm.company.addressList[idx] = address;
             var temp = vm.company.addressList;
             vm.company.addressList = [];
             vm.company.addressList = temp;
-        }
+        };
 
         vm.isExtern = function () {
-            if (vm.userType == "EXT") {
-                return true;
-            }
-            return false;
-        }
+            return vm.userType == "EXT";
+
+        };
         vm.showErrors = function () {
             return (vm.transactionEnrolForm.$dirty && vm.transactionEnrolForm.$invalid && vm.savePressed)
 

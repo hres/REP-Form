@@ -5,9 +5,9 @@
                 <h2>{{'ADDR_DETAILS'|translate}}</h2>
 
                 <div class="row">
-                    <div class="form-group" ng-show="addressRec.isAmend()">
+                    <div class="form-group" ng-show="addressRec.isAmend">
                         <input class="formControl" id="chk-amend-rec_{{$id}}" type="checkbox"
-                               ng-change="addressRec.setNotEditable()"
+                               ng-change="addressRec.setEditable()"
                                ng-model="addressRec.addressModel.amendRecord"/>
                         <label class="form-checkbox" for="chk-amend-rec_{{$id}}">
                             {{'AMEND_RECORD'|translate}}
@@ -16,9 +16,8 @@
                 </div>
             </div>
             <div>
-
                 <cmp-address-role record="addressRec.addressModel"
-                                  is-contact="addressRec.isContact" is-amend="addressRec.isNotEditable"
+                                  is-contact="addressRec.isContact" is-amend="addressRec.isEditable"
                                   on-update="addressRec.onAddressRoleUpdate($event.roles)"
                                   show-errors="addressRec.showErrors()"
                                   already-selected="addressRec.isOneSelected(roleName)"></cmp-address-role>
@@ -33,7 +32,7 @@
                         <input type="text" id="companyName" name="companyName"
                                ng-model="addressRec.addressModel.companyName"
                                class="form-control full-width" maxlength="80" size="60"
-                               ng-readonly="addressRec.isNotEditable"
+                               ng-readonly="!addressRec.isEditable"
                                required/>
                         <strong id="companyName-error" class="error"
                                 ng-if="addressRec.showError(addressRec.addressRecForm.companyName.$touched,addressRec.addressRecForm.companyName.$invalid)">
@@ -45,7 +44,7 @@
                 </div>
             </div>
             <div class="row">
-                <cmp-address-details address-record="addressRec.addressModel" is-amend="addressRec.isNotEditable"
+                <cmp-address-details address-record="addressRec.addressModel" is-amend="addressRec.isEditable"
                                      on-update="addressRec.onUpdateAddressRecord(address)"
                                      show-errors="addressRec.showErrors()"></cmp-address-details>
             </div>
@@ -53,7 +52,7 @@
                 <div class="btn-group-sm col-xs-12 text-right">
                     <input type="submit" value="{{'SAVE_ADDR'|translate}}" class="btn btn-primary" name="saveAddress"
                            id="saveAddress"
-                           ng-click="addressRec.updateAddressModel2()" ng-disabled="addressRec.setNotEditable()">
+                           ng-click="addressRec.updateAddressModel2()" ng-disabled="!addressRec.isEditable">
                     <input type="submit" value="{{'DELETE_ADDR'|translate}}" class="btn btn-danger"
                            ng-click="addressRec.delete()">
                     <input type="submit" value="{{'DISCARD_CHANGES'|translate}}" class="btn btn-default"
