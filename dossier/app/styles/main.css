@@ -1,0 +1,175 @@
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+  background-position: center 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 930px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+
+    table {
+        border-collapse: separate;
+        border-spacing: 0 5px;
+        padding: 0px;
+    }
+    thead th {
+        background-color: #006DCC;
+        color: white;
+    }
+    tbody td {
+    <!-- background-color: #EEEEEE;
+    -->
+    }
+    tr td:first-child, tr th:first-child {
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
+    tr td:last-child, tr th:last-child {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+    .clickableRow {
+        cursor: pointer;
+    }
+    p, textarea {
+        font-variant: small-caps !important;
+        text-rendering: auto;
+    }
+    td, th {
+        font-size: 8pt;
+    }
+
+    fieldset {
+        padding: 10px;
+        border: 1px solid #666 !important;
+        margin: 25px 0;
+    }
+    .has-error fieldset {
+        border-color: #a94442 !important;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075) !important;
+    }
+    legend {
+        float: left;
+        margin-top: -22px;
+        background-color: #fff;
+        width: auto;
+        font-size: 14px;
+        padding: 0 5px;
+    }
+    legend .required{
+        font-size: 8pt;
+    }
+
+    .table-hover tr:hover legend{
+        background-color: #f0f0f0;
+    }
+
+    legend + * {
+        clear:both;
+    }
+
+    fieldset.adr-role-fieldset{
+        width: 400px;
+    }
+
+    input[type="checkbox"]{
+        cursor: pointer;
+    }
+
+    label {
+        display: inline-block;
+        max-width: 100%;
+        font-weight: 700;
+    }
+
+    label strong.error{
+        display: inline-block;
+        width: 100%;
+        margin : 5px 0;
+    }
+
+    label strong.error .label {
+        font-size: 120%;
+        white-space: normal;
+    }
+
+    /*border-radius:8px;
+    box-shadow:0 0 10px #666;*/
+    }
+

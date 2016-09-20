@@ -1,0 +1,27 @@
+{
+  "LOAD_DOSSIER": "fr_Load a Dossier Enrolment File",
+  "DOSSIER_HDING": "fr_Regulatory Dossier Enrolment",
+  "INGRED_LIST": "Ingredients List",
+  "INGRED_NAME": "Ingredient Name",
+  "SOURCED": "Source From",
+  "HUMAN": "Human",
+  "ANIMAL": "Animal",
+  "TISSUES_ORIGIN": "Tissues or fluids of Origin",
+  "ADD_PRODUCT": "fr_Add Product",
+  "AMEND_REF": "fr_Amend Canadian Reference Product",
+  "BRAND_NAME": "Marque nominative",
+  "MEDICINAL_INGREDIENT": "Ingrédient Médicinaux",
+  "STRENGTH": "Concentration",
+  "DOSAGE_FORM": "Forme posologique",
+  "DOSAGE_FORM_OTHER": "Dosage Form Other Details",
+  "CDN_REF_PRODUCT": " Canadian Reference Product",
+  "COMPANY_NAME": "Nom du fabricant ou promoteur",
+  "COUNTRY_NAME": "fr_Country Name",
+  "SAVE": "fr_Save",
+  "CANCEL": "fr_Cancel",
+  "DELETE": "fr_Delete",
+  "DISCARD_CHANGES":"fr_Discard Changes",
+  "SCHED_A":"fr_Schedule A Claims",
+  "DIN_FULL":"fr_Drug Identification Number (DIN)"
+
+}

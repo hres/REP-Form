@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <ng-form name="contactRec.contactRecForm">
+        <div>
+            <div>
+                <h3>Contact Details</h3>
+
+                <div class="row">
+                    <div class="form-group" ng-show="contactRec.isAmend()">
+                        <input class="formControl" id="chk-amend-rec_{{$id}}" type="checkbox"
+                               ng-model="contactRec.contactModel.amendRecord"/>
+                        <label class="form-checkbox" for="chk-amend-rec_{{$id}}">
+                            {{'AMEND_RECORD'|translate}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <cmp-address-role record="contactRec.contactModel"
+                                  is-contact="contactRec.isContact"
+                                  on-update="contactRec.onContactRoleUpdate($event.roles)"
+                                  show-errors="contactRec.showErrors()" already-selected="contactRec.isOneSelected(roleName)"></cmp-address-role>
+
+            </div>
+            <div class="row">
+                <cmp-contact-details contact-record="contactRec.contactModel" is-amend="contactRec.isAmend()"
+                                     on-update="contactRec.onUpdateContactRecord(contact)"
+                                     show-errors="contactRec.showErrors()"></cmp-contact-details>
+            </div>
+            <div class="row">
+                <div class="btn-group-sm col-xs-12 text-right">
+                    <input type="submit" value="Save Contact" class="btn btn-primary" name="saveContact" id="saveContact"
+                           ng-click="contactRec.updateContactModel2()" ng-disabled="contactRec.setNotEditable()">
+                    <input type="submit" value="Delete Contact" class="btn btn-danger" ng-click="contactRec.delete()">
+                    <input type="submit" value="Discard Changes" class="btn btn-default" ng-click="contactRec.discardChanges()">
+                </div>
+            </div>
+        </div>
+    </ng-form>
+    <!--  <pre>contact record model: {{contactRec.contactModel | json : spacing}}</pre>-->
+
+</div>

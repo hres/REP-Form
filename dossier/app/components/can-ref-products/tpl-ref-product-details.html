@@ -1,0 +1,119 @@
+<div class="form-group">
+
+    <ng-form name="productDetailsForm">
+
+        <fieldset>
+            <legend>{{'CDN_REF_PRODUCT'|translate}}</legend>
+
+
+            <div class="col-md-4 form-group" ng-class="{'has-error':productDetailsForm.brandName.$invalid}">
+                <label for="brand-nameh_{{$id}}" class="required"><span
+                        class="field-name">{{'BRAND_NAME'|translate}}</span>
+                    <strong class="required">{{"REQUIRED" |translate}}</strong>
+                    <input type="text" id="brand-nameh_{{$id}}" data-ng-model="$ctrl.productModel.brandName"
+                           class="form-control full-width" name="brandName" ng-required="true" maxlength="60"
+                           size="60"/>
+                    <strong id="brand-error" class="error" ng-if="$ctrl.showError(productDetailsForm.brandName)">
+                        <span class="label label-danger" ng-messages="productDetailsForm.brandName.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                    </strong>
+                </label>
+            </div>
+
+
+            <div class="col-md-4 form-group" ng-class="{'has-error':productDetailsForm.medIngredient.$invalid}">
+                <label for="med-ingredienth_{{$id}}" class="required"><span class="field-name">{{'MEDICINAL_INGREDIENT'|translate}}</span>
+                    <strong class="required">{{"REQUIRED" |translate}}</strong>
+                    <input type="text" id="med-ingredienth_{{$id}}" data-ng-model="$ctrl.productModel.medIngredient"
+                           class="form-control full-width" name="medIngredient" ng-required="true" maxlength="60"
+                           size="60"/>
+                    <strong id="medIngred-error" class="error"
+                            ng-if="$ctrl.showError(productDetailsForm.medIngredient)">
+                        <span class="label label-danger" ng-messages="productDetailsForm.medIngredient.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                    </strong>
+                </label>
+            </div>
+
+
+            <div class="col-md-4 form-group" ng-class="{'has-error':productDetailsForm.strengths.$invalid}">
+                <label for="strength_{{$id}}" class="required"><span class="field-name">{{'STRENGTH'|translate}}</span>
+                    <strong class="required">{{"REQUIRED" |translate}}</strong>
+                    <input type="text" id="strength_{{$id}}" data-ng-model="$ctrl.productModel.strengths"
+                           class="form-control full-width" name="strengths" ng-required="true" maxlength="60"
+                           size="60"/>
+                    <strong id="strengths-error" class="error" ng-if="$ctrl.showError(productDetailsForm.strengths)">
+                        <span class="label label-danger" ng-messages="productDetailsForm.strengths.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                    </strong>
+                </label>
+            </div>
+
+
+            <div class="col-md-6 form-group" ng-class="{'has-error':productDetailsForm.dosageForm.$invalid}">
+                <label for="dosage-form-listh_{{$id}}" class="required"><span class="field-name">{{'DOSAGE_FORM'|translate}}</span>
+                    <strong class="required">{{"REQUIRED" |translate}}</strong>
+                    <select id="dosage-form-listh_{{$id}}" data-ng-model="$ctrl.productModel.dosageForm"
+                            name="dosageForm"
+                            class="form-control full-width"
+                            ng-options="formType |translate for formType in $ctrl.dosageFormList | orderByTranslated">
+                    </select>
+                    <strong id="dosageForm-error" class="error" ng-if="$ctrl.showError(productDetailsForm.dosageForm)">
+                        <span class="label label-danger" ng-messages="productDetailsForm.dosageForm.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                    </strong>
+                </label>
+            </div>
+
+            <div class="col-md-6 form-group" ng-class="{'has-error':productDetailsForm.dosageOther.$invalid}">
+                <label for="dosage-form-other_(($id}}" ng-class="{'required' : $ctrl.isDosageOther()}">
+                    <span class="field-name">{{'DOSAGE_FORM_OTHER'|translate}}</span>
+                    <strong class="required" ng-if="$ctrl.isDosageOther()">{{"REQUIRED" |translate}}</strong>
+                    <input type="text" id="dosage-form-other_(($id}}" data-ng-model="$ctrl.productModel.dosageFormOther"
+                           class="form-control full-width" ng-disabled="!$ctrl.isDosageOther()"
+                           name="dosageOther"
+                           ng-required="$ctrl.isDosageOther()" maxlength="60" size="60"/>
+                    <strong id="dosageOther-error" class="error"
+                            ng-if="$ctrl.showError(productDetailsForm.dosageOther)">
+                        <span class="label label-danger" ng-messages="productDetailsForm.dosageOther.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                    </strong>
+                </label>
+            </div>
+
+            <div class="col-md-12 form-group">
+                <label for="company-name_{{$id}}" class="required"><span
+                        class="field-name">{{'COMPANY_NAME'|translate}}</span>
+                    <strong class="required">{{"REQUIRED" |translate}}</strong></label>
+                <input type="text" id="company-name_{{$id}}" data-ng-model="$ctrl.productModel.companyName"
+                       class="form-control full-width" name="companyName" ng-required="true" maxlength="60" size="60"/>
+                <strong id="companyName-error" class="error" ng-if="$ctrl.showError(productDetailsForm.companyName)">
+                        <span class="label label-danger" ng-messages="productDetailsForm.companyName.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                </strong>
+            </div>
+
+
+            <!--<pre>productModel : {{$ctrl.productModel | json}}</pre>-->
+        </fieldset>
+
+
+        <div class="row">
+
+            <div class="btn-group-sm col-xs-12 text-right">
+                <input type="submit" value="{{'SAVE'|translate}}" class="btn btn-primary"
+                       ng-click="$ctrl.saveProduct()"/>
+                <input type="submit" ng-if="$ctrl.deleteBtn === true" value="{{'DELETE'|translate}}"
+                       class="btn btn-danger" ng-click="$ctrl.delete()"/>
+                <input type="submit" value="{{'DISCARD_CHANGES'|translate}}" class="btn btn-default"
+                       ng-click="$ctrl.discardChanges()">
+            </div>
+        </div>
+    </ng-form>
+</div>
