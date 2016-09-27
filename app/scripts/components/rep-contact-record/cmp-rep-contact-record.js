@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module('contactModule25', [])
+        .module('contactModule25', ['contactModule'])
 })();
 
 (function () {

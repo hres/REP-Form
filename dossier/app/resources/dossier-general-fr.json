@@ -1,0 +1,9 @@
+{
+  "Y": "Oui",
+  "N": "Non",
+  "UNK":"Inconnu",
+  "REQUIRED": "(requis)",
+  "OTHER":"Autre",
+  "DOSSIER_ID": "Dossier ID"
+
+}

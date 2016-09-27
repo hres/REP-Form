@@ -1,0 +1,35 @@
+<ng-form name="container-type-form">
+
+    <div class="form-group col-md-3">
+        <label for="containerType"><span class="field-name">{{'CONTAINER_TYPE'|translate}}</span></label>
+        <input type="text" id="containerType" data-ng-model="ctrCtrl.ctModel.containerType"
+               class="form-control full-width" name="text" ng-required="true"/>
+    </div>
+    <div class="form-group col-md-3">
+        <label for="pckSize"><span class="field-name">{{'PACKAGE_SIZE'|translate}}</span></label>
+        <input type="text" id="pckSize" data-ng-model="ctrCtrl.ctModel.packageSize"
+               class="form-control full-width" name="text" ng-required="true"/>
+    </div>
+    <div class="form-group col-md-3">
+        <label for="shelfLifeYears"><span class="field-name">{{'SHELF_LIFE_YEARS'|translate}}</span></label>
+        <input type="text" id="shelfLifeYears" data-ng-model="ctrCtrl.ctModel.shelfLifeYears"
+               class="form-control full-width" name="text" ng-required="true"/>
+    </div>
+    <div class="form-group col-md-3">
+        <label for="shelfLifeMonths"><span class="field-name">{{'SHELF_LIFE_MONTHS'|translate}}</span></label>
+        <input type="text" id="shelfLifeMonths" data-ng-model="ctrCtrl.ctModel.shelfLifeMonths"
+               class="form-control full-width" name="text" ng-required="true"/>
+    </div>
+
+    <div class="form-group col-md-6">
+        <label for="tempMin"><span class="field-name">{{'MIN_TEMP'|translate}}</span></label>
+        <input type="text" id="tempMin" data-ng-model="ctrCtrl.ctModel.tempMin"
+               class="form-control full-width" name="text" ng-required="true"/>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="tempMax"><span class="field-name">{{'MAX_TEMP'|translate}}</span></label>
+        <input type="text" id="tempMax" data-ng-model="ctrCtrl.ctModel.tempMax"
+               class="form-control full-width" name="text" ng-required="true"/>
+    </div>
+
+</ng-form>

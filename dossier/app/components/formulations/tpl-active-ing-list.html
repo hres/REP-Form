@@ -1,0 +1,9 @@
+<ng-form name="active-ing-list-form">
+    <cmp-expanding-table title="Active Ingredient List" list-items="ailCtrl.ingList"
+                         column-def="ailCtrl.colNames" select-record="ailCtrl.selectRecord"
+                         disable-selection="!ailCtrl.isDetailValid">
+
+        <cmp-active-ing-record record="$parent.record"></cmp-active-ing-record>
+
+    </cmp-expanding-table>
+</ng-form>

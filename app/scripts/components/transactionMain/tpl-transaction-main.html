@@ -3,7 +3,7 @@
              novalidate>
         <section class="panel panel-primary mrgn-tp-lg">
             <header class="panel-heading">
-                <h2 class="panel-title">Load a Transaction Enrolment File</h2>
+                <h2 class="panel-title">{{'LOAD_TRANSACTION'|translate}}</h2>
             </header>
             <div class="panel-body">
                 <div class="col-md-12">
@@ -15,30 +15,24 @@
             </div>
         </section>
         <div>
-            <section class="panel panel-primary mrgn-tp-lg">
-                <header class="panel-heading">
-                    <h2 class="panel-title">Regulatory Transaction Enrolment</h2>
-                </header>
-                <div class="panel-body">
-                    <cmp-transaction-info transaction-root="main.transaction" show-errors="main.showErrors()"
-                                          deprecate-sequence="main.transactionService.deprecateSequenceNumber()"
-                                          reset-ectd="main.transactionService.resetEctdSection()"
-                                          get-transaction="main.transactionService.getNewTransaction()"
-                                          get-rep-contact="main.transactionService.getNewRepContact()"></cmp-transaction-info>
-
-                </div>
-            </section>
+            <cmp-transaction-info transaction-root="main.transaction" show-errors="main.showErrors()"
+                                  deprecate-sequence="main.transactionService.deprecateSequenceNumber()"
+                                  reset-ectd="main.transactionService.resetEctdSection()"
+                                  get-transaction="main.transactionService.getNewTransaction()"
+                                  get-rep-contact="main.transactionService.getNewRepContact()"></cmp-transaction-info>
             <div class="row">
                 <div class="form-group col-md-3">
-                    <button class="btn-default" formnovalidate ng-click="main.saveJson()">Save Working Copy</button>
+                    <button class="btn btn-primary btn-lg active" formnovalidate ng-click="main.saveJson()">
+                        {{'SAVE_WORK'|translate}}
+                    </button>
                 </div>
                 <div class="form-group col-md-3">
-                    <button class="btn-default" formnovalidate id="btn_xmlSave" ng-click="main.saveXML()"
+                    <button class="btn btn-default btn-lg active" formnovalidate id="btn_xmlSave"
+                            ng-click="main.saveXML()"
                             ng-disabled="main.transactionEnrolForm.$invalid">{{'SAVE_DRAFT'|translate}}
                     </button>
                 </div>
             </div>
-            <!-- <pre>overall: {{main.transaction | json : spacing}}</pre>-->
         </div>
     </ng-form>
 

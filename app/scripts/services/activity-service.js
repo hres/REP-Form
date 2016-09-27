@@ -57,26 +57,6 @@
             return (this.rootTag)
         };
 
-        ActivityService.prototype.createRepContact = function () {
-            var contact = _createContactModel();
-            contact.repRole = "";
-            contact.amend=false;
-            var currentContacts = this._default.contactRecord;
-            if (currentContacts.length == 0) {
-                contact.repRole = "PRIMARY";
-            } else {
-                contact.repRole = "PRIMARY";
-                for (var i = 0; i < currentContacts.length; i++) {
-                    if (currentContacts[i].repRole == "PRIMARY") {
-                        contact.repRole = "SECONDARY";
-                        break;
-                    }
-                }
-            }
-            return contact
-        };
-
-
         /**
          * @ngdoc transforms the object model to the compatible file JSON objecct base transform call!!
          * @param jsonObj
@@ -334,18 +314,18 @@
 
     function _transformRepContactFromFileObj(repObj) {
 
-        var repContact = _transformContactFromFileObj(repObj.rep_submission_contact);
-        repContact.repRole = repObj.rep_submission_contact_role;
-        repContact.amend= repObj.amend==='Y' ;
+        var repContact = _transformContactFromFileObj(repObj.rep_contact_details);
+        repContact.repRole = repObj.rep_contact_role;
+        repContact.amend = repObj.amend_record === 'Y';
         return (repContact);
     }
 
     function _mapRepContactToOutput(repObj) {
         var repContact = {};
-        repContact.rep_submission_contact_role = repObj.repRole;
-        repContact.amend= repObj.amend=== true ? 'Y' : 'N';
+        repContact.rep_contact_role = repObj.repRole;
+        repContact.amend_record = repObj.amend === true ? 'Y' : 'N';
         //deflatten the object
-        repContact.rep_submission_contact = _mapContactToOutput(repObj);
+        repContact.rep_contact_details = _mapContactToOutput(repObj);
         return repContact;
     }
 

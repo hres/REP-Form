@@ -42,8 +42,8 @@
 
         // gets the template to ng-include for a table row / item
         self.getTemplate = function (item) {
-            if (item.id === self.model.selected.id) return 'edit';
-            else return 'display';
+            if (item.id === self.model.selected.id) return 'editClass';
+            else return 'displayClass';
         };
 
         self.addNew = function(){

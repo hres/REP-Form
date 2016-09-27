@@ -6,7 +6,7 @@
 
 
     //TODO: Lazy load modules
-    angular.module('tabsModule', ['appendixFourModule']);
+    angular.module('tabsModule', ['formulationsModule','appendixFourModule']);
 })();
 
 (function () {
@@ -29,12 +29,12 @@
             self.tabs = [
                 {
                     label: "Formulations",
-                    selected: false,
-                    disabled: true
+                    selected: true,
+                    disabled: false
                 },
                 {
                     label: "Appendix 4",
-                    selected: true,
+                    selected: false,
                     disabled: false
                 }
             ];
@@ -42,16 +42,11 @@
 
         self.selectTab = function (idx) {
 
-            if (!self.tabs[idx].disabled) {
-
-                angular.forEach(self.tabs, function (tab) {
-                    //  console.log('tabsModule item: ' + tab.toSource());
+               angular.forEach(self.tabs, function (tab) {
                     tab.selected = false;
                 });
 
                 self.tabs[idx].selected = true;
-            }
-
         };
     }
 

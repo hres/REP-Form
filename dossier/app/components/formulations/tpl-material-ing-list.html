@@ -1,0 +1,9 @@
+<ng-form name="material-ing-list-form">
+    <cmp-expanding-table title="Material Ingredient List" list-items="milCtrl.ingList"
+                         column-def="milCtrl.colNames" select-record="milCtrl.selectRecord"
+                         disable-selection="!milCtrl.isDetailValid">
+
+        <cmp-material-ing-record record="$parent.record"></cmp-material-ing-record>
+
+    </cmp-expanding-table>
+</ng-form>

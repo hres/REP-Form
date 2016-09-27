@@ -81,14 +81,13 @@
                 var resultJson = {
                     TRANSACTION_ENROL: {
                         date_saved: jsonObj.dateSaved,
+                        software_version: "1.0.0",
                         data_checksum: jsonObj.dataChecksum,
                         is_ectd: jsonObj.isEctd
                     }
                 };
-                if (jsonObj.isEctd == 'Y') {
                     var ectd = this._transformEctdToFile(jsonObj.ectd);
                     resultJson.TRANSACTION_ENROL.ectd = ectd;
-                }
                 resultJson.TRANSACTION_ENROL.is_solicited = jsonObj.isSolicited;
                 resultJson.TRANSACTION_ENROL.solicited_requester = jsonObj.solicitedRequester;
                 resultJson.TRANSACTION_ENROL.regulatory_project_manager1 = jsonObj.projectManager1;
@@ -103,6 +102,13 @@
                 return (resultJson);
             },
 
+
+            /**
+             *
+             * @param jsonObj the json object to convert
+             * @returns {{}}
+             * @private
+             */
             _transformEctdToFile: function (jsonObj) {
 
                 var ectd = {};

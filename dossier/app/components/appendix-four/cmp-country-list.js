@@ -94,7 +94,7 @@
             if(angular.isUndefined(item))
                 return;
 
-            self.deleteRecord(item.id)
+            //self.deleteRecord(item.id)
             self.model.selected = {};
 
         };

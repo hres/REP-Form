@@ -1,0 +1,73 @@
+<ng-form name="active-ing-form">
+
+    <div class="form-group col-md-12">
+        <label for="ing-name" class="required"><span class="field-name">{{'ING_NAME'|translate}}</span>
+            <strong class="required">{{"REQUIRED" |translate}}</strong></label>
+        <input type="text" id="ing-name" data-ng-model="ingRecCtrl.ingModel.ingName"
+               class="form-control full-width" name="text" ng-required="true" maxlength="60" size="60"/>
+
+    </div>
+
+    <div class="form-group col-md-3">
+        <label for="cas"><span class="field-name">{{'CAS'|translate}}</span></label>
+        <input type="text" id="cas" data-ng-model="ingRecCtrl.ingModel.cas"
+               class="form-control full-width" name="text" ng-required="true"/>
+    </div>
+    <div class="form-group col-md-3">
+        <label for="standard"><span class="field-name">{{'STANDARD'|translate}}</span></label>
+        <input type="text" id="standard" data-ng-model="ingRecCtrl.ingModel.standard"
+               class="form-control full-width" name="text" ng-required="true"/>
+    </div>
+    <div class="form-group col-md-3">
+        <label for="strength" class="required"><span class="field-name">{{'STRENGTH'|translate}}</span>
+            <strong class="required">{{"REQUIRED" |translate}}</strong></label>
+        <input type="text" id="strength" data-ng-model="ingRecCtrl.ingModel.strength"
+               class="form-control full-width" name="text" ng-required="true"/>
+    </div>
+    <div class="form-group col-md-3">
+        <label for="units" class="required"><span class="field-name">{{'UNITS'|translate}}</span>
+            <strong class="required">{{"REQUIRED" |translate}}</strong></label>
+        <input type="text" id="units" data-ng-model="ingRecCtrl.ingModel.units"
+               class="form-control full-width" name="text" ng-required="true"/>
+    </div>
+
+    <div class="form-group col-md-12">
+            <label for="per"><span class="field-name">{{'PER'|translate}}</span></label>
+            <input type="text" id="per" data-ng-model="ingRecCtrl.ingModel.per"
+                   class="form-control full-width" name="text" ng-required="true"/>
+
+    </div>
+
+    <div class="form-group col-md-6">
+        <label for="nanoMaterial" class="required"><span class="field-name">{{'NANO_MATERIAL'|translate}}</span>
+            <strong class="required">{{"REQUIRED" |translate}}</strong></label>
+
+        <select id="nanoMaterial" ng-model="ingRecCtrl.ingModel.nanoMaterial" class="form-control full-width">
+            <option>No</option>
+            <option>Yes</option>
+            <option>Other</option>
+        </select>
+    </div>
+
+    <div class="form-group col-md-6" ng-if="ingRecCtrl.ingModel.nanoMaterial === 'Other'">
+        <label for="nanoMaterialOther" class="required"><span class="field-name">{{'NANO_MATERIAL_OTHER'|translate}}</span>
+            <strong class="required">{{"REQUIRED" |translate}}</strong></label>
+        <input type="text" id="nanoMaterialOther" data-ng-model="ingRecCtrl.ingModel.nanoMaterialOther"
+               class="form-control full-width" name="text" ng-required="true"/>
+
+    </div>
+    <div class="form-group col-md-12">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label class="form-checkbox form-label-inline" for="asBase">
+                <input type="checkbox" name="as-base" ng-model="ingRecCtrl.ingModel.calcAsBase" id="asBase">{{'CALCULATED_AS_BASE'|translate}}
+            </label>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label class="form-checkbox form-label-inline" for="animalHumanSourced">
+                <input type="checkbox" name="animal-human-sourced" ng-model="ingRecCtrl.ingModel.animalHumanSourced" id="animalHumanSourced">{{'ANIMAL_HUMAN_SOURCED'|translate}}
+            </label>
+        </div>
+
+    </div>
+
+</ng-form>

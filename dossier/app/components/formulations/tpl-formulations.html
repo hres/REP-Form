@@ -1,0 +1,9 @@
+<ng-form name="formulations-form">
+    <cmp-expanding-table title="Formulations List" list-items="formulCtrl.formulationList"
+                         column-def="formulCtrl.colNames" select-record="formulCtrl.selectRecord"
+                         disable-selection="!formulCtrl.isDetailValid">
+
+        <cmp-formulation-record record="$parent.record"></cmp-formulation-record>
+
+    </cmp-expanding-table>
+</ng-form>

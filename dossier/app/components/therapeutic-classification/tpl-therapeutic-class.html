@@ -6,7 +6,7 @@
         <li class="list-group-item  col-md-12" ng-repeat="item in $ctrl.model.classifications" ng-include="$ctrl.getTemplate(item)"></li>
     </ul>
 
-    <script type="text/ng-template" id="display">
+    <script type="text/ng-template" id="displayClass">
         <div class="col-md-8">
             <span class="field-name full-width">{{item.name}}</span>
         </div>
@@ -16,7 +16,7 @@
         </div>
     </script>
 
-    <script type="text/ng-template" id="edit">
+    <script type="text/ng-template" id="editClass">
             <div class="col-md-8">
                 <input type="text" class="form-control full-width" ng-model="item.name"/>
             </div>

@@ -1,0 +1,9 @@
+<ng-form name="container-type-list-form">
+    <cmp-expanding-table title="Container Type List" list-items="ctlCtrl.containerList"
+                         column-def="ctlCtrl.colNames" select-record="ctlCtrl.selectRecord"
+                         disable-selection="!ctlCtrl.isDetailValid">
+
+        <cmp-container-type-record record="$parent.record"></cmp-container-type-record>
+
+    </cmp-expanding-table>
+</ng-form>

@@ -40,7 +40,7 @@
             }
         });
 
-    activityMainCtrl.$inject = ['ActivityService', 'ApplicationInfoService', 'hpfbFileProcessing', '$scope', '$window','$location','$translate'];
+    activityMainCtrl.$inject = ['ActivityService', 'ApplicationInfoService', 'hpfbFileProcessing', '$scope', '$window', '$location', '$translate'];
     function activityMainCtrl(ActivityService, ApplicationInfoService, hpfbFileProcessing, $scope, $window, $location, $translate) {
         var vm = this;
         vm.isIncomplete = true;
@@ -148,27 +148,27 @@
         };
 
         vm.openHelp = function (type) {
-            var helpLink=""
-            var currentLang = $translate.proposedLanguage() ||$translate.use();
+            var helpLink = ""
+            var currentLang = $translate.proposedLanguage() || $translate.use();
 
-            var url=$location.absUrl() //this is the only one that seems to work
-            var split=url.split('/')
-            var length=url.length-split[split.length-1].length;
-            var newUrl=url.substring(0,length);
-            console.log("new url"+newUrl)
+            var url = $location.absUrl() //this is the only one that seems to work
+            var split = url.split('/')
+            var length = url.length - split[split.length - 1].length;
+            var newUrl = url.substring(0, length);
+            console.log("new url" + newUrl)
 
             switch (type) {
                 case'activityFile':
-                    helpLink=newUrl+"help-activity-load-"+currentLang+".html";
+                    helpLink = newUrl + "help-activity-load-" + currentLang + ".html";
                     $window.open(helpLink);
                     break;
                 case 'activityMain':
-                    helpLink=newUrl+"help-activity-main-"+currentLang+".html";
+                    helpLink = newUrl + "help-activity-main-" + currentLang + ".html";
                     $window.open(helpLink);
                     break;
 
                 case 'activityRep':
-                    helpLink=newUrl+"help-activity-rep-"+currentLang+".html";
+                    helpLink = newUrl + "help-activity-rep-" + currentLang + ".html";
                     $window.open(helpLink);
                     break;
             }

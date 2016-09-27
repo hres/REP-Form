@@ -1,5 +1,5 @@
 {
-  "MSG_ERR_MAND": "fr_This field is required",
+  "MSG_ERR_MAND": "Ce champ est obligatoire.",
   "MSG_ERR_EMAIL_FORMAT": "Veuillez fournir une adresse électronique valide.",
   "MSG_ERR_CONTACT_NUM": "fr_All the roles have to be used for the company contacts",
   "MSG_ERR_PHONE_FORMAT": "fr_Please specify a valid phone number",
@@ -22,5 +22,6 @@
   "MSG_ERR_ONE_REP": "fr_At least one contact is required.",
   "MSG_ERR_ONE_LIFE_REC": "fr_One lifecycle record is required.",
   "MSG_ERR_RATIONALE_SEL": "fr_Please select at least one rationale.",
-  "MSG_ERR_NOTIF_SEL": "fr_Please select at least one notifiable change."
+  "MSG_ERR_NOTIF_SEL": "fr_Please select at least one notifiable change.",
+  "MSG_APP4_TYPE": "fr_At least one Source must be selected"
 }

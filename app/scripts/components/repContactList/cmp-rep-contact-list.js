@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('contactModule26', ['contactModule25', 'expandingTable'])
+        .module('contactModule26', ['contactModule25', 'expandingTable','repContactService'])
 })();
 
 (function () {
@@ -21,15 +21,15 @@
             controllerAs: 'contactListCtrl',
             bindings: {
                 contacts: '<',
-                onUpdate: '&',
-                getNewContact: '&',
+              //  onUpdate: '&',
+               // getNewContact: '&',
                 showListErrors: '&',
                 parentDirty: '<',
                 isAmend: '<'
             }
         });
-    contactListCtrl.$inject = ['$filter']
-    function contactListCtrl($filter) {
+    contactListCtrl.$inject = ['$filter','RepContactService']
+    function contactListCtrl($filter, RepContactService) {
         var vm = this;
         vm.selectRecord = -1; //the record to select
         vm.isDetailValid = true; //used to track if details valid. If they are  not do not allow expander collapse
@@ -37,6 +37,8 @@
         vm.oneRecord = ""; //using required as the validaiton
         vm.isParentDirty = false; //tracks whether the parent form has been dirtied
         vm.formAmend = false; //
+        var repContactService=new RepContactService();
+        console.log("this is the service "+repContactService)
         vm.columnDef = [
             {
                 label: "FIRST_NAME",
@@ -50,7 +52,7 @@
                 width: "40"
             },
             {
-                label: "ROLE",
+                label: "ONE_ROLE",
                 binding: "repRole",
                 width: "20"
             }
@@ -123,7 +125,7 @@
                 vm.contactList[0].repRole = "PRIMARY"
             }
 
-            vm.onUpdate({newList: vm.contactList});
+            //vm.onUpdate({newList: vm.contactList});
             vm.updateErrorState();
             vm.setValid(true);
             vm.selectRecord = -1
@@ -133,7 +135,7 @@
          * Adds a contact to the contact list
          */
         vm.addContact = function () {
-            var defaultContact = vm.getNewContact()
+            var defaultContact = repContactService.createRepContact(vm.contactList);
             vm.contactList.push(defaultContact);
             //select table row first then make invalid
             vm.setValid(true);

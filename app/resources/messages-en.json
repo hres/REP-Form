@@ -24,5 +24,7 @@
   "MSG_ERR_ONE_REP": "At least one contact is required.",
   "MSG_ERR_ONE_LIFE_REC": "One lifecycle record is required.",
   "MSG_ERR_RATIONALE_SEL": "Please select at least one rationale.",
-  "MSG_ERR_NOTIF_SEL": "Please select at least one notifiable change."
+  "MSG_ERR_NOTIF_SEL": "Please select at least one notifiable change.",
+  "MSG_APP4_TYPE": " At least one Source must be selected"
+
 }

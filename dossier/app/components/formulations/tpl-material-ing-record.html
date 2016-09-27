@@ -1,0 +1,25 @@
+<ng-form name="material-ing-record-form">
+
+    <div class="form-group col-md-12">
+        <label for="matIngName"><span class="field-name">{{'MATERIAL_NAME'|translate}}</span></label>
+        <input type="text" id="matIngName" data-ng-model="mirCtrl.mirModel.ingredientName"
+               class="form-control full-width" name="text" ng-required="true"/>
+    </div>
+    <div class="form-group col-md-3">
+        <label for="cas"><span class="field-name">{{'CAS'|translate}}</span></label>
+        <input type="text" id="cas" data-ng-model="mirCtrl.mirModel.cas"
+               class="form-control full-width" name="text" ng-required="true"/>
+    </div>
+    <div class="form-group col-md-3">
+        <label for="standard"><span class="field-name">{{'STANDARD'|translate}}</span></label>
+        <input type="text" id="standard" data-ng-model="mirCtrl.mirModel.ingredientStandard"
+               class="form-control full-width" name="text" ng-required="true"/>
+    </div>
+
+    <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12 text-right mrgn-tp-lg">
+        <label class="form-checkbox form-label-inline" for="inContainer">
+            <input type="checkbox" name="as-base" ng-model="mirCtrl.mirModel.inFinalContainer" id="inContainer">{{'IN_FINAL_CONTAINER'|translate}}
+        </label>
+    </div>
+
+</ng-form>

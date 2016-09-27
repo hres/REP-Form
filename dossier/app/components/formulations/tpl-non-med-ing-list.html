@@ -1,0 +1,9 @@
+<ng-form name="non-med-ing-list-form">
+    <cmp-expanding-table title="Non Medicinal Ingredient List" list-items="nmilCtrl.ingList"
+                         column-def="nmilCtrl.colNames" select-record="nmilCtrl.selectRecord"
+                         disable-selection="!nmilCtrl.isDetailValid">
+
+        <cmp-non-med-ing-record record="$parent.record"></cmp-non-med-ing-record>
+
+    </cmp-expanding-table>
+</ng-form>

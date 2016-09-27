@@ -23,7 +23,8 @@
                 getNewTransaction: '&',
                 deprecateSequence: '&', //bit of a hack
                 showErrors: '&',
-                isEctd: '<'
+                isEctd: '<',
+                parentDirty: '<'
             },
             controller: lifecycleListCtrl,
             controllerAs: 'lifeListCtrl'
@@ -40,7 +41,7 @@
         vm.setCollapsed = 0;
         vm.deletableIndex = 0;
         vm.oneRecord="";
-
+        vm.isParentDirty = false;
         vm.columnDef = [
             {
                 label: "SEQUENCE_NUM",
@@ -86,6 +87,9 @@
                  }*/
                 vm.setValid(!vm.lifecycleList || vm.lifecycleList.length === 0)
                 vm.updateErrorState();
+            }
+            if (changes.parentDirty) {
+                vm.isParentDirty = changes.parentDirty.currentValue;
             }
         }
 
@@ -156,7 +160,7 @@
          */
         vm.showError = function (isTouched, isInvalid) {
 
-            if ((isTouched && isInvalid) || (vm.showErrors() && isInvalid)) {
+            if ((vm.isParentDirty && isInvalid) || (vm.showErrors() && isInvalid)) {
                 return true
             }
             return false

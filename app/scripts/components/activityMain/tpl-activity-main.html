@@ -1,12 +1,11 @@
 <div>
     <ng-form id="reg-activity-form" name="main.activityEnrolForm"
-             novalidate="novalidate"
-             ng-init="main.initUser('EXT')">
+             novalidate="novalidate"">
         <section class="panel panel-primary mrgn-tp-lg">
             <header class="panel-heading clearfix">
                 <div class="btn-group pull-right">
                     <button class="btn btn-default btn-xs" ng-click="main.openHelp('activityFile')"
-                    aria-haspopup="true">
+                            aria-haspopup="true">
                         {{'HELP_FILE_LOAD'|translate}}
                     </button>
                 </div>
@@ -26,7 +25,8 @@
             <section class="panel panel-primary mrgn-tp-lg">
                 <header class="panel-heading clearfix">
                     <div class="btn-group pull-right">
-                        <button class="btn btn-default btn-xs" ng-click="main.openHelp('activityMain')" aria-haspopup="true">
+                        <button class="btn btn-default btn-xs" ng-click="main.openHelp('activityMain')"
+                                aria-haspopup="true">
                             {{'HELP_ACTIVITY_MAIN'|translate}}
                         </button>
                     </div>
@@ -254,7 +254,8 @@
                 <section class="panel panel-primary mrgn-tp-lg">
                     <header class="panel-heading clearfix">
                         <div class="btn-group pull-right">
-                            <button class="btn btn-default btn-xs" ng-click="main.openHelp('activityRep')" aria-haspopup="true">
+                            <button class="btn btn-default btn-xs" ng-click="main.openHelp('activityRep')"
+                                    aria-haspopup="true">
                                 {{'HELP_ACTIVITY_REP'|translate}}
                             </button>
                         </div>
@@ -264,7 +265,7 @@
                         <cmp-rep-contact-list contacts="main.activityRoot.contactRecord" on-update=""
                                               show-list-errors="main.showErrors()" is-amend="main.formAmend"
                                               parent-dirty="main.activityEnrolForm.$dirty"
-                                              get-new-contact="main.activityService.createRepContact()"></cmp-rep-contact-list>
+                                             ></cmp-rep-contact-list>
 
                     </div>
                 </section>

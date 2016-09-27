@@ -1,0 +1,54 @@
+<ng-form name="">
+<fieldset>
+    <legend>Route of Administration List</legend>
+
+    <!-- <pre>list:{{roaCtrl.model.list | json}}</pre>-->
+
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-text active  col-md-12">Route of Administration</li>
+        <li class="list-group-item  col-md-12" ng-repeat="item in roaCtrl.model.list" ng-include="roaCtrl.getTemplate(item)"></li>
+    </ul>
+
+    <script type="text/ng-template" id="displayRoa">
+        <div class="col-md-8">
+            <span class="field-name full-width">{{item.name}}</span>
+        </div>
+        <div class="btn-group-sm col-md-4 text-right">
+            <a href="" ng-click="roaCtrl.editRecord(item)" class="btn btn-default btn-sm">Edit</a>
+            <a href="" ng-click="roaCtrl.deleteRecord(item.id)" class="btn btn-danger btn-sm">Delete</a>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="editRoa">
+        <div class="col-md-8">
+            <select ng-model="item.name"  class="form-control full-width" >
+                <option ng-repeat="ctr in roaCtrl.model.roa">{{ctr}}</option>
+            </select>
+            <!--<input type="text" class="form-control full-width" ng-model="item.name"/>-->
+        </div>
+        <div class="btn-group-sm col-md-4 text-right">
+            <a href="" ng-click="roaCtrl.saveRecord(item.id)" class="btn btn-primary btn-sm">Save</a>
+            <a href="" ng-click="roaCtrl.reset()" class="btn btn-default btn-sm">Cancel</a>
+            <a href="" ng-click="roaCtrl.deleteRecord(item.id)" class="btn btn-danger btn-sm">Delete</a>
+        </div>
+        <div class="form-group col-md-8 mrgn-tp-lg has-error" ng-if="item.name === 'OTHER' ">
+            <!--<label for="unknown-country-details">Please specify the unknown details</label>-->
+
+            <label for="other-roa-details" class="required">
+                <span class="field-name">{{'OTHER_ROA_DETAILS'|translate}}</span>
+                <strong class="required">{{"REQUIRED" |translate}}</strong>
+            </label>
+
+            <textarea  id="other-roa-details" class="form-control full-width" ng-model="item.model.otherRoaDetails"></textarea>
+        </div>
+    </script>
+
+</fieldset>
+
+<div class="row mrgn-tp-md mrgn-bttm-lg">
+    <div class="btn-group-sm col-md-12 text-right">
+        <input type="submit" value="Add New" class="btn btn-primary" ng-click="roaCtrl.addNew()" />
+    </div>
+</div>
+
+</ng-form>
