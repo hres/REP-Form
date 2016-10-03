@@ -1,5 +1,3 @@
-THIS IS a copy . DO NOT MODIFIY THIS CODE
-
 1. Depends on the library: https://github.com/abdmob/x2js
 
 For FileIO.hpfbFileReader

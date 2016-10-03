@@ -3,16 +3,17 @@
 
 
     //TODO: Lazy load modules
-angular.module('dossierApp', ['pascalprecht.translate', 'dossierModule'])
+    angular.module('dossierApp', ['pascalprecht.translate', 'dossierModule'])
     .controller('MainController', MainController);
 
-    angular.element(document).ready(function() {
+    angular.element(document).ready(function () {
         angular.bootstrap(document, ['dossierApp']);
     })
 
     function MainController() {
             var vm = this;
             vm.formType = 'EXT';
+
         }
 
 
@@ -42,16 +43,39 @@ angular.module('dossierApp', ['pascalprecht.translate', 'dossierModule'])
                         suffix: '.json'
                     },
                     {
-                        prefix: 'app/resources/countries-',
+                        prefix: 'app/resources/applicationInfo-',
+                        suffix: '.json'
+                    },
+                    {
+                        prefix: 'app/resources/contact-',
+                        suffix: '.json'
+                    },
+                    {
+                        prefix: 'app/resources/appendix4-',
+                        suffix: '.json'
+                    },
+                    {
+                        prefix: 'app/resources/dossier-msg-',
+                        suffix: '.json'
+                    },
+                    {
+                        prefix: 'app/resources/messages-',
+                        suffix: '.json'
+                    },
+                    {
+                        prefix: 'app/resources/general-',
+                        suffix: '.json'
+                    },
+                    {
+                        prefix: 'app/resources/scheduleA-',
                         suffix: '.json'
                     }
-
 
                 ]
             });
             $translateProvider.preferredLanguage('en');
             //this prevents conflicts with ngMessage
             $translateProvider.directivePriority(1);
-          //  $translateProvider.useSanitizeValueStrategy('sanitize');
+            //  $translateProvider.useSanitizeValueStrategy('sanitize');
         }]);
 })();

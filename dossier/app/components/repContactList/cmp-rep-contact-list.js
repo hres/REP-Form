@@ -38,7 +38,6 @@
         vm.isParentDirty = false; //tracks whether the parent form has been dirtied
         vm.formAmend = false; //
         var repContactService=new RepContactService();
-        console.log("this is the service "+repContactService)
         vm.columnDef = [
             {
                 label: "FIRST_NAME",

@@ -1,36 +1,54 @@
-<fieldset>
-    <legend>Therapeutic Classification</legend>
+<ng-form name="$ctrl.theraForm">
+    <fieldset>
+        <legend>{{'THERA_CLASS'|translate}}</legend>
 
-    <ul class="list-group">
-        <li class="list-group-item list-group-item-text active  col-md-12">Classification Name</li>
-        <li class="list-group-item  col-md-12" ng-repeat="item in $ctrl.model.classifications" ng-include="$ctrl.getTemplate(item)"></li>
-    </ul>
-
-    <script type="text/ng-template" id="displayClass">
-        <div class="col-md-8">
-            <span class="field-name full-width">{{item.name}}</span>
-        </div>
-        <div class="btn-group-sm col-md-4 text-right">
-            <a href="" ng-click="$ctrl.editRecord(item)" class="btn btn-default btn-sm">Edit</a>
-            <a href="" ng-click="$ctrl.deleteRecord(item.id)" class="btn btn-danger btn-sm">Delete</a>
-        </div>
-    </script>
-
-    <script type="text/ng-template" id="editClass">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-text active  col-md-12">{{'THERA_CLASS_NAME'|translate}}</li>
+            <li class="list-group-item  col-md-12" ng-repeat="item in $ctrl.model.classifications"
+                ng-include="$ctrl.getTemplate(item)"></li>
+        </ul>
+        <script type="text/ng-template" id="displayClass">
             <div class="col-md-8">
-                <input type="text" class="form-control full-width" ng-model="item.name"/>
+                <span class="field-name full-width">{{item.name}}</span>
             </div>
             <div class="btn-group-sm col-md-4 text-right">
-                <a href="" ng-click="$ctrl.saveRecord(item.id)" class="btn btn-primary btn-sm">Save</a>
-                <a href="" ng-click="$ctrl.reset()" class="btn btn-default btn-sm">Cancel</a>
-                <a href="" ng-click="$ctrl.deleteRecord(item.id)" class="btn btn-danger btn-sm">Delete</a>
+                <a href="" ng-click="$ctrl.editRecord(item)" class="btn btn-default btn-sm">{{'EDIT'|translate}}</a>
+                <a href="" ng-click="$ctrl.deleteRecord(item.id)"
+                   class="btn btn-danger btn-sm">{{'DELETE'|translate}}</a>
             </div>
-    </script>
+        </script>
+        <script type="text/ng-template" id="editClass">
+            <div class="row">
+                <div class="col-md-8 form-group" ng-class="{'has-error':$ctrl.theraForm.therapeuticName.$invalid}">
+                    <label for="theraName_{{$id}}" class="required">
+                        <span class="field-name">{{'THERA_CLASS_NAME'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <strong id="theraName-error" class="error"
+                                ng-if="$ctrl.theraForm.therapeuticName.$invalid">
+                        <span class="label label-danger" ng-messages="$ctrl.theraForm.therapeuticName.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                        </strong>
+                    </label>
+            <textarea type="text" name="therapeuticName" id="theraName_{{$id}}" class="form-control full-width"
+                      required rows="3" maxlength="256" ng-model="item.name">
+                    </textarea>
+                </div>
+                <div class="btn-group-sm col-md-4 text-right">
+                    <a href="" ng-click="$ctrl.saveRecord(item.id)"
+                       class="btn btn-primary btn-sm">{{'SAVE'|translate}}</a>
+                    <a href="" ng-click="$ctrl.reset()" class="btn btn-default btn-sm">{{'CANCEL'|translate}}</a>
+                    <a href="" ng-click="$ctrl.deleteRecord(item.id)"
+                       class="btn btn-danger btn-sm">{{'DELETE'|translate}}</a>
+                </div>
+            </div>
+        </script>
+    </fieldset>
 
-</fieldset>
-
-<div class="row mrgn-tp-md mrgn-bttm-lg">
-    <div class="btn-group-sm col-md-12 text-right">
-        <input type="submit" value="Add New" class="btn btn-primary" ng-click="$ctrl.addNew()" />
+    <div class="row mrgn-tp-md mrgn-bttm-lg">
+        <div class="btn-group-sm col-md-12 text-right">
+            <input type="submit" value="{{'THERA_CLASS_ADD'|translate}}" class="btn btn-primary"
+                   ng-click="$ctrl.addNew()"/>
+        </div>
     </div>
-</div>
+</ng-form>

@@ -1,9 +1,93 @@
-<ng-form name="tfo-form">
-    <fieldset>
-        <legend class="required">{{'TISSUES_ORIGIN'|translate}}</legend>
-        <div class="col col-md-12">
-        <cmp-checkbox-list ng-repeat="item in tfoCtrl.model" title="{{item.title}}"
-                           common-name="{{item.groupName}}" list-items="item.list"></cmp-checkbox-list>
-        </div>
-    </fieldset>
-</ng-form>
+<div>
+    <ng-form name="tfoForm">
+        <fieldset>
+            <div class="row">
+                <div class="col-xs-12">
+                    <legend class=" required">
+                        <span class="field-name">{{'TISSUES_ORIGIN'| translate}}</span>
+                        <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                <span>
+                    <input id="oneSelected_{{$id}}" name="oneSelected" ng-required="true" ng-show="false"
+                           ng-model="tfoCtrl.isSelected" ng-required="true"/>
+                <strong id="roleSelected-role-error" class="error" ng-if="tfoCtrl.showNoRecordError(tfo-form.$dirty)">
+                             <span class="label label-danger" aria-live="polite"
+                                   ng-messages="tfoForm.oneSelected.$error">
+                                {{"MSG_ERR_ONE_SYSTEM"|translate}}
+                             </span>
+                </strong>
+                    </span>
+                    </legend>
+                </div>
+            </div>
+            <div>
+                <uib-accordion close-others="true">
+                    <div uib-accordion-group heading="{{'NERVOUSYSTEM' |translate}}" is-open="false" is-disabled="false"
+                         template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
+                        <div class="col col-md-12">
+                            <cmp-checkbox-list
+                                    common-name="{{tfoCtrl.model.nervousSystem.groupName}}"
+                                    list-items="tfoCtrl.model.nervousSystem.list"></cmp-checkbox-list>
+                        </div>
+                    </div>
+
+                    <div uib-accordion-group heading="{{'DIGESTIVESYSTEM' |translate}}" is-open="false"
+                         is-disabled="false" template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
+                        <div class="col col-md-12">
+                            <cmp-checkbox-list
+                                    common-name="{{tfoCtrl.model.digestiveSystem.groupName}}"
+                                    list-items="tfoCtrl.model.digestiveSystem.list"></cmp-checkbox-list>
+                        </div>
+                    </div>
+                    <div uib-accordion-group heading="{{'REPRODUCTSYSTEM' |translate}}" is-open="false"
+                         is-disabled="false" template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
+                        <div class="col col-md-12">
+                            <cmp-checkbox-list
+                                    common-name="{{tfoCtrl.model.reproductiveSystem.groupName}}"
+                                    list-items="tfoCtrl.model.reproductiveSystem.list"></cmp-checkbox-list>
+                        </div>
+                    </div>
+                    <div uib-accordion-group heading="{{'CARDIOSYSTEM' |translate}}" is-open="false"
+                         is-disabled="false" template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
+                        <div class="col col-md-12">
+                            <cmp-checkbox-list
+                                    common-name="{{tfoCtrl.model.cardioSystem.groupName}}"
+                                    list-items="tfoCtrl.model.cardioSystem.list"></cmp-checkbox-list>
+                        </div>
+                    </div>
+                    <div uib-accordion-group heading="{{'IMMUNESYSTEM' |translate}}" is-open="false"
+                         is-disabled="false" template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
+                        <div class="col col-md-12">
+                            <cmp-checkbox-list
+                                    common-name="{{tfoCtrl.model.immuneSystem.groupName}}"
+                                    list-items="tfoCtrl.model.immuneSystem.list"></cmp-checkbox-list>
+                        </div>
+                    </div>
+                    <div uib-accordion-group heading="{{'SKINGLANDSYSTEM' |translate}}" is-open="false"
+                         is-disabled="false" template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
+                        <div class="col col-md-12">
+                            <cmp-checkbox-list
+                                    common-name="{{tfoCtrl.model.skinGlandSystem.groupName}}"
+                                    list-items="tfoCtrl.model.skinGlandSystem.list"></cmp-checkbox-list>
+                        </div>
+                    </div>
+                    <div uib-accordion-group heading="{{'MUSCULOSYSTEM' |translate}}" is-open="false"
+                         is-disabled="false" template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
+                        <div class="col col-md-12">
+                            <cmp-checkbox-list
+                                    common-name="{{tfoCtrl.model.musculoSkeletalSystem.groupName}}"
+                                    list-items="tfoCtrl.model.musculoSkeletalSystem.list"></cmp-checkbox-list>
+                        </div>
+                    </div>
+                    <div uib-accordion-group heading="{{'OTHERTISSUE' |translate}}" is-open="false" is-disabled="false"
+                         template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
+                        <div class="col col-md-12">
+                            <cmp-checkbox-list
+                                    common-name="{{tfoCtrl.model.otherTissues.groupName}}"
+                                    list-items="tfoCtrl.model.otherTissues.list"></cmp-checkbox-list>
+                        </div>
+                    </div>
+                </uib-accordion>
+            </div>
+        </fieldset>
+    </ng-form>
+</div>

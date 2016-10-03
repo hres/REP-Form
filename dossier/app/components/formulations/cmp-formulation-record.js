@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module('formulationRecordModule', ['activeIngListModule','nonMedIngListModule','containerTypeListModule', 'materialIngListModule', 'roaModule'])
+        .module('formulationRecordModule', ['activeIngListModule', 'nonMedIngListModule', 'containerTypeListModule', 'materialIngListModule', 'roaModule'])
 })();
 
 (function () {
@@ -19,12 +19,12 @@
             controllerAs: 'formulRecCtrl',
             controller: formulationRecCtrl,
             bindings: {
-                record:'<'
+                record: '<'
             }
 
         });
 
-    function formulationRecCtrl(){
+    function formulationRecCtrl() {
 
     }
 })();

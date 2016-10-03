@@ -3,6 +3,10 @@
   "N": "No",
   "UNK":"Unknown",
   "REQUIRED":"(required)",
-  "OTHER":"Other"
-
+  "OTHER":"Other",
+  "DOSSIER_NUMBER": "Dossier ID",
+  "SAVE": "Save",
+  "CANCEL": "Cancel",
+  "DELETE": "Delete",
+  "EDIT": "Edit"
 }

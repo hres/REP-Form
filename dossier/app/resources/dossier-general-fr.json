@@ -1,9 +1,12 @@
 {
   "Y": "Oui",
   "N": "Non",
-  "UNK":"Inconnu",
+  "UNK": "Inconnu",
   "REQUIRED": "(requis)",
-  "OTHER":"Autre",
-  "DOSSIER_ID": "Dossier ID"
-
+  "OTHER": "Autre",
+  "DOSSIER_ID": "fr_Dossier ID",
+  "SAVE": "fr_Save",
+  "CANCEL": "fr_Cancel",
+  "DELETE": "fr_Delete",
+  "EDIT": "fr_Edit"
 }

@@ -14,32 +14,32 @@
 
     angular
         .module('containerTypeRecordModule')
-        .component('cmpContainerTypeRecord',{
+        .component('cmpContainerTypeRecord', {
             templateUrl: './app/components/formulations/tpl-container-type-record.html',
             controllerAs: 'ctrCtrl',
             controller: containerTypeRecCtrl,
             bindings: {
-                record:'<'
+                record: '<'
             }
 
         });
 
-    function containerTypeRecCtrl(){
+    function containerTypeRecCtrl() {
 
         var self = this;
 
-        self.$onInit = function(){
+        self.$onInit = function () {
 
             self.ctModel = {
-                "containerType" : "A",
-                "packageSize" : "A",
+                "containerType": "A",
+                "packageSize": "A",
                 "shelfLifeYears": "9999",
                 "shelfLifeMonths": "99",
                 "tempMin": "999",
                 "tempMax": "999"
             };
 
-            if(self.record){
+            if (self.record) {
                 self.ctModel = self.record;
             }
         }

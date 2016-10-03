@@ -26,21 +26,20 @@
         });
 
 
-
-    function roaCtrl($filter){
+    function roaCtrl($filter) {
         var self = this;
 
-        self.$onInit = function(){
+        self.$onInit = function () {
 
-            self.model={
-                list : [
-                    {"id":1, "name":"Transdermal1"},
-                    {"id":2, "name":"Transdermal2"},
-                    {"id":3, "name":"Transdermal3"}
+            self.model = {
+                list: [
+                    {"id": 1, "name": "Transdermal1"},
+                    {"id": 2, "name": "Transdermal2"},
+                    {"id": 3, "name": "Transdermal3"}
                 ],
 
-                roa :["Transdermal1", "Transdermal2", "Transdermal3", "Transdermal4", "OTHER"],
-                selected:{}
+                roa: ["Transdermal1", "Transdermal2", "Transdermal3", "Transdermal4", "OTHER"],
+                selected: {}
             }
         };
 
@@ -50,20 +49,18 @@
         };
 
 
-
-        self.addNew = function(){
+        self.addNew = function () {
 
             var maxID = getListMaxID();
 
             //console.log("addNew maxID: " + JSON.stringify(maxID) );
 
-            var item = {"id":maxID + 1, "name":""};
+            var item = {"id": maxID + 1, "name": ""};
 
             self.model.list.push(item);
             self.editRecord(item);
 
         };
-
 
 
         self.editRecord = function (item) {
@@ -85,30 +82,29 @@
             var idx = self.model.list.indexOf(
                 $filter('filter')(self.model.list, {id: _id}, true)[0]
             );
-            if(idx < 0) return;
+            if (idx < 0) return;
 
-            self.model.list.splice(idx,1);
+            self.model.list.splice(idx, 1);
         };
-
 
 
         self.reset = function () {
             var item = self.model.selected;
             //console.log('reset selected: ' + item.toSource());
-            if(angular.isUndefined(item))
+            if (angular.isUndefined(item))
                 return;
 
-           // self.deleteRecord(item.id)
+            // self.deleteRecord(item.id)
             self.model.selected = {};
 
         };
 
-        function getListMaxID(){
+        function getListMaxID() {
 
             var out = 0;
             var list = self.model.list;
             if (list) {
-                for (var i = 0; i<list.length; i++) {
+                for (var i = 0; i < list.length; i++) {
                     if (list[i].id > out) {
                         out = list[i].id;
                     }
@@ -117,7 +113,6 @@
             return out;
 
         }
-
 
 
     }

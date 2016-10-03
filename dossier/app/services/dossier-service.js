@@ -148,7 +148,7 @@
                         canRefProducts: {
                             productList : getCanRefProductList(info.ref_product_list.cdn_ref_product)
                         },//grid
-                        formulations: {},//tab + grid +
+                        formulations: getFormulationList(info.formulation_group.formulation_details),//tab + grid +
                         appendixFour: {
                             ingredientList : getAppendix4IngredientList(info.appendix4_group)
                         }//tab + grid +
@@ -412,6 +412,179 @@
 
         return list;
 
+
+    }
+
+    function getFormulationList(list){
+
+        var formulationList = [];
+
+        angular.forEach(list, function (item) {
+
+            var obj = {
+                "formulation": item.formulation_id,
+                "formulationName": item.formulation_name,
+                "activeIngList": getActiveIngList(item.active_ingredient),
+                "nMedIngList": getNonMedIngList(item.nonmedicinal_ingredient),
+                "containerTypes": getContainerTypeList(item.container_group.container_details),
+                "animalHumanMaterials": getMaterialList(item.material_ingredient),
+                "routeAdmins": getRouteAdminList(item.roa_group.roa_details),
+                "countryList": getFormulationCountryList(item.country_group.country_manufacturer)
+
+            }
+
+            formulationList.push(obj);
+
+
+        });
+
+        return formulationList;
+
+    }
+
+    function getActiveIngList(list){
+
+        var array = [];
+
+        angular.forEach(list, function (item) {
+
+            var obj = {
+                "ingId": item.ingredient_id,
+                "ingName": item.ingredient_name,
+                "cas": item.cas_number,
+                "humanAnimalSourced": item.is_human_animal_src === 'Y'? true : false,
+                "standard": item.ingred_standard,
+                "strength": item.strength,
+                "per": item.per,
+                "units": item.units,
+                "calcAsBase": item.is_base_calc === 'Y'? true : false,
+                "nanoMaterial": item.is_nanomaterial === 'Y'? true : false,
+                "nanoMaterialOther": item.nanomaterial_details
+            };
+
+            array.push(obj);
+
+        });
+
+        return array;
+
+    }
+
+    function getNonMedIngList(list){
+
+        var array = [];
+
+        angular.forEach(list, function (item) {
+
+            var obj = {
+                "ingId": item.ingredient_id,
+                "varId": item.variant_name,
+                "ingName": item.ingredient_name,
+                "cas": item.cas_number,
+                "humanAnimalSourced": item.is_human_animal_src === 'Y'? true : false,
+                "standard": item.ingred_standard,
+                "strength": item.strength,
+                "per": item.per,
+                "units": item.units,
+                "calcAsBase": item.is_base_calc === 'Y'? true : false,
+                "nanoMaterial": item.is_nanomaterial === 'Y'? true : false,
+                "nanoMaterialOther": item.nanomaterial_details
+            };
+
+            array.push(obj);
+
+        });
+
+        return array;
+
+    }
+
+    function getContainerTypeList(list){
+
+        var array = [];
+
+        angular.forEach(list, function (item) {
+
+            var obj = {
+                "containerType" : item.container_type,
+                "packageSize" : item.package_size,
+                "shelfLifeYears": item.shelf_life_years,
+                "shelfLifeMonths": item.shelf_life_months,
+                "tempMin": item.temperature_min,
+                "tempMax": item.temperature_max
+            };
+
+            array.push(obj);
+
+        });
+
+        return array;
+    }
+
+    function getMaterialList(list){
+
+        var array = [];
+
+        angular.forEach(list, function (item) {
+
+
+            var obj = {
+                "ingredientId": item.ingredient_id,
+                "ingredientName": item.ingredient_name,
+                "cas": item.cas_number,
+                "ingredientStandard": item.ingred_standard,
+                "inFinalContainer": item.in_final_container === 'Y'? true : false
+            };
+
+            array.push(obj);
+
+        });
+
+        return array;
+    }
+
+    function getRouteAdminList(list){
+
+        var array = [];
+
+        var _id = 0;
+
+        angular.forEach(list, function (item) {
+
+            _id = _id+1;
+            var obj = {
+                "id": _id,
+                "roa": item.roa,
+                "otherRoaDetails": item.roa_other
+            };
+
+            array.push(obj);
+
+        });
+
+        return array;
+
+    }
+
+    function getFormulationCountryList(list){
+
+        var array = [];
+
+        var _id = 0;
+
+        angular.forEach(list, function (item) {
+
+            _id = _id+1;
+            var obj = {
+                "id": _id,
+                "name": item
+            };
+
+            array.push(obj);
+
+        });
+
+        return array;
 
     }
 

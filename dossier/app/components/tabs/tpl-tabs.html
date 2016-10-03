@@ -2,7 +2,8 @@
     <!-- <pre>tabs {{tabsCtrl.tabs | json}}</pre>-->
 
     <ul class="nav nav-tabs">
-        <li ng-repeat="tab in tabsCtrl.tabs" role="presentation" ng-click="tabsCtrl.selectTab($index)" ng-class="{'active':tabsCtrl.tabs[$index].selected === true}">
+        <li ng-repeat="tab in tabsCtrl.tabs" role="presentation" ng-click="tabsCtrl.selectTab($index)"
+            ng-class="{'active':tabsCtrl.tabs[$index].selected === true}">
             <a href="#" role="tab">{{tab.label}}</a>
         </li>
 

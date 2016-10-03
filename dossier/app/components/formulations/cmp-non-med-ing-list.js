@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('nonMedIngListModule', ['expandingTable','nonMedIngRecordModule'])
+        .module('nonMedIngListModule', ['expandingTable', 'nonMedIngRecordModule'])
 })();
 
 (function () {
@@ -25,16 +25,16 @@
             }
         });
 
-    function nonMedIngListCtrl(){
+    function nonMedIngListCtrl() {
 
         var self = this;
 
-        self.$onInit = function(){
+        self.$onInit = function () {
             self.colNames = [
-                {"label":"Variant ID", "binding":"varId"},
-                {"label":"Active Ingredient Name", "binding":"ingName"},
-                {"label":"CAS", "binding":"cas"},
-                {"label":"Human/Animal Sourced ?", "binding":"humanAnimalSourced"}
+                {"label": "Variant ID", "binding": "varId"},
+                {"label": "Active Ingredient Name", "binding": "ingName"},
+                {"label": "CAS", "binding": "cas"},
+                {"label": "Human/Animal Sourced ?", "binding": "humanAnimalSourced"}
             ];
             self.ingList = [
                 {
@@ -48,7 +48,7 @@
                     "per": "A",
                     "units": "A",
                     "calcAsBase": true,
-                    "animalHumanSourced":true,
+                    "animalHumanSourced": true,
                     "nanoMaterial": "Yes",
                     "nanoMaterialOther": "A"
                 },
@@ -63,7 +63,7 @@
                     "per": "A",
                     "units": "A",
                     "calcAsBase": true,
-                    "animalHumanSourced":false,
+                    "animalHumanSourced": false,
                     "nanoMaterial": "Yes",
                     "nanoMaterialOther": "A"
                 },
@@ -78,7 +78,7 @@
                     "per": "A",
                     "units": "A",
                     "calcAsBase": false,
-                    "animalHumanSourced":true,
+                    "animalHumanSourced": true,
                     "nanoMaterial": "Other",
                     "nanoMaterialOther": "A"
                 },

@@ -143,8 +143,8 @@
         <h1 property="name" id="wb-cont">fr_Dossier Form for the Regulatory Enrolment Process (REP)</h1>
 
         <!-- inject:mainContent-->
-        <div class="container">
-    <cmp-dossier></cmp-dossier>
+        <div class="container" ng-app="dossierApp" ng-controller="MainController as ctrl">
+    <cmp-dossier form-type="{{ctrl.formType}}"></cmp-dossier>
 </div>
 
         <!-- endinject-->
@@ -157,7 +157,7 @@
         <dl id="wb-dtmd">
             <dt>Date de modification&#160;:&#32;</dt>
             <dd>
-                <time property="dateModified">2016-09-26 </time>
+                <time property="dateModified">2016-10-03 </time>
             </dd>
         </dl>
     </div>
@@ -228,12 +228,6 @@
 
 <!-- inject:js -->
 
-<script src="app/lib/xml2json.js"></script>
-
-<script src="app/lib/sha256.js"></script>
-
-<script src="app/lib/FileSaver.min.js"></script>
-
 <script src="app/lib/angular.min.js"></script>
 
 <script src="app/lib/angular-translate.min.js"></script>
@@ -267,6 +261,8 @@
 <script src="app/services/data-lists.js"></script>
 
 <script src="app/services/application-info-service.js"></script>
+
+<script src="app/directives/numberOnly/only-digits.js"></script>
 
 <script src="app/components/therapeutic-classification/cmp-therapeutic-class.js"></script>
 
@@ -302,12 +298,6 @@
 
 <script src="app/components/formulations/cmp-active-ing-list.js"></script>
 
-<script src="app/components/fileIO/xml2json.js"></script>
-
-<script src="app/components/fileIO/sha256.js"></script>
-
-<script src="app/components/fileIO/FileSaver.min.js"></script>
-
 <script src="app/components/fileIO/FileIO.hpfbFileReader.js"></script>
 
 <script src="app/components/expanding-table/cmp-expanding-table.js"></script>
@@ -315,14 +305,6 @@
 <script src="app/components/drug-use/cmp-drug-use.js"></script>
 
 <script src="app/components/contactDetails/cmp-contact-details.js"></script>
-
-<script src="app/components/contact/cmp-contact-record.js"></script>
-
-<script src="app/components/contact/cmp-contact-list.js"></script>
-
-<script src="app/components/contact/cmp-contact-details.js"></script>
-
-<script src="app/components/contact/cmp-address-role.js"></script>
 
 <script src="app/components/checkbox-list/cmp-checkbox-list.js"></script>
 
@@ -343,7 +325,17 @@
 <script src="app/components/appendix-four/cmp-appendix-four-record.js"></script>
 
 <!-- endinject -->
+<!-- thirdParty:js  -->
 
+<script src="app/lib/FileSaver.min.js"></script>
+
+<script src="app/lib/sha256.js"></script>
+
+<script src="app/lib/ui-bootstrap-tpls-2.1.4.min.js"></script>
+
+<script src="app/lib/xml2json.js"></script>
+
+<!-- endinject -->
 
 </body>
 </html>

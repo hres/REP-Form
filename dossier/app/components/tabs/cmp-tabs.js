@@ -6,7 +6,7 @@
 
 
     //TODO: Lazy load modules
-    angular.module('tabsModule', ['formulationsModule','appendixFourModule']);
+    angular.module('tabsModule', ['formulationsModule', 'appendixFourModule']);
 })();
 
 (function () {
@@ -42,7 +42,7 @@
 
         self.selectTab = function (idx) {
 
-               angular.forEach(self.tabs, function (tab) {
+            angular.forEach(self.tabs, function (tab) {
                     tab.selected = false;
                 });
 

@@ -19,32 +19,32 @@
             controllerAs: 'ingRecCtrl',
             controller: activeIngRecCtrl,
             bindings: {
-                record:'<'
+                record: '<'
             }
 
         });
 
-    function activeIngRecCtrl(){
+    function activeIngRecCtrl() {
 
         var self = this;
 
-        self.$onInit = function(){
+        self.$onInit = function () {
 
             self.ingModel = {
-                ingId : "001",
-                ingName : "",
-                cas : "",
-                standard : "",
-                strength : "",
-                units : "",
+                ingId: "001",
+                ingName: "",
+                cas: "",
+                standard: "",
+                strength: "",
+                units: "",
                 per: "",
                 calcAsBase: false,
-                animalHumanSourced : false,
-                nanoMaterial : "",
-                nanoMaterialOther : ""
+                animalHumanSourced: false,
+                nanoMaterial: "",
+                nanoMaterialOther: ""
             };
 
-            if(self.record){
+            if (self.record) {
                 self.ingModel = self.record;
             }
         }

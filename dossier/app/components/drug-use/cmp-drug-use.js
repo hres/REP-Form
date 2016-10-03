@@ -20,7 +20,9 @@
             controller: drugUseCtrl,
             controllerAs: 'duCtrl',
             bindings: {
-                listItems: '<' //array of objects
+                listItems: '<', //array of objects
+                showListErrors: '&',
+                parentDirty: '<'
             }
         });
 
@@ -37,5 +39,23 @@
                 {"name":"disinfectant", "label":"Disinfectant", "value":false}
             ]
         }
+
+        self.isDrugUseSelected = function () {
+            if (!self.myList) {
+                return true;
+            }
+            for (var i = 0; i < self.myList.length; i++) {
+                if (self.myList[i].value) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        self.showNoRecordError = function (isInvalid) {
+            return ((self.parentDirty && !self.isDrugUseSelected() ) || (self.showListErrors() && !self.isDrugUseSelected()));
+        }
+
+
+
     }
 })();

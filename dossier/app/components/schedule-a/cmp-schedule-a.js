@@ -21,14 +21,15 @@
             bindings: {
                 scheduleGroup: '<',
                 onUpdate: '&',
-                onDelete: '&'
+                onDelete: '&',
+                showErrors: '&'
             }
 
         });
 
     function scheduleACtrl() {
         var self = this;
-
+        self.claimSelected=false;
         self.$onInit = function () {
             self.scheduleAModel = {
                 drugIdNumber: "00000000",
@@ -64,7 +65,7 @@
                     {name: "thrombotic-embolic-disorder", label: "Thrombotic Embolic Disorder", value: false},
                     {name: "thyroid-disease", label: "Thyroid Disease", value: false},
                     {name: "ulcer-gastro", label: "Ulcer Gastro", value: false},
-                    {name: "other", label: "Other", value: false, hasOtherDetails:true}
+                    {name: "other", label: "Other", value: false, hasOtherDetails:true, otherText:"A"}
                 ]
 
 
@@ -79,6 +80,34 @@
              });
 
              cons*/
+        }
+        /**
+         * Updates the bindings
+         * @param changes
+         */
+        self.$onChanges=function(changes){
+            if(changes.scheduleGroup){
+                self.scheduleAModel = changes.scheduleGroup.currentValue;
+            }
+        };
+
+        /**
+         * Checks to see if at least one claim has been selected
+         */
+        self.claimSelected=function(){
+            for (var i=0;i<self.scheduleAModel.diseaseDisorderList.length;i++){
+                if(self.scheduleAModel.diseaseDisorderList[i].value){
+                    return true;
+                }
+            }
+            return false;
+        };
+        self.noClaimSelected=function(){
+            return(!self.claimSelected());
+        }
+        self.showError = function (isInvalid, isTouched) {
+
+            return ((isInvalid && isTouched) || (isInvalid && self.showErrors()))
         }
     }
 

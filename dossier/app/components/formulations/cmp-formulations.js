@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module('formulationsModule', ['expandingTable','formulationRecordModule'])
+        .module('formulationsModule', ['expandingTable', 'formulationRecordModule'])
 })();
 
 (function () {
@@ -14,18 +14,18 @@
 
     angular
         .module('formulationsModule')
-        .component('cmpFormulations',{
+        .component('cmpFormulations', {
             templateUrl: './app/components/formulations/tpl-formulations.html',
             controller: formulationsCtrl,
             controllerAs: 'formulCtrl',
             bindings: {}
         });
 
-    function formulationsCtrl(){
+    function formulationsCtrl() {
 
-        var self=this;
+        var self = this;
 
-        self.$onInit = function() {
+        self.$onInit = function () {
             self.colNames = [
                 {"label": "Formulation", "binding": "formulation"},
                 {"label": "Formulation Name", "binding": "formulationName"}

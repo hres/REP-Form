@@ -650,7 +650,7 @@
     function getSalService() {
         var service = {
             getSalutationList: getSalValuesArray,
-            getLanguages: getLanguagesValuesArray
+            getLanguages: getLanguagesValuesArray,
         };
         return service;
 
@@ -690,7 +690,7 @@
     /* @ngInject */
     function getRolesService() {
         var service = {
-            getContactRoles: getRoleValuesArray
+            getContactRoles: getRoleValuesArray,
         };
         return service;
 

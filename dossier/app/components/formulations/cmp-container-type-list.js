@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('containerTypeListModule', ['expandingTable','containerTypeRecordModule'])
+        .module('containerTypeListModule', ['expandingTable', 'containerTypeRecordModule'])
 })();
 
 
@@ -26,22 +26,22 @@
             }
         });
 
-    function containerTypeListCtrl(){
+    function containerTypeListCtrl() {
 
         var self = this;
 
-        self.$onInit = function(){
+        self.$onInit = function () {
 
             self.colNames = [
-                {"label":"Container Type", "binding":"containerType"},
-                {"label":"Package Size", "binding":"packageSize"}
+                {"label": "Container Type", "binding": "containerType"},
+                {"label": "Package Size", "binding": "packageSize"}
             ];
 
             self.containerList = [
 
                 {
-                    "containerType" : "A",
-                    "packageSize" : "A",
+                    "containerType": "A",
+                    "packageSize": "A",
                     "shelfLifeYears": "9999",
                     "shelfLifeMonths": "99",
                     "tempMin": "999",
@@ -49,8 +49,8 @@
                 },
 
                 {
-                    "containerType" : "B",
-                    "packageSize" : "A",
+                    "containerType": "B",
+                    "packageSize": "A",
                     "shelfLifeYears": "9999",
                     "shelfLifeMonths": "99",
                     "tempMin": "999",
@@ -58,8 +58,8 @@
                 },
 
                 {
-                    "containerType" : "C",
-                    "packageSize" : "A",
+                    "containerType": "C",
+                    "packageSize": "A",
                     "shelfLifeYears": "9999",
                     "shelfLifeMonths": "99",
                     "tempMin": "999",

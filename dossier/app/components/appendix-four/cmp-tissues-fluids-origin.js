@@ -25,7 +25,7 @@
     function tissuesFluidsOriginCtrl(){
 
         var self = this;
-
+        self.isSelected = "";
         self.$onInit = function(){
 
             self.model = {
@@ -43,7 +43,13 @@
                     {name: "retina-optic", label: "Retina Optic", value: false},
                     {name: "spinal-cord", label: "Spinal Cord", value: false},
                     {name: "trigerminal-ganglia", label: "Trigerminal Ganglia", value: false},
-                    {name: "other-nervous", label: "Other Nervous", value: false, hasOtherDetails:true}
+                        {
+                            name: "other-nervous",
+                            label: "Other Nervous",
+                            value: false,
+                            hasOtherDetails: true,
+                            otherText: ""
+                        }
                 ]},
                 digestiveSystem:{
                     title: "Digestive System",
@@ -56,7 +62,13 @@
                     {name: "saliva-salivary", label: "Saliva Salivary", value:false},
                     {name: "small-intestine", label: "Small Intestine", value:false},
                     {name: "stomach", label: "stomach", value:false},
-                    {name: "other-digestive", label: "Other Digestive", value:false, hasOtherDetails:true}
+                        {
+                            name: "other-digestive",
+                            label: "Other Digestive",
+                            value: false,
+                            hasOtherDetails: true,
+                            otherText: ""
+                        }
                 ]},
                 reproductiveSystem:{
                     title: "Reproductive System",
@@ -72,7 +84,13 @@
                     {name: "semen", label: "semen", value:false},
                     {name: "testes", label: "testes", value:false},
                     {name: "urine", label: "urine", value:false},
-                    {name: "other-reproductive", label: "Other Reproductive", value:false, hasOtherDetails:true}
+                        {
+                            name: "other-reproductive",
+                            label: "Other Reproductive",
+                            value: false,
+                            hasOtherDetails: true,
+                            otherText: ""
+                        }
                 ]},
                 cardioSystem:{
                     title: "Cardio System",
@@ -82,7 +100,13 @@
                     {name: "lung", label: "lung", value:false},
                     {name: "nasal-fluid", label: "Nasal Fluid", value:false},
                     {name: "trachea", label: "trachea", value:false},
-                    {name: "other-cardio-respiratory", label: "Other Cardio Respiratory", value:false, hasOtherDetails:true}
+                        {
+                            name: "other-cardio-respiratory",
+                            label: "Other Cardio Respiratory",
+                            value: false,
+                            hasOtherDetails: true,
+                            otherText: ""
+                        }
                 ]},
                 immuneSystem:{
                     title: "Immune System",
@@ -92,7 +116,13 @@
                     {name: "spleen", label: "spleen", value:false},
                     {name: "thymus", label: "thymus", value:false},
                     {name: "tonsils", label: "tonsils", value:false},
-                    {name: "other-immune", label: "Other Immune", value:false, hasOtherDetails:true}
+                        {
+                            name: "other-immune",
+                            label: "Other Immune",
+                            value: false,
+                            hasOtherDetails: true,
+                            otherText: ""
+                        }
                 ]},
                 skinGlandSystem:{
                     title: "Skin Gland System",
@@ -105,7 +135,13 @@
                     {name: "pituitary", label: "pituitary", value:false},
                     {name: "skin-hides", label: "skinHides", value:false},
                     {name: "thyroid-parathyroid", label: "Thyroid Parathyroid", value:false},
-                    {name: "other-skin-glandular", label: "Other Skin Glandular", value:false, hasOtherDetails:true}
+                        {
+                            name: "other-skin-glandular",
+                            label: "Other Skin Glandular",
+                            value: false,
+                            hasOtherDetails: true,
+                            otherText: ""
+                        }
                 ]},
                 musculoSkeletalSystem:{
                     title: "Musculo Skeletal System",
@@ -118,7 +154,13 @@
                     {name: "tendons-ligaments", label: "Tendons Ligaments", value:false},
                     {name: "vertebral-column", label: "Vertebral Column", value:false},
                     {name: "muscle", label: "muscle", value:false},
-                    {name: "other-musculo-skeletal", label: "Other Musculo Skeletal", value:false, hasOtherDetails:true}
+                        {
+                            name: "other-musculo-skeletal",
+                            label: "Other Musculo Skeletal",
+                            value: false,
+                            hasOtherDetails: true,
+                            otherText: ""
+                        }
                 ]},
                 otherTissues:{
                     title: "Other Tissues",
@@ -135,7 +177,13 @@
                     {name: "bone-marrow", label: "Bone Marrow", value:false},
                     {name: "eyes-cornea", label: "Eyes Cornea", value:false},
                     {name: "gall-bladder", label: "Gall Bladder", value:false},
-                    {name: "other-fluids-tissues", label: "Other Fluids Tissues", value:false, hasOtherDetails:true}
+                        {
+                            name: "other-fluids-tissues",
+                            label: "Other Fluids Tissues",
+                            value: false,
+                            hasOtherDetails: true,
+                            otherText: ""
+                        }
                 ]
             }};
 
@@ -151,5 +199,41 @@
             });*/
 
         }
+
+        self.oneTissueSourceSelected = function () {
+            var tissuesArray = [
+                self.model.nervousSystem,
+                self.model.digestiveSystem,
+                self.model.reproductiveSystem,
+                self.model.immuneSystem,
+                self.model.cardioSystem,
+                self.model.musculoSkeletalSystem
+            ];
+            //n2 not terribly efficient
+            for (var i = 0; i < tissuesArray.length; i++) {
+                for (var j = 0; j < tissuesArray[i].list.length; j++) {
+                    if (tissuesArray[i].list[j].value === true) {
+                        //if has otherText property, check that it is filled in
+                        if (tissuesArray[i].list[j].hasOwnProperty('otherText')) {
+                            if (tissuesArray[i].list[j].otherText) {
+                                self.isSelected = true;
+                                return true;
+                            }
+                        } else {
+                            self.isSelected = true;
+                            return true
+                        }
+                    }
+                }
+            }
+            self.isSelected = "";
+            return false;
+        };
+
+        self.showNoRecordError = function (isDirty) {
+            return (!self.oneTissueSourceSelected());
+
+        }
+
     }
 })();

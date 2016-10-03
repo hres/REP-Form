@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module('materialIngListModule', ['expandingTable','materialIngRecordModule'])
+        .module('materialIngListModule', ['expandingTable', 'materialIngRecordModule'])
 })();
 
 (function () {
@@ -24,16 +24,16 @@
             }
         });
 
-    function materialIngListCtrl(){
+    function materialIngListCtrl() {
 
         var self = this;
 
-        self.$onInit = function(){
+        self.$onInit = function () {
 
             self.colNames = [
-                {"label":"Material Name", "binding":"ingredientName"},
-                {"label":"CAS", "binding":"cas"},
-                {"label":"Present In Final", "binding":"inFinalContainer"}
+                {"label": "Material Name", "binding": "ingredientName"},
+                {"label": "CAS", "binding": "cas"},
+                {"label": "Present In Final", "binding": "inFinalContainer"}
             ];
 
             self.ingList = [
@@ -60,7 +60,7 @@
                 }
             ];
 
-            if(self.ingredients){
+            if (self.ingredients) {
                 self.ingList = self.ingredients;
             }
 

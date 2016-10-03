@@ -19,16 +19,16 @@
             controllerAs: 'mirCtrl',
             controller: materialIngRecCtrl,
             bindings: {
-                record:'<'
+                record: '<'
             }
 
         });
 
-    function materialIngRecCtrl(){
+    function materialIngRecCtrl() {
 
         var self = this;
 
-        self.$onInit = function(){
+        self.$onInit = function () {
 
             self.mirModel = {
                 "ingredientId": "A",
@@ -39,7 +39,7 @@
             };
 
 
-            if(self.record){
+            if (self.record) {
                 self.mirModel = self.record;
             }
         }

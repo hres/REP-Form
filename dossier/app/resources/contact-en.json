@@ -19,6 +19,8 @@
   "CONTACT_INFO": "Contact Information",
   "AMEND": "Amend",
   "REP_CONTACT":  "REP Contact",
-  "ONE_ROLE": "Role"
+  "ONE_ROLE": "Role",
+  "CONTACT_DETAILS": "Contact Details",
+  "ADD_CONTACT": "Add Contact"
 
 }

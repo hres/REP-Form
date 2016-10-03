@@ -19,7 +19,8 @@
             controllerAs: 'ap4RecCtrl',
             controller: app4RecCtrl,
             bindings: {
-                record:'<'
+                record: '<',
+                showListErrors: '&'
             }
 
         });
@@ -27,25 +28,32 @@
     function app4RecCtrl(){
 
         var self = this;
-
+        self.model = {}
         self.$onInit = function(){
 
-            self.model = {
-                ingredientName : "zcdcsdc",
-                humanSourced : false,
-                animalSourced : false,
-
-                tissuesFluidsOrigin : {},
-
-                animalSourcedInfo : {}
+        }
+        self.$onChanges = function (changes) {
+            if (changes.record) {
+                self.model = angular.copy(changes.record.currentValue);
             }
 
-            if(self.record){
-                self.model = angular.copy(self.record);
+        }
+        self.isSourcedSelected = function () {
+            return (self.model.humanSourced || self.model.animalSourced)
 
-               // console.log('appendix4RecordModule record: ' + JSON.stringify(self.record) );
+        }
 
-            }
+        self.noSelectionError = function () {
+            return ((self.appendix4RecForm.$dirty && !self.isSourcedSelected() ) || (self.showListErrors() && !self.isSourcedSelected()));
+        }
+        /**
+         * Used to show field level errors
+         * @param isInvalid
+         * @param isTouched
+         * @returns {boolean}  true if you should show error
+         */
+        self.showError = function (isInvalid, isTouched) {
+            return ((isInvalid && isTouched) || (isInvalid && self.showListErrors()))
         }
 
     }
