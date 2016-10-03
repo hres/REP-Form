@@ -21,7 +21,8 @@
             </div>
             <div>
                 <uib-accordion close-others="true">
-                    <div uib-accordion-group heading="{{'NERVOUSYSTEM' |translate}}" is-open="false" is-disabled="false"
+                    <div uib-accordion-group heading="{{'NERVOUSYSTEM' |translate}}" is-open="true"
+                         is-disabled="tfoCtrl.otherTextError"
                          template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
                         <div class="col col-md-12">
                             <cmp-checkbox-list
@@ -31,7 +32,8 @@
                     </div>
 
                     <div uib-accordion-group heading="{{'DIGESTIVESYSTEM' |translate}}" is-open="false"
-                         is-disabled="false" template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
+                         is-disabled="tfoCtrl.otherTextError"
+                         template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
                         <div class="col col-md-12">
                             <cmp-checkbox-list
                                     common-name="{{tfoCtrl.model.digestiveSystem.groupName}}"
@@ -39,7 +41,8 @@
                         </div>
                     </div>
                     <div uib-accordion-group heading="{{'REPRODUCTSYSTEM' |translate}}" is-open="false"
-                         is-disabled="false" template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
+                         is-disabled="tfoCtrl.otherTextError"
+                         template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
                         <div class="col col-md-12">
                             <cmp-checkbox-list
                                     common-name="{{tfoCtrl.model.reproductiveSystem.groupName}}"
@@ -47,7 +50,8 @@
                         </div>
                     </div>
                     <div uib-accordion-group heading="{{'CARDIOSYSTEM' |translate}}" is-open="false"
-                         is-disabled="false" template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
+                         is-disabled="tfoCtrl.otherTextError"
+                         template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
                         <div class="col col-md-12">
                             <cmp-checkbox-list
                                     common-name="{{tfoCtrl.model.cardioSystem.groupName}}"
@@ -55,7 +59,8 @@
                         </div>
                     </div>
                     <div uib-accordion-group heading="{{'IMMUNESYSTEM' |translate}}" is-open="false"
-                         is-disabled="false" template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
+                         is-disabled="tfoCtrl.otherTextError"
+                         template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
                         <div class="col col-md-12">
                             <cmp-checkbox-list
                                     common-name="{{tfoCtrl.model.immuneSystem.groupName}}"
@@ -63,7 +68,8 @@
                         </div>
                     </div>
                     <div uib-accordion-group heading="{{'SKINGLANDSYSTEM' |translate}}" is-open="false"
-                         is-disabled="false" template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
+                         is-disabled="tfoCtrl.otherTextError"
+                         template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
                         <div class="col col-md-12">
                             <cmp-checkbox-list
                                     common-name="{{tfoCtrl.model.skinGlandSystem.groupName}}"
@@ -71,14 +77,16 @@
                         </div>
                     </div>
                     <div uib-accordion-group heading="{{'MUSCULOSYSTEM' |translate}}" is-open="false"
-                         is-disabled="false" template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
+                         is-disabled="tfoCtrl.otherTextError"
+                         template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
                         <div class="col col-md-12">
                             <cmp-checkbox-list
                                     common-name="{{tfoCtrl.model.musculoSkeletalSystem.groupName}}"
                                     list-items="tfoCtrl.model.musculoSkeletalSystem.list"></cmp-checkbox-list>
                         </div>
                     </div>
-                    <div uib-accordion-group heading="{{'OTHERTISSUE' |translate}}" is-open="false" is-disabled="false"
+                    <div uib-accordion-group heading="{{'OTHERTISSUE' |translate}}" is-open="false"
+                         is-disabled="tfoCtrl.otherTextError"
                          template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
                         <div class="col col-md-12">
                             <cmp-checkbox-list

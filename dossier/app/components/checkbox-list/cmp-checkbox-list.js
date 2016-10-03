@@ -26,27 +26,21 @@
             }
         });
 
-
     function checkBoxListCtrl(){
 
         var self = this;
-
         self.$onInit = function(){
-
-            if(self.listItems){
-                self.currentModel = self.listItems;
-            }
-
-           /* var  object= {};
-
-            for(var item in self.listItems){
-                object[item.name] = item.value;
-            }*/
-
-
-
+            //init items after change
+            //temp as not hooked up
+            self.currentModel = self.listItems
         }
+        self.$onChanges = function (changes) {
 
+            if (changes.listItems) {
+                self.currentModel = self.listItems.currentValue;
+            }
+        }
+        //TODO remove?
         self.someSelected = function () {
             var object = self.roleModel;
 
@@ -56,7 +50,7 @@
                 return object[key];
             });
         }
-
+        //TODO remove?
         self.updateRoleModel = function () {
 
             self.formName.addressRole.$dirty =

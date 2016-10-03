@@ -26,6 +26,7 @@
 
         var self = this;
         self.isSelected = "";
+        self.otherTextError = false;
         self.$onInit = function(){
 
             self.model = {
@@ -200,6 +201,15 @@
 
         }
 
+
+        self.$onChanges = function (changes) {
+            //TODO model changes?
+        }
+        /**
+         * Checks that at least one tissue has been selected
+         * Checks if the other checkboz is selected with no other details
+         * @returns {boolean}
+         */
         self.oneTissueSourceSelected = function () {
             var tissuesArray = [
                 self.model.nervousSystem,
@@ -209,7 +219,11 @@
                 self.model.cardioSystem,
                 self.model.musculoSkeletalSystem
             ];
+            //reset before looping
+            self.isSelected = "";
+            self.otherTextError = false
             //n2 not terribly efficient
+            //go through the entire list looking for other text errors
             for (var i = 0; i < tissuesArray.length; i++) {
                 for (var j = 0; j < tissuesArray[i].list.length; j++) {
                     if (tissuesArray[i].list[j].value === true) {
@@ -217,16 +231,19 @@
                         if (tissuesArray[i].list[j].hasOwnProperty('otherText')) {
                             if (tissuesArray[i].list[j].otherText) {
                                 self.isSelected = true;
-                                return true;
+                            } else {
+                                //set error flag for other text
+                                self.otherTextError = true;
                             }
                         } else {
                             self.isSelected = true;
-                            return true
                         }
                     }
                 }
             }
-            self.isSelected = "";
+            if (self.isSelected) {
+                return true;
+            }
             return false;
         };
 
@@ -234,6 +251,5 @@
             return (!self.oneTissueSourceSelected());
 
         }
-
     }
 })();

@@ -1,8 +1,4 @@
-<!--<fieldset>
-    <legend class="required">
-        <span class="field-name">{{chkl.title}}</span>
-    </legend>-->
-
+<ng-form name="chkl.checkList">
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 form-group" ng-repeat="item in chkl.currentModel">
 
        <div class="checkbox">
@@ -10,11 +6,39 @@
             <input type="checkbox" name="{{chkl.commonName}}" ng-model="item.value" id="chk-{{item.name}}-{{$index}}" ng-required="!chkl.someSelected()"> {{item.label |translate}}
         </label>
        </div>
-            <div class="col-xs-12 form-group" ng-if="item.value && item.hasOtherDetails">
-                <input type="text" maxlength="40" class="form-control full-width" id="{{chkl.commonName}}-other-text"
-                       ng-model="item.otherText" placeholder="{{'SPECIFY'|translate}}"/>
+        <div class="col-xs-12 form-group" ng-if="item.value && item.hasOtherDetails"
+             ng-class="{'has-error':chkl.checkList.chkOther.$invalid}">
+            <label for="{{chkl.commonName}}-other-text" class="required">
+                <span class="field-name">{{'SPECIFY'|translate}}</span>
+                <strong class="required">{{"REQUIRED"|translate}}</strong>
+                <input type="text" maxlength="40" size="40" class="form-control full-width"
+                       id="{{chkl.commonName}}-other-text"
+                       ng-model="item.otherText" name="chkOther" ng-required="true"/>
+                <strong id="other-error" class="error" ng-if="chkl.checkList.chkOther.$invalid">
+                        <span class="label label-danger" ng-messages="chkl.checkList.chkOther.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                </strong>
+            </label>
             </div>
     </div>
     <!--<pre>currentModel: {{chkl.listItems | json : spacing}}</pre>-->
+</ng-form>
+<!--
+<div class="col-md-4 form-group" ng-class="{'has-error':contactForm.jobTitle.$invalid}">
+    <label for="job-title_{{$id}}" class="required">
+        <span class="field-name">{{'JOB_TITLE'|translate}}</span>
+        <strong class="required">{{"REQUIRED"|translate}}</strong>
+        <input type="text" id="job-title_{{$id}}" data-ng-model="$ctrl.contactModel.title"
+               ng-model-options="$ctrl.ngModelOptSetting"
+               class="form-control full-width" name="jobTitle" ng-required="true" maxlength="40" size="40"
+               ng-readonly="!$ctrl.isEditable"
+               required/>
+        <strong id="jobTitle-error" class="error" ng-if="$ctrl.showError(contactForm.jobTitle)">
+                        <span class="label label-danger" ng-messages="contactForm.jobTitle.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+        </strong>
+    </label>
 
-<!--</fieldset>-->
+</div>-->
