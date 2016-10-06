@@ -45,7 +45,7 @@
             angular.extend(this._default, defaultActivityData);
 
             this.rootTag = "ACTIVITY_ENROL";
-            this.currSequence = 0;
+            this.activityId=0;
         }
 
         ActivityService.prototype = {
@@ -181,7 +181,9 @@
                 activityList = [activityList]
             }
             for (var i = 0; i < activityList.length; i++) {
-                listResult.push(_transformRelatedRegActivityFromFileObj(activityList[i]));
+                var result=_transformRelatedRegActivityFromFileObj(activityList[i]);
+                this.updateActivityId(result.activityId);
+                listResult.push(result);
             }
             return listResult;
         };
@@ -206,7 +208,7 @@
 
         ActivityService.prototype.getNewActivity = function () {
             var activity = {
-                activityId: "1",
+                activityId: this.getNextActivityId(),
                 "regActivityType": "",
                 "dateCleared": "",
                 "dstsControlNumber": "",
@@ -233,6 +235,7 @@
             return leadList;
 
         };
+
 
         ActivityService.prototype.isNotifiableChange = function (value) {
 
@@ -269,6 +272,24 @@
             }
             return activityList;
         };
+        ActivityService.prototype.updateActivityId=function(value){
+            if (isNaN(value)) return;
+            if (value > this.activityId) {
+                this.activityId = value;
+            }
+        };
+        ActivityService.prototype.getNextActivityId=function(){
+            this.activityId = this.activityId + 1;
+            return (this.activityId);
+        };
+        ActivityService.prototype.resetActivityId=function (value) {
+            if (!value) {
+                this.activityId = 0;
+            } else {
+                this.activityId = value;
+            }
+        };
+
 
 
         // Return a reference to the object
@@ -498,6 +519,7 @@
     function _mapRelatedRegActivityToOutput(jsonObj) {
         if (!jsonObj) return null;
         var regActivityType = {
+            "activity_id":jsonObj.activityId,
             "amend_record": jsonObj.amendRecord,
             "reg_activity_type": jsonObj.regActivityType,
             "date_cleared": "",
@@ -508,9 +530,11 @@
             "assoc_dins": {}
         };
         var dateCleared = jsonObj.dateCleared;
+        var month = "";
+        var day="";
         if (dateCleared) {
-            var month = dateCleared.getUTCMonth() + 1
-            var day = dateCleared.getUTCDate();
+            month = dateCleared.getUTCMonth() + 1
+            day = dateCleared.getUTCDate();
             if (month < 10) {
                 //todo hack
                 month = "0" + month;
@@ -518,7 +542,7 @@
             if (day < 10) {
                 day = "0" + day;
             }
-            regActivityType.date_cleared = dateCleared.getUTCFullYear() + '-' + (dateCleared.getUTCMonth() + 1) + '-' + dateCleared.getUTCDate();
+            regActivityType.date_cleared = dateCleared.getUTCFullYear() + '-' + (month) + '-' + day;
         }
         var dins = _mapRelatedDinsToOutput(jsonObj.assocDins);
         regActivityType.assoc_dins = dins;
@@ -528,6 +552,7 @@
     function _transformRelatedRegActivityFromFileObj(jsonObj) {
         if (!jsonObj) return null;
         var regActivityType = {
+            "activityId":jsonObj.activity_id,
             "amendRecord": jsonObj.amend_record,
             "regActivityType": jsonObj.reg_activity_type,
             "dateCleared": "",
