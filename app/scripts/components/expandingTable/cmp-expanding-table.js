@@ -34,7 +34,6 @@
         vm.tableRowExpanded = false;
         vm.tableRowIndexCurrExpanded = "";
         vm.tableRowIndexPrevExpanded = "";
-       // vm.dayDataCollapse = [true, true, true, true, true];
         vm.numberCols=_getNumberKeys(vm.columnDef)
         vm.dayDataCollapse=_createArray(vm.listItems.length,true);
         vm.$onInit = function () {
@@ -49,9 +48,11 @@
 
         vm.$onChanges = function (changes) {
 
-          /*  if (changes.listItems) {
-                vm.listItems = changes.listItems.currentValue;
-            }*/
+           if (changes.listItems) {
+               vm.dayDataCollapse=_createArray(vm.listItems.length,true);
+               console.log("in changes ..."+vm.dayDataCollapse)
+               vm.resetTableRow();
+           }
 
             /**
              Resets the table to collapsed. Note this  is not a true reset
@@ -69,6 +70,7 @@
             }
             if(changes.selectRecord){
                 var selectIndex=parseInt(changes.selectRecord.currentValue);
+                console.log("the selected record is "+selectIndex)
                 if(selectIndex>=0) {
                     vm.selectTableRow(selectIndex);
                 }else{
@@ -126,7 +128,7 @@
             vm.tableRowIndexPrevExpanded = "";
             vm.tableRowExpanded = false;
             vm.tableRowIndexCurrExpanded = "";
-            vm.dayDataCollapse = _createArray(vm.numberCols, true);
+            vm.dayDataCollapse = _createArray(vm.listItems.length, true);
 
         }
 
@@ -137,6 +139,7 @@
         };
         vm.selectTableRow = function (index) {
             //if selection
+            console.log("is disable "+vm.disableExpand)
          if (vm.disableExpand) return;
             if (vm.dayDataCollapse === 'undefined') {
                 vm.dayDataCollapse = vm.dayDataCollapseFn();

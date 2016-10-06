@@ -280,6 +280,7 @@
         };
         ActivityService.prototype.getNextActivityId=function(){
             this.activityId = this.activityId + 1;
+            console.log("the activity ID is"+this.activityId)
             return (this.activityId);
         };
         ActivityService.prototype.resetActivityId=function (value) {
@@ -545,7 +546,11 @@
             regActivityType.date_cleared = dateCleared.getUTCFullYear() + '-' + (month) + '-' + day;
         }
         var dins = _mapRelatedDinsToOutput(jsonObj.assocDins);
-        regActivityType.assoc_dins = dins;
+        if(dins && dins.length>0) {
+            regActivityType.assoc_dins = dins;
+        }else{
+            regActivityType.assoc_dins = "";
+        }
         return regActivityType;
     }
 
