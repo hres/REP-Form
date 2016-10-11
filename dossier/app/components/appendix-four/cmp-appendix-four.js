@@ -27,8 +27,9 @@
         self.$onInit = function(){
             self.ingredients = [];
             self.colNames = [
-                {"label": "Ingredient Name", "binding": "ingredientName"}
+                {label: "INGRED_NAME", binding: "ingredientName", width: "98"}
             ];
+            self.isDetailValid = true; //TODO needs to be managed in ADD and delete
             self.ingredientList = [
                 {
                     "ingredientName": "ing1",

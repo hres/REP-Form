@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module('materialIngRecordModule', [])
+        .module('materialIngRecordModule', ['dossierDataLists'])
 })();
 
 (function () {
@@ -19,14 +19,16 @@
             controllerAs: 'mirCtrl',
             controller: materialIngRecCtrl,
             bindings: {
-                record: '<'
+                record: '<',
+                showError: '&'
             }
 
         });
-
-    function materialIngRecCtrl() {
+    materialIngRecCtrl.$inject = ['DossierLists'];
+    function materialIngRecCtrl(DossierLists) {
 
         var self = this;
+        self.yesNoList = DossierLists.getYesNoList();
 
         self.$onInit = function () {
 
@@ -35,13 +37,18 @@
                 "ingredientName": "A",
                 "cas": "00-00-0",
                 "ingredientStandard": "A",
-                "inFinalContainer": true
+                "inFinalContainer": ""
             };
-
 
             if (self.record) {
                 self.mirModel = self.record;
             }
         }
+
+        self.showError = function (isInvalid, isTouched) {
+            return ((isInvalid && isTouched) || (isInvalid && self.showErrors()));
+
+        }
+
     }
 })();

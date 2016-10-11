@@ -1,75 +1,159 @@
-<ng-form name="active-ing-form">
+<ng-form name="ingRecCtrl.activeIngForm">
+    <div class="container-fluid">
+        <fieldset>
+            <legend>{{'MEDICINAL_INGRED_DETAILS'|translate}}</legend>
+            <div class="row">
+                <div class="form-group col-md-12" ng-class="{'has-error':ingRecCtrl.activeIngForm.ingredName.$invalid}">
+                    <label for="ing-name" class="required"><span class="field-name">{{'ING_NAME'|translate}}</span>
+                        <strong class="required">{{'REQUIRED' |translate}}</strong>
+                        <input type="text" id="ing-name" data-ng-model="ingRecCtrl.ingModel.ingName" name="ingredName"
+                               class="form-control full-width" name="text" ng-required="true" maxlength="100"
+                               size="100"/>
+                        <strong id="ingredientName-error" class="error"
+                                ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.ingredName.$invalid,ingRecCtrl.activeIngForm.ingredName.$touched)">
+                                    <span class="label label-danger"
+                                          ng-messages="ingRecCtrl.activeIngForm.ingredName.$error">
+                                        <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                                    </span>
+                        </strong>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="cas">
+                        <span class="field-name">{{'CAS_NUM'|translate}}</span>
+                        <input type="text" id="cas" data-ng-model="ingRecCtrl.ingModel.cas" maxlength="12"
+                               class="form-control full-width" name="casNum"/>
+                    </label>
 
-    <div class="form-group col-md-12">
-        <label for="ing-name" class="required"><span class="field-name">{{'ING_NAME'|translate}}</span>
-            <strong class="required">{{"REQUIRED" |translate}}</strong></label>
-        <input type="text" id="ing-name" data-ng-model="ingRecCtrl.ingModel.ingName"
-               class="form-control full-width" name="text" ng-required="true" maxlength="60" size="60"/>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="standard">
+                        <span class="field-name">{{'STANDARD'|translate}}</span>
+                        <input type="text" id="standard" data-ng-model="ingRecCtrl.ingModel.standard"
+                               class="form-control full-width" name="standardVal" size="40" maxlength="40"/>
+                    </label>
+                </div>
+                <div class="form-group col-md-3" ng-class="{'has-error':ingRecCtrl.activeIngForm.strengthFld.$invalid}">
+                    <label for="strength" class="required">
+                        <span class="field-name">{{'STRENGTH'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <input type="text" id="strength" data-ng-model="ingRecCtrl.ingModel.strength"
+                               class="form-control full-width" name="strengthFld" maxlength="15" ng-required="true"/>
+                        <strong id="strength-error" class="error"
+                                ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.strengthFld.$invalid,ingRecCtrl.activeIngForm.strengthFld.$touched)">
+                        <span class="label label-danger"
+                              ng-messages="ingRecCtrl.activeIngForm.strengthFld.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
 
+                <div class="form-group col-md-3" ng-class="{'has-error':ingRecCtrl.activeIngForm.unitsFld.$invalid}">
+                    <label for="units" class="required"><span class="field-name">{{'UNITS'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong></label>
+                    <input type="text" id="units" data-ng-model="ingRecCtrl.ingModel.units" size="40" maxlength="40"
+                           class="form-control full-width" name="unitsFld" ng-required="true"/>
+                    <strong id="units-error" class="error"
+                            ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.unitsFld.$invalid,ingRecCtrl.activeIngForm.unitsFld.$touched)">
+                        <span class="label label-danger"
+                              ng-messages="ingRecCtrl.activeIngForm.unitsFld.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                    </strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="per"><span class="field-name">{{'PER'|translate}}</span></label>
+                    <input type="text" id="per" data-ng-model="ingRecCtrl.ingModel.per" size="40" maxlength="40"
+                           class="form-control" name="text"/>
+                </div>
+
+                <div class="form-group col-md-3" ng-class="{'has-error':ingRecCtrl.activeIngForm.nanoFld.$invalid}">
+                    <label for="nanoMaterial" class="required">
+                        <span class="field-name">{{'NANO_MATERIAL'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong></label>
+                    <select id="nanoMaterial" ng-model="ingRecCtrl.ingModel.nanoMaterial"
+                            class="form-control full-width" name="nanoFld" ng-required="true"
+                            ng-options="nano |translate for nano in  ingRecCtrl.nanoMaterialList| orderByTranslated">
+                    </select>
+                    <strong id="nanoMaterial-error" class="error"
+                            ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.nanoFld.$invalid,ingRecCtrl.activeIngForm.nanoFld.$touched)">
+                        <span class="label label-danger"
+                              ng-messages="ingRecCtrl.activeIngForm.nanoFld.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                    </strong>
+                </div>
+
+                <div class="form-group col-md-5" ng-if="ingRecCtrl.isNanoOther()"
+                     ng-class="{'has-error':ingRecCtrl.activeIngForm.nanoOtherFld.$invalid}">
+                    <label for="nanoMaterialOther" class="required">
+                        <span class="field-name">{{'NANO_MATERIAL_OTHER'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong></label>
+                    <input type="text" id="nanoMaterialOther" data-ng-model="ingRecCtrl.ingModel.nanoMaterialOther"
+                           class="form-control full-width" name="nanoOtherFld" ng-required="true" maxlength="40"/>
+                    <strong id="nanoMaterialOther-error" class="error"
+                            ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.nanoOtherFld.$invalid,ingRecCtrl.activeIngForm.nanoOtherFld.$touched)">
+                        <span class="label label-danger"
+                              ng-messages="ingRecCtrl.activeIngForm.nanoOtherFld.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                    </strong>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12"
+                     ng-class="{'has-error':ingRecCtrl.activeIngForm.asBase.$invalid}">
+                    <label for="asBase" class="required">
+                        <span class="field-name">{{'CALCULATED_AS_BASE'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <select id="asBase" ng-model="ingRecCtrl.ingModel.asBase" ng-required="true"
+                                class="form-control" name="asBase"
+                                ng-options="val |translate for val in  ingRecCtrl.yesNoList">
+                        </select>
+                        <strong id="asBase-error" class="error"
+                                ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.asBase.$invalid,ingRecCtrl.activeIngForm.asBase.$touched)">
+                        <span class="label label-danger"
+                              ng-messages="ingRecCtrl.activeIngForm.asBase.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
+                <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12"
+                     ng-class="{'has-error':ingRecCtrl.activeIngForm.animaHumanSourced.$invalid}">
+                    <label for="asBase" class="required">
+                        <span class="field-name">{{'ANIMAL_HUMAN_SOURCED'|translate}}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <select id="animalHumanSourced" ng-model="ingRecCtrl.ingModel.animalHumanSourced"
+                                ng-required="true"
+                                class="form-control" name="animaHumanSourced"
+                                ng-options="val |translate for val in  ingRecCtrl.yesNoList">
+                        </select>
+                        <strong id="animalHumanSourced-error" class="error"
+                                ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.animaHumanSourced.$invalid,ingRecCtrl.activeIngForm.animaHumanSourced.$touched)">
+                        <span class="label label-danger"
+                              ng-messages="ingRecCtrl.activeIngForm.animaHumanSourced.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
+            </div>
+
+            <div class="btn-group-sm col-xs-12 text-right">
+                <input type="submit" value="Save" class="btn btn-primary"
+                       ng-click="ingRecCtrl.saveIng()"/>
+                <input type="submit" ng-if="ingRecCtrl.deleteBtn === true" value="Delete" class="btn btn-danger"
+                       ng-click="ingRecCtrl.delete()"/>
+                <input type="submit" value="Discard Changes" class="btn btn-default"
+                       ng-click="ingRecCtrl.discardChanges()">
+            </div>
+        </fieldset>
     </div>
-
-    <div class="form-group col-md-3">
-        <label for="cas"><span class="field-name">{{'CAS'|translate}}</span></label>
-        <input type="text" id="cas" data-ng-model="ingRecCtrl.ingModel.cas"
-               class="form-control full-width" name="text" ng-required="true"/>
-    </div>
-    <div class="form-group col-md-3">
-        <label for="standard"><span class="field-name">{{'STANDARD'|translate}}</span></label>
-        <input type="text" id="standard" data-ng-model="ingRecCtrl.ingModel.standard"
-               class="form-control full-width" name="text" ng-required="true"/>
-    </div>
-    <div class="form-group col-md-3">
-        <label for="strength" class="required"><span class="field-name">{{'STRENGTH'|translate}}</span>
-            <strong class="required">{{"REQUIRED" |translate}}</strong></label>
-        <input type="text" id="strength" data-ng-model="ingRecCtrl.ingModel.strength"
-               class="form-control full-width" name="text" ng-required="true"/>
-    </div>
-    <div class="form-group col-md-3">
-        <label for="units" class="required"><span class="field-name">{{'UNITS'|translate}}</span>
-            <strong class="required">{{"REQUIRED" |translate}}</strong></label>
-        <input type="text" id="units" data-ng-model="ingRecCtrl.ingModel.units"
-               class="form-control full-width" name="text" ng-required="true"/>
-    </div>
-
-    <div class="form-group col-md-12">
-        <label for="per"><span class="field-name">{{'PER'|translate}}</span></label>
-        <input type="text" id="per" data-ng-model="ingRecCtrl.ingModel.per"
-               class="form-control full-width" name="text" ng-required="true"/>
-
-    </div>
-
-    <div class="form-group col-md-6">
-        <label for="nanoMaterial" class="required"><span class="field-name">{{'NANO_MATERIAL'|translate}}</span>
-            <strong class="required">{{"REQUIRED" |translate}}</strong></label>
-
-        <select id="nanoMaterial" ng-model="ingRecCtrl.ingModel.nanoMaterial" class="form-control full-width">
-            <option>No</option>
-            <option>Yes</option>
-            <option>Other</option>
-        </select>
-    </div>
-
-    <div class="form-group col-md-6" ng-if="ingRecCtrl.ingModel.nanoMaterial === 'Other'">
-        <label for="nanoMaterialOther" class="required"><span
-                class="field-name">{{'NANO_MATERIAL_OTHER'|translate}}</span>
-            <strong class="required">{{"REQUIRED" |translate}}</strong></label>
-        <input type="text" id="nanoMaterialOther" data-ng-model="ingRecCtrl.ingModel.nanoMaterialOther"
-               class="form-control full-width" name="text" ng-required="true"/>
-
-    </div>
-    <div class="form-group col-md-12">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <label class="form-checkbox form-label-inline" for="asBase">
-                <input type="checkbox" name="as-base" ng-model="ingRecCtrl.ingModel.calcAsBase" id="asBase">{{'CALCULATED_AS_BASE'|translate}}
-            </label>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <label class="form-checkbox form-label-inline" for="animalHumanSourced">
-                <input type="checkbox" name="animal-human-sourced" ng-model="ingRecCtrl.ingModel.animalHumanSourced"
-                       id="animalHumanSourced">{{'ANIMAL_HUMAN_SOURCED'|translate}}
-            </label>
-        </div>
-
-    </div>
-
 </ng-form>

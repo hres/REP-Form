@@ -22,11 +22,11 @@
   "DELETE": "Delete",
   "SCHED_A": "Schedule A Claims",
   "DIN_FULL": "Drug Identification Number (DIN)",
-  "THERA_CLASS": "Therapeutic Classification",
+  "THERA_CLASS": "Therapeutic Classification(s)",
   "THERA_CLASS_ADD": "Add Therapeutic Classification",
   "THERA_CLASS_NAME": "Therapeutic Classification Name",
   "PROPNAME": "Brand or Proprietary or Product Name (should be the same as the brand name on the product label)",
-  "DRUG_PRODUCT": "Drug Product",
+  "DRUG_PRODUCT": "Drug Product Formulation Information",
   "SIGNED_THIRD": "The submission will be signed or filled by a third party on behalf of the manufacturer or sponsor",
   "INCLUDE_AUTH": "Please include the Third Party Authorization letter in the REP folder when submitting via the  Common Electonic Submissions Gateway (CESG)",
   "RELATED_DOSSIER": "Related Dossier ID [if applicable]",
@@ -36,6 +36,9 @@
   "SAVE": "fr_Save",
   "CANCEL": "fr_Cancel",
   "DELETE": "fr_Delete",
+  "DELETE_CLASS": "Delete Classification",
   "SOURCED_ANIMAL": "Source From Animal",
-  "SPECIFY": "Please specify"
+  "SPECIFY": "Please specify",
+  "DETAILS": "Details",
+  "REF_PRODUCTS": "Canadian Reference Product(s)"
 }

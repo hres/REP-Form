@@ -12,135 +12,145 @@
 
     <section class="panel panel-primary mrgn-tp-lg">
         <header class="panel-heading">
-            <h2 class="panel-title">{{'DOSSIER_HDING'|translate}}</h2>
+            <h2 class="panel-title">{{'Dossier Information'|translate}}</h2>
         </header>
         <div class="panel-body">
-
             <div>
                 <cmp-application-info record="dos.dossierModel" user-type="dos.formUserType"
                                       set-type="dos.setApplicationType(type)"
                                       configure-id-field="dos.configField"
                                       is-incomplete="dos.isIncomplete"></cmp-application-info>
-
             </div>
-            <section class="panel  panel-default">
-                <header class="panel-heading">
-                    <h2 class="panel-title">{{'DRUG_PRODUCT' |translate}}</h2>
-                </header>
-                <div class="panel-body">
-
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label for="third-party-signed">
-                                <input type="checkbox" name="thirdPartySigned"
-                                       ng-model="dos.dossierModel.drugProduct.thirdPartySigned" id="third-party-signed"
-                                       ng-change="dos.thirdPartySignedChanged()">
-                                {{'SIGNED_THIRD'|translate}}
-                            </label>
-                            <label ng-if="dos.dossierModel.drugProduct.thirdPartySigned" class="label-info full-width">{{'INCLUDE_AUTH'|translate}}</label>
-
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label for="related-dossier-id"></label>
-                            {{'RELATED_DOSSIER'|translate}}
-                            <input type="text" class="form-control full-width" id="related-dossier-id"
-                                   ng-model="dos.dossierModel.relatedDossierID"/>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-xs-12 form-group" ng-class="{'has-error':dos.dossierForm.productName.$invalid}">
-
-                            <label for="product-name" class="required">
-                                <span class="field-name">{{'PROPNAME' |translate}}</span>
-                                <strong class="required">{{"REQUIRED" |translate}}</strong>
-                                <strong id="productName-error" class="error"
-                                        ng-if="dos.showError(dos.dossierForm.productName.$invalid,dos.dossierForm.productName.$touched)">
+            <div class="row margin-bottom-small">
+                <div class="col-xs-12 checkbox">
+                    <label for="third-party-signed">
+                        <input type="checkbox" name="thirdPartySigned"
+                               ng-model="dos.dossierModel.drugProduct.thirdPartySigned"
+                               id="third-party-signed"
+                               ng-change="dos.thirdPartySignedChanged()">
+                        {{'SIGNED_THIRD'|translate}}
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div ng-if="dos.dossierModel.drugProduct.thirdPartySigned" class="alert alert-info"
+                     role="alert"
+                     aria-live="polite">
+                    {{'INCLUDE_AUTH'|translate}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group"
+                     ng-class="{'has-error':dos.dossierForm.productName.$invalid}">
+                    <label for="product-name" class="required">
+                        <span class="field-name">{{'PROPNAME' |translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <strong id="productName-error" class="error"
+                                ng-if="dos.showError(dos.dossierForm.productName.$invalid,dos.dossierForm.productName.$touched)">
                                     <span class="label label-danger"
                                           ng-messages="dos.dossierForm.productName.$error">
                                         <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
                                     </span>
-                                </strong>
-                            </label>
+                        </strong>
+                    </label>
                             <textarea type="text" class="form-control full-width" id="product-name" rows="2"
                                       name="productName" required="true"
+                                      data-ng-change="dos.dossierModel.productName=dos.dossierModel.productName.toUpperCase();"
                                       maxlength="200" ng-model="dos.dossierModel.productName"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-xs-12 form-group" ng-class="{'has-error':dos.dossierForm.properName.$invalid}">
-                            <label for="proper-name" class="required">
-                                <span class="field-name"> {{'PROPER_NAME' |translate}}</span>
-                                <strong class="required">{{"REQUIRED" |translate}}</strong>
-                                <strong id="properName-error" class="error"
-                                        ng-if="dos.showError(dos.dossierForm.properName.$invalid,dos.dossierForm.properName.$touched)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group"
+                     ng-class="{'has-error':dos.dossierForm.properName.$invalid}">
+                    <label for="proper-name" class="required">
+                        <span class="field-name"> {{'PROPER_NAME' |translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <strong id="properName-error" class="error"
+                                ng-if="dos.showError(dos.dossierForm.properName.$invalid,dos.dossierForm.properName.$touched)">
                                     <span class="label label-danger"
                                           ng-messages="dos.dossierForm.properName.$error">
                                         <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
                                     </span>
-                                </strong>
-                            </label>
+                        </strong>
+                    </label>
                             <textarea type="text" class="form-control full-width" id="proper-name" name="properName"
-                                     required="true" ng-model="dos.dossierModel.properName" maxlength="256"> </textarea>
-                        </div>
+                                      required="true" ng-model="dos.dossierModel.properName" maxlength="256"
+                                      data-ng-change="dos.dossierModel.properName=dos.dossierModel.properName.toUpperCase();">
+                            </textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    <label for="related-dossier-id"></label>
+                    {{'RELATED_DOSSIER'|translate}}
+                    <input type="text" class="form-control full-width" id="related-dossier-id"
+                           ng-model="dos.dossierModel.relatedDossierID"/>
+                </div>
+            </div>
+
+            <div>
+
+                <section class="panel panel-default mrgn-tp-lg">
+                    <header class="panel-heading">
+                        <h2 class="panel-title">{{'THERA_CLASS'|translate}}</h2>
+                    </header>
+                    <div class="panel-body">
+                        <cmp-therapeutic-class list-items=""></cmp-therapeutic-class>
                     </div>
-
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <cmp-ref-product-list products="dos.dossierModel.canRefProducts"></cmp-ref-product-list>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-
-                            <cmp-drug-use list-items="" show-list-errors="dos.showErrors()"
-                                          parent-dirty="dos.dossierForm.$dirty"></cmp-drug-use>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <cmp-therapeutic-class list-items=""></cmp-therapeutic-class>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 checkbox">
-                            <label for="is-schedule-case">
-                                <input type="checkbox" name="isScheduleA"
-                                       ng-model="dos.dossierModel.drugProduct.isScheduleA" id="is-schedule-case">
-                                {{'ISSCHEDA'|translate}}
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="row" ng-if="dos.dossierModel.drugProduct.isScheduleA">
-                        <div class="col-xs-12 form-group">
-                            <cmp-schedule-a schedule-group=""></cmp-schedule-a>
-                        </div>
-                    </div>
-
+                </section>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    <cmp-ref-product-list products="dos.dossierModel.canRefProducts"></cmp-ref-product-list>
                 </div>
 
-            </section>
+            </div>
+
+        </div>
+    </section>
 
 
-            <cmp-tabs></cmp-tabs>
-            <!--<cmp-appendix-four></cmp-appendix-four>-->
+    <section class="panel panel-primary mrgn-tp-lg">
+        <header class="panel-heading">
+            <h2 class="panel-title">{{'DRUG_PRODUCT'|translate}}</h2>
+        </header>
+        <div class="panel-body">
 
-            <!--<cmp-contact-list ng-if="dos.dossierModel.contactList" contacts="dos.dossierModel.contactList" on-update="dos.onUpdateContactList(newList)"></cmp-contact-list>-->
+            <div class="row">
+                <div class="col-xs-12 form-group">
 
+                    <cmp-drug-use list-items="" show-list-errors="dos.showErrors()"
+                                  parent-dirty="dos.dossierForm.$dirty"></cmp-drug-use>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-xs-12 checkbox">
+                    <label for="is-schedule-case">
+                        <input type="checkbox" name="isScheduleA"
+                               ng-model="dos.dossierModel.drugProduct.isScheduleA" id="is-schedule-case">
+                        {{'ISSCHEDA'|translate}}
+                    </label>
+                </div>
+            </div>
+
+            <div class="row" ng-if="dos.dossierModel.drugProduct.isScheduleA">
+                <div class="col-xs-12 form-group">
+                    <cmp-schedule-a schedule-group=""></cmp-schedule-a>
+                </div>
+            </div>
+            <div>
+                <cmp-tabs></cmp-tabs>
+            </div>
         </div>
 
     </section>
+
+
+    <!--<cmp-appendix-four></cmp-appendix-four>-->
+
+    <!--<cmp-contact-list ng-if="dos.dossierModel.contactList" contacts="dos.dossierModel.contactList" on-update="dos.onUpdateContactList(newList)"></cmp-contact-list>-->
+
 
     <div>
         <section class="panel panel-primary mrgn-tp-lg">
@@ -156,5 +166,5 @@
             </div>
         </section>
     </div>
-    <!--<pre>{{dos.dossierModel | json }}</pre>-->
+    <pre>{{dos.dossierModel | json }}</pre>
 </ng-form>

@@ -29,12 +29,12 @@
     function containerTypeListCtrl() {
 
         var self = this;
-
+        self.isDetailValid = true; //TODO": needs to be managed on delete and add
         self.$onInit = function () {
 
             self.colNames = [
-                {"label": "Container Type", "binding": "containerType"},
-                {"label": "Package Size", "binding": "packageSize"}
+                {label: "CONTAINER_TYPE", binding: "containerType", width: "50"},
+                {label: "PACKAGE_SIZE", binding: "packageSize", width: "50"}
             ];
 
             self.containerList = [
@@ -42,28 +42,28 @@
                 {
                     "containerType": "A",
                     "packageSize": "A",
-                    "shelfLifeYears": "9999",
-                    "shelfLifeMonths": "99",
-                    "tempMin": "999",
-                    "tempMax": "999"
+                    "shelfLifeYears": 9999,
+                    "shelfLifeMonths": 99,
+                    "tempMin": 999,
+                    "tempMax": 999
                 },
 
                 {
                     "containerType": "B",
                     "packageSize": "A",
-                    "shelfLifeYears": "9999",
-                    "shelfLifeMonths": "99",
-                    "tempMin": "999",
-                    "tempMax": "999"
+                    "shelfLifeYears": 9999,
+                    "shelfLifeMonths": 99,
+                    "tempMin": 999,
+                    "tempMax": 999
                 },
 
                 {
                     "containerType": "C",
                     "packageSize": "A",
-                    "shelfLifeYears": "9999",
-                    "shelfLifeMonths": "99",
-                    "tempMin": "999",
-                    "tempMax": "999"
+                    "shelfLifeYears": 9999,
+                    "shelfLifeMonths": 99,
+                    "tempMin": 999,
+                    "tempMax": 999
                 },
 
             ]

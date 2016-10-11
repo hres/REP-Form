@@ -29,7 +29,11 @@
     function getService() {
         var service = {
             getDosageFormList: getDosageFormsArray,
-            getDosageOther: getDoseOtherValue
+            getDosageOther: getDoseOtherValue,
+            getNanoMaterials: getNanoMaterialArray,
+            getRoa: getRoaArray,
+            getOtherValue: getOtherValue,
+            getYesNoList: yesNoArray
         };
         return service;
 
@@ -39,6 +43,9 @@
             return "OTHER";
         }
 
+        function getOtherValue() {
+            return getDoseOtherValue();
+        }
 
         function getDosageFormsArray() {
             return ([
@@ -81,7 +88,64 @@
 
         }
 
+        function getNanoMaterialArray() {
+            return ([
+                "NOTNANO",
+                "NANOPARTICLE",
+                "DENDRIMER",
+                "LIPOSOMES",
+                "MICELLES",
+                "NANOEMULSIONS",
+                "NANOCRYSTAL",
+                "METALCOLLOIDS",
+                "OTHER"
+            ]);
+        }
 
+        function getRoaArray() {
+
+            return ([
+                "BLOCK_INFILTRATION",
+                "BUCCAL",
+                "DENTAL",
+                "DIALYSIS",
+                "EPIDURAL",
+                "INHALATION",
+                "INTRA-ARTERIAL",
+                "INTRA-ARTICULAR",
+                "INTRABURSAL",
+                "INTRADERMAL",
+                "INTRAMAMMARY",
+                "INTRAOCULAR",
+                "INTRAPERITONEAL",
+                "INTRATHECAL",
+                "INTRATRACHEAL",
+                "INTRAVASCULAR",
+                "INTRAVENOUS",
+                "INTRAVITREAL",
+                "IRRIGATION",
+                "NASAL",
+                "OPHTHALMIC",
+                "ORAL",
+                "OTIC",
+                "RECTAL",
+                "SUBCUTANEOUS",
+                "SUBLINGUAL",
+                "TOPICAL",
+                "TRANSDERMAL",
+                "URETHRAL",
+                "VAGINAL",
+                "OTHER"
+            ]);
+        }
+
+        function yesNoArray() {
+
+            return ([
+                "Y",
+                "N"
+            ]);
+        }
     }
 
 

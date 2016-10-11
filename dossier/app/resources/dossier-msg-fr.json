@@ -4,5 +4,7 @@
   "MSG_ERR_ONE_ANIMAL": "fr_At least one animal source must be selected",
   "MSG_ERR_ONE_ANIMAL_TYPE": "fr_At least one animal type must be selected.",
   "MSG_ERR_DRUG_USE": "fr_At least one drug use must be selected.",
-  "MSG_ONE_SCHEDA":"fr_At least one schedule A claim must be selected."
+  "MSG_ONE_SCHEDA": "fr_At least one schedule A claim must be selected.",
+  "MSG_IS_REQUIRED": "fr_is a required field.",
+  "MSG_ERR_INVALID_NUM": "This is not a number."
 }

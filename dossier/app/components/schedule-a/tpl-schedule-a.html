@@ -3,23 +3,25 @@
         <div class="panel-body">
             <div class="col-md-12">
                 <fieldset>
-                    <legend class="required">
+                    <legend>
                         <span class="field-name">{{'ISSCHEDA'|translate}}</span>
                     </legend>
                     <div class="row">
-                        <div class="col-xs-12 form-group" ng-class="{'has-error':$ctrl.schedAForm.dinValue.$invalid}">
+                        <div class="col-xs-12 form-group"
+                             ng-class="{'has-error':$ctrl.schedAForm.schedDinValue.$invalid}">
                             <label for="din-value" class="required">
                                 <span class="field-name">{{'DIN_FULL'|translate}}</span>
                                 <strong class="required">{{"REQUIRED"|translate}}</strong>
-                                <input type="text" class="form-control" id="din-value" name="dinValue"
-                                       maxlength="8" size="8" required only-digits="" ng-minlength="8"
+                                <input type="text" class="form-control" id="din-value" name="schedDinValue"
+                                       maxlength="8" size="8" ng-required="true" only-digits ng-minlength="8"
                                        ng-model="$ctrl.scheduleAModel.drugIdNumber"/>
                                 <strong id="din-error" class="error"
-                                        ng-if="$ctrl.showError($ctrl.schedAForm.dinValue.$invalid,$ctrl.schedAForm.dinValue.$touched)">
-                        <span class="label label-danger" ng-messages="$ctrl.schedAForm.dinValue.$error">
-                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
-                             <span ng-message="minlength"><span translate="MSG_LENGTH_8NUM"></span></span>
-                        </span>
+                                        ng-if="$ctrl.showError($ctrl.schedAForm.schedDinValue.$invalid,$ctrl.schedAForm.schedDinValue.$touched)">
+                                    <span class="label label-danger"
+                                          ng-messages="$ctrl.schedAForm.schedDinValue.$error">
+                                       <!--  <span ng-message="required">{{"MSG_ERR_MAND"|translate}}</span>-->
+                                          <span ng-message="minlength"><span translate="MSG_LENGTH_8NUM"></span></span>
+                                    </span>
                                 </strong>
                             </label>
                         </div>

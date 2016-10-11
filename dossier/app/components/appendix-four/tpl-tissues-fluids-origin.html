@@ -25,9 +25,9 @@
                          is-disabled="tfoCtrl.otherTextError"
                          template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
                         <div class="col col-md-12">
-                            <cmp-checkbox-list
-                                    common-name="{{tfoCtrl.model.nervousSystem.groupName}}"
-                                    list-items="tfoCtrl.model.nervousSystem.list"></cmp-checkbox-list>
+                            <cmp-checkbox-list title="{{tfoCtrl.model.nervousSystem.title}}"
+                                               common-name="{{tfoCtrl.model.nervousSystem.groupName}}"
+                                               list-items="tfoCtrl.model.nervousSystem.list"></cmp-checkbox-list>
                         </div>
                     </div>
 
@@ -36,6 +36,7 @@
                          template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
                         <div class="col col-md-12">
                             <cmp-checkbox-list
+                                    title="{{tfoCtrl.model.digestiveSystem.title}}"
                                     common-name="{{tfoCtrl.model.digestiveSystem.groupName}}"
                                     list-items="tfoCtrl.model.digestiveSystem.list"></cmp-checkbox-list>
                         </div>
@@ -45,6 +46,7 @@
                          template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
                         <div class="col col-md-12">
                             <cmp-checkbox-list
+                                    title="{{tfoCtrl.model.reproductiveSystem.title}}"
                                     common-name="{{tfoCtrl.model.reproductiveSystem.groupName}}"
                                     list-items="tfoCtrl.model.reproductiveSystem.list"></cmp-checkbox-list>
                         </div>
@@ -54,6 +56,7 @@
                          template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
                         <div class="col col-md-12">
                             <cmp-checkbox-list
+                                    title="{{tfoCtrl.model.cardioSystem.title}}"
                                     common-name="{{tfoCtrl.model.cardioSystem.groupName}}"
                                     list-items="tfoCtrl.model.cardioSystem.list"></cmp-checkbox-list>
                         </div>
@@ -63,6 +66,7 @@
                          template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
                         <div class="col col-md-12">
                             <cmp-checkbox-list
+                                    title="{{tfoCtrl.model.immuneSystem.title}}"
                                     common-name="{{tfoCtrl.model.immuneSystem.groupName}}"
                                     list-items="tfoCtrl.model.immuneSystem.list"></cmp-checkbox-list>
                         </div>
@@ -72,6 +76,7 @@
                          template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
                         <div class="col col-md-12">
                             <cmp-checkbox-list
+                                    title="{{tfoCtrl.model.skinGlandSystem.title}}"
                                     common-name="{{tfoCtrl.model.skinGlandSystem.groupName}}"
                                     list-items="tfoCtrl.model.skinGlandSystem.list"></cmp-checkbox-list>
                         </div>
@@ -81,6 +86,7 @@
                          template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
                         <div class="col col-md-12">
                             <cmp-checkbox-list
+                                    title="{{tfoCtrl.model.musculoSkeletalSystem.title}}"
                                     common-name="{{tfoCtrl.model.musculoSkeletalSystem.groupName}}"
                                     list-items="tfoCtrl.model.musculoSkeletalSystem.list"></cmp-checkbox-list>
                         </div>
@@ -90,6 +96,7 @@
                          template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
                         <div class="col col-md-12">
                             <cmp-checkbox-list
+                                    title="{{tfoCtrl.model.otherTissues.title}}"
                                     common-name="{{tfoCtrl.model.otherTissues.groupName}}"
                                     list-items="tfoCtrl.model.otherTissues.list"></cmp-checkbox-list>
                         </div>

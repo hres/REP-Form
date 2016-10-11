@@ -74,4 +74,25 @@
   "EYESCORNEA": "Yeux ou cornée",
   "GALL": "Vésicule biliaire",
   "OTHERFLUIDDETAILS": "Veuillez spécifier les autres types de tissus ou de fluides d'origine"
+  "NONHUMANPRIMATE": "fr_Non-human primate type",
+  "AQUATICTYPE": "fr_Aquatic species such as fish, molluscs and crustacean",
+  "AVIANTYPE": "fr_Avian such as chicken, turkey and duck",
+  "BOVINETYPE": "fr_Bovine such as cattle, bison type",
+  "CANINETYPE": "fr_Canine type",
+  "CAPRINETYPE": "fr_Caprine such as goat type",
+  "CERVIDAETYPE": "fr_Cervidae such as deer, elk(wapiti) and moose type",
+  "EQUINETYPE": "fr_Equine such as horse type",
+  "FELINETYPE": "fr_Feline such as cat type",
+  "OVINETYPE": "fr_Ovine type",
+  "PORCINETYPE": "fr_Porcine such as pig type",
+  "RODENTTYPE": "fr_Rodents such as mouse, hamster, rat and rabbit type",
+  "OTHERANIMALTYPE": "fr_Other animal type",
+  "CONTROLLEDPOP": "fr_Controlled Population",
+  "BIOTECHDERIVED": "fr_Biotechnology Derived Animal",
+  "CELLLINE": "fr_Cell line",
+  "AGEANIMALS": "fr_Age of animals in months",
+  "COUNTRYORIGIN": "fr_Country of origin",
+  "SPECIFY_THE": "Spécifiez l'autre  "
+
+
 }

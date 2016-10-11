@@ -22,7 +22,8 @@
                 deleteBtn: '<',
                 onAddProduct: '&',
                 onUpdate: '&',
-                onDelete: '&'
+                onDelete: '&',
+                onCancel: '&'
             }
         });
     refProductDetailsCtrl.$inject = ['DossierLists'];
@@ -33,14 +34,7 @@
 
         self.$onInit = function () {
 
-            self.productModel = {
-                brandName: "A",
-                medIngredient: "A",
-                dosageForm: "3",
-                dosageFormOther: "",
-                strengths: "5454",
-                companyName: "B"
-            };
+            self.productModel = {};
 
             if (self.productRecord) {
 
@@ -73,19 +67,26 @@
 
         self.saveProduct = function () {
             if (self.productRecord) {
-                console.log('update product');
-                self.onUpdate({product: self.productModel});
-            } else {
-                console.log('add product');
-                self.onAddProduct({product: self.productModel});
-            }
+               // console.log('product details update product');
+                self.onUpdate({product:self.productModel});
+            }else{
+              //  console.log('product details add product');
+                self.onAddProduct({product:self.productModel});
+        }
 
         };
 
-        self.delete = function () {
+        self.discardChanges = function(){
+            self.productModel = {};
+            //self.productDetailsForm.$setPristine();
+            self.onCancel();
+        }
+
+        self.delete = function(){
             if (self.productRecord) {
-                self.onDelete({id: self.productModel.productId});
-            } else {
+              //  console.log('product details delete product');
+                self.onDelete();
+            }else{
                 //TODO
             }
 

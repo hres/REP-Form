@@ -217,7 +217,9 @@
                 self.model.reproductiveSystem,
                 self.model.immuneSystem,
                 self.model.cardioSystem,
-                self.model.musculoSkeletalSystem
+                self.model.musculoSkeletalSystem,
+                self.model.otherTissues,
+                self.model.skinGlandSystem
             ];
             //reset before looping
             self.isSelected = "";

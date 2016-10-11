@@ -1,56 +1,58 @@
-<ng-form name="">
-    <fieldset>
-        <legend>Route of Administration List</legend>
-
-        <!-- <pre>list:{{roaCtrl.model.list | json}}</pre>-->
-
+<section class="panel  panel-default mrgn-tp-lg">
+    <header class="panel-heading">
+        <h3 class="panel-title">{{'ROA_TITLE'|translate}}</h3>
+    </header>
+    <ng-form name="roaCtrl.roaForm">
         <ul class="list-group">
-            <li class="list-group-item list-group-item-text active  col-md-12">Route of Administration</li>
-            <li class="list-group-item  col-md-12" ng-repeat="item in roaCtrl.model.list"
-                ng-include="roaCtrl.getTemplate(item)"></li>
+            <li class="list-group-item  col-md-12" ng-repeat="item in roaCtrl.model.list">
+                <div class="col-md-5 form-group" ng-class="{'has-error':roaCtrl.roaForm['roaVal'+$index].$invalid}">
+                    <label for="roa{{$index}}" class="required">
+                        <span class="field-name">{{'ROA_LBL'|translate}}&nbsp;{{$index+1}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <select ng-model="item.roa" class="form-control" id="roa{{$index}}" name="roaVal{{$index}}"
+                                ng-required="true"
+                                ng-options="val |translate for val in  roaCtrl.roaList  | orderByTranslated">
+                        </select>
+                        <strong id="roaList-error" class="error"
+                                ng-if="roaCtrl.showError(roaCtrl.roaForm['roaVal'+$index].$invalid,roaCtrl.roaForm['roaVal'+$index].$touched)">
+                        <span class="label label-danger"
+                              ng-messages="roaCtrl.roaForm['roaVal'+$index].$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
+                <div class="form-group col-md-5" ng-if="roaCtrl.isRoaOther(item.id)"
+                     ng-class="{'has-error':roaCtrl.roaForm['otherRoa'+$index].$invalid}">
+                    <label for="other-roa-details{{$index}}" class="required">
+                        <span class="field-name">{{'OTHER_ROA_DETAILS'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <input type="text" id="other-roa-details{{$index}}" class="form-control"
+                               name="otherRoa{{$index}}" size="40" maxlength="40"
+                               ng-model="item.otherRoaDetails" ng-required="true"/>
+                        <strong id="otherRoa-error" class="error"
+                                ng-if="roaCtrl.showError(roaCtrl.roaForm['otherRoa'+$index].$invalid,roaCtrl.roaForm['otherRoa'+$index].$touched)">
+                        <span class="label label-danger"
+                              ng-messages="roaCtrl.roaForm['otherRoa'+$index].$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
+                <div class="col-sm-2 center-block">
+                    <button ng-click="roaCtrl.deleteRecord(item.id)" class="btn btn-danger btn-sm rep-center">
+                        {{'DELETE'|translate}}&nbsp;{{'ROA_ABREV'|translate}}&nbsp;{{$index+1}}
+                    </button>
+                </div>
+            </li>
         </ul>
 
-        <script type="text/ng-template" id="displayRoa">
-            <div class="col-md-8">
-            <span class="field-name full-width">{{item.roa}}</span>
+        <div class="row mrgn-tp-md mrgn-bttm-lg">
+            <div class="btn-group-sm col-md-12 text-right">
+                <input type="submit" value="Add Route of Administration" class="btn btn-primary"
+                       ng-click="roaCtrl.addNew()"/>
             </div>
-            <div class="btn-group-sm col-md-4 text-right">
-                <a href="" ng-click="roaCtrl.editRecord(item)" class="btn btn-default btn-sm">Edit</a>
-                <a href="" ng-click="roaCtrl.deleteRecord(item.id)" class="btn btn-danger btn-sm">Delete</a>
-            </div>
-        </script>
-
-        <script type="text/ng-template" id="editRoa">
-            <div class="col-md-8">
-            <select ng-model="item.roa"  class="form-control full-width" >
-                    <option ng-repeat="ctr in roaCtrl.model.roa">{{ctr}}</option>
-                </select>
-                <!--<input type="text" class="form-control full-width" ng-model="item.name"/>-->
-            </div>
-            <div class="btn-group-sm col-md-4 text-right">
-                <a href="" ng-click="roaCtrl.saveRecord(item.id)" class="btn btn-primary btn-sm">Save</a>
-                <a href="" ng-click="roaCtrl.reset()" class="btn btn-default btn-sm">Cancel</a>
-                <a href="" ng-click="roaCtrl.deleteRecord(item.id)" class="btn btn-danger btn-sm">Delete</a>
-            </div>
-        <div class="form-group col-md-8 mrgn-tp-lg has-error" ng-if="item.roa === 'OTHER' ">
-                <!--<label for="unknown-country-details">Please specify the unknown details</label>-->
-
-                <label for="other-roa-details" class="required">
-                    <span class="field-name">{{'OTHER_ROA_DETAILS'|translate}}</span>
-                    <strong class="required">{{"REQUIRED" |translate}}</strong>
-                </label>
-
-                <textarea id="other-roa-details" class="form-control full-width"
-                          ng-model="item.model.otherRoaDetails"></textarea>
-            </div>
-        </script>
-
-    </fieldset>
-
-    <div class="row mrgn-tp-md mrgn-bttm-lg">
-        <div class="btn-group-sm col-md-12 text-right">
-            <input type="submit" value="Add New" class="btn btn-primary" ng-click="roaCtrl.addNew()"/>
         </div>
-    </div>
 
-</ng-form>
+    </ng-form>
+</section>

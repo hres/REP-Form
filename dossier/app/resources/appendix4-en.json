@@ -94,6 +94,7 @@
   "CELLLINE": "Cell line",
   "AGEANIMALS": "Age of animals in months",
   "COUNTRYORIGIN": "Country of origin",
-  "SPECIFY": "Please specify"
+  "SPECIFY_THE": "Specify the other ",
+  "HUMAN_ANIMAL_SOURCE": "Human / Animal Sourced?"
 
 }

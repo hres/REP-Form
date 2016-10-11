@@ -24,12 +24,13 @@
     function formulationsCtrl() {
 
         var self = this;
-
+        self.isDetailValid = true //TODO this must be managed
         self.$onInit = function () {
             self.colNames = [
-                {"label": "Formulation", "binding": "formulation"},
-                {"label": "Formulation Name", "binding": "formulationName"}
+                {label: "Formulation", binding: "formulation", width: "15"},
+                {label: "Formulation Name", binding: "formulationName", width: "85"}
             ];
+
             self.formulationList = [
                 {
                     "formulation": "1",

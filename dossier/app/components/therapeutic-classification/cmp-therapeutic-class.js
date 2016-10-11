@@ -19,7 +19,8 @@
             bindings: {
                 listItems: '<',
                 onUpdate: '&',
-                onDelete: '&'
+                onDelete: '&',
+                showErrors: '&'
             }
         });
 
@@ -73,15 +74,14 @@
         };
 
         self.deleteRecord = function (_id) {
-            //console.log("Deleting item: "+_id);
-
+            if (self.model.classifications.length == 1) {
+                return;
+            }
             var idx = self.model.classifications.indexOf(
                 $filter('filter')(self.model.classifications, {id: _id}, true)[0]
             );
             self.model.classifications.splice(idx,1);
         };
-
-
 
         self.reset = function () {
             var item = self.model.selected;
@@ -103,5 +103,11 @@
             return out;
 
         }
+
+        self.showError = function (isInvalid, isTouched) {
+            return ((isInvalid && isTouched) || (isInvalid && self.showErrors()) )
+        }
+
+
     }
 })();

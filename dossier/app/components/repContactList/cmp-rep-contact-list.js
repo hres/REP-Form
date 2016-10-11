@@ -61,7 +61,7 @@
          */
         vm.$onInit = function () {
             vm.focused = false;
-         /*   vm.contactList = vm.contacts; //HERE Is how it is bound*/
+            // vm.contactList = vm.contacts;
         }
         vm.$onChanges = function (changes) {
             if (changes.contacts) {

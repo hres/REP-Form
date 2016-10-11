@@ -48,18 +48,17 @@ label > select {
     border-collapse: separate;
     margin-top: 5px;
 }
-/*
-.rep-accordian{
-   color: #295376
-}
-*/
 
-
-/*
-.picker-overlay {
-    z-index: 1100 !important;
-}*/
 .rep-expander{
     cursor:pointer;
     color:#295376;
+}
+
+.nav > li.active a {
+    border-top: #666 solid 4px !important;
+}
+
+.rep-center {
+    margin: 10px auto;
+/ / it will center them
 }

@@ -69,6 +69,14 @@
                     {
                         prefix: 'app/resources/scheduleA-',
                         suffix: '.json'
+                    },
+                    {
+                        prefix: 'app/resources/formulation-',
+                        suffix: '.json'
+                    },
+                    {
+                        prefix: 'app/resources/roa-',
+                        suffix: '.json'
                     }
 
                 ]

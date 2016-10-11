@@ -28,13 +28,16 @@
     function nonMedIngListCtrl() {
 
         var self = this;
-
+        self.isDetailValid = true; //TODO: Need to manage for Add and Delete
         self.$onInit = function () {
+
+            self.newIngFormShown = false;
+
             self.colNames = [
-                {"label": "Variant ID", "binding": "varId"},
-                {"label": "Active Ingredient Name", "binding": "ingName"},
-                {"label": "CAS", "binding": "cas"},
-                {"label": "Human/Animal Sourced ?", "binding": "humanAnimalSourced"}
+                {label: "VARIANT_NAME", binding: "varId", width: "15"},
+                {label: "NONMEDICINAL_INGREDIENT", binding: "ingName", width: "65"},
+                {label: "CAS_NUM", binding: "cas", width: "15"},
+                {label: "HUMAN_ANIMAL_SOURCE", binding: "humanAnimalSourced", width: "10"}
             ];
             self.ingList = [
                 {
@@ -42,30 +45,28 @@
                     "ingName": "ing1",
                     "cas": "00-00-1",
                     "type": "A",
-                    "humanAnimalSourced": "No",
                     "standard": "A",
                     "strength": "A",
                     "per": "A",
                     "units": "A",
-                    "calcAsBase": true,
-                    "animalHumanSourced": true,
-                    "nanoMaterial": "Yes",
-                    "nanoMaterialOther": "A"
+                    "calcAsBase": "",
+                    "animalHumanSourced": "",
+                    "nanoMaterial": "",
+                    "nanoMaterialOther": ""
                 },
                 {
                     "varId": "Var2",
                     "ingName": "ing2",
                     "cas": "00-00-2",
                     "type": "A",
-                    "humanAnimalSourced": "Yes",
                     "standard": "A",
                     "strength": "A",
                     "per": "A",
                     "units": "A",
-                    "calcAsBase": true,
-                    "animalHumanSourced": false,
-                    "nanoMaterial": "Yes",
-                    "nanoMaterialOther": "A"
+                    "calcAsBase": "",
+                    "animalHumanSourced": "",
+                    "nanoMaterial": "",
+                    "nanoMaterialOther": ""
                 },
                 {
                     "varId": "Var3",
@@ -77,13 +78,32 @@
                     "strength": "A",
                     "per": "A",
                     "units": "A",
-                    "calcAsBase": false,
-                    "animalHumanSourced": true,
-                    "nanoMaterial": "Other",
-                    "nanoMaterialOther": "A"
+                    "calcAsBase": "",
+                    "animalHumanSourced": "",
+                    "nanoMaterial": "",
+                    "nanoMaterialOther": ""
                 },
 
             ];
+
+            if (self.ingredients) {
+                self.ingList = self.ingredients;
+            }
+        };
+
+        self.addIng = function (ing) {
+            //console.debug('ingList addIng: ' + ing);
+            self.ingList.push(ing);
+            self.newIngFormShown = false;
+        };
+
+        self.updateIng = function (idx, ing) {
+            self.ingList[idx] = angular.copy(ing);
+        };
+
+        self.deleteIng = function (idx) {
+            // console.debug('ingList deleteIng: ' + idx);
+            self.ingList.splice(idx, 1);
         }
 
     }

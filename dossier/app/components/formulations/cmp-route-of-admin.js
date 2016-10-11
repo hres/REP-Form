@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module('roaModule', [])
+        .module('roaModule', ['dossierDataLists'])
 })();
 
 (function () {
@@ -16,30 +16,29 @@
         .module('roaModule')
         .component('cmpRoa', {
             templateUrl: './app/components/formulations/tpl-route-of-admin.html',
-            controller: roaCtrl,
+            controller: roaController,
             controllerAs: 'roaCtrl',
             bindings: {
                 listItems: '<',
                 onUpdate: '&',
-                onDelete: '&'
+                onDelete: '&',
+                showErrors: '&'
             }
         });
 
 
-    function roaCtrl($filter) {
+    roaController.$inject = ['$filter', 'DossierLists'];
+    function roaController($filter, DossierLists) {
         var self = this;
-
+        self.roaList = DossierLists.getRoa();
         self.$onInit = function () {
 
             self.model = {
                 list: [
-                    {"id": 1, "name": "Transdermal1"},
-                    {"id": 2, "name": "Transdermal2"},
-                    {"id": 3, "name": "Transdermal3"}
-                ],
-
-                roa: ["Transdermal1", "Transdermal2", "Transdermal3", "Transdermal4", "OTHER"],
-                selected: {}
+                    {"id": 1, "roa": "DENTAL", "otherRoaDetails": ""},
+                    {"id": 2, "roa": "BUCCAL", "otherRoaDetails": ""},
+                    {"id": 3, "roa": "BUCCAL", "otherRoaDetails": ""}
+                ]
             }
         };
 
@@ -55,7 +54,7 @@
 
             //console.log("addNew maxID: " + JSON.stringify(maxID) );
 
-            var item = {"id": maxID + 1, "name": ""};
+            var item = {"id": maxID + 1, "roa": "", 'otherRoaDetails': ""};
 
             self.model.list.push(item);
             self.editRecord(item);
@@ -97,6 +96,30 @@
             // self.deleteRecord(item.id)
             self.model.selected = {};
 
+        };
+        /**
+         * Shows and hides errors for a control
+         * @param isInvalid
+         * @param isTouched
+         * @returns {*}
+         */
+        self.showError = function (isInvalid, isTouched) {
+            return ((isInvalid && isTouched) || (isInvalid && self.showErrors()))
+        }
+        /**
+         * Sets the state of the other Roa details text box
+         */
+        self.isRoaOther = function (index) {
+            var idx = self.model.list.indexOf(
+                $filter('filter')(self.model.list, {id: index}, true)[0]
+            );
+            if (!idx) return false;
+            if (self.model.list[idx].roa === DossierLists.getOtherValue()) {
+                return true;
+            } else {
+                self.model.list[idx].otherRoaDetails = "";
+                return false;
+            }
         };
 
         function getListMaxID() {

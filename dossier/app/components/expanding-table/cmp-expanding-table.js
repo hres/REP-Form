@@ -23,32 +23,50 @@
                 listItems: '<',
                 columnDef:'<',
                 disableSelection:'<',
-                selectRecord:'<'
+                selectRecord: '<',
+                resetToCollapsed: '<'
             }
         });
-   //expandingTableCtrl.$inject = ['$element']
-    function expandingTableCtrl($element) {
+    expandingTableCtrl.$inject = ['$filter']
+    function expandingTableCtrl($filter) {
         var vm = this;
-        vm.$onInit = function () {
-            vm.focused = false;
-            vm.disableExpand=false;
-            vm.tableRowExpanded = false;
-            vm.tableRowIndexCurrExpanded = "";
-            vm.tableRowIndexPrevExpanded = "";
-            vm.dayDataCollapse = [true, true, true, true, true];
-            vm.numberCols= vm.columnDef.length;// _getNumberKeys(vm.columnDef)
-            vm.dayDataCollapse=_createArray(vm.listItems.length,true);
+        vm.focused = false;
+        vm.disableExpand = false;
+        vm.tableRowExpanded = false;
+        vm.tableRowIndexCurrExpanded = "";
+        vm.tableRowIndexPrevExpanded = "";
+        vm.numberCols = _getNumberKeys(vm.columnDef)
+        vm.dayDataCollapse = _createArray(vm.listItems.length, true);
 
+        vm.$onInit = function () {
         }
+
+        vm.getExpandedState = function (row) {
+            if (row === vm.tableRowIndexCurrExpanded) {
+                return true;
+            }
+            return false
+        }
+
         vm.$onChanges = function (changes) {
 
-            if(changes.listItems){}
-            {
-                //vm. = changes.listItems.currentValue;
+            if (changes.listItems) {
+                vm.dayDataCollapse = _createArray(vm.listItems.length, true);
+                vm.resetTableRow();
             }
+
+            /**
+             Resets the table to collapsed. Note this  is not a true reset
+             If a valid index is selected, toggles (Expands) the row after a reset.
+             This allows expanding the same row index after a row has been added at the beginning
+             For a true reset, first set select record to -1
+             */
             if(changes.resetToCollapsed){
                 if(changes.resetToCollapsed.currentValue){
                     vm.resetTableRow();
+                    if (!changes.selectRecord) {
+                        updateTableRow(vm.selectRecord);
+                    }
                 }
             }
             if(changes.selectRecord){
@@ -62,15 +80,16 @@
             if(changes.disableSelection){
                 vm.disableExpand=changes.disableSelection.currentValue;
             }
-        };
-
-        vm.$postLink = function(){
-
-
-            $element.find('tr').on('click',function(){
-            });
+        }
+        function updateTableRow(textIndex) {
+            var selectIndex = parseInt(textIndex);
+            if (selectIndex >= 0) {
+                vm.selectTableRow(selectIndex);
+            }
 
         }
+
+
         /**
          * Utility function for determining the number of columns to create
          * @param myobj
@@ -92,9 +111,9 @@
          * @returns {Array}
          * @private
          */
-        function _createArray(arraySize,initialVal){
+        function _createArray(arraySize, initialVal) {
             var anArray = [];
-            for (var i = 0; i < arraySize; i++) anArray.push (initialVal);
+            for (var i = 0; i < arraySize; i++) anArray.push(initialVal);
             return anArray
         }
 
@@ -102,21 +121,24 @@
             vm.tableRowExpanded = false;
             vm.tableRowIndexCurrExpanded = "";
         }
+        /**
+         * @ngdoc resets the table to a collapsed state
+         */
         vm.resetTableRow = function () {
             vm.tableRowIndexPrevExpanded = "";
             vm.tableRowExpanded = false;
             vm.tableRowIndexCurrExpanded = "";
+            vm.dayDataCollapse = _createArray(vm.listItems.length, true);
+
         }
 
         vm.dayDataCollapseFn = function () {
-            for (var i = 0; i< vm.listItems.length; i++) {
-                vm.dayDataCollapse.append(true);
+            for (var i = 0; vm.listItems.length - 1; i += 1) {
+                vm.dayDataCollapse.append('true');
             }
         };
         vm.selectTableRow = function (index) {
             //if selection
-
-
             if (vm.disableExpand) return;
             if (vm.dayDataCollapse === 'undefined') {
                 vm.dayDataCollapse = vm.dayDataCollapseFn();
@@ -142,8 +164,6 @@
                     }
                 }
             }
-
-
         }
 
 

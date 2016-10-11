@@ -1,27 +1,32 @@
 <ng-form name="chkl.checkList">
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 form-group" ng-repeat="item in chkl.currentModel">
-
-       <div class="checkbox">
-        <label class="form-checkbox form-label-inline" for="chk-{{item.name}}-{{$index}}">
-            <input type="checkbox" name="{{chkl.commonName}}" ng-model="item.value" id="chk-{{item.name}}-{{$index}}" ng-required="!chkl.someSelected()"> {{item.label |translate}}
-        </label>
-       </div>
-        <div class="col-xs-12 form-group" ng-if="item.value && item.hasOtherDetails"
-             ng-class="{'has-error':chkl.checkList.chkOther.$invalid}">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat-start="item in chkl.currentModel">
+        <div class="checkbox">
+            <label class="form-checkbox form-label-inline" for="chk-{{item.name}}-{{$index}}">
+                <input type="checkbox" name="{{chkl.commonName}}" ng-model="item.value"
+                       ng-change="chkl.updateOtherState(item)"
+                       id="chk-{{item.name}}-{{$index}}" ng-required="!chkl.someSelected()"/>
+                {{item.label |translate}}
+            </label>
+        </div>
+    </div>
+    <div ng-repeat-end>
+        <div class="col-xs-6 form-group" ng-if="item.value && item.hasOtherDetails"
+             ng-class="{'has-error':chkl.checkList.textOther.$invalid}">
             <label for="{{chkl.commonName}}-other-text" class="required">
-                <span class="field-name">{{'SPECIFY'|translate}}</span>
+                <span class="field-name">{{'SPECIFY_THE'|translate}}{{chkl.title|translate}}</span>
                 <strong class="required">{{"REQUIRED"|translate}}</strong>
                 <input type="text" maxlength="40" size="40" class="form-control full-width"
                        id="{{chkl.commonName}}-other-text"
-                       ng-model="item.otherText" name="chkOther" ng-required="true"/>
-                <strong id="other-error" class="error" ng-if="chkl.checkList.chkOther.$invalid">
-                        <span class="label label-danger" ng-messages="chkl.checkList.chkOther.$error">
+                       ng-model="item.otherText" name="textOther" ng-required="true"/>
+                <strong id="other-error" class="error" ng-if="chkl.checkList.textOther.$invalid">
+                        <span class="label label-danger" ng-messages="chkl.checkList.textOther.$error">
                             <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
                         </span>
                 </strong>
             </label>
-            </div>
+        </div>
     </div>
+
     <!--<pre>currentModel: {{chkl.listItems | json : spacing}}</pre>-->
 </ng-form>
 <!--

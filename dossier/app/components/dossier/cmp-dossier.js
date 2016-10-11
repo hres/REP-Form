@@ -165,6 +165,8 @@
             return self.userType == "EXT";
 
         };
+
+
         /**
          * Used to show all the fields in an error state. Can be activated by a parent component
          * @returns {boolean}

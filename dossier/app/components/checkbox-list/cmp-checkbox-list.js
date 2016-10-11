@@ -62,6 +62,16 @@
             self.onUpdate({$event: {roles: self.roleModel}});
 
         }
+        /**
+         * Manages the state of the other field
+         * @param item
+         */
+        self.updateOtherState = function (item) {
+            if (!item.value && item.hasOtherDetails) {
+
+                item.otherText = "";
+            }
+        }
 
     }
 })();
