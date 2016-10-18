@@ -30,6 +30,7 @@
   "SAVE_CONTACT":"Save Contact",
   "DELETE_CONTACT":"Delete Contact",
   "COMPANY_ID": "Company Id",
-  "DOSSIER_ID": "Dossier Id"
+  "DOSSIER_ID": "Dossier Id",
+  "ERRORS":"Errors"
 
 }

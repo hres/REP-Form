@@ -19,6 +19,8 @@
   "CONTACT_INFO": "fr_Contact Information",
   "AMEND": "fr_Amend",
   "REP_CONTACT":  "fr_REP Contact",
-  "ONE_ROLE": "fr_Role"
+  "ONE_ROLE": "fr_Role",
+  "CONTACT_DETAILS": "fr_Contact Details",
+  "ADD_CONTACT": "fr_Add Contact"
 
 }

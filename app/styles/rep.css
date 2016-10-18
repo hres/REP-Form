@@ -49,8 +49,16 @@ label > select {
     margin-top: 5px;
 }
 
+.rep-expander{
+    cursor:pointer;
+    color:#295376;
+}
 
-/*
-.picker-overlay {
-    z-index: 1100 !important;
-}*/
+.nav > li.active a {
+    border-top: #666 solid 4px !important;
+}
+
+.rep-center {
+    margin: 10px auto;
+/ / it will center them
+}

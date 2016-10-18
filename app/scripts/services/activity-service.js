@@ -45,7 +45,7 @@
             angular.extend(this._default, defaultActivityData);
 
             this.rootTag = "ACTIVITY_ENROL";
-            this.activityId=0;
+            this.activityId = 0;
         }
 
         ActivityService.prototype = {
@@ -181,7 +181,7 @@
                 activityList = [activityList]
             }
             for (var i = 0; i < activityList.length; i++) {
-                var result=_transformRelatedRegActivityFromFileObj(activityList[i]);
+                var result = _transformRelatedRegActivityFromFileObj(activityList[i]);
                 this.updateActivityId(result.activityId);
                 listResult.push(result);
             }
@@ -272,18 +272,17 @@
             }
             return activityList;
         };
-        ActivityService.prototype.updateActivityId=function(value){
+        ActivityService.prototype.updateActivityId = function (value) {
             if (isNaN(value)) return;
             if (value > this.activityId) {
                 this.activityId = value;
             }
         };
-        ActivityService.prototype.getNextActivityId=function(){
+        ActivityService.prototype.getNextActivityId = function () {
             this.activityId = this.activityId + 1;
-            console.log("the activity ID is"+this.activityId)
             return (this.activityId);
         };
-        ActivityService.prototype.resetActivityId=function (value) {
+        ActivityService.prototype.resetActivityId = function (value) {
             if (!value) {
                 this.activityId = 0;
             } else {
@@ -520,7 +519,7 @@
     function _mapRelatedRegActivityToOutput(jsonObj) {
         if (!jsonObj) return null;
         var regActivityType = {
-            "activity_id":jsonObj.activityId,
+            "activity_id": jsonObj.activityId,
             "amend_record": jsonObj.amendRecord,
             "reg_activity_type": jsonObj.regActivityType,
             "date_cleared": "",
@@ -532,7 +531,7 @@
         };
         var dateCleared = jsonObj.dateCleared;
         var month = "";
-        var day="";
+        var day = "";
         if (dateCleared) {
             month = dateCleared.getUTCMonth() + 1
             day = dateCleared.getUTCDate();
@@ -546,9 +545,9 @@
             regActivityType.date_cleared = dateCleared.getUTCFullYear() + '-' + (month) + '-' + day;
         }
         var dins = _mapRelatedDinsToOutput(jsonObj.assocDins);
-        if(dins && dins.length>0) {
+        if (dins && dins.length > 0) {
             regActivityType.assoc_dins = dins;
-        }else{
+        } else {
             regActivityType.assoc_dins = "";
         }
         return regActivityType;
@@ -557,7 +556,7 @@
     function _transformRelatedRegActivityFromFileObj(jsonObj) {
         if (!jsonObj) return null;
         var regActivityType = {
-            "activityId":jsonObj.activity_id,
+            "activityId": jsonObj.activity_id,
             "amendRecord": jsonObj.amend_record,
             "regActivityType": jsonObj.reg_activity_type,
             "dateCleared": "",

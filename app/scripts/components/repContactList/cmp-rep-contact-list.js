@@ -38,7 +38,6 @@
         vm.isParentDirty = false; //tracks whether the parent form has been dirtied
         vm.formAmend = false; //
         var repContactService=new RepContactService();
-        console.log("this is the service "+repContactService)
         vm.columnDef = [
             {
                 label: "FIRST_NAME",
@@ -62,7 +61,7 @@
          */
         vm.$onInit = function () {
             vm.focused = false;
-            vm.contactList = vm.contacts; //HERE Is how it is bound
+            // vm.contactList = vm.contacts;
         }
         vm.$onChanges = function (changes) {
             if (changes.contacts) {
@@ -144,6 +143,7 @@
         }
 
         vm.disableAdd = function () {
+            if(!vm.contactList) return false;
             return !(vm.isDetailValid && vm.contactList.length < 2);
         }
 

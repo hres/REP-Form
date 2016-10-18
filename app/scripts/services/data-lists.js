@@ -690,7 +690,7 @@
     /* @ngInject */
     function getRolesService() {
         var service = {
-            getContactRoles: getRoleValuesArray,
+            getContactRoles: getRoleValuesArray
         };
         return service;
 
@@ -701,7 +701,7 @@
                 [
                     '',
                     'ROLE_PRIMARY',
-                    'ROLE_SECONDARY',
+                    'ROLE_SECONDARY'
                 ]);
         }
 

@@ -54,7 +54,6 @@
 
             }
             if (changes.activityList) {
-                console.log("Changes in the value" + changes.activityList.currentValue)
                 vm.activityTypesArray = changes.activityList.currentValue;
             }
             if (changes.isAmend) {

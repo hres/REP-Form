@@ -5,6 +5,7 @@
         <li ng-repeat="tab in tabsCtrl.tabs" role="presentation" ng-click="tabsCtrl.selectTab($index)"
             ng-class="{'active':tabsCtrl.tabs[$index].selected === true}">
             <a href="#" role="tab">{{tab.label}}</a>
+            <p>This is a test</p>
         </li>
 
     </ul>

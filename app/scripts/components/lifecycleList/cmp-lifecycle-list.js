@@ -56,7 +56,7 @@
             {
                 label: "DATE_SUBMITTED",
                 binding: "dateFiled",
-                width: "10"
+                width: "12"
             },
             {
                 label: "REG_ACTIVITY",
@@ -66,7 +66,7 @@
             {
                 label: "SEQUENCE_DESCRIPT",
                 binding: "sequenceConcat",
-                width: "70"
+                width: "68"
             }
         ]
 

@@ -76,12 +76,10 @@
 
 
         vm.deleteActivity = function (aID) {
-
-            console.log("The delete ID is "+aID)
             var idx = vm.activityList.indexOf(
                 $filter('filter')(vm.activityList, {actvityId: aID}, true)[0]);
-                vm.activityList.splice(idx, 1);
-                vm.onUpdate({newList: vm.activityList});
+            vm.activityList.splice(idx, 1);
+            vm.onUpdate({newList: vm.activityList});
             vm.selectRecord = -1;
             vm.isDetailsValid = true; //case that incomplete record is deleted
 

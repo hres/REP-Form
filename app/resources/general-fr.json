@@ -23,11 +23,12 @@
   "PRIMARY": "fr_Primary",
   "SECONDARY": "fr_Alternate",
   "TOGGLE_EXPAND": "fr_Click to toggle collapse or expand details of row",
-  "SAVE_DRAFT":   "fr_Save Working Copy",
+  "SAVE_DRAFT": "fr_Save Working Copy",
   "CONTROL_NUMBER": "fr_Control Number",
   "REP_CONTACT_INFO": "fr_Main Contact Information",
-  "SAVE_CONTACT":"fr_Save Contact",
-  "DELETE_CONTACT":"fr_Delete Contact",
+  "SAVE_CONTACT": "fr_Save Contact",
+  "DELETE_CONTACT": "fr_Delete Contact",
   "COMPANY_ID": "fr_Company Id",
-  "DOSSIER_ID": "fr_Dossier Id"
+  "DOSSIER_ID": "fr_Dossier Id",
+  "ERRORS": "Erreurs"
 }

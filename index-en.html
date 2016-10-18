@@ -1,6 +1,6 @@
 <!DOCTYPE html><!--[if lt IE 9]>
 <html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
-<html class="no-js" lang="en" dir="ltr" xmlns="http://www.w3.org/1999/html">
+<html class="no-js" lang="en" dir="ltr">
 <!--<![endif]-->
 <head>
     <meta charset="utf-8">
@@ -66,9 +66,9 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <ul class="list-inline margin-bottom-none">
-                    <li><a lang="fr" href="index-fr.html">Français</a></li>
-                    </ul>
+                    <!--<ul class="list-inline margin-bottom-none">
+                    <li><a lang="fr" href="content-fr.html">Français</a></li>
+                    </ul>-->
                 </div>
             </div>
         </section>
@@ -89,21 +89,23 @@
                 <div id="mb-pnl"></div>
             </section>
             <section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg">
-<h2>Search</h2>
-<form action="#" method="post" name="cse-search-box" role="search" class="form-inline">
-<div class="form-group">
-<label for="wb-srch-q" class="wb-inv">Search website</label>
-<input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="27" maxlength="150" placeholder="Search Canada.ca">
-<datalist id="wb-srch-q-ac">
-<!--[if lte IE 9]><select><![endif]-->
-<!--[if lte IE 9]></select><![endif]-->
-</datalist>
-</div>
-<div class="form-group submit">
-<button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub"><span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
-</div>
-</form>
-</section>
+                <h2>Search</h2>
+                <form action="#" method="post" name="cse-search-box" role="search" class="form-inline">
+                    <div class="form-group">
+                        <label for="wb-srch-q" class="wb-inv">Search website</label>
+                        <input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search"
+                               value="" size="27" maxlength="150" placeholder="Search Canada.ca">
+                        <datalist id="wb-srch-q-ac">
+                            <!--[if lte IE 9]><select><![endif]-->
+                            <!--[if lte IE 9]></select><![endif]-->
+                        </datalist>
+                    </div>
+                    <div class="form-group submit">
+                        <button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub">
+                            <span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
+                    </div>
+                </form>
+            </section>
         </div>
     </div>
     <nav role="navigation" id="wb-sm" data-ajax-replace="./ajax/sitemenu-en.html" data-trgt="mb-pnl"
@@ -131,7 +133,7 @@
         <div class="container">
             <div class="row">
                 <ol class="breadcrumb">
-                    <li><a href="http://www.canada.ca/en/index.html">Home</a></li>
+                    <li><a href="https://lam-dev.hres.ca/REP-Form/index.html">Home</a></li>
                 </ol>
             </div>
         </div>
@@ -142,17 +144,21 @@
 
     <!--content starts here -->
     <div>
-        <h1 property="name" id="wb-cont"> Regulatory Enrolment Process (Oct 3) </h1>
+        <div class="row">
+            <h1 property="name" id="wb-cont"> Regulatory Enrolment Process </h1>
+        </div>
         <div>
-            <h2> External User Links</h2>
             <div class="row">
-                <a href="companyEnrolEXT-en.html">Company Enrolment -External (Sept 16)</a>
+                <h2> External User Links</h2>
             </div>
             <div class="row">
-                <a href="transactionEnrol-en.html">Transaction Enrolment -External (sept 27)</a>
+                <a href="companyEnrolEXT-en.html">Company Enrolment -External (Oct 18)</a>
             </div>
             <div class="row">
-                <a href="activityEnrolEXT-en.html">Activity Enrolment -External (Oct 6)</a>
+                <a href="transactionEnrol-en.html">Transaction Enrolment -External (Oct 18)</a>
+            </div>
+            <div class="row">
+                <a href="activityEnrolEXT-en.html">Activity Enrolment -External (Oct 18)</a>
             </div>
             <div class="row">
                 <a href="dossier/dossierEnrolEXT-en.html">Dossier Enrolment External (Oct 11)</a>
@@ -160,13 +166,15 @@
 
         </div>
         <div>
-            <h2>Internal User (i.e. HPFB) Links</h2>
             <div class="row">
-                <a href="companyEnrolINT-en.html">Company Enrolment -Internal (Sept 16) </a>
+                <h2>Internal User (i.e. HPFB) Links</h2>
+            </div>
+            <div class="row">
+                <a href="companyEnrolINT-en.html">Company Enrolment -Internal (Oct 18) </a>
             </div>
 
             <div class="row">
-                <a href="activityEnrolINT-en.html">Activity Enrolment -Internal (Oct 6)</a>
+                <a href="activityEnrolINT-en.html">Activity Enrolment -Internal (Oct 18)</a>
             </div>
 
         </div>
@@ -192,6 +200,12 @@
                     <li>UI improvements for Dossier</li>
                 </ul>
             </row>
+            <row>
+                <h2>Summary of changes for Oct 18</h2>
+                <ul>
+                    <li>Error column for Summary Table (Company,Activity,Transaction)</li>
+                </ul>
+            </row>
         </div>
 
     </div>
@@ -201,7 +215,7 @@
         <dl id="wb-dtmd">
             <dt>Date modified:&#32;</dt>
             <dd>
-                <time property="dateModified">2016-09-27</time>
+                <time property="dateModified"><!--build:dateToday--><!--endbuild--> </time>
             </dd>
         </dl>
     </div>
@@ -210,31 +224,9 @@
 <aside class="gc-nttvs container">
     <h2>Government of Canada activities and initiatives</h2>
 
-    <div id="gcwb_prts" class="wb-eqht row">
-        <section class="col-lg-4 col-md-6 mrgn-bttm-md">
-            <a rel="external" href="#">
-                <h3 class="h5">[Activities and initiatives hyperlink text]</h3>
-                <img class="img-responsive thumbnail mrgn-bttm-sm" src="./img/features/355x113.png" alt="">
-            </a>
+    <div id="gcwb_prts" class="wb-eqht row wb-init wb-data-ajax-replace-inited wb-eqht-inited"
+         data-ajax-append="https://cdn.canada.ca/gcweb-cdn-live/features/features-en.html">
 
-            <p>Brief description of the initiative, task or information being promoted.</p>
-        </section>
-        <section class="col-lg-4 col-md-6 mrgn-bttm-md">
-            <a rel="external" href="#">
-                <h3 class="h5">[Activities and initiatives hyperlink text]</h3>
-                <img class="img-responsive thumbnail mrgn-bttm-sm" src="./img/features/355x113.png" alt="">
-            </a>
-
-            <p>Brief description of the initiative, task or information being promoted.</p>
-        </section>
-        <section class="col-lg-4 col-md-6 mrgn-bttm-md">
-            <a rel="external" href="#">
-                <h3 class="h5">[Activities and initiatives hyperlink text]</h3>
-                <img class="img-responsive thumbnail mrgn-bttm-sm" src="./img/features/355x113.png" alt="">
-            </a>
-
-            <p>Brief description of the initiative, task or information being promoted.</p>
-        </section>
     </div>
 </aside>
 <footer role="contentinfo" id="wb-info">
@@ -291,6 +283,10 @@
 <!-- inject:js -->
 
 <!-- endinject -->
+<!-- thirdParty:js  -->
+
+<!-- endinject -->
+
 
 </body>
 </html>
