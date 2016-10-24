@@ -6,7 +6,7 @@
 (function () {
     'use strict';
     angular
-        .module('filterLists', []);
+        .module('filterLists', ['hpfbConstants']);
 })();
 
 (function () {

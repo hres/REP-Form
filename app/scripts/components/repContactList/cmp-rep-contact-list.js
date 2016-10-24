@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('contactModule26', ['contactModule25', 'expandingTable','repContactService'])
+        .module('contactModule26', ['contactModule25', 'expandingTable', 'repContactService'])
 })();
 
 (function () {
@@ -21,14 +21,14 @@
             controllerAs: 'contactListCtrl',
             bindings: {
                 contacts: '<',
-              //  onUpdate: '&',
-               // getNewContact: '&',
+                //  onUpdate: '&',
+                // getNewContact: '&',
                 showListErrors: '&',
                 parentDirty: '<',
                 isAmend: '<'
             }
         });
-    contactListCtrl.$inject = ['$filter','RepContactService']
+    contactListCtrl.$inject = ['$filter', 'RepContactService']
     function contactListCtrl($filter, RepContactService) {
         var vm = this;
         vm.selectRecord = -1; //the record to select
@@ -37,7 +37,7 @@
         vm.oneRecord = ""; //using required as the validaiton
         vm.isParentDirty = false; //tracks whether the parent form has been dirtied
         vm.formAmend = false; //
-        var repContactService=new RepContactService();
+        var repContactService = new RepContactService();
         vm.columnDef = [
             {
                 label: "FIRST_NAME",
@@ -85,7 +85,7 @@
         }
 
         vm.showNoRecordError = function (isInvalid) {
-            return ((vm.isParentDirty && isInvalid  )|| (vm.showListErrors()&&isInvalid));
+            return ((vm.isParentDirty && isInvalid  ) || (vm.showListErrors() && isInvalid));
         }
 
         vm.setValid = function (value) {
@@ -103,8 +103,12 @@
             ); //TODO fix filter
             vm.contactList[idx] = angular.copy(record);
             vm.updateErrorState();
+            vm.contactListForm.$setPristine();
+            vm.disableAdd()
         }
-
+        /***
+         * Tracks if no records
+         */
         vm.updateErrorState = function () {
             if (vm.contactList && vm.contactList.length > 0) {
                 vm.oneRecord = "is value";
@@ -122,12 +126,16 @@
             //todo get Alternate
             if (vm.contactList.length === 1 && vm.contactList[0].repRole !== "PRIMARY") {
                 vm.contactList[0].repRole = "PRIMARY"
+                var temp=angular.copy(vm.contactList);
+                vm.contactList=[]
+                vm.contactList=temp;
             }
 
             //vm.onUpdate({newList: vm.contactList});
             vm.updateErrorState();
+            vm.disableAdd()
             vm.setValid(true);
-            vm.selectRecord = -1
+            vm.selectRecord = -1;
 
         }
         /**
@@ -143,8 +151,12 @@
         }
 
         vm.disableAdd = function () {
-            if(!vm.contactList) return false;
-            return !(vm.isDetailValid && vm.contactList.length < 2);
+            if (!vm.contactList) return false;
+            var isInvalid = !vm.isDetailValid || vm.contactList.length == 2 || (vm.contactList.length > 0 && vm.contactListForm.$invalid)
+               // || (vm.contactListForm.$valid && vm.contactListForm.$dirty);
+
+            return isInvalid;
+
         }
 
     }

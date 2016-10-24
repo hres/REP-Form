@@ -70,6 +70,6 @@
             $translateProvider.preferredLanguage('en');
             //this prevents conflicts with ngMessage
             $translateProvider.directivePriority(1);
-            $translateProvider.useSanitizeValueStrategy('sanitize');
+            $translateProvider.useSanitizeValueStrategy(null);
         }]);
 })();

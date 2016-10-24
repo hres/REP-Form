@@ -21,7 +21,8 @@
         'applicationInfoService',
         'applicationInfo',
         'ui.bootstrap',
-        'numberFormat'
+        'filterLists',
+       'numberFormat'
     ];
 
     angular
@@ -33,108 +34,90 @@
     angular
         .module('dossierModule')
         .component('cmpDossier', {
-        templateUrl: './app/components/dossier/tpl-dossier.html',
-        controller: dossierCtrl,
-        controllerAs: 'dos',
-        bindings: {
-            dossierRecordInput: '<',
-            onUpdateDossier: '&',
-            onDeleteDossier: '&',
-            formType:'@'
-            // selectedCountryChanged: '&'
-        }
-    });
+            templateUrl: './app/components/dossier/tpl-dossier.html',
+            controller: dossierCtrl,
+            controllerAs: 'dos',
+            bindings: {
+                dossierRecordInput: '<',
+                onUpdateDossier: '&',
+                onDeleteDossier: '&',
+                formType: '@'
+                // selectedCountryChanged: '&'
+            }
+        });
 
-    dossierCtrl.$inject = ['$scope','hpfbFileProcessing', 'ApplicationInfoService'];
+    dossierCtrl.$inject = ['$scope', 'hpfbFileProcessing', 'ApplicationInfoService', 'DossierService'];
 
 
-    function dossierCtrl($scope, hpfbFileProcessing,ApplicationInfoService) {
+    function dossierCtrl($scope, hpfbFileProcessing, ApplicationInfoService, DossierService) {
 
         var self = this;
         self.showContent = _loadFileContent; //binds the component to the function
-        self.formUserType='EXT'; //set default to external type
+        self.formUserType = 'EXT'; //set default to external type
         self.applicationInfoService = new ApplicationInfoService();
+        self.userType = "EXT";
+        self.saveXMLLabel = "SAVE_DRAFT";
+
         //config for applicationInfoCompoenent
         self.configField = {
             "label": "DOSSIER_ID",
             "fieldLength": "7",
-            "tagName": "dossierID",
+            "tagName": "dossierId",
             "errorMsg": "MSG_LENGTH_7"
         };
-        self.isIncomplete=true;
-        self.formAmend=false;
+        self.isIncomplete = true;
+        self.formAmend = false;
         self.showAllErrors = false;
-        /*
+        self.errorAppendix = [];
+        self.noThera="";
+        self.$onInit = function () {
 
-         "company_id": "A",
-         "enrolment_version": "1.23",
-         "date_saved": "1999-01-21",
-         "application_type": "APPROVED",
-         "software_version": "string",
-         "data_checksum": "string",
+            self.dossierService = new DossierService();
 
-         */
-
-        self.$onInit = function(){
-            self.dossierModel = {
-                dossierID:"",
-                enrolmentVersion: "1.23",
-                dateSaved: "1999-01-21",
-                applicationType: "NEW",
-                softwareVersion: "1.0",
-                dataChecksum: "kjsakdjas",
-                drugProduct:{
-                    thirdPartySigned:false,
-                    humanDrugUse: false,
-                    radiopharmDrugUse: false,
-                    vetDrugUse: false,
-                    disinfectantDrugUse: false,
-                    isScheduleA: false,
-                    scheduleAGroup:{
-
-                    },
-                    therapeutic: {//grid
-                        listItems:[],
-                        columnDef:[]
-                    },
-                    canRefProducts:{},//grid
-                    formulations:{},//tab + grid +
-                    appendixFour:{}//tab + grid +
-
-                },
-                contactInfo: { //grid
-                    contactList:[],
-                    columnDef:[]
-                }
-
-            };
-
+            self.dossierModel = self.dossierService.getDefaultObject();
         }
         /**
          * @ngdoc captures any change events from variable bindings
          * @param changes
          */
-        self.$onChanges=function(changes){
-            if(changes.formType){
-                self.userFormType=changes.formType.currentValue;
+        self.$onChanges = function (changes) {
+
+            if (changes.formType) {
+                self.userType = changes.formType.currentValue;
+                self.userType='EXT';
+                if (self.userType == 'INT') {
+                    self.saveXMLLabel = "APPROVE_FINAL"
+                } else {
+                    self.saveXMLLabel = "SAVE_DRAFT"
+                }
             }
-        }
+        };
+
+        self.appendixMissingError = function () {
+            return (self.errorAppendix && self.errorAppendix.length > 0);
+
+        };
 
         function _loadFileContent(fileContent) {
             if (!fileContent)return;
             var resultJson = fileContent.jsonResult;
             if (resultJson) {
-             //process file load results
+
+                // console.info('file loaded ... ' + JSON.stringify(resultJson));
+                self.dossierModel = self.dossierService.loadFromFile(resultJson);
+
+
+                //process file load results
                 //load into data model as result json is not null
             }
             //if content is attempted to be loaded show all the errors
-            self.showAllErrors=true;
+            self.showAllErrors = true;
             disableXMLSave();
         }
 
         self.setApplicationType = function (value) {
             self.dossierModel.applicationType = value;
-            self.formAmend= self.dossierModel.applicationType === self.applicationInfoService.getAmendType();
+            self.formAmend = self.dossierModel.applicationType === self.applicationInfoService.getAmendType();
             disableXMLSave();
         };
 
@@ -152,8 +135,8 @@
         /**
          * @ngdoc disables the XML save button
          */
-        function disableXMLSave(){
-            self.disableXML = self.activityEnrolForm.$invalid || (self.dossierModel.applicationType== self.applicationInfoService.getApprovedType() && self.isExtern());
+        function disableXMLSave() {
+            self.disableXML = self.dossierForm.$invalid || (self.dossierModel.applicationType == self.applicationInfoService.getApprovedType() && self.isExtern());
 
         }
 
@@ -166,13 +149,12 @@
 
         };
 
-
         /**
          * Used to show all the fields in an error state. Can be activated by a parent component
          * @returns {boolean}
          */
-        self.showErrors=function(){
-            return(self.showAllErrors);
+        self.showErrors = function () {
+            return (self.showAllErrors);
         }
         /**
          * For individual controls, whether to show the error for a fiedl
@@ -184,13 +166,104 @@
             return ((isInvalid && isTouched) || (self.showErrors() && isInvalid))
         }
 
-        /* [
-         {"name": "human", "label": "Human", "value": info.human_drug_use},
-         {"name": "radio-pharmaceutical", "label": "Radiopharmaceutical", "value": info.radiopharm_drug_use},
-         {"name": "veterinary", "label": "Veterinary", "value": info.vet_drug_use},
-         {"name": "disinfectant", "label": "Disinfectant", "value": info.disinfectant_drug_use}*/
+        /***
+         * Manages the schedule A details since the fields are always in the model
+         */
+        self.isSchedA = function () {
+            if (!self.dossierModel || !self.dossierModel.drugProduct || !self.dossierService) return false; //never happen case;
+            if (self.dossierModel.drugProduct.isScheduleA) {
 
+                return true;
+            } else {
+                self.dossierModel.drugProduct.scheduleAGroup = self.dossierService.getDefaultScheduleA();
+            }
+            return false;
+        }
+        self.saveJson = function () {
+            var writeResult = _transformFile();
+            console.log(writeResult);
+           hpfbFileProcessing.writeAsJson(writeResult, _createFilename(), self.dossierService.getRootTagName());
+            self.showAllErrors = true;
+            //_setComplete()
+        };
 
+        /**
+         * Takes the internal model and transforms to a json object compatible with the output
+         * @returns {*}
+         * @private
+         */
+        function _transformFile() {
+            updateDate();
+            if (!self.isExtern()) {
+                self.dossierModel.enrolmentVersion = self.applicationInfoService.incrementMajorVersion(self.dossierModel.enrolmentVersion);
+                self.dossierModel.applicationType = ApplicationInfoService.prototype.getApprovedType();
+               // updateModelOnApproval(); //updates all the amend
+            } else {
+                console.log(self.dossierModel.enrolmentVersion);
+                self.dossierModel.enrolmentVersion = self.applicationInfoService.incrementMinorVersion(self.dossierModel.enrolmentVersion);
+            }
+            return  self.dossierService.dossierToOutput(self.dossierModel);
+        };
+
+        /**
+         * @ngdoc -creates a filename for dossier file. If it exists,adds control number
+         * @returns {string}
+         * @private
+         */
+        function _createFilename() {
+            var filename = "HC_DO_Enrolment";
+            /*if (vm.activityRoot && vm.activityRoot.dstsControlNumber) {
+                filename = filename + "_" + vm.activityRoot.dstsControlNumber;
+            }*/
+            return filename;
+        }
+
+        /**
+         * @ngdoc method -updates the date field to the current date
+         */
+        function updateDate() {
+            if (self.dossierModel) {
+                self.dossierModel.dateSaved = self.applicationInfoService.getTodayDate();
+            }
+        }
+
+        /**
+         * @ngdoc method - updates if there are classifications
+         */
+        self.noTheraRecs=function(){
+            if(!self.model){
+                self.noRoa="";
+                console.log("false")
+                return false;
+            }
+            if(!self.model.list || self.model.list.length===0){
+                self.noRoa="";
+                console.log("true")
+                return true;
+            }
+            self.noRoa= self.model.list.length;
+            console.log("false2")
+            return false;
+
+        }
+
+        /**
+         * Manages errors for no ROA
+         * @returns {boolean}
+         */
+        self.noTheraRecs=function() {
+
+            if (!self.dossierModel ||! self.dossierModel.drugProduct) {
+                self.noThera = "";
+                return false;
+            }
+            if (!self.dossierModel.drugProduct.therapeutic || self.dossierModel.drugProduct.therapeutic.length === 0) {
+                self.noThera = "";
+                return true;
+            }
+            self.noThera =self.dossierModel.drugProduct.therapeutic.length;
+            return false;
+        }
 
     }
 

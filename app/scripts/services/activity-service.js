@@ -215,7 +215,7 @@
                 "dossierId": "",
                 "manufacturerName": "",
                 "reasonFiling": "",
-                "assocDins": {}
+                "assocDins": []
             };
             return activity;
         };
@@ -520,14 +520,14 @@
         if (!jsonObj) return null;
         var regActivityType = {
             "activity_id": jsonObj.activityId,
-            "amend_record": jsonObj.amendRecord,
+            "amend_record": jsonObj.amendRecord=== true ? 'Y' : 'N',
             "reg_activity_type": jsonObj.regActivityType,
             "date_cleared": "",
             "control_number": jsonObj.dstsControlNumber,
             "dossier_id": jsonObj.dossierId,
             "manufacturer_name": jsonObj.manufacturerName,
             "reason_filing": jsonObj.reasonFiling,
-            "assoc_dins": {}
+            "assoc_dins": []
         };
         var dateCleared = jsonObj.dateCleared;
         var month = "";
@@ -557,7 +557,7 @@
         if (!jsonObj) return null;
         var regActivityType = {
             "activityId": jsonObj.activity_id,
-            "amendRecord": jsonObj.amend_record,
+            "amendRecord": jsonObj.amend_record==='Y',
             "regActivityType": jsonObj.reg_activity_type,
             "dateCleared": "",
             "dstsControlNumber": jsonObj.control_number,

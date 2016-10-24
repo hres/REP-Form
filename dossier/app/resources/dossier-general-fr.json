@@ -8,5 +8,7 @@
   "SAVE": "fr_Save",
   "CANCEL": "fr_Cancel",
   "DELETE": "fr_Delete",
-  "EDIT": "fr_Edit"
+  "EDIT": "fr_Edit",
+  "CAN_REF_PRODUCTS": "fr_Canadian Reference Products",
+  "PROD_NAME":"fr_Product Name"
 }

@@ -35,6 +35,7 @@
         var self = this;
         self.nanoMaterialList=DossierLists.getNanoMaterials();
         self.yesNoList = DossierLists.getYesNoList();
+        self.savePressed=false; //activates errors on save
         self.$onInit = function () {
 
             self.ingModel = {};
@@ -45,18 +46,23 @@
         };
 
         self.saveIng = function () {
-            if (self.record) {
-                // console.log('product details update product');
-                self.onUpdate({ing: self.ingModel});
-            } else {
-                //  console.log('product details add product');
-                self.onAddIng({ing: self.ingModel});
+            if(self.activeIngForm.$valid) {
+                self.savePressed=false;
+                self.activeIngForm.$setPristine();
+                if (self.record) {
+                    // console.log('product details update product');
+                    self.onUpdate({ing: self.ingModel});
+                } else {
+                    //  console.log('product details add product');
+                    self.onAddIng({ing: self.ingModel});
+                }
+            }else{
+                self.savePressed=true;
             }
         };
 
         self.discardChanges = function () {
-            self.ingModel = {};
-            //self.productDetailsForm.$setPristine();
+            self.ingModel = self.record ? self.record : {};
             self.onCancel();
         }
 
@@ -72,7 +78,7 @@
 
         self.$onChanges=function(changes){
             if(changes.record){
-                self.ingModel = self.record.currentValue;
+                self.ingModel = changes.record.currentValue;
             }
         };
 
@@ -84,7 +90,7 @@
          * @returns {*}
          */
         self.showError=function(isInvalid,isTouched){
-            return((isInvalid &&isTouched)|| (isInvalid && self.showErrors()))
+            return((isInvalid &&isTouched)|| (isInvalid && self.showErrors() || (isInvalid && self.savePressed) ))
         }
 
         /**

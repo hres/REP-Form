@@ -1,8 +1,16 @@
+<ng-form name="roaCtrl.roaForm">
 <section class="panel  panel-default mrgn-tp-lg">
     <header class="panel-heading">
         <h3 class="panel-title">{{'ROA_TITLE'|translate}}</h3>
+        <strong id="active-error" class="error"  ng-if="roaCtrl.noRoaRecs()">
+            <span class="label label-danger" ng-messages="roaCtrl.roaForm.noRoaVal.$error">
+                <span ng-message="required"><span translate="MSG_ERR_ONE_ROA"></span></span>
+            </span>
+        </strong>
     </header>
-    <ng-form name="roaCtrl.roaForm">
+
+        <input type="textbox" required ng-show="false" name="noRoaVal" id="noRoa{{$id}}" aria-hidden="true"
+                                                        data-ng-model="roaCtrl.noRoa"/>
         <ul class="list-group">
             <li class="list-group-item  col-md-12" ng-repeat="item in roaCtrl.model.list">
                 <div class="col-md-5 form-group" ng-class="{'has-error':roaCtrl.roaForm['roaVal'+$index].$invalid}">
@@ -53,6 +61,5 @@
                        ng-click="roaCtrl.addNew()"/>
             </div>
         </div>
-
-    </ng-form>
 </section>
+</ng-form>

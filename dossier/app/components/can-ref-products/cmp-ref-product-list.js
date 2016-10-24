@@ -5,7 +5,7 @@
     'use strict';
 
     angular
-        .module('refProductListModule', ['expandingTable','refProductDetailsModule'])
+        .module('refProductListModule', ['expandingTable', 'refProductDetailsModule'])
 })();
 
 (function () {
@@ -23,63 +23,49 @@
             }
         });
 
-    function refProductListCtrl(){
+    function refProductListCtrl() {
         var self = this;
         self.isDetailValid = true //TODO this needs to be managed on add and delete
-        self.$onInit = function(){
+        self.$onInit = function () {
 
-           // if(self.products){
-                //self.productList = self.products.listItems;
-               // self.colNames = self.products.colNames;
+            // if(self.products){
+            //self.productList = self.products.listItems;
+            // self.colNames = self.products.colNames;
 
-                self.colNames = [
-                    {label: "BRAND_NAME", binding: "brandName", width: "50"},
-                    {label: "COMPANY_NAME", binding: "companyName", width: "50"}
-                ];
-                self.productList = [
-                    {
-                        "brandName": "Brand Name 1",
-                        "medIngredient": "A",
-                        "dosageForm": "OTHER",
-                        "dosageFormOther": "A",
-                        "strengths": "A",
-                        "companyName": "A"
-                    },
-                    {
-                        "brandName": "Brand Name 2",
-                        "medIngredient": "B",
-                        "dosageForm": "OTHER",
-                        "dosageFormOther": "A",
-                        "strengths": "A",
-                        "companyName": "A"
-                    },
-                    {
-                        "brandName": "Brand Name 3",
-                        "medIngredient": "C",
-                        "dosageForm": "OTHER",
-                        "dosageFormOther": "A",
-                        "strengths": "A",
-                        "companyName": "A"
-                    }
-                ];
+            self.colNames = [
+                {label: "BRAND_NAME", binding: "brandName", width: "50"},
+                {label: "COMPANY_NAME", binding: "companyName", width: "50"}
+            ];
+            self.productList = [];
             self.newProductFormShown = false;
-           // }
+
+            if (self.products) {
+                self.productList = self.products;
+            }
+            // }
 
 
         };
 
-        self.addProduct = function(product){
+        self.$onChanges = function (changes) {
+
+            if (changes.products) {
+                self.productList = changes.products.currentValue;
+            }
+        };
+
+        self.addProduct = function (product) {
             console.debug('productList addProduct: ' + product);
             self.productList.push(product);
         };
 
-        self.updateProduct = function(idx, product){
+        self.updateProduct = function (idx, product) {
             self.productList[idx] = angular.copy(product);
         };
 
-        self.deleteProduct = function(idx){
-           // console.debug('productList deleteProduct: ' + idx);
-            self.productList.splice(idx,1);
+        self.deleteProduct = function (idx) {
+            // console.debug('productList deleteProduct: ' + idx);
+            self.productList.splice(idx, 1);
         }
 
     }

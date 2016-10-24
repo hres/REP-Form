@@ -24,21 +24,27 @@
                 columnDef:'<',
                 disableSelection:'<',
                 selectRecord: '<',
-                resetToCollapsed: '<'
+                resetToCollapsed: '<',
+                disableErrColumn:'@'
             }
         });
     expandingTableCtrl.$inject = ['$filter']
     function expandingTableCtrl($filter) {
         var vm = this;
         vm.focused = false;
+        vm.columnDefinitions={};
         vm.disableExpand=false;
         vm.tableRowExpanded = false;
         vm.tableRowIndexCurrExpanded = "";
         vm.tableRowIndexPrevExpanded = "";
-        vm.numberCols=_getNumberKeys(vm.columnDef)
-        vm.dayDataCollapse = _createArray(vm.listItems.length, true);
+        vm.numberCols=vm.columnDef.length+2;
+        vm.disableErrorCol=false;
+        vm.dayDataCollapse = _createArray(0, true);
 
         vm.$onInit = function () {
+            if(vm.listItems) {
+                vm.dayDataCollapse = _createArray(vm.listItems.length, true);
+            }
         }
 
         vm.getExpandedState = function (row) {
@@ -51,7 +57,12 @@
         vm.$onChanges = function (changes) {
 
             if (changes.listItems) {
-                vm.dayDataCollapse = _createArray(vm.listItems.length, true);
+                if(vm.listItems) {
+                    vm.dayDataCollapse = _createArray(vm.listItems.length, true);
+                }else{
+                    //should never happen
+                    vm.dayDataCollapse = _createArray(0, true);
+                }
                 vm.resetTableRow();
             }
 
@@ -80,6 +91,53 @@
             if(changes.disableSelection){
                 vm.disableExpand=changes.disableSelection.currentValue;
             }
+            if(changes.columnDef) {
+                vm.numberCols=changes.columnDef.currentValue.length;
+                vm.columnDefinitions = _recalculateColumnDefs(changes.columnDef.currentValue, (vm.numberCols));
+                _setNumberColumns()
+            }
+            if(changes.disableErrColumn){
+                vm.disableErrorCol=changes.disableErrColumn.currentValue;
+                vm.numberCols=vm.columnDef.length;
+                _setNumberColumns();
+            }
+
+        };
+
+        function _setNumberColumns(){
+            if( vm.disableErrorCol){
+                //caret only
+                vm.numberCols= vm.numberCols+1;
+            }else{
+                //caret + error
+                vm.numberCols= vm.numberCols+2;
+            }
+        }
+
+        /**
+         * Recalculates the column defs based on the caret column and the error columne
+         * Assumes that the column definitions provided total 100%
+         * @param colDefs
+         * @private
+         */
+        function _recalculateColumnDefs(colDefs,numCols){
+            var caretWidth=2;
+            var errorWidth=5;
+            var totalWidth=caretWidth+errorWidth;
+            var toSubtract=totalWidth/numCols;
+            var result=[];
+            //dont' bother recalc if only the caret
+            if(vm.disableErrorCol){
+                return (colDefs);
+            }
+            for(var i=0;i<numCols;i++){
+                var oneDef=angular.copy(colDefs[i]);
+                if(oneDef.width>toSubtract) {
+                    oneDef.width = oneDef.width - toSubtract;
+                }
+                result.push(oneDef);
+            }
+            return result;
         }
         function updateTableRow(textIndex) {
             var selectIndex = parseInt(textIndex);
@@ -88,7 +146,18 @@
             }
 
         }
-
+        //TODO get value from a service!!
+        /**
+         * Translates when a form is invalid to localized text
+         * @returns {*}
+         */
+        vm.formInError=function(aForm){
+            if(!aForm) return ('N') //should never happen
+            if(aForm.$invalid){
+                return ('Y')
+            }
+            return ('N')
+        };
 
         /**
          * Utility function for determining the number of columns to create
@@ -128,7 +197,11 @@
             vm.tableRowIndexPrevExpanded = "";
             vm.tableRowExpanded = false;
             vm.tableRowIndexCurrExpanded = "";
-            vm.dayDataCollapse = _createArray(vm.listItems.length, true);
+            if(vm.listItems) {
+                vm.dayDataCollapse = _createArray(vm.listItems.length, true);
+            }else{
+                _createArray(0, true);
+            }
 
         }
 

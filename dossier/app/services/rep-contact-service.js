@@ -79,9 +79,9 @@
         contact.givenName = "";
         contact.initials = "";
         contact.surname = "";
-        contact.jobTitle = "";
-        contact.languageCorrespondance = "";
-        contact.phoneNum = "";
+        contact.title = "";
+        contact.language = "";
+        contact.phone = "";
         contact.phoneExt = "";
         contact.fax = "";
         contact.email = "";

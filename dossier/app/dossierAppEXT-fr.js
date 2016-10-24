@@ -77,6 +77,10 @@
                     {
                         prefix: 'app/resources/roa-',
                         suffix: '.json'
+                    },
+                    {
+                        prefix: 'app/resources/countries-',
+                        suffix: '.json'
                     }
 
                 ]

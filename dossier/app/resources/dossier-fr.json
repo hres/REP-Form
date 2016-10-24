@@ -38,5 +38,9 @@
   "SPECIFY": "fr_Please specify the Other",
   "DETAILS": "fr_Details",
   "REF_PRODUCTS": "fr_Canadian Reference Product(s)",
-  "DELETE_CLASS": "fr_Delete Classification"
+  "DELETE_CLASS": "fr_Delete Classification",
+  "ADD_A":"fr_Add a ",
+  "COUNTRY_MAN": "fr_Country of Manufacture",
+  "DELETE_COUNTRY":"fr_Delete Country",
+  "COUNTRIES_MANUFACT":"fr_Countries of manufacture for this drug produc"
 }

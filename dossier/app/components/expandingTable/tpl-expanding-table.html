@@ -3,7 +3,8 @@
         <thead>
         <tr>
             <th></th>
-            <th ng-repeat="heading in expandTblCtrl.columnDef">{{heading.label |translate}}</th>
+            <th ng-repeat="heading in expandTblCtrl.columnDefinitions">{{heading.label |translate}}</th>
+            <th ng-if="!expandTblCtrl.disableErrorCol">{{'ERRORS'|translate}}</th>
         </tr>
         </thead>
         <tbody>
@@ -13,18 +14,23 @@
             data-ng-repeat-start="record in expandTblCtrl.listItems"
             title="{{'TOGGLE_EXPAND' |translate}} {{$index+1}}"
             data-ng-click="expandTblCtrl.selectTableRow($index)">
-            <td>
+            <td width="2%">
                             <span ng-class="{'fa fa-caret-down fa-lg fa-fw':expandTblCtrl.getExpandedState($index) ,'fa fa-caret-right fa-lg fa-fw':!expandTblCtrl.getExpandedState($index)}"
                                   ng-class='{open:expandTblCtrl.getExpandedState($index)}'></span>
             </td>
-            <td ng-repeat="def in expandTblCtrl.columnDef" width="{{def.width}}%">
+            <td ng-repeat="def in expandTblCtrl.columnDefinitions" width="{{def.width}}%">
                 {{record[def.binding]|translate}}
+            </td>
+            <td  ng-if="!expandTblCtrl.disableErrorCol" width="5%">
+               {{expandTblCtrl.formInError(expandTblCtrl['transcludeForm'+$index])|translate}}
             </td>
         </tr>
         <tr data-ng-show="!expandTblCtrl.dayDataCollapse[$index]" data-ng-repeat-end>
-            <td colspan="{{expandTblCtrl.numberCols+1}}">
+            <td colspan="{{expandTblCtrl.numberCols}}">
+                <ng-form name="expandTblCtrl.transcludeForm{{$index}}">
                 <div ng-transclude>
                 </div>
+                </ng-form>
             </td>
         </tr>
         </tbody>

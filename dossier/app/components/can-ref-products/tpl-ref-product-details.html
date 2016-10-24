@@ -54,8 +54,7 @@
                     <label for="dosage-form-listh_{{$id}}" class="required"><span class="field-name">{{'DOSAGE_FORM'|translate}}</span>
                         <strong class="required">{{"REQUIRED" |translate}}</strong>
                         <select id="dosage-form-listh_{{$id}}" data-ng-model="$ctrl.productModel.dosageForm"
-                                name="dosageForm"
-                                class="form-control full-width"
+                                name="dosageForm" class="form-control full-width" required
                                 ng-options="formType |translate for formType in $ctrl.dosageFormList | orderByTranslated">
                         </select>
                         <strong id="dosageForm-error" class="error"
@@ -67,13 +66,14 @@
                     </label>
                 </div>
 
-                <div class="col-md-6 form-group" ng-class="{'has-error':productDetailsForm.dosageOther.$invalid}">
-                    <label for="dosage-form-other_(($id}}" ng-class="{'required' : $ctrl.isDosageOther()}">
+                <div class="col-md-6 form-group" ng-class="{'has-error':productDetailsForm.dosageOther.$invalid}"
+                     ng-show="$ctrl.isDosageOther()">
+                    <label for="dosage-form-other_(($id}}" class="required">
                         <span class="field-name">{{'DOSAGE_FORM_OTHER'|translate}}</span>
-                        <strong class="required" ng-if="$ctrl.isDosageOther()">{{"REQUIRED" |translate}}</strong>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
                         <input type="text" id="dosage-form-other_(($id}}"
                                data-ng-model="$ctrl.productModel.dosageFormOther"
-                               class="form-control full-width" ng-disabled="!$ctrl.isDosageOther()"
+                               class="form-control full-width"
                                name="dosageOther"
                                ng-required="$ctrl.isDosageOther()" maxlength="60" size="60"/>
                         <strong id="dosageOther-error" class="error"

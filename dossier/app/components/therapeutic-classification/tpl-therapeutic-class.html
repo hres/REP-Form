@@ -1,7 +1,7 @@
 <ng-form name="$ctrl.theraForm">
 
         <ul class="list-group">
-            <li class="list-group-item  col-md-12" ng-repeat="item in $ctrl.model.classifications">
+            <li class="list-group-item  col-md-12" ng-repeat="item in $ctrl.model.classifications track by $index">
                 <div class="row">
                     <div class="col-md-12 form-group"
                          ng-class="{'has-error':$ctrl.theraForm['therapeuticName'+$index].$invalid}">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 text-right">
-                    <button ng-click="$ctrl.deleteRecord(item.id)" name="addThera"
+                    <button ng-click="$ctrl.deleteRecord($index)" name="addThera"
                             class="btn btn-danger btn-sm">{{'DELETE_CLASS'|translate}}&nbsp;{{$index+1}}
                     </button>
                     </div>

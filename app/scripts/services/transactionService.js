@@ -77,10 +77,10 @@
              * */
             transformToFileObj: function (jsonObj) {
                 //transform back to needed
-                //var jsonObj = this._default
+                var today= _getToday();
                 var resultJson = {
                     TRANSACTION_ENROL: {
-                        date_saved: jsonObj.dateSaved,
+                        date_saved: today,
                         software_version: "1.0.0",
                         data_checksum: jsonObj.dataChecksum,
                         is_ectd: jsonObj.isEctd
@@ -292,7 +292,7 @@
         lifecycleRec.control_number = lifecycleObj.controlNumber;
         lifecycleRec.sequence_activity_type = lifecycleObj.activityType;
         lifecycleRec.sequence_description_value = lifecycleObj.descriptionValue;
-        lifecycleRec.sequence_from_dates = lifecycleObj.startDate;
+        lifecycleRec.sequence_from_date = lifecycleObj.startDate;
         lifecycleRec.sequence_to_date = lifecycleObj.endDate;
         lifecycleRec.sequence_details = lifecycleObj.details;
         lifecycleRec.sequence_version = lifecycleObj.version;
@@ -431,6 +431,17 @@
         contact.email = "";
         return contact;
     }
+
+     function _getToday() {
+        var d = new Date();
+        var isoDate = d.getFullYear() + '-'
+            + pad(d.getMonth() + 1) + '-'
+            + pad(d.getDate())
+        return (isoDate)
+        function pad(n) {
+            return n < 10 ? '0' + n : n
+        }
+    };
 
     //todo deprecated
     function _createRepContact() {

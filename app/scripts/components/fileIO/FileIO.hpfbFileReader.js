@@ -185,15 +185,17 @@
                         if ((fileType.toLowerCase()) == draft_file_type) {
                             convertToJSONObjects(reader);
                             checkRootTagMatch(reader, scope);
+                            /* As per meeting of oct 21
                             if (reader.parseResult.jsonResult) {
                                 compareHashInJson(reader, scope.rootTag);
-                            }
+                            }*/
                         } else if ((fileType.toLowerCase() === "xml")) {
                             convertXMLToJSONObjects(reader);
                             checkRootTagMatch(reader, scope);
+                            /* As per meeting of oct 21
                             if (reader.parseResult.jsonResult) {
                                 compareHashInXML(reader, scope)
-                            }
+                            }*/
 
                         } else {
                             convertResult.parseResult = null;
@@ -345,7 +347,7 @@
 
         function jsonToFile(jsonObj, fileName, rootTag) {
             if (!jsonObj) return;
-            insertHashInJson(jsonObj, rootTag)
+            //insertHashInJson(jsonObj, rootTag) as per Oct 21 meeting no checksum
             var makeStrSave = JSON.stringify(jsonObj);
             var blob = new Blob([makeStrSave], {type: "text/plain;charset=utf-8"});
             if (!fileName) {
@@ -358,13 +360,16 @@
 
         function xmlToFile(jsonObj, fileName, rootTag) {
             if (!jsonObj) return;
+            //As per meeting of Oct 21, ignore checksum
             //clear out any previous value if it exists
-            jsonObj[rootTag].data_checksum = "";
+            //jsonObj[rootTag].data_checksum = "";
             var xmlResult = convertJSONObjectsToXML(jsonObj)
-            var hash = CryptoJS.SHA256(xmlResult);
-            jsonObj[rootTag].data_checksum = hash.toString();
+            //TODO this needs to be configurable
+           xmlResult= '<?xml version="1.0" encoding="UTF-8"?>'+ '<?xml-stylesheet href="REP_Combined.xsl" type="text/xsl"?>'+xmlResult;
+           // var hash = CryptoJS.SHA256(xmlResult);
+            //jsonObj[rootTag].data_checksum = hash.toString();
             //regenerate the xml
-            xmlResult = convertJSONObjectsToXML(jsonObj)
+            //xmlResult = convertJSONObjectsToXML(jsonObj)
             var blob = new Blob([xmlResult], {type: "text/plain;charset=utf-8"});
             if (!fileName) {
                 fileName = "hpfbXML.xml"

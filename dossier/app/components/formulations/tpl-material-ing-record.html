@@ -52,6 +52,18 @@
                     </label>
                 </div>
             </div>
+            <div class="row">
+
+                <div class="btn-group-sm col-xs-12 text-right">
+                    <input type="submit" value="Save" class="btn btn-primary"
+                           ng-click="mirCtrl.save()"/>
+                    <input type="submit" ng-if="mirCtrl.deleteBtn === true" value="Delete" class="btn btn-danger"
+                           ng-click="mirCtrl.delete()"/>
+                    <input type="submit" value="Discard Changes" class="btn btn-default"
+                           ng-click="mirCtrl.discardChanges()">
+                </div>
+
+            </div>
         </fieldset>
     </div>
 </ng-form>

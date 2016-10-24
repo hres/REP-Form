@@ -19,9 +19,9 @@
             <label for="{{item.name}}" ng-class="{'required':item.required}"><span class="field-name">{{item.label|translate}}</span>
                 <strong class="required" ng-if="item.required">{{"REQUIRED" |translate}}</strong></label>
             <input type="{{item.type}}" class="form-control full-width" id="{{item.name}}" name="{{item.name}}"
-                   ng-model="item.value" ng-if="item.type !== 'select'"/>
+                   ng-model="item.value" ng-if="item.type !== 'select'" ng-change="saCtrl.updateAnimalSourcedModel()"/>
           <!-- TODO: Replace hard coding of values-->
-            <select id="{{item.name}}" name="{{item.name}}" ng-model="item.value" class="form-control full-width"
+            <select id="{{item.name}}" name="{{item.name}}" ng-model="item.value" ng-change="saCtrl.updateAnimalSourcedModel()" class="form-control full-width"
                     ng-if="item.type === 'select'" ng-required="true">
                 <option>{{'Y'|translate}}</option>
                 <option>{{'N'|translate}}</option>
@@ -37,7 +37,8 @@
 
     </div>
         <div class="col-xs-12 form-group">
-        <cmp-country-list with-unknown="true"></cmp-country-list>
+            <!--<pre>countryList: {{saCtrl.model|json}}</pre>-->
+            <cmp-country-list with-unknown="true" list-items="saCtrl.model.countryList" on-update="saCtrl.updateCountryList(list)"></cmp-country-list>
             </div>
 
     </fieldset>

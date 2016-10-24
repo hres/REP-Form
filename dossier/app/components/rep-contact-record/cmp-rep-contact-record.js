@@ -27,7 +27,8 @@
                 isAmend:'<'
             }
         });
-    function contactRecCtrl() {
+    contactRecCtrl.$inject=['$scope'];
+    function contactRecCtrl($scope) {
         var vm = this;
         vm.savePressed = false;
         vm.formAmend=false;
@@ -48,6 +49,7 @@
         vm.$onChanges = function (changes) {
             //how this is currently wired, this will never fire!
             if (changes.contactRecord) {
+                console.log(changes.contactRecord.currentValue)
                 vm.contactModel = angular.copy(changes.contactRecord.currentValue);
                 vm.setEditableState();
             }
@@ -86,19 +88,19 @@
         /**
          * If the form is dirty always set that it is not valid
          */
-        /* $scope.$watch('contactRec.contactRecForm.$dirty', function() {
+        $scope.$watch('contactRec.contactRecForm.$dirty', function() {
          //if statement redundant?
          if(vm.contactRecForm.$dirty) {
          vm.isDetailValid({state:false})
          }
-         }, true);*/
+         }, true);
 
         /**
          * Updates the contact model used by the save button
          */
         vm.updateContactModel = function () {
             if (vm.contactRecForm.$valid) {
-                vm.contactModel.isDetailValid = true;
+                //vm.contactModel.isDetailValid = true; TODO remove
                 vm.isDetailValid({state: true})
                 vm.contactRecForm.$setPristine();
                 vm.onUpdate({contact: vm.contactModel});

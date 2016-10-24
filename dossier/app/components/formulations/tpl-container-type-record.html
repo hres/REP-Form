@@ -1,28 +1,39 @@
-<ng-form name="containerTypeForm">
+<ng-form name="ctrCtrl.containerTypeForm">
     <div class="container-fluid">
         <fieldset>
             <legend>{{'CONTAINER_TYPE_DETAILS'|translate}}</legend>
             <div class="row">
-                <div class="form-group col-md-12">
-                    <label for="containerType"><span class="field-name">{{'CONTAINER_TYPE'|translate}}</span></label>
+                <div class="form-group col-md-12"  ng-class="{'has-error':ctrCtrl.containerTypeForm.containerType.$invalid}">
+                    <label for="containerType" class="required">
+                        <span class="field-name">{{'CONTAINER_TYPE'|translate}}</span>
+                        <strong class="required">{{'REQUIRED' |translate}}</strong>
+                        <strong id="containerType-error" class="error"
+                                ng-if="ctrCtrl.showError(ctrCtrl.containerTypeForm.containerType.$invalid,ctrCtrl.containerTypeForm.containerType.$touched)">
+                        <span class="label label-danger"
+                              ng-messages="ctrCtrl.containerTypeForm.containerType.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                        </strong>
+                    </label>
                      <textarea id="containerType" data-ng-model="ctrCtrl.ctModel.containerType" maxlength="256" rows="3"
-                               class="form-control full-width" name="text" ng-required="true"></textarea>
+                               class="form-control full-width" name="containerType" ng-required="true"></textarea>
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-md-12">
-                    <label for="pckSize">
+                <div class="form-group col-md-12" ng-class="{'has-error':ctrCtrl.containerTypeForm.packageSize.$invalid}">
+                    <label for="pckSize" class="required">
                         <span class="field-name">{{'PACKAGE_SIZE'|translate}}</span>
-                        <strong id="animalHumanSourced-error" class="error"
-                                ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.animaHumanSourced.$invalid,ingRecCtrl.activeIngForm.animaHumanSourced.$touched)">
+                        <strong class="required">{{'REQUIRED' |translate}}</strong>
+                        <strong id="pcksize-error" class="error"
+                                ng-if="ctrCtrl.showError(ctrCtrl.containerTypeForm.packageSize.$invalid,ctrCtrl.containerTypeForm.packageSize.$touched)">
                         <span class="label label-danger"
-                              ng-messages="ingRecCtrl.activeIngForm.animaHumanSourced.$error">
+                              ng-messages="ctrCtrl.containerTypeForm.packageSize.$error">
                             <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
                         </span>
                         </strong>
                     </label>
                     <textarea id="pckSize" data-ng-model="ctrCtrl.ctModel.packageSize" maxlength="256" rows="3"
-                              class="form-control full-width" name="text" ng-required="true"></textarea>
+                              class="form-control full-width" name="packageSize" ng-required="true"></textarea>
                 </div>
             </div>
             <div class="row">
@@ -62,7 +73,7 @@
                         <div class="form-group col-md-5">
                             <label for="tempMin"><span class="field-name">{{'MIN_TEMP'|translate}}</span></label>
                             <input type="number" id="tempMin" data-ng-model="ctrCtrl.ctModel.tempMin"
-                                   only-digits="intNeg" only-max="3" size="3"
+                                   only-digits="intNeg" only-max="3" size="3" min="-99" max="999"
                                    class="form-control" name="tempMin"/>
                             <strong id="minTemp-error" class="error"
                                     ng-if="containerTypeForm.tempMin.$invalid">
@@ -89,5 +100,18 @@
                 </div>
             </div>
         </fieldset>
+
+        <div class="row">
+
+            <div class="btn-group-sm col-xs-12 text-right">
+                <input type="submit" value="Save" class="btn btn-primary"
+                       ng-click="ctrCtrl.save()"/>
+                <input type="submit" ng-if="ctrCtrl.deleteBtn === true" value="Delete" class="btn btn-danger"
+                       ng-click="ctrCtrl.delete()"/>
+                <input type="submit" value="Discard Changes" class="btn btn-default"
+                       ng-click="ctrCtrl.discardChanges()">
+            </div>
+        </div>
+
     </div>
 </ng-form>

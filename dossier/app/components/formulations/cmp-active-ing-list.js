@@ -27,7 +27,7 @@
     function activeIngListCtrl() {
 
         var self = this;
-
+        self.noActives = "";
         self.$onInit = function () {
 
             self.newIngFormShown = false;
@@ -37,52 +37,12 @@
                 {label: "CAS_NUM", "binding": "cas", width: "15"},
                 {label: "HUMAN_ANIMAL_SOURCE", binding: "humanAnimalSourced", width: "15"}
             ];
-            self.ingList = [
-                {
-                    "ingName": "ing1",
-                    "cas": "00-00-1",
-                    "humanAnimalSourced": "No",
-                    "standard": "A",
-                    "strength": "A",
-                    "per": "A",
-                    "units": "A",
-                    "calcAsBase": true,
-                    "animalHumanSourced": true,
-                    "nanoMaterial": "Yes",
-                    "nanoMaterialOther": "A"
-                },
-                {
-                    "ingName": "ing2",
-                    "cas": "00-00-2",
-                    "humanAnimalSourced": "Yes",
-                    "standard": "A",
-                    "strength": "A",
-                    "per": "A",
-                    "units": "A",
-                    "calcAsBase": true,
-                    "animalHumanSourced": false,
-                    "nanoMaterial": "Yes",
-                    "nanoMaterialOther": "A"
-                },
-                {
-                    "ingName": "ing3",
-                    "cas": "00-00-3",
-                    "humanAnimalSourced": "Yes",
-                    "standard": "A",
-                    "strength": "A",
-                    "per": "A",
-                    "units": "A",
-                    "calcAsBase": false,
-                    "animalHumanSourced": true,
-                    "nanoMaterial": "Other",
-                    "nanoMaterialOther": "A"
-                },
-
-            ];
+            self.ingList = [];
 
             if (self.ingredients) {
                 self.ingList = self.ingredients;
             }
+            self.updateActiveError();
         };
 
 
@@ -90,16 +50,33 @@
             //console.debug('ingList addIng: ' + ing);
             self.ingList.push(ing);
             self.newIngFormShown = false;
+            self.updateActiveError();
+            self.onUpdate({list:self.ingList});
         };
 
         self.updateIng = function (idx, ing) {
             self.ingList[idx] = angular.copy(ing);
+            self.onUpdate({list:self.ingList});
         };
 
         self.deleteIng = function (idx) {
             // console.debug('ingList deleteIng: ' + idx);
             self.ingList.splice(idx, 1);
+            self.updateActiveError();
+            self.onUpdate({list:self.ingList});
         }
+        /**
+         * Used for error messaging that there are no active ingredients
+         * @returns {string} string is empty if not empty
+         */
+        self.updateActiveError = function () {
+            if (self.ingList && self.ingList.length > 0) {
+                self.noActives = self.ingList.length;
+                return false;
+            }
+            self.noActives = "";
+            return true;
 
+        }
     }
 })();

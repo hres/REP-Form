@@ -22,22 +22,34 @@
             bindings: {
                 title: '@',
                 commonName:'@',
-                listItems: '<' //array of objects
+                listItems: '<', //array of objects
+                numberCols: '@',
+                onUpdate:'&'
             }
         });
 
-    function checkBoxListCtrl(){
+    function checkBoxListCtrl() {
 
         var self = this;
-        self.$onInit = function(){
+
+        self.numberColumns = 4; //default to 4
+        self.colWidth = 3;
+
+
+        self.$onInit = function () {
             //init items after change
             //temp as not hooked up
             self.currentModel = self.listItems
-        }
+        };
+
         self.$onChanges = function (changes) {
 
             if (changes.listItems) {
-                self.currentModel = self.listItems.currentValue;
+                self.currentModel = changes.listItems.currentValue;
+            }
+            if (changes.numberCols && changes.numberCols.currentValue) {
+                self.numberColumns = changes.numberCols.currentValue;
+                self.colWidth = Math.ceil(12 / self.numberColumns);
             }
         }
         //TODO remove?
@@ -59,21 +71,27 @@
             self.formName.addressRole.$pristine = !self.formName.addressRole.$dirty;
             self.formName.addressRole.$untouched = !self.formName.addressRole.$touched;
 
-            self.onUpdate({$event: {roles: self.roleModel}});
+            //self.onUpdate({$event: {roles: self.roleModel}});
 
         }
         /**
          * Manages the state of the other field
          * @param item
          */
-        self.updateOtherState = function (item) {
-            if (!item.value && item.hasOtherDetails) {
+        self.updateState = function (item) {
+            if (!item.value) {
 
-                item.otherText = "";
+                item.value = false; //explicit false value
+
+                if(item.hasOtherDetails){
+                    item.otherText = "";
+                }
             }
-        }
 
+           self.onUpdate({list:self.currentModel});
+        }
     }
+
 })();
 
 

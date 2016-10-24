@@ -1,23 +1,110 @@
-<ng-form name="formulation-rec-form">
+<ng-form name="formulationRecForm">
+    <div class="container-fluid">
+        <fieldset>
+            <legend>{{'FORMULATION_DETAILS'|translate}}&nbsp;{{formulRecCtrl.frmModel.formulationId}}</legend>
 
-    <div class="container-fluid">
-        <cmp-active-ing-list></cmp-active-ing-list>
-    </div>
-    <div class="container-fluid">
-        <cmp-non-med-ing-list></cmp-non-med-ing-list>
-    </div>
-    <div class="container-fluid">
-        <cmp-container-type-list></cmp-container-type-list>
-    </div>
-    <div class="container-fluid">
-        <cmp-material-ing-list></cmp-material-ing-list>
-    </div>
-    <div class="container-fluid">
-        <cmp-roa></cmp-roa>
-    </div>
-    <div class="container-fluid">
-        <cmp-country-list></cmp-country-list>
+            <div class="row">
+                <!--<div class="form-group col-md-6">
+                    <label for="formul-id"><span class="field-name">{{'FORMULATION_ID'|translate}}</span></label>
+                        <input type="text" id="formul-id" data-ng-model="formulRecCtrl.frmModel.formulationId"
+                               class="form-control full-width" name="text" maxlength="100" size="100"/>
+                </div>-->
+                <div class="form-group col-md-12">
+                    <label for="formul-name"><span class="field-name">{{'FORMULATION_NAME'|translate}}</span></label>
+                    <input type="text" id="formul-name" data-ng-model="formulRecCtrl.frmModel.formulationName"
+                           class="form-control" name="formulationName" maxlength="100" size="100"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 form-group" ng-class="{'has-error':formulationRecForm.dosageForm.$invalid}">
+                    <label for="dosage-form-listh_{{$id}}" class="required"><span class="field-name">{{'DOSAGE_FORM'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <select id="dosage-form-listh_{{$id}}" data-ng-model="formulRecCtrl.frmModel.dosageForm"
+                                name="dosageForm" class="form-control full-width"  required
+                                ng-options="formType |translate for formType in formulRecCtrl.dosageFormList | orderByTranslated">
+                        </select>
+                        <strong id="dosageForm-error" class="error"
+                                ng-if="formulRecCtrl.showError(formulationRecForm.dosageForm.$invalid,formulationRecForm.dosageForm.$touched)">
+                        <span class="label label-danger" ng-messages="formulationRecForm.dosageForm.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
+                <div class="col-md-6 form-group"  ng-class="{'has-error':formulationRecForm.dosageOther.$invalid}"
+                     ng-show="formulRecCtrl.isDosageOther()">
+                    <label for="dosage-form-other_(($id}}" class="required">
+                        <span class="field-name">{{'DOSAGE_FORM_OTHER'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <input type="text" id="dosage-form-other_(($id}}"
+                               data-ng-model="formulRecCtrl.frmModel.dosageFormOther"
+                               class="form-control full-width"
+                               name="dosageOther"
+                               ng-required="formulRecCtrl.isDosageOther()" maxlength="60" size="60"/>
+                        <strong id="dosageOther-error" class="error"
+                                ng-if="formulRecCtrl.showError(formulationRecForm.dosageOther.$invalid,formulationRecForm.dosageOther.$touched)">
+                        <span class="label label-danger" ng-messages="formulationRecForm.dosageOther.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="container-fluid">
+                <cmp-active-ing-list ingredients="formulRecCtrl.frmModel.activeIngList" on-update="formulRecCtrl.updateActiveIngList(list)"></cmp-active-ing-list>
+            </div>
+            <div class="container-fluid">
+                <cmp-non-med-ing-list ingredients="formulRecCtrl.frmModel.nMedIngList" on-update="formulRecCtrl.updateNonMedIngList(list)"></cmp-non-med-ing-list>
+            </div>
+            <div class="container-fluid">
+                <cmp-container-type-list containers="formulRecCtrl.frmModel.containerTypes" on-update="formulRecCtrl.updateContainerTypeList(list)"></cmp-container-type-list>
+            </div>
+            <div class="container-fluid">
+                <cmp-material-ing-list ingredients="formulRecCtrl.frmModel.animalHumanMaterials" on-update="formulRecCtrl.updateMaterialList(list)"></cmp-material-ing-list>
+            </div>
+            <div class="container-fluid">
+                <cmp-roa list-items="formulRecCtrl.frmModel.routeAdmins" on-update="formulRecCtrl.updateRoaList(list)"></cmp-roa>
+            </div>
+            <div class="container-fluid">
+                <section class="panel panel-default">
+                    <header class="panel-heading">
+                        <h3 class="panel-title">{{'COUNTRIES_MANUFACT'|translate}}</h3>
+                        <strong id="active-error" class="error"  ng-if="formulRecCtrl.noCountry()">
+                                <span class="label label-danger" ng-messages="formulationRecForm.noCountry.$error">
+                                    <span ng-message="required"><span translate="MSG_ERR_ONE_MANCOUNTRY"></span></span>
+                                </span>
+                        </strong>
+                    </header>
+                    <div class="panel-body">
+                       <!-- <label for="noActive{{$id}}" ng-if="formulRecCtrl.noCountry()">
+                            <strong id="active-error" class="error">
+                                <span class="label label-danger" ng-messages="formulationRecForm.noCountry.$error">
+                                    <span ng-message="required"><span translate="MSG_ERR_ONE_MANCOUNTRY"></span></span>
+                                </span>
+                            </strong>
+                        </label>-->
+                        <input type="textbox" required="true" ng-show="false" name="noCountry" id="noActive{{$id}}" aria-hidden="true"
+                               data-ng-model="formulRecCtrl.noCountries"/>
+                        <cmp-country-list list-items="formulRecCtrl.frmModel.countryList" on-update="formulRecCtrl.updateCountryList(list)" field-label="COUNTRY_MAN"></cmp-country-list>
+                    </div>
+                </section>
+
+            </div>
+
+            <div class="row">
+
+                <div class="btn-group-sm col-xs-12 text-right">
+                    <input type="submit" value="Save Formulation" ng-if="!formulRecCtrl.record" class="btn btn-primary"
+                           ng-click="formulRecCtrl.save()"/>
+                    <input type="submit" ng-if="formulRecCtrl.deleteBtn === true" value="Delete Formulation" class="btn btn-danger" ng-click="formulRecCtrl.delete()"/>
+                    <input type="submit" value="Discard Changes" class="btn btn-default" ng-click="formulRecCtrl.discardChanges()">
+                </div>
+            </div>
+        </fieldset>
     </div>
 
+    <!--<pre>frmModel: {{formulRecCtrl.frmModel | json}}</pre>-->
 
 </ng-form>

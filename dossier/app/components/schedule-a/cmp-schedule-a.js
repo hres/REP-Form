@@ -31,49 +31,50 @@
         var self = this;
         self.claimSelected=false;
         self.$onInit = function () {
-            self.scheduleAModel = {
+            var noValue=false;
+             self.scheduleAModel = {
                 drugIdNumber: "00000000",
                 scheduleAClaimsIndDetails: "AAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                 diseaseDisorderList: [
 
-                    {name: "acute-alcohol", label: "Acute Alcohol", value: false},
-                    {name: "acute-anxiety", label: "Acute Anxiety", value: false},
-                    {name: "acute-infectious", label: "Acute Infectious", value: false},
-                    {name: "acute-inflammatory", label: "Acute Inflammatory", value: false},
-                    {name: "acute-psychotic", label: "Acute Psychotic", value: false},
-                    {name: "addiction", label: "Addiction", value: false},
-                    {name: "ateriosclerosis", label: "Ateriosclerosis", value: false},
-                    {name: "appendicitis", label: "Appendicitis", value: false},
-                    {name: "asthma", label: "Asthma", value: false},
-                    {name: "cancer", label: "Cancer", value: false},
-                    {name: "congest-heart-fail", label: "Congest Heart Fail", value: false},
-                    {name: "convulsions", label: "Convulsions", value: false},
-                    {name: "dementia", label: "Dementia", value: false},
-                    {name: "depression", label: "Depression", value: false},
-                    {name: "diabetes", label: "Diabetes", value: false},
-                    {name: "gangrene", label: "Gangrene", value: false},
-                    {name: "glaucoma", label: "Glaucoma", value: false},
-                    {name: "haematologic-bleeding", label: "Haematologic Bleeding", value: false},
-                    {name: "hepatitis", label: "Hepatitis", value: false},
-                    {name: "hypertension", label: "Hypertension", value: false},
-                    {name: "nausea-pregnancy", label: "Nausea Pregnancy", value: false},
-                    {name: "obesity", label: "Obesity", value: false},
-                    {name: "rheumatic-fever", label: "Rheumatic Fever", value: false},
-                    {name: "septicemia", label: "Septicemia", value: false},
-                    {name: "sex-transmit-disease", label: "Sex Transmit Disease", value: false},
-                    {name: "strangulated-hernia", label: "Strangulated Hernia", value: false},
-                    {name: "thrombotic-embolic-disorder", label: "Thrombotic Embolic Disorder", value: false},
-                    {name: "thyroid-disease", label: "Thyroid Disease", value: false},
-                    {name: "ulcer-gastro", label: "Ulcer Gastro", value: false},
-                    {name: "other", label: "Other", value: false, hasOtherDetails:true, otherText:"A"}
-                ]
+                    {name: "acute-alcohol", label: "ACUTEALCOHOL", value:noValue },
+                    {name: "acute-anxiety", label: "ACUTEANXIETY", value: noValue },
+                    {name: "acute-infectious", label: "ACUTERESP", value: noValue},
+                    {name: "acute-inflammatory", label: "ACUTEINFLAM", value: noValue },
+                    {name: "acute-psychotic", label: "ACUTEPSYCHOTIC", value: noValue },
+                    {name: "addiction", label: "ADDICTION", value: noValue},
+                    {name: "ateriosclerosis", label: "ATERIOSCLEROSIS", value: noValue },
+                    {name: "appendicitis", label: "APPENDICITIS", value: noValue},
+                    {name: "asthma", label: "ASTHMA", value: noValue},
+                    {name: "cancer", label: "CANCER", value: noValue},
+                    {name: "congest-heart-fail", label: "HEARTCONGEST", value:noValue},
+                    {name: "convulsions", label: "CONVULSIONS", value: noValue },
+                    {name: "dementia", label: "DEMENTIA", value: noValue },
+                    {name: "depression", label: "DEPRESSION", value: noValue},
+                    {name: "diabetes", label: "DIABETES", value: noValue},
+                    {name: "gangrene", label: "GANGRENE", value: noValue },
+                    {name: "glaucoma", label: "GLAUCOMA", value: noValue},
+                    {name: "haematologic-bleeding", label: "BLEEDINGDISORDERS", value: noValue},
+                    {name: "hepatitis", label: "HEPATITIS", value: noValue },
+                    {name: "hypertension", label: "HYPERTENSION", value: noValue },
+                    {name: "nausea-pregnancy", label: "NAUSEAPREG", value: noValue },
+                    {name: "obesity", label: "OBESITY", value: noValue },
+                    {name: "rheumatic-fever", label: "RHEUMATICFEVER", value: noValue },
+                    {name: "septicemia", label: "SEPTICEMIA", value: noValue},
+                    {name: "sex-transmit-disease", label: "SEXDISEASE", value: noValue},
+                    {name: "strangulated-hernia", label: "STRANGHERNIA", value: noValue},
+                    {name: "thrombotic-embolic-disorder", label: "THROMBOTICDISORDER", value: noValue },
+                    {name: "thyroid-disease", label: "THYROIDDISEASE", value: noValue},
+                    {name: "ulcer-gastro", label: "UCLERGASTRO", value: noValue}
+
+            ]
 
 
             };
 
             if (self.scheduleGroup) {
                 self.scheduleAModel = self.scheduleGroup;
-            }
+             }
 
             /*  var test = self.scheduleAModel.diseaseDisorder.replace(/_\w/g, function(m) {
              return m[1].toUpperCase();

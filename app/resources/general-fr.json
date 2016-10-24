@@ -30,5 +30,6 @@
   "DELETE_CONTACT": "fr_Delete Contact",
   "COMPANY_ID": "fr_Company Id",
   "DOSSIER_ID": "fr_Dossier Id",
-  "ERRORS": "Erreurs"
+  "ERRORS": "Erreurs",
+  "UNKNOWN":"Inconnu"
 }

@@ -31,14 +31,20 @@
 
         self.$onInit = function(){
             self.commonName = "drugUse";
+            self.myList = [];
 
-            self.myList = [
-                {"name":"human", "label":"Human", "value":false},
-                {"name":"radio-pharmaceutical", "label":"Radiopharmaceutical","value":false},
-                {"name":"veterinary", "label":"Veterinary","value":false},
-                {"name":"disinfectant", "label":"Disinfectant", "value":false}
-            ]
-        }
+            if (self.listItems) {
+                self.myList = self.listItems;
+            }
+        };
+
+
+        self.$onChanges = function (changes) {
+
+            if (changes.listItems) {
+                self.myList = changes.listItems.currentValue;
+            }
+        };
 
         self.isDrugUseSelected = function () {
             if (!self.myList) {

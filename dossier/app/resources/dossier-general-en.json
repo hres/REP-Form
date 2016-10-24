@@ -8,5 +8,7 @@
   "SAVE": "Save",
   "CANCEL": "Cancel",
   "DELETE": "Delete",
-  "EDIT": "Edit"
+  "EDIT": "Edit",
+  "CAN_REF_PRODUCTS": "Canadian Reference Products",
+  "PROD_NAME":"Product Name"
 }

@@ -19,8 +19,13 @@
             controllerAs: 'mirCtrl',
             controller: materialIngRecCtrl,
             bindings: {
+                deleteBtn: '<',
                 record: '<',
-                showError: '&'
+                showErrors: '&',
+                onAddNew: '&',
+                onUpdate: '&',
+                onDelete: '&',
+                onCancel: '&'
             }
 
         });
@@ -29,26 +34,52 @@
 
         var self = this;
         self.yesNoList = DossierLists.getYesNoList();
-
+        self.savePressed=false;
         self.$onInit = function () {
 
-            self.mirModel = {
-                "ingredientId": "A",
-                "ingredientName": "A",
-                "cas": "00-00-0",
-                "ingredientStandard": "A",
-                "inFinalContainer": ""
-            };
+            self.mirModel = {};
 
             if (self.record) {
                 self.mirModel = self.record;
             }
-        }
+        };
 
         self.showError = function (isInvalid, isTouched) {
-            return ((isInvalid && isTouched) || (isInvalid && self.showErrors()));
+            //return ((isInvalid && isTouched) || (isInvalid && self.showErrors())); generates error
+            return ((isInvalid && isTouched) ||(isInvalid && self.showErrors())||(self.savePressed && isInvalid));
 
+        };
+
+        self.save = function () {
+
+            if(self.materialIngRecordForm.$valid) {
+                if (self.record) {
+                    // console.log('product details update product');
+                    self.onUpdate({ing: self.mirModel});
+                } else {
+                    //  console.log('product details add product');
+                    self.onAddNew({ing: self.mirModel});
+                }
+                self.savePressed=false;
+                self.materialIngRecordForm.$setPristine();
+            }else{
+                self.savePressed=true;
+            }
+
+        };
+
+        self.discardChanges = function () {
+            self.mirModel = self.record ? self.record : {};
+            self.onCancel();
         }
+
+        self.delete = function () {
+            if (self.record) {
+                //  console.log('product details delete product');
+                self.onDelete();
+            }
+
+        };
 
     }
 })();

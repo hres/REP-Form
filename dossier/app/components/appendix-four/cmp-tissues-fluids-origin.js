@@ -18,7 +18,10 @@
             templateUrl: './app/components/appendix-four/tpl-tissues-fluids-origin.html',
             controller: tissuesFluidsOriginCtrl,
             controllerAs: 'tfoCtrl',
-            bindings:{}
+            bindings:{
+                tissuesModel : '<',
+                onUpdate : '&'
+            }
 
         });
 
@@ -31,114 +34,114 @@
 
             self.model = {
                 nervousSystem:{
-                    title: "Nervous System", //the legend for checkbox list
+                    title: "NERVOUSYSTEM", //the legend for checkbox list
                     groupName: "nervous-sys", // the group name for checkboxlist
                     list: [
-                    {name: "brain", label: "Brain", value: false},
-                    {name: "brain-stem", label: "Brain Stem", value: false},
-                    {name: "cerebellum", label: "Cerebellum", value: false},
-                    {name: "cerebrospinal-fluid", label: "Cerebrospinal Fluid", value: false},
-                    {name: "dorsal-root-ganglia", label: "Dorsal Root Ganglia", value: false},
-                    {name: "dura-mater", label: "Dura Mater", value: false},
-                    {name: "hypothalmus", label: "hypothalmus", value: false},
-                    {name: "retina-optic", label: "Retina Optic", value: false},
-                    {name: "spinal-cord", label: "Spinal Cord", value: false},
-                    {name: "trigerminal-ganglia", label: "Trigerminal Ganglia", value: false},
+                    {name: "brain", label: "BRAIN", value: false},
+                    {name: "brain-stem", label: "BRAINSTEM", value: false},
+                    {name: "cerebellum", label: "CEREBELLUM", value: false},
+                    {name: "cerebrospinal-fluid", label: "CEROFLUID", value: false},
+                    {name: "dorsal-root-ganglia", label: "DORSALROOT", value: false},
+                    {name: "dura-mater", label: "DURAMATER", value: false},
+                    {name: "hypothalmus", label: "HYPOTHALAMUS", value: false},
+                    {name: "retina-optic", label: "RETINA", value: false},
+                    {name: "spinal-cord", label: "SPINALCORD", value: false},
+                    {name: "trigerminal-ganglia", label: "TRIGEMINAL", value: false},
                         {
                             name: "other-nervous",
-                            label: "Other Nervous",
+                            label: "OTHERNERVOUS",
                             value: false,
                             hasOtherDetails: true,
                             otherText: ""
                         }
                 ]},
                 digestiveSystem:{
-                    title: "Digestive System",
+                    title: "DIGESTIVESYSTEM",
                     groupName: "digestive-sys",
                     list: [
-                    {name: "appendix", label: "appendix", value:false},
-                    {name: "bile", label: "bile", value:false},
-                    {name: "distal-ileum", label: "Distal Ileum", value:false},
-                    {name: "large-intestine", label: "Large Intestine", value:false},
-                    {name: "saliva-salivary", label: "Saliva Salivary", value:false},
-                    {name: "small-intestine", label: "Small Intestine", value:false},
-                    {name: "stomach", label: "stomach", value:false},
+                    {name: "appendix", label: "APPENDIX", value:false},
+                    {name: "bile", label: "BILE", value:false},
+                    {name: "distal-ileum", label: "DISTALILEUM", value:false},
+                    {name: "large-intestine", label: "LARGEINTEST", value:false},
+                    {name: "saliva-salivary", label: "SALIVA", value:false},
+                    {name: "small-intestine", label: "SMALLINTESTINE", value:false},
+                    {name: "stomach", label: "STOMACH", value:false},
                         {
                             name: "other-digestive",
-                            label: "Other Digestive",
+                            label: "DIGESTIVEOTHER",
                             value: false,
                             hasOtherDetails: true,
                             otherText: ""
                         }
                 ]},
                 reproductiveSystem:{
-                    title: "Reproductive System",
+                    title: "REPRODUCTSYSTEM",
                     groupName: "reproductive-sys",
                     list: [
-                    {name: "milk-products", label: "Milk Products", value:false},
-                    {name: "kidney", label: "kidney", value:false},
-                    {name: "colostrum", label: "colostrum", value:false},
-                    {name: "mammary-glands", label: "Mammary Glands", value:false},
-                    {name: "ovaries", label: "ovaries", value:false},
-                    {name: "placenta", label: "placenta", value:false},
-                    {name: "placental-fluid", label: "Placental Fluid", value:false},
-                    {name: "semen", label: "semen", value:false},
-                    {name: "testes", label: "testes", value:false},
-                    {name: "urine", label: "urine", value:false},
+                    {name: "milk-products", label: "MILK", value:false},
+                    {name: "kidney", label: "KIDNEY", value:false},
+                    {name: "colostrum", label: "COLOSTRUM", value:false},
+                    {name: "mammary-glands", label: "MAMMARY", value:false},
+                    {name: "ovaries", label: "OVARIES", value:false},
+                    {name: "placenta", label: "PLACENTA", value:false},
+                    {name: "placental-fluid", label: "PLACENTAFLUID", value:false},
+                    {name: "semen", label: "SEMEN", value:false},
+                    {name: "testes", label: "TESTES", value:false},
+                    {name: "urine", label: "URINE", value:false},
                         {
                             name: "other-reproductive",
-                            label: "Other Reproductive",
+                            label: "OTHERREPROD",
                             value: false,
                             hasOtherDetails: true,
                             otherText: ""
                         }
                 ]},
                 cardioSystem:{
-                    title: "Cardio System",
+                    title: "CARDIOSYSTEM",
                     groupName: "cardio-sys",
                     list: [
-                    {name: "heart-pericardium", label: "Heart Pericardium", value:false},
-                    {name: "lung", label: "lung", value:false},
-                    {name: "nasal-fluid", label: "Nasal Fluid", value:false},
-                    {name: "trachea", label: "trachea", value:false},
+                    {name: "heart-pericardium", label: "HEART", value:false},
+                    {name: "lung", label: "LUNG", value:false},
+                    {name: "nasal-fluid", label: "NASALFLUID", value:false},
+                    {name: "trachea", label: "TRACHEA", value:false},
                         {
                             name: "other-cardio-respiratory",
-                            label: "Other Cardio Respiratory",
+                            label: "CARDIOOTHER",
                             value: false,
                             hasOtherDetails: true,
                             otherText: ""
                         }
                 ]},
                 immuneSystem:{
-                    title: "Immune System",
+                    title: "IMMUNESYSTEM",
                     groupName: "immune-sys",
                     list: [
-                    {name: "lymph-nodes", label: "Lymph Nodes", value:false},
-                    {name: "spleen", label: "spleen", value:false},
-                    {name: "thymus", label: "thymus", value:false},
-                    {name: "tonsils", label: "tonsils", value:false},
+                    {name: "lymph-nodes", label: "LYMPH", value:false},
+                    {name: "spleen", label: "SPLEEN", value:false},
+                    {name: "thymus", label: "THYMUS", value:false},
+                    {name: "tonsils", label: "TONSILS", value:false},
                         {
                             name: "other-immune",
-                            label: "Other Immune",
+                            label: "IMMUNEOTHER",
                             value: false,
                             hasOtherDetails: true,
                             otherText: ""
                         }
                 ]},
                 skinGlandSystem:{
-                    title: "Skin Gland System",
+                    title: "SKINGLANDSYSTEM",
                     groupName: "skin-gland-sys",
                     list: [
-                    {name: "adrenal-gland", label: "Adrenal Gland", value:false},
-                    {name: "hair-hooves-feathers", label: "Hair Hooves Feathers", value:false},
-                    {name: "liver", label: "liver", value:false},
-                    {name: "pancreas", label: "pancreas", value:false},
-                    {name: "pituitary", label: "pituitary", value:false},
-                    {name: "skin-hides", label: "skinHides", value:false},
-                    {name: "thyroid-parathyroid", label: "Thyroid Parathyroid", value:false},
+                    {name: "adrenal-gland", label: "ADRENAL", value:false},
+                    {name: "hair-hooves-feathers", label: "HAIR", value:false},
+                    {name: "liver", label: "LIVER", value:false},
+                    {name: "pancreas", label: "PANCREAS", value:false},
+                    {name: "pituitary", label: "PITUARYGLAND", value:false},
+                    {name: "skin-hides", label: "SKINHIDES", value:false},
+                    {name: "thyroid-parathyroid", label: "THYROID", value:false},
                         {
                             name: "other-skin-glandular",
-                            label: "Other Skin Glandular",
+                            label: "SKINOTHER",
                             value: false,
                             hasOtherDetails: true,
                             otherText: ""
@@ -148,63 +151,66 @@
                     title: "Musculo Skeletal System",
                     groupName: "musculo-skeletal-sys",
                     list: [
-                    {name: "abdomen", label: "abdomen", value:false},
-                    {name: "skull", label: "skull", value:false},
-                    {name: "bones", label: "bones", value:false},
-                    {name: "collagen", label: "collagen", value:false},
-                    {name: "tendons-ligaments", label: "Tendons Ligaments", value:false},
-                    {name: "vertebral-column", label: "Vertebral Column", value:false},
-                    {name: "muscle", label: "muscle", value:false},
+                    {name: "abdomen", label: "ABDOMEN", value:false},
+                    {name: "skull", label: "SKULL", value:false},
+                    {name: "bones", label: "BONES", value:false},
+                    {name: "collagen", label: "COLLAGEN", value:false},
+                    {name: "tendons-ligaments", label: "TENDONS", value:false},
+                    {name: "vertebral-column", label: "VERTEBRALCOLUMN", value:false},
+                    {name: "muscle", label: "MUSCLE", value:false},
                         {
                             name: "other-musculo-skeletal",
-                            label: "Other Musculo Skeletal",
+                            label: "MUSCLEOTHER",
                             value: false,
                             hasOtherDetails: true,
                             otherText: ""
                         }
                 ]},
                 otherTissues:{
-                    title: "Other Tissues",
+                    title: "OTHERTISSUE",
                     groupName: "other-tissues",
                     list: [
-                    {name: "adipose", label: "adipose", value:false},
-                    {name: "ascites", label: "ascites", value:false},
-                    {name: "antler-velvet", label: "Antler Velvet", value:false},
-                    {name: "serum", label: "serum", value:false},
-                    {name: "whole-blood", label: "Whole Blood", value:false},
-                    {name: "plasma", label: "plasma", value:false},
-                    {name: "embryonic-tissue", label: "Embryonic Tissue", value:false},
-                    {name: "fetal-tissue", label: "Fetal Tissue", value:false},
-                    {name: "bone-marrow", label: "Bone Marrow", value:false},
-                    {name: "eyes-cornea", label: "Eyes Cornea", value:false},
-                    {name: "gall-bladder", label: "Gall Bladder", value:false},
+                    {name: "adipose", label: "ADIPOSE", value:false},
+                    {name: "ascites", label: "ASCITES", value:false},
+                    {name: "antler-velvet", label: "ANTLERV", value:false},
+                    {name: "serum", label: "SERUM", value:false},
+                    {name: "whole-blood", label: "WHOLEBLOOD", value:false},
+                    {name: "plasma", label: "PLASMA", value:false},
+                    {name: "embryonic-tissue", label: "EMBRYONICTISS", value:false},
+                    {name: "fetal-tissue", label: "FETALTISS", value:false},
+                    {name: "bone-marrow", label: "BONEMARROW", value:false},
+                    {name: "eyes-cornea", label: "EYESCORNEA", value:false},
+                    {name: "gall-bladder", label: "GALL", value:false},
                         {
                             name: "other-fluids-tissues",
-                            label: "Other Fluids Tissues",
+                            label: "OTHERFLUIDSEL",
                             value: false,
                             hasOtherDetails: true,
                             otherText: ""
                         }
                 ]
-            }};
-
-            /*self.bodySystems = [];
-
-            for(var item in self.model){
-                console.log('tissuesFluidsOriginModule model key: ' + item);
             }
 
-           angular.forEach(self.model, function(value, key) {
-                //console.log('tissuesFluidsOriginModule model key: ' + key);
-                self.bodySystems.push(key);
-            });*/
+            };
+
+            if(self.tissuesModel){
+                self.model = self.tissuesModel;
+            }
 
         }
 
 
         self.$onChanges = function (changes) {
-            //TODO model changes?
-        }
+            if(changes.tissuesModel){
+                self.model = changes.tissuesModel.currentValue;
+            }
+        };
+
+      /*  self.$doCheck = function () {
+            if (!angular.equals(self.model.nervousSystem.list, self.tissuesModel.nervousSystem.list)) {
+                console.log('tissues fluids nervousSystem model changed ');
+            }
+        };*/
         /**
          * Checks that at least one tissue has been selected
          * Checks if the other checkboz is selected with no other details
@@ -249,9 +255,65 @@
             return false;
         };
 
+        self.updateNervousSystemList = function(list){
+
+            self.model.nervousSystem.list = list;
+            self.onUpdate({model:self.model});
+
+        };
+
+        self.updateDigestSystemList = function(list){
+
+            self.model.digestiveSystem.list = list;
+            self.onUpdate({model:self.model});
+
+        };
+
+        self.updateRepSystemList = function(list){
+
+            self.model.reproductiveSystem.list = list;
+            self.onUpdate({model:self.model});
+
+        };
+
+        self.updateCardioSystemList = function(list){
+
+            self.model.cardioSystem.list = list;
+            self.onUpdate({model:self.model});
+
+        };
+
+        self.updateImmuneSystemList = function(list){
+
+            self.model.immuneSystem.list = list;
+            self.onUpdate({model:self.model});
+
+        };
+
+        self.updateSkinGlandSystemList = function(list){
+
+            self.model.skinGlandSystem.list = list;
+            self.onUpdate({model:self.model});
+
+        };
+
+        self.updateMusculoSystemList = function(list){
+
+            self.model.musculoSkeletalSystem.list = list;
+            self.onUpdate({model:self.model});
+
+        };
+
+
+        self.updateOtherSystemList = function(list){
+
+            self.model.otherTissues.list = list;
+            self.onUpdate({model:self.model});
+
+        };
         self.showNoRecordError = function (isDirty) {
             return (!self.oneTissueSourceSelected());
 
-        }
+        };
     }
 })();

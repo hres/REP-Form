@@ -5,7 +5,7 @@
   "STANDARD": "Standard",
   "STRENGTH": "Strength",
   "UNITS": "Units",
-  "PER": "Per",
+  "PER_STRENGTH": "Per",
   "ISBASE": "Calculated as Base?",
   "NANO_MATERIAL": "Nanomaterial?",
   "NANO_MATERIAL_OTHER": "Please indicate the type of nanomaterial",
@@ -44,5 +44,10 @@
   "OTHER_ROA_DETAILS": "Other Route of Administration Details",
   "ROA_LBL": "Route of Administration (ROA)",
   "ROA_TITLE": "Routes of Administration",
-  "ROA_ABREV": "ROA"
+  "ROA_ABREV": "ROA",
+  "FORMULATIONS":"Formulations",
+  "FORMULATION_DETAILS":"Formulation Details",
+  "FORMULATION_NAME": "Formulation Name",
+  "FORM_ID": "ID"
+
 }

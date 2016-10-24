@@ -19,30 +19,68 @@
             controllerAs: 'ctrCtrl',
             controller: containerTypeRecCtrl,
             bindings: {
-                record: '<'
+                deleteBtn: '<',
+                record:'<',
+                onAddIng: '&',
+                onUpdate: '&',
+                onDelete: '&',
+                onCancel: '&',
+                showErrors:'&'
             }
 
         });
-
     function containerTypeRecCtrl() {
 
         var self = this;
-
+        self.savePressed=false;
         self.$onInit = function () {
 
-            self.ctModel = {
-                "containerType": "A",
-                "packageSize": "A",
-                "shelfLifeYears": "9999",
-                "shelfLifeMonths": "99",
-                "tempMin": "999",
-                "tempMax": "999"
-            };
+            self.ctModel = {};
 
-            if (self.record) {
+            if(self.record){
                 self.ctModel = self.record;
             }
+        };
+
+        self.save = function () {
+            if(self.containerTypeForm.$valid) {
+                if (self.record) {
+                    // console.log('product details update product');
+                    self.onUpdate({cType: self.ctModel});
+                } else {
+                    //  console.log('product details add product');
+                    self.onAddIng({cType: self.ctModel});
+                }
+                self.savePressed=false;
+                self.containerTypeForm.$setPristine();
+            }else{
+                self.savePressed=true;
+            }
+
+        };
+
+        self.discardChanges = function(){
+            self.ctModel = self.record ? self.record : {};
+            self.onCancel();
         }
+
+        self.delete = function(){
+            if (self.record) {
+                //  console.log('product details delete product');
+                self.onDelete();
+            }
+
+        };
+        /**
+         * Manages visibility of error messages for an indvidual control
+         * @param isInvalid
+         * @param isTouched
+         * @returns {*}
+         */
+        self.showError=function(isInvalid, isTouched){
+            return((isInvalid && isTouched)||(isInvalid && self.showErrors() ||(isInvalid &&self.savePressed)))
+        }
+
 
     }
 

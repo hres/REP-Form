@@ -67,7 +67,7 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label for="per"><span class="field-name">{{'PER'|translate}}</span></label>
+                    <label for="per"><span class="field-name">{{'PER_STRENGTH'|translate}}</span></label>
                     <input type="text" id="per" data-ng-model="ingRecCtrl.ingModel.per" size="40" maxlength="40"
                            class="form-control" name="text"/>
                 </div>
@@ -112,7 +112,7 @@
                     <label for="asBase" class="required">
                         <span class="field-name">{{'CALCULATED_AS_BASE'|translate}}</span>
                         <strong class="required">{{"REQUIRED" |translate}}</strong>
-                        <select id="asBase" ng-model="ingRecCtrl.ingModel.asBase" ng-required="true"
+                        <select id="asBase" ng-model="ingRecCtrl.ingModel.calcAsBase" ng-required="true"
                                 class="form-control" name="asBase"
                                 ng-options="val |translate for val in  ingRecCtrl.yesNoList">
                         </select>
@@ -126,19 +126,19 @@
                     </label>
                 </div>
                 <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12"
-                     ng-class="{'has-error':ingRecCtrl.activeIngForm.animaHumanSourced.$invalid}">
-                    <label for="asBase" class="required">
+                     ng-class="{'has-error':ingRecCtrl.activeIngForm.animalHumanSourced.$invalid}">
+                    <label for="animalHumanSourced" class="required">
                         <span class="field-name">{{'ANIMAL_HUMAN_SOURCED'|translate}}}</span>
                         <strong class="required">{{"REQUIRED" |translate}}</strong>
-                        <select id="animalHumanSourced" ng-model="ingRecCtrl.ingModel.animalHumanSourced"
+                        <select id="animalHumanSourced" ng-model="ingRecCtrl.ingModel.humanAnimalSourced"
                                 ng-required="true"
-                                class="form-control" name="animaHumanSourced"
+                                class="form-control" name="animalHumanSourced"
                                 ng-options="val |translate for val in  ingRecCtrl.yesNoList">
                         </select>
                         <strong id="animalHumanSourced-error" class="error"
-                                ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.animaHumanSourced.$invalid,ingRecCtrl.activeIngForm.animaHumanSourced.$touched)">
+                                ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.animalHumanSourced.$invalid,ingRecCtrl.activeIngForm.animalHumanSourced.$touched)">
                         <span class="label label-danger"
-                              ng-messages="ingRecCtrl.activeIngForm.animaHumanSourced.$error">
+                              ng-messages="ingRecCtrl.activeIngForm.animalHumanSourced.$error">
                             <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
                         </span>
                         </strong>

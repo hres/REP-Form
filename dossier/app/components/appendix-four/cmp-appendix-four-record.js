@@ -20,7 +20,11 @@
             controller: app4RecCtrl,
             bindings: {
                 record: '<',
-                showListErrors: '&'
+                showListErrors: '&',
+                onAddNew: '&',
+                onUpdate: '&',
+                onDelete: '&',
+                onCancel: '&'
             }
 
         });
@@ -28,6 +32,7 @@
     function app4RecCtrl(){
 
         var self = this;
+        self.isSourced = ""; //determines if at least one source is selected
         self.model = {}
         self.$onInit = function(){
 
@@ -39,7 +44,13 @@
 
         }
         self.isSourcedSelected = function () {
-            return (self.model.humanSourced || self.model.animalSourced)
+            var result = (self.model.humanSourced || self.model.animalSourced)
+            if (result) {
+                self.isSourced = result;
+            } else {
+                self.isSourced = "";
+            }
+            return (result);
 
         }
 
@@ -54,7 +65,49 @@
          */
         self.showError = function (isInvalid, isTouched) {
             return ((isInvalid && isTouched) || (isInvalid && self.showListErrors()))
+        };
+        self.save = function () {
+            if (self.record) {
+                // console.log('product details update product');
+                self.onUpdate({record: self.model});
+            } else {
+                //  console.log('product details add product');
+                self.onAddNew({record: self.model});
+            }
+
+        };
+
+        self.discardChanges = function () {
+            self.model = {};
+            //self.productDetailsForm.$setPristine();
+            self.onCancel();
         }
+
+        self.delete = function () {
+            if (self.record) {
+                //  console.log('product details delete product');
+                self.onDelete();
+            }
+
+        };
+
+        self.updateTissuesFluids = function(input){
+
+            //console.log('apdx4 record updateTissuesFluids : ' + JSON.stringify(input));
+
+            self.model.tissuesFluidsOrigin = input;
+
+           /* if (self.record) {
+                self.onUpdate({record: self.model});
+            }*/
+
+        };
+
+        self.updateAnimalSourced = function(input){
+
+            self.model.sourceAnimalDetails = input;
+
+        };
 
     }
 })();

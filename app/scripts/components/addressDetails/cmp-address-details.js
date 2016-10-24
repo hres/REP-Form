@@ -9,7 +9,8 @@
     angular
         .module('addressModule', [
             'countrySelect',
-            'dataLists'
+            'dataLists',
+            'filterLists'
         ])
 })();
 

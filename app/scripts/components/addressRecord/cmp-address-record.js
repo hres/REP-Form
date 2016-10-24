@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module('addressRecord', ['addressModule', 'addressRole'])
+        .module('addressRecord', ['addressModule', 'addressRole','filterLists'])
 })();
 
 (function () {

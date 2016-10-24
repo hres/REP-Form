@@ -1,51 +1,46 @@
-<fieldset>
-    <legend>List of countries</legend>
-
-   <!-- <pre>list:{{$ctrl.model.list | json}}</pre>-->
-
+<ng-form name="countryForm">
     <ul class="list-group">
-        <li class="list-group-item list-group-item-text active  col-md-12">{{'COUNTRY_NAME'|translate}}</li>
-        <li class="list-group-item  col-md-12" ng-repeat="item in $ctrl.model.list" ng-include="$ctrl.getTemplate(item)"></li>
-    </ul>
-
-    <script type="text/ng-template" id="display">
-        <div class="col-md-8">
-            <span class="field-name full-width">{{item.name}}</span>
-        </div>
-        <div class="btn-group-sm col-md-4 text-right">
-            <a href="" ng-click="$ctrl.editRecord(item)" class="btn btn-default btn-sm">Edit</a>
-            <a href="" ng-click="$ctrl.deleteRecord(item.id)" class="btn btn-danger btn-sm">Delete</a>
-        </div>
-    </script>
-
-    <script type="text/ng-template" id="edit">
-            <div class="col-md-8">
-                <select ng-model="item.name"  class="form-control full-width" >
-                    <option ng-repeat="ctr in $ctrl.model.countries">{{ctr}}</option>
-                </select>
-                <!--<input type="text" class="form-control full-width" ng-model="item.name"/>-->
+        <li class="list-group-item  col-md-12" ng-repeat="item in $ctrl.model.list">
+            <div class="col-md-8" ng-class="{'has-error':countryForm.countryName.$invalid}">
+                <label for="country_{{$index}}" class="required">
+                    <span class="field-name"> {{$ctrl.fieldLabel|translate}}&nbsp;{{$index+1}}</span>
+                    <strong class="required">{{"REQUIRED" |translate}}</strong>
+                    <select ng-model="item.name" class="form-control full-width required" id="country_{{$index}}"
+                            name="countryName" required
+                            ng-options="country |translate for country in $ctrl.model.countries | orderByTranslatedCountry">
+                    </select>
+                    <strong id="countryName-error" class="error"
+                            ng-if="$ctrl.showError(countryForm.countryName.$invalid,countryForm.countryName.$touched)">
+                            <span class="label label-danger" ng-messages="countryForm.countryName.$error">
+                                <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                            </span>
+                    </strong>
+                </label>
             </div>
             <div class="btn-group-sm col-md-4 text-right">
-                <a href="" ng-click="$ctrl.saveRecord(item.id)" class="btn btn-primary btn-sm">{{'SAVE'|translate}}</a>
-                <a href="" ng-click="$ctrl.reset()" class="btn btn-default btn-sm">{{'CANCEL'|translate}}</a>
-                <a href="" ng-click="$ctrl.deleteRecord(item.id)" class="btn btn-danger btn-sm">{{'DELETE'|translate}}</a>
+                <a href="" ng-click="$ctrl.deleteRecord(item.id)"
+                   class="btn btn-danger btn-sm">{{'DELETE_COUNTRY'|translate}}&nbsp;{{$index+1}}</a>
             </div>
-            <div class="form-group col-md-8 mrgn-tp-lg has-error" ng-if="item.name === 'UNKNOWN' ">
-                <!--<label for="unknown-country-details">Please specify the unknown details</label>-->
-
+            <div class="form-group col-md-8 mrgn-tp-lg has-error" ng-if="item.name === 'UNKNOWN'"
+                 ng-class="{'has-error':countryForm.unknownCountry.$invalid}">
                 <label for="unknown-country-details" class="required">
                     <span class="field-name">{{'UNKNOWN_COUNTRY_DETAILS'|translate}}</span>
                     <strong class="required">{{"REQUIRED" |translate}}</strong>
+                    <strong id="country-error" class="error"
+                            ng-if="countryForm.unknownCountry.$invalid">
+                        <span class="label label-danger" ng-messages="countryForm.unknownCountry.$error">
+                            <span ng-message="required">{{"MSG_ERR_MAND"|translate}}</span>
+                        </span>
+                    </strong>
                 </label>
-
-                <textarea  id="unknown-country-details" class="form-control full-width" ng-model="item.model.unknownCountryDetails"></textarea>
+                <textarea id="unknown-country-details" class="form-control full-width" name="unknownCountry" required
+                          maxlength="100" row="2" ng-model="item.unknownCountryDetails"></textarea>
             </div>
-    </script>
-
-</fieldset>
-
-<div class="row mrgn-tp-md mrgn-bttm-lg">
-    <div class="btn-group-sm col-md-12 text-right">
-        <input type="submit" value="Add New" class="btn btn-primary" ng-click="$ctrl.addNew()" />
+        </li>
+    </ul>
+    <div class="row mrgn-tp-md mrgn-bttm-lg">
+        <div class="btn-group-sm col-md-12 text-right">
+            <input type="submit" value="{{'ADD_A'|translate}}&nbsp;{{$ctrl.fieldLabel|translate}}" class="btn btn-primary" ng-click="$ctrl.addNew()"/>
+        </div>
     </div>
-</div>
+</ng-form>

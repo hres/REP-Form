@@ -15,7 +15,10 @@
         templateUrl: './app/components/tabs/tpl-tabs.html',
         controller: tabsCtrl,
         controllerAs: 'tabsCtrl',
-        bindings: {}
+        bindings: {
+            formulationList : '<',
+            appendix4List : '<'
+        }
     });
 
     tabsCtrl.$inject = ['$scope'];
@@ -24,29 +27,43 @@
     function tabsCtrl($scope) {
 
         var self = this;
-
+        self.tabs = [
+            {
+                label: "FORMULATIONS",
+                selected: true,
+                disabled: false,
+                errors: true,
+                form: {}
+            },
+            {
+                label: "APPENDIX4",
+                selected: false,
+                disabled: false,
+                errors: false,
+                form: {}
+            }
+        ];
         self.$onInit = function () {
-            self.tabs = [
-                {
-                    label: "Formulations",
-                    selected: true,
-                    disabled: false
-                },
-                {
-                    label: "Appendix 4",
-                    selected: false,
-                    disabled: false
-                }
-            ];
+
+            //console.log(self.tabs[0].form.$invalid)
         };
 
         self.selectTab = function (idx) {
 
-            angular.forEach(self.tabs, function (tab) {
+            /*  angular.forEach(self.tabs, function (tab) {
                     tab.selected = false;
-                });
+             tab.errors=tab.form.$invalid;
+             });*/
+
+            for (var i = 0; i < self.tabs.length; i++) {
+                self.tabs[i].selected = false;
+                if (idx !== i) {
+                    self.tabs[i].errors = self.tabs[i].form.$invalid;
+                }
+            }
 
                 self.tabs[idx].selected = true;
+            //self.tabs[idx].errors= self.tabs[idx].form.$invalid
         };
     }
 

@@ -5,7 +5,7 @@
   "STANDARD": "Norme",
   "STRENGTH": "Concentration",
   "UNITS": "Unités",
-  "PER": "Par",
+  "PER_STRENGTH": "Par",
   "ISBASE": "Calculé sous forme de base?",
   "NANO_MATERIAL": "Nanomatériau?",
   "NANO_MATERIAL_OTHER": "Veuillez indiquer le type de nanomatériau",
@@ -33,5 +33,10 @@
   "SHELF_LIFE": "fr_Shelf Life",
   "IN_FINAL_CONTAINER": "fr_Present in Final Container?",
   "OTHER_ROA_DETAILS": "fr_Other Route of Administration Details",
-  "ROA_TITLE": "fr_Route of Administration"
+  "ROA_TITLE": "fr_Route of Administration",
+  "FORMULATIONS":"Formulations",
+  "APPENDIX4": "Annexe 4",
+  "FORMULATION_DETAILS":"fr_Formulation Details",
+  "FORMULATION_NAME":"fr_Formulation Name",
+  "FORM_ID": "ID"
 }

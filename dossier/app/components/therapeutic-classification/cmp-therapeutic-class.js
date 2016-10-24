@@ -28,18 +28,24 @@
     function therapeuticClassCtrl($filter){
         var self = this;
 
+        self.model = {
+            classifications: [],
+            selected: {}
+        };
+
         self.$onInit = function(){
-            self.model={
-                classifications : [
-                    {"id":1, "name":"classification1"},
-                    {"id":2, "name":"classification2"},
-                    {"id":3, "name":"classification3"},
-                    {"id":4, "name":"classification4"},
-                    {"id":5, "name":"classification5"}
-                ],
-                selected:{}
+
+            if(self.listItems){
+                self.model.classifications = self.listItems;
             }
-        }
+        };
+
+        self.$onChanges = function (changes) {
+
+            if (changes.listItems) {
+                self.model.classifications = changes.listItems.currentValue;
+            }
+        };
 
         // gets the template to ng-include for a table row / item
         self.getTemplate = function (item) {
@@ -49,7 +55,7 @@
 
         self.addNew = function(){
 
-            var maxID = getListMaxID();
+            var maxID = self.model.classifications.length;//getListMaxID();
 
             //console.log("addNew maxID: " + JSON.stringify(maxID) );
 
@@ -73,13 +79,7 @@
             self.reset();
         };
 
-        self.deleteRecord = function (_id) {
-            if (self.model.classifications.length == 1) {
-                return;
-            }
-            var idx = self.model.classifications.indexOf(
-                $filter('filter')(self.model.classifications, {id: _id}, true)[0]
-            );
+        self.deleteRecord = function (idx) {
             self.model.classifications.splice(idx,1);
         };
 

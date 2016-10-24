@@ -27,7 +27,7 @@
                         <div class="col col-md-12">
                             <cmp-checkbox-list title="{{tfoCtrl.model.nervousSystem.title}}"
                                                common-name="{{tfoCtrl.model.nervousSystem.groupName}}"
-                                               list-items="tfoCtrl.model.nervousSystem.list"></cmp-checkbox-list>
+                                               list-items="tfoCtrl.model.nervousSystem.list" on-update="tfoCtrl.updateNervousSystemList(list)"></cmp-checkbox-list>
                         </div>
                     </div>
 
@@ -38,7 +38,7 @@
                             <cmp-checkbox-list
                                     title="{{tfoCtrl.model.digestiveSystem.title}}"
                                     common-name="{{tfoCtrl.model.digestiveSystem.groupName}}"
-                                    list-items="tfoCtrl.model.digestiveSystem.list"></cmp-checkbox-list>
+                                    list-items="tfoCtrl.model.digestiveSystem.list" on-update="tfoCtrl.updateDigestSystemList(list)"></cmp-checkbox-list>
                         </div>
                     </div>
                     <div uib-accordion-group heading="{{'REPRODUCTSYSTEM' |translate}}" is-open="false"
@@ -48,7 +48,7 @@
                             <cmp-checkbox-list
                                     title="{{tfoCtrl.model.reproductiveSystem.title}}"
                                     common-name="{{tfoCtrl.model.reproductiveSystem.groupName}}"
-                                    list-items="tfoCtrl.model.reproductiveSystem.list"></cmp-checkbox-list>
+                                    list-items="tfoCtrl.model.reproductiveSystem.list" on-update="tfoCtrl.updateRepSystemList(list)"></cmp-checkbox-list>
                         </div>
                     </div>
                     <div uib-accordion-group heading="{{'CARDIOSYSTEM' |translate}}" is-open="false"
@@ -58,7 +58,7 @@
                             <cmp-checkbox-list
                                     title="{{tfoCtrl.model.cardioSystem.title}}"
                                     common-name="{{tfoCtrl.model.cardioSystem.groupName}}"
-                                    list-items="tfoCtrl.model.cardioSystem.list"></cmp-checkbox-list>
+                                    list-items="tfoCtrl.model.cardioSystem.list" on-update="tfoCtrl.updateCardioSystemList(list)"></cmp-checkbox-list>
                         </div>
                     </div>
                     <div uib-accordion-group heading="{{'IMMUNESYSTEM' |translate}}" is-open="false"
@@ -68,7 +68,7 @@
                             <cmp-checkbox-list
                                     title="{{tfoCtrl.model.immuneSystem.title}}"
                                     common-name="{{tfoCtrl.model.immuneSystem.groupName}}"
-                                    list-items="tfoCtrl.model.immuneSystem.list"></cmp-checkbox-list>
+                                    list-items="tfoCtrl.model.immuneSystem.list" on-update="tfoCtrl.updateImmuneSystemList(list)"></cmp-checkbox-list>
                         </div>
                     </div>
                     <div uib-accordion-group heading="{{'SKINGLANDSYSTEM' |translate}}" is-open="false"
@@ -78,7 +78,7 @@
                             <cmp-checkbox-list
                                     title="{{tfoCtrl.model.skinGlandSystem.title}}"
                                     common-name="{{tfoCtrl.model.skinGlandSystem.groupName}}"
-                                    list-items="tfoCtrl.model.skinGlandSystem.list"></cmp-checkbox-list>
+                                    list-items="tfoCtrl.model.skinGlandSystem.list" on-update="tfoCtrl.updateSkinGlandSystemList(list)"></cmp-checkbox-list>
                         </div>
                     </div>
                     <div uib-accordion-group heading="{{'MUSCULOSYSTEM' |translate}}" is-open="false"
@@ -88,7 +88,7 @@
                             <cmp-checkbox-list
                                     title="{{tfoCtrl.model.musculoSkeletalSystem.title}}"
                                     common-name="{{tfoCtrl.model.musculoSkeletalSystem.groupName}}"
-                                    list-items="tfoCtrl.model.musculoSkeletalSystem.list"></cmp-checkbox-list>
+                                    list-items="tfoCtrl.model.musculoSkeletalSystem.list" on-update="tfoCtrl.updateMusculoSystemList(list)"></cmp-checkbox-list>
                         </div>
                     </div>
                     <div uib-accordion-group heading="{{'OTHERTISSUE' |translate}}" is-open="false"
@@ -98,7 +98,7 @@
                             <cmp-checkbox-list
                                     title="{{tfoCtrl.model.otherTissues.title}}"
                                     common-name="{{tfoCtrl.model.otherTissues.groupName}}"
-                                    list-items="tfoCtrl.model.otherTissues.list"></cmp-checkbox-list>
+                                    list-items="tfoCtrl.model.otherTissues.list" on-update="tfoCtrl.updateOtherSystemList(list)"></cmp-checkbox-list>
                         </div>
                     </div>
                 </uib-accordion>

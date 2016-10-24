@@ -11,7 +11,9 @@
             'contactList2',
             'fileIO',
             'ngSanitize',
-            'applicationInfo'
+            'applicationInfo',
+            'filterLists',
+            'hpfbConstants'
         ])
 })();
 

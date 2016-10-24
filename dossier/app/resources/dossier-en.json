@@ -40,5 +40,13 @@
   "SOURCED_ANIMAL": "Source From Animal",
   "SPECIFY": "Please specify",
   "DETAILS": "Details",
-  "REF_PRODUCTS": "Canadian Reference Product(s)"
+  "REF_PRODUCTS": "Canadian Reference Product(s)",
+  "RADIOPHARM":"Radiopharmaceutical",
+  "VETERINARY":"Veterinary",
+  "DISINFECTANT":"Disinfectant",
+  "ADD_A":"Add a ",
+  "COUNTRY_MAN": "Country of Manufacture",
+  "DELETE_COUNTRY":"Delete Country",
+  "COUNTRIES_MANUFACT":"Countries of manufacture for this drug product"
+
 }

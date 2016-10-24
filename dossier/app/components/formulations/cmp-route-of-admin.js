@@ -30,16 +30,18 @@
     roaController.$inject = ['$filter', 'DossierLists'];
     function roaController($filter, DossierLists) {
         var self = this;
+        self.noRoa="";
         self.roaList = DossierLists.getRoa();
         self.$onInit = function () {
 
             self.model = {
-                list: [
-                    {"id": 1, "roa": "DENTAL", "otherRoaDetails": ""},
-                    {"id": 2, "roa": "BUCCAL", "otherRoaDetails": ""},
-                    {"id": 3, "roa": "BUCCAL", "otherRoaDetails": ""}
-                ]
+                list: []
             }
+
+            if(self.listItems){
+                self.model.list = self.listItems;
+            }
+           self.noRoaRecs();
         };
 
         self.getTemplate = function (item) {
@@ -58,6 +60,7 @@
 
             self.model.list.push(item);
             self.editRecord(item);
+            self.onUpdate({list:self.model.list});
 
         };
 
@@ -72,6 +75,7 @@
                 $filter('filter')(self.model.list, {id: _id}, true)[0]
             );
             self.model.list[idx] = self.model.selected;
+            self.onUpdate({list:self.model.list});
             self.reset();
         };
 
@@ -84,6 +88,7 @@
             if (idx < 0) return;
 
             self.model.list.splice(idx, 1);
+            self.onUpdate({list:self.model.list});
         };
 
 
@@ -134,6 +139,25 @@
                 }
             }
             return out;
+
+        }
+
+        /***
+         * Shows the no ROA of error
+         * TODO: Not show this until someone saves?
+         * @returns {boolean}
+         */
+        self.noRoaRecs=function(){
+            if(!self.model){
+                self.noRoa="";
+                return false;
+            }
+            if(!self.model.list || self.model.list.length===0){
+                self.noRoa="";
+                return true;
+            }
+            self.noRoa= self.model.list.length;
+            return false;
 
         }
 
