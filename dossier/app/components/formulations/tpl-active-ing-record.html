@@ -1,4 +1,5 @@
 <ng-form name="ingRecCtrl.activeIngForm">
+  <!--  <pre>ingRecCtrl.ingModel: {{ingRecCtrl.ingModel|json}}</pre>-->
     <div class="container-fluid">
         <fieldset>
             <legend>{{'MEDICINAL_INGRED_DETAILS'|translate}}</legend>
@@ -126,19 +127,19 @@
                     </label>
                 </div>
                 <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12"
-                     ng-class="{'has-error':ingRecCtrl.activeIngForm.animalHumanSourced.$invalid}">
-                    <label for="animalHumanSourced" class="required">
-                        <span class="field-name">{{'ANIMAL_HUMAN_SOURCED'|translate}}}</span>
+                     ng-class="{'has-error':ingRecCtrl.activeIngForm.animaHumanSourced.$invalid}">
+                    <label for="asBase" class="required">
+                        <span class="field-name">{{'ANIMAL_HUMAN_SOURCED'|translate}}</span>
                         <strong class="required">{{"REQUIRED" |translate}}</strong>
                         <select id="animalHumanSourced" ng-model="ingRecCtrl.ingModel.humanAnimalSourced"
                                 ng-required="true"
-                                class="form-control" name="animalHumanSourced"
+                                class="form-control" name="animaHumanSourced"
                                 ng-options="val |translate for val in  ingRecCtrl.yesNoList">
                         </select>
                         <strong id="animalHumanSourced-error" class="error"
-                                ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.animalHumanSourced.$invalid,ingRecCtrl.activeIngForm.animalHumanSourced.$touched)">
+                                ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.animaHumanSourced.$invalid,ingRecCtrl.activeIngForm.animaHumanSourced.$touched)">
                         <span class="label label-danger"
-                              ng-messages="ingRecCtrl.activeIngForm.animalHumanSourced.$error">
+                              ng-messages="ingRecCtrl.activeIngForm.animaHumanSourced.$error">
                             <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
                         </span>
                         </strong>
@@ -151,6 +152,8 @@
                        ng-click="ingRecCtrl.saveIng()"/>
                 <input type="submit" ng-if="ingRecCtrl.deleteBtn === true" value="Delete" class="btn btn-danger"
                        ng-click="ingRecCtrl.delete()"/>
+                <input type="submit" ng-if="ingRecCtrl.deleteBtn === true" value="Copy" class="btn btn-default"
+                       ng-click="ingRecCtrl.copy()" ng-disabled="ingRecCtrl.activeIngForm.$dirty">
                 <input type="submit" value="Discard Changes" class="btn btn-default"
                        ng-click="ingRecCtrl.discardChanges()">
             </div>

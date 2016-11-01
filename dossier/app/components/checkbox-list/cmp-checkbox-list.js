@@ -39,7 +39,7 @@
         self.$onInit = function () {
             //init items after change
             //temp as not hooked up
-            self.currentModel = self.listItems
+            //self.currentModel = self.listItems dosen't make sense doing this on init would happen on changes
         };
 
         self.$onChanges = function (changes) {
@@ -63,17 +63,7 @@
             });
         }
         //TODO remove?
-        self.updateRoleModel = function () {
 
-            self.formName.addressRole.$dirty =
-                self.formName.addressRole.$touched = true;
-
-            self.formName.addressRole.$pristine = !self.formName.addressRole.$dirty;
-            self.formName.addressRole.$untouched = !self.formName.addressRole.$touched;
-
-            //self.onUpdate({$event: {roles: self.roleModel}});
-
-        }
         /**
          * Manages the state of the other field
          * @param item
@@ -87,9 +77,8 @@
                     item.otherText = "";
                 }
             }
-
-           self.onUpdate({list:self.currentModel});
         }
+      //  self.onUpdate({list:self.currentModel}); //TODO fix shouldn't have to update, should be dumb component
     }
 
 })();

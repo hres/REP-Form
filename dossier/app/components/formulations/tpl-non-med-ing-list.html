@@ -1,23 +1,23 @@
-<ng-form name="non-med-ing-list-form">
-    <h2>{{'NONMEDICINAL_INGRED'|translate}}</h2>
+<ng-form name="nmilCtrl.nonMedListForm">
     <cmp-expanding-table title="Non Medicinal Ingredient List" list-items="nmilCtrl.ingList"
-                         column-def="nmilCtrl.colNames" select-record="nmilCtrl.selectRecord"
+                         column-def="nmilCtrl.colNames" select-record="nmilCtrl.selectRecord" reset-to-collapsed="nmilCtrl.resetToCollapsed"
                          disable-selection="!nmilCtrl.isDetailValid">
 
         <cmp-non-med-ing-record record="$parent.record" on-update="nmilCtrl.updateIng($parent.$index,ing)"
-                                on-delete="nmilCtrl.deleteIng($parent.$index)"
+                                on-delete="nmilCtrl.deleteIng($parent.$index)" on-add-ing="nmilCtrl.addIng(ing)"
+                                is-detail-valid="nmilCtrl.setValid(state)"
                                 delete-btn="true"></cmp-non-med-ing-record>
 
     </cmp-expanding-table>
 
     <cmp-non-med-ing-record ng-if="nmilCtrl.newIngFormShown === true" on-add-ing="nmilCtrl.addIng(ing)"
-                            on-cancel="nmilCtrl.newIngFormShown = false" delete-btn="false"></cmp-non-med-ing-record>
+                            on-cancel="nmilCtrl.onNewCancel()" delete-btn="false"></cmp-non-med-ing-record>
 
     <div class="mrgn-tp-md mrgn-bttm-lg">
         <div class="btn-group-sm col-md-12 text-right">
             <input type="submit" value="Add Ingredient" class="btn btn-primary"
-                   data-ng-disabled="nmilCtrl.newIngFormShown"
-                   ng-click="nmilCtrl.newIngFormShown = true"/>
+                   data-ng-disabled="nmilCtrl.addNewDisabled()"
+                   ng-click="nmilCtrl.addNewIngredientState()"/>
         </div>
     </div>
 

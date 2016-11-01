@@ -29,7 +29,8 @@
 
             _default: {
                 dossierID: "",
-                companyId:"",
+                companyID:"",
+                relatedDossierID: "",
                 enrolmentVersion: "0.00",
                 dateSaved: "",
                 applicationType: "NEW",
@@ -72,6 +73,7 @@
 
                 var dossierModel = {
                     dossierID: info.dossier_id,
+                    companyID: info.company_id,
                     relatedDossierID: info.related_dossier_id,
                     enrolmentVersion: info.enrolment_version,
                     dateSaved: info.date_saved,
@@ -82,7 +84,7 @@
                     properName: info.common_name,
                     drugProduct: {
                         thirdPartySigned: false,
-                        drugUseList: [],
+                        drugUseList: loadDrugUseValues(info),
                         isScheduleA: info.is_sched_a === 'Y' ? true:false ,
                         therapeutic: getTherapeuticList(info.therapeutic_class_list.therapeutic_class),
                         canRefProducts:  getCanRefProductList(info.ref_product_list.cdn_ref_product),//grid
@@ -96,7 +98,7 @@
 
                 };
                 dossierModel.drugProduct.scheduleAGroup = getDefaultSchedA();//always create the default for the forms
-                dossierModel.drugProduct.drugUseList=loadDrugUseValues(info);
+                //dossierModel.drugProduct.drugUseList=loadDrugUseValues(info);
 
                 if (info.schedule_a_group) {
                     dossierModel.drugProduct.scheduleAGroup.drugIdNumber = info.schedule_a_group.din_number;
@@ -133,11 +135,9 @@
                     }
                 }
 
-
                 return list;
 
             }
-
 
         };
 
@@ -150,8 +150,9 @@
             if (!jsonObj) return null;
             var baseDossier = {};
             //order is important!!! Must match schema
-            baseDossier.company_id = jsonObj.companyId; //TODO missing from internal model
-            baseDossier.dossier_id = jsonObj.dossierId; //TODO missing from  internal model and XML! Net New
+            baseDossier.company_id = jsonObj.companyID; //TODO missing from internal model
+            baseDossier.dossier_id = jsonObj.dossierID; //TODO missing from  internal model and XML! Net New
+            baseDossier.related_dossier_id = jsonObj.relatedDossierID; //TODO missing from nodel
             baseDossier.enrolment_version=jsonObj.enrolmentVersion;
             baseDossier.date_saved = jsonObj.dateSaved;
             baseDossier.application_type = jsonObj.applicationType;
@@ -160,7 +161,6 @@
             if (jsonObj.contactList) { //TODO skip if empty list?
                 baseDossier.contact_record = repContactToOutput(jsonObj.contactList);
             }
-            baseDossier.related_dossier_id = jsonObj.relatedDossierID; //TODO missing from nodel
             baseDossier.brand_name = jsonObj.productName;
             baseDossier.common_name = jsonObj.properName;
             baseDossier.third_party_signed = jsonObj.drugProduct.thirdPartySigned===true ?'Y':'N';
@@ -185,7 +185,7 @@
                 baseDossier.schedule_a_group=scheduleAToOutput(jsonObj.drugProduct.scheduleAGroup);
             }
             if (jsonObj.drugProduct) {
-                var appendix4 = appendix4IngredientListToOutput(jsonObj.drugProduct.appendixFour)
+                var appendix4 = appendix4IngredientListToOutput(jsonObj.drugProduct.appendixFourList)
                 if (appendix4) {
                     baseDossier.appendix4_group = appendix4;
                 }
@@ -270,7 +270,7 @@
                 return missingAppendices;
             }
             // Step 1 Get all the appendices that exist
-            var appendices=getAppendiceData(dossierModel.drugProduct.appendixFour);
+            var appendices=getAppendiceData(dossierModel.drugProduct.appendixFourList);
             //Step 2 get a unique list of ingredients
             var ingredients=getAnimalIngredients(dossierModel.drugProduct.formulations)
             //Step 3 Compare. Determine if there are missing ingredients
@@ -513,6 +513,7 @@
             for (var i = 0; i < input.length; i++) {
 
                 list.push({
+                    "id":(i+1),
                     "name": input[i].country_with_unknown,
                     "unknownCountryDetails": input[i].unknown_country_details
                 });
@@ -534,6 +535,7 @@
                 var tissues = info[i].tissues_fluids_section;
                 var srcAnimal = info[i].animal_sourced_section;
                 //TODO fix the hasOtherDetials
+                if(tissues){
                 ing.tissuesFluidsOrigin = {
                     nervousSystem: {
                         title: "NERVOUSYSTEM", //the legend for checkbox list
@@ -625,14 +627,14 @@
                         title: "MUSCULOSYSTEM",
                         groupName: "musculo-skeletal-sys",
                         list: [
-                            {name: "abdomen", label: "ABDOMEN", value: tissues.abdomen === 'Y' ? true : false},
-                            {name: "skull", label: "SKULL", value: tissues.skull === 'Y' ? true : false},
-                            {name: "bones", label: "BONES", value: tissues.bones === 'Y' ? true : false},
-                            {name: "collagen", label: "COLLAGEN", value: tissues.collagen === 'Y' ? true : false},
-                            {name: "tendons-ligaments", label: "TENDONS",value: tissues.tendons_ligaments === 'Y' ? true : false},
-                            {name: "vertebral-column", label: "VERTEBRALCOLUMN", value: tissues.vertebral_column === 'Y' ? true : false},
-                            {name: "muscle", label: "MUSCLE", value: tissues.muscle === 'Y' ? true : false},
-                            {name: "other-musculo-skeletal", label: "MUSCLEOTHER", value: tissues.other_musculo_skeletal === 'Y' ? true : false, hasOtherDetails: true, otherText: tissues.other_musculo_skeletal_details}
+                            {name: "abdomen", label: "ABDOMEN", value: false},
+                            {name: "collagen", label: "COLLAGEN", value: false},
+                            {name: "muscle", label: "MUSCLE", value: false},
+                            {name: "skull", label: "SKULL", value: false},
+                            {name: "tendons-ligaments", label: "TENDONS",value: false},
+                            {name: "vertebral-column", label: "VERTEBRALCOLUMN", value: false},
+                            {name: "bones", label: "BONES", value:false},
+                            {name: "other-musculo-skeletal", label: "MUSCLEOTHER", value: false, hasOtherDetails: true, otherText: ""}
                         ]
                     },
                     otherTissues: {
@@ -654,11 +656,13 @@
                         ]
                     }
                 };
+                }
+                    if(srcAnimal) {
                 ing.sourceAnimalDetails = {
 
                     primateTypeList :  [
                         {label: "NONHUMANPRIMATE", type: "text", name: "nhp-type", required: false, value: srcAnimal.nonhuman_primate_type},
-                        {label: "AQUATICTYPE", type: "text", name: "aqua-type", required: false, value: srcAnimal.aquatic_type},
+                        {label: "AQUATICTYPE", type: "text", name: "aquatic-type", required: false, value: srcAnimal.aquatic_type},
                         {label: "AVIANTYPE", type: "text", name: "avian-type", required: false, value: srcAnimal.avian_type},
                         {label: "BOVINETYPE", type: "text", name: "bovine-type", required: false, value: srcAnimal.bovine_type},
                         {label: "CANINETYPE", type: "text", name: "canine-type", required: false, value: srcAnimal.canine_type},
@@ -671,22 +675,21 @@
                         {label: "RODENTTYPE", type: "text", name: "rodent-type", required: false, value: srcAnimal.rodent_type},
                         {label: "OTHERANIMALTYPE", type: "text", name: "other-animal-type", required: false, value: srcAnimal.other_type},
                         {label: "CONTROLLEDPOP", type: "select", name: "controlled-pop", required: true, value: srcAnimal.is_controlled_pop},
-                        {label: "BIOTECHDERIVED", type: "select", name: "biotech-derived", required: true, value: srcAnimal.is_biotech_derived},
+                        {label: "BIOTECHDERIVED", type: "select", name: "biotech-derived", required: true, value:srcAnimal.is_biotech_derived},
                         {label: "CELLLINE", type: "select", name: "cell-line", required: true, value: srcAnimal.is_cell_line},
                         {label: "AGEANIMALS", type: "number", name: "age-animals", required: true, value: Number(srcAnimal.animal_age)}
                     ],
                     countryList: getCountries(srcAnimal.country_origin_list.country_origin)
 
                 };
+                }
 
 
                 list.push(ing);
             }
         }
 
-
         return list;
-
 
     }
 
@@ -715,13 +718,13 @@
             }
             //container_group is static but do a check to be safe
             if(item.container_group && item.container_group.container_details) {
-                obj.activeIngList = getContainerTypeList(item.container_group.container_details);
+                obj.containerTypes = getContainerTypeList(item.container_group.container_details);
             }
             if(item.material_ingredient){
                 obj.animalHumanMaterials=getMaterialList(item.material_ingredient);
             }
             if(item.roa_group && item.roa_group.roa_details){
-               obj.routeAdmins=getRouteAdminList(item.roa_group.roa_details);
+                obj.routeAdmins=getRouteAdminList(item.roa_group.roa_details);
             }
             if(item.country_group && item.country_group.country_manufacturer){
                 obj.countryList=getFormulationCountryList(item.country_group.country_manufacturer);
@@ -933,14 +936,17 @@
         }
         for (var i = 0; i < info.length; i++) {
             var ing = {};
+            var oneRecord = {};
             ing.ingredient_id = info[i].id;
-            ing.ingredient_name = info[i].name;
-            ing.animal_sourced = info[i].sourceAnimal === true ? 'Y' : 'N';
-            ing.human_sourced = info[i].sourceHuman === true ? 'Y' : 'N';
+            ing.ingredient_name = info[i].ingredientName;
+            ing.animal_sourced = info[i].animalSourced === true ? 'Y' : 'N';
+            ing.human_sourced = info[i].humanSourced === true ? 'Y' : 'N';
 
-            if (info.tissuesFluidsOrigin) {
+            if (info[i].tissuesFluidsOrigin) {
+                console.log(info[i].tissuesFluidsOrigin)
                 ing.tissues_fluids_section = createEmptyTissuesFluidsForOutput();
-                var oneRecord = info.tissuesFluidsOrigin.nervousSystem;
+                oneRecord = info[i].tissuesFluidsOrigin.nervousSystem;
+                console.log("length " +oneRecord.list.length);
                 for (var g = 0; g < oneRecord.list.length; g++) {
                     switch (oneRecord.list[g].name) {
                         case "brain":
@@ -957,343 +963,374 @@
                             ing.tissues_fluids_section.cerebrospinal_fluid = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "dorsal-root-ganglia":
-                            ing.dorsal_root_ganglia = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.dorsal_root_ganglia =oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "dura-mater":
-                            ing.dura_mater = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.dura_mater = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "hypothalmus":
-                            ing.hypothalmus = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.hypothalmus = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "retina-optic":
-                            ing.retina_optic = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.retina_optic = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "spinal-cord":
-                            ing.spinal_cord = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.spinal_cord = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
 
                         case "trigerminal-ganglia":
-                            ing.trigerminal_ganglia = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.trigerminal_ganglia = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "other-nervous":
-                            ing.other_nervous = oneRecord.list[g].value === true ? 'Y' : 'N';
-                            ing.other_nervous_details = oneRecord.list[g].otherText;
+                            ing.tissues_fluids_section.other_nervous = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.other_nervous_details = oneRecord.list[g].otherText;
                             break;
-                        //TODO complete
+                        default:
+                            console.error("Unexpected nervous tag: "+oneRecord.list[g].name);
+                            break;
                     }
                 }
-                var oneRecord = info.tissuesFluidsOrigin.digestiveSystem;
+               oneRecord = info[i].tissuesFluidsOrigin.digestiveSystem;
                 for (var g = 0; g < oneRecord.list.length; g++) {
                     switch (oneRecord.list[g].name) {
                         case "appendix":
-                            ing.appendix = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.appendix = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "bile":
-                            ing.bile = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.bile = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "distal-ileum":
-                            ing.distal_ileum = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.distal_ileum = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "large-intestine":
-                            ing.large_intestine = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.large_intestine = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "saliva-salivary":
-                            ing.saliva_salivary = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.saliva_salivary = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            break;
+                        case "small-intestine":
+                            ing.tissues_fluids_section.small_intestine = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "stomach":
-                            ing.small_intestine = oneRecord.list[g].value === true ? 'Y' : 'N';
-                            break;
-                        case "stomach":
-                            ing.stomach = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.stomach = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
 
                         case "other-digestive":
-                            ing.other_digestive = oneRecord.list[g].value === true ? 'Y' : 'N';
-                            ing.tissues.other_digestive_details = oneRecord.list[g].otherText;
+                            ing.tissues_fluids_section.other_digestive = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.other_digestive_details = oneRecord.list[g].otherText;
+                            break;
+                        default:
+                            console.error("Unexpected digestive tag: "+oneRecord.list[g].name);
                             break;
                     }
                 }
-                var oneRecord = info.tissuesFluidsOrigin.reproductiveSystem;
+                oneRecord = info[i].tissuesFluidsOrigin.reproductiveSystem;
                 for (var g = 0; g < oneRecord.list.length; g++) {
                     switch (oneRecord.list[g].name) {
 
                         case "milk-products":
-                            ing.milk_products = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.milk_products = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "kidney":
-                            ing.kidney = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.kidney = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "colostrum":
-                            ing.colostrum = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.colostrum = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "mammary-glands":
-                            ing.mammary_glands = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.mammary_glands = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "ovaries":
-                            ing.ovaries = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.ovaries = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "placenta":
-                            ing.placenta = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.placenta = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
 
                         case "placental-fluid":
-                            ing.placental_fluid = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.placental_fluid = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "semen":
-                            ing.semen = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.semen = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "testes":
-                            ing.testes = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.testes = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "urine":
-                            ing.urine = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.urine = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
 
                         case "other-reproductive":
-                            ing.other_reproductive = oneRecord.list[g].value === true ? 'Y' : 'N';
-                            ing.other_reproductive_details = oneRecord.list[g].otherText;
+                            ing.tissues_fluids_section.other_reproductive = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.other_reproductive_details = oneRecord.list[g].otherText;
+                            break;
+                        default:
+                            console.error("Unexpected reproductive tag: "+oneRecord.list[g].name);
                             break;
 
                     }
                 }
-                var oneRecord = info.tissuesFluidsOrigin.cardioSystem;
+                oneRecord = info[i].tissuesFluidsOrigin.cardioSystem;
                 for (var g = 0; g < oneRecord.list.length; g++) {
                     switch (oneRecord.list[g].name) {
 
                         case "heart-pericardium":
-                            ing.heart_pericardium = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.heart_pericardium = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "nasal-fluid":
-                            ing.nasal_fluid = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.nasal_fluid = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "lung":
-                            ing.lung = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.lung = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "trachea":
-                            ing.trachea = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.trachea = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
 
                         case "other-cardio-respiratory":
-                            ing.other_cardio_respiratory = oneRecord.list[g].value === true ? 'Y' : 'N';
-                            ing.other_cardio_respiratory_details = oneRecord.list[g].otherText;
+                            ing.tissues_fluids_section.other_cardio_respiratory = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.other_cardio_respiratory_details = oneRecord.list[g].otherText;
+                            break;
+                        default:
+                            console.error("Unexpected cardio tag: "+oneRecord.list[g].name);
                             break;
 
                     }
                 }
-                var oneRecord = info.tissuesFluidsOrigin.immuneSystem;
+                 oneRecord = info[i].tissuesFluidsOrigin.immuneSystem;
                 for (var g = 0; g < oneRecord.list.length; g++) {
                     switch (oneRecord.list[g].name) {
 
                         case "lymph-nodes":
-                            ing.lymph_nodes = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.lymph_nodes = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "spleen":
-                            ing.spleen = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.spleen = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "thymus":
-                            ing.thymus = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.thymus = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "tonsils":
-                            ing.tonsils = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.tonsils = oneRecord.list[g].value === true ? 'Y' : 'N';
 
                         case "other-immune":
-                            ing.other_immune = oneRecord.list[g].value === true ? 'Y' : 'N';
-                            ing.other_immune_details = oneRecord.list[g].otherText;
+                            ing.tissues_fluids_section.other_immune = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.other_immune_details = oneRecord.list[g].otherText;
+                            break;
+
+                        default:
+                            console.error("Unexpected immune tag: "+oneRecord.list[g].name);
                             break;
                     }
                 }
-                var oneRecord = info.tissuesFluidsOrigin.skinGlandSystem;
+                 oneRecord = info[i].tissuesFluidsOrigin.skinGlandSystem;
                 for (var g = 0; g < oneRecord.list.length; g++) {
                     switch (oneRecord.list[g].name) {
 
                         case "adrenal-gland":
-                            ing.adrenal_gland = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.adrenal_gland = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
 
                         case "hair-hooves-feathers":
-                            ing.hair_hooves_feathers = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.hair_hooves_feathers = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "liver":
-                            ing.liver = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.liver = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "pancreas":
-                            ing.pancreas = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.pancreas = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "pituitary":
-                            ing.pituitary = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.pituitary = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "skin-hides":
-                            ing.skin_hides = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.skin_hides = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
 
                         case "thyroid-parathyroid":
-                            ing.thyroid_parathyroid = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.thyroid_parathyroid = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
 
                         case "other-skin-glandular":
-                            ing.other_skin_glandular = oneRecord.list[g].value === true ? 'Y' : 'N';
-                            ing.other_skin_glandular_details = oneRecord.list[g].otherText;
+                            ing.tissues_fluids_section.other_skin_glandular = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.other_skin_glandular_details = oneRecord.list[g].otherText;
+                            break;
+                        default:
+                            console.error("Unexpected skin tag: "+oneRecord.list[g].name);
                             break;
                     }
                 }
-                var oneRecord = info.tissuesFluidsOrigin.musculoSkeletalSystem;
+                oneRecord = info[i].tissuesFluidsOrigin.musculoSkeletalSystem;
                 for (var g = 0; g < oneRecord.list.length; g++) {
                     switch (oneRecord.list[g].name) {
 
                         case "abdomen":
-                            ing.abdomen = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.abdomen = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "skull":
-                            ing.skull = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.skull = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
 
                         case "bones":
-                            ing.bones = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.bones = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "collagen":
-                            ing.collagen = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.collagen = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "tendons-ligaments":
-                            ing.tendons_ligaments = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.tendons_ligaments = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
 
                         case "vertebral-column":
-                            ing.vertebral_column = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.vertebral_column = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
 
                         case "muscle":
-                            ing.muscle = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.muscle = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
 
                         case "other-musculo-skeletal":
-                            ing.other_musculo_skeletal = oneRecord.list[g].value === true ? 'Y' : 'N';
-                            ing.other_musculo_skeletal_details = oneRecord.list[g].otherText;
+                            ing.tissues_fluids_section.other_musculo_skeletal = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.other_musculo_skeletal_details = oneRecord.list[g].otherText;
+                            break;
+
+                        default:
+                            console.error("Unexpected muscle tag: "+oneRecord.list[g].name);
                             break;
                     }
                 }
-                var oneRecord = info.tissuesFluidsOrigin.otherTissues;
+                oneRecord = info[i].tissuesFluidsOrigin.otherTissues;
                 for (var g = 0; g < oneRecord.list.length; g++) {
                     switch (oneRecord.list[g].name) {
 
                         case "adipose":
-                            ing.adipose = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.adipose = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
 
                         case "ascites":
-                            ing.ascites = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.ascites = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "antler-velvet":
-                            ing.antler_velvet = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.antler_velvet = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
 
                         case "serum":
-                            ing.serum = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.serum = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "whole-blood":
-                            ing.whole_blood = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.whole_blood = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "plasma":
-                            ing.plasma = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.plasma = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "embryonic-tissue":
-                            ing.embryonic_tissue = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.embryonic_tissue = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "fetal-tissue":
-                            ing.fetal_tissue = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.fetal_tissue = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
 
                         case "bone-marrow":
-                            ing.bone_marrow = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.bone_marrow = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
 
                         case "eyes-cornea":
-                            ing.eyes_cornea = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.eyes_cornea = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
                         case "gall-bladder":
-                            ing.gall_bladder = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.gall_bladder = oneRecord.list[g].value === true ? 'Y' : 'N';
                             break;
 
                         case "other-fluids-tissues":
-                            ing.other_fluids_tissues = oneRecord.list[g].value === true ? 'Y' : 'N';
-                            ing.other_fluids_tissues_details = oneRecord.list[g].otherText;
+                            ing.tissues_fluids_section.other_fluids_tissues = oneRecord.list[g].value === true ? 'Y' : 'N';
+                            ing.tissues_fluids_section.other_fluids_tissues_details = oneRecord.list[g].otherText;
+                            break;
+
+                        default:
+                            console.error("Unexpected other tag: "+oneRecord.list[g].name);
                             break;
                     }
                 }
 
+
             }
 
 
-            if (info.sourceAnimalDetails) {
+            if (info[i].sourceAnimalDetails) {
                 ing.animal_sourced_section = createEmptyAnimalSourceForOutput();
-                var animalRecords = info.sourceAnimalDetails.primateTypeList;
-                for (var j = 0; j < info.animalRecords.length; i++) {
-                    switch (info.animalRecords[j].name) {
+                var animalRecords = info[i].sourceAnimalDetails.primateTypeList;
+                for (var t = 0; t < animalRecords.length; t++) {
+                    switch (animalRecords[t].name) {
                         case "nhp-type":
-                            ing.animal_sourced_section.nonhuman_primate_type = animalRecords.list[g].value;
+                            ing.animal_sourced_section.nonhuman_primate_type = animalRecords[t].value;
                             break;
                         case "aqua-type":
-                            ing.animal_sourced_section.aquatic_type = animalRecords.list[g].value;
+                            ing.animal_sourced_section.aquatic_type = animalRecords[t].value;
                             break;
                         case "avian-type":
-                            ing.animal_sourced_section.avian_type = animalRecords.list[g].value;
+                            ing.animal_sourced_section.avian_type = animalRecords[t].value;
                             break;
                         case "bovine-type":
-                            ing.animal_sourced_section.bovine_type = animalRecords.list[g].value;
+                            ing.animal_sourced_section.bovine_type = animalRecords[t].value;
                             break;
                         case "canine-type":
-                            ing.animal_sourced_section.canine_type = animalRecords.list[g].value;
+                            ing.animal_sourced_section.canine_type = animalRecords[t].value;
                             break;
                         case "caprine-type":
-                            ing.animal_sourced_section.caprine_type = animalRecords.list[g].value;
+                            ing.animal_sourced_section.caprine_type =animalRecords[t].value;
                             break;
                         case "cervidae-type":
-                            ing.animal_sourced_section.cervidae_type = animalRecords.list[g].value;
+                            ing.animal_sourced_section.cervidae_type =animalRecords[t].value;
                             break;
                         case "equine-type":
-                            ing.animal_sourced_section.equine_type = animalRecords.list[g].value;
+                            ing.animal_sourced_section.equine_type =animalRecords[t].value;
                             break;
                         case "feline-type":
-                            ing.animal_sourced_section.feline_type = animalRecords.list[g].value;
+                            ing.animal_sourced_section.feline_type = animalRecords[t].value;
                             break;
                         case "ovine-type":
-                            ing.animal_sourced_section.ovine_type = animalRecords.list[g].value;
+                            ing.animal_sourced_section.ovine_type =animalRecords[t].value;
                             break;
                         case "porcine-type":
-                            ing.animal_sourced_section.porcine_type = animalRecords.list[g].value;
+                            ing.animal_sourced_section.porcine_type = animalRecords[t].value;
                             break;
 
                         case "rodent-type":
-                            ing.animal_sourced_section.rodent_type = animalRecords.list[g].value;
+                            ing.animal_sourced_section.rodent_type =animalRecords[t].value;
                             break;
 
                         case "other-animal-type":
-                            ing.animal_sourced_section.other_type = animalRecords.list[g].value;
+                            ing.animal_sourced_section.other_type = animalRecords[t].value;
                             break;
                         case "controlled-pop":
-                            ing.animal_sourced_section.is_controlled_pop = animalRecords.list[g].value;
+                            ing.animal_sourced_section.is_controlled_pop = animalRecords[t].value;
                             break;
 
                         case "biotech-derived":
-                            ing.animal_sourced_section.is_biotech_derived = animalRecords.list[g].value;
+                            ing.animal_sourced_section.is_biotech_derived = animalRecords[t].value;
                             break;
 
                         case "cell-line":
-                            ing.animal_sourced_section.is_cell_line = animalRecords.list[g].value;
+                            ing.animal_sourced_section.is_cell_line =animalRecords[t].value;
                             break;
 
                         case "age-animals":
-                            ing.animal_sourced_section.animal_age = animalRecords.list[g].value;
+                            ing.animal_sourced_section.animal_age = animalRecords[t].value;
                             break;
-
+                        default:
+                            console.error("Unexpected animal src tag: "+info.animalRecords[t].name)
+                            break;
                     }
                 }
 
-                var countries = info.sourceAnimalDetails.countryList;
-                for (var j = 0; j < countries.length; j++) {
-                    ing.animal_sourced_section.country_origin_list.country_origin.push(countries[j]); //TODO is this data structure correct?
+                var countries = info[i].sourceAnimalDetails.countryList;
+                for (var v = 0; v < countries.length; v++) {
+                    var countryRecord={};
+                    countryRecord.country_with_unknown=countries[v].name;
+                    countryRecord.unknown_country_details=countries[v].unknownCountryDetails;
+                    ing.animal_sourced_section.country_origin_list.country_origin.push(countryRecord);
                 }
             }
-
             appendices.push(ing);
         }
 
@@ -1443,7 +1480,7 @@
             }
             obj.country_group={};
             if(item.countryList && item.countryList.length>0){
-                obj.country_group=formulationCountryListToOutput(item.countryList);
+                obj.country_group.country_manufacturer=formulationCountryListToOutput(item.countryList);
             }
             if(item.activeIngList && item.activeIngList.length>0){
                 obj.active_ingredient= activeListToOutput(item.activeIngList);
@@ -1472,8 +1509,8 @@
                 "ingredient_id": item.ingId,
                 "ingredient_name": item.ingName,
                 "cas_number": item.cas,
-                "is_human_animal_src": item.humanAnimalSourced,
                 "ingred_standard": item.standard,
+                "is_human_animal_src": item.humanAnimalSourced,
                 "strength": item.strength,
                 "per": item.per,
                 "units": item.units,
@@ -1486,31 +1523,6 @@
         });
         return (resultList);
     }
-
-    /**
-     * Creates an empty json object for output.
-     * Uses default values
-     * @returns json object
-     */
-    function createEmptyActiveForOutput(){
-        var obj = {
-            "ingredient_id": "",
-            "ingredient_name":"",
-            "cas_number":"",
-            "is_human_animal_src": "",
-            "ingred_standard": "",
-            "strength": "",
-            "per": "",
-            "units": "",
-            "is_base_calc": "",
-            "is_nanomaterial": "",
-            "nanomaterial_details": ""
-        };
-        return obj;
-    }
-
-
-
     /**
      * Convertes nonMedicinal Ingredient to a the output json object
      * @param nonMedList
@@ -1524,17 +1536,17 @@
 
             var obj = {
                 "ingredient_id": item.ingId,
-                "variant_name": item.varId,
                 "ingredient_name": item.ingName,
                 "cas_number": item.cas,
-                "is_human_animal_src": item.humanAnimalSourced,
                 "ingred_standard": item.standard,
+                "is_human_animal_src": item.humanAnimalSourced,
+                "variant_name": item.varId,
                 "strength": item.strength,
                 "per": item.per,
                 "units": item.units,
                 "is_base_calc": item.calcAsBase,
                 "is_nanomaterial": item.nanoMaterial,
-                "nanoMaterialOther": item.nanomaterial_details
+                "nanomaterial_details": item.nanoMaterialOther
             };
             resultList.push(obj);
         });
@@ -1611,12 +1623,7 @@
 
         var resultList = []
         angular.forEach(list, function (item) {
-
-            var obj = {
-                "country_origin": item.name
-            };
-
-            resultList.push(obj);
+            resultList.push(item.name);
         });
         return resultList;
     }
@@ -1625,7 +1632,7 @@
         var resultList = [];
         angular.forEach(contactList, function (item) {
             var obj = {};
-            obj.amend = item.amend;
+            obj.amend_record = item.amend ? 'Y' : 'N';
             obj.rep_contact_role = item.repRole; //TODO XML needs to be updated!
             obj.rep_contact_details={};
             obj.rep_contact_details.salutation = item.salutation;
@@ -1635,7 +1642,7 @@
             obj.rep_contact_details.job_title = item.title;
             obj.rep_contact_details.language_correspondance = item.language;
             obj.rep_contact_details.phone_num = item.phone;
-            obj.rep_contact_details.phone_ext = item.phoneExt;
+            obj.rep_contact_details.phone_ext = item.PhoneExt;
             obj.rep_contact_details.fax_num = item.fax;
             obj.rep_contact_details.email = item.email;
             resultList.push(obj);
@@ -1814,12 +1821,13 @@
 
     function getAppendiceData(appendices) {
         var result = {};
-        if (!appendices.ingredientList) return result;
-        var appendixArray = appendices.ingredientList;
-        for (var i = 0; i < appendixArray.length; i++) {
-            var rec = {};
-            rec[ing.name] = ing.id;
-            result.push(rec);
+        if (!appendices ) return result;
+
+        for (var i = 0; i < appendices.length; i++) {
+            var appendix=appendices[i];
+           // var rec = {};
+            result[appendix.ingredientName] = i;
+            //result.push(rec);
         }
         return result;
     }
@@ -1831,23 +1839,29 @@
         for(var i=0;i<formulations.length;i++){
             //Step 1 get active ingredients
             var oneFormulation=formulations[i];
-            for(var j=0;j<(oneFormulation.activeIngList.length); j++){
-                var oneActive=oneFormulation.activeIngList[j];
-                if(oneActive.humanAnimalSourced===yesValue){
-                    allAnimalSourcedNames.push(oneActive.ingName);
+            if(oneFormulation.activeIngList) {
+                for (var j = 0; j < (oneFormulation.activeIngList.length); j++) {
+                    var oneActive = oneFormulation.activeIngList[j];
+                    if (oneActive.humanAnimalSourced === yesValue) {
+                        allAnimalSourcedNames.push(oneActive.ingName);
+                    }
                 }
             }
             //step 2 get nmi flagged
-            for(var j=0;j<(oneFormulation.nMedIngList.length); j++){
-                var oneActive=oneFormulation.nMedIngList[j];
-                if(oneActive.humanAnimalSourced===yesValue){
-                    allAnimalSourcedNames.push(oneActive.ingName);
+            if(oneFormulation.nMedIngList){
+                for (var j = 0; j < (oneFormulation.nMedIngList.length); j++) {
+                    var oneActive = oneFormulation.nMedIngList[j];
+                    if (oneActive.humanAnimalSourced === yesValue) {
+                        allAnimalSourcedNames.push(oneActive.ingName);
+                    }
                 }
             }
             //step 3  all materials
-            for(var j=0;j<(oneFormulation.animalHumanMaterials.length); j++){
-                var oneActive=oneFormulation.animalHumanMaterials[j];
+            if(oneFormulation.animalHumanMaterials) {
+                for (var j = 0; j < (oneFormulation.animalHumanMaterials.length); j++) {
+                    var oneActive = oneFormulation.animalHumanMaterials[j];
                     allAnimalSourcedNames.push(oneActive.ingredientName);
+                }
             }
         }
         uniqueList=getUniqueList(allAnimalSourcedNames);
@@ -1952,20 +1966,20 @@
      */
     function loadDrugUseValues(info) {
         var drugList = getDefaultDrugUseList();
-        for (var i = 0; i < drugList; i++) {
+        for (var i = 0; i < drugList.length; i++) {
             var rec = drugList[i];
             switch (rec.name) {
                 case "human":
-                    rec.value = info.human_drug_use === 'Y'
+                    rec.value = info.human_drug_use === 'Y';
                     break;
                 case "radio-pharmaceutical":
-                    rec.value = info.radiopharm_drug_use === 'Y'
+                    rec.value = info.radiopharm_drug_use === 'Y';
                     break;
                 case "disinfectant":
-                    rec.value = info.disinfectant_drug_use === 'Y'
+                    rec.value = info.disinfectant_drug_use === 'Y';
                     break;
                 case "veterinary":
-                    rec.value = info.vet_drug_use === 'Y'
+                    rec.value = info.vet_drug_use === 'Y';
                     break;
             }
         }

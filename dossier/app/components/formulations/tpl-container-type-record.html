@@ -45,9 +45,9 @@
                             <input type="number" id="shelfLifeYears" data-ng-model="ctrCtrl.ctModel.shelfLifeYears"
                                    only-digits only-max="4" size="4" class="form-control" name="shelfYears"/>
                             <strong id="shelfYear-error" class="error"
-                                    ng-if="containerTypeForm.shelfYears.$invalid">
+                                    ng-if="ctrCtrl.containerTypeForm.shelfYears.$invalid">
                                 <span class="label label-danger"
-                                      ng-messages="containerTypeForm.shelfYears.$error">
+                                      ng-messages="ctrCtrl.containerTypeForm.shelfYears.$error">
                                  <span ng-message="invalid"><span translate="MSG_ERR_INVALID_NUM"></span></span>
                                  </span>
                             </strong>
@@ -58,9 +58,9 @@
                             <input type="number" id="shelfLifeMonths" data-ng-model="ctrCtrl.ctModel.shelfLifeMonths"
                                    only-digits only-max="4" class="form-control " name="shelfMonths" size="2"/>
                             <strong id="shelfMonth-error" class="error"
-                                    ng-if="containerTypeForm.shelfMonths.$invalid">
+                                    ng-if="ctrCtrl.containerTypeForm.shelfMonths.$invalid">
                         <span class="label label-danger"
-                              ng-messages="containerTypeForm.shelfMonths.$error">
+                              ng-messages="ctrCtrl.containerTypeForm.shelfMonths.$error">
                             <span ng-message="invalid"><span translate="MSG_ERR_INVALID_NUM"></span></span>
                         </span>
                             </strong>
@@ -76,9 +76,9 @@
                                    only-digits="intNeg" only-max="3" size="3" min="-99" max="999"
                                    class="form-control" name="tempMin"/>
                             <strong id="minTemp-error" class="error"
-                                    ng-if="containerTypeForm.tempMin.$invalid">
+                                    ng-if="ctrCtrl.containerTypeForm.tempMin.$invalid">
                                 <span class="label label-danger"
-                                      ng-messages="containerTypeForm.tempMin.$error">
+                                      ng-messages="ctrCtrl.containerTypeForm.tempMin.$error">
                                  <span ng-message="invalid"><span translate="MSG_ERR_INVALID_NUM"></span></span>
                                  </span>
                             </strong>
@@ -89,9 +89,9 @@
                                    data-ng-model="ctrCtrl.ctModel.tempMax"
                                    only-digits="intNeg" only-max="3" class="form-control" name="tempMax"/>
                             <strong id="maxTemp-error" class="error"
-                                    ng-if="containerTypeForm.tempMax.$invalid">
+                                    ng-if="ctrCtrl.containerTypeForm.tempMax.$invalid">
                                 <span class="label label-danger"
-                                      ng-messages="containerTypeForm.tempMax.$error">
+                                      ng-messages="ctrCtrl.containerTypeForm.tempMax.$error">
                                  <span ng-message="invalid"><span translate="MSG_ERR_INVALID_NUM"></span></span>
                                  </span>
                             </strong>
@@ -108,8 +108,7 @@
                        ng-click="ctrCtrl.save()"/>
                 <input type="submit" ng-if="ctrCtrl.deleteBtn === true" value="Delete" class="btn btn-danger"
                        ng-click="ctrCtrl.delete()"/>
-                <input type="submit" value="Discard Changes" class="btn btn-default"
-                       ng-click="ctrCtrl.discardChanges()">
+                <input type="submit" value="Discard Changes" class="btn btn-default" ng-click="ctrCtrl.discardChanges()"/>
             </div>
         </div>
 

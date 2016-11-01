@@ -25,21 +25,24 @@
                 onUpdate: '&',
                 onDelete: '&',
                 onCancel: '&',
-                showErrors:'&'
+                showErrors:'&',
+                isDetailValid: '&'
             }
 
         });
-    function containerTypeRecCtrl() {
+    containerTypeRecCtrl.$inject=['$scope'];
+    function containerTypeRecCtrl($scope) {
 
         var self = this;
         self.savePressed=false;
         self.$onInit = function () {
-
+            self.savePressed=false;
             self.ctModel = {};
 
             if(self.record){
-                self.ctModel = self.record;
+                self.ctModel = angular.copy(self.record);
             }
+            self.backup = angular.copy(self.ctModel);
         };
 
         self.save = function () {
@@ -47,12 +50,13 @@
                 if (self.record) {
                     // console.log('product details update product');
                     self.onUpdate({cType: self.ctModel});
+
                 } else {
                     //  console.log('product details add product');
                     self.onAddIng({cType: self.ctModel});
                 }
-                self.savePressed=false;
                 self.containerTypeForm.$setPristine();
+                self.savePressed=false;
             }else{
                 self.savePressed=true;
             }
@@ -60,7 +64,8 @@
         };
 
         self.discardChanges = function(){
-            self.ctModel = self.record ? self.record : {};
+            self.ctModel = angular.copy(self.backup);
+            self.containerTypeForm.$setPristine();
             self.onCancel();
         }
 
@@ -78,10 +83,12 @@
          * @returns {*}
          */
         self.showError=function(isInvalid, isTouched){
-            return((isInvalid && isTouched)||(isInvalid && self.showErrors() ||(isInvalid &&self.savePressed)))
+            return((isInvalid && isTouched) /* TODO add showErrors||(isInvalid && self.showErrors())*/)
         }
 
-
+        $scope.$watch('ctrCtrl.containerTypeForm.$dirty', function () {
+            self.isDetailValid({state: !self.containerTypeForm.$dirty});
+        }, true);
     }
 
 })();

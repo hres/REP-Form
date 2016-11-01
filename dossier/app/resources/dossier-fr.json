@@ -34,7 +34,7 @@
   "PROPER_NAME": "fr_Proper, Common or Non-Proprietary Name",
   "DRUG_USE": "fr_Drug Use",
   "SCHED_A": "fr_This is a non-prescription drug to which one or more Schedule A claims apply",
-  "SOURCED_ANIMAL": "fr_Source From Animal",
+  "SOURCED_ANIMAL": "fr_Provide the animal types used for this ingredient",
   "SPECIFY": "fr_Please specify the Other",
   "DETAILS": "fr_Details",
   "REF_PRODUCTS": "fr_Canadian Reference Product(s)",
@@ -42,5 +42,6 @@
   "ADD_A":"fr_Add a ",
   "COUNTRY_MAN": "fr_Country of Manufacture",
   "DELETE_COUNTRY":"fr_Delete Country",
-  "COUNTRIES_MANUFACT":"fr_Countries of manufacture for this drug produc"
+  "COUNTRIES_MANUFACT":"fr_Countries of manufacture for this drug product",
+  "ADD_CRP":"fr_Add Canadian Reference Product"
 }

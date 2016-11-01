@@ -23,23 +23,27 @@
                 onAddProduct: '&',
                 onUpdate: '&',
                 onDelete: '&',
-                onCancel: '&'
+                onCancel: '&',
+                showErrors:'&',
+                isDetailValid:'&'
             }
         });
-    refProductDetailsCtrl.$inject = ['DossierLists'];
-    function refProductDetailsCtrl(DossierLists) {
+    refProductDetailsCtrl.$inject = ['DossierLists','$scope'];
+    function refProductDetailsCtrl(DossierLists, $scope) {
         var self = this;
         self.dosageFormList = DossierLists.getDosageFormList();
         self.otherValue = DossierLists.getDosageOther();
+        self.savePressed=false;
 
         self.$onInit = function () {
 
             self.productModel = {};
-
+            self.savePressed=false;
             if (self.productRecord) {
 
-                angular.extend(self.productModel, self.productRecord);
+                self.productModel = angular.copy(self.productRecord);
             }
+            self.backup = angular.copy(self.productModel);
 
         }
 
@@ -62,22 +66,30 @@
          * @returns {true if ctrl in error}
          */
         self.showError = function (ctrl) {
-            return ((ctrl.$touched && ctrl.$invalid) /**||(TODO invalid and showErrors)*/);
+            return ((ctrl.$touched && ctrl.$invalid) || (ctrl.$invalid && self.showErrors())|| (ctrl.$invalid && self.savePressed));
         }
 
         self.saveProduct = function () {
-            if (self.productRecord) {
-               // console.log('product details update product');
-                self.onUpdate({product:self.productModel});
+            if(self.productDetailsForm.$valid) {
+                if (self.productRecord) {
+                    // console.log('product details update product');
+                    self.onUpdate({product: self.productModel});
+                } else {
+                    //  console.log('product details add product');
+                    self.onAddProduct({product: self.productModel});
+                }
+                self.productDetailsForm.$setPristine();
+                self.savePressed=false;
             }else{
-              //  console.log('product details add product');
-                self.onAddProduct({product:self.productModel});
-        }
+                self.savePressed=true;
+            }
 
         };
 
         self.discardChanges = function(){
-            self.productModel = {};
+            self.productModel = angular.copy(self.backup);
+           //self.productModel = backup;
+            self.productDetailsForm.$setPristine();
             //self.productDetailsForm.$setPristine();
             self.onCancel();
         }
@@ -89,8 +101,11 @@
             }else{
                 //TODO
             }
-
         };
+        $scope.$watch('$ctrl.productDetailsForm.$dirty', function () {
+            self.isDetailValid({state: !self.productDetailsForm.$dirty});
+        }, true);
+
     }
 
 

@@ -21,88 +21,113 @@
             </div>
             <div>
                 <uib-accordion close-others="true">
-                    <div uib-accordion-group heading="{{'NERVOUSYSTEM' |translate}}" is-open="true"
+                    <div uib-accordion-group heading="{{'NERVOUSYSTEM' |translate}}"
                          is-disabled="tfoCtrl.otherTextError"
                          template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
-                        <div class="col col-md-12">
-                            <cmp-checkbox-list title="{{tfoCtrl.model.nervousSystem.title}}"
-                                               common-name="{{tfoCtrl.model.nervousSystem.groupName}}"
-                                               list-items="tfoCtrl.model.nervousSystem.list" on-update="tfoCtrl.updateNervousSystemList(list)"></cmp-checkbox-list>
-                        </div>
+                        <ng-form name="tfoCtrl.forms.nervous">
+                            <div class="col col-md-12">
+                                <cmp-checkbox-list title="{{tfoCtrl.model.nervousSystem.title}}"
+                                                   common-name="{{tfoCtrl.model.nervousSystem.groupName}}"
+                                                   list-items="tfoCtrl.model.nervousSystem.list"
+                                                   on-update="tfoCtrl.updateNervousSystemList(list)"></cmp-checkbox-list>
+                            </div>
+                        </ng-form>
                     </div>
 
-                    <div uib-accordion-group heading="{{'DIGESTIVESYSTEM' |translate}}" is-open="false"
+                    <div uib-accordion-group heading="{{'DIGESTIVESYSTEM' |translate}}"
                          is-disabled="tfoCtrl.otherTextError"
                          template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
-                        <div class="col col-md-12">
-                            <cmp-checkbox-list
-                                    title="{{tfoCtrl.model.digestiveSystem.title}}"
-                                    common-name="{{tfoCtrl.model.digestiveSystem.groupName}}"
-                                    list-items="tfoCtrl.model.digestiveSystem.list" on-update="tfoCtrl.updateDigestSystemList(list)"></cmp-checkbox-list>
-                        </div>
+                        <ng-form name="tfoCtrl.forms.digestive">
+                            <div class="col col-md-12">
+                                <cmp-checkbox-list
+                                        title="{{tfoCtrl.model.digestiveSystem.title}}"
+                                        common-name="{{tfoCtrl.model.digestiveSystem.groupName}}"
+                                        list-items="tfoCtrl.model.digestiveSystem.list"
+                                        on-update="tfoCtrl.updateDigestSystemList(list)"></cmp-checkbox-list>
+                            </div>
+                        </ng-form>
                     </div>
-                    <div uib-accordion-group heading="{{'REPRODUCTSYSTEM' |translate}}" is-open="false"
+                    <div uib-accordion-group heading="{{'REPRODUCTSYSTEM' |translate}}"
                          is-disabled="tfoCtrl.otherTextError"
                          template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
-                        <div class="col col-md-12">
-                            <cmp-checkbox-list
-                                    title="{{tfoCtrl.model.reproductiveSystem.title}}"
-                                    common-name="{{tfoCtrl.model.reproductiveSystem.groupName}}"
-                                    list-items="tfoCtrl.model.reproductiveSystem.list" on-update="tfoCtrl.updateRepSystemList(list)"></cmp-checkbox-list>
-                        </div>
+                        <ng-form name="tfoCtrl.forms.reprod">
+                            <div class="col col-md-12">
+                                <cmp-checkbox-list
+                                        title="{{tfoCtrl.model.reproductiveSystem.title}}"
+                                        common-name="{{tfoCtrl.model.reproductiveSystem.groupName}}"
+                                        list-items="tfoCtrl.model.reproductiveSystem.list"
+                                        on-update="tfoCtrl.updateRepSystemList(list)"></cmp-checkbox-list>
+                            </div>
+                        </ng-form>
                     </div>
-                    <div uib-accordion-group heading="{{'CARDIOSYSTEM' |translate}}" is-open="false"
+                    <div uib-accordion-group heading="{{'CARDIOSYSTEM' |translate}}"
                          is-disabled="tfoCtrl.otherTextError"
                          template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
-                        <div class="col col-md-12">
-                            <cmp-checkbox-list
-                                    title="{{tfoCtrl.model.cardioSystem.title}}"
-                                    common-name="{{tfoCtrl.model.cardioSystem.groupName}}"
-                                    list-items="tfoCtrl.model.cardioSystem.list" on-update="tfoCtrl.updateCardioSystemList(list)"></cmp-checkbox-list>
-                        </div>
+                        <ng-form name="tfoCtrl.forms.cardio">
+                            <div class="col col-md-12">
+                                <cmp-checkbox-list
+                                        title="{{tfoCtrl.model.cardioSystem.title}}"
+                                        common-name="{{tfoCtrl.model.cardioSystem.groupName}}"
+                                        list-items="tfoCtrl.model.cardioSystem.list"
+                                        on-update="tfoCtrl.updateCardioSystemList(list)"></cmp-checkbox-list>
+                            </div>
+                        </ng-form>
                     </div>
-                    <div uib-accordion-group heading="{{'IMMUNESYSTEM' |translate}}" is-open="false"
+                    <div uib-accordion-group heading="{{'IMMUNESYSTEM' |translate}}"
                          is-disabled="tfoCtrl.otherTextError"
                          template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
-                        <div class="col col-md-12">
-                            <cmp-checkbox-list
-                                    title="{{tfoCtrl.model.immuneSystem.title}}"
-                                    common-name="{{tfoCtrl.model.immuneSystem.groupName}}"
-                                    list-items="tfoCtrl.model.immuneSystem.list" on-update="tfoCtrl.updateImmuneSystemList(list)"></cmp-checkbox-list>
-                        </div>
+                        <ng-form name="tfoCtrl.forms.immune">
+                            <div class="col col-md-12">
+                                <cmp-checkbox-list
+                                        title="{{tfoCtrl.model.immuneSystem.title}}"
+                                        common-name="{{tfoCtrl.model.immuneSystem.groupName}}"
+                                        list-items="tfoCtrl.model.immuneSystem.list"
+                                        on-update="tfoCtrl.updateImmuneSystemList(list)"></cmp-checkbox-list>
+                            </div>
+                        </ng-form>
                     </div>
-                    <div uib-accordion-group heading="{{'SKINGLANDSYSTEM' |translate}}" is-open="false"
+                    <div uib-accordion-group heading="{{'SKINGLANDSYSTEM' |translate}}"
                          is-disabled="tfoCtrl.otherTextError"
                          template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
-                        <div class="col col-md-12">
-                            <cmp-checkbox-list
-                                    title="{{tfoCtrl.model.skinGlandSystem.title}}"
-                                    common-name="{{tfoCtrl.model.skinGlandSystem.groupName}}"
-                                    list-items="tfoCtrl.model.skinGlandSystem.list" on-update="tfoCtrl.updateSkinGlandSystemList(list)"></cmp-checkbox-list>
-                        </div>
+                        <ng-form name="tfoCtrl.forms.skin">
+                            <div class="col col-md-12">
+                                <cmp-checkbox-list
+                                        title="{{tfoCtrl.model.skinGlandSystem.title}}"
+                                        common-name="{{tfoCtrl.model.skinGlandSystem.groupName}}"
+                                        list-items="tfoCtrl.model.skinGlandSystem.list"
+                                        on-update="tfoCtrl.updateSkinGlandSystemList(list)"></cmp-checkbox-list>
+                            </div>
+                        </ng-form>
                     </div>
-                    <div uib-accordion-group heading="{{'MUSCULOSYSTEM' |translate}}" is-open="false"
+                    <div uib-accordion-group heading="{{'MUSCULOSYSTEM' |translate}}"
                          is-disabled="tfoCtrl.otherTextError"
                          template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
-                        <div class="col col-md-12">
-                            <cmp-checkbox-list
-                                    title="{{tfoCtrl.model.musculoSkeletalSystem.title}}"
-                                    common-name="{{tfoCtrl.model.musculoSkeletalSystem.groupName}}"
-                                    list-items="tfoCtrl.model.musculoSkeletalSystem.list" on-update="tfoCtrl.updateMusculoSystemList(list)"></cmp-checkbox-list>
-                        </div>
+                        <ng-form name="tfoCtrl.forms.muscle">
+                            <div class="col col-md-12">
+                                <cmp-checkbox-list
+                                        title="{{tfoCtrl.model.musculoSkeletalSystem.title}}"
+                                        common-name="{{tfoCtrl.model.musculoSkeletalSystem.groupName}}"
+                                        list-items="tfoCtrl.model.musculoSkeletalSystem.list"
+                                        on-update="tfoCtrl.updateMusculoSystemList(list)"></cmp-checkbox-list>
+                            </div>
+                        </ng-form>
                     </div>
-                    <div uib-accordion-group heading="{{'OTHERTISSUE' |translate}}" is-open="false"
+                    <div uib-accordion-group heading="{{'OTHERTISSUE' |translate}}"
                          is-disabled="tfoCtrl.otherTextError"
                          template-url="app/lib/uib-templates/tpl-accordian-group-caret.html">
-                        <div class="col col-md-12">
-                            <cmp-checkbox-list
-                                    title="{{tfoCtrl.model.otherTissues.title}}"
-                                    common-name="{{tfoCtrl.model.otherTissues.groupName}}"
-                                    list-items="tfoCtrl.model.otherTissues.list" on-update="tfoCtrl.updateOtherSystemList(list)"></cmp-checkbox-list>
-                        </div>
+                        <ng-form name="tfoCtrl.forms.other">
+                            <div class="col col-md-12">
+                                <cmp-checkbox-list
+                                        title="{{tfoCtrl.model.otherTissues.title}}"
+                                        common-name="{{tfoCtrl.model.otherTissues.groupName}}"
+                                        list-items="tfoCtrl.model.otherTissues.list"
+                                        on-update="tfoCtrl.updateOtherSystemList(list)"></cmp-checkbox-list>
+                            </div>
+                        </ng-form>
                     </div>
                 </uib-accordion>
             </div>
         </fieldset>
+        <!--<pre>Tissues Level{{tfoCtrl.model |json}}</pre>-->
     </ng-form>
 </div>

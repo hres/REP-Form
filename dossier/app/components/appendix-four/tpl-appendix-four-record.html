@@ -1,20 +1,20 @@
 <div class="container-fluid">
     <ng-form name="ap4RecCtrl.appendix4RecForm" novalidate>
         <fieldset>
-            <legend>{{'ING_DETAILS'|translate}}</legend>
+            <legend>{{'ING_DETAILS'|translate}}&nbsp;{{ap4RecCtrl.model.id}}</legend>
             <div class="row">
                 <div class="col-xs-12 form-group"
                      ng-class="{'has-error':ap4RecCtrl.appendix4RecForm.ingedientName.$invalid}">
                     <label for="ing-name" class="required">
                         {{'INGRED_NAME'|translate}}
                         <strong class="required"> {{"REQUIRED" |translate}}</strong>
-                        <input type="text" class="form-control full-width" id="ing-name"
-                               ng-model="ap4RecCtrl.model.ingredientName" name="ingredientName" ng-required="true"
-                               maxlength="100" size="100"/>
+                        <input type="text" class="form-control full-width" id="ing-name" ng-change="ap4RecCtrl.recordChanged()"
+                               ng-model="ap4RecCtrl.model.ingredientName" name="ingredientName" required
+                               ng-model-options="{updateOn: 'blur'}" maxlength="100" size="100"/>
                         <strong id="ingred-name-error" class="error"
                                 ng-if="ap4RecCtrl.showError(ap4RecCtrl.appendix4RecForm.ingredientName.$invalid,ap4RecCtrl.appendix4RecForm.ingredientName.$touched)">
                              <span class="label label-danger"
-                                   ng-messages="ap4RecCtrl.appendix4RecForm.ingedientName.$error">
+                                   ng-messages="ap4RecCtrl.appendix4RecForm.$error">
                                 <span ng-message="required">{{"MSG_ERR_MAND"|translate}}</span>
                              </span>
                         </strong>
@@ -41,7 +41,7 @@
                             <label for="sourced-human_{{$id}}">
                                 <input type="checkbox" name="sourced-human" ng-model="ap4RecCtrl.model.humanSourced"
                                        id="sourced-human_{{$id}}"
-                                       ng-change=""> {{'HUMAN'|translate}}
+                                       ng-change="ap4RecCtrl.showTissuesFluids()"> {{'HUMAN'|translate}}
                             </label>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                             <label for="sourced-animal">
                                 <input type="checkbox" name="sourced-animal" ng-model="ap4RecCtrl.model.animalSourced"
                                        id="sourced-animal"
-                                       ng-change="">{{'ANIMAL'|translate}}
+                                       ng-change="ap4RecCtrl.showAnimalSources()">{{'ANIMAL'|translate}}
                             </label>
                         </div>
                     </div>
@@ -65,20 +65,21 @@
 
             <section class="section">
                 <cmp-source-animal ng-if="ap4RecCtrl.model.animalSourced"
-                                   primate-types="ap4RecCtrl.model.sourceAnimalDetails" on-update="ap4RecCtrl.updateAnimalSourced(model)"></cmp-source-animal>
+                                   record="ap4RecCtrl.model.sourceAnimalDetails" on-update="ap4RecCtrl.updateAnimalSourced(model)"></cmp-source-animal>
             </section>
 
             <div class="row">
 
                 <div class="btn-group-sm col-xs-12 text-right">
-                    <input type="submit" value="Save Ingredient" class="btn btn-primary"
+                    <input type="submit" value="Save Ingredient" class="btn btn-primary" ng-if="!ap4RecCtrl.record"
                            ng-click="ap4RecCtrl.save()"/>
-                    <input type="submit" ng-if="ap4RecCtrl.deleteBtn === true" value="Delete Formulation"
+                    <input type="submit" ng-if="ap4RecCtrl.deleteBtn === true" value="Delete Sourced Ingredient"
                            class="btn btn-danger" ng-click="ap4RecCtrl.delete()"/>
-                    <input type="submit" value="Discard Changes" class="btn btn-default"
-                           ng-click="ap4RecCtrl.discardChanges()">
+                   <!-- <input type="submit" value="Discard Changes" class="btn btn-default"
+                           ng-click="ap4RecCtrl.discardChanges()">-->
                 </div>
             </div>
         </fieldset>
+      <!--  <pre>record {{ap4RecCtrl.model |json}}</pre>-->
     </ng-form>
 </div>

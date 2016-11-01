@@ -1,24 +1,23 @@
 <ng-form name="container-type-list-form">
-    <h2>{{'CONTAINER_TYPES'|translate}}</h2>
     <cmp-expanding-table title="Container Type List" reset-to-collapsed="ctlCtrl.resetToCollapsed"
                          list-items="ctlCtrl.containerList"
                          column-def="ctlCtrl.colNames" select-record="ctlCtrl.selectRecord"
                          disable-selection="!ctlCtrl.isDetailValid">
 
-        <cmp-container-type-record record="$parent.record" on-update="ctlCtrl.updateRec($parent.$index,cType)"
+        <cmp-container-type-record record="$parent.record" on-update="ctlCtrl.updateRec($parent.$index,cType)" is-detail-valid="ctlCtrl.setValid(state)"
                                    on-delete="ctlCtrl.deleteRec($parent.$index)"
                                    delete-btn="true"></cmp-container-type-record>
 
     </cmp-expanding-table>
 
-    <cmp-container-type-record ng-if="ctlCtrl.newFormShown === true" on-add-ing="ctlCtrl.addNew(cType)"
-                               on-cancel="ctlCtrl.newFormShown = false" delete-btn="false"></cmp-container-type-record>
+    <cmp-container-type-record ng-if="ctlCtrl.newIngFormShown === true" on-add-ing="ctlCtrl.addNew(cType)"
+                               on-cancel="ctlCtrl.onNewCancel()" delete-btn="false"></cmp-container-type-record>
 
     <div class="mrgn-tp-md mrgn-bttm-lg">
         <div class="btn-group-sm col-md-12 text-right">
             <input type="submit" value="Add Container Type" class="btn btn-primary"
-                   data-ng-disabled="ctlCtrl.newFormShown"
-                   ng-click="ctlCtrl.newFormShown = true"/>
+                   data-ng-disabled="ctlCtrl.addNewDisabled()"
+                   ng-click="ctlCtrl.addNewIngredientState()"/>
         </div>
     </div>
 

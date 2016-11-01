@@ -25,12 +25,13 @@
                 onAddNew: '&',
                 onUpdate: '&',
                 onDelete: '&',
-                onCancel: '&'
+                onCancel: '&',
+                isDetailValid: '&'
             }
 
         });
-    materialIngRecCtrl.$inject = ['DossierLists'];
-    function materialIngRecCtrl(DossierLists) {
+    materialIngRecCtrl.$inject = ['DossierLists','$scope'];
+    function materialIngRecCtrl(DossierLists, $scope) {
 
         var self = this;
         self.yesNoList = DossierLists.getYesNoList();
@@ -42,6 +43,7 @@
             if (self.record) {
                 self.mirModel = self.record;
             }
+            self.backup = angular.copy(self.mirModel);
         };
 
         self.showError = function (isInvalid, isTouched) {
@@ -51,17 +53,17 @@
         };
 
         self.save = function () {
-
             if(self.materialIngRecordForm.$valid) {
                 if (self.record) {
                     // console.log('product details update product');
                     self.onUpdate({ing: self.mirModel});
+                    self.materialIngRecordForm.$setPristine();
                 } else {
                     //  console.log('product details add product');
                     self.onAddNew({ing: self.mirModel});
                 }
-                self.savePressed=false;
                 self.materialIngRecordForm.$setPristine();
+                self.savePressed=false;
             }else{
                 self.savePressed=true;
             }
@@ -69,7 +71,8 @@
         };
 
         self.discardChanges = function () {
-            self.mirModel = self.record ? self.record : {};
+            self.mirModel = angular.copy(self.backup);
+            self.materialIngRecordForm.$setPristine();
             self.onCancel();
         }
 
@@ -80,6 +83,10 @@
             }
 
         };
+
+        $scope.$watch('mirCtrl.materialIngRecordForm.$dirty', function () {
+            self.isDetailValid({state: !self.materialIngRecordForm.$dirty});
+        }, true);
 
     }
 })();

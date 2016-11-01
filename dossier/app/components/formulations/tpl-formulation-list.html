@@ -3,7 +3,7 @@
            data-ng-model="formulCtrl.noFormulations"/>
     <label for="noFormulation{{$id}}" ng-if="formulationsForm.noFormulation.$invalid">
         <strong id="active-error" class="error" >
-        <span class="label label-danger" ng-messages="formulationsForm.noActive.$error">
+        <span class="label label-danger" ng-messages="formulationsForm.noFormulation.$error">
             <span ng-message="required"><span translate="MSG_ERR_ONE_FORMULATION"></span></span>
         </span>
         </strong>
@@ -13,17 +13,16 @@
                          column-def="formulCtrl.colNames" select-record="formulCtrl.selectRecord"
                          disable-selection="!formulCtrl.isDetailValid">
 
-        <cmp-formulation-record record="$parent.record" on-update="formulCtrl.update($parent.$index,record)" on-delete="formulCtrl.delete($parent.$index)" delete-btn="true"></cmp-formulation-record>
+        <cmp-formulation-record record="$parent.record" on-update="formulCtrl.update($parent.$index,record)" on-delete="formulCtrl.delete($parent.$index)" add-copy="formulCtrl.addCopy(record)"  delete-btn="true" record-changed="formulCtrl.recordChanged()"></cmp-formulation-record>
 
     </cmp-expanding-table>
 
-    <cmp-formulation-record ng-if="formulCtrl.newFormShown === true" on-add-new="formulCtrl.addNew(record)" on-cancel="formulCtrl.newFormShown = false" delete-btn="false"></cmp-formulation-record>
+    <!--<cmp-formulation-record ng-if="formulCtrl.newFormShown === true" on-add-new="formulCtrl.addNew(record)" on-cancel="formulCtrl.newFormShown = false" delete-btn="false"></cmp-formulation-record>-->
 
     <div class="mrgn-tp-md mrgn-bttm-lg">
         <div class="btn-group-sm col-md-12 text-right">
             <input type="submit" value="Add Formulation" class="btn btn-primary"
-                   data-ng-disabled="formulCtrl.newFormShown"
-                   ng-click="formulCtrl.newFormShown = true" />
+                   ng-click="formulCtrl.addNew()" />
         </div>
     </div>
     

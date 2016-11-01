@@ -25,12 +25,13 @@
                 onAddIng: '&',
                 onUpdate: '&',
                 onDelete: '&',
-                onCancel: '&'
+                onCancel: '&',
+                isDetailValid: '&'
             }
 
         });
-    nonMedIngRecCtrl.$inject = ['DossierLists'];
-    function nonMedIngRecCtrl(DossierLists) {
+    nonMedIngRecCtrl.$inject = ['DossierLists', '$scope'];
+    function nonMedIngRecCtrl(DossierLists, $scope) {
 
         var self = this;
         self.nanoMaterialList = DossierLists.getNanoMaterials(); //nanoMaterial list
@@ -38,12 +39,13 @@
         self.savePressed=false;
 
         self.$onInit = function () {
-
+            self.savePressed=false;
             self.ingModel = {};
 
             if (self.record) {
-                self.ingModel = self.record;
+                self.ingModel = angular.copy(self.record);
             }
+            self.backup = angular.copy(self.ingModel);
         };
 
         self.saveIng = function () {
@@ -58,6 +60,7 @@
                     self.onAddIng({ing: self.ingModel});
                 }
                 self.nonMedIngForm.$setPristine();
+                self.savePressed=false;
             }else{
                 self.savePressed=true;
             }
@@ -65,7 +68,9 @@
         };
 
         self.discardChanges = function () {
-            self.ingModel = self.record ? self.record : {};
+
+            self.ingModel = angular.copy(self.backup);
+            self.nonMedIngForm.$setPristine();
             self.onCancel();
         };
 
@@ -77,6 +82,12 @@
 
             }
         };
+
+        self.copy = function () {
+            var ingredientCopy = angular.copy( self.ingModel);
+            self.onAddIng({ing: ingredientCopy});
+        }
+
 
         self.$onChanges = function (changes) {
             if (changes.record) {
@@ -107,6 +118,11 @@
                 return false;
             }
         };
+        $scope.$watch('nIngRecCtrl.nonMedIngForm.$dirty', function () {
+            self.isDetailValid({state: !self.nonMedIngForm.$dirty});
+        }, true);
+
+
 
     }
 

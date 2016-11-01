@@ -17,7 +17,8 @@
         controllerAs: 'tabsCtrl',
         bindings: {
             formulationList : '<',
-            appendix4List : '<'
+            appendix4List : '<',
+            recordChanged:'&'
         }
     });
 

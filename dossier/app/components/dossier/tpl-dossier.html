@@ -16,7 +16,7 @@
         </header>
         <div class="panel-body">
             <div>
-                <cmp-application-info record="dos.dossierModel" user-type="dos.formUserType"
+                <cmp-application-info record="dos.dossierModel" user-type="dos.userType"
                                       set-type="dos.setApplicationType(type)"
                                       configure-id-field="dos.configField"
                                       is-incomplete="dos.isIncomplete"></cmp-application-info>
@@ -28,7 +28,7 @@
                         <span class="field-name">{{'COMPANY_ID' |translate}}</span>
                         <strong class="required">{{"REQUIRED" |translate}}</strong>
                         <input type="text" class="form-control full-width" id="company-id"
-                               name="companyId" required="true" maxlength="6" ng-model="dos.dossierModel.companyId"/>
+                               name="companyId" required="true" maxlength="6" ng-model="dos.dossierModel.companyID"/>
                         <strong id="company-id-error" class="error"
                                 ng-if="dos.showError(dos.dossierForm.companyId.$invalid,dos.dossierForm.companyId.$touched)">
                                     <span class="label label-danger"
@@ -107,11 +107,11 @@
             </div>
 
             <div>
-                <section class="panel panel-default mrgn-tp-lg">
+                <section class="panel panel-default ">
                     <header class="panel-heading">
                         <h3 class="panel-title">{{'THERA_CLASS'|translate}}</h3>
-                        <strong id="active-error" class="error"  ng-if="dos.noTheraRecs()">
-                            <span class="label label-danger" ng-messages="dos.noTheraVal.$error">
+                        <strong id="active-error" class="error" ng-if="dos.noTheraRecs()">
+                            <span class="label label-danger" ng-messages="dos.dossierForm.noTheraVal.$error">
                                 <span ng-message="required"><span translate="MSG_ERR_ONE_THERA"></span></span>
                             </span>
                         </strong>
@@ -119,22 +119,24 @@
                     <div class="panel-body">
                         <input type="textbox" required ng-show="false" name="noTheraVal" id="noThera" aria-hidden="true"
                                data-ng-model="dos.noThera"/>
-                        <cmp-therapeutic-class
-                                list-items="dos.dossierModel.drugProduct.therapeutic"></cmp-therapeutic-class>
+                        <cmp-thera-list records="dos.dossierModel.drugProduct.therapeutic" show-errors="dos.showErrors()"></cmp-thera-list>
                     </div>
                 </section>
             </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    <cmp-ref-product-list products="dos.dossierModel.drugProduct.canRefProducts"></cmp-ref-product-list>
+
+                <div >
+                    <section class="panel panel-default">
+                        <header class="panel-heading">
+                            <h3 class="panel-title">{{'CAN_REF_PRODUCTS'|translate}}</h3>
+                        </header>
+                        <div class="panel-body">
+                            <cmp-ref-product-list
+                                    products="dos.dossierModel.drugProduct.canRefProducts"></cmp-ref-product-list>
+                        </div>
+                    </section>
                 </div>
-
-            </div>
-
         </div>
     </section>
-
-
     <section class="panel panel-primary mrgn-tp-lg">
         <header class="panel-heading">
             <h2 class="panel-title">{{'DRUG_PRODUCT'|translate}}</h2>
@@ -143,7 +145,6 @@
 
             <div class="row">
                 <div class="col-xs-12 form-group">
-
 
                     <cmp-drug-use list-items="dos.dossierModel.drugProduct.drugUseList"
                                   show-list-errors="dos.showErrors()"
@@ -182,6 +183,7 @@
             </div>
             <div>
                 <cmp-tabs formulation-list="dos.dossierModel.drugProduct.formulations"
+                          record-changed="dos.recordsChanged()"
                           appendix4-list="dos.dossierModel.drugProduct.appendixFourList"></cmp-tabs>
             </div>
         </div>
@@ -200,7 +202,7 @@
                 <h2 class="panel-title">{{'REP_CONTACT_INFO'|translate}}</h2>
             </header>
             <div class="panel-body">
-                <cmp-rep-contact-list contacts="dos.dossierModel.contactList"
+                <cmp-rep-contact-list contacts="dos.dossierModel.contactList" on-update=""
                                       parent-dirty="dos.dossierForm.$dirty"
                                       show-list-errors="dos.showErrors()" is-amend="dos.formAmend">
 
@@ -220,5 +222,5 @@
             </button>
         </div>
     </div>
-  <!--  <pre>{{dos.dossierModel | json }}</pre>-->
+    <!--   <pre>{{dos.dossierModel | json }}</pre>-->
 </ng-form>

@@ -22,7 +22,7 @@
   "DELETE": "Delete",
   "SCHED_A": "Schedule A Claims",
   "DIN_FULL": "Drug Identification Number (DIN)",
-  "THERA_CLASS": "Therapeutic Classification(s)",
+  "THERA_CLASS": "Therapeutic Classifications",
   "THERA_CLASS_ADD": "Add Therapeutic Classification",
   "THERA_CLASS_NAME": "Therapeutic Classification Name",
   "PROPNAME": "Brand or Proprietary or Product Name (should be the same as the brand name on the product label)",
@@ -37,7 +37,7 @@
   "CANCEL": "fr_Cancel",
   "DELETE": "fr_Delete",
   "DELETE_CLASS": "Delete Classification",
-  "SOURCED_ANIMAL": "Source From Animal",
+  "SOURCED_ANIMAL": "Provide the animal types used for this ingredient",
   "SPECIFY": "Please specify",
   "DETAILS": "Details",
   "REF_PRODUCTS": "Canadian Reference Product(s)",
@@ -47,6 +47,6 @@
   "ADD_A":"Add a ",
   "COUNTRY_MAN": "Country of Manufacture",
   "DELETE_COUNTRY":"Delete Country",
-  "COUNTRIES_MANUFACT":"Countries of manufacture for this drug product"
-
+  "COUNTRIES_MANUFACT":"Countries of manufacture for this drug product",
+  "ADD_CRP":"Add Canadian Reference Product"
 }

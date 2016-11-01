@@ -11,5 +11,7 @@
   "MSG_ERR_ONE_FORMULATION":"fr_At least one formulation is required.",
   "MSG_ERR_ONE_MANCOUNTRY": "fr_At least one country of manufacture is required",
   "MSG_ERR_ONE_ROA": "fr_At least one route of administation is required",
-  "MSG_ERR_ONE_THERA": "fr_At least one therapeutic classification is required"
+  "MSG_ERR_ONE_THERA": "fr_At least one therapeutic classification is required",
+  "MSG_ERR_ONE_COUNTRY": "fr_At least one country of origin is required",
+  "MSG_ERR_ONE_ROA": "fr_At least one Route of Administration is required"
 }

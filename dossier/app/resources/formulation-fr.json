@@ -33,10 +33,14 @@
   "SHELF_LIFE": "fr_Shelf Life",
   "IN_FINAL_CONTAINER": "fr_Present in Final Container?",
   "OTHER_ROA_DETAILS": "fr_Other Route of Administration Details",
-  "ROA_TITLE": "fr_Route of Administration",
+  "ROA_LBL": "fr_Route of Administration",
+  "ROA_TITLE": "fr_Routes of Administration",
+  "ROA_ABREV": "ROA",
   "FORMULATIONS":"Formulations",
   "APPENDIX4": "Annexe 4",
-  "FORMULATION_DETAILS":"fr_Formulation Details",
+  "FORMULATION_DETAILS":"fr_Formulation Record",
   "FORMULATION_NAME":"fr_Formulation Name",
-  "FORM_ID": "ID"
+  "FORM_ID": "ID",
+  "ANIMAL_CTRY_ORIGIN": "fr_Country of Origin of the Animals",
+  "ADD_ROA":"fr_Add Route of Administration"
 }

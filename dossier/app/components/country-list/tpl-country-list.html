@@ -1,46 +1,19 @@
-<ng-form name="countryForm">
-    <ul class="list-group">
-        <li class="list-group-item  col-md-12" ng-repeat="item in $ctrl.model.list">
-            <div class="col-md-8" ng-class="{'has-error':countryForm.countryName.$invalid}">
-                <label for="country_{{$index}}" class="required">
-                    <span class="field-name"> {{$ctrl.fieldLabel|translate}}&nbsp;{{$index+1}}</span>
-                    <strong class="required">{{"REQUIRED" |translate}}</strong>
-                    <select ng-model="item.name" class="form-control full-width required" id="country_{{$index}}"
-                            name="countryName" required
-                            ng-options="country |translate for country in $ctrl.model.countries | orderByTranslatedCountry">
-                    </select>
-                    <strong id="countryName-error" class="error"
-                            ng-if="$ctrl.showError(countryForm.countryName.$invalid,countryForm.countryName.$touched)">
-                            <span class="label label-danger" ng-messages="countryForm.countryName.$error">
-                                <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
-                            </span>
-                    </strong>
-                </label>
-            </div>
-            <div class="btn-group-sm col-md-4 text-right">
-                <a href="" ng-click="$ctrl.deleteRecord(item.id)"
-                   class="btn btn-danger btn-sm">{{'DELETE_COUNTRY'|translate}}&nbsp;{{$index+1}}</a>
-            </div>
-            <div class="form-group col-md-8 mrgn-tp-lg has-error" ng-if="item.name === 'UNKNOWN'"
-                 ng-class="{'has-error':countryForm.unknownCountry.$invalid}">
-                <label for="unknown-country-details" class="required">
-                    <span class="field-name">{{'UNKNOWN_COUNTRY_DETAILS'|translate}}</span>
-                    <strong class="required">{{"REQUIRED" |translate}}</strong>
-                    <strong id="country-error" class="error"
-                            ng-if="countryForm.unknownCountry.$invalid">
-                        <span class="label label-danger" ng-messages="countryForm.unknownCountry.$error">
-                            <span ng-message="required">{{"MSG_ERR_MAND"|translate}}</span>
-                        </span>
-                    </strong>
-                </label>
-                <textarea id="unknown-country-details" class="form-control full-width" name="unknownCountry" required
-                          maxlength="100" row="2" ng-model="item.unknownCountryDetails"></textarea>
-            </div>
-        </li>
-    </ul>
-    <div class="row mrgn-tp-md mrgn-bttm-lg">
+<ng-form name="countryListCtrl.countryListForm">
+    <cmp-expanding-table title="Animal source countries" reset-to-collapsed="countryListCtrl.resetToCollapsed"
+                         list-items="countryListCtrl.model.list"
+                         column-def="countryListCtrl.columnDef" select-record="countryListCtrl.selectRecord"
+                         disable-selection="!countryListCtrl.isDetailValid">
+
+        <cmp-country-record record="$parent.record" fieldset-label="{{countryListCtrl.fieldLabel}}"
+                            on-delete="countryListCtrl.deleteRecord(id)" show-errors=""
+                            country-list="countryListCtrl.countryList"></cmp-country-record>
+    </cmp-expanding-table>
+    <div class="mrgn-tp-md mrgn-bttm-lg">
         <div class="btn-group-sm col-md-12 text-right">
-            <input type="submit" value="{{'ADD_A'|translate}}&nbsp;{{$ctrl.fieldLabel|translate}}" class="btn btn-primary" ng-click="$ctrl.addNew()"/>
+            <button class="btn btn-primary" ng-click="countryListCtrl.addNew()"
+                    ng-disabled="countryListCtrl.countryListForm.$invalid">{{'ADD_A'|translate}}&nbsp;{{countryListCtrl.fieldLabel|translate}}
+            </button>
         </div>
     </div>
+    <!--<pre>CountryList items: {{countryListCtrl.model.list}}</pre>-->
 </ng-form>

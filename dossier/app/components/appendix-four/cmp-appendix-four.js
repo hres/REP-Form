@@ -19,25 +19,28 @@
             controllerAs: 'ap4Ctrl',
             bindings: {
 
-                ingredients : '<'
-
+                ingredients : '<',
+                recordChanged:'&'
             }
         });
 
     function appendixFourCtrl(){
 
         var self=this;
+        self.selectRecord = -1; //the record to select, initially select non
+        self.resetToCollapsed = true;
+        self.colNames = [
+            {label: "INGRED_NAME", binding: "ingredientName", width: "98"}
+        ];
+        self.ingredientList=[];
 
         self.$onInit = function(){
             self.newFormShown = false;
-            self.colNames = [
-                {label: "INGRED_NAME", binding: "ingredientName", width: "98"}
-            ];
             self.isDetailValid = true; //TODO needs to be managed in ADD and delete
-            self.ingredientList = [];
 
-            if(self.ingredients){
-                self.ingredientList = self.ingredients;
+            if(!self.ingredientList){
+                self.ingredientList = [];
+               // self.ingredientList = self.ingredients;
             }
         };
 
@@ -49,16 +52,33 @@
         };
 
 
-        self.addNew = function (ing) {
-            //console.debug('frmList add new: ' + frm);
-            self.ingredientList.push(ing);
-            self.newFormShown = false;
-            self.resetToCollapsed = true;
+        self.addNew = function () {
+            var newRecord = {
+                "id":(getListMaxID() + 1),
+                "ingredientName": ""
+            };
+            self.ingredientList.push(newRecord);
+            self.resetToCollapsed= !self.resetToCollapsed;;
+            self.selectRecord=( self.ingredientList.length-1);
+
         };
+
+        function getListMaxID() {
+            var out = 0;
+            var list = self.ingredientList;
+            if (list) {
+                for (var i = 0; i < list.length; i++) {
+                    if (list[i].id > out) {
+                        out = list[i].id;
+                    }
+                }
+            }
+            return out;
+        }
 
         self.update = function (idx, ing) {
             console.log('apdx4 list update; ');
-            self.ingredientList[idx] = angular.copy(ing);
+            //self.ingredientList[idx] = angular.copy(ing);
         };
 
         self.delete = function (idx) {
@@ -67,7 +87,6 @@
                 self.resetToCollapsed = true;
 
         }
-
 
     }
 })();

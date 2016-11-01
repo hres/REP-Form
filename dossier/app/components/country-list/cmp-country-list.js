@@ -5,7 +5,7 @@
     'use strict';
 
     angular
-        .module('countryListModule', ['dataLists'])
+        .module('countryListModule', ['dataLists', 'countryRecordModule'])
 })();
 
 (function () {
@@ -15,72 +15,108 @@
         .module('countryListModule')
         .component('cmpCountryList', {
             templateUrl: './app/components/country-list/tpl-country-list.html',
-            controller: countryListCtrl,
+            controller: countryListController,
+            controllerAs: 'countryListCtrl',
             bindings: {
-                withUnknown:'<',
+                withUnknown: '<',
                 listItems: '<',
                 onUpdate: '&',
                 onDelete: '&',
-                showErrors:'&',
-                fieldLabel:'@'
+                showErrors: '&',
+                fieldLabel: '@'
             }
         });
 
-    countryListCtrl.$inject = ['$filter','getCountriesISO3166'];
+    countryListController.$inject = ['$filter', 'getCountriesISO3166'];
 
 
-    function countryListCtrl($filter, getCountriesISO3166){
+    function countryListController($filter, getCountriesISO3166) {
         var self = this;
+        self.baseCountries = getCountriesISO3166.getCountryList3Letter();
+        self.countryList = angular.copy(self.baseCountries);
+        self.model = {};
+        self.isDetailValid = true;
+        self.resetToCollapsed = true;
+        self.selectRecord = 0;
+        self.columnDef = [
+            {
+                label:  self.fieldLabel,
+                binding: "name",
+                width: "100"
+            },
+        ]
+        self.hasUnknown = false;
+        self.emptyModel = {"id": "", "name": ""}
 
-        self.$onInit = function(){
+        self.$onInit = function () {
 
-            var _countries = self.withUnknown?["UNKNOWN"].concat(getCountriesISO3166.getCountryList3Letter()):getCountriesISO3166.getCountryList3Letter();
-            self.model={
-                countries : _countries,
-                list : [],
-                selected:{}
-
-
+            if (angular.isUndefined(self.model.list)) { //TODO should be comimg from parent
+                self.model.list = [];
+                console.log("creating an empty list")
             }
 
-            if(self.listItems){
-                self.model.list = self.listItems;
-            }
         }
 
-        // gets the template to ng-include for a table row / item
-        self.getTemplate = function (item) {
-            if (item.id === self.model.selected.id) return 'edit';
-            else return 'display';
+        self.$onChanges = function (changes) {
+            if (changes.withUnknown) {
+                setUnknownCountryState(changes.withUnknown.currentValue);
+            }
+            if (changes.listItems) {
+                self.model.list = changes.listItems.currentValue;
+            }
         };
+        function setUnknownCountryState(isUnknown) {
+            var countries = angular.copy(self.baseCountries);
+            if (isUnknown) {
+                countries.push("UNKNOWN") //TODO should be from constants service
+                self.countryList = countries;
+                self.hasUnknown = true;
+                self.emptyModel = {"id": "", "name": "", unknownCountryDetails: ""};
+                self.columnDef = [
+                    {
+                        label:  self.fieldLabel,
+                        binding: "name",
+                        width: "50"
+                    },
+                    {
+                        label: "UNKNOWN_COUNTRY_DETAILS",
+                        binding: "unknownCountryDetails",
+                        width: "50"
+                    },
+                ]
+            } else {
+                self.countryList = countries;
+                self.hasUnknown = false;
+                self.emptyModel = {"id": "", "name": ""};
+                self.columnDef = [
+                    {
+                        label:  self.fieldLabel,
+                        binding: "name",
+                        width: "100"
+                    }
+                ]
 
-        self.addNew = function(){
+            }
 
+        }
+        self.addNew = function () {
+            console.log("adding a new value")
             var maxID = getListMaxID();
-
-            //console.log("addNew maxID: " + JSON.stringify(maxID) );
-
-            var item = {"id":maxID + 1, "name":""};
-
-            self.model.list.push(item);
-            self.editRecord(item);
-            self.onUpdate({list:self.model.list});
+            var item = angular.copy(self.emptyModel);
+            item.id = (getListMaxID() + 1);
+            (self.model.list).push(item);
+            setRecord(-1);
+            self.resetToCollapsed = !self.resetToCollapsed;
+            setRecord(self.model.list.length - 1);
+            //self.editRecord(item);
+            //self.onUpdate({list: self.model.list});
 
         };
 
-        self.editRecord = function (item) {
-            self.model.selected = item;
-        };
+        function setRecord(value) {
+            self.selectRecord = value;
 
-        self.saveRecord = function (_id) {
-           // console.log("Saving item: "+_id);
-            var idx = self.model.list.indexOf(
-                $filter('filter')(self.model.list, {id: _id}, true)[0]
-            );
-            self.model.list[idx] = self.model.selected;
-            self.onUpdate({list:self.model.list});
-            self.reset();
-        };
+        }
 
         self.deleteRecord = function (_id) {
             //console.log("Deleting item: "+_id);
@@ -88,40 +124,29 @@
             var idx = self.model.list.indexOf(
                 $filter('filter')(self.model.list, {id: _id}, true)[0]
             );
-            if(idx < 0) return;
+            if (idx < 0) return;
 
-            self.model.list.splice(idx,1);
-            self.onUpdate({list:self.model.list});
+            self.model.list.splice(idx, 1);
+            // self.onUpdate({list:self.model.list});
         };
 
 
-
-        self.reset = function () {
-            var item = self.model.selected;
-            //console.log('reset selected: ' + item.toSource());
-            if(angular.isUndefined(item))
-                return;
-
-            //self.deleteRecord(item.id)
-            self.model.selected = {};
-
-        };
         /***
          * Shows a control error if touched and invalid or remote trigger
          * @param isInvalid
          * @param isTouched
          * @returns {*}
          */
-        self.showError=function(isInvalid,isTouched){
-            return((isInvalid && isTouched)||(isInvalid && self.showErrors()))
+        self.showError = function (isInvalid, isTouched) {
+            return ((isInvalid && isTouched) || (isInvalid && self.showErrors()))
         }
 
-        function getListMaxID(){
+        function getListMaxID() {
 
             var out = 0;
             var list = self.model.list;
             if (list) {
-                for (var i = 0; i<list.length; i++) {
+                for (var i = 0; i < list.length; i++) {
                     if (list[i].id > out) {
                         out = list[i].id;
                     }

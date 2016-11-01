@@ -11,7 +11,6 @@
         ,'tabsModule'
         ,'refProductListModule'
         ,'drugUseModule'
-        ,'therapeuticClassModule'
         ,'scheduleAModule',
         'dossierDataLists',
         'filterLists',
@@ -22,7 +21,10 @@
         'applicationInfo',
         'ui.bootstrap',
         'filterLists',
-       'numberFormat'
+       'numberFormat',
+        'ngMessages',
+        'ngAria',
+        'theraClass'
     ];
 
     angular
@@ -84,7 +86,6 @@
 
             if (changes.formType) {
                 self.userType = changes.formType.currentValue;
-                self.userType='EXT';
                 if (self.userType == 'INT') {
                     self.saveXMLLabel = "APPROVE_FINAL"
                 } else {
@@ -111,8 +112,13 @@
                 //load into data model as result json is not null
             }
             //if content is attempted to be loaded show all the errors
+            self.errorAppendix=self.dossierService.getMissingAppendix4(self.dossierModel);
             self.showAllErrors = true;
             disableXMLSave();
+        }
+
+        self.recordsChanged=function(){
+            self.errorAppendix=self.dossierService.getMissingAppendix4(self.dossierModel);
         }
 
         self.setApplicationType = function (value) {
@@ -131,12 +137,19 @@
             self.isIncomplete = !self.activityRoot.dossierID;
         }
 
+        $scope.$watch("dos.dossierForm.$invalid", function () {
+            disableXMLSave()
+        }, true);
 
         /**
          * @ngdoc disables the XML save button
          */
         function disableXMLSave() {
-            self.disableXML = self.dossierForm.$invalid || (self.dossierModel.applicationType == self.applicationInfoService.getApprovedType() && self.isExtern());
+           var formInvalid=true; //TODO hack
+            if(self.dossierForm){
+                formInvalid=self.dossierForm.$invalid;
+            }
+            self.disableXML = (formInvalid || (self.dossierModel.applicationType == self.applicationInfoService.getApprovedType() && self.isExtern()));
 
         }
 
@@ -179,13 +192,23 @@
             }
             return false;
         }
+
+        /**
+         * Save as a json file. Convert interal model to external model for output
+         */
         self.saveJson = function () {
             var writeResult = _transformFile();
-            console.log(writeResult);
            hpfbFileProcessing.writeAsJson(writeResult, _createFilename(), self.dossierService.getRootTagName());
             self.showAllErrors = true;
             //_setComplete()
         };
+
+        self.saveXML=function(){
+            var writeResult = _transformFile();
+            hpfbFileProcessing.writeAsXml(writeResult, _createFilename(), self.dossierService.getRootTagName());
+            self.showAllErrors = false;
+        }
+
 
         /**
          * Takes the internal model and transforms to a json object compatible with the output
@@ -212,9 +235,6 @@
          */
         function _createFilename() {
             var filename = "HC_DO_Enrolment";
-            /*if (vm.activityRoot && vm.activityRoot.dstsControlNumber) {
-                filename = filename + "_" + vm.activityRoot.dstsControlNumber;
-            }*/
             return filename;
         }
 
@@ -227,28 +247,9 @@
             }
         }
 
-        /**
-         * @ngdoc method - updates if there are classifications
-         */
-        self.noTheraRecs=function(){
-            if(!self.model){
-                self.noRoa="";
-                console.log("false")
-                return false;
-            }
-            if(!self.model.list || self.model.list.length===0){
-                self.noRoa="";
-                console.log("true")
-                return true;
-            }
-            self.noRoa= self.model.list.length;
-            console.log("false2")
-            return false;
-
-        }
 
         /**
-         * Manages errors for no ROA
+         * Manages errors for no Thera
          * @returns {boolean}
          */
         self.noTheraRecs=function() {

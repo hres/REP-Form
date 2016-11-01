@@ -130,9 +130,9 @@
                 <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12"
                      ng-class="{'has-error':nIngRecCtrl.nonMedIngForm.animaHumanSourced.$invalid}">
                     <label for="asBase" class="required">
-                        <span class="field-name">{{'ANIMAL_HUMAN_SOURCED'|translate}}}</span>
+                        <span class="field-name">{{'ANIMAL_HUMAN_SOURCED'|translate}}</span>
                         <strong class="required">{{"REQUIRED" |translate}}</strong>
-                        <select id="animalHumanSourced" ng-model="nIngRecCtrl.ingModel.animalHumanSourced"
+                        <select id="animalHumanSourced" ng-model="nIngRecCtrl.ingModel.humanAnimalSourced"
                                 class="form-control" name="animaHumanSourced" ng-required="true"
                                 ng-options="val |translate for val in  nIngRecCtrl.yesNoList">
                         </select>
@@ -152,6 +152,8 @@
                            ng-click="nIngRecCtrl.saveIng()"/>
                     <input type="submit" ng-if="nIngRecCtrl.deleteBtn === true" value="Delete" class="btn btn-danger"
                            ng-click="nIngRecCtrl.delete()"/>
+                    <input type="submit" ng-if="nIngRecCtrl.deleteBtn === true" value="Copy" class="btn btn-default"
+                           ng-click="nIngRecCtrl.copy()" ng-disabled="nIngRecCtrl.nonMedIngForm.$dirty">
                     <input type="submit" value="Discard Changes" class="btn btn-default"
                            ng-click="nIngRecCtrl.discardChanges()">
                 </div>

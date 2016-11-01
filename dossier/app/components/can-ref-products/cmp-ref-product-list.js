@@ -25,12 +25,15 @@
 
     function refProductListCtrl() {
         var self = this;
-        self.isDetailValid = true //TODO this needs to be managed on add and delete
+        self.isDetailValid = true;
+        self.selectRecord = -1;
+        self.resetToCollapsed = false;
+        self.newProductFormShown = false;
         self.$onInit = function () {
 
-            // if(self.products){
-            //self.productList = self.products.listItems;
-            // self.colNames = self.products.colNames;
+            self.newProductFormShown = false;
+            self.isDetailValid = true;
+            self.selectRecord = -1;
 
             self.colNames = [
                 {label: "BRAND_NAME", binding: "brandName", width: "50"},
@@ -55,18 +58,52 @@
         };
 
         self.addProduct = function (product) {
-            console.debug('productList addProduct: ' + product);
+            console.log("adding product")
+            self.setValid(true);
+            self.resetToCollapsed = !self.resetToCollapsed;
             self.productList.push(product);
+            self.newProductFormShown = false;
+
+            setRecord(-1);
         };
 
         self.updateProduct = function (idx, product) {
             self.productList[idx] = angular.copy(product);
+            self.setValid(true);
         };
 
         self.deleteProduct = function (idx) {
             // console.debug('productList deleteProduct: ' + idx);
             self.productList.splice(idx, 1);
+            self.setValid(true);
+            setRecord(-1);
+            self.resetToCollapsed = !self.resetToCollapsed;
         }
+        function setRecord(value){
+            self.selectRecord = value;
+        }
+
+        /**
+         * Sets the UI state for the add new template
+         */
+        self.addNewProductState=function(){
+            self.resetToCollapsed = !self.resetToCollapsed;
+            self.newProductFormShown = true;
+            self.setValid(false);
+            return(self.newProductFormShown);
+        }
+        self.addNewDisabled=function(){
+            return ( self.newProductFormShown || !self.isDetailValid);
+        }
+        self.setValid=function(value){
+            self.isDetailValid=value;
+        }
+        self.onNewCancel=function(){
+            self.setValid(true);
+            self.newProductFormShown = false
+        }
+
+
 
     }
 

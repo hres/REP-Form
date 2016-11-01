@@ -42,12 +42,14 @@
   "SHELF_LIFE": "Shelf Life",
   "IN_FINAL_CONTAINER": "Present in Final Container?",
   "OTHER_ROA_DETAILS": "Other Route of Administration Details",
-  "ROA_LBL": "Route of Administration (ROA)",
+  "ROA_LBL": "Route of Administration",
   "ROA_TITLE": "Routes of Administration",
   "ROA_ABREV": "ROA",
   "FORMULATIONS":"Formulations",
-  "FORMULATION_DETAILS":"Formulation Details",
+  "FORMULATION_DETAILS":"Formulation Record",
   "FORMULATION_NAME": "Formulation Name",
-  "FORM_ID": "ID"
+  "FORM_ID": "ID",
+  "ANIMAL_CTRY_ORIGIN": "Country of Origin of the Animals",
+  "ADD_ROA":"Add Route of Administration"
 
 }

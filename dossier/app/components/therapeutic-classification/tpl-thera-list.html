@@ -1,0 +1,19 @@
+<ng-form name="theraCtrl.theraListForm">
+    <cmp-expanding-table title="Therapeutic Classifications" reset-to-collapsed="theraCtrl.resetToCollapsed"
+                         list-items="theraCtrl.model.theraList"
+                         column-def="theraCtrl.columnDef" select-record="theraCtrl.selectRecord"
+                         disable-selection="!theraCtrl.isDetailValid">
+
+        <cmp-thera-record record="$parent.record" show-errors="thera.showErrors()"
+                          on-delete="theraCtrl.deleteRecord(id)"></cmp-thera-record>
+
+    </cmp-expanding-table>
+
+    <div class="mrgn-tp-md mrgn-bttm-lg">
+        <div class="btn-group-sm col-md-12 text-right">
+            <button class="btn btn-primary" ng-click="theraCtrl.addNew()"
+                    ng-disabled="theraCtrl.theraListForm.$invalid">{{'THERA_CLASS_ADD'|translate}}
+            </button>
+        </div>
+    </div>
+</ng-form>
