@@ -1,5 +1,5 @@
 {
-  "SELECT_LOAD": "Select a data file to load",
+  "SELECT_LOAD": "Select a file to load",
   "MSG_SUCCESS_LOAD": "The file was loaded successfully",
   "MSG_ERR_JSONPARSE": "Error: there was an error parsing the working file.",
   "MSG_ERR_XMLPARSE": "Error: there was an error parsing the draft XML file.",
