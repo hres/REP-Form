@@ -52,25 +52,6 @@
                     </strong>
                 </label>
             </div>
-            <div class="col-md-4 form-group" ng-class="{'has-error':animalSectCtrl.anSectForm.isBiotech.$invalid}">
-                <label for="biotech{{$id}}" class="required">
-                    <span class="field-name">{{'BIOTECHDERIVED'|translate}}</span>
-                    <strong class="required">{{"REQUIRED" |translate}}</strong>
-                    <select id="biotech{{$id}}" name="isBiotech" required
-                            ng-model="animalSectCtrl.model.isBiotechDerived" class="form-control full-width"
-                            ng-options="val |translate for val in animalSectCtrl.yesNoUnknownList">
-                    </select>
-                    <strong id="biotech-error" class="error"
-                            ng-if="animalSectCtrl.showError(animalSectCtrl.anSectForm.isBiotech)">
-                        <span class="label label-danger"
-                              ng-messages="animalSectCtrl.anSectForm.isBiotech.$error">
-                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
-                        </span>
-                    </strong>
-                </label>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-md-3 form-group" ng-class="{'has-error':animalSectCtrl.anSectForm.cellLine.$invalid}">
                 <label for="cellLine{{$id}}" class="required">
                     <span class="field-name">{{'CELLLINE'|translate}}</span>
@@ -83,6 +64,26 @@
                             ng-if="animalSectCtrl.showError(animalSectCtrl.anSectForm.cellLine)">
                         <span class="label label-danger"
                               ng-messages="animalSectCtrl.anSectForm.cellLine.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                    </strong>
+                </label>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-5 form-group" ng-class="{'has-error':animalSectCtrl.anSectForm.isBiotech.$invalid}">
+                <label for="biotech{{$id}}" class="required">
+                    <span class="field-name">{{'BIOTECHDERIVED'|translate}}</span>
+                    <strong class="required">{{"REQUIRED" |translate}}</strong>
+                    <select id="biotech{{$id}}" name="isBiotech" required
+                            ng-model="animalSectCtrl.model.isBiotechDerived" class="form-control full-width"
+                            ng-options="val |translate for val in animalSectCtrl.yesNoUnknownList">
+                    </select>
+                    <strong id="biotech-error" class="error"
+                            ng-if="animalSectCtrl.showError(animalSectCtrl.anSectForm.isBiotech)">
+                        <span class="label label-danger"
+                              ng-messages="animalSectCtrl.anSectForm.isBiotech.$error">
                             <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
                         </span>
                     </strong>
