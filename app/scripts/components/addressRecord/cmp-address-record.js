@@ -68,17 +68,18 @@
             var result = "";
 
             if (addressRoles.manufacturer) {
-                result = result + " MFR"
+                result = result + " MFR,"
             }
             if (addressRoles.billing) {
-                result = result + " BILL"
+                result = result + " BILL,"
             }
             if (addressRoles.mailing) {
-                result = result + " MAIL"
+                result = result + " MAIL,"
             }
             if (addressRoles.importer) {
-                result = result + " IMP"
+                result = result + " IMP,"
             }
+            result = result.substring(0, result.length - 1);
             return result
         }
 

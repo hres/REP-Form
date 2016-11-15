@@ -26,7 +26,8 @@
                 showErrors: '&',
                 isDetailValid: '&',
                 onDelete: '&',
-                enableDeleteIndex: '&'
+                enableDeleteIndex: '&',
+                isEctd: '<'
             }
         });
     lifecycleRecCtrl.$inject = ['TransactionLists', '$translate'];
@@ -38,22 +39,12 @@
         vm.sequenceList = [];
         vm.descriptionList = [];
 
-        vm.lifecycleModel = {
-            sequence: '0001',
-            dateFiled: '',
-            controlNumber: '',
-            activityType: '',
-            descriptionValue: '',
-            startDate: '',
-            endDate: '',
-            details: '',
-            sequenceVersion: '',
-            sequenceConcat: ''
-        };
+        vm.lifecycleModel = {};
         vm.endDateVisible = false;
         vm.startDateVisible = false;
         vm.descriptionVisible = false;
         vm.versionVisible = false;
+        vm.ectd = false;
 
         vm.$onInit = function () {
         };
@@ -64,19 +55,28 @@
          */
         vm.$onChanges = function (changes) {
             if (changes.lifecycleRecord) {
-                console.log("changes to lifecycle record")
                 _updateLocalModel(changes.lifecycleRecord.currentValue);
             }
+            if (changes.isEctd) {
+                vm.ectd = changes.isEctd.currentValue;
+            }
+
         };
+
 
         function _updateLocalModel(record) {
             vm.lifecycleModel = angular.copy(record);
-            convertToDate()
+            convertToDate();
             vm.setSequenceList();
             vm.setDetailsState();
         }
 
         vm.disableDeleteState = function () {
+
+            //this is noEctd case
+            if (!vm.ectd) {
+                return true;
+            }
             var value = parseInt(vm.lifecycleModel.sequence);
             if (value == vm.enableDeleteIndex()) {
                 return false;
@@ -113,11 +113,9 @@
                 case ("EUSNDS"):
                     vm.descriptionList = TransactionLists.getEusndsType();
                     break;
-
                 case ("LEVEL_3"):
                     vm.descriptionList = TransactionLists.getLevel3Type();
                     break;
-
                 case ("NC_ACT"):
                     vm.descriptionList = TransactionLists.getNcType();
                     break;

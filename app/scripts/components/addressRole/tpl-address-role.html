@@ -1,7 +1,7 @@
 <ng-form name="ar.roleForm">
     <fieldset>
         <legend class="required">
-            <span class="field-name">{{"ROLES_SELECT" |translate}}</span>
+            <span class="field-name">{{ar.legendText |translate}}</span>
             <strong class="required"> {{"REQUIRED" |translate}}</strong>
             <input id="roleMissing_{{$id}}" name="roleMissing" ng-required="true" ng-show="false"
                    ng-model="ar.isSelected" required/>

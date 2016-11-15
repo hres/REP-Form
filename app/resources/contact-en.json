@@ -16,11 +16,14 @@
   "PHONE_EXT": "Phone Extension",
   "ROLES": "Roles",
   "PHONE_NUMBER": "Phone Number",
-  "CONTACT_INFO": "Contact Information",
+  "CONTACT_INFO": "Company Representative Information",
   "AMEND": "Amend",
   "REP_CONTACT":  "REP Contact",
   "ONE_ROLE": "Role",
-  "CONTACT_DETAILS": "Contact Details",
-  "ADD_CONTACT": "Add REP Contact"
-
+  "CONTACT_DETAILS": "Company Representative Details",
+  "ADD_CONTACT": "Add REP Contact",
+  "CONTACT_ROLE_LEGEND": "Select one or more roles for this company representative",
+  "ADD_REPRES": "Add Company Representative",
+  "DELETE_REPRES": "Delete Company Rep.",
+  "SAVE_REPRES": "Save Company Rep."
 }

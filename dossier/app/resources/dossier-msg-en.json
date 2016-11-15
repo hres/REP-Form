@@ -13,5 +13,8 @@
   "MSG_ERR_ONE_ROA": "At least one route of administation is required",
   "MSG_ERR_ONE_THERA": "At least one therapeutic classification is required",
   "MSG_ERR_ONE_COUNTRY": "At least one country of origin is required",
-  "MSG_ERR_ONE_ROA": "At least one Route of Administration is required"
+  "MSG_ERR_ONE_ROA": "At least one Route of Administration is required",
+  "MSG_ERR_ONE_TISSUE": "At lease one Tissues of Fluids source is required",
+  "MSG_ERR_ONE_CNTRY_ORIGIN": "At least one Country of origin is required",
+  "MSG_ERR_ONE_CDN_REF": "At least one Canadian Reference product is required"
 }

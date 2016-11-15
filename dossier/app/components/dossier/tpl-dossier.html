@@ -9,7 +9,6 @@
                               root-elem="DOSSIER_ENROL"></hpfb-file-select>
         </div>
     </section>
-
     <section class="panel panel-primary mrgn-tp-lg">
         <header class="panel-heading">
             <h2 class="panel-title">{{'Dossier Information'|translate}}</h2>
@@ -106,11 +105,11 @@
                 </div>
             </div>
 
-            <div>
+            <div class="row">
                 <section class="panel panel-default ">
                     <header class="panel-heading">
                         <h3 class="panel-title">{{'THERA_CLASS'|translate}}</h3>
-                        <strong id="active-error" class="error" ng-if="dos.noTheraRecs()">
+                        <strong id="active-error" class="error" ng-if="dos.noTheraRecs() && dos.dossierForm.$dirty">
                             <span class="label label-danger" ng-messages="dos.dossierForm.noTheraVal.$error">
                                 <span ng-message="required"><span translate="MSG_ERR_ONE_THERA"></span></span>
                             </span>
@@ -119,22 +118,56 @@
                     <div class="panel-body">
                         <input type="textbox" required ng-show="false" name="noTheraVal" id="noThera" aria-hidden="true"
                                data-ng-model="dos.noThera"/>
-                        <cmp-thera-list records="dos.dossierModel.drugProduct.therapeutic" show-errors="dos.showErrors()"></cmp-thera-list>
+                        <cmp-thera-list records="dos.dossierModel.drugProduct.therapeutic"
+                                        show-errors="dos.showErrors()"></cmp-thera-list>
                     </div>
                 </section>
             </div>
+            <div class="row">
+                <div class="col-md-12 form-group" ng-class="{'has-error':dos.dossierForm.isRefProducts.$invalid}">
+                    <label for="isRefProducts{{$id}}" class="required">
+                        <span class="field-name">{{'IS_CDN_REF'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <select class="form-control" required name="isRefProducts" id="isRefProducts{{$id}}"
+                                ng-model="dos.dossierModel.isRefProducts"
+                                ng-options="val |translate for val in  dos.yesNoList">
 
-                <div >
-                    <section class="panel panel-default">
-                        <header class="panel-heading">
-                            <h3 class="panel-title">{{'CAN_REF_PRODUCTS'|translate}}</h3>
-                        </header>
-                        <div class="panel-body">
-                            <cmp-ref-product-list
-                                    products="dos.dossierModel.drugProduct.canRefProducts"></cmp-ref-product-list>
-                        </div>
-                    </section>
+                        </select>
+                        <strong id="isRef-error" class="error"
+                                ng-if="dos.showError(dos.dossierForm.isRefProducts.$invalid,dos.dossierForm.isRefProducts.$touched)">
+                            <span class="label label-danger"
+                                  ng-messages="dos.dossierForm.isRefProducts.$error">
+                          <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                      </span>
+                        </strong>
+                    </label>
+
                 </div>
+            </div>
+            <div class="row" ng-if="dos.isRefProducts()">
+                <section class="panel panel-default">
+                    <header class="panel-heading">
+                        <h3 class="panel-title">{{'CAN_REF_PRODUCTS'|translate}}</h3>
+                        <label>
+                            <strong id="contactNum-role-error" class="error"
+                                    ng-if="dos.showNoRefReError(dos.dossierForm.oneRefRec.$invalid)">
+                             <span class="label label-danger" aria-live="polite"
+                                   ng-messages="dos.dossierForm.oneRefRec.$error">
+                                 <span ng-message="required">{{"MSG_ERR_ONE_CDN_REF"|translate}}</span>
+                             </span>
+                            </strong>
+                        </label>
+                    </header>
+                    <input type="text" ng-show="false" name="oneRefRec" id="oneRefRec{{$id}}"
+                           ng-model="dos.oneRefSelected" required/>
+                    <div class="panel-body">
+                        <cmp-ref-product-list
+                                products="dos.dossierModel.drugProduct.canRefProducts"
+                                on-update="dos.cdnRefUpdated(recs)"></cmp-ref-product-list>
+                    </div>
+                </section>
+            </div>
+        </div>
         </div>
     </section>
     <section class="panel panel-primary mrgn-tp-lg">
@@ -170,13 +203,28 @@
             <div>
 
                 <section ng-if="dos.appendixMissingError()">
-                    <input type="checkbox" ng-show="false" required="true" ng-checked="dos.appendixMissingError()"/>
+                    <input type="checkbox" ng-show="false" required="true" ng-checked="dos.appendixMissingError()"
+                           aria-hidden="true"/>
                     <details class="alert alert-danger" id="alert-appendix" open="open">
                         <summary class="h3">
                             <h2>{{'MISSING_APPENDIX'|translate}}</h2>
                         </summary>
                         <ul>
                             <li ng-repeat="ingred in dos.errorAppendix">{{ingred}}</li>
+                        </ul>
+                    </details>
+                </section>
+            </div>
+            <div>
+                <section ng-if="dos.appendixExtraError()">
+                    <input type="checkbox" ng-show="false" required="true" ng-checked="dos.appendixExtraError()"
+                           aria-hidden="true"/>
+                    <details class="alert alert-danger" id="alert-extra-appendix" open="open">
+                        <summary class="h3">
+                            <h2>{{'EXTRA_APPENDIX'|translate}}</h2>
+                        </summary>
+                        <ul>
+                            <li ng-repeat="ingred in dos.extraAppendix">{{ingred}}</li>
                         </ul>
                     </details>
                 </section>
@@ -221,6 +269,11 @@
                     ng-click="dos.saveXML()">{{dos.saveXMLLabel |translate}}
             </button>
         </div>
+        <!-- <div class="row">
+             <div class="form-group col-md-12">
+         <cmp-animal-sourced-section></cmp-animal-sourced-section>
+         </div>
+             </div>-->
     </div>
-    <!--   <pre>{{dos.dossierModel | json }}</pre>-->
+    <!--    <pre>{{dos.dossierModel | json }}</pre>-->
 </ng-form>

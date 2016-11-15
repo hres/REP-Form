@@ -1,0 +1,76 @@
+<ng-form name="tissuesSrcCtrl.tissuesRecForm">
+    <div class="container-fluid">
+        <fieldset>
+            <legend>
+                {{'TISSUES_FLUIDS_LBL' | translate}}&nbsp;{{tissuesSrcCtrl.model.id}}
+            </legend>
+            <div class="row">
+                <div class="col-md-3 form-group"
+                     ng-class="{'has-error':tissuesSrcCtrl.tissuesRecForm.systemType.$invalid}">
+                    <label for="systemType{{$id}}" class="required">
+                        <span class="field-name">{{'SYSTEM_TYPE'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <select ng-model="tissuesSrcCtrl.model.systemType" class="form-control" id="systemType{{$id}}"
+                                name="systemType"
+                                ng-required="true" ng-change="tissuesSrcCtrl.systemChanged()"
+                                ng-options="val |translate for val in  tissuesSrcCtrl.systemList  | orderByTranslated">
+                        </select>
+                        <strong id="systemList-error" class="error"
+                                ng-if="tissuesSrcCtrl.showError(tissuesSrcCtrl.tissuesRecForm.systemType)">
+                        <span class="label label-danger"
+                              ng-messages="tissuesSrcCtrl.tissuesRecForm.systemType.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
+                <div>
+                    <div class="col-md-5 form-group"
+                         ng-class="{'has-error':tissuesSrcCtrl.tissuesRecForm.systemDetails.$invalid}">
+                        <label for="systemDetails{{$id}}" class="required full-width">
+                            <span class="field-name">{{'SYSTEM_DETAILS'|translate}}</span>
+                            <strong class="required">{{"REQUIRED" |translate}}</strong>
+                            <select type="text" id="systemDetails{{$id}}" class="form-control full-width"
+                                    name="systemDetails"
+                                    ng-model="tissuesSrcCtrl.model.systemDetails"
+                                    ng-options="val |translate for val in  tissuesSrcCtrl.selectedSystemList  | orderByTranslated"
+                                    required></select>
+                            <strong id="tyoe-error" class="error"
+                                    ng-if="tissuesSrcCtrl.showError(tissuesSrcCtrl.tissuesRecForm.systemDetails)">
+                         <span class="label label-danger"
+                               ng-messages="tissuesSrcCtrl.tissuesRecForm.systemDetails.$error">
+                             <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                         </span>
+                            </strong>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-4 form-group" ng-if="tissuesSrcCtrl.isOther()"
+                     ng-class="{'has-error':tissuesSrcCtrl.tissuesRecForm.systemOther.$invalid}">
+                    <label for="systemOther{{$id}}" class="required">
+                        <span class="field-name">{{'SYSTEM_OTHER'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <input type="text" ng-model="tissuesSrcCtrl.model.otherDetails" class="form-control"
+                               id="systemOther{{$id}}" name="systemOther"
+                               size="40" maxlength="40" required/>
+                        <strong id="typeList-error" class="error"
+                                ng-if="tissuesSrcCtrl.showError(tissuesSrcCtrl.tissuesRecForm.systemOther)">
+                        <span class="label label-danger"
+                              ng-messages="tissuesSrcCtrl.tissuesRecForm.systemOther.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="btn-group-sm col-xs-12 text-right">
+                    <button ng-click="tissuesSrcCtrl.deleteRecord(item.id)" class="btn btn-danger btn-sm">
+                        {{'DELETE'|translate}}&nbsp;{{'TISSUE_FLUID'|translate}}
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <!--  <pre>{{tissuesSrcCtrl.model|json}} </pre>-->
+</ng-form>

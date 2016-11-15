@@ -58,14 +58,17 @@
             </fieldset>
 
             <section class="section">
-                <cmp-tissues-fluids-origin
+                <cmp-tissues-fluids-list ng-if="ap4RecCtrl.model.humanSourced || ap4RecCtrl.model.animalSourced"
+                                         records="ap4RecCtrl.model.tissuesFluidsOrigin.tissuesList"></cmp-tissues-fluids-list>
+                <!--<cmp-tissues-fluids-origin
                         ng-if="ap4RecCtrl.model.humanSourced || ap4RecCtrl.model.animalSourced"
-                        tissues-model="ap4RecCtrl.model.tissuesFluidsOrigin" on-update="ap4RecCtrl.updateTissuesFluids(model)"></cmp-tissues-fluids-origin>
+                        tissues-model="ap4RecCtrl.model.tissuesFluidsOrigin" on-update="ap4RecCtrl.updateTissuesFluids(model)"></cmp-tissues-fluids-origin>-->
             </section>
 
             <section class="section">
-                <cmp-source-animal ng-if="ap4RecCtrl.model.animalSourced"
-                                   record="ap4RecCtrl.model.sourceAnimalDetails" on-update="ap4RecCtrl.updateAnimalSourced(model)"></cmp-source-animal>
+                <cmp-animal-sourced-section ng-if="ap4RecCtrl.model.animalSourced"  records="ap4RecCtrl.model.sourceAnimalDetails" on-update="ap4RecCtrl.updateAnimalSourced(model)"></cmp-animal-sourced-section>
+               <!-- <cmp-source-animal ng-if="ap4RecCtrl.model.animalSourced"
+                                   record="ap4RecCtrl.model.sourceAnimalDetails" on-update="ap4RecCtrl.updateAnimalSourced(model)"></cmp-source-animal>-->
             </section>
 
             <div class="row">

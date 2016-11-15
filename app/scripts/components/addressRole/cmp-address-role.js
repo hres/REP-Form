@@ -25,7 +25,8 @@
                 showErrors:'&',
                 isContact:'<',
                 alreadySelected: '&',
-                isAmend: '<'
+                isAmend: '<',
+                legendText: '@'
             }
         });
 
@@ -50,18 +51,40 @@
                 //doesn't copy as this is a dumb component
                 vm.roleModel = vm.record.addressRole;
                 vm.oneSelected();
+
             }
         }
         vm.$onChanges=function(changes){
            if(changes.record){
                vm.roleModel=(changes.record.currentValue.addressRole);
                vm.oneSelected();
+               checkAllControlsForDuplicates();
+
            }
             if (changes.isAmend) {
                 vm.isEditable = changes.isAmend.currentValue;
             }
         }
+        /**
+         * Checks all the controls and updates the error state
+         *
+         */
+        function checkAllControlsForDuplicates() {
+            if (!vm.roleForm) return;
+            vm.checkForDuplicates(vm.roleForm.mailing, 'mailing');
+            vm.checkForDuplicates(vm.roleForm.billing, 'billing');
+            vm.checkForDuplicates(vm.roleForm.importer, 'importer');
+            vm.checkForDuplicates(vm.roleForm.repPrimary, 'repPrimary');
+            vm.checkForDuplicates(vm.roleForm.repSecondary, 'repSecondary');
+            vm.checkForDuplicates(vm.roleForm.manufacturer, 'manufacturer');
+        }
 
+        /**
+         *
+         * @param ctrl the form control
+         * @param toCheck the json name of the property to check
+         * @returns {boolean}
+         */
         vm.oneSelected = function (ctrl, toCheck) {
             var obj=vm.roleModel;
             vm.checkForDuplicates(ctrl, toCheck)

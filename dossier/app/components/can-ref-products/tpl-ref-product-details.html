@@ -87,7 +87,8 @@
             </div>
 
             <div class="row">
-                <div class="col-md-12 form-group">
+                <div class="col-md-12 form-group"
+                     ng-class="{'has-error':$ctrl.productDetailsForm.companyName.$invalid}">
                     <label for="company-name_{{$id}}" class="required"><span
                             class="field-name">{{'COMPANY_NAME'|translate}}</span>
                         <strong class="required">{{"REQUIRED" |translate}}</strong></label>

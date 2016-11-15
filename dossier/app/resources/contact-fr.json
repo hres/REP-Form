@@ -16,11 +16,11 @@
   "PHONE_EXT": "Numéro de poste",
   "ADDR_ROLES":"fr_Roles",
   "PHONE_NUMBER": "Numéro de téléphone",
-  "CONTACT_INFO": "fr_Contact Information",
+  "CONTACT_INFO": "fr_Company Representative Information",
   "AMEND": "fr_Amend",
   "REP_CONTACT":  "fr_REP Contact",
   "ONE_ROLE": "fr_Role",
-  "CONTACT_DETAILS": "fr_Contact Details",
-  "ADD_CONTACT": "fr_Add REP Contact"
-
+  "CONTACT_DETAILS": "fr_Company Representative Details",
+  "ADD_CONTACT": "fr_Add REP Contact",
+  "CONTACT_ROLE_LEGEND": "fr_Select one or more roles for this company representative"
 }

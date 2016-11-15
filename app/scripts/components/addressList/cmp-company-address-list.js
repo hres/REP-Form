@@ -34,6 +34,8 @@
         var vm = this;
         vm.selectRecord = -1; //the record to select, initially select non
         vm.isDetailsValid = true; //used to track if details valid. If they are  not do not allow expander collapse
+        vm.allRolesSelected = "";
+        vm.resetCollapsed = false;
         vm.addressList = [];
         vm.columnDef = [
             {
@@ -111,6 +113,7 @@
             vm.selectRecord = 0;
             vm.isDetailsValid = true; //case that incomplete record is deleted
             vm.allRolesSelected = vm.isAllRolesSelected();
+            vm.resetCollapsed = !vm.resetCollapsed;
         };
 
         vm.addAddress = function () {
@@ -120,6 +123,12 @@
             vm.selectRecord = (vm.addressList.length - 1);
             vm.isDetailsValid = false;
         };
+
+        vm.disableAddAddress = function () {
+            //TODO don't hard code length
+            return (!(vm.addressList.length < 4 && vm.isDetailsValid))
+
+        }
 
         vm.setValid = function (detailValid) {
             vm.isDetailsValid = detailValid;
@@ -132,6 +141,7 @@
             vm.addressList[idx] = angular.copy(address);
             vm.allRolesSelected = vm.isAllRolesSelected();
             vm.isDetailsValid = true;
+            vm.resetCollapsed = !vm.resetCollapsed;
         };
 
         //TODO move to the service
@@ -188,12 +198,12 @@
                 }
             }
             if (rolesSelected === numKeys) {
-                return true;
+                return "true";
             }
             else if ((rolesSelected === (numKeys - 1)) && (!importerSelected)) {
-                return true;
+                return "true";
             } else {
-                return false;
+                return "";
             }
         }
     }

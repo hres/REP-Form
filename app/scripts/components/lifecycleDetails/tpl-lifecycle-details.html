@@ -15,12 +15,13 @@
                         </div>
                         <div class="form-group col-md-4"
                              ng-class="{'has-error':lifecycleCtrl.lifecycleDetailsForm.dateFiled.$invalid}">
-                            <label for="dateFiled_{{$id}}" class="required">
+                            <label for="dateFiled_{{$id}}" ng-class="{'required':lifecycleCtrl.ectd}">
                                 <span class="field-name">{{"DATE_SUBMITTED" |translate}}</span>
-                                <strong class="required">{{"REQUIRED" |translate}}</strong>
+                                <strong ng-if="lifecycleCtrl.ectd" class="required">{{"REQUIRED" |translate}}</strong>
                                 <input type="date" id="dateFiled_{{$id}}" name="dateFiled"
+                                       ng-readonly="!lifecycleCtrl.ectd"
                                        ng-model="lifecycleCtrl.lifecycleModel.dateFiled"
-                                       class="form-control" ng-required="true" ng-pattern="datePattern"/>
+                                       class="form-control" ng-required="lifecycleCtrl.ectd" ng-pattern="datePattern"/>
                                 <strong id="dateFiled-error" class="error"
                                         ng-if="lifecycleCtrl.showError(lifecycleCtrl.lifecycleDetailsForm.dateFiled.$invalid,lifecycleCtrl.lifecycleDetailsForm.dateFiled.$touched)">
                         <span class="label label-danger"
@@ -35,13 +36,15 @@
 
                         <div class="form-group col-md-4"
                              ng-class="{'has-error':lifecycleCtrl.lifecycleDetailsForm.controlNum.$invalid}">
-                            <label for="controlNum_{{$id}}" class="required">
+                            <label for="controlNum_{{$id}}" ng-class="{'required':lifecycleCtrl.ectd}">
                                 <span class="field-name">{{"Control Number" |translate}}</span>
-                                <strong class="required">{{"REQUIRED" |translate}}</strong>
+                                <strong ng-if="lifecycleCtrl.ectd" ng-if="lifecycleCtrl.ectd" class="required">{{"REQUIRED"
+                                    |translate}}</strong>
                                 <input type="text" id="controlNum_{{$id}}" name="controlNum" only-digits=""
                                        ng-model="lifecycleCtrl.lifecycleModel.controlNumber"
+                                       ng-readonly="!lifecycleCtrl.ectd"
                                        class="form-control full-width" maxlength="7" minlength="7" size="7"
-                                       required/>
+                                       ng-required="lifecycleCtrl.ectd"/>
                                 <strong id="controlNum-error" class="error"
                                         ng-if="lifecycleCtrl.showError(lifecycleCtrl.lifecycleDetailsForm.controlNum.$invalid,lifecycleCtrl.lifecycleDetailsForm.controlNum.$touched)">
                         <span class="label label-danger"

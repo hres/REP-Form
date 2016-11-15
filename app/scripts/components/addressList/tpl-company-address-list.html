@@ -5,7 +5,7 @@
         </header>
         <div class="panel-body">
             <div class="row">
-                <input type="checkbox" id="addressValid" name="addressRolesValid" ng-show="false"
+                <input type="text" id="addressValid" name="addressRolesValid" ng-show="false"
                        ng-model="addressListCtrl.allRolesSelected" required/>
                 <label>
                     <strong id=" addressNum-role-error" class="error" ng-if="addressListCtrl.showError()">
@@ -16,6 +16,7 @@
                     </strong>
                 </label>
                 <cmp-expanding-table list-items="addressListCtrl.addressList"
+                                     reset-to-collapsed="addressListCtrl.resetCollapsed"
                                      column-def="addressListCtrl.columnDef" select-record="addressListCtrl.selectRecord"
                                      disable-selection="!addressListCtrl.isDetailsValid">
 
@@ -33,10 +34,10 @@
                 <div class="btn-group-sm col-md-12 text-right">
                     <input type="submit" value="{{'ADD_ADDRESS'|translate}}" class="btn btn-primary"
                            ng-click="addressListCtrl.addAddress()" name="addAddressBtn" id="addAddressBtn"
-                           ng-disabled="!addressListCtrl.isDetailsValid">
-                    <input type="submit" value="Cancel" class="btn btn-default"
-                           data-ng-show="addressListCtrl.newAdrFormShow"
-                           ng-click="addressListCtrl.newAdrFormShow = false">
+                           ng-disabled="addressListCtrl.disableAddAddress()">
+                    <!-- <input type="submit" value="Cancel" class="btn btn-default"
+                             data-ng-show="addressListCtrl.newAdrFormShow"
+                             ng-click="addressListCtrl.newAdrFormShow = false">-->
                 </div>
             </div>
         </div>

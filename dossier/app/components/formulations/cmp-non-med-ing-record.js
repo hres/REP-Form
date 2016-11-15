@@ -48,6 +48,13 @@
             self.backup = angular.copy(self.ingModel);
         };
 
+
+        /* self.duplicate = function () {
+            if (self.record) {
+                self.onAddIng({ing: self.record});
+            }
+         };*/
+
         self.saveIng = function () {
             // self.ingModel.animalHumanSourced = self.ingModel.animalHumanSourced == true ? "Yes" : "No";
             if(self.nonMedIngForm.$valid) {

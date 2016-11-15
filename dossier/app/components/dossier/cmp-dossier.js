@@ -24,7 +24,9 @@
        'numberFormat',
         'ngMessages',
         'ngAria',
-        'theraClass'
+        'theraClass',
+        'animalSourcedSection',
+        'tissuesFluidsList'
     ];
 
     angular
@@ -48,18 +50,18 @@
             }
         });
 
-    dossierCtrl.$inject = ['$scope', 'hpfbFileProcessing', 'ApplicationInfoService', 'DossierService'];
+    dossierCtrl.$inject = ['$scope', 'hpfbFileProcessing', 'ApplicationInfoService', 'DossierService', 'DossierLists'];
 
 
-    function dossierCtrl($scope, hpfbFileProcessing, ApplicationInfoService, DossierService) {
+    function dossierCtrl($scope, hpfbFileProcessing, ApplicationInfoService, DossierService, DossierLists) {
 
         var self = this;
         self.showContent = _loadFileContent; //binds the component to the function
-        self.formUserType = 'EXT'; //set default to external type
         self.applicationInfoService = new ApplicationInfoService();
         self.userType = "EXT";
         self.saveXMLLabel = "SAVE_DRAFT";
-
+        self.yesNoList = DossierLists.getYesNoList();
+        self.yesValue = DossierLists.getYesValue()
         //config for applicationInfoCompoenent
         self.configField = {
             "label": "DOSSIER_ID",
@@ -71,7 +73,11 @@
         self.formAmend = false;
         self.showAllErrors = false;
         self.errorAppendix = [];
+        self.extraAppendix = [];
         self.noThera="";
+        self.oneRefSelected = "";
+        var yesValue = "Y";
+
         self.$onInit = function () {
 
             self.dossierService = new DossierService();
@@ -98,27 +104,37 @@
             return (self.errorAppendix && self.errorAppendix.length > 0);
 
         };
+        self.appendixExtraError = function () {
+            return (self.extraAppendix && self.extraAppendix.length > 0);
+
+        };
 
         function _loadFileContent(fileContent) {
             if (!fileContent)return;
             var resultJson = fileContent.jsonResult;
             if (resultJson) {
-
                 // console.info('file loaded ... ' + JSON.stringify(resultJson));
                 self.dossierModel = self.dossierService.loadFromFile(resultJson);
-
-
                 //process file load results
                 //load into data model as result json is not null
             }
             //if content is attempted to be loaded show all the errors
-            self.errorAppendix=self.dossierService.getMissingAppendix4(self.dossierModel);
+            getAppendix4Errors();
             self.showAllErrors = true;
             disableXMLSave();
         }
 
         self.recordsChanged=function(){
-            self.errorAppendix=self.dossierService.getMissingAppendix4(self.dossierModel);
+            getAppendix4Errors();
+        }
+
+        self.isRefProducts = function () {
+
+            if (self.dossierModel.isRefProducts === self.yesValue) {
+                return true;
+            }
+            self.dossierModel.drugProduct.canRefProducts = [];
+            return false;
         }
 
         self.setApplicationType = function (value) {
@@ -126,6 +142,28 @@
             self.formAmend = self.dossierModel.applicationType === self.applicationInfoService.getAmendType();
             disableXMLSave();
         };
+
+        self.cdnRefUpdated = function (list) {
+            //don't do anything with the list
+            self.showNoRefReError();
+        }
+
+        self.showNoRefReError = function () {
+
+            if (self.dossierModel.drugProduct.canRefProducts.length > 0 && self.dossierModel.isRefProducts === yesValue) {
+                self.oneRefSelected = "sel";
+                return false
+            } else {
+                self.oneRefSelected = "";
+                return true;
+            }
+        }
+
+        function getAppendix4Errors() {
+            var appendixCheck = self.dossierService.getMissingAppendix4(self.dossierModel);
+            self.errorAppendix = appendixCheck.missing;
+            self.extraAppendix = appendixCheck.extra;
+        }
 
         /**
          * @ngdoc Used to determine if the form is incomplete

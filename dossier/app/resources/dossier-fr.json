@@ -43,5 +43,6 @@
   "COUNTRY_MAN": "fr_Country of Manufacture",
   "DELETE_COUNTRY":"fr_Delete Country",
   "COUNTRIES_MANUFACT":"fr_Countries of manufacture for this drug product",
-  "ADD_CRP":"fr_Add Canadian Reference Product"
+  "ADD_CRP": "fr_Add Canadian Reference Product",
+  "IS_CDN_REF": "fr_Are there Canadian Reference Products?"
 }

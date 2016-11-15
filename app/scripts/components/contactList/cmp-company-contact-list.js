@@ -34,6 +34,7 @@
         vm.allRolesSelected=false;
         vm.contactList = [];
         vm.formAmend = false;
+        vm.resetCollapsed = false;//used to signal expanding table collapse
         vm.columnDef = [
             {
                 label: "FIRST_NAME",
@@ -130,6 +131,7 @@
              ); //TODO fix filter
              vm.contactList[idx] = angular.copy(record);
             vm.allRolesSelected= vm.isAllContactRolesSelected();
+            vm.resetCollapsed = !vm.resetCollapsed;
 
         }
 
@@ -141,7 +143,7 @@
             vm.onUpdate({newList: vm.contactList});
             vm.isDetailValid = true; //case that incomplete record
             vm.allRolesSelected= vm.isAllContactRolesSelected();
-            vm.selectRecord = -1
+            vm.resetCollapsed = !vm.resetCollapsed;
 
         }
 
@@ -152,7 +154,7 @@
             var defaultContact = vm.getNewContact()
             vm.contactList.push(defaultContact);
             //select table row first then make invalid
-            vm.isDetailValid=true;
+            //vm.isDetailValid=true;
             vm.selectRecord=(vm.contactList.length - 1);
             vm.isDetailValid= false;
         }

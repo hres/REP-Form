@@ -81,7 +81,9 @@
             }
 
             if ((!vm.notifChangeForm.$pristine && vm.notifChangeForm.$invalid) || ( vm.showErrors() && vm.notifChangeForm.$invalid)
-                || (vm.notifChangeForm.$touched && vm.notifChangeForm.$invalid)) {
+                || (vm.notifChangeForm.$touched && vm.notifChangeForm.$invalid))
+            /* if( vm.notifChangeForm.$invalid)*/
+            {
                 return true;
             }
         }

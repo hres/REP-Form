@@ -76,13 +76,13 @@
         }
         vm.updateEctdState = function () {
             if (isEctdValue()) {
-                vm.showEctdSection = true;
+                //vm.showEctdSection = true;
                 vm.isEctd = true;
             } else {
                 //clear data
-                vm.resetEctd();
+                //  vm.resetEctd();
                 vm.isEctd = false;
-                vm.showEctdSection = false;
+                //vm.showEctdSection = false;
             }
         }
         function isEctdValue() {

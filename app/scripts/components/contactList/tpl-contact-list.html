@@ -17,6 +17,7 @@
                     </strong>
                 </label>
                 <cmp-expanding-table list-items="contactListCtrl.contactList"
+                                     reset-to-collapsed="contactListCtrl.resetCollapsed"
                                      column-def="contactListCtrl.columnDef" select-record="contactListCtrl.selectRecord"
                                      disable-selection="!contactListCtrl.isDetailValid">
 
@@ -32,7 +33,7 @@
             </div>
                 <div class="row mrgn-tp-md mrgn-bttm-lg">
                     <div class="btn-group-sm col-md-12 text-right">
-                        <input type="submit" value="Add Contact" class="btn btn-primary"
+                        <input type="submit" value="{{'ADD_REPRES'|translate}}" class="btn btn-primary"
                                ng-click="contactListCtrl.addContact()" ng-disabled="!contactListCtrl.isDetailValid">
                         <input type="submit" value="Cancel" class="btn btn-default"
                                data-ng-show="contactListCtrl.newContactFormShow"

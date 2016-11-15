@@ -55,16 +55,6 @@
         //TODO get rid of private variable
         vm.companyService = _company;
         vm.applTypes = vm.companyService.getApplicationTypes(); //TODO service ofor app types
-        vm.company = {
-            dataChecksum: "",
-            enrolmentVersion: "1",
-            dateSaved: "1999-01-21",
-            applicationType: "APPROVED",
-            softwareVersion: "string",
-            companyId: "string",
-            addressList: [],
-            contactList: []
-        };
         vm.company = _company.getModelInfo();
 
         vm.initUser = function (id) { //TODO needed?
@@ -116,10 +106,28 @@
             hpfbFileProcessing.writeAsXml(writeResult, _createFilename(), vm.rootTag);
         };
 
+
+        /**
+         * Creates a filename based on HC specifications
+         * @returns {string}
+         * @private
+         */
         function _createFilename() {
-            var filename = "HC_CO_Enrolment";
-            if (vm.company && vm.company.companyId) {
-                filename = filename + "_" + vm.company.companyId;
+            var draft_prefix="DRAFTREPCO";
+            var final_prefix= "HCREPCO";
+            var filename="";
+            if( vm.userType==='INT'){ //TODO magic numbers
+
+                filename=final_prefix;
+            }else{
+                filename=draft_prefix;
+            }
+            if(vm.company.companyId){
+                filename=filename+"_"+vm.company.companyId;
+            }
+            if(vm.company.enrolmentVersion){
+                var parts = vm.company.enrolmentVersion.split('.')
+                filename=filename+"_"+parts[0]+'_'+parts[1];
             }
             return filename;
         }

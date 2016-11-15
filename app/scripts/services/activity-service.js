@@ -49,7 +49,14 @@
         }
 
         ActivityService.prototype = {
-            _default: {}
+            _default: {},
+            SANDS: "SANDS",
+            SNDS: "SNDS",
+            NC: "NC",
+            VNC: "VNC",
+            BIOLOGIC: "BIOLOGIC",
+            DIN: "DIN"
+
         };
 
 
@@ -74,7 +81,7 @@
                     data_checksum: jsonObj.dataChecksum,
                     dossier_id_prefix: jsonObj.dossierIdPrefix,
                     dossier_id: jsonObj.dossierId,
-                    dossier_id_concat:"",
+                    dossier_id_concat: "",
                     reg_activity_lead: jsonObj.regActivityLead,
                     reg_activity_type: jsonObj.regActivityType,
                     fee_class: jsonObj.feeClass,
@@ -220,16 +227,22 @@
             return activity;
         };
 
+        /**
+         * Get the activity list. Small so not in a separate service
+         * @param isPilot
+         * @returns {string[]}
+         */
         ActivityService.prototype.getActivityLeadList = function (isPilot) {
 
             var leadList = [
-                "BIOLOGIC",
+                this.BIOLOGIC,
                 "CHP",
                 "DMF",
                 "PHARMA",
                 "PMVIGILANCE"
             ];
-            if (!isPilot) {
+
+            if (!isPilot) { //if pilot do not show these values
                 leadList.push("MD", "VET", "UNASSIGNED");
             }
             return leadList;
@@ -240,7 +253,18 @@
         ActivityService.prototype.isNotifiableChange = function (value) {
 
             if (!value) return false;
-            if (value === 'NC' || value === 'VNC') {
+            if (value === this.VNC || value === this.NC) {
+                return true;
+            }
+            return false;
+        }
+        ActivityService.prototype.isRationale = function (activity, lead) {
+
+            if (!activity) return false;
+            if (activity === this.SANDS || activity === this.SNDS) {
+                return true;
+            }
+            if (activity === this.DIN && lead === this.BIOLOGIC) {
                 return true;
             }
             return false;
@@ -252,14 +276,16 @@
                 "CTA",
                 "CTAA",
                 "NDS",
-                "SNDS",
+                this.SNDS,
                 "ANDS",
-                "SANDS",
-                "NC",
-                "DIN",
+                this.SANDS,
+                this.NC,
+                this.DIN,
                 "PDC",
                 "ADMIN"
             ];
+
+
             if (!isPilot) {
                 activityList.push(
                     "VIND",
@@ -267,7 +293,7 @@
                     "VNDS",
                     "VANDS",
                     "VSANDS",
-                    "VNC",
+                    this.VNC,
                     "VDIN")
             }
             return activityList;
@@ -289,7 +315,6 @@
                 this.activityId = value;
             }
         };
-
 
 
         // Return a reference to the object
@@ -520,7 +545,7 @@
         if (!jsonObj) return null;
         var regActivityType = {
             "activity_id": jsonObj.activityId,
-            "amend_record": jsonObj.amendRecord=== true ? 'Y' : 'N',
+            "amend_record": jsonObj.amendRecord === true ? 'Y' : 'N',
             "reg_activity_type": jsonObj.regActivityType,
             "date_cleared": "",
             "control_number": jsonObj.dstsControlNumber,
@@ -557,7 +582,7 @@
         if (!jsonObj) return null;
         var regActivityType = {
             "activityId": jsonObj.activity_id,
-            "amendRecord": jsonObj.amend_record==='Y',
+            "amendRecord": jsonObj.amend_record === 'Y',
             "regActivityType": jsonObj.reg_activity_type,
             "dateCleared": "",
             "dstsControlNumber": jsonObj.control_number,

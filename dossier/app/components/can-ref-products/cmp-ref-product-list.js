@@ -70,6 +70,7 @@
         self.updateProduct = function (idx, product) {
             self.productList[idx] = angular.copy(product);
             self.setValid(true);
+            self.onUpdate({recs: self.productList});
         };
 
         self.deleteProduct = function (idx) {

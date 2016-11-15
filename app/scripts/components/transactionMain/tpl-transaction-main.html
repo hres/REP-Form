@@ -18,7 +18,7 @@
             <cmp-transaction-info transaction-root="main.transaction" show-errors="main.showErrors()"
                                   deprecate-sequence="main.transactionService.deprecateSequenceNumber()"
                                   reset-ectd="main.transactionService.resetEctdSection()"
-                                  get-transaction="main.transactionService.getNewTransaction()"
+                                  get-transaction="main.transactionService.getNewTransaction(main.transaction.isEctd==='Y')"
                                   get-rep-contact="main.transactionService.getNewRepContact()"></cmp-transaction-info>
             <div class="row">
                 <div class="form-group col-md-3">

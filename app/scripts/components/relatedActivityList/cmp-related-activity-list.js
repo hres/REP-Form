@@ -36,6 +36,7 @@
         vm.isDetailsValid=true; //used to track if details valid. If they are  not do not allow expander collapse
         vm.formAmend = false;
         vm.activityList = [];
+        vm.resetCollapsed = false;
         vm.activityTypeList = [];
         vm.columnDef = [
             {
@@ -82,7 +83,7 @@
             vm.onUpdate({newList: vm.activityList});
             vm.selectRecord = -1;
             vm.isDetailsValid = true; //case that incomplete record is deleted
-
+            vm.resetCollapsed = !vm.resetCollapsed;
         };
 
         vm.addActivity = function () {
@@ -104,6 +105,7 @@
             );
             vm.activityList[idx] = angular.copy(activity);
             vm.isDetailsValid = true;
+            vm.resetCollapsed = !vm.resetCollapsed;
         };
 
         /**

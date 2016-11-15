@@ -107,7 +107,6 @@
             console.log("in country error");
             //if(angular.isUndefined(self.model)) return false;
             if(self.model.countryList.length>0){
-                console.log("list of countries")
                 self.oneCountrySelected="selected"
                 return false;
             }else{

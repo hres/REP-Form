@@ -27,20 +27,43 @@
 
     /* @ngInject */
     function getService() {
+        var OTHER = "OTHER";
+        var YES = 'Y';
         var service = {
             getDosageFormList: getDosageFormsArray,
             getDosageOther: getDoseOtherValue,
             getNanoMaterials: getNanoMaterialArray,
             getRoa: getRoaArray,
-            getOtherValue: getOtherValue,
-            getYesNoList: yesNoArray
+            getOtherValue: getOtherValue, //TODO make a constant instead
+            getUnknownValue: getUnknownValue, //TODO make a constant instead
+            getYesNoList: yesNoArray,
+            getYesNoUnknownList: yesNoUnknownArray,
+            getAnimalSources: animalSourcesArray,
+            getTissuesSystem:tissuesSystemArray,
+            getNervousSystem: nervousSystemArray,
+            getDigestiveSystem: digestiveSystemArray,
+            getImmuneSystem: immuneSystemArray,
+            getSkinSystem: skinSystemArray,
+            getReprodSystem: reprodSystemArray,
+            getOtherSystem: otherSystemArray,
+            getMuscleSystem: muscleSystemArray,
+            getCardioSystem: cardioSystemArray,
+            getYesValue: getYesValue
         };
         return service;
 
 
         ////////////////
         function getDoseOtherValue() {
-            return "OTHER";
+            return OTHER;
+        }
+
+        function getYesValue() {
+            return YES;
+        }
+
+        function getUnknownValue() {
+            return "UNLKNOWN";
         }
 
         function getOtherValue() {
@@ -83,7 +106,7 @@
                 "TABLET_EXTENDED_RELEASE",
                 "TABLET_ORALLY_DISINTEGRATING",
                 "WIPE",
-                "OTHER"
+                OTHER
             ]);
 
         }
@@ -98,7 +121,7 @@
                 "NANOEMULSIONS",
                 "NANOCRYSTAL",
                 "METALCOLLOIDS",
-                "OTHER"
+                OTHER
             ]);
         }
 
@@ -135,7 +158,7 @@
                 "TRANSDERMAL",
                 "URETHRAL",
                 "VAGINAL",
-                "OTHER"
+                OTHER
             ]);
         }
 
@@ -146,6 +169,191 @@
                 "N"
             ]);
         }
+
+        function yesNoUnknownArray() {
+
+            return ([
+                "Y",
+                "N",
+                "UNKNOWN"
+            ]);
+        }
+
+        function animalSourcesArray() {
+
+            return ([
+                "NONHUMANPRIMATE_TYPE",
+                "AQUATIC_TYPE",
+                "AVIAN_TYPE",
+                "BOVINE_TYPE",
+                "CANINE_TYPE",
+                "CAPRINE_TYPE",
+                "CERVIDAE_TYPE",
+                "EQUINE_TYPE",
+                "FELINE_TYPE",
+                "OVINE_TYPE",
+                "PORCINE_TYPE",
+                "RODENT_TYPE",
+                "OTHERANIMAL_TYPE"
+            ]);
+        }
+        /**
+         * Tisssues and fluids system types
+         * @returns {string[]}
+         */
+        function tissuesSystemArray() {
+
+            return ([
+                "DIGESTIVE_SYSTEM",
+                "NERVOUS_SYSTEM",
+                "REPRODUCT_SYSTEM",
+                "CARDIO_SYSTEM",
+                "IMMUNE_SYSTEM",
+                "SKINGLAND_SYSTEM",
+                "MUSCULO_SYSTEM",
+                "OTHERTISSUE_SYSTEM"
+            ]);
+        }
+
+        /**
+         * Nervous system Tissues or fluids LOV
+         * @returns {*[]}
+         */
+        function nervousSystemArray() {
+
+            return ([
+                "BRAIN",
+                "BRAINSTEM",
+                "CEREBELLUM",
+                "CEROFLUID",
+                "DORSALROOT",
+                "DURAMATER",
+                "HYPOTHALAMUS",
+                "RETINA",
+                "SPINALCORD",
+                "TRIGEMINAL",
+                "NERVOUS_OTHER"
+            ]);
+        }
+
+        /**
+         * Digestive system Tissues or fluids LOV
+         * @returns {*[]}
+         */
+        function digestiveSystemArray() {
+
+            return ([
+                "APPENDIX",
+                "BILE",
+                "DISTALILEUM",
+                "LARGEINTEST",
+                "SALIVA",
+                "SMALLINTESTINE",
+                "STOMACH",
+                "DIGESTIVE_OTHER"
+            ]);
+        }
+        /**
+         * Reproductive system Tissues or fluids LOV
+         * @returns {*[]}
+         */
+        function reprodSystemArray() {
+
+            return ([
+                "MILK",
+                "KIDNEY",
+                "COLOSTRUM",
+                "MAMMARY",
+                "OVARIES",
+                "PLACENTA",
+                "PLACENTAFLUID",
+                "SEMEN",
+                "TESTES",
+                "URINE",
+                "REPROD_OTHER"
+            ]);
+        }
+        /**
+         * Cardio system Tissues or fluids LOV
+         * @returns {*[]}
+         */
+        function cardioSystemArray() {
+            return ([
+                "HEART",
+                "LUNG",
+                "NASALFLUID",
+                "TRACHEA",
+                "PLACENTALFLUID",
+                "CARDIO_OTHER"
+            ]);
+        }
+        /**
+         * Immune system Tissues or fluids LOV
+         * @returns {*[]}
+         */
+        function immuneSystemArray() {
+            return ([
+                "LYMPH",
+                "SPLEEN",
+                "THYMUS",
+                "TONSILS",
+                "IMMUNE_OTHER"
+            ]);
+        }
+
+        /**
+         * Skin system Tissues or fluids LOV
+         * @returns {*[]}
+         */
+        function skinSystemArray() {
+            return ([
+                "ADRENAL",
+                "HAIR",
+                "LIVER",
+                "PANCREAS",
+                "PITUARYGLAND",
+                "SKINHIDES",
+                "THYROID",
+                "SKIN_OTHER"
+            ]);
+        }
+        /**
+         * Muscle system Tissues or fluids LOV
+         * @returns {*[]}
+         */
+        function muscleSystemArray() {
+            return ([
+                "ABDOMEN",
+                "SKULL",
+                "BONES",
+                "COLLAGEN",
+                "TENDONS",
+                "VERTEBRALCOLUMN",
+                "MUSCLE_OTHER"
+            ]);
+        }
+        /**
+         * Other system Tissues or fluids LOV
+         * @returns {*[]}
+         */
+        function otherSystemArray() {
+            return ([
+                "ADIPOSE",
+                "ASCITES",
+                "ANTLERV",
+                "SERUM",
+                "WHOLEBLOOD",
+                "PLASMA",
+                "EMBRYONICTISS",
+                "FETALTISS",
+                "BONEMARROW",
+                "EYESCORNEA",
+                "GALL",
+                "FLUIDS_OTHER"
+            ]);
+        }
+
+
     }
 
 

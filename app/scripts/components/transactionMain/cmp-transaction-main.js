@@ -40,7 +40,7 @@
 
         function _getFileName() {
             var date = new Date();
-            var filename = "HC_RT";
+            var filename = "HCREPRT";
             var month = date.getMonth() + 1;
             var day = date.getDate();
             if (month < 10) {

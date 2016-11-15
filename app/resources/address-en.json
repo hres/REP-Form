@@ -14,5 +14,6 @@
   "SAVE_ADDR": "Save Address",
   "DELETE_ADDR": "Delete Address",
   "ADDR_INFO": "Address Information",
-  "ADDR_DETAILS": "Address Details"
+  "ADDR_DETAILS": "Address Details",
+  "ADDR_ROLE_LEGEND": "Select one or more roles for this company"
 }

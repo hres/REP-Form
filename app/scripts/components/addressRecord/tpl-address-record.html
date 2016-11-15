@@ -2,7 +2,7 @@
     <ng-form name="addressRec.addressRecForm">
         <div>
             <div>
-                <h2>{{'ADDR_DETAILS'|translate}}</h2>
+                <h3>{{'ADDR_DETAILS'|translate}}&nbsp;{{addressRec.addressModel.addressID}}</h3>
 
                 <div class="row">
                     <div class="form-group" ng-show="addressRec.isAmend">
@@ -14,14 +14,6 @@
                         </label>
                     </div>
                 </div>
-            </div>
-            <div>
-                <cmp-address-role record="addressRec.addressModel"
-                                  is-contact="addressRec.isContact" is-amend="addressRec.isEditable"
-                                  on-update="addressRec.onAddressRoleUpdate($event.roles)"
-                                  show-errors="addressRec.showErrors()"
-                                  already-selected="addressRec.isOneSelected(roleName)"></cmp-address-role>
-
             </div>
             <div class="row">
                 <div class="form-group col-md-12"
@@ -48,6 +40,14 @@
                                      on-update="addressRec.onUpdateAddressRecord(address)"
                                      show-errors="addressRec.showErrors()"></cmp-address-details>
             </div>
+            <div>
+                <cmp-address-role record="addressRec.addressModel" legend-text="ADDR_ROLE_LEGEND"
+                                  is-contact="addressRec.isContact" is-amend="addressRec.isEditable"
+                                  on-update="addressRec.onAddressRoleUpdate($event.roles)"
+                                  show-errors="addressRec.showErrors()"
+                                  already-selected="addressRec.isOneSelected(roleName)"></cmp-address-role>
+
+            </div>
             <div class="row">
                 <div class="btn-group-sm col-xs-12 text-right">
                     <input type="submit" value="{{'SAVE_ADDR'|translate}}" class="btn btn-primary" name="saveAddress"
@@ -62,5 +62,4 @@
         </div>
     </ng-form>
     <!--  <pre>address record model: {{addressRec.addressModel | json : spacing}}</pre>-->
-
 </div>
