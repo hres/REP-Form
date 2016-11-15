@@ -89,5 +89,6 @@
   "TRANSACTION_HDING": "Regulatory Transaction Enrolment",
   "LOAD_TRANSACTION": "Load a Transaction Enrolment File",
   "COMPANY_INFO": "Company Information",
-  "ADDRESS_INFO": "Address Information"
+  "ADDRESS_INFO": "Address Information",
+  "GENERATE_FINAL":"Generate Final XML"
 }
