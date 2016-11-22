@@ -1,0 +1,49 @@
+<ng-form name="infoCtrl.applInfoForm"
+<div>
+    <div class="row">
+        <div class="col-xs-3 form-group">
+            <label for="application-type_{{$id}}">{{"APPL_STATUS"| translate}}</label>
+            <select id="application-type_{{$id}}"
+                    ng-options="type |translate for type in infoCtrl.applTypes"
+                    ng-model="infoCtrl.record.applicationType"
+                    ng-disabled="true"
+                    class="form-control full-width"></select>
+        </div>
+        <div class="col-xs-3 form-group">
+            <label for="enr-version-text_{{$id}}">{{"ENROL_VERSION"| translate}}</label>
+            <input type="text" class="form-control full-width" id="enr-version-text_{{$id}}" ng-readonly="true"
+                   ng-model="infoCtrl.infoModel.enrolmentVersion"/>
+        </div>
+        <div class="col-xs-3 form-group">
+            <label for="date-saved-text_{{$id}}">{{"DATE_SAVED"| translate}}</label>
+            <input type="text" class="form-control full-width" id="date-saved-text_{{$id}}"
+                   ng-model="infoCtrl.infoModel.dateSaved"
+                   ng-readonly="true"/>
+        </div>
+        <div class="col-xs-3 form-group">
+            <label for="field-id-text_{{$id}}">{{infoCtrl.fieldIdLabel |translate}}
+                <input type="text" class="form-control" id="field-id-text_{{$id}}"
+                       ng-readonly="infoCtrl.isExtern()" maxlength="{{infoCtrl.fieldLength}}" name="fieldId"
+                       ng-minlength="{{infoCtrl.fieldLength}}"
+                       ng-model="infoCtrl.record[infoCtrl.tagName]" ng-required="!infoCtrl.isExtern()"/>
+                <strong id="code-error" class="error">
+                        <span class="label label-danger" ng-if="infoCtrl.applInfoForm.fieldId.$invalid"
+                              ng-messages="infoCtrl.applInfoForm.fieldId.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                              <span ng-message="minlength"><span translate="{{infoCtrl.errorMsg}}"></span></span>
+                        </span>
+                </strong>
+            </label>
+        </div>
+    </div>
+  <div class="row">
+      <div class="col-xs-6 form-group">
+          <div>
+              <button class="btn btn-default form-control" name="amendSub" id="amendSub"
+                      ng-click="infoCtrl.setAmendState()" ng-disabled="infoCtrl.setAsIncomplete">
+                  {{'AMEND_ENROL'|translate}}
+              </button>
+          </div>
+      </div>
+  </div>
+</div>

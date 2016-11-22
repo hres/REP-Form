@@ -1,0 +1,63 @@
+<ng-form name="saForm">
+    <fieldset>
+        <legend class="required">
+            <span class="field-name">{{'SOURCED_ANIMAL'|translate}}</span>
+            <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                <span>
+                 <input id="oneSelected_{{$id}}" name="oneSelected" ng-required="true" ng-show="false"
+                        ng-model="saCtrl.isSelected" ng-required="true"/>
+                <strong id="roleSelected-role-error" class="error" ng-if="saCtrl.showAnimalError()">
+                             <span class="label label-danger" aria-live="polite"
+                                   ng-messages="saForm.oneSelected.$error">
+                                <span ng-message="required">{{"MSG_ERR_ONE_ANIMAL_TYPE"|translate}}</span>
+                             </span>
+                </strong>
+                    </span>
+        </legend>
+        <div class="col col-md-12">
+            <div class="col-xs-6 form-group" ng-repeat="item in saCtrl.model.primateTypeList">
+                <label for="{{item.name}}" ng-class="{'required':item.required}"><span class="field-name">{{item.label|translate}}</span>
+                    <strong class="required" ng-if="item.required">{{"REQUIRED" |translate}}</strong></label>
+                <input type="{{item.type}}" class="form-control full-width" id="{{item.name}}" name="{{item.name}}"
+                       maxlength="75"
+                       ng-model="item.value" ng-if="item.type !== 'select'"/>
+                <!-- TODO: Replace hard coding of values-->
+                <select id="{{item.name}}" name="{{item.name}}" ng-model="item.value" class="form-control full-width"
+                        ng-if="item.type === 'select'" ng-required="true">
+                    <option>{{'Y'|translate}}</option>
+                    <option>{{'N'|translate}}</option>
+                    <option>{{'UNKNOWN'|translate}}</option>
+                </select>
+                <strong id="{{item.name}}-role-error" class="error"
+                        ng-if="saCtrl.showListError(saForm[item.name].$invalid,saForm[item.name].$touched,item.required)">
+                        <span class="label label-danger" ng-messages="saForm[item.name].$error">
+                            <span ng-message="required">{{"MSG_ERR_MAND"|translate}}</span>
+                        </span>
+                </strong>
+            </div>
+
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend class="required">
+            <span class="field-name">{{'Countries of origin of the Animals' |translate}}</span>
+            <strong class="required"> {{"REQUIRED" |translate}}</strong>
+            <span>
+                 <input id="oneCountry_{{$id}}" name="oneCountry" ng-required="true" ng-show="false"
+                        aria-hidden="true" ng-model="saCtrl.oneCountrySelected" ng-required="true"/>
+                <strong id="country-select-error" class="error" ng-if="saCtrl.showOneCountryError()">
+                             <span class="label label-danger" aria-live="polite"
+                                   ng-messages="saForm.oneCountry.$error">
+                                <span ng-message="required">{{"MSG_ERR_ONE_COUNTRY"|translate}}</span>
+                             </span>
+                </strong>
+                    </span>
+        </legend>
+        <div class="col-xs-12 form-group">
+            <cmp-country-list field-label="ANIMAL_CTRY_ORIGIN" with-unknown="true" list-items="saCtrl.model.countryList"
+                              on-update="saCtrl.updateCountryList(list)"></cmp-country-list>
+        </div>
+
+    </fieldset>
+    <!--<pre>source-animal{{ saCtrl.model |json}}</pre>-->
+</ng-form>

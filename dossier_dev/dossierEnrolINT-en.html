@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
     wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title><!--build:formTitle--><!--endbuild--></title>
+    <title>Health Canada Dossier Form</title>
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <!-- Meta data -->
     <meta name="description"
@@ -89,23 +89,21 @@
                 <div id="mb-pnl"></div>
             </section>
             <section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg">
-                <h2>Search</h2>
-                <form action="#" method="post" name="cse-search-box" role="search" class="form-inline">
-                    <div class="form-group">
-                        <label for="wb-srch-q" class="wb-inv">Search website</label>
-                        <input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search"
-                               value="" size="27" maxlength="150" placeholder="Search Canada.ca">
-                        <datalist id="wb-srch-q-ac">
-                            <!--[if lte IE 9]><select><![endif]-->
-                            <!--[if lte IE 9]></select><![endif]-->
-                        </datalist>
-                    </div>
-                    <div class="form-group submit">
-                        <button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub">
-                            <span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
-                    </div>
-                </form>
-            </section>
+<h2>Search</h2>
+<form action="#" method="post" name="cse-search-box" role="search" class="form-inline">
+<div class="form-group">
+<label for="wb-srch-q" class="wb-inv">Search website</label>
+<input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="27" maxlength="150" placeholder="Search Canada.ca">
+<datalist id="wb-srch-q-ac">
+<!--[if lte IE 9]><select><![endif]-->
+<!--[if lte IE 9]></select><![endif]-->
+</datalist>
+</div>
+<div class="form-group submit">
+<button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub"><span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
+</div>
+</form>
+</section>
         </div>
     </div>
     <nav role="navigation" id="wb-sm" data-ajax-replace="./ajax/sitemenu-en.html" data-trgt="mb-pnl"
@@ -133,7 +131,7 @@
         <div class="container">
             <div class="row">
                 <ol class="breadcrumb">
-                    <li><a href="https://lam-dev.hres.ca/REP-Form/index.html">Home</a></li>
+                    <li><a href="https://lam-dev.hres.ca/REP-Form/index-en.html">Home</a></li>
                 </ol>
             </div>
         </div>
@@ -144,65 +142,24 @@
 
     <!--content starts here -->
     <div>
-        <div class="row">
-            <h1 property="name" id="wb-cont"> Regulatory Enrolment Process </h1>
-        </div>
-        <div>
-            <div class="row">
-                <h2> External User Links</h2>
-            </div>
-            <div class="row">
-                <a href="companyEnrolEXT-en.html">Company Enrolment -External (Nov 15)</a>
-            </div>
-            <div class="row">
-                <a href="transactionEnrol-en.html">Transaction Enrolment -External (Nov 15)</a>
-            </div>
-            <div class="row">
-                <a href="activityEnrolEXT-en.html">Activity Enrolment -External (Nov 15)</a>
-            </div>
-            <div class="row">
-                <a href="dossier/dossierEnrolEXT-en.html">Dossier Enrolment External (Nov 15)</a>
-            </div>
-            <div class="row">
-                <a href="dossier_dev/dossierEnrolEXT-en.html">TEMPORARY: Dossier Enrolment External (Nov 22)</a>
-            </div>
+        <h1 property="name" id="wb-cont">Dossier Form for the Regulatory Enrolment Process (REP)</h1>
 
+        <!-- inject:mainContent-->
+        <div class="container" ng-app="dossierApp" ng-controller="MainController as ctrl">
+    <cmp-dossier form-type="{{ctrl.formType}}"></cmp-dossier>
+</div>
 
-        </div>
-        <div>
-            <div class="row">
-                <h2>Internal User (i.e. HPFB) Links</h2>
-            </div>
-            <div class="row">
-                <a href="companyEnrolINT-en.html">Company Enrolment -Internal (Nov 15) </a>
-            </div>
+        <!-- endinject-->
 
-            <div class="row">
-                <a href="activityEnrolINT-en.html">Activity Enrolment -Internal (Nov 15)</a>
-            </div>
-            <div class="row">
-                <a href="dossier/dossierEnrolINT-en.html">Dossier Enrolment Internal (Nov 15)</a>
-            </div>
-
-        </div>
-        <div>
-            <row>
-                <h2>Changed All forms- Nov 15</h2>
-                <ul>
-                    <li>As per documented design changes</li>
-
-                </ul>
-            </row>
-        </div>
 
     </div>
     <!--content ends here -->
 
     <div class="datemod col-xs-12 mrgn-tp-lg">
         <dl id="wb-dtmd">
-            <dt>Date modified:Nov 15, 2016</dt>
+            <dt>Date modified:&#32;</dt>
             <dd>
-                <time property="dateModified">2016-11-15</time>
+                <time property="dateModified">2016-11-22 </time>
             </dd>
         </dl>
     </div>
@@ -269,8 +226,148 @@
 
 <!-- inject:js -->
 
+<script src="app/lib/angular.min.js"></script>
+
+<script src="app/lib/angular-translate.min.js"></script>
+
+<script src="app/lib/angular-sanitize.min.js"></script>
+
+<script src="app/lib/angular-route.min.js"></script>
+
+<script src="app/lib/angular-resource.min.js"></script>
+
+<script src="app/lib/angular-mocks.js"></script>
+
+<script src="app/lib/angular-messages.min.js"></script>
+
+<script src="app/lib/angular-aria.min.js"></script>
+
+<script src="app/translations.js"></script>
+
+<script src="app/dossierAppINT-en.js"></script>
+
+<script src="app/services/rep-contact-service.js"></script>
+
+<script src="app/services/hpfb-constants.js"></script>
+
+<script src="app/services/filter-lists.js"></script>
+
+<script src="app/services/dossier-service_20161122_1111.js"></script>
+
+<script src="app/services/dossier-data-list_20161122_1111.js"></script>
+
+<script src="app/services/data-lists.js"></script>
+
+<script src="app/services/application-info-service.js"></script>
+
+<script src="app/directives/numberOnly/only-digits.js"></script>
+
+<script src="app/components/therapeutic-classification/cmp-thera-list_20161122_1111.js"></script>
+
+<script src="app/components/therapeutic-classification/cmp-thera-record_20161122_1111.js"></script>
+
+<script src="app/components/schedule-a/cmp-schedule-a_20161122_1111.js"></script>
+
+<script src="app/components/tabs/cmp-tab_20161122_1111.js"></script>
+
+<script src="app/components/tabs/cmp-tabs_20161122_1111.js"></script>
+
+<script src="app/components/route-admin/cmp-roa-record_20161122_1111.js"></script>
+
+<script src="app/components/route-admin/cmp-roa-list_20161122_1111.js"></script>
+
+<script src="app/components/repContactList/cmp-rep-contact-list.js"></script>
+
+<script src="app/components/rep-contact-record/cmp-rep-contact-record.js"></script>
+
+<script src="app/components/formulations/cmp-route-of-admin_20161122_1111.js"></script>
+
+<script src="app/components/formulations/cmp-non-med-ing-record_20161122_1111.js"></script>
+
+<script src="app/components/formulations/cmp-non-med-ing-list_20161122_1111.js"></script>
+
+<script src="app/components/formulations/cmp-material-ing-record_20161122_1111.js"></script>
+
+<script src="app/components/formulations/cmp-material-ing-list_20161122_1111.js"></script>
+
+<script src="app/components/formulations/cmp-formulation-record_20161122_1111.js"></script>
+
+<script src="app/components/formulations/cmp-formulation-list_20161122_1111.js"></script>
+
+<script src="app/components/formulations/cmp-container-type-record_20161122_1111.js"></script>
+
+<script src="app/components/formulations/cmp-container-type-list_20161122_1111.js"></script>
+
+<script src="app/components/formulations/cmp-active-ing-record_20161122_1111.js"></script>
+
+<script src="app/components/formulations/cmp-active-ing-list_20161122_1111.js"></script>
+
+<script src="app/components/fileIO/FileIO.hpfbFileReader.js"></script>
+
+<script src="app/components/expandingTable/cmp-expanding-table.js"></script>
+
+<script src="app/components/drug-use/cmp-drug-use_20161122_1111.js"></script>
+
+<script src="app/components/dossier/cmp-dossier_20161122_1111.js"></script>
+
+<script src="app/components/country-list/cmp-country-record_20161122_1111.js"></script>
+
+<script src="app/components/country-list/cmp-country-list_20161122_1111.js"></script>
+
+<script src="app/components/contactDetails/cmp-contact-details.js"></script>
+
+<script src="app/components/checkbox-list/cmp-checkbox-list_20161122_1111.js"></script>
+
+<script src="app/components/can-ref-products/cmp-ref-product-list_20161122_1111.js"></script>
+
+<script src="app/components/can-ref-products/cmp-ref-product-details_20161122_1111.js"></script>
+
+<script src="app/components/applicationInfo/cmp-application-info.js"></script>
+
+<script src="app/components/appendix-four/cmp-tissuesFluids-list_20161122_1111.js"></script>
+
+<script src="app/components/appendix-four/cmp-tissues-fluids-origin_20161122_1111.js"></script>
+
+<script src="app/components/appendix-four/cmp-tissueFluids-record_20161122_1111.js"></script>
+
+<script src="app/components/appendix-four/cmp-source-animal_20161122_1111.js"></script>
+
+<script src="app/components/appendix-four/cmp-skin_20161122_1111.js"></script>
+
+<script src="app/components/appendix-four/cmp-reproductive_20161122_1111.js"></script>
+
+<script src="app/components/appendix-four/cmp-other-tissues_20161122_1111.js"></script>
+
+<script src="app/components/appendix-four/cmp-nervous_20161122_1111.js"></script>
+
+<script src="app/components/appendix-four/cmp-muscle_20161122_1111.js"></script>
+
+<script src="app/components/appendix-four/cmp-immune_20161122_1111.js"></script>
+
+<script src="app/components/appendix-four/cmp-digestive_20161122_1111.js"></script>
+
+<script src="app/components/appendix-four/cmp-cardio_20161122_1111.js"></script>
+
+<script src="app/components/appendix-four/cmp-appendix-four_20161122_1111.js"></script>
+
+<script src="app/components/appendix-four/cmp-appendix-four-record_20161122_1111.js"></script>
+
+<script src="app/components/appendix-four/cmp-animalSourced-section_20161122_1111.js"></script>
+
+<script src="app/components/appendix-four/cmp-animalSourced-record_20161122_1111.js"></script>
+
+<script src="app/components/appendix-four/cmp-animalSourced-list_20161122_1111.js"></script>
+
 <!-- endinject -->
 <!-- thirdParty:js  -->
+
+<script src="app/lib/FileSaver.min.js"></script>
+
+<script src="app/lib/sha256.js"></script>
+
+<script src="app/lib/ui-bootstrap-tpls-2.1.4.min.js"></script>
+
+<script src="app/lib/xml2json.js"></script>
 
 <!-- endinject -->
 

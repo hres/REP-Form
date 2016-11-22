@@ -1,0 +1,113 @@
+<ng-form name="sysCtrl.skinForm">
+    <div>
+        <fieldset>
+            <legend class="required">
+                <span class="field-name">{{'SKIN_LEGEND' |translate}}</span>
+                <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                <input id="roleMissing_{{$id}}" name="roleMissing" ng-required="true" ng-show="false"
+                       ng-model="sysCtrl.isSelected" required/>
+                <strong id="role-error{{$id}}" class="error" ng-if="sysCtrl.showErrorMissing()">
+                         <span class="label label-danger" ng-messages="sysCtrl.skinForm.roleMissing.$error">
+                             <span ng-message="required">{{"MSG_ERR_ROLE"|translate}}</span>
+                         </span>
+                </strong>
+            </legend>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="adrenalGland_{{$id}}">
+                            <input type="checkbox" name="adrenalGland" id="adrenalGland_{{$id}}"
+                                   ng-change="sysCtrl.detailsChanged('ADRENAL',sysCtrl.model.adrenalGland)"
+                                   ng-model="sysCtrl.model.adrenalGland"/>
+                            {{'ADRENAL'|translate}}
+                        </label>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="hairHoovesFeathers_{{$id}}">
+                            <input type="checkbox" name="hairHoovesFeathers" id="hairHoovesFeathers_{{$id}}"
+                                   ng-change="sysCtrl.detailsChanged('HAIR',sysCtrl.model.hairHoovesFeathers)"
+                                   ng-model="sysCtrl.model.hairHoovesFeathers"/>
+                            {{'HAIR'|translate}}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="liver_{{$id}}">
+                            <input type="checkbox" name="liver" id="liver_{{$id}}"
+                                   ng-change="sysCtrl.detailsChanged('LIVER',sysCtrl.model.liver)"
+                                   ng-model="sysCtrl.model.liver"/>
+                            {{'LIVER'|translate}}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="pancreas_{{$id}}">
+                            <input type="checkbox" name="pancreas" id="pancreas_{{$id}}"
+                                   ng-change="sysCtrl.detailsChanged('PANCREAS',sysCtrl.model.pancreas)"
+                                   ng-model="sysCtrl.model.pancreas"/>
+                            {{'PANCREAS'|translate}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="pituitary_{{$id}}">
+                            <input type="checkbox" name="pituitary" id="pituitary_{{$id}}"
+                                   ng-change="sysCtrl.detailsChanged('PITUARYGLAND',sysCtrl.model.pituitary)"
+                                   ng-model="sysCtrl.model.pituitary"/>
+                            {{'PITUARYGLAND'|translate}}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="skinHides_{{$id}}">
+                            <input type="checkbox" name="skinHides" id="skinHides_{{$id}}"
+                                   ng-change="sysCtrl.detailsChanged('SKINHIDES',sysCtrl.model.skinHides)"
+                                   ng-model="sysCtrl.model.skinHides"/>
+                            {{'SKINHIDES'|translate}}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="thyroidParathyroid_{{$id}}">
+                            <input type="checkbox" name="thyroidParathyroid" id="thyroidParathyroid_{{$id}}"
+                                   ng-change="sysCtrl.detailsChanged('THYROID',sysCtrl.model.thyroidParathyroid)"
+                                   ng-model="sysCtrl.model.thyroidParathyroid"/>
+                            {{'THYROID'|translate}}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="skinOther_{{$id}}">
+                            <input type="checkbox" name="nervOther" id="skinOther_{{$id}}"
+                                   ng-change="sysCtrl.otherChanged()"
+                                   ng-model="sysCtrl.model.otherSkin"/>
+                            {{'SKIN_OTHER'|translate}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" ng-if="sysCtrl.otherChanged()">
+                    <div class="form-group">
+                        <label for="skinDetails_{{$id}}">{{'SKIN_DETAILS'|translate}}
+                            <input type="text" size="40" maxlength="40" name="skinDetails" id="skinDetails_{{$id}}"
+                                   ng-change="sysCtrl.otherChanged()" ng-model-options="{updateOn: 'blur'}"
+                                   ng-model="sysCtrl.model.otherDetails"/>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</ng-form>

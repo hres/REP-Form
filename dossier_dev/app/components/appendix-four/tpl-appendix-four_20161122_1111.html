@@ -1,0 +1,21 @@
+<ng-form name="apf-form">
+    <div class="container-fluid">
+        <cmp-expanding-table title="{{'INGRED_LIST'|translate}}" reset-to-collapsed="ap4Ctrl.resetToCollapsed"
+                             list-items="ap4Ctrl.ingredientList"
+                             column-def="ap4Ctrl.colNames" select-record="ap4Ctrl.selectRecord"
+                             disable-selection="!ap4Ctrl.isDetailValid">
+
+            <cmp-appendix-four-record record="$parent.record" on-update="ap4Ctrl.update($parent.$index,record)"
+                                      service="ap4Ctrl.service"
+                                      on-delete="ap4Ctrl.delete($parent.$index)" record-changed="ap4Ctrl.recordChanged()"
+                                      delete-btn="true"></cmp-appendix-four-record>
+
+        </cmp-expanding-table>
+        <div class="mrgn-tp-md mrgn-bttm-lg">
+            <div class="btn-group-sm col-md-12 text-right">
+                <input type="submit" value="Add New Ingredient" class="btn btn-primary"
+                       ng-click="ap4Ctrl.addNew()"/>
+            </div>
+        </div>
+    </div>
+</ng-form>
