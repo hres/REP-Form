@@ -1,0 +1,89 @@
+<div class="container-fluid">
+    <ng-form name="ap4RecCtrl.appendix4RecForm" novalidate>
+        <fieldset>
+            <legend>{{'ING_DETAILS'|translate}}&nbsp;{{ap4RecCtrl.model.id}}</legend>
+            <div class="row">
+                <div class="col-xs-12 form-group"
+                     ng-class="{'has-error':ap4RecCtrl.appendix4RecForm.ingedientName.$invalid}">
+                    <label for="ing-name" class="required">
+                        {{'INGRED_MAT_NAME'|translate}}
+                        <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                        <input type="text" class="form-control full-width" id="ing-name" ng-change="ap4RecCtrl.recordChanged()"
+                               ng-model="ap4RecCtrl.model.ingredientName" name="ingredientName" required
+                               ng-model-options="{updateOn: 'blur'}" maxlength="100" size="100"/>
+                        <strong id="ingred-name-error" class="error"
+                                ng-if="ap4RecCtrl.showError(ap4RecCtrl.appendix4RecForm.ingredientName.$invalid,ap4RecCtrl.appendix4RecForm.ingredientName.$touched)">
+                             <span class="label label-danger"
+                                   ng-messages="ap4RecCtrl.appendix4RecForm.$error">
+                                <span ng-message="required">{{"MSG_ERR_MAND"|translate}}</span>
+                             </span>
+                        </strong>
+                    </label>
+                </div>
+            </div>
+            <fieldset>
+                <!-- TODO: hookup error handling-->
+                <legend class="required">
+                    <span class="field-name">{{'SOURCED'|translate}}</span>
+                    <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                    <input id="oneSelected_{{$id}}" name="oneSelected" ng-required="true" ng-show="false"
+                           ng-model="ap4RecCtrl.isSourced" ng-required="true"/>
+                    <strong id="contactNum-role-error" class="error" ng-if="ap4RecCtrl.noSelectionError()">
+                             <span class="label label-danger"
+                                   ng-messages="ap4RecCtrl.appendix4RecForm.oneSelected.$error">
+                                 <span ng-message="required">{{"MSG_APP4_TYPE"|translate}}</span>
+                             </span>
+                    </strong>
+                </legend>
+                <div class="row">
+                    <div class="col-xs-2">
+                        <div class="checkbox">
+                            <label for="sourced-human_{{$id}}">
+                                <input type="checkbox" name="sourced-human" ng-model="ap4RecCtrl.model.humanSourced"
+                                       id="sourced-human_{{$id}}"
+                                       ng-change="ap4RecCtrl.showTissuesFluids()"> {{'HUMAN'|translate}}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="checkbox">
+                            <label for="sourced-animal">
+                                <input type="checkbox" name="sourced-animal" ng-model="ap4RecCtrl.model.animalSourced"
+                                       id="sourced-animal"
+                                       ng-change="ap4RecCtrl.showAnimalSources()">{{'ANIMAL'|translate}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <section class="section">
+                <cmp-tissues-fluids-list ng-if="ap4RecCtrl.model.humanSourced || ap4RecCtrl.model.animalSourced"
+                                         service="ap4RecCtrl.service"
+                                         records="ap4RecCtrl.model.tissuesFluidsOrigin.tissuesList"></cmp-tissues-fluids-list>
+                <!--<cmp-tissues-fluids-origin
+                        ng-if="ap4RecCtrl.model.humanSourced || ap4RecCtrl.model.animalSourced"
+                        tissues-model="ap4RecCtrl.model.tissuesFluidsOrigin" on-update="ap4RecCtrl.updateTissuesFluids(model)"></cmp-tissues-fluids-origin>-->
+            </section>
+
+            <section class="section">
+                <cmp-animal-sourced-section ng-if="ap4RecCtrl.model.animalSourced"  records="ap4RecCtrl.model.sourceAnimalDetails" on-update="ap4RecCtrl.updateAnimalSourced(model)"></cmp-animal-sourced-section>
+               <!-- <cmp-source-animal ng-if="ap4RecCtrl.model.animalSourced"
+                                   record="ap4RecCtrl.model.sourceAnimalDetails" on-update="ap4RecCtrl.updateAnimalSourced(model)"></cmp-source-animal>-->
+            </section>
+
+            <div class="row">
+
+                <div class="btn-group-sm col-xs-12 text-right">
+                    <input type="submit" value="Save Ingredient" class="btn btn-primary" ng-if="!ap4RecCtrl.record"
+                           ng-click="ap4RecCtrl.save()"/>
+                    <input type="submit" ng-if="ap4RecCtrl.deleteBtn === true" value="Delete Sourced Ingredient"
+                           class="btn btn-danger" ng-click="ap4RecCtrl.delete()"/>
+                   <!-- <input type="submit" value="Discard Changes" class="btn btn-default"
+                           ng-click="ap4RecCtrl.discardChanges()">-->
+                </div>
+            </div>
+        </fieldset>
+      <!--  <pre>record {{ap4RecCtrl.model |json}}</pre>-->
+    </ng-form>
+</div>

@@ -1,0 +1,113 @@
+<ng-form name="sysCtrl.digestForm">
+    <div>
+        <fieldset>
+            <legend class="required">
+                <span class="field-name">{{'DIGESTIVE_LEGEND' |translate}}</span>
+                <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                <input id="roleMissing_{{$id}}" name="roleMissing" ng-required="true" ng-show="false"
+                       ng-model="sysCtrl.isSelected" required/>
+                <strong id="role-error{{$id}}" class="error" ng-if="sysCtrl.showErrorMissing()">
+                         <span class="label label-danger" ng-messages="sysCtrl.digestForm.roleMissing.$error">
+                             <span ng-message="required">{{"MSG_ERR_ROLE"|translate}}</span>
+                         </span>
+                </strong>
+            </legend>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="appendix_{{$id}}">
+                            <input type="checkbox" name="appendix" id="appendix_{{$id}}"
+                                   ng-change="sysCtrl.detailsChanged('APPENDIX',sysCtrl.model.appendix)"
+                                   ng-model="sysCtrl.model.appendix"/>
+                            {{'APPENDIX'|translate}}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="bile_{{$id}}">
+                            <input type="checkbox" name="bile" id="bile_{{$id}}"
+                                   ng-change="sysCtrl.detailsChanged('BILE',sysCtrl.model.bile)"
+                                   ng-model="sysCtrl.model.bile"/>
+                            {{'BILE'|translate}}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="distalIleum_{{$id}}">
+                            <input type="checkbox" name="distalIleum" id="distalIleum_{{$id}}"
+                                   ng-change="sysCtrl.detailsChanged('DISTALILEUM',sysCtrl.model.distalIleum)"
+                                   ng-model="sysCtrl.model.distalIleum"/>
+                            {{'DISTALILEUM'|translate}}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="largeIntestine_{{$id}}">
+                            <input type="checkbox" name="largeIntestine" id="largeIntestine_{{$id}}"
+                                   ng-change="sysCtrl.detailsChanged('LARGEINTEST',sysCtrl.model.largeIntestine)"
+                                   ng-model="sysCtrl.model.largeIntestine"/>
+                            {{'LARGEINTEST'|translate}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="salivaSalivary_{{$id}}">
+                            <input type="checkbox" name="salivaSalivary" id="salivaSalivary_{{$id}}"
+                                   ng-change="sysCtrl.detailsChanged('SALIVA',sysCtrl.model.salivaSalivary)"
+                                   ng-model="sysCtrl.model.salivaSalivary"/>
+                            {{'SALIVA'|translate}}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="smallIntestine_{{$id}}">
+                            <input type="checkbox" name="smallIntestine" id="smallIntestine_{{$id}}"
+                                   ng-change="sysCtrl.detailsChanged('SMALLINTESTINE',sysCtrl.model.smallIntestine)"
+                                   ng-model="sysCtrl.model.smallIntestine"/>
+                            {{'SMALLINTESTINE'|translate}}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="stomach_{{$id}}">
+                            <input type="checkbox" name="stomach" id="stomach_{{$id}}"
+                                   ng-change="sysCtrl.detailsChanged('STOMACH',sysCtrl.model.stomach)"
+                                   ng-model="sysCtrl.model.stomach"/>
+                            {{'STOMACH'|translate}}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="otherDigestive_{{$id}}">
+                            <input type="checkbox" name="otherDigestive" id="otherDigestive_{{$id}}"
+                                   ng-model="sysCtrl.model.otherDigestive"
+                                   ng-change="sysCtrl.otherChanged()"/>
+                            {{'DIGESTIVE_OTHER'|translate}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div ng-if="sysCtrl.otherChanged()" class="form-group">
+                        <label for="digestiveDetails_{{$id}}">{{'DIGESTIVE_DETAILS'|translate}}
+                            <input type="text" size="40" maxlength="40" name="digestiveDetails"
+                                   id="digestiveDetails_{{$id}}"
+                                   ng-change="sysCtrl.otherChanged()" ng-model-options="{updateOn: 'blur'}"
+                                   ng-model="sysCtrl.model.otherDetails"/>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</ng-form>

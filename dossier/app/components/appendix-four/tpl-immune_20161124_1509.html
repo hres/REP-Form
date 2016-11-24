@@ -1,0 +1,81 @@
+<ng-form name="sysCtrl.immuneForm">
+    <div>
+        <fieldset>
+            <legend class="required">
+                <span class="field-name">{{'IMMUNE_LEGEND' |translate}}</span>
+                <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                <input id="roleMissing_{{$id}}" name="roleMissing" ng-required="true" ng-show="false"
+                       ng-model="sysCtrl.isSelected" required/>
+                <strong id="role-error{{$id}}" class="error" ng-if="sysCtrl.showErrorMissing()">
+                         <span class="label label-danger" ng-messages="sysCtrl.immuneForm.roleMissing.$error">
+                             <span ng-message="required">{{"MSG_ERR_ROLE"|translate}}</span>
+                         </span>
+                </strong>
+            </legend>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="lymphNodes_{{$id}}">
+                            <input type="checkbox" name="lymphNodes" id="lymphNodes_{{$id}}"
+                                   ng-change="sysCtrl.detailsChanged('LYMPH',sysCtrl.model.lymphNodes)"
+                                   ng-model="sysCtrl.model.lymphNodes"/>
+                            {{'LYMPH'|translate}}
+                        </label>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="spleen_{{$id}}">
+                            <input type="checkbox" name="spleen" id="spleen_{{$id}}"
+                                   ng-change="sysCtrl.detailsChanged('SPLEEN',sysCtrl.model.spleen)"
+                                   ng-model="sysCtrl.model.spleen"/>
+                            {{'SPLEEN'|translate}}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="thymus_{{$id}}">
+                            <input type="checkbox" name="thymus" id="thymus_{{$id}}"
+                                   ng-change="sysCtrl.detailsChanged('THYMUS',sysCtrl.model.thymus)"
+                                   ng-model="sysCtrl.model.thymus"/>
+                            {{'THYMUS'|translate}}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="tonsils_{{$id}}">
+                            <input type="checkbox" name="tonsils" id="tonsils_{{$id}}"
+                                   ng-change="sysCtrl.detailsChanged('TONSILS',sysCtrl.model.tonsils)"
+                                   ng-model="sysCtrl.model.tonsils"/>
+                            {{'TONSILS'|translate}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="checkbox">
+                        <label for="immuneOther_{{$id}}">
+                            <input type="checkbox" name="immuneOther" id="immuneOther_{{$id}}"
+                                   ng-change="sysCtrl.otherChanged()"
+                                   ng-model="sysCtrl.model.otherImmune"/>
+                            {{'IMMUNE_OTHER'|translate}}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group" ng-if="sysCtrl.otherChanged()">
+                        <label for="immuneDetails_{{$id}}">{{'IMMUNE_DETAILS'|translate}}
+                            <input type="text" size="40" maxlength="40" name="immuneDetails" id="immuneDetails_{{$id}}"
+                                   ng-change="sysCtrl.otherChanged()" ng-model-options="{updateOn: 'blur'}"
+                                   ng-model="sysCtrl.model.otherDetails"/>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</ng-form>

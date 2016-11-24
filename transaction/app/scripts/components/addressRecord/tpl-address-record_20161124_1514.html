@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <ng-form name="addressRec.addressRecForm">
+        <div>
+            <div>
+                <h3>{{'ADDR_DETAILS'|translate}}&nbsp;{{addressRec.addressModel.addressID}}</h3>
+
+                <div class="row">
+                    <div class="form-group" ng-show="addressRec.isAmend">
+                        <input class="formControl" id="chk-amend-rec_{{$id}}" type="checkbox"
+                               ng-change="addressRec.setEditable()"
+                               ng-model="addressRec.addressModel.amendRecord"/>
+                        <label class="form-checkbox" for="chk-amend-rec_{{$id}}">
+                            {{'AMEND_RECORD'|translate}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12"
+                     ng-class="{'has-error':addressRec.addressRecForm.companyName.$invalid}">
+                    <label for="companyName" class="required full-width">
+                        <span class="field-name">{{"COMPANYNAME_FULL" |translate}}</span>
+                        <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                        <input type="text" id="companyName" name="companyName"
+                               ng-model="addressRec.addressModel.companyName"
+                               class="form-control full-width" maxlength="80" size="60"
+                               ng-readonly="!addressRec.isEditable"
+                               required/>
+                        <strong id="companyName-error" class="error"
+                                ng-if="addressRec.showError(addressRec.addressRecForm.companyName.$touched,addressRec.addressRecForm.companyName.$invalid)">
+                        <span class="label label-danger" ng-messages="addressRec.addressRecForm.companyName.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <cmp-address-details address-record="addressRec.addressModel" is-amend="addressRec.isEditable"
+                                     on-update="addressRec.onUpdateAddressRecord(address)"
+                                     show-errors="addressRec.showErrors()"></cmp-address-details>
+            </div>
+            <div>
+                <cmp-address-role record="addressRec.addressModel" legend-text="ADDR_ROLE_LEGEND"
+                                  is-contact="addressRec.isContact" is-amend="addressRec.isEditable"
+                                  on-update="addressRec.onAddressRoleUpdate($event.roles)"
+                                  show-errors="addressRec.showErrors()"
+                                  already-selected="addressRec.isOneSelected(roleName)"></cmp-address-role>
+
+            </div>
+            <div class="row">
+                <div class="btn-group-sm col-xs-12 text-right">
+                    <input type="submit" value="{{'SAVE_ADDR'|translate}}" class="btn btn-primary" name="saveAddress"
+                           id="saveAddress"
+                           ng-click="addressRec.updateAddressModel2()" ng-disabled="!addressRec.isEditable">
+                    <input type="submit" value="{{'DELETE_ADDR'|translate}}" class="btn btn-danger"
+                           ng-click="addressRec.delete()">
+                    <input type="submit" value="{{'DISCARD_CHANGES'|translate}}" class="btn btn-default"
+                           ng-click="addressRec.discardChanges()">
+                </div>
+            </div>
+        </div>
+    </ng-form>
+    <!--  <pre>address record model: {{addressRec.addressModel | json : spacing}}</pre>-->
+</div>
