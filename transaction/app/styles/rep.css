@@ -63,3 +63,35 @@ label > select {
     margin: 10px auto;
 / / it will center them
 }
+
+.rep-help-button {
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+
+.rep-normal-font {
+    font-weight: normal;
+}
+
+.rep-selectize-font {
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.selectize-dropdown {
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.rep-selectize-dropdown {
+    min-width: 100%;
+}
+
+.select2-container .select2-choice {
+    height: 37px !important;
+    padding: 6px 12px !important;
+}
+
+/*.selectize-dropdown, .selectize-input, .selectize-input input*/
+

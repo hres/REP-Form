@@ -1,0 +1,79 @@
+<div>
+    <ng-form id="reg-company-form" name="main.companyEnrolForm"
+             novalidate="novalidate">
+        <section class="panel panel-primary mrgn-tp-lg">
+            <header class="panel-heading clearfix">
+                <div class="btn-group pull-right">
+                    <button title="{{'HELP_FILE_LOAD'|translate}}" class="btn-xs rep-help-button"
+                            id="load-instructions-toggle" ng-click="main.addInstruct('1')"><span
+                            class="fa fa-question-circle fa-2x"></span><span class="wb-inv">"{{'HELP_FILE_LOAD'|translate}}"</span>
+                    </button>
+                </div>
+                <h2 class="panel-title">{{'LOAD_COMPANY_FILE'| translate}}</h2>
+            </header>
+            <div class="panel-body">
+                <div uib-alert template-url="./app/lib/uib-templates/alert.html" ng-show="main.alert1.show"
+                     ng-class="'alert-' + (main.alert1.type || 'warning')"
+                     close="main.closeAlert('1')">{{main.alert1.msg}}
+                </div>
+                <div class="col-md-12">
+
+                    <hpfb-file-select update-model-root="main.showContent(fileContent)" root-elem="COMPANY_ENROL"/>
+                </div>
+            </div>
+            <div>
+            </div>
+        </section>
+        <div>
+            <section class="panel panel-primary mrgn-tp-lg">
+                <header class="panel-heading clearfix">
+
+                    <div class="btn-group pull-right">
+                        <button title="{{'ENROL_INSTRUCT'|translate}}" class="btn-xs rep-help-button"
+                                id="enrol-instructions-toggle" ng-click="main.addInstruct('2')"><span
+                                class="fa fa-question-circle fa-2x"></span><span class="wb-inv">"{{'ENROL_INSTRUCT'|translate}}"</span>
+                        </button>
+                        <!-- <button class="btn btn-default btn-xs" ng-click="main.addInstruct('2')">
+                             {{'ENROL_INSTRUCT'|translate}}
+                         </button>-->
+                    </div>
+                    <h2 class="panel-title">{{'REG_COMPANY_ENROL'|translate}}</h2>
+                </header>
+                <div class="panel-body">
+                    <div uib-alert template-url="./app/lib/uib-templates/alert.html" ng-show="main.alert2.show"
+                         ng-class="'alert-' + (main.alert2.type || 'warning')"
+                         close="main.closeAlert('2')">{{main.alert2.msg}}
+                    </div>
+
+                    <cmp-application-info record="main.company" user-type="main.userType"
+                                          is-incomplete="main.isIncomplete" set-type="main.setApplType(type)"
+                                          configure-id-field="main.configCompany"></cmp-application-info>
+
+                    <div>
+                        <cmp-company-address-list addresses="main.company.addressList"
+                                                  get-new-address="main.getNewAddress()" is-amend="main.formAmendType"
+                                                  company-service="main.companyService"></cmp-company-address-list>
+
+                        <cmp-company-contact-list contacts="main.company.contactList"
+                                                  get-new-contact="main.getNewContact()" is-amend="main.formAmendType"
+                                                  company-service="main.companyService"></cmp-company-contact-list>
+                    </div>
+                </div>
+            </section>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <button class="btn btn-primary btn-lg active" ng-click="main.saveJson()"
+                    >Save Working Copy
+                    </button>
+                </div>
+                <div class="form-group col-md-3">
+                    <button class="btn btn-default btn-lg active" ng-disabled="main.disableXML" id="btn_xmlSave"
+                            ng-click="main.saveXML()">{{main.saveXMLLabel |translate}}
+                    </button>
+                </div>
+            </div>
+            <!--<pre>overall: {{main.company | json : spacing}}</pre>-->
+        </div>
+    </ng-form>
+
+</div>

@@ -1,0 +1,294 @@
+<div>
+    <ng-form name="transInfoForm" novalidate="novalidate">
+        <section class="panel panel-primary mrgn-tp-lg">
+            <header class="panel-heading clearfix">
+                <div class="btn-group pull-right">
+                    <button title="{{'Regulatory Transaction Instructions'|translate}}" class="btn-xs rep-help-button"
+                            id="startdate-picker-toggle" ng-click="transInfoCtrl.addInstruct('1')"><span
+                            class="fa fa-question-circle fa-2x"></span><span class="wb-inv">{{'Regulatory Transaction Instructions'|translate}}</span>
+                    </button>
+                </div>
+                <h2 class="panel-title">{{'TRANSACTION_HDING'|translate}}</h2>
+            </header>
+            <div class="panel-body">
+                <div>
+                    <div uib-alert template-url="./app/lib/uib-templates/alert.html" ng-show="transInfoCtrl.alert1.show"
+                         ng-class="'alert-' + (transInfoCtrl.alert1.type || 'warning')"
+                         close="transInfoCtrl.closeAlert('1')">{{transInfoCtrl.alert1.msg}}
+                    </div>
+                    <div>
+                        <div class="row">
+                            <div class="form-group col-md-3"
+                                 ng-class="{'has-error':transInfoForm.companyId.$invalid}">
+                                <label for="companyId_{{$id}}" class="required full-width">
+                                    <span class="field-name">{{"COMPANY_ID" |translate}}</span>
+                                    <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                                    <input type="text" id="companyId_{{$id}}" name="companyId"
+                                           ng-model="transInfoCtrl.transactionModel.ectd.companyId"
+                                           class="form-control" maxlength="6" size="6"
+                                           ng-required="true" ng-minlength="6"/>
+                                    <strong id="companyId-error" class="error"
+                                            ng-if="transInfoCtrl.showError(transInfoForm.companyId)">
+                        <span class="label label-danger" ng-messages="transInfoForm.companyId.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                             <span ng-message="minlength"><span translate="MSG_LENGTH_6"></span></span>
+                        </span>
+                                    </strong>
+                                </label>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="dossierId" class="required full-width">
+                                    <span class="field-name">{{"DOSSIER_ID" |translate}}</span>
+                                    <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                                    <div class="rep-input-group">
+                                        <span class="input-group-addon">HC6-024-</span>
+                                        <div ng-class="{'has-error':transInfoForm.dossierId.$invalid}">
+                                            <input type="text" class="form-control full-width" id="dossierId"
+                                                   size="6" maxlength="7" id="dossierId" ng-minlength="7"
+                                                   name="dossierId"
+                                                   ng-model="transInfoCtrl.transactionModel.ectd.dossierId"
+                                                   ng-required="true"/>
+                                        </div>
+                                    </div>
+                                    <strong id="dossierId-error" class="error"
+                                            ng-if="transInfoCtrl.showError(transInfoForm.dossierId)">
+                        <span class="label label-danger" ng-messages="transInfoForm.dossierId.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                            <span ng-message="minlength"><span translate="MSG_LENGTH_7"></span></span>
+                        </span>
+                                    </strong>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12"
+                                 ng-class="{'has-error':transInfoForm.dossierName.$invalid}">
+                                <label for="dossierName_{{$id}}" class="required full-width">
+                                    <span class="field-name">{{"DOSSIER_NAME" |translate}}</span>
+                                    <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                                    <strong id="dossierName_-error" class="error"
+                                            ng-if="transInfoCtrl.showError(transInfoForm.dossierName)">
+                        <span class="label label-danger" ng-messages="transInfoForm.dossierName.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                                    </strong>
+                                </label>
+                        <textarea id="dossierName_{{$id}}" name="dossierName"
+                                  ng-model="transInfoCtrl.transactionModel.ectd.dossierName"
+                                  class="full-width" maxlength="256" size="256"
+                                  ng-required="true"></textarea>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4"
+                             ng-class="{'has-error':transInfoForm.isEctd.$invalid}">
+                            <label for="isEctd_{{$id}}" class="required full-width">
+                                <span class="field-name">{{"IS_ECTD" |translate}}</span>
+                                <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                                <select id="isEctd_{{$id}}" name="isEctd" ng-change="transInfoCtrl.updateEctdState()"
+                                        ng-model="transInfoCtrl.transactionModel.isEctd"
+                                        class="form-control"
+                                        data-ng-disabled="transInfoCtrl.transactionModel.ectd.lifecycleRecord.length>1"
+                                        ng-options="choice |translate for choice in transInfoCtrl.yesNoList"
+                                        required></select>
+                                <strong id="isEctd_-error" class="error"
+                                        ng-if="transInfoCtrl.showError(transInfoForm.isEctd)">
+                        <span class="label label-danger" ng-messages="transInfoForm.isEctd.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                                </strong>
+                            </label>
+                        </div>
+                    </div>
+                    <section class="panel  panel-default">
+                        <header class="panel-heading">
+                            <h3 class="panel-title">{{'LIFECYCLE_TITLE' |translate}}</h3>
+                        </header>
+                        <div class="panel-body">
+
+                            <div>
+                                <cmp-lifecycle-list records="transInfoCtrl.transactionModel.ectd.lifecycleRecord"
+                                                    is-ectd="transInfoCtrl.isEctd"
+                                                    deprecate-sequence="transInfoCtrl.subtractSequence()"
+                                                    show-errors="transInfoCtrl.showFormErrors()"
+                                                    parent-dirty="transInfoForm.$dirty"
+                                                    get-new-transaction="transInfoCtrl.getNewTransaction()"></cmp-lifecycle-list>
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-4"
+                         ng-class="{'has-error':transInfoForm.isSolicited.$invalid}">
+                        <label for="isSolicited" class="required full-width">
+                            <span class="field-name">{{"IS_SOLICITED" |translate}}</span>
+                            <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                            <select id="isSolicited" name="isSolicited"
+                                    ng-model="transInfoCtrl.transactionModel.isSolicited"
+                                    class="form-control"
+                                    ng-options="choice |translate for choice in transInfoCtrl.yesNoList"
+                                    ng-change="transInfoCtrl.setSolicitedState()" required></select>
+                            <strong id="isSolicited-error" class="error"
+                                    ng-if="transInfoCtrl.showError(transInfoForm.isSolicited)">
+                        <span class="label label-danger" ng-messages="transInfoForm.isSolicited.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                            </strong>
+                        </label>
+                    </div>
+                </div>
+                <div class="row" ng-show="transInfoCtrl.showSolicitedDetail">
+                    <div class="form-group col-md-4" ng-class="{'has-error':transInfoForm.solicitedList.$invalid}">
+                        <label for="solicited_list" class="required full-width">
+                            <span class="field-name">{{"SOLICITED_RQ" |translate}}</span>
+                            <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                            <select id="solicited_list" name="solicitedList"
+                                    ng-model="transInfoCtrl.transactionModel.solicitedRequester"
+                                    class="form-control"
+                                    ng-options="choice |translate for choice in transInfoCtrl.requesterList |orderByTranslatedOtherFirst"
+                                    ng-change="transInfoCtrl.setOtherSolicitor()" required></select>
+                            <strong id="solicitor-error" class="error"
+                                    ng-if="transInfoCtrl.showError(transInfoForm.solicitedList)">
+                        <span class="label label-danger" ng-messages="transInfoForm.solicitedList.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                            </strong>
+                        </label>
+                    </div>
+                    <div class="form-group col-md-8"
+                         ng-class="{'has-error':transInfoForm.otherSolicitedRequester.$invalid}"
+                         ng-show="transInfoCtrl.showOtherSolicitedDetail">
+                        <label for="otherSolicitedRequester" class="required full-width">
+                            <span class="field-name">{{"SOLICITED_RQ_OTHER" |translate}}</span>
+                            <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                            <strong id="othersolicitedRequester-error" class="error"
+                                    ng-if="transInfoCtrl.showError(transInfoForm.otherSolicitedRequester)">
+                        <span class="label label-danger" ng-messages="transInfoForm.otherSolicitedRequester.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                            </strong>
+                        </label>
+                    <textarea maxlength="256" size="256" id="otherSolicitedRequester" name="otherSolicitedRequester"
+                              ng-model="transInfoCtrl.transactionModel.otherSolicitedRequester"
+                              class="form-control full-width" rows="2"
+                              ng-required="transInfoCtrl.showOtherSolicitedDetail"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <fieldset>
+                        <legend>{{'Name of Regulatory Project Manager, if known'|translate}}</legend>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="projectManager1_{{$id}}" class="full-width">
+                                    <span class="field-name">{{"NAME" |translate}} 1</span>
+                                </label>
+                            <textarea id="projectManager1_{{$id}}" name="projectManager1"
+                                      ng-model="transInfoCtrl.transactionModel.projectManager1"
+                                      class="form-control full-width" maxlength="256" rows="2"></textarea>
+
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="projectManager2_{{$id}}" class="full-width">
+                                    <span class="field-name">{{"NAME" |translate}} 2</span>
+                                </label>
+                            <textarea id="projectManager2_{{$id}}" name="projectManager2"
+                                      ng-model="transInfoCtrl.transactionModel.projectManager2"
+                                      class="form-control full-width" maxlength="256" rows="2"></textarea>
+
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </section>
+        <div>
+            <section class="panel  panel-primary">
+                <header class="panel-heading clearfix">
+                    <div class="btn-group pull-right">
+                        <button title="{{'REG_ACTIVITY_INSTRUCT'|translate}}" class="btn-xs rep-help-button"
+                                id="activity-picker-toggle" ng-click="transInfoCtrl.addInstruct('2')"><span
+                                class="fa fa-question-circle fa-2x"></span><span class="wb-inv">{{'REG_ACTIVITY_INSTRUCT'|translate}}</span>
+                        </button>
+                    </div>
+                    <h2 class="panel-title">{{'REG_ACT_CONTACT' |translate}}</h2>
+                </header>
+                <div class="panel-body">
+                    <div uib-alert template-url="./app/lib/uib-templates/alert.html" ng-show="transInfoCtrl.alert2.show"
+                         ng-class="'alert-' + (transInfoCtrl.alert2.type || 'warning')"
+                         close="transInfoCtrl.closeAlert('2')">{{transInfoCtrl.alert2.msg}}>
+                    </div>
+                    <div>
+                        <fieldset>
+                            <legend>{{'REG_CONTACT_THIS'|translate}}</legend>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3>{{'COMPANY_INFO'|translate}}</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-12"
+                                     ng-class="{'has-error':transInfoForm.transCompanyName.$invalid}">
+                                    <label for="companyName_{{$id}}" class="required full-width">
+                                        <span class="field-name">{{"COMPANYNAME_FULL" |translate}}</span>
+                                        <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                                        <input type="text" maxlength="80" id="companyName_{{$id}}"
+                                               name="transCompanyName"
+                                               ng-model="transInfoCtrl.transactionModel.companyName"
+                                               class="form-control full-width" ng-required="true"/>
+                                        <strong id="companyName-error" class="error"
+                                                ng-if="transInfoCtrl.showError(transInfoForm.transCompanyName)">
+                        <span class="label label-danger" ng-messages="transInfoForm.transCompanyName.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                                        </strong>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3>{{'ADDRESS_INFO'|translate}}</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <cmp-address-details address-record="transInfoCtrl.transactionModel.activityAddress"
+                                                     is-amend="true" show-errors="transInfoCtrl.showError()">
+                                </cmp-address-details>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <h3>{{'COMPANY_REP_THIS'|translate}}</h3>
+                        <div class="row">
+                            <cmp-contact-details contact-record="transInfoCtrl.transactionModel.activityContact"
+                                                 is-amend="true" show-errors="transInfoCtrl.showError()">
+                            </cmp-contact-details>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <div class="checkbox required">
+                                    <label for="chkContactSame">
+                                        <input type="checkbox" ng-model="transInfoCtrl.transactionModel.contactSame"
+                                               name="chkContactSame" id="chkContactSame" required/>
+                                        {{"CONTACT_SAME"|translate}}
+                                        <strong class="required"> {{"REQUIRED" |translate}}</strong>
+                                        <strong id="notlasa-error" class="error"
+                                                ng-if="transInfoCtrl.showError(transInfoForm.chkContactSame)">
+                                        <span class="label label-danger">
+                                         <span ng-if="!transInfoCtrl.transactionModel.contactSame">{{'MSG_ERR_MAND'|translate}}</span>
+                                         </span>
+                                        </strong>
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+            </section>
+        </div>
+        <!--   <pre>{{transInfoCtrl.transactionModel | json:spacing}}</pre>-->
+    </ng-form>
+</div>
