@@ -93,5 +93,9 @@ label > select {
     padding: 6px 12px !important;
 }
 
+.cloak-class {
+    opacity: 0;
+}
+
 /*.selectize-dropdown, .selectize-input, .selectize-input input*/
 
