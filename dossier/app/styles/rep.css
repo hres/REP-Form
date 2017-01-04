@@ -105,6 +105,7 @@ label > select {
     display: none;
     background-color: #f9f9f9;
 }
+
 /*.custom-popup-wrapper > .dropdown-menu {
     position: static;
     float: none;
@@ -130,7 +131,6 @@ label > select {
 }
 */
 
-
 /*.custom-dropdown-menu>li>a {
     display: block;
     padding: 3px 20px;
@@ -141,7 +141,7 @@ label > select {
     white-space: nowrap;
     text-decoration: none !important;
 }*/
-.custom-popup-wrapper>li>a {
+.custom-popup-wrapper > li > a {
 
     text-decoration: none !important;
 }
