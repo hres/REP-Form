@@ -12,7 +12,7 @@
     angular
         .module('adminSubmission')
         .component('cmpAdminSub', {
-            templateUrl: 'app/scripts/components/adminSubmission/tpl-admin-sub_20170106_1415.html',
+            templateUrl: 'app/scripts/components/adminSubmission/tpl-admin-sub_20170106_1456.html',
             controller: AdminSubCtrl,
             controllerAs: 'adminCtrl',
             bindings: {

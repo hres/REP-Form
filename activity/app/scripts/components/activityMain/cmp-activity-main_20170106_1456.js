@@ -34,7 +34,7 @@
     angular
         .module('activityMain')
         .component('cmpActivityMain', {
-            templateUrl: 'app/scripts/components/activityMain/tpl-activity-main_20170106_1415.html',
+            templateUrl: 'app/scripts/components/activityMain/tpl-activity-main_20170106_1456.html',
             controller: activityMainCtrl,
             controllerAs: 'main',
             bindings: {

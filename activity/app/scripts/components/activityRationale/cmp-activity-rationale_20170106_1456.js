@@ -15,7 +15,7 @@
     angular
         .module('activityForm')
         .component('cmpActivityRationale', {
-            templateUrl: 'app/scripts/components/activityRationale/tpl-activity-rationale_20170106_1415.html',
+            templateUrl: 'app/scripts/components/activityRationale/tpl-activity-rationale_20170106_1456.html',
             controller: activityRationaleCtrl,
             controllerAs: 'actRatCtrl',
 

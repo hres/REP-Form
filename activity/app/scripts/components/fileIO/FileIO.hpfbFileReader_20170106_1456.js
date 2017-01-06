@@ -56,7 +56,7 @@
      * @param rootElem - the name of the root element. Used for comparing to the loaded file
      */
     angular.module('fileIO').component('hpfbFileSelect', {
-        templateUrl: 'app/scripts/components/fileIO/fileSelect_20170106_1415.html',
+        templateUrl: 'app/scripts/components/fileIO/fileSelect_20170106_1456.html',
         controller: FileSelectController,
         bindings: {
             updateModelRoot: '&',
@@ -92,7 +92,7 @@
      * @param buttonLabel -the label for the save button
      */
     angular.module('fileIO').component('hpfbFileSave', {
-        templateUrl: 'app/scripts/components/fileIO/fileSave_20170106_1415.html',
+        templateUrl: 'app/scripts/components/fileIO/fileSave_20170106_1456.html',
         controller: FileWriteController,
         bindings: {
             jsonToSave: '<',

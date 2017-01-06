@@ -232,7 +232,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-9 form-group"
-                             ng-class="{'has-error':main.activityEnrolForm.isThirdParty.$invalid}">
+                             ng-class="{'has-error':main.activityEnrolForm.thirdParty.$invalid}">
                             <label for="third-party_{{$id}}" class="required">
                                 <span class="field-name">{{"IS_SOLICITED" |translate}}</span>
                                 <strong class="required"> {{"REQUIRED" |translate}}</strong>
@@ -245,13 +245,13 @@
                             </label>
                         </div>
                         <div class="col-xs-2 form-group"
-                             ng-class="{'has-error':main.activityEnrolForm.isThirdParty.$invalid}">
+                             ng-class="{'has-error':main.activityEnrolForm.thirdParty.$invalid}">
                             <select id="third-party_{{$id}}" name="thirdParty"
                                     ng-model="main.activityRoot.isThirdParty"
                                     class="form-control"
                                     ng-change="main.setThirdParty()"
                                     ng-options="choice |translate for choice in main.yesNoList"
-                                    required></select>
+                                    required ></select>
                         </div>
                         <!--  </div>-->
                     </div>
