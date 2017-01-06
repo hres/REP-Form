@@ -93,5 +93,59 @@ label > select {
     padding: 6px 12px !important;
 }
 
+.cloak-class {
+    opacity: 0;
+}
+
+.custom-popup-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    background-color: #f9f9f9;
+}
+
+/*.custom-popup-wrapper > .dropdown-menu {
+    position: static;
+    float: none;
+    display: block;
+    min-width: 160px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    text-decoration: none !important;
+}*/
+
+/*
+.custom-dropdown-menu {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    text-decoration: none !important;;
+}
+*/
+
+/*.custom-dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    text-decoration: none !important;
+}*/
+.custom-popup-wrapper > li > a {
+
+    text-decoration: none !important;
+}
+
+
 /*.selectize-dropdown, .selectize-input, .selectize-input input*/
 
