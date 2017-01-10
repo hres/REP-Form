@@ -61,7 +61,7 @@ label > select {
 
 .rep-center {
     margin: 10px auto;
-/ / it will center them
+
 }
 
 .rep-help-button {
@@ -79,14 +79,28 @@ label > select {
     font-size: 16px;
 }
 
-.selectize-dropdown {
-    font-weight: normal;
-    font-size: 16px;
+.select2-result-label{
+    width: 100% !important;
 }
 
 .rep-selectize-dropdown {
-    min-width: 100%;
+    width: 100% !important;
+    font-weight: normal;
+    font-size: 16px;
+    padding-top: 6px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
 }
+
+.select2-choices {
+    position: relative;
+}
+.ui-select-multiple input.ui-select-search {
+    width: 100% !important;
+    position: absolute;
+}
+
 
 .select2-container .select2-choice {
     height: 37px !important;
