@@ -232,7 +232,7 @@
                                 </strong>
                             </label>
                         </div>
-                        <div class="col-xs-2 form-group"
+                        <div class="col-xs-2 "
                              ng-class="{'has-error':main.activityEnrolForm.thirdParty.$invalid}">
                             <select id="third-party_{{$id}}" name="thirdParty"
                                     ng-model="main.activityRoot.isThirdParty"
@@ -241,7 +241,6 @@
                                     ng-options="choice |translate for choice in main.yesNoList"
                                     required></select>
                         </div>
-                        <!--  </div>-->
                     </div>
                     <div class="row">
                         <div ng-show="main.thirdPartyState" class="alert alert-info" role="alert" aria-live="polite">
@@ -249,8 +248,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-7 form-group">
-                            <div class="col-xs-9 form-group">
+                        <!--<div class="col-xs-12 form-group">-->
+                            <div class="col-xs-6 form-group" >
                             <label for="setAdminSubId" class="required">
                                 <span class="field-name">{{"IS_ADMIN_SUB" |translate}}</span>
                                 <strong class="required"> {{"REQUIRED" |translate}}</strong>
@@ -261,22 +260,14 @@
                                 </span>
                                 </strong>
                             </label>
-                                </div>
-                            <div class="form-group col-xs-2"
-                                 ng-class="{'has-error':main.activityEnrolForm.isAdminSub.$invalid}">
+                            </div>
+                            <div class="col-xs-2" ng-class="{'has-error':main.activityEnrolForm.isAdminSub.$invalid}">
                                 <select id="setAdminSubId" name="isAdminSub"
                                         ng-model="main.activityRoot.isAdminSub" class="form-control"
                                         ng-change="main.setAdminSubmission()"
                                         ng-options="choice |translate for choice in main.yesNoList" required></select>
                             </div>
-                        </div>
-                        <!--<div class="col-xs-2 form-group"
-                             ng-class="{'has-error':main.activityEnrolForm.isAdminSub.$invalid}">
-                            <select id="setAdminSubId" name="isAdminSub"
-                                    ng-model="main.activityRoot.isAdminSub" class="form-control"
-                                    ng-change="main.setAdminSubmission()"
-                                    ng-options="choice |translate for choice in main.yesNoList" required></select>
-                        </div>-->
+                      <!--  </div>-->
                     </div>
                     <div ng-if="main.showActivity">
                         <section class="panel  panel-default">

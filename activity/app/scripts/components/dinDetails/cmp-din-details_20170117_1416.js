@@ -15,7 +15,7 @@
     angular
         .module('dinModule')
         .component('cmpDinDetails', {
-            templateUrl: 'app/scripts/components/dinDetails/tpl-din_20170117_1259.html',
+            templateUrl: 'app/scripts/components/dinDetails/tpl-din_20170117_1416.html',
             controller: dinDetailsCtrl,
             controllerAs: 'dinCtrl',
 

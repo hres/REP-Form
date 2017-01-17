@@ -16,7 +16,7 @@
     angular
         .module('activityChange')
         .component('cmpActivityChange', {
-            templateUrl: 'app/scripts/components/activityChangeType/tpl-activity-change_20170117_1259.html',
+            templateUrl: 'app/scripts/components/activityChangeType/tpl-activity-change_20170117_1416.html',
             controller: activityChangeCtrl,
             controllerAs: 'actChangeCtrl',
 

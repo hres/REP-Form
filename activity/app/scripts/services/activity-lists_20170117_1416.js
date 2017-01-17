@@ -31,18 +31,24 @@
         vm.DIN_raType="B02-20160301-090";
         var service = {
             getFeeClassList: _getfeeClassArray,
-            createFeeClassList:_createfeeClassArray,
+            //createFeeClassList:_createfeeClassArray,
             getRaTypeList: _getRaTypeArray,
-            createRaTypeList:_createRaTypeArray,
+            //createRaTypeList:_createRaTypeArray,
             getActivityLeadList:_getActivityLeadArray,
             getBiologicalLeadValue:_getBiologicalLead,
-            getSANDSRaTypeValue:_getNC_raType,
+            getSANDSRaTypeValue:_getSANDS_raType,
             getSNDSTypeValue: _getSNDS_raType,
             getNCTypeValue:  _getNC_raType,
             getDINTypeValue:  _getDIN_raType
         };
         return service;
 
+
+        /**
+         * Gets the fee class list. If the list has not been retrieved, gets from http request
+         * @returns {*}
+         * @private
+         */
         function _getfeeClassArray(){
             if(! vm.feeClassArray|| vm.feeClassArray.length===0) {
                 return _loadFeeType()
@@ -50,6 +56,13 @@
                 return (vm.feeClassArray);
             }
         }
+
+        /**
+         * Gets the feetype list by http request
+         * Json path hard coded in function
+         * @returns {*}
+         * @private
+         */
         function _loadFeeType(){
             var deferred = $q.defer();
             var feeClassUrl ="data/feeClass.json";
@@ -66,9 +79,20 @@
             return deferred.promise;
         }
 
+        /**
+         * Deprecrated. Was used by the load service for transalations TODO: remove?
+         * @param value
+         * @private
+         */
         function _createfeeClassArray(value){
             vm.feeClassArray=value;
         }
+
+        /**
+         * Gets the Regulatory activity type list. if doesn't exist, makes an http request
+         * @returns {*}
+         * @private
+         */
         function _getRaTypeArray(){
 
             if(!vm.raTypeArray||vm.raTypeArray.length===0) {
@@ -78,6 +102,11 @@
             }
         }
 
+        /**
+         * Regulatory Activity type http request apparatus. Waits via a promise
+         * @returns {*}
+         * @private
+         */
         function _loadRaType(){
             var deferred = $q.defer();
             var raTypeUrl ="data/raType.json";
@@ -95,12 +124,21 @@
             return deferred.promise;
         }
 
-
+        /**
+         * Deprectated. Was used by load service . TODO: remove?
+         * @param value
+         * @private
+         */
         function _createRaTypeArray(value){
 
             vm.raTypeArray=value;
         }
 
+        /**
+         * Gets the activity lead array. Hard coded as the biological entry has business logic
+         * @returns {string[]}
+         * @private
+         */
         function _getActivityLeadArray(){
             return (
                 [
@@ -112,10 +150,20 @@
             );
         }
 
+        /**
+         * Returns the biological Activity Lead value
+         * @returns {string}
+         * @private
+         */
         function _getBiologicalLead(){
             return vm.BIOLOGICAL;
         }
 
+        /**
+         * Returns
+         * @returns {string}
+         * @private
+         */
         function _getNC_raType(){
             return  vm.NC_raType;
         }

@@ -40,7 +40,7 @@
             uiSelectConfig.theme = 'select2';
         })
         .component('cmpActivityMain', {
-            templateUrl: 'app/scripts/components/activityMain/tpl-activity-main_20170117_1259.html',
+            templateUrl: 'app/scripts/components/activityMain/tpl-activity-main_20170117_1416.html',
             controller: activityMainCtrl,
             controllerAs: 'main',
             bindings: {
