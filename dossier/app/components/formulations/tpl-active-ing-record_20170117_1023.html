@@ -1,0 +1,209 @@
+<ng-form name="ingRecCtrl.activeIngForm">
+    <!--  <pre>ingRecCtrl.ingModel: {{ingRecCtrl.ingModel|json}}</pre>-->
+    <div class="container-fluid">
+        <fieldset>
+            <legend>{{'MEDICINAL_INGRED_DETAILS'|translate}}&nbsp{{ingRecCtrl.recordIndex+1}}</legend>
+            <div class="row">
+                <div class="form-group col-md-12 typeahead-demo"
+                     ng-class="{'has-error':ingRecCtrl.activeIngForm.ingredName.$invalid}">
+                    <label for="ing-name_{{$id}}" class="required"><span
+                            class="field-name">{{'ING_NAME'|translate}}</span>
+                        <strong class="required">{{'REQUIRED' |translate}}</strong>
+                        <input type="text" ng-model="ingRecCtrl.ingModel.ingLabel" name="ingredName"
+                               id="ing-name_{{$id}}" size="100"
+                               uib-typeahead=" rec.label for rec in ingRecCtrl.activeList | filter:{label:$viewValue} | limitTo:15"
+                               class="form-control rep-normal-font" typeahead-show-hint="true" typeahead-min-length="2"
+                               ng-required="true" typeahead-no-results="ingRecCtrl.newIngred"
+                               typeahead-on-select="ingRecCtrl.ingredSelectionUpdated($item, $model, $label, $event)"
+                               typeahead-popup-template-url="app/lib/uib-templates/customPopupTemplate.html">
+                        <strong id="ingredientName-error" class="error"
+                                ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.ingredName.$invalid,ingRecCtrl.activeIngForm.ingredName.$touched)">
+                                    <span class="label label-danger"
+                                          ng-messages="ingRecCtrl.activeIngForm.ingredName.$error">
+                                        <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                                    </span>
+                        </strong>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="cas_{{$id}}">
+                        <span class="field-name">{{'CAS_NUM'|translate}}</span>
+                        <input type="text" id="cas_{{$id}}" data-ng-model="ingRecCtrl.ingModel.cas" maxlength="12"
+                               class="form-control full-width" name="casNum"/>
+                    </label>
+
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="standard_{{$id}}">
+                        <span class="field-name">{{'STANDARD'|translate}}</span>
+                        <input type="text" id="standard_{{$id}}" data-ng-model="ingRecCtrl.ingModel.standard"
+                               class="form-control full-width" name="standardVal" size="40" maxlength="40"/>
+                    </label>
+                </div>
+                <div class="form-group col-md-3" ng-class="{'has-error':ingRecCtrl.activeIngForm.strengthFld.$invalid}">
+                    <label for="strength_{{$id}}" class="required">
+                        <span class="field-name">{{'STRENGTH'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <input type="number" id="strength_{{$id}}" data-ng-model="ingRecCtrl.ingModel.strength"
+                               class="form-control full-width" name="strengthFld" ng-min="0" ng-required="true"/>
+                        <strong id="strength-error" class="error"
+                                ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.strengthFld.$invalid,ingRecCtrl.activeIngForm.strengthFld.$touched)">
+                        <span class="label label-danger"
+                              ng-messages="ingRecCtrl.activeIngForm.strengthFld.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                            <span ng-message="number"><span translate="MSG_ERR_INVALID_NUM"></span></span>
+                             <span ng-message="min"><span translate="MSG_ERR_INVALID_NUM_MIN0"></span></span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="units_{{$id}}" class="required full-width"><span class="field-name">{{'UNITS'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <div class="rep-pad-top">
+                            <div class="rep-error" ng-class="{'has-error':ingRecCtrl.activeIngForm.unitsFld.$invalid}">
+                                <ui-select ng-model="ingRecCtrl.ingModel.units" id="units_{{$id}}" name="unitsFld"
+                                           class="rep-selectize-font full-width" required>
+                                    <ui-select-match placeholder="{{'UNITS_SRCH' |translate}}"
+                                                     class="rep-selectize-font form-control">
+                                        {{$select.selected[ingRecCtrl.lang]}}
+                                    </ui-select-match>
+                                    <ui-select-choices
+                                            repeat="unitValue in ingRecCtrl.UnitsList | filter: {[ingRecCtrl.lang]:$select.search}"
+                                            class="rep-selectize-font">
+                                        <span ng-bind-html="unitValue[ingRecCtrl.lang] | highlight: $select.search"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </div>
+                        <strong id="units-error" class="error"
+                                ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.unitsFld.$invalid,ingRecCtrl.activeIngForm.unitsFld.$touched)">
+                        <span class="label label-danger"
+                              ng-messages="ingRecCtrl.activeIngForm.unitsFld.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
+                <div class="form-group col-md-4" ng-show="ingRecCtrl.isUnitsOther()">
+                    <label for="otherUnits_{{$id}}" class="required"><span class="field-name">{{'OTHER_UNITS'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <input type="text" id="otherUnits_{{$id}}" data-ng-model="ingRecCtrl.ingModel.otherUnits"
+                               size="40" class="form-control" name="otherUnits"
+                               maxlength="40" ng-required="ingRecCtrl.isUnitsOther()"/>
+                        <strong id="unitsOther-error" class="error"
+                                ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.otherUnits.$invalid,ingRecCtrl.activeIngForm.otherUnits.$touched)">
+                        <span class="label label-danger" ng-messages="ingRecCtrl.activeIngForm.otherUnits.$error">
+                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="per_{{$id}}"><span class="field-name">{{'PER_STRENGTH'|translate}}</span></label>
+                    <input type="text" id="per_{{$id}}" data-ng-model="ingRecCtrl.ingModel.per" size="40" maxlength="40"
+                           class="form-control" name="text"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3" ng-class="{'has-error':ingRecCtrl.activeIngForm.nanoFld.$invalid}">
+                    <label for="nanoMaterial_{{$id}}" class="required">
+                        <span class="field-name">{{'NANO_MATERIAL'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong></label>
+                    <select id="nanoMaterial_{{$id}}" ng-model="ingRecCtrl.ingModel.nanoMaterial"
+                            class="form-control full-width" name="nanoFld" ng-required="true"
+                            ng-options="nano |translate for nano in  ingRecCtrl.nanoMaterialList| orderByTranslatedOtherFirst">
+                    </select>
+                    <strong id="nanoMaterial-error" class="error"
+                            ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.nanoFld.$invalid,ingRecCtrl.activeIngForm.nanoFld.$touched)">
+                        <span class="label label-danger"
+                              ng-messages="ingRecCtrl.activeIngForm.nanoFld.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                    </strong>
+                </div>
+                <div class="form-group col-md-5" ng-if="ingRecCtrl.isNanoOther()"
+                     ng-class="{'has-error':ingRecCtrl.activeIngForm.nanoOtherFld.$invalid}">
+                    <label for="nanoMaterialOther_{{$id}}" class="required">
+                        <span class="field-name">{{'NANO_MATERIAL_OTHER'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong></label>
+                    <input type="text" id="nanoMaterialOther_{{$id}}"
+                           data-ng-model="ingRecCtrl.ingModel.nanoMaterialOther"
+                           class="form-control full-width" name="nanoOtherFld" ng-required="true" maxlength="40"/>
+                    <strong id="nanoMaterialOther-error" class="error"
+                            ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.nanoOtherFld.$invalid,ingRecCtrl.activeIngForm.nanoOtherFld.$touched)">
+                        <span class="label label-danger"
+                              ng-messages="ingRecCtrl.activeIngForm.nanoOtherFld.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                    </strong>
+                </div>
+                <div class="form-group  col-sm-4 col-xs-12"
+                     ng-class="{'has-error':ingRecCtrl.activeIngForm.asBase.$invalid}">
+                    <label for="asBase_{{$id}}" class="required">
+                        <span class="field-name">{{'CALCULATED_AS_BASE'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <select id="asBase_{{$id}}" ng-model="ingRecCtrl.ingModel.calcAsBase" ng-required="true"
+                                class="form-control" name="asBase"
+                                ng-options="val |translate for val in  ingRecCtrl.yesNoList">
+                        </select>
+                        <strong id="asBase-error" class="error"
+                                ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.asBase.$invalid,ingRecCtrl.activeIngForm.asBase.$touched)">
+                        <span class="label label-danger"
+                              ng-messages="ingRecCtrl.activeIngForm.asBase.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group  col-sm-4 col-xs-12"
+                     ng-class="{'has-error':ingRecCtrl.activeIngForm.animaHumanSourced.$invalid}">
+                    <label for="animalHumanSourced_{{$id}}" class="required">
+                        <span class="field-name">{{'ANIMAL_HUMAN_SOURCED'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <select id="animalHumanSourced_{{$id}}" ng-model="ingRecCtrl.ingModel.humanAnimalSourced"
+                                ng-required="true"
+                                class="form-control" name="animaHumanSourced"
+                                ng-options="val |translate for val in  ingRecCtrl.yesNoList">
+                        </select>
+                        <strong id="animalHumanSourced-error" class="error"
+                                ng-if="ingRecCtrl.showError(ingRecCtrl.activeIngForm.animaHumanSourced.$invalid,ingRecCtrl.activeIngForm.animaHumanSourced.$touched)">
+                        <span class="label label-danger"
+                              ng-messages="ingRecCtrl.activeIngForm.animaHumanSourced.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
+                <div class="btn-group-sm col-xs-7 text-right align-bottom">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <span>&nbsp;</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input type="submit" value="{{'SAVE'|translate}}" class="btn btn-primary"
+                                   ng-click="ingRecCtrl.saveIng()"/>
+                            <input type="submit" ng-if="ingRecCtrl.deleteBtn === true" value="{{'DELETE'|translate}}"
+                                   class="btn btn-danger"
+                                   ng-click="ingRecCtrl.delete()"/>
+                            <input type="submit" ng-if="ingRecCtrl.deleteBtn === true" value="{{'COPY'|translate}}"
+                                   class="btn btn-default"
+                                   ng-click="ingRecCtrl.copy()" ng-disabled="ingRecCtrl.activeIngForm.$dirty">
+                            <input type="submit" value="{{'DISCARD_CHANGES'|translate}}" class="btn btn-default"
+                                   ng-click="ingRecCtrl.discardChanges()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <!--  <pre>{{ingRecCtrl.ingModel |json}}</pre>-->
+    </div>
+</ng-form>

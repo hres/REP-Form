@@ -1,0 +1,60 @@
+<ng-form name="countryForm">
+    <div class="container-fluid">
+        <fieldset>
+            <legend>
+                {{countryRecCtrl.fieldsetLabel | translate}}&nbsp;{{countryRecCtrl.model.id}}
+            </legend>
+            <div class="row" ng-class="{'has-error':countryForm.countrySave.$invalid}">
+                <div class="form-group col-sm-5">
+                    <label for="country_{{$id}}" class="required">
+                        <span class="field-name"> {{'COUNTRY_NAME'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <ui-select ng-model="countryRecCtrl.model.country" id="country_{{$id}}" name="countryName"
+                                   class="rep-selectize-dropdown" on-select="countryRecCtrl.countryChanged($item, $model)" required
+                                   ng-disabled="false" title="Choose a country" class="rep-selectize-font">
+                            <ui-select-match placeholder="Select or Search for country" name="countryMatch"
+                                             class="rep-selectize-font rep-selectize-dropdown"> {{$select.selected[countryRecCtrl.lang]}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="countryRecord in countryRecCtrl.countryList | filter:{[countryRecCtrl.lang]: $select.search} track by countryRecord.id"
+                                               class="rep-selectize-font">
+                                <span ng-bind-html="countryRecord[countryRecCtrl.lang] | highlight: $select.search"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                        <strong id="countryName-error" class="error"
+                                ng-if="countryRecCtrl.showError(countryForm.countryName.$invalid,countryForm.countryName.$touched)">
+
+                            <span class="label label-danger" ng-messages="countryForm.countryName.$error">
+                                <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                            </span>
+                        </strong>
+                    </label>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12 mrgn-tp-lg has-error" ng-if="countryRecCtrl.isUnknown()"
+                     ng-class="{'has-error':countryForm.unknownCountry.$invalid}">
+                    <label for="unknown-country-details" class="required">
+                        <span class="field-name">{{'UNKNOWN_COUNTRY_DETAILS'|translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <input type="text" id="unknown-country-details" class="form-control" name="unknownCountry"
+                               required
+                               maxlength="100" size="100" ng-model="countryRecCtrl.model.unknownCountryDetails"/>
+                        <strong id="country-error" class="error"
+                                ng-if="countryRecCtrl.showError(countryForm.unknownCountry.$invalid,countryForm.unknownCountry.$touched)">
+                        <span class="label label-danger"
+                              ng-messages="countryForm.unknownCountry.$error">
+                            <span ng-message="required">{{"MSG_ERR_MAND"|translate}}</span>
+                        </span>
+                        </strong>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <button ng-click="countryRecCtrl.deleteRecord(countryRecCtrl.model.id)"
+                        class="btn btn-danger btn-md">{{'DELETE'|translate}}
+                </button>
+            </div>
+        </fieldset>
+    </div>
+</ng-form>

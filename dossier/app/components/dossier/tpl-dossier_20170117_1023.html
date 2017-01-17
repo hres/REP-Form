@@ -1,0 +1,354 @@
+<ng-form id="dossier-form" name="dos.dossierForm">
+    <div translate-cloak="cloak-class">
+        <section class="panel  panel-primary mrgn-tp-lg">
+            <header class="panel-heading clearfix">
+                <div class="btn-group pull-right">
+                    <button title="{{'HELP_FILE_LOAD'|translate}}" class="btn-xs rep-help-button"
+                            id="instructions-toggle" ng-click="dos.addInstruct('1')"><span
+                            class="fa fa-question-circle fa-2x"></span><span
+                            class="wb-inv">{{'HELP_FILE_LOAD'|translate}}</span></button>
+                    <!--   <button class="btn btn-default btn-xs" ng-click="dos.addInstruct('1')">
+                           {{'HELP_FILE_LOAD'|translate}}
+                       </button>-->
+                </div>
+                <h2 class="panel-title">{{'LOAD_DOSSIER'|translate}}</h2>
+            </header>
+            <div class="panel-body">
+                <div uib-alert template-url="./app/lib/uib-templates/alert.html" ng-show="dos.alert1.show"
+                     ng-class="'alert-' + (dos.alert1.type || 'warning')"
+                     close="dos.closeAlert('1')">{{dos.alert1.msg}}
+                </div>
+                <hpfb-file-select update-model-root="dos.showContent(fileContent)"
+                                  root-elem="DOSSIER_ENROL"></hpfb-file-select>
+            </div>
+        </section>
+        <section class="panel panel-primary mrgn-tp-lg">
+            <header class="panel-heading clearfix">
+                <div class="btn-group pull-right">
+                    <button title="{{'HELP_DOSSIER'|translate}}" class="btn-xs rep-help-button"
+                            id="dossier-instructions-toggle" ng-click="dos.addInstruct('2')"><span
+                            class="fa fa-question-circle fa-2x"></span><span
+                            class="wb-inv">"{{'HELP_DOSSIER'|translate}}"</span></button>
+                    <!-- <button class="btn btn-default btn-xs" ng-click="dos.addInstruct('2')">
+                         {{'Dossier Instructions'|translate}}
+                     </button>-->
+                </div>
+                <h2 class="panel-title">{{'Dossier Information'|translate}}</h2>
+            </header>
+            <div class="panel-body">
+                <div uib-alert template-url="./app/lib/uib-templates/alert.html" ng-show="dos.alert2.show"
+                     ng-class="'alert-' + (dos.alert2.type || 'warning')"
+                     close="dos.closeAlert('2')">{{dos.alert2.msg}}
+                </div>
+                <div>
+                    <cmp-application-info record="dos.dossierModel" user-type="dos.userType"
+                                          set-type="dos.setApplicationType(type)"
+                                          configure-id-field="dos.configField"
+                                          is-incomplete="dos.isIncomplete"></cmp-application-info>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 form-group"
+                         ng-class="{'has-error':dos.dossierForm.dossierType.$invalid}">
+                        <label for="dossierType" class="required">
+                            <span class="field-name">{{'DOSSIER_TYPE' |translate}}</span>
+                            <strong class="required">{{"REQUIRED" |translate}}</strong>
+                            <select class="form-control full-width" id="dossierType"
+                                    name="dossierType" required="true" ng-model="dos.dossierModel.dossierType"
+                                    ng-options="val |translate for val in  dos.formTypeList">
+                            </select>
+                            <strong id="dossierType-error" class="error"
+                                    ng-if="dos.showError(dos.dossierForm.dossierType.$invalid,dos.dossierForm.dossierType.$touched)">
+                                    <span class="label label-danger"
+                                          ng-messages="dos.dossierForm.dossierType.$error">
+                                        <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                                    </span>
+                            </strong>
+                        </label>
+                    </div>
+                    <div class="col-xs-4 form-group"
+                         ng-class="{'has-error':dos.dossierForm.companyId.$invalid}">
+                        <label for="company-id" class="required">
+                            <span class="field-name">{{'COMPANY_ID' |translate}}</span>
+                            <strong class="required">{{"REQUIRED" |translate}}</strong>
+                            <input type="text" class="form-control full-width" id="company-id"
+                                   name="companyId" required="true" maxlength="6"
+                                   ng-model="dos.dossierModel.companyID"/>
+                            <strong id="company-id-error" class="error"
+                                    ng-if="dos.showError(dos.dossierForm.companyId.$invalid,dos.dossierForm.companyId.$touched)">
+                                    <span class="label label-danger"
+                                          ng-messages="dos.dossierForm.companyId.$error">
+                                        <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                                    </span>
+                            </strong>
+                        </label>
+                    </div>
+                </div>
+                <div class="row margin-bottom-small">
+                    <div class="col-xs-12 form-group"
+                         ng-class="{'has-error':dos.dossierForm.thirdPartySigned.$invalid}">
+                        <label for="third-party-signed" class="required">
+                            <span class="field-name">{{'SIGNED_THIRD'|translate}}</span>
+                            <strong class="required">{{"REQUIRED" |translate}}</strong>
+                            <select name="thirdPartySigned" class="form-control"
+                                    ng-model="dos.dossierModel.drugProduct.thirdPartySigned"
+                                    id="third-party-signed" ng-options="val |translate for val in  dos.yesNoList"
+                                    required></select>
+                            <strong id="thirdParty-error" class="error"
+                                    ng-if="dos.showError(dos.dossierForm.thirdPartySigned.$invalid,dos.dossierForm.thirdPartySigned.$touched)">
+                                    <span class="label label-danger"
+                                          ng-messages="dos.dossierForm.thirdPartySigned.$error">
+                                        <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                                    </span>
+                            </strong>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div ng-if="dos.thirdPartySignedChanged()" class="alert alert-info"
+                         role="alert"
+                         aria-live="polite">
+                        {{'INCLUDE_AUTH'|translate}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 form-group"
+                         ng-class="{'has-error':dos.dossierForm.productName.$invalid}">
+                        <label for="product-name" class="required">
+                            <span class="field-name">{{'PROD_NAME' |translate}}</span>
+                            <strong class="required">{{"REQUIRED" |translate}}</strong>
+                            <strong id="productName-error" class="error"
+                                    ng-if="dos.showError(dos.dossierForm.productName.$invalid,dos.dossierForm.productName.$touched)">
+                                    <span class="label label-danger"
+                                          ng-messages="dos.dossierForm.productName.$error">
+                                        <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                                    </span>
+                            </strong>
+                        </label>
+                            <textarea type="text" class="form-control full-width" id="product-name" rows="2"
+                                      name="productName" required="true"
+                                      data-ng-change="dos.dossierModel.productName=dos.dossierModel.productName.toUpperCase();"
+                                      maxlength="200" ng-model="dos.dossierModel.productName"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 form-group"
+                         ng-class="{'has-error':dos.dossierForm.properName.$invalid}">
+                        <label for="proper-name" class="required">
+                            <span class="field-name"> {{'PROPER_NAME' |translate}}</span>
+                            <strong class="required">{{"REQUIRED" |translate}}</strong>
+                            <strong id="properName-error" class="error"
+                                    ng-if="dos.showError(dos.dossierForm.properName.$invalid,dos.dossierForm.properName.$touched)">
+                                    <span class="label label-danger"
+                                          ng-messages="dos.dossierForm.properName.$error">
+                                        <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                                    </span>
+                            </strong>
+                        </label>
+                            <textarea type="text" class="form-control full-width" id="proper-name" name="properName"
+                                      required="true" ng-model="dos.dossierModel.properName" maxlength="256" rows="3"
+                                      data-ng-change="dos.dossierModel.properName=dos.dossierModel.properName.toUpperCase();">
+                            </textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 form-group">
+                        <label for="related-dossier-id"></label>
+                        {{'RELATED_DOSSIER'|translate}}
+                    <textarea class="form-control full-width" id="related-dossier-id"
+                              ng-model="dos.dossierModel.relatedDossierID" maxlength="256" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <section class="panel panel-default ">
+                        <header class="panel-heading">
+                            <h3 class="panel-title">{{'THERA_CLASS'|translate}}</h3>
+                            <strong id="active-error" class="error" ng-if="dos.noTheraRecs() && dos.dossierForm.$dirty">
+                            <span class="label label-danger" ng-messages="dos.dossierForm.noTheraVal.$error">
+                                <span ng-message="required"><span translate="MSG_ERR_ONE_THERA"></span></span>
+                            </span>
+                            </strong>
+                        </header>
+                        <div class="panel-body">
+                            <input type="text" required ng-show="false" name="noTheraVal" id="noThera"
+                                   aria-hidden="true"
+                                   data-ng-model="dos.noThera"/>
+                            <cmp-thera-list records="dos.dossierModel.drugProduct.therapeutic"
+                                            show-errors="dos.showErrors()"></cmp-thera-list>
+                        </div>
+                    </section>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form-group" ng-class="{'has-error':dos.dossierForm.isRefProducts.$invalid}">
+                        <label for="isRefProducts{{$id}}" class="required">
+                            <span class="field-name">{{'IS_CDN_REF'|translate}}</span>
+                            <strong class="required">{{"REQUIRED" |translate}}</strong>
+                            <select class="form-control" required name="isRefProducts" id="isRefProducts{{$id}}"
+                                    ng-model="dos.dossierModel.isRefProducts"
+                                    ng-options="val |translate for val in  dos.yesNoList">
+
+                            </select>
+                            <strong id="isRef-error" class="error"
+                                    ng-if="dos.showError(dos.dossierForm.isRefProducts.$invalid,dos.dossierForm.isRefProducts.$touched)">
+                            <span class="label label-danger"
+                                  ng-messages="dos.dossierForm.isRefProducts.$error">
+                          <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                      </span>
+                            </strong>
+                        </label>
+
+                    </div>
+                </div>
+                <div class="row" ng-if="dos.isRefProducts()">
+                    <input type="text" ng-show="false" name="oneRefProductRec" id="oneRefRec{{$id}}"
+                           ng-model="dos.oneRefSelected" required/>
+                    <section class="panel panel-default">
+                        <header class="panel-heading">
+                            <h3 class="panel-title">{{'CAN_REF_PRODUCTS'|translate}}</h3>
+                            <label for="oneRefRec{{$id}}">
+                                <strong id="oneRefProduct-error" class="error"
+                                        ng-if="dos.dossierForm.oneRefProductRec.$invalid">
+                             <span class="label label-danger" aria-live="polite"
+                                   ng-messages="dos.dossierForm.oneRefProductRec.$error">
+                                 <span ng-message="required"> <span translate="MSG_ERR_ONE_CDN_REF"></span></span>
+                             </span>
+                                </strong>
+                            </label>
+                        </header>
+                        <div class="panel-body">
+                            <cmp-ref-product-list
+                                    products="dos.dossierModel.drugProduct.canRefProducts"
+                                    on-update="dos.cdnRefUpdated(recs)"></cmp-ref-product-list>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+        <section class="panel panel-primary mrgn-tp-lg">
+            <header class="panel-heading clearfix">
+                <div class="btn-group pull-right">
+                    <button title="{{'HELP_DRUG_PRODUCT'|translate}}" class="btn-xs rep-help-button"
+                            id="drugProduct-instructions-toggle" ng-click="dos.addInstruct('3')"><span
+                            class="fa fa-question-circle fa-2x"></span><span class="wb-inv">"{{'HELP_DRUG_PRODUCT'|translate}}"</span>
+                    </button>
+                    <!-- <button class="btn btn-default btn-xs" ng-click="dos.addInstruct('3')">
+                         {{'Drug Product Instructions'|translate}}
+                     </button>-->
+                </div>
+                <h2 class="panel-title">{{'DRUG_PRODUCT'|translate}}</h2>
+            </header>
+            <div class="panel-body">
+                <div uib-alert template-url="./app/lib/uib-templates/alert.html" ng-show="dos.alert3.show"
+                     ng-class="'alert-' + (dos.alert3.type || 'warning')"
+                     close="dos.closeAlert('3')">{{dos.alert3.msg}}
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 form-group">
+
+                        <cmp-drug-use list-items="dos.dossierModel.drugProduct.drugUseList"
+                                      show-list-errors="dos.showErrors()"
+                                      parent-dirty="dos.dossierForm.$dirty"></cmp-drug-use>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 checkbox">
+                        <label for="is-schedule-case">
+                            <input type="checkbox" name="isScheduleA"
+                                   ng-model="dos.dossierModel.drugProduct.isScheduleA" id="is-schedule-case">
+                            {{'ISSCHEDA'|translate}}
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row" ng-if="dos.isSchedA()">
+                    <div class="col-xs-12 form-group">
+                        <cmp-schedule-a schedule-group="dos.dossierModel.drugProduct.scheduleAGroup"></cmp-schedule-a>
+                    </div>
+                </div>
+                <div>
+                    <section ng-if="dos.appendixMissingError()">
+                        <input type="checkbox" ng-show="false" required="true" ng-checked="dos.appendixMissingError()"
+                               aria-hidden="true"/>
+                        <details class="alert alert-danger" id="alert-appendix" open="open">
+                            <summary class="h3">
+                                <h2>{{'MISSING_APPENDIX'|translate}}</h2>
+                            </summary>
+                            <ul>
+                                <li ng-repeat="ingred in dos.errorAppendix">{{ingred}}</li>
+                            </ul>
+                        </details>
+                    </section>
+                </div>
+                <div>
+                    <section ng-if="dos.appendixExtraError()">
+                        <input type="checkbox" ng-show="false" required="true" ng-checked="dos.appendixExtraError()"
+                               aria-hidden="true"/>
+                        <details class="alert alert-danger" id="alert-extra-appendix" open="open">
+                            <summary class="h3">
+                                <h2>{{'EXTRA_APPENDIX'|translate}}</h2>
+                            </summary>
+                            <ul>
+                                <li ng-repeat="ingred in dos.extraAppendix">{{ingred}}</li>
+                            </ul>
+                        </details>
+                    </section>
+                </div>
+                <div>
+                    <cmp-tabs formulation-list="dos.dossierModel.drugProduct.formulations"
+                              record-changed="dos.recordsChanged()" service="dos.dossierService"
+                              appendix4-list="dos.dossierModel.drugProduct.appendixFourList"></cmp-tabs>
+                </div>
+            </div>
+
+        </section>
+        <div>
+            <section class="panel panel-primary mrgn-tp-lg">
+                <header class="panel-heading clearfix">
+                    <div class="btn-group pull-right">
+                        <button title="{{'HELP_REP_CONTACT'|translate}}" class="btn-xs rep-help-button"
+                                id="repContact-instructions-toggle" ng-click="dos.addInstruct('4')"><span
+                                class="fa fa-question-circle fa-2x"></span><span class="wb-inv">"{{'HELP_REP_CONTACT'|translate}}"</span>
+                        </button>
+                        <!--   <button class="btn btn-default btn-xs" ng-click="dos.addInstruct('4')">
+                               {{'REP Contact Instructions'|translate}}
+                           </button>-->
+                    </div>
+                    <h2 class="panel-title">{{'REP_CONTACT_INFO'|translate}}</h2>
+                </header>
+                <div class="panel-body">
+                    <div uib-alert template-url="./app/lib/uib-templates/alert.html" ng-show="dos.alert4.show"
+                         ng-class="'alert-' + (dos.alert4.type || 'warning')"
+                         close="dos.closeAlert('4')">{{dos.alert4.msg}}
+                    </div>
+                    <div class="container-fluid">
+                        <cmp-rep-contact-list contacts="dos.dossierModel.contactList" on-update=""
+                                              parent-dirty="dos.dossierForm.$dirty"
+                                              show-list-errors="dos.showErrors()" is-amend="dos.formAmend">
+
+                        </cmp-rep-contact-list>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-3">
+                <button class="btn btn-primary btn-lg active" ng-click="dos.saveJson()">
+                    {{'SAVE_WORK'|translate}}
+                </button>
+            </div>
+            <div class="form-group col-md-3">
+                <button class="btn btn-default btn-lg active" id="btn_xmlSave" ng-disabled="dos.disableXML"
+                        ng-click="dos.saveXML()">{{dos.saveXMLLabel |translate}}
+                </button>
+            </div>
+        </div>
+        <!--  <h4>Static arrays</h4>
+          <pre>Model: {{selected | json}}</pre>
+          <input type="text" ng-model="selected" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control">-->
+        <!--<pre>Model: {{dos.temp | json}}</pre>-->
+        <!--  <input type="text" ng-model="customSelected" placeholder="Custom template" uib-typeahead="rec as rec.label for rec in dos.temp | filter:{label:$viewValue} | limitTo:10" class="form-control" typeahead-show-hint="true" typeahead-min-length="2">
+  -->
+        <!--    <pre>{{dos.dossierModel | json }}</pre>-->
+    </div>
+</ng-form>
