@@ -15,7 +15,7 @@
     angular
         .module('contactModule25')
         .component('cmpRepContactRecord', {
-            templateUrl: 'app/scripts/components/rep-contact-record/tpl-rep-contact-record_20170117_1009.html',
+            templateUrl: 'app/scripts/components/rep-contact-record/tpl-rep-contact-record_20170117_1259.html',
             controller: contactRecCtrl,
             controllerAs: 'contactRec',
             bindings: {

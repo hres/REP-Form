@@ -6,11 +6,9 @@
     angular
         .module('activityApp', [
             'pascalprecht.translate',
-            'activityLoadService',
             'activityLists',
             'activityMain',
-            'translations',
-            'ui.select'
+            'translations'
         ])
 })();
 
@@ -33,9 +31,9 @@
         .config(['$translateProvider', function ($translateProvider) {
             $translateProvider.directivePriority(1);
             $translateProvider.preferredLanguage('fr');
-            $translateProvider.useLoader('customLoad');
+           // $translateProvider.useLoader('customLoad');
             $translateProvider.useSanitizeValueStrategy(null);
-            $translateProvider.forceAsyncReload(true); //needed for the custom loader
+           // $translateProvider.forceAsyncReload(true); //needed for the custom loader
 
         }]);
 })();

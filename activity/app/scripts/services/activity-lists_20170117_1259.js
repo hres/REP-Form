@@ -44,16 +44,34 @@
         return service;
 
         function _getfeeClassArray(){
-
-            return   vm.feeClassArray;
+            if(! vm.feeClassArray|| vm.feeClassArray.length===0) {
+                return _loadFeeType()
+            }else {
+                return (vm.feeClassArray);
+            }
         }
+        function _loadFeeType(){
+            var deferred = $q.defer();
+            var feeClassUrl ="data/feeClass.json";
+            $http.get(feeClassUrl).
+            success(function(data, status, headers, config) {
+                var lang = $translate.proposedLanguage() || $translate.use();
+                var newList = _createSortedArray(data, lang);
+                vm.feeClassArray=newList;
+                deferred.resolve(newList);
+            }).
+            error(function(data, status, headers, config) {
+                deferred.reject(status);
+            });
+            return deferred.promise;
+        }
+
         function _createfeeClassArray(value){
             vm.feeClassArray=value;
         }
         function _getRaTypeArray(){
 
             if(!vm.raTypeArray||vm.raTypeArray.length===0) {
-                console.log("calling ra type")
                    return _loadRaType()
             }else {
                 return (vm.raTypeArray);
@@ -62,13 +80,12 @@
 
         function _loadRaType(){
             var deferred = $q.defer();
-            console.log("running")
             var raTypeUrl ="data/raType.json";
             $http.get(raTypeUrl).
             success(function(data, status, headers, config) {
                 var lang = $translate.proposedLanguage() || $translate.use();
                         var newList = _createSortedArray(data, lang);
-                        console.log(newList)
+
                        vm.raTypeArray=newList;
                 deferred.resolve(newList);
             }).
@@ -76,33 +93,12 @@
                 deferred.reject(status);
             });
             return deferred.promise;
-
-            //$http.get(raTypeUrl)
-            //    .then(function (response) {
-            //        //PROCESS Regulatory Activity Type
-            //        console.log("processing")
-            //        var lang = $translate.proposedLanguage() || $translate.use();
-            //        var newList = _createSortedArray(response.data, lang);
-            //        console.log(newList)
-            //        vm.raTypeArray=newList;
-            //    }).catch(function (error) {
-            //        // this catches errors from the $http calls as well as from the explicit throw
-            //        console.warn("An error occurred with activity List Load: " + error.status);
-            //        deferred.reject(response);
-            //    })
-            //    .finally(function () {
-            //        deferred.resolve(vm.raTypeArray);
-            //        console.log("returning")
-            //        console.log(vm.raTypeArray)
-            //    });
-            //return deferred.promise;
         }
 
 
         function _createRaTypeArray(value){
 
             vm.raTypeArray=value;
-            console.log( vm.raTypeArray)
         }
 
         function _getActivityLeadArray(){

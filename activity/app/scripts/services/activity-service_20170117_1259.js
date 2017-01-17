@@ -1,6 +1,4 @@
-/**
- * Created by dkilty on 8/25/2016.
- */
+
 /**
  * Created by dkilty on 12/08/2016.
  */
@@ -16,8 +14,8 @@
     angular
         .module('activityService')
         .factory('ActivityService', ActivityService);
-    ActivityService.$inject = ['YES', 'NO','ActivityListFactory','$filter'];
-    function ActivityService(YES, NO,ActivityListFactory, $filter) {
+    ActivityService.$inject = ['YES', 'NO','ActivityListFactory','$filter','$translate'];
+    function ActivityService(YES, NO,ActivityListFactory, $filter,$translate) {
 
         function ActivityService() {
             //construction logic
@@ -85,7 +83,7 @@
                     dossier_id_concat: "",
                     reg_activity_lead: jsonObj.regActivityLead,
                     reg_activity_type: "",
-                    fee_class: jsonObj.feeClass,
+                    fee_class:"",
                     reason_filing: jsonObj.reasonFiling,
                     is_third_party: jsonObj.isThirdParty,
                     is_admin_submission: jsonObj.isAdminSub,
@@ -93,6 +91,13 @@
                     rationale_types: {}
                 }
             };
+           if(jsonObj.feeClass) {
+                activity[this.rootTag].fee_class={
+                    _label_en: jsonObj.feeClass.en,
+                    _label_fr: jsonObj.feeClass.fr,
+                    __text:  jsonObj.feeClass.id
+                }
+            }
             if(jsonObj.regActivityType) {
                 activity[this.rootTag].reg_activity_type = {
                     _label_en: jsonObj.regActivityType.en,
@@ -162,9 +167,6 @@
                 _label_fr:   jsonObj.regActivityType.fr,
                 __text:   jsonObj.regActivityType.id
             };
-            console.log(activity.reg_activity_type);
-            console.log("the id "+jsonObj.regActivityType.id);
-
             activity.control_number = jsonObj.controlNumber;
             activity.license_agreement = jsonObj.licenseAgree;
             activity.din_transfer = jsonObj.dinTransfer === true ? YES : NO;
@@ -193,8 +195,8 @@
             model.dossierIdPrefix = jsonObj.dossier_id_prefix;
             model.dossierId = jsonObj.dossier_id;
             model.regActivityLead = jsonObj.reg_activity_lead;
-            model.regActivityType = jsonObj.reg_activity_type;
-            model.feeClass = jsonObj.fee_class;
+            model.regActivityType = $filter('filter')(ActivityListFactory.getRaTypeList(), {id:  jsonObj.reg_activity_type.__text})[0];
+            model.feeClass =  $filter('filter')(ActivityListFactory.getFeeClassList(), {id:  jsonObj.fee_class.__text})[0];
             model.reasonFiling = jsonObj.reason_filing;
             model.isThirdParty = jsonObj.is_third_party;
             model.isAdminSub = jsonObj.is_admin_submission;
@@ -245,37 +247,6 @@
             };
             return activity;
         };
-
-        /**
-         * Get the activity list. Small so not in a separate service
-         * @param isPilot
-         * @returns {string[]}
-         */
-       /* ActivityService.prototype.getActivityLeadList = function (isPilot) {
-
-            var leadList = [
-                this.BIOLOGIC,
-                "CHP",
-                "DMF",
-                "PHARMA",
-                "PMVIGILANCE"
-                /!*
-                 B14-20160301-09	Pharmaceutical
-                 B14-20160301-02	Biological
-                 B14-20160301-10	Post-Market Pharmacovigilance
-                 B14-20160301-07	Drug Master File
-
-                 *!/
-
-
-            ];
-
-            if (!isPilot) { //if pilot do not show these values
-                leadList.push("MD", "VET", "UNASSIGNED");
-            }
-            return leadList;
-
-        };*/
 
 
         ActivityService.prototype.isNotifiableChange = function (value) {
@@ -351,12 +322,12 @@
          * Creates the internal model for Related Activity on a file load
          * @param jsonObj
          */
+        //TODO deprecated
         ActivityService.prototype.transformRelatedRegActivityFromFileObj = function (jsonObj) {
             var relatedActivity = this.getEmptyRelatedActivity();
             relatedActivity.sponsorName = jsonObj.sponsor_name;
             relatedActivity.dateCleared = "";
-            if (jsonObj.date_cleared) {
-                relatedActivity.dateCleared = _parseDate(jsonObj.date_cleared);
+            if (jsonObj.date_cleared) {relatedActivity.dateCleared = _parseDate(jsonObj.date_cleared);
             }
             //relatedActivity.regActivityType = jsonObj.reg_activity_type;
             relatedActivity.regActivityType  = $filter('filter')(ActivityListFactory.getRaTypeList(), {id:  jsonObj.reg_activity_type.__text})[0];

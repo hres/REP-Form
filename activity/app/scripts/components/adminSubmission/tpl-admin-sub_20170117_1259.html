@@ -19,8 +19,6 @@
             <label for="dateClearedId" class="required">
                 <span class="field-name">{{"DATE_CLEARED" |translate}}</span>
                 <strong class="required"> {{"REQUIRED" |translate}}</strong>
-                <!--    <input type="date" id="dateClearedId" name="dateCleared" class="form-control"
-                           ng-model="adminCtrl.model.dateCleared" required/>-->
                 <p class="input-group">
                     <input id="dateClearedId" type="text" class="form-control rep-normal-font"
                            uib-datepicker-popup
@@ -49,13 +47,29 @@
         </div>
     </div>
     <div class="row">
-        <div class="form-group col-md-8" ng-class="{'has-error':adminCtrl.adminSubForm.activityType.$invalid}">
-            <label for="activityTypeId" class="required">
+        <div class="form-group col-md-8" >
+            <label for="activityTypeId" class="required full-width">
                 <span class="field-name">{{"ACTIVITY_TYPE" |translate}}</span>
                 <strong class="required"> {{"REQUIRED" |translate}}</strong>
-                <select id="activityTypeId" name="activityType" ng-model="adminCtrl.model.regActivityType"
+                <div class="rep-pad-top">
+                    <div class="rep-error"ng-class="{'has-error':adminCtrl.adminSubForm.activityType.$invalid}">
+                        <ui-select ng-model="adminCtrl.model.regActivityType" id="activityTypeId" name="activityType"
+                                   class="rep-selectize-font full-width" required>
+                            <ui-select-match placeholder="{{'REGACTIVSEARCH' |translate}}"
+                                             class="rep-selectize-font form-control">
+                                {{$select.selected[adminCtrl.lang]}}
+                            </ui-select-match>
+                            <ui-select-choices
+                                    repeat="activityValue in  adminCtrl.activityTypeList | filter: {[adminCtrl.lang]:$select.search}"
+                                    class="rep-selectize-font">
+                                <span ng-bind-html="activityValue[adminCtrl.lang] | highlight: $select.search"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+               <!-- <select id="activityTypeId" name="activityType" ng-model="adminCtrl.model.regActivityType"
                         ng-options="activity |translate for activity in adminCtrl.activityTypeList | orderByTranslated"
-                        class="form-control" required></select>
+                        class="form-control" required></select>-->
                 <strong id="activityType-error" class="error"
                         ng-if="adminCtrl.showError(adminCtrl.adminSubForm.activityType.$touched,adminCtrl.adminSubForm.activityType.$invalid)">
                         <span class="label label-danger" ng-messages="adminCtrl.adminSubForm.activityType.$error">

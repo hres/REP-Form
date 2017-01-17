@@ -167,7 +167,7 @@
                                         <strong class="required"> {{"REQUIRED" |translate}}</strong>
                                         <select class="form-control" id="feeClass"
                                                 name="feeClass" ng-model="main.activityRoot.feeClass"
-                                                required ng-options="fee |translate for fee in main.feeClassList">
+                                                required ng-options="fee[main.lang] for fee in main.feeClassList">
                                         </select>
                                         <strong id="feeClass-error" class="error">
                         <span class="label label-danger"
@@ -249,7 +249,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-5 form-group">
+                        <div class="col-xs-7 form-group">
+                            <div class="col-xs-9 form-group">
                             <label for="setAdminSubId" class="required">
                                 <span class="field-name">{{"IS_ADMIN_SUB" |translate}}</span>
                                 <strong class="required"> {{"REQUIRED" |translate}}</strong>
@@ -260,14 +261,22 @@
                                 </span>
                                 </strong>
                             </label>
+                                </div>
+                            <div class="form-group col-xs-2"
+                                 ng-class="{'has-error':main.activityEnrolForm.isAdminSub.$invalid}">
+                                <select id="setAdminSubId" name="isAdminSub"
+                                        ng-model="main.activityRoot.isAdminSub" class="form-control"
+                                        ng-change="main.setAdminSubmission()"
+                                        ng-options="choice |translate for choice in main.yesNoList" required></select>
+                            </div>
                         </div>
-                        <div class="col-xs-2 form-group"
+                        <!--<div class="col-xs-2 form-group"
                              ng-class="{'has-error':main.activityEnrolForm.isAdminSub.$invalid}">
                             <select id="setAdminSubId" name="isAdminSub"
                                     ng-model="main.activityRoot.isAdminSub" class="form-control"
                                     ng-change="main.setAdminSubmission()"
                                     ng-options="choice |translate for choice in main.yesNoList" required></select>
-                        </div>
+                        </div>-->
                     </div>
                     <div ng-if="main.showActivity">
                         <section class="panel  panel-default">
@@ -278,7 +287,7 @@
                                 <cmp-admin-sub record="main.activityRoot.relatedActivity"
                                                show-errors="main.showAllErrors"
                                                yes-no-types="main.CommonLists.getYesNoList()"
-                                               activity-types="main.activityService.getActivityTypeList(isPilot)">
+                                               activity-types="main.activityTypeList">
 
                                 </cmp-admin-sub>
                             </div>

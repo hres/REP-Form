@@ -17,7 +17,7 @@
     angular
         .module('contactModule')
         .component('cmpContactDetails',{
-            templateUrl: 'app/scripts/components/contactDetails/tpl-contact-details_20170117_1009.html',
+            templateUrl: 'app/scripts/components/contactDetails/tpl-contact-details_20170117_1259.html',
             controller: contactCtrl,
             bindings: {
                 contactRecord: '<',
