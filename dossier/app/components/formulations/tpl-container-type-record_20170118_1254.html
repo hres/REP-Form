@@ -1,0 +1,124 @@
+<ng-form name="ctrCtrl.containerTypeForm">
+    <div class="container-fluid">
+        <fieldset>
+            <legend>{{'CONTAINER_TYPE_DETAILS'|translate}}&nbsp;{{ctrCtrl.recordIndex+1}}</legend>
+            <div class="row">
+                <div class="form-group col-md-12"  ng-class="{'has-error':ctrCtrl.containerTypeForm.containerType.$invalid}">
+                    <label for="containerType" class="required">
+                        <span class="field-name">{{'CONTAINER_TYPE'|translate}}</span>
+                        <strong class="required">{{'REQUIRED' |translate}}</strong>
+                        <strong id="containerType-error" class="error"
+                                ng-if="ctrCtrl.showError(ctrCtrl.containerTypeForm.containerType.$invalid,ctrCtrl.containerTypeForm.containerType.$touched)">
+                        <span class="label label-danger"
+                              ng-messages="ctrCtrl.containerTypeForm.containerType.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                        </strong>
+                    </label>
+                     <textarea id="containerType" data-ng-model="ctrCtrl.ctModel.containerType" maxlength="256" rows="3"
+                               class="form-control full-width" name="containerType" ng-required="true"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12" ng-class="{'has-error':ctrCtrl.containerTypeForm.packageSize.$invalid}">
+                    <label for="pckSize" class="required">
+                        <span class="field-name">{{'PACKAGE_SIZE'|translate}}</span>
+                        <strong class="required">{{'REQUIRED' |translate}}</strong>
+                        <strong id="pcksize-error" class="error"
+                                ng-if="ctrCtrl.showError(ctrCtrl.containerTypeForm.packageSize.$invalid,ctrCtrl.containerTypeForm.packageSize.$touched)">
+                        <span class="label label-danger"
+                              ng-messages="ctrCtrl.containerTypeForm.packageSize.$error">
+                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
+                        </span>
+                        </strong>
+                    </label>
+                    <textarea id="pckSize" data-ng-model="ctrCtrl.ctModel.packageSize" maxlength="256" rows="3"
+                              class="form-control full-width" name="packageSize" ng-required="true"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <fieldset>
+                        <legend>{{'SHELF_LIFE'| translate}}</legend>
+                        <div class="form-group col-md-6">
+                            <label for="shelfLifeYears"><span class="field-name">{{'SHELF_LIFE_YEARS'|translate}}</span></label>
+                            <input type="number" id="shelfLifeYears" data-ng-model="ctrCtrl.ctModel.shelfLifeYears"
+                                   only-digits only-max="4" size="4" class="form-control" name="shelfYears"/>
+                            <strong id="shelfYear-error" class="error"
+                                    ng-if="ctrCtrl.containerTypeForm.shelfYears.$invalid">
+                                <span class="label label-danger"
+                                      ng-messages="ctrCtrl.containerTypeForm.shelfYears.$error">
+                                 <span ng-message="invalid"><span translate="MSG_ERR_INVALID_NUM"></span></span>
+                                 </span>
+                            </strong>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="shelfLifeMonths"><span
+                                    class="field-name">{{'SHELF_LIFE_MONTHS'|translate}}</span></label>
+                            <input type="number" id="shelfLifeMonths" data-ng-model="ctrCtrl.ctModel.shelfLifeMonths"
+                                   only-digits only-max="4" class="form-control " name="shelfMonths" size="2"/>
+                            <strong id="shelfMonth-error" class="error"
+                                    ng-if="ctrCtrl.containerTypeForm.shelfMonths.$invalid">
+                        <span class="label label-danger"
+                              ng-messages="ctrCtrl.containerTypeForm.shelfMonths.$error">
+                            <span ng-message="invalid"><span translate="MSG_ERR_INVALID_NUM"></span></span>
+                        </span>
+                            </strong>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend>{{'TEMP_RANGE'| translate}}</legend>
+                        <div class="form-group col-md-6">
+                            <label for="tempMin">
+                                <span class="field-name">{{'MIN_TEMP'|translate}}</span>
+                            <input type="number" id="tempMin" data-ng-model="ctrCtrl.ctModel.tempMin"
+                                   only-digits="intNeg" only-max="4" size="4" min="-273" max="999"
+                                   class="form-control" name="tempMin"/>
+                            <strong id="minTemp-error" class="error"
+                                    ng-if="ctrCtrl.containerTypeForm.tempMin.$invalid">
+                                <span class="label label-danger"
+                                      ng-messages="ctrCtrl.containerTypeForm.tempMin.$error">
+                                   <span ng-message="number"><span translate="MSG_ERR_INVALID_NUM"></span></span>
+                                 <span ng-message="min"><span translate="MSG_ERR_INVALID_NUM_MIN"></span></span>
+                                    <span ng-message="max"><span translate="MSG_ERR_INVALID_NUM_MAX"></span></span>
+                                 </span>
+                            </strong>
+                            </label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="tempMax">
+                                <span class="field-name">{{'MAX_TEMP'|translate}}</span>
+                                <input type="number" id="tempMax" size="4" min="-273" max="999"
+                                       data-ng-model="ctrCtrl.ctModel.tempMax"
+                                       only-digits="intNeg" only-max="4" class="form-control" name="tempMax"/>
+                            <strong id="maxTemp-error" class="error"
+                                    ng-if="ctrCtrl.containerTypeForm.tempMax.$invalid">
+                                <span class="label label-danger"
+                                      ng-messages="ctrCtrl.containerTypeForm.tempMax.$error">
+                                      <span ng-message="number"><span translate="MSG_ERR_INVALID_NUM"></span></span>
+                                 <span ng-message="min"><span translate="MSG_ERR_INVALID_NUM_MIN"></span></span>
+                                    <span ng-message="max"><span translate="MSG_ERR_INVALID_NUM_MAX"></span></span>
+                                 </span>
+                            </strong>
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="row">
+
+            <div class="btn-group-sm col-xs-12 text-right">
+                <input type="submit" value="Save" class="btn btn-primary"
+                       ng-click="ctrCtrl.save()"/>
+                <input type="submit" ng-if="ctrCtrl.deleteBtn === true" value="Delete" class="btn btn-danger"
+                       ng-click="ctrCtrl.delete()"/>
+                <input type="submit" value="Discard Changes" class="btn btn-default" ng-click="ctrCtrl.discardChanges()"/>
+            </div>
+        </div>
+
+    </div>
+</ng-form>
