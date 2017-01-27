@@ -53,7 +53,12 @@ label > select {
     margin-top: 5px;
     font-weight: normal;
 }
-
+.rep-margin-top{
+    margin-top: 5px;
+}
+.rep-margin-minus-top-h3{
+    margin-top: -5px !important;
+}
 .rep-expander {
     cursor: pointer;
     color: #295376;
@@ -83,9 +88,6 @@ label > select {
     font-size: 16px;
 }
 
-/*.select2-result-label{
-    width: 100% !important;
-}*/
 
 .rep-selectize-dropdown {
     width: 100% !important;
@@ -100,18 +102,7 @@ label > select {
     padding-top:5px;
 }
 
-/*.select2-choices {
-    position: relative;
-}*/
-/*
-.ui-select-multiple input.ui-select-search {
-    width: 100% !important;
-    position: absolute;
-}
-*/
 
-/*override ui-select controls
-*/
 .select2-container .select2-choice {
     height: 37px !important;
     padding: 6px 12px !important;
