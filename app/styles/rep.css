@@ -78,6 +78,11 @@ label > select {
     background-color: transparent;
     border: none;
 }
+.rep-help-button2 {
+    color: #1c578a;
+    background-color: transparent;
+    border: none;
+}
 
 .rep-normal-font {
     font-weight: normal;
