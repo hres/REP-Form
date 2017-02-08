@@ -1,0 +1,377 @@
+<!DOCTYPE html><!--[if lt IE 9]>
+<html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+    wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>Health Canada Activity REP Template</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <!-- Meta data -->
+    <meta name="description"
+          content="Web Experience Toolkit (WET) includes reusable components for building and maintaining innovative Web sites that are accessible, usable, and interoperable. These reusable components are open source software and free for use by departments and external Web communities">
+    <!-- Meta data-->
+    <!--[if gte IE 9 | !IE ]><!-->
+    <link href="./GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="./GCWeb/css/theme.min.css">
+    <!--<![endif]-->
+    <!--[if lt IE 9]>
+    <link href="./GCWeb/assets/favicon.ico" rel="shortcut icon"/>
+
+    <link rel="stylesheet" href="./GCWeb/css/ie8-theme.min.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./wet-boew/js/ie8-wet-boew.min.js"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+
+
+    <![endif]-->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="./app/styles/rep.css ">-->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="app/styles/rep.css">
+    <link rel="stylesheet" href="app/styles/select.min.css">
+    <link rel="stylesheet" href="app/styles/select2.min.css">
+    <!-- endinject -->
+    <noscript>
+        <link rel="stylesheet" href="./wet-boew/css/noscript.min.css"/>
+    </noscript>
+    <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
+    <script>dataLayer1 = [];</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body vocab="http://schema.org/" typeof="WebPage">
+<!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
+<noscript>
+    <iframe title="Google Tag Manager" src="//www.googletagmanager.com/ns.html?id=GTM-TLGQ9K" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+</noscript>
+<script>(function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+    var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer1' ? '&l=' + l : '';
+    j.async = true;
+    j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer1', 'GTM-TLGQ9K');</script>
+<!-- End Google Tag Manager -->
+<ul id="wb-tphp">
+    <li class="wb-slc">
+        <a class="wb-sl" href="#wb-cont">Skip to main content</a>
+    </li>
+    <li class="wb-slc visible-sm visible-md visible-lg">
+        <a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
+    </li>
+</ul>
+<header role="banner">
+    <div id="wb-bnr" class="container">
+        <section id="wb-lng" class="visible-md visible-lg text-right">
+            <h2 class="wb-inv">Language selection</h2>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!--<ul class="list-inline margin-bottom-none">
+                    <li><a lang="fr" href="content-fr.html">Français</a></li>
+                    </ul>-->
+                </div>
+            </div>
+        </section>
+        <div class="row">
+            <div class="brand col-xs-8 col-sm-9 col-md-6">
+                <a href="http://www.canada.ca/en/index.html">
+                    <object type="image/svg+xml" tabindex="-1" data="./GCWeb/assets/sig-blk-en.svg"></object>
+                    <span class="wb-inv"> Government of Canada</span></a>
+            </div>
+            <section class="wb-mb-links col-xs-4 col-sm-3 visible-sm visible-xs" id="wb-glb-mn">
+                <h2>Search and menus</h2>
+                <ul class="list-inline text-right chvrn">
+                    <li><a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk"
+                           role="button"><span class="glyphicon glyphicon-search"><span
+                            class="glyphicon glyphicon-th-list"><span
+                            class="wb-inv">Search and menus</span></span></span></a></li>
+                </ul>
+                <div id="mb-pnl"></div>
+            </section>
+            <section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg">
+                <h2>Search</h2>
+                <form action="#" method="post" name="cse-search-box" role="search" class="form-inline">
+                    <div class="form-group">
+                        <label for="wb-srch-q" class="wb-inv">Search website</label>
+                        <input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search"
+                               value="" size="27" maxlength="150" placeholder="Search Canada.ca">
+                        <datalist id="wb-srch-q-ac">
+                            <!--[if lte IE 9]><select><![endif]-->
+                            <!--[if lte IE 9]></select><![endif]-->
+                        </datalist>
+                    </div>
+                    <div class="form-group submit">
+                        <button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub">
+                            <span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+    <nav role="navigation" id="wb-sm" data-ajax-replace="./ajax/sitemenu-en.html" data-trgt="mb-pnl"
+         class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+        <div class="container nvbar">
+            <h2>Topics menu</h2>
+
+            <div class="row">
+                <ul class="list-inline menu">
+                    <li><a href="http://www.esdc.gc.ca/en/jobs/index.page">Jobs</a></li>
+                    <li><a href="http://www.cic.gc.ca/english/index.asp">Immigration</a></li>
+                    <li><a href="http://travel.gc.ca">Travel</a></li>
+                    <li><a href="http://www.canada.ca/en/services/business/index.html">Business</a></li>
+                    <li><a href="http://www.canada.ca/en/services/benefits/index.html">Benefits</a></li>
+                    <li><a href="http://healthycanadians.gc.ca/index-eng.php">Health</a></li>
+                    <li><a href="http://www.canada.ca/en/services/taxes/index.html">Taxes</a></li>
+                    <li><a href="http://www.canada.ca/en/services/index.html">More services</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav role="navigation" id="wb-bc" property="breadcrumb">
+        <h2>You are here:</h2>
+
+        <div class="container">
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="https://lam-dev.hres.ca/REP-Form/index.html">Home</a></li>
+                </ol>
+            </div>
+        </div>
+    </nav>
+</header>
+<main role="main" property="mainContentOfPage" class="container">
+
+
+    <!--content starts here -->
+    <div>
+        <h1 property="name" id="wb-cont">Experimental Diff Template</h1>
+
+        <!-- inject:mainContent-->
+        <div id="app-root" ng-app="activityApp" ng-controller="MainController as ctrl">
+
+            <div ng-repeat="record in ctrl.listResults">
+                <ul class="list-unstyled">
+                    <li>
+                        <details>
+                            <summary>{{record.recordName |translate}} {{record.index+1}}</summary>
+                            <table class="table dataTable table-bordered table-hover table-condensed table-striped">
+                                <tr>
+                                    <th> Record or Field Affected</th>
+                                    <th>Change Type</th>
+                                    <th>Original Value</th>
+                                    <th>Changed Value</th>
+                                </tr>
+                                <tr ng-repeat="leaf in record.leaf">
+                                    <td>{{leaf.name |translate}}</td>
+                                    <td>{{leaf.type |translate}}</td>
+                                    <td>{{leaf.original}}</td>
+                                    <td>{{leaf.diff}}</td>
+                                </tr>
+                            </table>
+                        </details>
+                    </li>
+                </ul>
+            </div>
+
+
+            <!--  <table class="table dataTable table-bordered table-hover table-condensed table-striped" id="expand-table-{{::$id}}">
+                  <thead>
+                  <tr>
+                      <th>Element Affected</th>
+                      <th>Original Value</th>
+                       <th>Changed Value</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr id="tr-expand-row-{{$index}}"
+                      ng-repeat="record in ctrl.listResults">
+                      <td>
+                          <span>{{record.tag}}</span>
+
+                      </td>
+                      <td>
+                          <span>{{record.original}}</span>
+                      </td>
+                      <td >
+                          <span >{{record.change}}</span>
+                      </td>
+                  </tr>
+                  </tbody>
+              </table>-->
+
+            <!--<table class="table dataTable table-bordered table-hover table-condensed table-striped" id="expand-table-{{::$id}}">
+                <thead>
+                <tr>
+                    <th>Element Affected</th>
+                    <th>Original Value</th>
+                    <th>Changed Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr id="tr-row-{{$index}}"
+                    ng-repeat="record in ctrl.resultDiff">
+                    <td>
+                        <span>{{record.tag}}</span>
+                    </td>
+                    <td>
+                        <span>{{record.lhs}}</span>
+                    </td>
+                    <td >
+                        <span >{{record.rhs}}</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>-->
+
+
+        </div>
+        <!-- endinject-->
+
+
+    </div>
+    <!--content ends here -->
+
+    <div class="datemod col-xs-12 mrgn-tp-lg">
+        <dl id="wb-dtmd">
+            <dt>Date modified:&#32;</dt>
+            <dd>
+                <time property="dateModified">2017-02-02</time>
+            </dd>
+        </dl>
+    </div>
+
+</main>
+<aside class="gc-nttvs container">
+    <h2>Government of Canada activities and initiatives</h2>
+
+    <div id="gcwb_prts" class="wb-eqht row wb-init wb-data-ajax-replace-inited wb-eqht-inited"
+         data-ajax-append="https://cdn.canada.ca/gcweb-cdn-live/features/features-en.html">
+
+    </div>
+</aside>
+<footer role="contentinfo" id="wb-info">
+    <nav role="navigation" class="container wb-navcurr">
+        <h2 class="wb-inv">About government</h2>
+        <ul class="list-unstyled colcount-sm-2 colcount-md-3">
+            <li><a href="https://www.canada.ca/en/contact.html">Contact us</a></li>
+            <li><a href="https://www.canada.ca/en/government/dept.html">Departments and agencies</a></li>
+            <li><a href="https://www.canada.ca/en/government/publicservice.html">Public service and military</a></li>
+            <li><a href="http://news.gc.ca/">News</a></li>
+            <li><a href="https://www.canada.ca/en/government/system/laws.html">Treaties, laws and regulations</a></li>
+            <li><a href="https://www.canada.ca/en/transparency/reporting.html">Government-wide reporting</a></li>
+            <li><a href="http://pm.gc.ca/eng">Prime Minister</a></li>
+            <li><a href="https://www.canada.ca/en/government/system.html">How government works</a></li>
+            <li><a href="http://open.canada.ca/en/">Open government</a></li>
+        </ul>
+    </nav>
+    <div class="brand">
+        <div class="container">
+            <div class="row">
+                <nav class="col-md-10 ftr-urlt-lnk">
+                    <h2 class="wb-inv">About this site</h2>
+                    <ul>
+                        <li><a href="https://www1.canada.ca/en/contact/feedback.html">Feedback</a></li>
+                        <li><a href="https://www.canada.ca/en/social.html">Social media</a></li>
+                        <li><a href="https://www.canada.ca/en/mobile.html">Mobile applications</a></li>
+                        <li><a href="http://www1.canada.ca/en/newsite.html">About Canada.ca</a></li>
+                        <li><a href="https://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></li>
+                        <li><a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a></li>
+                    </ul>
+                </nav>
+                <div class="col-xs-6 visible-sm visible-xs tofpg">
+                    <a href="#wb-cont">Top of Page <span class="glyphicon glyphicon-chevron-up"></span></a>
+                </div>
+                <div class="col-xs-6 col-md-2 text-right">
+                    <object type="image/svg+xml" tabindex="-1" role="img" data="./GCWeb/assets/wmms-blk.svg"
+                            aria-label="Symbol of the Government of Canada"></object>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--[if gte IE 9 | !IE ]><!-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<script src="./wet-boew/js/wet-boew.min.js"></script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<script src="./wet-boew/js/ie8-wet-boew2.min.js"></script>
+
+<![endif]-->
+<script src="./GCWeb/js/theme.min.js"></script>
+<!--Start add custom scripts here-->
+
+<!-- inject:js -->
+
+<script src="app/lib/angular.min.js"></script>
+
+<script src="app/lib/angular-translate.min.js"></script>
+
+<script src="app/lib/angular-sanitize.min.js"></script>
+
+<script src="app/lib/angular-resource.min.js"></script>
+
+<script src="app/lib/angular-messages.min.js"></script>
+
+<script src="app/lib/angular-aria.min.js"></script>
+
+<script src="app/scripts/activityAppEXT-en.js"></script>
+<script src="app/scripts/translations.js"></script>
+<script src="app/lib/deep-diff-0.3.4.min.js"></script>
+
+<!-- endinject -->
+<!-- thirdParty:js  -->
+
+<!--<script src="app/lib/FileSaver.min.js"></script>
+
+<script src="app/lib/select.min.js"></script>-->
+
+<!--<script src="app/lib/sha256.js"></script>-->
+
+<!--<script src="app/lib/ui-bootstrap-tpls-2.1.4.min.js"></script>
+
+<script src="app/lib/xml2json.js"></script>-->
+
+<!-- endinject -->
+<script>
+    /*  var oldObj={"ACTIVITY_ENROL":{"template_type":"PHARMA","company_id":"","dsts_control_number":"","enrolment_version":"0.2","date_saved":"2017-02-04","application_type":"NEW","software_version":"1.0.0","data_checksum":"","dossier_id_prefix":"HC6-024-","dossier_id":"","dossier_id_concat":"","reg_activity_lead":"","reg_activity_type":{"_label_en":"MPNC (Pre-NC Meeting)","_label_fr":"MPNC (Réunion préalable - PM)","__text":"B02-20160301-046"},"fee_class":"","reason_filing":"","is_third_party":"","is_admin_submission":"","notifiable_change_types":{"text_label_change":"N","drug_substance_change":"N","formulation_change":"N","specification_change":"N","expiry_storage_change":"N","manufact_method_change":"N","manufact_site_change":"N","container_size_change":"N","packaging_spec_change":"N","packaging_materials_change":"N","other_change_details":""},"rationale_types":{"new_roa":"N","new_claims":"N","change_formulation":"N","change_drug_substance":"N","replace_sterility":"N","confirmitory_studies":"N","other_rationale":"N","other_rationale_details":""},"contact_record":[{"foo":"bar"}]}};
+     var newObj={"ACTIVITY_ENROL":{"template_type":"PHARMA","hhh":"hhhh","dsts_control_number":"","enrolment_version":"0.2","date_saved":"2017-02-04","application_type":"AMEND","software_version":"1.0.1","data_checksum":"","dossier_id_prefix":"HC6-024-","dossier_id":"","dossier_id_concat":"","reg_activity_lead":"","reg_activity_type":{"_label_en":"MPNC (Pre-NC Meeting)","_label_fr":"MPNC (Réunion préalable - PM)","__text":"B02-20160301-047"},"fee_class":"","reason_filing":"","is_third_party":"","is_admin_submission":"","notifiable_change_types":{"text_label_change":"N","drug_substance_change":"N","formulation_change":"N","specification_change":"N","expiry_storage_change":"N","manufact_method_change":"N","manufact_site_change":"N","container_size_change":"N","packaging_spec_change":"N","packaging_materials_change":"N","other_change_details":""},"rationale_types":{"new_roa":"N","new_claims":"N","change_formulation":"N","change_drug_substance":"N","replace_sterility":"N","confirmitory_studies":"N","other_rationale":"N","other_rationale_details":""},"contact_record":[{"foo":"bar2"}]}}
+     //"company_id":"",
+     var oldObj2={"DOSSIER_ENROL":{"company_id":"","dossier_id":"","related_dossier_id":"","enrolment_version":"0.1","date_saved":"2017-02-07","application_type":"NEW","software_version":"1.0.0","data_checksum":"","contact_record":[],"dossier_type":"","brand_name":"","common_name":"","third_party_signed":"","is_ref_products":"","ref_product_list":{},"human_drug_use":"N","radiopharm_drug_use":"N","vet_drug_use":"N","disinfectant_drug_use":"N","therapeutic_class_list":{},"is_sched_a":"N","formulation_group":{"formulation_details":[]}}};
+     var newObj2={"DOSSIER_ENROL":{"company_id":"","dossier_id":"","related_dossier_id":"","enrolment_version":"0.1","date_saved":"2017-02-07","application_type":"NEW","software_version":"1.0.0","data_checksum":"","contact_record":[],"dossier_type":"","brand_name":"","common_name":"","third_party_signed":"","is_ref_products":"","ref_product_list":{},"human_drug_use":"N","radiopharm_drug_use":"N","vet_drug_use":"N","disinfectant_drug_use":"N","therapeutic_class_list":{},"is_sched_a":"N","formulation_group":{"formulation_details":[]}}};
+     var newObj3={"DOSSIER_ENROL":{"company_id":"","dossier_id":"","related_dossier_id":"","enrolment_version":"0.1","date_saved":"2017-02-07","application_type":"NEW","software_version":"1.0.0","data_checksum":"","contact_record":[{"amend_record":"N","rep_contact_role":"PRIMARY","rep_contact_details":{"salutation":"SALUT_DR","given_name":"asdsadsa","initials":"","surname":"asdasa","job_title":"job title 1","language_correspondance":"en","phone_num":"111-111-1111","phone_ext":"","fax_num":"","email":"fsdfdfsd@asdsadas"}}],"dossier_type":"","brand_name":"","common_name":"","third_party_signed":"","is_ref_products":"","ref_product_list":{},"human_drug_use":"N","radiopharm_drug_use":"N","vet_drug_use":"N","disinfectant_drug_use":"N","therapeutic_class_list":{},"is_sched_a":"N","formulation_group":{"formulation_details":[]}}};
+     var newObj4={"DOSSIER_ENROL":{"company_id":"","dossier_id":"","related_dossier_id":"","enrolment_version":"0.1","date_saved":"2017-02-07","application_type":"NEW","software_version":"1.0.0","data_checksum":"","contact_record":[{"amend_record":"N","rep_contact_role":"PRIMARY","rep_contact_details":{"salutation":"SALUT_DR","given_name":"asdsadsa","initials":"","surname":"asdasa","job_title":"job title 2","language_correspondance":"fr","phone_num":"111-111-1111","phone_ext":"","fax_num":"","email":"fsdfdfsd@asdsadas"}}],"dossier_type":"","brand_name":"","common_name":"","third_party_signed":"","is_ref_products":"","ref_product_list":{},"human_drug_use":"N","radiopharm_drug_use":"N","vet_drug_use":"N","disinfectant_drug_use":"N","therapeutic_class_list":{},"is_sched_a":"N","formulation_group":{"formulation_details":[]}}};
+
+     var result4=DeepDiff(newObj4,newObj3);
+     console.log(result4);
+     for(var g=0;g<result4.length;g++){
+     var rec=result4[g];
+     console.log("Type of change "+rec.kind);
+     if(rec.kind==='E') {
+     console.log("change of a single element");
+     var pathString="";
+     for(var i=0;i<rec.path.length;i++){
+     pathString=pathString+" {{"+rec.path[i]+"}}";
+     }
+     console.log("Element "+pathString)
+     console.log("Original value: "+rec.lhs);
+     console.log("Changed value: "+rec.rhs);
+
+     }
+     if(rec.kind==='A') {
+     console.log("Change element "+rec.path[rec.path.length-1]);
+     console.log("Type of change " + JSON.stringify(rec.item.kind));
+     console.log("Original " + JSON.stringify(rec.item.lhs));
+     console.log("Updated " + JSON.stringify(rec.item.rhs));
+     }
+     }*/
+
+
+</script>
+
+</body>
+</html>
