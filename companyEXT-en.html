@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
     wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title>Pilot: REP Forms for Health Canada</title>
+    <title>Health Canada Company Template</title>
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <!-- Meta data -->
     <meta name="description"
@@ -28,7 +28,12 @@
 
     <![endif]-->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="./app/styles/rep.css ">
+    <!--<link rel="stylesheet" href="./app/styles/rep.css ">-->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="app/styles/rep_20170210_1644.min.css">
+    <link rel="stylesheet" href="app/styles/select.min.css">
+    <link rel="stylesheet" href="app/styles/select2.min.css">
+    <!-- endinject -->
     <noscript>
         <link rel="stylesheet" href="./wet-boew/css/noscript.min.css"/>
     </noscript>
@@ -89,23 +94,21 @@
                 <div id="mb-pnl"></div>
             </section>
             <section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg">
-                <h2>Search</h2>
-                <form action="#" method="post" name="cse-search-box" role="search" class="form-inline">
-                    <div class="form-group">
-                        <label for="wb-srch-q" class="wb-inv">Search website</label>
-                        <input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search"
-                               value="" size="27" maxlength="150" placeholder="Search Canada.ca">
-                        <datalist id="wb-srch-q-ac">
-                            <!--[if lte IE 9]><select><![endif]-->
-                            <!--[if lte IE 9]></select><![endif]-->
-                        </datalist>
-                    </div>
-                    <div class="form-group submit">
-                        <button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub">
-                            <span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
-                    </div>
-                </form>
-            </section>
+<h2>Search</h2>
+<form action="#" method="post" name="cse-search-box" role="search" class="form-inline">
+<div class="form-group">
+<label for="wb-srch-q" class="wb-inv">Search website</label>
+<input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="27" maxlength="150" placeholder="Search Canada.ca">
+<datalist id="wb-srch-q-ac">
+<!--[if lte IE 9]><select><![endif]-->
+<!--[if lte IE 9]></select><![endif]-->
+</datalist>
+</div>
+<div class="form-group submit">
+<button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub"><span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
+</div>
+</form>
+</section>
         </div>
     </div>
     <nav role="navigation" id="wb-sm" data-ajax-replace="./ajax/sitemenu-en.html" data-trgt="mb-pnl"
@@ -133,7 +136,7 @@
         <div class="container">
             <div class="row">
                 <ol class="breadcrumb">
-                    <!-- <li><a href="https://lam-dev.hres.ca/REP-Form/index.html">Home</a></li>-->
+                    <li><a href="https://lam-dev.hres.ca/REP-Form/index.html">Home</a></li>
                 </ol>
             </div>
         </div>
@@ -144,45 +147,27 @@
 
     <!--content starts here -->
     <div>
-        <div class="row">
-            <h1 property="name" id="wb-cont"> Regulatory Enrolment Process (REP) </h1>
-        </div>
-        <div>
-            <div class="row">
-                <h2>REP Form Links (Last updated: Feb 10, 2017)</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-12 form-group">
-                    <a href="companyEXT-en.html">Company Enrolment</a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 form-group">
-                    <a href="dossierEXT-en.html">Dossier Enrolment</a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 form-group">
-                    <a href="activityEXT-en.html">Regulatory Activity Enrolment</a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 form-group">
-                    <a href="transactionEXT-en.html">Regulatory Transaction Enrolment</a>
-                </div>
-            </div>
-        </div>
+        <h1 property="name" id="wb-cont">Company Template: Regulatory Enrolment Process (REP)</h1>
+
+        <!-- inject:mainContent-->
+        <div ng-app="companyApp" ng-controller="MainController as ctrl">
+    <cmp-company-main form-type="{{ctrl.formType}}"></cmp-company-main>
+</div>
+        <!-- endinject-->
 
 
     </div>
     <!--content ends here -->
-    <div class="row">
-        <div class="datemod col-xs-12 mrgn-tp-lg">
-            <dl id="wb-dtmd">
-                <dt>Date modified: Feb 10, 2017</dt>
-            </dl>
-        </div>
+
+    <div class="datemod col-xs-12 mrgn-tp-lg">
+        <dl id="wb-dtmd">
+            <dt>Date modified:&#32;</dt>
+            <dd>
+                <time property="dateModified">2017-02-10 </time>
+            </dd>
+        </dl>
     </div>
+
 </main>
 <aside class="gc-nttvs container">
     <h2>Government of Canada activities and initiatives</h2>
@@ -245,8 +230,32 @@
 
 <!-- inject:js -->
 
+<script src="app/lib/angular.min.js"></script>
+
+<script src="app/lib/angular-translate.min.js"></script>
+
+<script src="app/lib/angular-sanitize.min.js"></script>
+
+<script src="app/lib/angular-resource.min.js"></script>
+
+<script src="app/lib/angular-messages.min.js"></script>
+
+<script src="app/lib/angular-aria.min.js"></script>
+
+<script src="app/scripts/companyAppEXT-en_20170210_1644.min.js"></script>
+
 <!-- endinject -->
 <!-- thirdParty:js  -->
+
+<script src="app/lib/FileSaver.min.js"></script>
+
+<script src="app/lib/select.min.js"></script>
+
+<script src="app/lib/sha256.js"></script>
+
+<script src="app/lib/ui-bootstrap-tpls-2.1.4.min.js"></script>
+
+<script src="app/lib/xml2json.js"></script>
 
 <!-- endinject -->
 
