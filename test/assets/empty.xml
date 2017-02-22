@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<drug_fact_table>
+	<drug_name>
+		<label lang="en"></label>
+		<label lang="fr"></label>
+	</drug_name>
+	<active_ingredients>
+		<active>
+			<label lang="en"></label>
+			<label lang="fr"></label>
+		</active>
+	</active_ingredients>
+	<inactive_ingredients>
+		<inactive>
+			<label lang="en"></label>
+			<label lang="fr"></label>
+		</inactive>
+	</inactive_ingredients>
+	<purposes>
+		<purpose>
+			<label lang="en"></label>
+			<label lang="fr"></label>
+		</purpose>
+	</purposes>
+	<uses>
+		<use>
+			<label lang="en"></label>
+			<label lang="fr"></label>
+			<fr></fr>
+		</use>
+	</uses>
+	<warnings>
+		<warning>
+			<type>
+				<label lang="en"></label>
+				<label lang="fr"></label>
+			</type>
+			<item>
+				<label lang="en"></label>
+				<label lang="fr"></label>
+			</item>
+			<item>
+				<label lang="en"></label>
+				<label lang="fr"></label>
+			</item>
+		</warning>
+	</warnings>
+	<directions>
+		<direction>
+			<label lang="en"></label>
+			<label lang="fr"></label>
+		</direction>
+	</directions>
+	<other_information>
+		<other>
+			<label lang="en"></label>
+			<label lang="fr"></label>
+		</other>
+	</other_information>
+	<contact>
+	</contact>
+</drug_fact_table>

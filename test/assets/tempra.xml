@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<drug_fact_table>
+	<drug_name>
+		<label lang="en">Tempra Drug</label>
+		<label lang="fr"></label>
+	</drug_name>
+	<active_ingredients>
+		<active>
+			<label lang="en">Acetaminophen 80mg/mL</label>
+			<label lang="fr"></label>
+		</active>
+	</active_ingredients>
+	<inactive_ingredients>
+		<inactive>
+			<label lang="en"></label>
+			<label lang="fr"></label>
+		</inactive>
+	</inactive_ingredients>
+	<purposes>
+		<purpose>
+			<label lang="en">Pain reliever</label>
+			<label lang="fr"></label>
+		</purpose>
+		<purpose>
+			<label lang="en">Fever reducer</label>
+			<label lang="fr"></label>
+		</purpose>
+	</purposes>
+	<uses>
+		<use>
+			<label lang="en">Reduces fever</label>
+			<label lang="fr"></label>
+		</use>
+		<use>
+			<label lang="en">headache</label>
+			<label lang="fr"></label>
+		</use>
+		<use>
+			<label lang="en">backache</label>
+			<label lang="fr"></label>
+		</use>
+		<use>
+			<label lang="en">migraine</label>
+			<label lang="fr"></label>
+		</use>
+		<use>
+			<label lang="en">sore throat</label>
+			<label lang="fr"></label>
+		</use>
+		<use>
+			<label lang="en">arthritis or rheumatism</label>
+			<label lang="fr"></label>
+		</use>
+		<use>
+			<label lang="en">pre-menstrual/menstrual cramps</label>
+			<label lang="fr"></label>
+		</use>
+		<use>
+			<label lang="en">muscle sprains and strains</label>
+			<label lang="fr"></label>
+		</use>
+		<use>
+			<label lang="en">toothache / teething pain</label>
+			<label lang="fr"></label>
+		</use>
+		<use>
+			<label lang="en">common cold and flu</label>
+			<label lang="fr"></label>
+		</use>
+		<use>
+			<label lang="en">immunization</label>
+			<label lang="fr"></label>
+		</use>
+	</uses>
+	<warnings>
+		<warning>
+			<type>
+				<label lang="en">Acetaminophen may cause severe or possibly fatal liver damage if you take:</label>
+				<label lang="fr"></label>
+			</type>
+			<item>
+				<label lang="en">more than the recommended dose in 24 hours</label>
+				<label lang="fr"></label>
+			</item>
+			<item>
+				<label lang="en">more than the recommended dose in 24 hours</label>
+				<label lang="fr"></label>
+			</item>
+			<item>
+				<label lang="en">with other drugs containing acetaminophen</label>
+				<label lang="fr"></label>
+			</item>
+			<item>
+				<label lang="en">while drinking 3 or more alcoholic drinks every day (adult products only)</label>
+				<label lang="fr"></label>
+			</item>
+		</warning>
+		<warning>
+			<type>
+				<label lang="en">Symptoms of liver damage may include:</label>
+				<label lang="fr"></label>
+			</type>
+			<item>
+				<label lang="en">yellow skin or eyes</label>
+				<label lang="fr"></label>
+			</item>
+			<item>
+				<label lang="en">dark urine</label>
+				<label lang="fr"></label>
+			</item>
+			<item>
+				<label lang="en">sweating</label>
+				<label lang="fr"></label>
+			</item>
+			<item>
+				<label lang="en">nausea</label>
+				<label lang="fr"></label>
+			</item>
+			<item>
+				<label lang="en">vomiting</label>
+				<label lang="fr"></label>
+			</item>
+			<item>
+				<label lang="en">stomach pain</label>
+				<label lang="fr"></label>
+			</item>
+			<item>
+				<label lang="en">unusual tiredness</label>
+				<label lang="fr"></label>
+			</item>
+			<item>
+				<label lang="en">loss of appetite</label>
+				<label lang="fr"></label>
+			</item>
+		</warning>
+		<warning>
+			<type>
+				<label lang="en">Acetaminophen may cause serious skin reactions. Symptoms may include:</label>
+				<label lang="fr"></label>
+			</type>
+			<item>
+				<label lang="en">with any other drug containing acetaminophen</label>
+				<label lang="fr"></label>
+			</item>
+			<item>
+				<label lang="en">blisters</label>
+				<label lang="fr"></label>
+			</item>
+			<item>
+				<label lang="en">rash></label>
+				<label lang="fr"></label>
+			</item>
+		</warning>
+		<warning>
+			<type>
+				<label lang="en">Do not use</label>
+				<label lang="fr"></label>
+			</type>
+			<item>
+				<label lang="en">if you are allergic to acetaminophen or any other ingredient in this product</label>
+				<label lang="fr"></label>
+			</item>
+			<item>
+				<label lang="en">with any other drug containing acetaminophen</label>
+				<label lang="fr"></label>
+			</item>
+		</warning>
+		<warning>
+			<type>
+				<label lang="en">Ask a doctor</label>
+				<label lang="fr"></label>
+			</type>
+			<item>
+				<label lang="en">before use if you have liver or kidney disease</label>
+				<label lang="fr"></label>
+			</item>
+			<item>
+				<label lang="en">or pharmacist before use if you take the blood thinning drug warfarin</label>
+				<label lang="fr"></label>
+			</item>
+		</warning>
+		<warning>
+			<type>
+				<label lang="en">Stop use and ask a doctor</label>
+				<label lang="fr"></label>
+			</type>
+			<item>
+				<label lang="en">If pain lasts for more than 5 days</label>
+				<label lang="fr"></label>
+			</item>
+			<item>
+				<label lang="en">If fever lasts more than 3 days</label>
+				<label lang="fr"></label>
+			</item>
+		</warning>
+		<warning>
+			<type>
+				<label lang="en">Ask a healthcare professional before use</label>
+				<label lang="fr"></label>
+			</type>
+			<item>
+				<label lang="en">If pregnant or breastfeeding</label>
+				<label lang="fr"></label>
+			</item>
+		</warning>
+		<warning>
+			<type>
+				<label lang="en">Keep out of reach of children</label>
+				<label lang="fr"></label>
+			</type>
+			<item>
+				<label lang="en">This package contains enough drug to seriously harm a child (if greater than 3.2 grams of acetaminophen in the package).</label>
+				<label lang="fr"></label>
+			</item>
+			<item>
+				<label lang="en">In case of overdose, call a Poison Control Centre or get medical help right away. Quick medical attention is critical even if you do not notice any signs or symptoms.</label>
+				<label lang="fr"></label>
+			</item>
+		</warning>
+	</warnings>
+	<directions>
+		<direction>
+			<label lang="en">Do not take more than directed (see liver warnings). Adults and children 12 years and over:</label>
+			<label lang="fr"></label>
+		</direction>
+		<direction>
+			<label lang="en">if pain or fever does not respond to 1 (tablet/caplet/etc.), take 2 (tablets/caplets/etc.) at next dose</label>
+			<label lang="fr"></label>
+		</direction>
+		<direction>
+			<label lang="en">take 1 dose every 4 to 6 hours</label>
+			<label lang="fr"></label>
+		</direction>
+		<direction>
+			<label lang="en">do not take more than 600 mg (5 doses) in 24 hours</label>
+			<label lang="fr"></label>
+		</direction>
+		
+	</directions>
+	<other_information>
+		<other>
+			<label lang="en"></label>
+			<label lang="fr"></label>
+		</other>
+	</other_information>
+	<contact>
+	</contact>
+</drug_fact_table>
