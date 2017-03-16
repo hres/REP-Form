@@ -1,0 +1,19 @@
+{
+  "job_title": "Job Title",
+  "language_correspondance": "Language of Correspondence",
+  "given_name": "Given Name",
+  "initials": "Initials",
+  "rep_contact_role": "REP Contact Type",
+  "rep_contact_role": "REP Contact Type",
+"rep_contact_details": "REP Contact Details",
+  "salutation": "Salutation",
+  "given_name": "Given Name",
+  "initials": "Initials",
+  "surname": "Surname",
+  "job_title": "Job Title",
+  "language_correspondance": "Language of Correspondance",
+  "phone_num": "Phone Number",
+  "phone_ext": "Phone Extension",
+  "fax_num": "Fax Number",
+  "email": "Email"
+}

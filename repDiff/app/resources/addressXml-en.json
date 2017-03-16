@@ -1,0 +1,8 @@
+{
+  "city": "City",
+  "street_address": "Street Address",
+  "province_lov": "Provinces / States",
+  "province_text": "Province (text)",
+  "country": "Country",
+  "postal_code": "Postal Code"
+}

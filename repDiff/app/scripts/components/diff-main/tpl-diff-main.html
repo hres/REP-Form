@@ -1,0 +1,98 @@
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel panel-primary">
+            <header class="panel-heading">
+                <h2 class="panel-title">1. Load the base file</h2>
+            </header>
+            <div class="panel-body">
+                <hpfb-file-select update-model-root="ctrl.showContent(fileContent) "
+                                  root-elem=""></hpfb-file-select>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel panel-primary">
+            <header class="panel-heading">
+                <h2 class="panel-title">2. Load the file to compare</h2>
+            </header>
+            <div class="panel-body">
+                <hpfb-file-select update-model-root="ctrl.showContent2(fileContent) "
+                                  root-elem=""></hpfb-file-select>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 form-group">
+        <button class="btn btn-primary" ng-click="ctrl.compareFiles()">Start Compare</button>
+    </div>
+</div>
+<div class="row">
+
+
+</div>
+
+
+<div>
+    <section class="panel panel-primary" ng-if="ctrl.listResults && ctrl.listResults.length>0">
+        <header class="panel-heading clearfix">
+            <h2 class="panel-title">3. Comparison Results</h2>
+        </header>
+        <div class="panel-body">
+            <div class="row margin-top-medium">
+                <div class="col-sm-12 button-group">
+                    <button ng-click="ctrl.expandAll()">Expand all</button>
+                    <button ng-click="ctrl.collapseAll()">Collapse all</button>
+                </div>
+            </div>
+            <div>
+                <div class="row margin-top-large">
+                    <div class="col-sm-12 form-group">
+                        <div ui-tree id="tree-root" data-drag-enabled="false">
+                            <ol ui-tree-nodes ng-model="ctrl.listResults">
+                                <li ng-repeat="node in ctrl.listResults" ui-tree-node
+                                    ng-include="'app/scripts/components/nodes-renderer/nodes-renderer.html'"></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- endinject-->
+            </div>
+        </div>
+    </section>
+</div>
+<div class="row margin-top-large">
+    <details>
+        <summary>Raw Data</summary>
+
+        <details>
+            <summary>Difference Engine Raw Results</summary>
+            <div class="row" ng-if="ctrl.diffList">
+                <pre>Number of Diff Records:{{ctrl.diffList.length}}</pre>
+            </div>
+            <div class="row">
+                <pre>{{ctrl.diffList |json}}</pre>
+            </div>
+        </details>
+        <details>
+            <summary>Consolidated Results</summary>
+            <div class="row">
+                <pre>{{ctrl.listResults |json}}</pre>
+            </div>
+        </details>
+        <details>
+            <summary>Base File Contents</summary>
+            <div class="row">
+                <pre>{{ctrl.content1 |json}}</pre>
+            </div>
+        </details>
+        <details>
+            <summary>Compare File Contents</summary>
+            <div class="row">
+                <pre>{{ctrl.content2 |json}}</pre>
+            </div>
+        </details>
+    </details>
+</div>
