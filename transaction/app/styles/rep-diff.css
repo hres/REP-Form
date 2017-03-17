@@ -1,0 +1,18 @@
+
+.btn-primary-outline {
+    background-color: transparent;
+    border-color: transparent;
+}
+.rep-anchor{
+    color: #0535d2 !important;
+}
+.rep-ui-tree-cursor{
+    cursor:pointer !important;
+}
+.margin-bottom-large {
+    margin-bottom: 1.5em !important
+}
+
+.margin-bottom-medium {
+    margin-bottom: .75em !important
+}
