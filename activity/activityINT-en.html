@@ -4,35 +4,38 @@
 <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
-    <meta http-equiv="Pragma" content="no-cache"/>
-    <meta http-equiv="Expires" content="0"/>
     <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
     wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title>Production Internal REP forms</title>
+    <title>Health Canada Activity REP Template</title>
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <!-- Meta data -->
     <meta name="description"
-          content="Web Experience Toolkit (WET) includes reusable components for building and maintaining innovative Web sites that are accessible, usable, and interoperable. These reusable components are open source software and free for use by departments and external Web communities">
+          content="REP Forms">
     <!-- Meta data-->
     <!--[if gte IE 9 | !IE ]><!-->
-    <link href="./GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon">
-    <link rel="stylesheet" href="./GCWeb/css/theme.min.css">
+    <link href="./../GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="./../GCWeb/css/theme.min.css">
     <!--<![endif]-->
     <!--[if lt IE 9]>
-    <link href="./GCWeb/assets/favicon.ico" rel="shortcut icon"/>
+    <link href="./../GCWeb/assets/favicon.ico" rel="shortcut icon"/>
 
-    <link rel="stylesheet" href="./GCWeb/css/ie8-theme.min.css"/>
+    <link rel="stylesheet" href="./../GCWeb/css/ie8-theme.min.css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="./wet-boew/js/ie8-wet-boew.min.js"></script>
+    <script src="./../wet-boew/js/ie8-wet-boew.min.js"></script>
     <![endif]-->
     <!--[if lte IE 9]>
 
 
     <![endif]-->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="app/styles/rep.css">
+    <link rel="stylesheet" href="app/styles/select.min.css">
+    <link rel="stylesheet" href="app/styles/select2.min.css">
+    <!-- endinject -->
     <noscript>
-        <link rel="stylesheet" href="./wet-boew/css/noscript.min.css"/>
+        <link rel="stylesheet" href="./../wet-boew/css/noscript.min.css"/>
     </noscript>
     <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
     <script>dataLayer1 = [];</script>
@@ -77,7 +80,7 @@
         <div class="row">
             <div class="brand col-xs-8 col-sm-9 col-md-6">
                 <a href="http://www.canada.ca/en/index.html">
-                    <object type="image/svg+xml" tabindex="-1" data="./GCWeb/assets/sig-blk-en.svg"></object>
+                    <object type="image/svg+xml" tabindex="-1" data="./../GCWeb/assets/sig-blk-en.svg"></object>
                     <span class="wb-inv"> Government of Canada</span></a>
             </div>
             <section class="wb-mb-links col-xs-4 col-sm-3 visible-sm visible-xs" id="wb-glb-mn">
@@ -91,26 +94,24 @@
                 <div id="mb-pnl"></div>
             </section>
             <section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg">
-                <h2>Search</h2>
-                <form action="#" method="post" name="cse-search-box" role="search" class="form-inline">
-                    <div class="form-group">
-                        <label for="wb-srch-q" class="wb-inv">Search website</label>
-                        <input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search"
-                               value="" size="27" maxlength="150" placeholder="Search Canada.ca">
-                        <datalist id="wb-srch-q-ac">
-                            <!--[if lte IE 9]><select><![endif]-->
-                            <!--[if lte IE 9]></select><![endif]-->
-                        </datalist>
-                    </div>
-                    <div class="form-group submit">
-                        <button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub">
-                            <span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
-                    </div>
-                </form>
-            </section>
+<h2>Search</h2>
+<form action="#" method="post" name="cse-search-box" role="search" class="form-inline">
+<div class="form-group">
+<label for="wb-srch-q" class="wb-inv">Search website</label>
+<input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="27" maxlength="150" placeholder="Search Canada.ca">
+<datalist id="wb-srch-q-ac">
+<!--[if lte IE 9]><select><![endif]-->
+<!--[if lte IE 9]></select><![endif]-->
+</datalist>
+</div>
+<div class="form-group submit">
+<button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub"><span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
+</div>
+</form>
+</section>
         </div>
     </div>
-    <nav role="navigation" id="wb-sm" data-ajax-replace="./ajax/sitemenu-en.html" data-trgt="mb-pnl"
+    <nav role="navigation" id="wb-sm" data-ajax-replace="./../ajax/sitemenu-en.html" data-trgt="mb-pnl"
          class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
         <div class="container nvbar">
             <h2>Topics menu</h2>
@@ -135,7 +136,7 @@
         <div class="container">
             <div class="row">
                 <ol class="breadcrumb">
-                <!--    <li><a href="https://lam-dev.hres.ca/rep-dev/index.htmlv">Home</a></li>-->
+                    <li><a href="https://lam-dev.hres.ca/REP-Form-Internal/index.html">Home</a></li>
                 </ol>
             </div>
         </div>
@@ -146,33 +147,27 @@
 
     <!--content starts here -->
     <div>
-        <div class="row">
-            <h1 property="name" id="wb-cont"> Regulatory Enrolment Process </h1>
-        </div>
-        <div>
-            <div class="row">
-                <h2>Internal User (i.e. HPFB) Links</h2>
-            </div>
-            <div class="row">
-                <a href="./company/companyINT-en.html">Company Enrolment -Internal (Deployed March 28) </a>
-            </div>
+        <h1 property="name" id="wb-cont">Regulatory Activity Template: Regulatory Enrolment Process (REP)</h1>
 
-            <div class="row">
-                <a href="./activity/activityINT-en.html">Activity Enrolment -Internal (Deployed March 28)</a>
-            </div>
-            <div class="row">
-                <a href="./dossier/dossierINT-en.html">Dossier Enrolment Internal (Deployed March 28)</a>
-            </div>
-        </div>
+        <!-- inject:mainContent-->
+        <div id="app-root" ng-app="activityApp" ng-controller="MainController as ctrl">
+    <cmp-activity-main form-type="{{ctrl.formType}}"></cmp-activity-main>
+</div>
+        <!-- endinject-->
+
+
     </div>
     <!--content ends here -->
 
     <div class="datemod col-xs-12 mrgn-tp-lg">
         <dl id="wb-dtmd">
-            <dt>Date modified: March 28, 2017</dt>
+            <dt>Date modified:&#32;</dt>
+            <dd>
+                <time property="dateModified">2017-03-24 </time>
+            </dd>
         </dl>
     </div>
-    </div>
+
 </main>
 <aside class="gc-nttvs container">
     <h2>Government of Canada activities and initiatives</h2>
@@ -215,7 +210,7 @@
                     <a href="#wb-cont">Top of Page <span class="glyphicon glyphicon-chevron-up"></span></a>
                 </div>
                 <div class="col-xs-6 col-md-2 text-right">
-                    <object type="image/svg+xml" tabindex="-1" role="img" data="./GCWeb/assets/wmms-blk.svg"
+                    <object type="image/svg+xml" tabindex="-1" role="img" data="./../GCWeb/assets/wmms-blk.svg"
                             aria-label="Symbol of the Government of Canada"></object>
                 </div>
             </div>
@@ -224,19 +219,43 @@
 </footer>
 <!--[if gte IE 9 | !IE ]><!-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-<script src="./wet-boew/js/wet-boew.min.js"></script>
+<script src="./../wet-boew/js/wet-boew.min.js"></script>
 <!--<![endif]-->
 <!--[if lt IE 9]>
-<script src="./wet-boew/js/ie8-wet-boew2.min.js"></script>
+<script src="./../wet-boew/js/ie8-wet-boew2.min.js"></script>
 
 <![endif]-->
-<script src="./GCWeb/js/theme.min.js"></script>
+<script src="./../GCWeb/js/theme.min.js"></script>
 <!--Start add custom scripts here-->
 
 <!-- inject:js -->
 
+<script src="app/lib/angular.min.js"></script>
+
+<script src="app/lib/angular-translate.min.js"></script>
+
+<script src="app/lib/angular-sanitize.min.js"></script>
+
+<script src="app/lib/angular-resource.min.js"></script>
+
+<script src="app/lib/angular-messages.min.js"></script>
+
+<script src="app/lib/angular-aria.min.js"></script>
+
+<script src="app/scripts/activityAppINT-en_20170324_1559.min.js"></script>
+
 <!-- endinject -->
 <!-- thirdParty:js  -->
+
+<script src="app/lib/FileSaver.min.js"></script>
+
+<script src="app/lib/select.min.js"></script>
+
+<script src="app/lib/sha256.js"></script>
+
+<script src="app/lib/ui-bootstrap-tpls-2.1.4.min.js"></script>
+
+<script src="app/lib/xml2json.js"></script>
 
 <!-- endinject -->
 
