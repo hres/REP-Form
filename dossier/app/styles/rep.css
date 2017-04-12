@@ -1,0 +1,160 @@
+strong.error {
+    display: inline-block;
+    width: 100%;
+    font-size: 125%;
+    /* TODO what is being overridden in wet white-space: normal;*/
+}
+
+/* Specifically nesting inputs so need to add this*/
+label > input {
+    margin-top: 5px;
+    font-weight: normal;
+}
+
+label > select {
+    margin-top: 5px;
+    font-weight: normal;
+}
+
+.hd1rep {
+    color: white;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.col-center {
+    float: none;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row-even-rep {
+    overflow: hidden;
+}
+
+[class*="colrep-"] {
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}
+
+.rep-input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    margin-top: 5px;
+    font-weight: normal;
+}
+.rep-margin-top{
+    margin-top: 5px;
+}
+
+.rep-margin-minus-top{
+    margin-top: -5px !important;
+}
+.rep-expander {
+    cursor: pointer;
+    color: #295376;
+}
+
+.nav > li.active a {
+    border-top: #666 solid 4px !important;
+}
+
+.rep-center {
+    margin: 10px auto;
+
+}
+
+.rep-help-button {
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+.rep-help-button-primary {
+    color: #1c578a;
+    background-color: transparent;
+    border: none;
+}
+
+.rep-normal-font {
+    font-weight: normal;
+}
+
+.rep-selectize-font {
+    font-weight: normal;
+    font-size: 16px;
+}
+
+
+.rep-selectize-dropdown {
+    width: 100% !important;
+    font-weight: normal;
+    font-size: 16px;
+    padding-top: 6px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+}
+.rep-pad-top{
+    padding-top:5px;
+}
+
+
+.select2-container .select2-choice {
+    height: 37px !important;
+    padding: 6px 12px !important;
+    margin: 0;
+    position: relative;
+    display: block;
+    zoom: 1;
+    vertical-align: middle;
+    min-width: 100% !important;
+    width: 100% !important;
+}
+
+.select2-container .select2-choice > .select2-chosen {
+    min-width: 100%;
+    width: 100%;
+}
+
+.rep-error.has-error {
+    border-color: #a94442 !important;
+    border-style:solid;
+    border-width: 1px !important;
+    border-radius:4px !important;
+}
+.cloak-class {
+    opacity: 0;
+}
+
+.rep-required-offset {
+    margin-left: 0.655em !important;
+}
+
+.custom-popup-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    background-color: #f9f9f9;
+}
+
+.custom-popup-wrapper > li > a {
+
+    text-decoration: none !important;
+}
+
+.rep-success{
+    border-color: #3c763d;
+    border-width: medium;
+}
