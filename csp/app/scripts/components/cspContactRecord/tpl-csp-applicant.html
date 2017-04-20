@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <ng-form name="cspApplCtrl.applForm">
+        <div>
+            <div class="form-group col-md-12"
+                 ng-class="{'has-error':cspApplCtrl.applForm.applicant{{cspApplCtrl.type}}_{{::$id}}.$invalid}">
+                <label for="applicant{{cspApplCtrl.type}}_{{::$id}}" class="required">
+                    <span class="field-name">{{cspApplCtrl.applicantTextAlias |translate}}</span>
+                    <strong class="required"> {{"REQUIRED" |translate}} </strong>
+                    <input type="text" id="applicant{{cspApplCtrl.type}}_{{::$id}}"
+                           name="applicant{{cspApplCtrl.type}}_{{::$id}}"
+                           data-ng-model="cspApplCtrl.model.applicantName" class="form-control" maxlength="80" size="80"
+                           required/>
+                    <strong id="applicant-error" class="error"
+                            ng-show="cspApplCtrl.showError(cspApplCtrl.applForm.applicant{{cspApplCtrl.type}}_{{::$id}})">
+                             <span class="label label-danger"
+                                   ng-messages="cspApplCtrl.applForm.applicant{{cspApplCtrl.type}}_{{::$id}}.$error">
+                                 <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                             </span>
+                    </strong>
+                </label>
+            </div>
+        </div>
+        <cmp-contact-details is-amend="true" contact-record="cspApplCtrl.model.contact" fax-mandatory="true" field-suffix="cspApplCtrl.type"></cmp-contact-details>
+        <cmp-address-details is-amend="true" address-record="cspApplCtrl.model.address"></cmp-address-details>
+        <div class=" col-md-12" ng-class="{'has-error':cspApplCtrl.applForm.billingDifferent.$invalid}">
+            <div class="checkbox" ng-if="cspApplCtrl.model.role.applicant">
+                <label for="billingDifferent_{{$id}}">
+                    <input type="checkbox" ng-model="cspApplCtrl.model.isBillingDifferent" name="billingDifferent_{{$id}}"
+                           ng-change="cspApplCtrl.setBilling()"
+                           id="billingDifferent_{{$id}}"/>{{"BILLING_DIFFERENT"|translate}}
+                </label>
+            </div>
+        </div>
+
+
+    </ng-form>
+</div>

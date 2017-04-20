@@ -1,0 +1,80 @@
+<div class="container-fluid">
+    <ng-form name="cspPatentCtrl.patentForm">
+        <div class="row">
+            <div class="form-group col-md-12"
+                 ng-class="{'has-error':cspPatentCtrl.patentForm.patentNum_{{::$id}}.$invalid}">
+                <label for="patentNum_{{::$id}}" class="required">
+                    <span class="field-name">{{'PATENT' |translate}}</span>
+                    <strong class="required"> {{"REQUIRED" |translate}} </strong>
+                    <input type="text" id="patentNum_{{::$id}}" name="patentNum_{{::$id}}"
+                           data-ng-model="cspPatentCtrl.model.patentNumber" class="form-control" maxlength="7"
+                           size="7" minlength="7" only-digits="" required/>
+                    <strong id="applicant-error" class="error"
+                            ng-show="cspPatentCtrl.showError(cspPatentCtrl.patentForm.patentNum_{{::$id}})">
+                             <span class="label label-danger"
+                                   ng-messages="cspPatentCtrl.patentForm.patentNum_{{::$id}}.$error">
+                                 <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                                  <span ng-message="minlength">{{'MSG_LENGTH_7NUM'|translate}}</span>
+                             </span>
+                    </strong>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4"
+                 ng-class="{'has-error':cspPatentCtrl.patentForm.dateFiled_{{::$id}}.$invalid}">
+                <label for="dateFiled_{{::$id}}" class="required">
+                    <span class="field-name">{{"DATE_FILED" |translate}}</span>
+                    <strong class="required"> {{"REQUIRED" |translate}} </strong>
+                    <input type="date" id="dateFiled_{{::$id}}" name="dateFiled_{{::$id}}"
+                           data-ng-model="cspPatentCtrl.model.filingDate" class="form-control"
+                           required/>
+                    <strong id="dateFiled-error" class="error"
+                            ng-show="cspPatentCtrl.showError(cspPatentCtrl.patentForm.dateFiled_{{::$id}})">
+                            <span class="label label-danger"
+                                  ng-messages="cspPatentCtrl.patentForm.dateFiled_{{::$id}}.$error">
+                                <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                                 <span ng-message="date">{{'MSG_ERR_DATE_FORMAT'|translate}}</span>
+                            </span>
+                    </strong>
+                </label>
+            </div>
+            <div class="form-group col-md-4"
+                 ng-class="{'has-error':cspPatentCtrl.patentForm.dateGranted_{{::$id}}.$invalid}">
+                <label for="dateGranted_{{::$id}}" class="required">
+                    <span class="field-name">{{"DATE_GRANTED" |translate}}</span>
+                    <strong class="required"> {{"REQUIRED" |translate}} </strong>
+                    <input type="date" id="dateGranted_{{::$id}}" name="dateGranted_{{::$id}}"
+                           data-ng-model="cspPatentCtrl.model.grantedDate" class="form-control"
+                           required/>
+                    <strong id="dateGranted-error" class="error"
+                            ng-show="cspPatentCtrl.showError(cspPatentCtrl.patentForm.dateGranted_{{::$id}})">
+                            <span class="label label-danger"
+                                  ng-messages="cspPatentCtrl.patentForm.dateGranted_{{::$id}}.$error">
+                                <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                                <span ng-message="date">{{'MSG_ERR_DATE_FORMAT'|translate}}</span>
+                            </span>
+                    </strong>
+                </label>
+            </div>
+            <div class="form-group col-md-4"
+                 ng-class="{'has-error':cspPatentCtrl.patentForm.dateExpiry_{{::$id}}.$invalid}">
+                <label for="dateExpiry_{{::$id}}" class="required">
+                    <span class="field-name">{{"DATE_EXPIRY" |translate}}</span>
+                    <strong class="required"> {{"REQUIRED" |translate}} </strong>
+                    <input type="date" id="dateExpiry_{{::$id}}" name="dateExpiry_{{::$id}}"
+                           data-ng-model="cspPatentCtrl.model.expiryDate" class="form-control"
+                           required/>
+                    <strong id="dateExpiry-error" class="error"
+                            ng-show="cspPatentCtrl.showError(cspPatentCtrl.patentForm.dateExpiry_{{::$id}})">
+                            <span class="label label-danger"
+                                  ng-messages="cspPatentCtrl.patentForm.dateExpiry_{{::$id}}.$error">
+                                <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                                 <span ng-message="date">{{'MSG_ERR_DATE_FORMAT'|translate}}</span>
+                            </span>
+                    </strong>
+                </label>
+            </div>
+        </div>
+    </ng-form>
+</div>

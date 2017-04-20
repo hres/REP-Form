@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <ng-form name="cspFeePayCtrl.paymentForm">
+        <div>
+            <p>
+                <ng-bind-html ng-bind-html="cspFeePayCtrl.preamble">
+                </ng-bind-html>
+                <a ng-href="{{::cspFeePayCtrl.url}}" target="_blank">
+                    <ng-bind-html ng-bind-html="cspFeePayCtrl.urlTitle"></ng-bind-html>
+                </a>
+                <!--  <ng-bind-html ng-bind-html="cspFeePayCtrl.postamble"></ng-bind-html>-->
+            </p>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-12"
+                 ng-class="{'has-error':cspFeePayCtrl.paymentForm.fee_{{::$id}}.$invalid}">
+                <div class="col-sm-9">
+                    <label for="fee_{{::$id}}" class="required">
+                        <span class="field-name">{{'ADVANCE_FEE_PAYMENT' |translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <strong id="fee-error" class="error"
+                                ng-show="cspFeePayCtrl.showError(cspFeePayCtrl.paymentForm.fee_{{::$id}})">
+                             <span class="label label-danger"
+                                   ng-messages="cspFeePayCtrl.paymentForm.fee_{{::$id}}.$error">
+                                 <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                             </span>
+                        </strong>
+                    </label>
+                </div>
+                <div class="col-sm-3">
+                    <input type="number" step='0.01' id="fee_{{::$id}}" name="fee_{{::$id}}"
+                           data-ng-model="cspFeePayCtrl.model.advancedPaymentFee" class="form-control"
+                           min="0.00" max="99999999.99" required/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-12"
+                 ng-class="{'has-error':cspFeePayCtrl.paymentForm.feeType_{{::$id}}.$invalid}">
+                <div class="col-sm-9">
+                    <label for="feeType_{{::$id}}" class="required">
+                        <span class="field-name">{{'PAYMENT_METHOD' |translate}}</span>
+                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                        <select type="text" id="feeType_{{::$id}}" name="feeType_{{::$id}}"
+                                data-ng-model="cspFeePayCtrl.model.advancedPaymentType" class="form-control"
+                                ng-options="payMethod |translate for payMethod in cspFeePayCtrl.paymentList"
+                                required></select>
+                        <strong id="feeType-error" class="error"
+                                ng-show="cspFeePayCtrl.showError(cspFeePayCtrl.paymentForm.feeType_{{::$id}})">
+                             <span class="label label-danger"
+                                   ng-messages="cspFeePayCtrl.paymentForm.feeType_{{::$id}}.$error">
+                                 <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
+                             </span>
+                        </strong>
+                    </label>
+                </div>
+                <div class="col-sm-3">
+
+                </div>
+            </div>
+        </div>
+
+    </ng-form>
+</div>
