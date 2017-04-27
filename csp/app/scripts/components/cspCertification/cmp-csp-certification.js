@@ -6,7 +6,9 @@
     'use strict';
 
     angular
-        .module('cspCertification', []);
+        .module('cspCertification', [
+            'errorMessageModule'
+        ]);
 
 })();
 
@@ -21,21 +23,25 @@
             controllerAs: 'cspCertCtrl',
             bindings: {
                 record: '<',
-                showErrors: '&'
+                showErrors: '&',
+                updateErrorSummary: '&'
             }
         });
 
-    cspCertificationController.$inject = [];
-    function cspCertificationController() {
+    cspCertificationController.$inject = ['$scope'];
+    function cspCertificationController($scope) {
 
         var vm = this;
         vm.model = null;
 
+        vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
+        vm.dateError = [{type: "required", displayAlias: "MSG_ERR_MAND"},
+            {type: "date", displayAlias: "MSG_ERR_DATE_FORMAT"}];
         /**
          * Called after onChanges evnet, initializes
          */
         vm.$onInit = function () {
-
+            _setIDNames();
         };
 
         /**
@@ -49,15 +55,26 @@
 
         };
 
-
-        vm.showError = function (ctrl) {
-
-            if (!ctrl) return false;
-
-            if ((ctrl.$invalid && ctrl.$touched) || (vm.showErrors() && ctrl.$invalid )) {
-                return true
-            }
+        /**
+         * Sets the field names and ids called on $onInit.
+         * Important: use underscore scope as the last in name
+         * @private
+         */
+        function _setIDNames() {
+            var scopeId = "_" + $scope.$id;
+            vm.firstNameId = "certFirstName" + scopeId;
+            vm.lastNameId = "certLastName" + scopeId;
+            vm.salutationId = "certSalut" + scopeId;
+            vm.jobTitleId = "certJobTitle" + scopeId;
+            vm.dateSignedId = "certDateSigned" + scopeId;
         }
+
+        /**
+         * Watch for changes in the errors and tell the error summary
+         */
+        $scope.$watch('cspCertCtrl.certForm.$error', function () {
+            vm.updateErrorSummary();
+        }, true);
 
     }
 })();

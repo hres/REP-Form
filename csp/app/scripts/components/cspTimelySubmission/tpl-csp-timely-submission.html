@@ -3,29 +3,29 @@
 
         <div class="row">
             <div class="col-xs-12">
-                <fieldset ng-class="{ 'has-error' : timelySubCtrl.timelySubForm.timely.$invalid }">
+                <fieldset>
                     <legend class="required"><span class="field-name">{{'STATEMENTS_TIMELY' |translate}}</span>
-                        <strong
-                                class="required"> {{"REQUIRED" |translate}} </strong></legend>
-                    <strong id="timely-error" class="error"
-                            ng-show="timelySubCtrl.showError(timelySubCtrl.timelySubForm.timely)">
-                    <span class="label label-danger"
-                          ng-messages="timelySubCtrl.timelySubForm.timely.$error">
-                                             <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
-                                         </span>
-                    </strong>
+                        <strong class="required"> {{"REQUIRED" |translate}} </strong>
+                        <cmp-error-message field-name="timelySubCtrl.timelyId" form-ref="timelySubCtrl.timelySubForm"
+                                           show-error="timelySubCtrl.showErrors()"
+                                           error-types="timelySubCtrl.requiredOnly"></cmp-error-message>
+                    </legend>
                     <div class="radio">
-                        <label for="no-market-approval"><input type="radio" name="timelySubCtrl.timelySubForm.timely"
-                                                               id="no-market-approval"
-                                                               ng-model="timelySubCtrl.model.submissionStatement"
-                                                               ng-value="timelySubCtrl.noAppValue" required="required"/>
+                        <label for="{{::timelySubCtrl.timelyId}}">
+                            <input type="radio"
+                                   name="{{::timelySubCtrl.timelyId}}" id="{{::timelySubCtrl.timelyId}}"
+                                   ng-model="timelySubCtrl.model.submissionStatement"
+                                   ng-value="timelySubCtrl.noAppValue"
+                                   ng-required="!timelySubCtrl.model.submissionStatement"/>
                             {{'STATE_NO_APPLICATION'|translate}}
                         </label>
                     </div>
                     <div class="radio">
-                        <label for="market-approval"><input type="radio" name="timelySubCtrl.timelySubForm.timely"
-                                                            ng-model="timelySubCtrl.model.submissionStatement"
-                                                            ng-value="timelySubCtrl.appValue" id="market-approval"/>
+                        <label for="market-approval">
+                            <input type="radio" name="{{::timelySubCtrl.timelyId}}"
+                                   ng-model="timelySubCtrl.model.submissionStatement"
+                                   ng-required="!timelySubCtrl.model.submissionStatement"
+                                   ng-value="timelySubCtrl.appValue" id="market-approval"/>
                             {{'STATE_APPLICATION'|translate}}
                         </label>
                     </div>
@@ -35,58 +35,48 @@
         <div ng-if="timelySubCtrl.isApplicationMarketing()">
             <div class="row">
                 <div class="form-group col-md-4"
-                     ng-class="{'has-error':timelySubCtrl.timelySubForm.timelyDate_{{::$id}}.$invalid}">
-                    <label for="timelyDate_{{::$id}}" class="required">
-                        <span class="field-name">{{"APPL_DATE" |translate}}</span>
+                     ng-class="{'has-error':timelySubCtrl.timelySubForm[timelySubCtrl.dateId].$invalid}">
+                    <label for="{{::timelySubCtrl.dateId}}" class="required">
+                        <span class="field-name">{{"TIMELYDATE" |translate}}</span>
                         <strong class="required"> {{"REQUIRED" |translate}} </strong>
-                        <input type="date" id="timelyDate_{{::$id}}" name="timelyDate_{{::$id}}"
+                        <input type="date" id="{{::timelySubCtrl.dateId}}" name="{{::timelySubCtrl.dateId}}"
                                data-ng-model="timelySubCtrl.model.approvalDate" class="form-control" required/>
-                        <strong id="timelyDate-error" class="error"
-                                ng-show="timelySubCtrl.showError(timelySubCtrl.timelySubForm.timelyDate_{{::$id}})">
-                                         <span class="label label-danger"
-                                               ng-messages="timelySubCtrl.timelySubForm.timelyDate_{{::$id}}.$error">
-                                             <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
-                                              <span ng-message="date">{{'MSG_ERR_DATE_FORMAT'|translate}}</span>
-                                         </span>
-                        </strong>
+                        <cmp-error-message field-name="timelySubCtrl.dateId" form-ref="timelySubCtrl.timelySubForm"
+                                           show-error="timelySubCtrl.showErrors()"
+                                           error-types="timelySubCtrl.dateError"></cmp-error-message>
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-6"
-                     ng-class="{'has-error':timelySubCtrl.timelySubForm.timelyCountry_{{::$id}}.$invalid}">
-                    <label for="timelyCountry_{{::$id}}" class="required">
-                        <span class="field-name">{{"MARKETING_COUNTRY" |translate}}</span>
+                     ng-class="{'has-error':timelySubCtrl.timelySubForm[timelySubCtrl.countryId].$invalid}">
+                    <label for="{{::timelySubCtrl.countryId}}" class="required">
+                        <span class="field-name">{{"TIMELYCOUNTRY" |translate}}</span>
                         <strong class="required"> {{"REQUIRED" |translate}} </strong>
-                        <select id="timelyCountry_{{::$id}}" name="timelyCountry_{{::$id}}"
+                        <select id="{{::timelySubCtrl.countryId}}" name="{{::timelySubCtrl.countryId}}"
                                 ng-options="country |translate for country in timelySubCtrl.countries"
                                 ng-change="timelySubCtrl.isEuOther()"
                                 data-ng-model="timelySubCtrl.model.country" class="form-control" required></select>
-                        <strong id="timelyCountry-error" class="error"
-                                ng-show="timelySubCtrl.showError(timelySubCtrl.timelySubForm.timelyCountry_{{::$id}})">
-                                         <span class="label label-danger"
-                                               ng-messages="timelySubCtrl.timelySubForm.timelyCountry_{{::$id}}.$error">
-                                             <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
-                                         </span>
-                        </strong>
+                        <cmp-error-message field-name="timelySubCtrl.countryId" form-ref="timelySubCtrl.timelySubForm"
+                                           show-error="timelySubCtrl.showErrors()"
+                                           error-types="timelySubCtrl.requiredOnly"></cmp-error-message>
+
                     </label>
                 </div>
                 <div ng-if="timelySubCtrl.isEuOther()">
                     <div class="form-group col-md-6"
-                         ng-class="{'has-error':timelySubCtrl.timelySubForm.otherCountry_{{::$id}}.$invalid}">
-                        <label for="otherCountry_{{::$id}}" class="required">
+                         ng-class="{'has-error':timelySubCtrl.timelySubForm[timelySubCtrl.otherCountryId].$invalid}">
+                        <label for="{{::timelySubCtrl.otherCountryId}}" class="required">
                             <span class="field-name">{{"OTHER_EU_COUNTRY" |translate}}</span>
                             <strong class="required"> {{"REQUIRED" |translate}} </strong>
-                            <input type="text" id="otherCountry_{{::$id}}" name="otherCountry_{{::$id}}" maxlength="60"
-                                   size="60"
+                            <input type="text" id="{{::timelySubCtrl.otherCountryId}}"
+                                   name="{{::timelySubCtrl.otherCountryId}}" maxlength="60" size="60"
                                    data-ng-model="timelySubCtrl.model.otherCountry" class="form-control" required/>
-                            <strong id="otherCountry-error" class="error"
-                                    ng-show="timelySubCtrl.showError(timelySubCtrl.timelySubForm.otherCountry_{{::$id}})">
-                                         <span class="label label-danger"
-                                               ng-messages="timelySubCtrl.timelySubForm.otherCountry_{{::$id}}.$error">
-                                             <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
-                                         </span>
-                            </strong>
+                            <cmp-error-message field-name="timelySubCtrl.otherCountryId"
+                                               form-ref="timelySubCtrl.timelySubForm"
+                                               show-error="timelySubCtrl.showErrors()"
+                                               error-types="timelySubCtrl.requiredOnly"></cmp-error-message>
+
                         </label>
                     </div>
                 </div>

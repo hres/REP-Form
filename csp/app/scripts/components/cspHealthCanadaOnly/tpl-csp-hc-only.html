@@ -2,71 +2,56 @@
     <ng-form name="hcOnlyCtrl.hcOnlyForm">
         <div class="row">
             <div class="form-group col-md-4"
-                 ng-class="{'has-error':hcOnlyCtrl.hcOnlyForm.dateReceived_{{::$id}}.$invalid}">
-                <label for="dateReceived_{{::$id}}" class="required">
+                 ng-class="{'has-error':hcOnlyCtrl.hcOnlyForm[hcOnlyCtrl.dateReceivedId].$invalid}">
+                <label for="{{::hcOnlyCtrl.dateReceivedId}}" class="required">
                     <span class="field-name">{{"DATE_APPL_REC" |translate}}</span>
                     <strong class="required"> {{"REQUIRED" |translate}} </strong>
-                    <input type="date" id="dateReceived_{{::$id}}" name="dateReceived_{{::$id}}"
+                    <input type="date" id="{{::hcOnlyCtrl.dateReceivedId}}" name="{{::hcOnlyCtrl.dateReceivedId}}"
                            data-ng-model="hcOnlyCtrl.model.dateReceived" class="form-control"
                            required/>
-                    <strong id="dateReceived-error" class="error"
-                            ng-show="hcOnlyCtrl.showError(hcOnlyCtrl.hcOnlyForm.dateReceived_{{::$id}})">
-                            <span class="label label-danger"
-                                  ng-messages="hcOnlyCtrl.hcOnlyForm.dateReceived_{{::$id}}.$error">
-                                <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
-                            </span>
-                    </strong>
+                    <cmp-error-message field-name="hcOnlyCtrl.dateReceivedId" form-ref="hcOnlyCtrl.hcOnlyForm"
+                                       show-error="hcOnlyCtrl.showErrors()"
+                                       error-types="hcOnlyCtrl.requiredOnlyError"></cmp-error-message>
                 </label>
             </div>
             <div class="form-group col-md-4"
-                 ng-class="{'has-error':hcOnlyCtrl.hcOnlyForm.companyCode_{{::$id}}.$invalid}">
-                <label for="companyCode_{{::$id}}" class="required">
+                 ng-class="{'has-error':hcOnlyCtrl.hcOnlyForm[hcOnlyCtrl.companyCodeId].$invalid}">
+                <label for="{{::hcOnlyCtrl.companyCodeId}}" class="required">
                     <span class="field-name">{{"CSP_COMPANY_CODE" |translate}}</span>
                     <strong class="required"> {{"REQUIRED" |translate}} </strong>
-                    <input type="text" id="companyCode_{{::$id}}" name="companyCode_{{::$id}}"
+                    <input type="text" id="{{::hcOnlyCtrl.companyCodeId}}" name="{{::hcOnlyCtrl.companyCodeId}}"
                            data-ng-model="hcOnlyCtrl.model.companyId" class="form-control"
                            required/>
-                    <strong id="companyCode-error" class="error"
-                            ng-show="hcOnlyCtrl.showError(hcOnlyCtrl.hcOnlyForm.companyCode_{{::$id}})">
-                            <span class="label label-danger"
-                                  ng-messages="hcOnlyCtrl.hcOnlyForm.companyCode_{{::$id}}.$error">
-                                <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
-                            </span>
-                    </strong>
+                    <cmp-error-message field-name="hcOnlyCtrl.companyCodeId" form-ref="hcOnlyCtrl.hcOnlyForm"
+                                       show-error="hcOnlyCtrl.showErrors()"
+                                       error-types="hcOnlyCtrl.requiredOnlyError"></cmp-error-message>
                 </label>
             </div>
             <div class="form-group col-md-4"
-                 ng-class="{'has-error':hcOnlyCtrl.hcOnlyForm.applicationId_{{::$id}}.$invalid}">
-                <label for="applicationId_{{::$id}}" class="required">
+                 ng-class="{'has-error':hcOnlyCtrl.hcOnlyForm[hcOnlyCtrl.applicationCodeId].$invalid}">
+                <label for="{{::hcOnlyCtrl.applicationCodeId}}" class="required">
                     <span class="field-name">{{"CSP_APPLICATION_CODE" |translate}}</span>
                     <strong class="required"> {{"REQUIRED" |translate}} </strong>
-                    <input type="text" id="applicationId_{{::$id}}" name="applicationId_{{::$id}}"
+                    <input type="text" id="{{::hcOnlyCtrl.applicationCodeId}}" name="{{::hcOnlyCtrl.applicationCodeId}}"
                            data-ng-model="hcOnlyCtrl.model.applicationId" class="form-control"
                            required/>
-                    <strong id="applicationId-error" class="error"
-                            ng-show="hcOnlyCtrl.showError(hcOnlyCtrl.hcOnlyForm.applicationId_{{::$id}})">
-                            <span class="label label-danger"
-                                  ng-messages="hcOnlyCtrl.hcOnlyForm.applicationId_{{::$id}}.$error">
-                                <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
-                            </span>
-                    </strong>
+                    <cmp-error-message field-name="hcOnlyCtrl.applicationCodeId" form-ref="hcOnlyCtrl.hcOnlyForm"
+                                       show-error="hcOnlyCtrl.showErrors()"
+                                       error-types="hcOnlyCtrl.requiredOnlyError"></cmp-error-message>
                 </label>
             </div>
         </div>
         <div class="row">
             <div class="form-group col-md-12"
-                 ng-class="{'has-error':hcOnlyCtrl.hcOnlyForm.notes_{{::$id}}.$invalid}">
-                <label for="notes_{{::$id}}" class="required">
+                 ng-class="{'has-error':hcOnlyCtrl.hcOnlyForm[hcOnlyCtrl.notesId].$invalid}">
+                <label for="{{::hcOnlyCtrl.notesId}}" class="required">
                     <span class="field-name">{{"NOTES" |translate}}</span>
                     <strong class="required"> {{"REQUIRED" |translate}} </strong>
-                    <strong id="notes-error" class="error"
-                            ng-show="hcOnlyCtrl.showError(hcOnlyCtrl.hcOnlyForm.notes_{{::$id}})">
-                            <span class="label label-danger" ng-messages="hcOnlyCtrl.hcOnlyForm.notes_{{::$id}}.$error">
-                                <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
-                            </span>
-                    </strong>
+                    <cmp-error-message field-name="hcOnlyCtrl.notesId" form-ref="hcOnlyCtrl.hcOnlyForm"
+                                       show-error="hcOnlyCtrl.showErrors()"
+                                       error-types="hcOnlyCtrl.requiredOnlyError"></cmp-error-message>
                 </label>
-                <textarea id="notes_{{::$id}}" name="notes_{{::$id}}" class="form-control full-width"
+                <textarea id="{{::hcOnlyCtrl.notesId}}" name="{{::hcOnlyCtrl.notesId}}" class="form-control full-width"
                           data-ng-model="hcOnlyCtrl.model.hcNotes"
                           maxlength="256" rows="4" required></textarea>
             </div>

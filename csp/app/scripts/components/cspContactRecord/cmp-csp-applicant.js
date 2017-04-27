@@ -9,7 +9,8 @@
     angular
         .module('cspApplicant', [
             'contactModule',
-            'addressModule'
+            'addressModule',
+            'errorMessageModule'
         ]);
 
 })();
@@ -28,7 +29,8 @@
                 addApplicant:'&',
                 deleteApplicant: '&',
                 showErrors: '&',
-                alias:'<'
+                alias: '<',
+                updateErrorSummary: '&'
             }
         });
 
@@ -44,21 +46,22 @@
         vm.model={
             isBillingDifferent:false
         };
-        vm.applicantTextAlias="APPLICANTNAME";
+        vm.applicantTextAlias = "APPLICANTNAME";
 
-        vm.type="_appl";
-        vm.fieldId=vm.type+$scope.$id;
+        vm.type = "_appl"; //sets the type of applicant either applicant or billing
+        vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
+
         vm.$onInit=function(){
             //after on changes called
-            if(vm.model && (!vm.model.role.applicant) ){
+            if(vm.model && vm.model.role && (!vm.model.role.applicant) ){
                 vm.applicantTextAlias="COMPANY_NOABBREV";
                 vm.type="_bill";
-                vm.fieldId=vm.type+$scope.$id;
+
             }else{
-                vm.applicantTextAlias="APPLICANTNAME";
+                vm.applicantTextAlias = "APPLICANTNAME";
                 vm.type="_appl";
-                vm.fieldId=vm.type+$scope.$id;
             }
+            _setIDNames();
         };
 
         vm.$onChanges=function(changes){
@@ -73,6 +76,11 @@
 
         };
 
+        // component only has one field, just watch this field for changes to update error summary
+        $scope.$watch('cspApplCtrl.applForm[cspApplCtrl.applicantId].$invalid', function () {
+            vm.updateErrorSummary();
+        }, true);
+
         /**
          * Adds or deletes and applicant address depending if a
          * user selects billing address or not
@@ -84,20 +92,19 @@
             }else{
                vm.deleteApplicant();
             }
-        }
+            vm.updateErrorSummary();
+        };
 
         /**
-         * used to control when to show an individual error
-         * @param ctrl - control to show an error on
-         * @returns {*}
+         * Creates the ids for all the ui elements
+         * @private
          */
-        vm.showError = function (ctrl) {
-            if (!ctrl) {
-                console.warn("cmpCspApplicant::showError: no control");
-                return false;
-            }
-            return (ctrl.$invalid && ctrl.$touched || (vm.showErrors() && ctrl.$invalid));
-        };
+        function _setIDNames() {
+            var scopeId = "_" + $scope.$id;
+            vm.applicantId = "applicant" + vm.type + scopeId;
+        }
+
+
     }
 })();
 

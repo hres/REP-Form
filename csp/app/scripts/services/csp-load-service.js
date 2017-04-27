@@ -8,7 +8,11 @@
 (function () {
     'use strict';
     angular
-        .module('cspLoadService', ['dataLists', 'hpfbConstants'])
+        .module('cspLoadService', [
+            'dataLists',
+            'hpfbConstants',
+            'filterLists'
+        ])
 })();
 
 (function () {

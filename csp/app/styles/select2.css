@@ -507,7 +507,7 @@ disabled look for disabled choices in the results dropdown
 }
 
 .select2-default {
-    color: #999 !important;
+    color: #333 !important;
 }
 
 .select2-container-multi .select2-choices .select2-search-choice {

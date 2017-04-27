@@ -21,23 +21,31 @@
             bindings: {
                 record: '<',
                 countryList: '<',
-                showErrors: '&'
+                showErrors: '&',
+                updateErrorSummary:'&'
             }
         });
 
-    timelySubmissionController.$inject = ['EUOTHER','NO_APPLICATION','APPLICATION'];
-    function timelySubmissionController(EUOTHER,NO_APPLICATION,APPLICATION) {
+    timelySubmissionController.$inject = ['EUOTHER', 'NO_APPLICATION', 'APPLICATION', '$scope'];
+    function timelySubmissionController(EUOTHER, NO_APPLICATION, APPLICATION, $scope) {
 
         var vm = this;
         vm.model = {};
         vm.countries = [];
         vm.noAppValue=NO_APPLICATION;
         vm.appValue=APPLICATION;
+
+        vm.dateError = [{type: "required", displayAlias: "MSG_ERR_MAND"},
+            {type: "date", displayAlias: "MSG_ERR_DATE_FORMAT"}];
+
+        vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
+
+
         /**
          * Called after onChanges evnet, initializes
          */
         vm.$onInit = function () {
-
+            _setIdNames();
         };
 
         /**
@@ -77,15 +85,24 @@
                 return false;
             }
         };
-        vm.showError = function (ctrl) {
 
-            if (!ctrl) return false;
 
-            if ((ctrl.$invalid && ctrl.$touched) || (vm.showErrors() && ctrl.$invalid )) {
-                return true
-            }
-
+        /**
+         * sets the ids of the controls
+         * If use the same name as label, don't need a separate definition!
+         * @private
+         */
+        function _setIdNames() {
+            var scopeId = "_" + $scope.$id;
+            vm.timelyId = "statements_timely" + scopeId;
+            vm.dateId = "timelyDate" + scopeId;
+            vm.countryId = "timelyCountry" + scopeId;
+            vm.otherCountryId = "other_eu_country" + scopeId;
         }
+
+        $scope.$watch('timelySubCtrl.timelySubForm.$error', function () {
+            vm.updateErrorSummary();
+        }, true);
 
     }
 })();

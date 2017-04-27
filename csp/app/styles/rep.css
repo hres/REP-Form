@@ -158,3 +158,9 @@ label > select {
     border-color: #3c763d;
     border-width: medium;
 }
+
+ .rep-vertical-align {
+     display: inline-block;
+     vertical-align: middle;
+     float:none;
+ }

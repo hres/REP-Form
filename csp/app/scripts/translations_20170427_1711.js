@@ -22,7 +22,8 @@ $translateProvider.translations("en", {
   "SELECTED_PRODUCTS":"Some Products",
   "IDENTIFY_PRODUCTS": "Provide the Dossier Identifiers for the products that are imported by this Company",
   "ADD_DOSSIER_ID":"Add Dossier Id",
-  "IMPORTER_NONCDN":"Please ensure you indicate a Canadian Importer"
+  "IMPORTER_NONCDN":"Please ensure you indicate a Canadian Importer",
+  "COUNTRY_CHOOSE":"Choose a country"
 });
 
 $translateProvider.translations("fr", {
@@ -42,8 +43,8 @@ $translateProvider.translations("fr", {
   "ADDR_INFO": "Informations d'adresses",
   "ADDR_DETAILS": "Détails de l'adresse",
   "ADDR_ROLE_LEGEND": "fr_Select one or more roles for this company",
-  "IMPORTER_NONCDN":"There should be a Canadian Importer when the Manufacturer / Sponsor is not a Canadian Address"
-
+  "IMPORTER_NONCDN":"There should be a Canadian Importer when the Manufacturer / Sponsor is not a Canadian Address",
+  "COUNTRY_CHOOSE":"Choisir un pays"
 });
 
 $translateProvider.translations("en", {
@@ -405,37 +406,41 @@ $translateProvider.translations("en", {
   "MSG_ERR_ONE_REP": "At least one contact is required.",
   "MSG_ERR_ONE_LIFE_REC": "One lifecycle record is required.",
   "MSG_ERR_RATIONALE_SEL": "Please select at least one rationale.",
-  "MSG_ERR_NOTIF_SEL": "Please select at least one notifiable change."
+  "MSG_ERR_NOTIF_SEL": "Please select at least one notifiable change.",
+  "MSG_ERR_MIN_POS": "Must be a positive number",
+  "MSG_ERR_MAX": "Exceeds the maximum"
 });
 
 $translateProvider.translations("fr", {
   "MSG_ERR_MAND": "Ce champ est obligatoire.",
   "MSG_ERR_EMAIL_FORMAT": "Veuillez fournir une adresse électronique valide.",
   "MSG_ERR_CONTACT_NUM": "fr_All the roles have to be used for the company contacts",
-  "MSG_ERR_PHONE_FORMAT": "fr_Please specify a valid phone number",
+  "MSG_ERR_PHONE_FORMAT": "Veuillez fournir un numéro de téléphone valide.",
   "MSG_ERR_ALLROLE": "fr_Across the contact records, the roles of manufacturer, mailing, billing, and REP primary contact must be selected",
   "MSG_ERR_ADDRESSSROLE": "fr_The roles of manufacturer, mailing, and billing have not all been selected among the list of addresses",
-  "MSG_ERR_POSTAL": "fr_Please specify a valid postal code.",
-  "MSG_ERR_ZIP": "fr_Please specify a valid zip code.",
-  "MSG_ERR_DATE_FORMAT": "fr_The date format is incorrect.",
+  "MSG_ERR_POSTAL": "Veuillez fournir un code postal valide.",
+  "MSG_ERR_ZIP": "Veuillez fournir un code postal valide.",
+  "MSG_ERR_DATE_FORMAT": "Veuillez fournir une une date valide.",
   "MANUFACT_SEL": "fr_Manufacturer Role already Selected",
   "MAIL_SEL": "fr_Mailing Role already Selected",
   "BILLING_SEL": "fr_Billing Role already Selected",
   "IMPORTER_SEL": "fr_Importer Role already Selected",
   "REPPRIM_SEL": "fr_REP Primary Role already Selected",
   "REPALT_SEL": "fr_REP Alternate Role already Selected",
-  "MSG_LENGTH_MIN5": "fr_Please enter at least 5 digits",
-  "MSG_LENGTH_6": "fr_Please enter 6 characters.",
-  "MSG_LENGTH_6NUM": "fr_Please enter 6 digits.",
-  "MSG_LENGTH_8NUM": "fr_Please enter 8 digits.",
-  "MSG_LENGTH_7": "fr_Please enter 7 characters.",
-  "MSG_LENGTH_7NUM": "fr_Please enter 7 digits.",
-  "MSG_ERR_ONE_REP": "fr_At least one contact is required.",
-  "MSG_ERR_ONE_LIFE_REC": "fr_One lifecycle record is required.",
-  "MSG_ERR_RATIONALE_SEL": "fr_Please select at least one rationale.",
-  "MSG_ERR_NOTIF_SEL": "fr_Please select at least one notifiable change."
-}
-);
+  "MSG_LENGTH_MIN5": "Veuillez fournir au moins 5 chiffres.",
+  "MSG_LENGTH_6": "Veuillez fournir au moins 6 caractères.",
+  "MSG_LENGTH_6NUM": "Veuillez fournir 6 chiffres.",
+  "MSG_LENGTH_8NUM": "Veuillez fournir 8 chiffres.",
+  "MSG_LENGTH_7": "Veuillez fournir 7 caractères.",
+  "MSG_LENGTH_7NUM": "Veuillez fournir  7 chiffres.",
+  "MSG_ERR_ONE_REP": "Au moins un contact est requis",
+  "MSG_ERR_ONE_LIFE_REC": "Un enregistrement de cycle de vie est nécessaire",
+  "MSG_ERR_RATIONALE_SEL": "Veuillez sélectionner au moins une justification",
+  "MSG_ERR_NOTIF_SEL": "Sélectionnez au moins un changement de déclaration",
+  "MSG_ERR_MIN_POS": "Doit être un nombre positif",
+  "MSG_ERR_MAX": "Dépasse le maximum."
+
+});
 
 $translateProvider.translations("en", {
   "CSP_FORM": "CSP Application Form",
@@ -447,7 +452,7 @@ $translateProvider.translations("en", {
   "NOTES": "Notes",
   "HCONLY": "Health Canada Use Only",
   "BILLING_DIFFERENT": "Select to enter a billing address that is different from the Applicant’s Contact Information",
-  "ADVANCE_FEE_PAYMENT": "The Advanced Payment Details form is being submitted separately by fax or mail, and the fee is being paid or the fee has been prepaid in the amount of",
+  "ADVANCE_FEE_PAYMENT": "The fee is being paid or the fee has been prepaid in the amount of",
   "PAYMENT_METHOD": "Method of Advanced Payment",
   "FINANCIAL": "Payment through a Canadian Financial Institution",
   "CHEQUE": "Cheque / Bank Draft / Money Order",
@@ -463,17 +468,17 @@ $translateProvider.translations("en", {
   "HUMAN": "Human",
   "VETERINARY": "Veterinary",
   "DRUGUSE": "Drug use",
-  "DATE_FILED": "Filing Date",
-  "DATE_GRANTED": "Date Granted",
-  "DATE_EXPIRY": "Expiration Date",
+  "DATE_FILED": "Patent Filing Date",
+  "DATE_GRANTED": "Patent Date Granted",
+  "DATE_EXPIRY": "Patent Expiration Date",
   "NDS_NUMBER": "NDS Control Number",
   "MED_INGRED": "Medicinal ingredient or combination of medicinal ingredients (as provided on the NOC for the NDS provided in Section 3)",
-  "STATEMENTS_APPLICANT": "Statements as to Applicant",
+  "APPLICANTAPPLY": "Statements as to Applicant",
   "STATEMENTS_TIMELY": "Statements as to timely submission",
   "STATE_NO_APPLICATION": "No application for a marketing approval equivalent to an authorization for sale with respect to the medicinal ingredient or combination of medicinal ingredients set out in this CSP application has been submitted in the United States, the European Union or any country that is a member of the European Union, Australia, Switzerland or Japan, before the application for the authorization for sale referred to in paragraph 106(1)(c) of the Patent Act (above noted NDS) was filed with the Minister of Health",
   "STATE_APPLICATION": "If an application for a marketing approval equivalent to an authorization for sale with respect to the medicinal ingredient or combination of medicinal ingredients set out in this CSP application has been submitted in the United States, the European Union or any country that is a member of the European Union, Australia, Switzerland or Japan, the application for the authorization for sale referred to in paragraph 106(1)(c) of the Patent Act (above noted NDS) was filed with the Minister of Health before the end of a period of one year that begins on the day on which the first such application for a marketing approval was submitted. Details of the first application for marketing approval are as follows:",
-  "APPL_DATE" :"Application Date",
-  "MARKETING_COUNTRY": "Marketing Country",
+  "TIMELYDATE": "Application Date",
+  "TIMELYCOUNTRY": "Marketing Country",
   "DATE_SIGNED":  "Date Signed",
   "CSP_TITLE":"Certificate of Supplementary Protection (CSP) Information",
   "NDS_TITLE":"New Drug Submission (NDS) Information",
@@ -490,9 +495,14 @@ $translateProvider.translations("en", {
   "CERT_TITLE":"Certification",
   "BILLING_TITLE":"Billing Information",
   "APPL_TITILE":" Applicant Information",
-  "PATENT":"Canadian Patent Number",
+  "PATENTNUM": "Canadian Patent Number",
   "MSG_LENGTH_7NUM": "Please enter 7 digits.",
-  "OTHER_EU_COUNTRY": " Other European Union Country Details"
+  "OTHER_EU_COUNTRY": " Other European Union Country Details",
+  "CERT_FS": "Name of Authorized Official",
+  "CONTACT_TITLE": "Contact Information",
+  "ACK_FEE_SUBMIT":"The Advanced Payment Details form is being submitted separately by fax or mail",
+  "MEDINGRED_TITLE": "Medicinal Ingredient",
+  "STATEMENT_TITLE": "Statement"
 });
 
 $translateProvider.translations("fr", {
@@ -501,15 +511,20 @@ $translateProvider.translations("fr", {
 });
 
 $translateProvider.translations("en", {
-  "APPLICANT_APPL": "Applicant",
+  "APPLICANT_APPL": "Applicant Name",
   "SALUTATION_APPL": "Applicant Salutation",
   "FIRSTNAME_APPL": "Applicant First Name",
   "LASTNAME_APPL": "Applicant Last Name",
   "LANGCORRESPOND_APPL": "Applicant Language of Correspondance",
   "JOBTITLE_APPL": "Applicant Job Title",
-  "FAX_NUMBER_APPL": "Applicant Fax Number",
+  "FAXNUMBER_APPL": "Applicant Fax Number",
   "PHONENUMBER_APPL": "Applicant Phone Number",
   "CONTACTEMAIL_APPL": "Applicant Email",
+  "CITY_APPL": "Applicant City",
+  "STREET_APPL": "Applicant Street",
+  "COUNTRY_APPL": "Applicant Country",
+  "PROVINCELIST_APPL": "Applicant Province or State",
+  "POSTAL_APPL": "Applicant postal or zip code",
   "APPLICANT_BILL": "Billing Company Name",
   "SALUTATION_BILL": "Billing Salutation",
   "FIRSTNAME_BILL": "Billing First Name",
@@ -518,7 +533,29 @@ $translateProvider.translations("en", {
   "JOBTITLE_BILL": "Billing Job Title",
   "FAX_NUMBER_BILL": "Billing Fax Number",
   "PHONENUMBER_BILL": "Billing Phone Number",
-  "CONTACTEMAIL_BILL": "Billing Email"
+  "CONTACTEMAIL_BILL": "Billing Email",
+  "FAXNUMBER_BILL": "Billing Fax Number",
+  "STREET_BILL": "Billing Street",
+  "CITY_BILL": "Billing City",
+  "COUNTRY_BILL": "Billing Country",
+  "PROVINCELIST_BILL": "Billing Province or State",
+  "POSTAL_BILL": "Billing postal or zip code",
+  "CERTFIRSTNAME":"Authorized Official First Name",
+  "CERTLASTNAME":"Authorized Official Last Name",
+  "CERTJOBTITLE":"Authorized Official Job Title",
+  "CERTDATESIGNED":"Authorized Official Date Signed",
+  "DATEFILED":"Patent Filing Date",
+  "DATEGRANTED":"Patent Date Granted",
+  "DATEEXPIRY":"Patent Expiration Date",
+  "CONTROLNUMBER":"NDS Control Number",
+  "TIME120":"Applicant is applying",
+  "MEDICINALINGREDIENT":"Medicinal Ingredient",
+  "APPLICANTSTATEMENT":"Statements as to Applicant",
+  "FEE":"Advanced Payment Fee",
+  "FEETYPE":"Method of Advanced Payment",
+  "TYPE_ZERO_MIN":"Must be greater than zero",
+  "MSG_ERR_MAX":"Must be less than 1000000000"
+
 });
 
 $translateProvider.translations("en", {
@@ -528,6 +565,28 @@ $translateProvider.translations("en", {
   "ERROR_FOUND":"error was found.",
   "TYPE_REQUIRED":"This field is required.",
   "TYPE_EMAIL":"Please enter a valid email address.",
-  "TYPE_DUPLICATEROLE":"This role has already been selected."
+  "TYPE_DUPLICATEROLE": "This role has already been selected.",
+  "TYPE_MINLENGTH": "Less than minimum length",
+  "POSTAL_FORMAT": "Please enter a valid format",
+  "TYPE_MIN": "Must be greater than the minimum",
+  "TYPE_DATE":"Please enter a valid date",
+  "TYPE_NUMBER":"Please enter a valid number"
+});
+
+$translateProvider.translations("fr", 
+
+{
+"FOR_THE":"Pour le ",
+"THERE_ARE_ERRORS":"Il y a des erreurs ",
+"ERRORS_FOUND":"erreurs ont été trouvées.",
+"ERROR_FOUND":"erreur a été trouvée.",
+"TYPE_REQUIRED":"Ce champ est obligatoire.",
+"TYPE_EMAIL":"Veuillez fournir une adresse électronique valide.",
+"TYPE_DUPLICATEROLE": "Ce rôle a déjà été sélectionné.",
+"TYPE_MINLENGTH": "Moins de longueur minimale.",
+"POSTAL_FORMAT": "Entrez un format valide.",
+"TYPE_MIN": "Doit être supérieur au minimum.",
+"TYPE_DATE":"Veuillez fournir une une date valide.",
+  "TYPE_NUMBER":"Veuillez fournir un numéro valide."
 });
 }]);

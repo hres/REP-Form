@@ -11,7 +11,8 @@
             'hpfbConstants',
             'dataLists',
             'filterLists',
-            'ui.select'
+            'ui.select',
+            'errorMessageModule'
 
         ])
 })();
@@ -33,12 +34,13 @@
                 onUpdate: '&', //no longer used TBD should be removed
                 showErrors: '&',
                 isAmend: '<',
-                updateErrorSummary:'&'
+                updateErrorSummary:'&',
+                fieldSuffix:'<'
             }
         });
-    addressCtrl.$inject = ['getCountryAndProvinces','$translate','CANADA','USA'];
+    addressCtrl.$inject = ['getCountryAndProvinces','$translate','CANADA','USA','$scope'];
 
-    function addressCtrl( getCountryAndProvinces,$translate, CANADA,USA) {
+    function addressCtrl( getCountryAndProvinces,$translate, CANADA,USA, $scope) {
 
         var vm = this;
         vm.isEditable = true;
@@ -62,7 +64,11 @@
         vm.usaZipCode = '^[0-9]{5}(?:-[0-9]{4})?$';
         vm.hideProvinceText = false;
         vm.countryList= getCountryAndProvinces.getCountries();
-        vm.postalError="MSG_ERR_POSTAL";
+        vm.fdId="";
+       // vm.postalError="MSG_ERR_POSTAL";
+        vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
+        vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_POSTAL"}];
+
         vm.$onInit = function () {
 
             if (vm.addressRecord) {
@@ -76,6 +82,7 @@
                 vm.postalPattern = getPostalPattern();
                 vm.hideProvinceDdl = !vm.hideProvinceText;
             }
+            _setIdNames();
         };
         /**
          * @ngdoc method updates if the model changes
@@ -88,6 +95,9 @@
             }
             if (changes.isAmend) {
                 vm.isEditable = changes.isAmend.currentValue;
+            }
+            if(changes.fieldSuffix){
+                vm.fldId=changes.fieldSuffix.currentValue;
             }
         };
         /**
@@ -108,14 +118,14 @@
 
         vm.isCountryCanada=function(){
           if(!vm.addressModel || !vm.addressModel.country){
-              vm.postalError="MSG_ERR_POSTAL";
+              vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_POSTAL"}];
               return false;
           }
            else if(vm.addressModel.country.id===CANADA){
-                vm.postalError="MSG_ERR_POSTAL";
+              vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_POSTAL"}];
                 return true;
             }else{
-                vm.postalError="MSG_ERR_ZIP";
+              vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_ZIP"}];
             }
             return false
         };
@@ -141,17 +151,6 @@
             vm.addressForm.$setPristine();
         };
 
-
-       /* vm.onSelectedCountryChange = function () {
-
-
-        }
-*/
-        vm.onAddressRoleUpdate = function (newRole) {
-            //  vm.addressModel.addressRole = newRole;
-            // vm.updateAddressModel();
-
-        };
 
         /**
          * @ngdoc method formats canadian postal code to upper and space
@@ -216,6 +215,22 @@
 
             return postalPtrn;
         }
+
+
+        function _setIdNames() {
+            var scopeId = vm.fldId+ "_" + $scope.$id;
+            vm.streetId = "street" + scopeId;
+            vm.cityId = "city" + scopeId;
+            vm.countryId = "country" + scopeId;
+            vm.stateTextId = "proveState" + scopeId;
+            vm.stateListId = "provinceList" + scopeId;
+            vm.postalId = "postal" + scopeId;
+        }
+
+        // component only has one field, just watch this field for changes to update error summary
+        $scope.$watch('adr.addressForm.$error', function () {
+            vm.updateErrorSummary();
+        }, true);
 
     }
 

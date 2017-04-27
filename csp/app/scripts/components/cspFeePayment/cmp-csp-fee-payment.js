@@ -6,7 +6,11 @@
     'use strict';
 
     angular
-        .module('cspFeePayment', ['hpfbConstants']);
+        .module('cspFeePayment', [
+            'hpfbConstants',
+            'errorMessageModule'
+
+        ]);
 
 })();
 
@@ -23,12 +27,14 @@
                 record: '<',
                 language: '<',
                 paymentTypes: '<',
-                showErrors: '&'
+                showErrors: '&',
+                updateErrorSummary: '&'
             }
         });
 
-    feePaymentController.$inject = ['FRENCH'];
-    function feePaymentController(FRENCH) {
+    feePaymentController.$inject = ['FRENCH', '$scope'];
+    function feePaymentController(FRENCH, $scope) {
+        var vm = this;
 
         var url_en = 'http://www.hc-sc.gc.ca/dhp-mps/alt_formats/pdf/prodpharma/applic-demande/form/adv_pa_av-eng.pdf';
         var url_fr = 'http://www.hc-sc.gc.ca/dhp-mps/alt_formats/pdf/prodpharma/applic-demande/form/adv_pa_av-fra.pdf';
@@ -41,21 +47,28 @@
             + " cannot be deleted and will remain aspart of the CSP application on record. As such, please separately <b><u>mail</u></b> or <b><u>fax</u></b> the";
 
         var urlTitle_en = "Advanced Payment Details Form for Drug Submissions, Master Files and Certificates of Supplementary Protection";
+        var urlTitle_fr = "";
 
-        var vm = this;
         vm.model = null;
         vm.lang = 'en';
         vm.paymentList = [];
         vm.url = url_en;
         vm.preamble = preambleHtml_en;
         vm.urlTitle = urlTitle_en;
-        //vm.postamble=' ,separately.';
+        vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
+        vm.numberMaxError = [
+            {type: "required", displayAlias: "MSG_ERR_MAND"},
+            {type: "min", displayAlias: "TYPE_ZERO_MIN"},
+            {type: "max", displayAlias: "MSG_ERR_MAX"},
+            {type: "number", displayAlias: "TYPE_NUMBER"}
+        ];
+
 
         /**
          * Called after onChanges evnet, initializes
          */
         vm.$onInit = function () {
-
+            _setIdNames();
         };
 
         /**
@@ -82,14 +95,23 @@
             }
         };
 
-        vm.showError = function (ctrl) {
+        /**
+         * sets the names of the fields. Use underscore as the separator for the scope id. Scope id must be at end
+         * @private
+         */
+        function _setIdNames() {
+            var scopeId = "_" + $scope.$id;
+            vm.feeId = "fee" + scopeId;
+            vm.feeTypeId = "feeType" + scopeId;
+            vm.ackFeeSubmitId = "ack_fee_submit" + scopeId;
+        }
 
-            if (!ctrl) return false;
-
-            if ((ctrl.$invalid && ctrl.$touched) || (vm.showErrors() && ctrl.$invalid )) {
-                return true
-            }
-        };
+        /**
+         * Watch for changes in the errors and tell the error summary
+         */
+        $scope.$watch('cspFeePayCtrl.paymentForm.$error', function () {
+            vm.updateErrorSummary();
+        }, true);
 
     }
 })();

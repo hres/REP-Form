@@ -32,10 +32,10 @@
             <div>
             </div>
         </section>
-        <!--<cmp-error-summary form-ref="main.cspForm" show-errors="true"
+        <cmp-error-summary form-ref="main.cspForm" show-errors="main.showErrorSummary"
                            form-preamble="CSP_FORM" exclusion-list="main.exclusions" alias-list="main.alias"
-                           update-errors="main.updateSummary" make-focused="main.updateSummary"
-                           name-suffix="main.cspForm" set-heading-level="h2"></cmp-error-summary>-->
+                           update-errors="main.updateSummary" make-focused="main.summaryFocusIndex" form-id="csp-form"
+                           name-suffix="main.cspForm" set-heading-level="h2"></cmp-error-summary>
         <div ng-if="main.showHCOnlySection()">
             <section class="panel panel-primary mrgn-tp-lg">
                 <header class="panel-heading clearfix">
@@ -80,51 +80,39 @@
                                ng-readonly="true"/>
                     </div>
                 </div>
+                <div class="row">
 
-                <div ng-repeat="applicantRecord in main.cspModel.applicant track by $index ">
-                    <!--<div class="row">
+                    <div class="col-xs-12">
+                        <h3>1.&nbsp;{{'CONTACT_TITLE'|translate}}</h3>
+                    </div>
+                </div>
+                <div>
+                    <cmp-csp-applicant-list add-applicant="main.modelService.addApplicantToModel()"
+                                            record="main.cspModel.applicant"
+                                            delete-applicant="main.modelService.deleteApplicant()"
+                                            show-errors="main.showErrors()"
+                                            update-error-summary="main.updateErrorSummary()">
+
+                    </cmp-csp-applicant-list>
+                </div>
+                <div>
+                    <div class="row">
+
                         <div class="col-xs-12">
-                            <h3 ng-if="applicantRecord.role.applicant">1.&nbsp;{{'APPL_TITILE'|translate}}</h3>
-                            <h3 ng-if="applicantRecord.role.billing && !applicantRecord.role.applicant">
-                                {{'BILLING_TITLE' |translate}}</h3>
+                            <h3>2.&nbsp;{{'PATENT_TITLE'|translate}}</h3>
+                            <cmp-csp-patent record="main.cspModel.patent" show-errors="main.showErrors()"
+                                            update-error-summary="main.updateErrorSummary()"></cmp-csp-patent>
                         </div>
-                    </div>-->
-                    <div class="row">
-
-                        <fieldset>
-                            <div class="col-xs-12">
-                                <legend ng-if="applicantRecord.role.applicant">1.&nbsp;{{'APPL_TITILE'|translate}}
-                                </legend>
-                                <legend ng-if="applicantRecord.role.billing && !applicantRecord.role.applicant">
-                                    {{'BILLING_TITLE' |translate}}
-                                </legend>
-                            </div>
-
-                            <cmp-csp-applicant record="applicantRecord" alias="main.setAlias(applicantRecord)"
-                                               add-applicant="main.modelService.addApplicantToModel()"
-                                               delete-applicant="main.modelService.deleteApplicant()"></cmp-csp-applicant>
-                        </fieldset>
-
                     </div>
                 </div>
                 <div>
-                    <div class="row">
-                        <fieldset>
-                            <div class="col-xs-12">
-                                <legend>2.&nbsp;{{'PATENT_TITLE'|translate}}</legend>
-
-                                <cmp-csp-patent record="main.cspModel.patent"></cmp-csp-patent>
-
-                            </div>
-                        </fieldset>
-                    </div>
-                </div>
-                <div>
-                    <cmp-csp-main-application record="main.cspModel.applicationInfo"
+                    <cmp-csp-main-application record="main.cspModel.applicationInfo" show-errors="main.showErrors()"
+                                              update-error-summary="main.updateErrorSummary()"
                                               drug-uses="main.drugUseList"></cmp-csp-main-application>
                 </div>
                 <div>
-                    <cmp-csp-timely-submission record="main.cspModel.timelySubmission"
+                    <cmp-csp-timely-submission record="main.cspModel.timelySubmission" show-errors="main.showErrors()"
+                                               update-error-summary="main.updateErrorSummary()"
                                                country-list="main.countryList"></cmp-csp-timely-submission>
                 </div>
 
@@ -134,28 +122,22 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <cmp-csp-fee-payment record="main.cspModel.payment"
+                            <cmp-csp-fee-payment record="main.cspModel.payment" show-errors="main.showErrors()"
+                                                 update-error-summary="main.updateErrorSummary()"
                                                  payment-types="main.paymentType"></cmp-csp-fee-payment>
                         </div>
                     </div>
                 </div>
-               <!-- <div class="row">-->
-                    <!-- <div class="col-xs-12">
-                         <h3>9.&nbsp;{{'CERT_TITLE'|translate}} </h3>
-                     </div>-->
-                    <div class="row">
-                        <fieldset>
-                            <div class="col-xs-12">
-
-                                <legend>9.&nbsp;{{'CERT_TITLE'|translate}}</legend>
-                                <cmp-csp-certification record="main.cspModel.certification"></cmp-csp-certification>
-
-                            </div>
-                        </fieldset>
-
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>9.&nbsp;{{'CERT_TITLE'|translate}}</h3>
+                        <cmp-csp-certification record="main.cspModel.certification"
+                                               update-error-summary="main.updateErrorSummary()"
+                                               show-errors="main.showErrors()"></cmp-csp-certification>
                     </div>
                 </div>
-           <!-- </div>-->
+            </div>
+            <!-- </div>-->
         </section>
         <div class="row btn-group-sm">
             <div class="form-group col-md-3">
@@ -171,10 +153,9 @@
                          class="fa fa-question-circle fa-2x"></span><span class="wb-inv">"{{'SAVE_INSTRUCT'|translate}}"</span>
                  </button>-->
             </div>
-
         </div>
 
 
-       <!-- <pre>{{main.cspModel|json}}</pre>-->
+        <!-- <pre>{{main.cspModel|json}}</pre>-->
     </ng-form>
 </div>

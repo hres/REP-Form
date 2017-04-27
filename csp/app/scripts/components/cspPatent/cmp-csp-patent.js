@@ -7,7 +7,8 @@
 
     angular
         .module('cspPatent', [
-            'numberFormat'
+            'numberFormat',
+            'errorMessageModule'
         ]);
 
 })();
@@ -23,22 +24,27 @@
             controllerAs: 'cspPatentCtrl',
             bindings: {
                 record: '<',
-                showErrors: '&'
+                showErrors: '&',
+                updateErrorSummary:'&'
             }
         });
 
-   // cspPatentController.$inject = [];
-    function cspPatentController() {
+    cspPatentController.$inject = ['$scope'];
+    function cspPatentController($scope) {
 
         var vm = this;
         vm.model="";
+        vm.min7Error = [{type: "required", displayAlias: "MSG_ERR_MAND"},
+            {type: "minlength", displayAlias: "MSG_LENGTH_7NUM"}];
 
+        vm.dateError = [{type: "required", displayAlias: "MSG_ERR_MAND"},
+            {type: "date", displayAlias: "MSG_ERR_DATE_FORMAT"}];
 
         /**
          * Called after onChanges evnet, initializes
          */
         vm.$onInit=function(){
-
+            _setIDNames();
         };
 
         /**
@@ -51,19 +57,20 @@
             }
         };
 
-
         /**
-         * used to control when to show an individual error
-         * @param ctrl - control to show an error on
-         * @returns {*}
+         * Creates the ids for all the ui elements
+         * @private
          */
-        vm.showError = function (ctrl) {
-            if (!ctrl) {
-                console.warn("cmpCspPatent::showError: no control");
-                return false;
-            }
-            return (ctrl.$invalid && ctrl.$touched || (vm.showErrors() && ctrl.$invalid));
-        };
+        function _setIDNames() {
+            var scopeId = "_" + $scope.$id;
+            vm.patentNumId = "patentNum" + scopeId;
+            vm.dateFiledId = "dateFiled" + scopeId;
+            vm.dateGrantedId = "dateGranted" + scopeId;
+            vm.dateExpiryId = "dateExpiry" + scopeId;
+        }
 
+        $scope.$watch('cspPatentCtrl.patentForm.$error', function () {
+            vm.updateErrorSummary();
+        }, true);
     }
 })();
