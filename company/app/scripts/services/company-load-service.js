@@ -12,12 +12,12 @@
     'use strict';
     angular
         .module('companyLoadService')
-        .factory('customLoad', ['$http', '$q', '$filter', 'getCountryAndProvinces','CANADA','USA', function ($http, $q, $filter, getCountryAndProvinces,CANADA,USA) {
+        .factory('customLoad', ['$http', '$q', '$filter', 'getCountryAndProvinces','CANADA','USA','RELATIVE_FOLDER_DATA', function ($http, $q, $filter, getCountryAndProvinces,CANADA,USA,RELATIVE_FOLDER_DATA) {
 
             return function (options) {
                 var deferred = $q.defer();
-                var dataFolder = "data/"; //relative forlder to the data
-                var countryUrl = dataFolder + "countries.json";
+                //var dataFolder = "data/"; //relative forlder to the data
+                var countryUrl = RELATIVE_FOLDER_DATA + "countries.json";
                 var resultTranslateList = {};
                 $http.get(countryUrl)
                     .then(function (response) {
@@ -83,13 +83,20 @@
 
             function _createSortedArrayNAFirst(jsonList,lang){
                 var result = [];
-                result.push({"id": "CAN", "en": "Canada", "fr": "Canada"});
-                result.push({"id":"USA","en":"United States","fr":"États-Unis"});
+                var canadaRecord = null;
+                var usaRecord = null;
                 angular.forEach($filter('orderByLocale')(jsonList,lang), function (sortedObject) {
-                    if (sortedObject.key !== CANADA && sortedObject.key !== USA) {
+                    if (sortedObject.id === USA) {
+                        usaRecord = sortedObject;
+                    } else if (sortedObject.id === CANADA) {
+                        canadaRecord = sortedObject;
+                    }
+                    else {
                         result.push(sortedObject);
                     }
                 });
+                if (usaRecord) result.unshift(usaRecord);
+                if (canadaRecord) result.unshift(canadaRecord);
                 return result;
             }
         }]);

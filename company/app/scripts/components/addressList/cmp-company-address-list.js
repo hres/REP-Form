@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module('addressList', ['addressRecord','hpfbConstants'])
+        .module('addressList', ['addressRecord','hpfbConstants','errorSummaryModule'])
 })();
 //test
 (function () {
@@ -21,7 +21,9 @@
                 onUpdate: '&',
                 getNewAddress: '&',
                 isAmend: '<',
-                companyService: '<'
+                companyService: '<',
+                showErrorSummary:'<',
+                errorSummaryUpdate:'<'
             },
             controller: addressListCtrl,
             controllerAs: 'addressListCtrl'
@@ -36,6 +38,8 @@
         vm.isDetailsValid = true; //used to track if details valid. If they are  not do not allow expander collapse
         vm.allRolesSelected = "";
         vm.resetCollapsed = false;
+        vm.updateSummary=0; //sends signal to update error summary object
+        vm.showSummary=false;
         vm.addressList = [];
         vm.columnDef = [
             {
@@ -60,6 +64,21 @@
             }
         ];
 
+        vm.alias = {
+            "roleMissing": {
+                "type": "fieldset",
+                "parent": "fs_roleMissing"
+            },
+            "addressRolesValid": {
+                "type": "element",
+                "target": "addAddressBtn"
+            }
+        };
+        vm.exclusions = {
+            "addressRec.addressRecForm": "true"
+        };
+
+
         vm.$onInit = function () {
             //local var from binding
             vm.addressList = vm.addresses;
@@ -73,6 +92,16 @@
                 vm.allRolesSelected = vm.isAllRolesSelected();
                 updateRolesConcat();
                 vm.isDetailsValid=true;
+                vm.updateErrorSummaryState();
+            }
+
+            if(changes.showErrorSummary){
+                vm.showSummary=changes.showErrorSummary.currentValue;
+                vm.updateErrorSummaryState();
+            }
+            if(changes.errorSummaryUpdate){
+
+                vm.updateErrorSummaryState();
             }
 
         };
@@ -104,7 +133,8 @@
                 result = result + " IMP"
             }
             addressModel.roleConcat = result;
-        }
+        };
+
 
         vm.deleteAddress = function (aID) {
             var idx = vm.addressList.indexOf(
@@ -115,12 +145,13 @@
             vm.isDetailsValid = true; //case that incomplete record is deleted
             vm.allRolesSelected = vm.isAllRolesSelected();
             vm.resetCollapsed = !vm.resetCollapsed;
+            vm.updateErrorSummaryState();
         };
 
         vm.addAddress = function () {
             var defaultAddress = vm.getNewAddress();
             vm.addressList.push(defaultAddress);
-            vm.isDetailsValid = true; //set to true to exapnd
+            vm.isDetailsValid = true; //set to true to exapnd?
             vm.selectRecord = (vm.addressList.length - 1);
             vm.isDetailsValid = false;
         };
@@ -171,6 +202,10 @@
 
             // Could show on not pristine&&!vm.addressListForm.$pristine
             return(!vm.isAllRolesSelected());
+        };
+
+        vm.updateErrorSummaryState=function(){
+            vm.updateSummary= vm.updateSummary+1;
         };
 
         /**

@@ -11,7 +11,8 @@
             'hpfbConstants',
             'dataLists',
             'filterLists',
-            'ui.select'
+            'ui.select',
+            'errorMessageModule'
 
         ])
 })();
@@ -32,12 +33,14 @@
                 addressRecord: '<',
                 onUpdate: '&', //no longer used TBD should be removed
                 showErrors: '&',
-                isAmend: '<'
+                isAmend: '<',
+                updateErrorSummary:'&',
+                fieldSuffix:'<'
             }
         });
-    addressCtrl.$inject = ['getCountryAndProvinces','$translate','CANADA','USA'];
+    addressCtrl.$inject = ['getCountryAndProvinces','$translate','CANADA','USA','$scope'];
 
-    function addressCtrl( getCountryAndProvinces,$translate, CANADA,USA) {
+    function addressCtrl( getCountryAndProvinces,$translate, CANADA,USA, $scope) {
 
         var vm = this;
         vm.isEditable = true;
@@ -61,6 +64,11 @@
         vm.usaZipCode = '^[0-9]{5}(?:-[0-9]{4})?$';
         vm.hideProvinceText = false;
         vm.countryList= getCountryAndProvinces.getCountries();
+        vm.fdId="";
+       // vm.postalError="MSG_ERR_POSTAL";
+        vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
+        vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_POSTAL"}];
+
         vm.$onInit = function () {
 
             if (vm.addressRecord) {
@@ -74,6 +82,7 @@
                 vm.postalPattern = getPostalPattern();
                 vm.hideProvinceDdl = !vm.hideProvinceText;
             }
+            _setIdNames();
         };
         /**
          * @ngdoc method updates if the model changes
@@ -82,9 +91,16 @@
         vm.$onChanges = function (changes) {
             if (changes.addressRecord) {
                 vm.addressModel = changes.addressRecord.currentValue;
+                vm.countryChanged();
             }
             if (changes.isAmend) {
                 vm.isEditable = changes.isAmend.currentValue;
+            }
+            if(changes.fieldSuffix){
+                vm.fldId=changes.fieldSuffix.currentValue;
+                if(!vm.fldId){
+                    vm.fldId="";
+                }
             }
         };
         /**
@@ -99,20 +115,24 @@
             vm.hideProvinceText = getProvinceTextState();
             vm.postalPattern = getPostalPattern();
             vm.hideProvinceDdl = !vm.hideProvinceText;
+            vm.isCountryCanada();
+            vm.updateErrorSummary();
         };
 
         vm.isCountryCanada=function(){
           if(!vm.addressModel || !vm.addressModel.country){
+              vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_POSTAL"}];
               return false;
           }
-            return(vm.addressModel.country.id===CANADA)
-        };
-        vm.isCountryUsa=function(){
-            if(!vm.addressModel || !vm.addressModel.country){
-                return false;
+           else if(vm.addressModel.country.id===CANADA){
+              vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_POSTAL"}];
+                return true;
+            }else{
+              vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_ZIP"}];
             }
-            return(vm.addressModel.country.id===USA)
+            return false
         };
+
         vm.showError = function (ctrl) {
 
             if (!ctrl) {
@@ -135,17 +155,6 @@
         };
 
 
-       /* vm.onSelectedCountryChange = function () {
-
-
-        }
-*/
-        vm.onAddressRoleUpdate = function (newRole) {
-            //  vm.addressModel.addressRole = newRole;
-            // vm.updateAddressModel();
-
-        };
-
         /**
          * @ngdoc method formats canadian postal code to upper and space
          */
@@ -157,6 +166,7 @@
                 postal=postal.substring(0,3)+" "+postal.substring(3,postal.length)
             }
             vm.addressModel.postalCode=postal;
+            vm.updateErrorSummary();
         };
         var getProvinceTextState = function () {
 
@@ -208,6 +218,22 @@
 
             return postalPtrn;
         }
+
+
+        function _setIdNames() {
+            var scopeId = vm.fldId+ "_" + $scope.$id;
+            vm.streetId = "street" + scopeId;
+            vm.cityId = "city" + scopeId;
+            vm.countryId = "country" + scopeId;
+            vm.stateTextId = "proveState" + scopeId;
+            vm.stateListId = "provinceList" + scopeId;
+            vm.postalId = "postal" + scopeId;
+        }
+
+        // component only has one field, just watch this field for changes to update error summary
+        $scope.$watch('adr.addressForm.$error', function () {
+            vm.updateErrorSummary();
+        }, true);
 
     }
 

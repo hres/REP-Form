@@ -22,12 +22,14 @@
                 //formName: '<',
                 record: '<',
                 onUpdate: '&',
-                showErrors:'&',
-                isContact:'<',
+                showErrors: '&',
+                isContact: '<',
                 alreadySelected: '&',
                 isAmend: '<',
                 legendText: '@',
-                importerUpdated:'&'
+                importerUpdated: '&',
+                updateErrorSummary: '&'
+
             }
         });
 
@@ -35,33 +37,33 @@
     function addressRoleCtrl($scope) {
 
         var vm = this;
-        vm.isReq=true;
-        vm.isSelected="";
+        vm.isReq = true;
+        vm.isSelected = ""; //checkbox causes issues. Store in text
         vm.isEditable = true;
         vm.roleModel = {
             manufacturer: false,
             mailing: false,
             billing: false,
-            importer:false,
+            importer: false,
             repPrimary: false,
             repSecondary: false
         };
         vm.$onInit = function () {
             //after init
-            //vm.noneSelected=vm.isSelected();
+
             if (vm.record) {
                 //doesn't copy as this is a dumb component
                 vm.roleModel = vm.record.addressRole;
                 vm.oneSelected();
             }
         };
-        vm.$onChanges=function(changes){
-           if(changes.record){
-               vm.roleModel=(changes.record.currentValue.addressRole);
-               vm.oneSelected();
-               checkAllControlsForDuplicates();
+        vm.$onChanges = function (changes) {
+            if (changes.record) {
+                vm.roleModel = (changes.record.currentValue.addressRole);
+                vm.oneSelected();
+                checkAllControlsForDuplicates();
 
-           }
+            }
             if (changes.isAmend) {
                 vm.isEditable = changes.isAmend.currentValue;
             }
@@ -78,13 +80,14 @@
             vm.checkForDuplicates(vm.roleForm.repPrimary, 'repPrimary');
             vm.checkForDuplicates(vm.roleForm.repSecondary, 'repSecondary');
             vm.checkForDuplicates(vm.roleForm.manufacturer, 'manufacturer');
+            vm.updateErrorSummary();
         }
 
 
-        vm.updateImporterState=function(ctrl,toCheck){
-            vm.oneSelected(ctrl,toCheck);
-            vm.importerUpdated({state:vm.roleModel.importer})
-        }
+        vm.updateImporterState = function (ctrl, toCheck) {
+            vm.oneSelected(ctrl, toCheck);
+            vm.importerUpdated({state: vm.roleModel.importer})
+        };
 
         /**
          *
@@ -93,17 +96,19 @@
          * @returns {boolean}
          */
         vm.oneSelected = function (ctrl, toCheck) {
-            var obj=vm.roleModel;
+            var obj = vm.roleModel;
             vm.checkForDuplicates(ctrl, toCheck);
-            for (var key in obj){
+            for (var key in obj) {
                 var attrName = key;
                 var attrValue = obj[key];
-                if(attrValue===true){
-                    vm.isSelected=true;
+                if (attrValue === true) {
+                    vm.isSelected = true;
+                    vm.updateErrorSummary();
                     return true;
                 }
             }
-            vm.isSelected="";
+            vm.isSelected = "";
+            vm.updateErrorSummary();
             return false
         };
 
@@ -115,14 +120,21 @@
         };
 
         function isDuplicateSelected(toCheck) {
-            var obj=vm.roleModel;
-            for (var key in obj){
+            var obj = vm.roleModel;
+            for (var key in obj) {
                 var attrName = key;
                 var attrValue = obj[key];
-                if(attrName==toCheck) {
-                    if(!attrValue) return false;
-                    return(vm.alreadySelected({roleName: attrName}));
+                if (attrName == toCheck) {
+                    if (!attrValue) return false;
+                    return (vm.alreadySelected({roleName: attrName}));
                 }
+            }
+            return false
+        }
+
+        vm.showError = function (ctrl) {
+            if ((ctrl.$invalid) || (vm.showErrors() && ctrl.$invalid)) {
+                return true
             }
             return false
         }
@@ -132,20 +144,15 @@
          * @returns {boolean}
          */
         vm.showErrorMissing = function () {
-            if((vm.roleForm.$touched && vm.roleForm.roleMissing.$invalid) || (vm.showErrors()&&vm.roleForm.roleMissing.$invalid)){
+
+            if ((vm.roleForm.$touched && !vm.isSelected) || (vm.showErrors() && !vm.isSelected)) {
                 return true
             }
             return false
         };
-        vm.showError = function (ctrl) {
-            if ((ctrl.$invalid) || (vm.showErrors() && ctrl.$invalid)) {
-                return true
-            }
-            return false
-        }
 
+    }//end controller
 
-    }
 
 
 })();

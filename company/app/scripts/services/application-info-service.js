@@ -26,7 +26,7 @@
         /**
          * @ngdoc method gets the current date formatted as YYYY-MM-DD
          * @returns {string}
-         * @private
+         *
          */
         ApplicationInfoService.prototype.getTodayDate = function () {
             var d = new Date();

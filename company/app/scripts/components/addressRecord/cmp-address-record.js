@@ -6,7 +6,15 @@
     'use strict';
 
     angular
-        .module('addressRecord', ['addressModule', 'addressRole','filterLists','importerProducts','hpfbConstants'])
+        .module('addressRecord', [
+            'addressModule',
+            'addressRole',
+            'filterLists',
+            'importerProducts',
+            'hpfbConstants',
+            'errorSummaryModule',
+            'errorMessageModule'
+        ])
 })();
 
 (function () {
@@ -28,18 +36,24 @@
                 isAmend: '<',
                 isDetailValid: '&',
                 isRoleSelected: '&',
-                recordIndex:'<'
+                recordIndex: '<',
+                errorSummaryUpdate: '&', /* used to message that errorSummary needs updating */
+                showErrorSummary:'<'
             }
         });
-    addressRecCtrl.$inject = ['$scope','CANADA'];
-    function addressRecCtrl($scope,CANADA) {
+    addressRecCtrl.$inject = ['$scope', 'CANADA'];
+
+    function addressRecCtrl($scope, CANADA) {
         var vm = this;
         vm.savePressed = false;
         vm.isContact = false;
         vm.isEditable = true;
         vm.formAmend = false;
-        vm.isImporter=false;
+        vm.isImporter = false;
+        vm.updateSummary=0; //triggers and error summary update
+        vm.setSummaryFocus=0; //sets the summary focus
         vm.addressRecForm = "";
+        vm.showSummary=false;
         //TODO get  model from a servide
         vm.addressModel = {
             addressID: 1,
@@ -63,14 +77,30 @@
                 dossierIdList: []
             }
         };
+        vm.alias = {
+            "roleMissing": {
+                "type": "fieldset",
+                "parent": "fs_roleMissing"
+            },
+            "postal": {
+                "type": "pattern",
+                "errorType": "POSTAL_FORMAT"
+            }
+        };
+        vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
+
+
         /*
-        * Sends the message up to determine if a row has already been selected.
-        * This merss
+         * Sends the message up to determine if a role has already been selected.
+         *
          */
         vm.isOneSelected = function (type) {
             return (vm.isRoleSelected({roleName: type, id: vm.addressModel.addressID}));
         };
         vm.$onInit = function () {
+            _setIdNames();
+            vm.updateErrorSummaryState();
+            vm.showSummary=false;
         };
         //TODO move to service
         function _getRolesConcat() {
@@ -97,11 +127,18 @@
          * Determines if a canadian importer role has been selected
          * @returns {boolean} true -if importer
          */
-        vm.notCanadianManufact=function(){
-            if(!vm.addressModel) return false;
-            return (vm.addressModel.addressRole.manufacturer===true &&vm.addressModel.country.id!==CANADA);
+        vm.notCanadianManufact = function () {
+            if (!vm.addressModel) return false;
+            return (vm.addressModel.addressRole.manufacturer === true && vm.addressModel.country.id !== CANADA);
 
         };
+        vm.focusOnSummary = function () {
+            vm.setSummaryFocus = vm.setSummaryFocus + 1;
+        };
+        vm.updateErrorSummaryState=function(){
+            vm.updateSummary= vm.updateSummary+1;
+        };
+
 
         /**
          * Due to binding with table expander this method does not get called
@@ -120,6 +157,12 @@
                 vm.formAmend = changes.isAmend.currentValue;
                 vm.setEditable();
             }
+            if(changes.showErrorSummary){
+
+                vm.showSummary=changes.showErrorSummary.currentValue;
+                vm.updateErrorSummaryState();
+            }
+
         };
 
         /**
@@ -127,6 +170,7 @@
          */
         vm.delete = function () {
             vm.onDelete({addressId: vm.addressModel.addressID});
+            vm.errorSummaryUpdate();
         };
         /* @ngdoc method -discards the changes and reverts to the model
          *
@@ -139,6 +183,7 @@
             vm.addressRecForm.$setPristine();
             vm.isDetailValid({state: vm.addressRecForm.$valid});
             vm.savePressed = false;
+            vm.errorSummaryUpdate();
         };
         //TODO obsolete?
         vm.onAddressRoleUpdate = function (newRole) {
@@ -148,15 +193,15 @@
             vm.updateAddressModel2();
         };
 
-        vm.importerProductState=function(state){
-            vm.isImporter=state;
-            if(!vm.isImporter){
-                 vm.addressModel.importerProducts={
-                    "selectedProducts":"",
-                    "dossierIdList":[]
+        vm.importerProductState = function (state) {
+            vm.isImporter = state;
+            if (!vm.isImporter) {
+                vm.addressModel.importerProducts = {
+                    "selectedProducts": "",
+                    "dossierIdList": []
                 };
-            }else if( vm.addressModel.importerProducts.dossierIdList.length===0){
-                vm.addressModel.importerProducts.dossierIdList.push({dossierId:""})
+            } else if (vm.addressModel.importerProducts.dossierIdList.length === 0) {
+                vm.addressModel.importerProducts.dossierIdList.push({dossierId: ""})
             }
         };
 
@@ -179,34 +224,25 @@
         vm.updateAddressModel2 = function () {
             vm.addressModel.roleConcat = _getRolesConcat();
             if (vm.addressRecForm.$valid) {
-                     vm.isDetailValid({state: true});
-                    vm.addressRecForm.$setPristine();
-                    vm.onUpdate({rec: vm.addressModel});
+                vm.isDetailValid({state: true});
+                vm.addressRecForm.$setPristine();
+                vm.onUpdate({rec: vm.addressModel});
+                vm.savePressed=false;
+                vm.errorSummaryUpdate(); //updating parent
+            } else {
+                vm.savePressed = true;
+                vm.updateErrorSummaryState(); //updating current
+                vm.focusOnSummary()
             }
-            vm.savePressed = true;
+
+
         };
         /**
          * @ngdoc method toggles error state to make errors visible
          * @returns {boolean}
          */
         vm.showErrors = function () {
-
-            return (vm.savePressed)
-        };
-
-        /**
-         * Controls errors state of an individual UI control. Since cannot pass the control for some reason
-         * pass the needed state variables... very annoying
-         * @param isTouched
-         * @param isInvalid
-         * @returns {boolean}
-         */
-        vm.showError = function (isTouched, isInvalid) {
-
-            if ((isInvalid && isTouched) || (vm.showErrors() && isInvalid )) {
-                return true
-            }
-            return false
+            return((vm.savePressed ||vm.showSummary));
         };
 
 
@@ -218,6 +254,10 @@
         vm.setEditable = function () {
 
             vm.isEditable = !(vm.formAmend && !vm.addressModel.amendRecord);
+        }
+
+        function _setIdNames() {
+            vm.companyNameId = "companyName" +"_"+  $scope.$id;
         }
 
     }

@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module('contactList2', ['contactRecord','expandingTable'])
+        .module('contactList2', ['contactRecord','expandingTable','errorSummaryModule'])
 })();
 
 (function () {
@@ -23,7 +23,9 @@
                 onUpdate: '&',
                 getNewContact: '&',
                 isAmend: '<',
-                companyService:'<'
+                companyService:'<',
+                showErrorSummary:'<',
+                errorSummaryUpdate:'<'
             }
         });
     contactListCtrl.$inject = ['$filter','CompanyService'];
@@ -35,19 +37,21 @@
         vm.contactList = [];
         vm.formAmend = false;
         vm.resetCollapsed = false;//used to signal expanding table collapse
+        vm.updateSummary=0; //sends signal to update error summary object
+        vm.showSummary=false; //flag to control error summary visibility
         vm.columnDef = [
             {
-                label: "FIRST_NAME",
+                label: "FIRSTNAME",
                 binding:"givenName",
                 width:"25"
             },
             {
-                label: "LAST_NAME",
+                label: "LASTNAME",
                 binding:"surname",
                 width:"30"
             },
             {
-                label: "JOB_TITLE",
+                label: "JOBTITLE",
                 binding:"title",
                 width:"25"
             },
@@ -57,6 +61,23 @@
                 width:"20"
             }
         ];
+
+
+        vm.alias = {
+            "roleMissing": {
+                "type": "fieldset",
+                "parent": "fs_roleMissing"
+            },
+            "contactRolesValid": {
+                "type": "element",
+                "target": "addContact"
+            }
+        };
+        vm.exclusions = {
+            "contactRec.contactRecForm": "true"
+        };
+
+
         /**
          * using to get contact list
          */
@@ -72,11 +93,24 @@
                 updateRolesConcat();
                 vm.allRolesSelected = vm.isAllContactRolesSelected();
                 vm.isDetailValid=true;
+                vm.updateErrorSummaryState()
             }
             if (changes.isAmend) {
                 vm.formAmend = changes.isAmend.currentValue;
             }
+            if(changes.errorSummaryUpdate){
+                vm.updateErrorSummaryState();
+            }
+            if(changes.showErrorSummary){
+                vm.showSummary=changes.showErrorSummary.currentValue;
+                vm.updateErrorSummaryState()
+            }
         };
+
+        vm.updateErrorSummaryState=function(){
+            vm.updateSummary= vm.updateSummary+1;
+        };
+
 
         function updateRolesConcat() {
             if (!vm.contactList) return;
@@ -84,6 +118,7 @@
 
                 _setRolesConcat(vm.contactList[i]);
             }
+
 
         }
 
@@ -146,6 +181,7 @@
             vm.isDetailValid = true; //case that incomplete record
             vm.allRolesSelected= vm.isAllContactRolesSelected();
             vm.resetCollapsed = !vm.resetCollapsed;
+            vm.updateErrorSummaryState();
 
         };
 
@@ -158,6 +194,7 @@
             //select table row first then make invalid
             vm.selectRecord=(vm.contactList.length - 1);
             vm.isDetailValid= false;
+            vm.showSummary=false;
         };
 
         /**

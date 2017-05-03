@@ -22,7 +22,9 @@ $translateProvider.translations("en", {
   "SELECTED_PRODUCTS":"Some Products",
   "IDENTIFY_PRODUCTS": "Provide the Dossier Identifiers for the products that are imported by this Company",
   "ADD_DOSSIER_ID":"Add Dossier Id",
-  "IMPORTER_NONCDN":"Please ensure you indicate a Canadian Importer"
+  "IMPORTER_NONCDN":"Please ensure you indicate a Canadian Importer",
+  "COUNTRY_CHOOSE":"Choose a country",
+  "COUNTRY_SEARCH":"Select or Search for country"
 });
 
 $translateProvider.translations("fr", {
@@ -42,7 +44,8 @@ $translateProvider.translations("fr", {
   "ADDR_INFO": "Informations d'adresses",
   "ADDR_DETAILS": "Détails de l'adresse",
   "ADDR_ROLE_LEGEND": "fr_Select one or more roles for this company",
-  "IMPORTER_NONCDN":"There should be a Canadian Importer when the Manufacturer / Sponsor is not a Canadian Address"
+  "IMPORTER_NONCDN":"There should be a Canadian Importer when the Manufacturer / Sponsor is not a Canadian Address",
+  "COUNTRY_CHOOSE":"Choisir un pays",
 
 });
 
@@ -183,11 +186,11 @@ $translateProvider.translations("fr", {
 });
 
 $translateProvider.translations("en", {
-  "FIRST_NAME": "First Name",
-  "LAST_NAME": "Last Name",
+  "FIRSTNAME": "First Name",
+  "LASTNAME": "Last Name",
   "INITIALS": "Initials",
-  "LANGUAGE_CORRESPONDENCE": "Language of Correspondance",
-  "JOB_TITLE": "Job Title",
+  "LANGCORRESPOND": "Language of Correspondance",
+  "JOBTITLE": "Job Title",
   "SALUTATION": "Salutation",
   "SALUT_MR": "Mr.",
   "SALUT_MS": "Ms.",
@@ -195,11 +198,11 @@ $translateProvider.translations("en", {
   "SALUT_MRS": "Mrs.",
   "ROLE_PRIMARY": "Primary",
   "ROLE_SECONDARY": "Alternate",
-  "EMAIL":  "Email",
+  "CONTACTEMAIL":  "Email",
   "FAX_NUMBER": "Fax Number",
   "PHONE_EXT": "Phone Extension",
   "ROLES": "Roles",
-  "PHONE_NUMBER": "Phone Number",
+  "PHONENUMBER": "Phone Number",
   "CONTACT_INFO": "Company Representative Information",
   "AMEND": "Amend",
   "REP_CONTACT":  "REP Contact",
@@ -213,11 +216,11 @@ $translateProvider.translations("en", {
 });
 
 $translateProvider.translations("fr", {
-  "FIRST_NAME": "Prénom",
-  "LAST_NAME": "Nom",
+  "FIRSTNAME": "Prénom",
+  "LASTNAME": "Nom",
   "INITIALS": "Initials",
-  "LANGUAGE_CORRESPONDENCE": "Langue de Correspondance",
-  "JOB_TITLE": "Job Title",
+  "LANGCORRESPOND": "Langue de Correspondance",
+  "JOBTITLE": "Job Title",
   "SALUTATION": "Titre de civilité",
   "SALUT_MR": "M.",
   "SALUT_MS": "Mme",
@@ -225,11 +228,11 @@ $translateProvider.translations("fr", {
   "SALUT_MRS": "Mlle",
   "ROLE_PRIMARY": "Primaire",
   "ROLE_SECONDARY": "Alterner",
-  "EMAIL": "Courriel",
+  "CONTACTEMAIL": "Courriel",
   "FAX_NUMBER": "Numéro de télécopieur",
   "PHONE_EXT": "Numéro de poste",
   "ADDR_ROLES":"fr_Roles",
-  "PHONE_NUMBER": "Numéro de téléphone",
+  "PHONENUMBER": "Numéro de téléphone",
   "CONTACT_INFO": "fr_Company Representative Information",
   "AMEND": "fr_Amend",
   "REP_CONTACT":  "fr_REP Contact",
@@ -292,11 +295,11 @@ $translateProvider.translations("en", {
   "en": "English",
   "fr": "French",
   "DISCARD_CHANGES": "Discard Changes",
-  "REP_ALT": "Alternate REP contact",
-  "REP_PRIM": "Primary REP contact",
+  "REPSECONDARY": "Alternate REP contact",
+  "REPPRIMARY": "Primary REP contact",
   "MAILING": "Regulatory Mailing / Annual Contact",
   "BILLING": "Billing Address",
-  "MANUFACT": "Manufacturer / Sponsor Mailing Address",
+  "MANUFACTURER": "Manufacturer / Sponsor Mailing Address",
   "IMPORTER": "Canadian Importer Mailing Address",
   "APPROVE_FINAL": "Approve Final XML",
   "SAVE_DRAFT": "Save Draft for Filing",
@@ -322,10 +325,13 @@ $translateProvider.translations("en", {
   "OTHER": "Other",
   "HELP_REP_CONTACT": "REP Contact Instructions",
   "OTHER_UNITS": "Units other details",
-  "COMPANY_NOABBREV":"Company Name (Full legal name - no abbreviations)",
+  "COMPANYNAME":"Company Name (Full legal name - no abbreviations)",
   "COPY":"Copy",
   "DELETE":"Delete",
-  "SAVE_WORKING":"Save Working Copy"
+  "SAVE_WORKING":"Save Working Copy",
+  "COMPANY_NOABBREV": "Company Name (Full legal Name - no abbreviations)",
+  "PROVINCELIST": "Province or State",
+  "POSTAL": "Applicant postal or zip code"
 });
 
 $translateProvider.translations("fr", {
@@ -343,11 +349,11 @@ $translateProvider.translations("fr", {
   "en": "Anglais",
   "fr": "Français",
   "DISCARD_CHANGES": "fr_Discard Changes",
-  "REP_ALT": "fr_Alternate REP contact",
-  "REP_PRIM": "fr_Primary REP contact",
+  "REPSECONDARY": "fr_Alternate REP contact",
+  "REPPRIMARY": "fr_Primary REP contact",
   "MAILING": "Contact pour le courrier réglementaire",
   "BILLING": "fr_Billing",
-  "MANUFACT": "fr_Manufacturer",
+  "MANUFACTURER": "fr_Manufacturer",
   "IMPORTER": "Importateur canadien",
   "APPROVE_FINAL": "fr_Approve Final XML",
   "PRIMARY": "fr_Primary",
@@ -372,10 +378,13 @@ $translateProvider.translations("fr", {
   "OTHER": "Autre",
   "HELP_REP_CONTACT": "fr_REP Contact Instructions",
   "OTHER_UNITS": "fr_Units other details",
-  "COMPANY_NOABBREV":"fr_Company Name (Full legal name - no abbreviations)",
+  "COMPANYNAME":"fr_Company Name (Full legal name - no abbreviations)",
   "COPY":"fr_Copy",
   "DELETE":"fr_Delete",
-  "SAVE_WORKING":"fr_Save Working Copy"
+  "SAVE_WORKING":"fr_Save Working Copy",
+  "COMPANY_NOABBREV": "fr_Company Name (Full legal Name - no abbreviations)",
+  "PROVINCELIST": "fr_Province or State",
+  "POSTAL": "fr_Applicant postal or zip code"
 });
 
 $translateProvider.translations("en", {
@@ -405,37 +414,41 @@ $translateProvider.translations("en", {
   "MSG_ERR_ONE_REP": "At least one contact is required.",
   "MSG_ERR_ONE_LIFE_REC": "One lifecycle record is required.",
   "MSG_ERR_RATIONALE_SEL": "Please select at least one rationale.",
-  "MSG_ERR_NOTIF_SEL": "Please select at least one notifiable change."
+  "MSG_ERR_NOTIF_SEL": "Please select at least one notifiable change.",
+  "MSG_ERR_MIN_POS": "Must be a positive number",
+  "MSG_ERR_MAX": "Exceeds the maximum"
 });
 
 $translateProvider.translations("fr", {
   "MSG_ERR_MAND": "Ce champ est obligatoire.",
   "MSG_ERR_EMAIL_FORMAT": "Veuillez fournir une adresse électronique valide.",
   "MSG_ERR_CONTACT_NUM": "fr_All the roles have to be used for the company contacts",
-  "MSG_ERR_PHONE_FORMAT": "fr_Please specify a valid phone number",
+  "MSG_ERR_PHONE_FORMAT": "Veuillez fournir un numéro de téléphone valide.",
   "MSG_ERR_ALLROLE": "fr_Across the contact records, the roles of manufacturer, mailing, billing, and REP primary contact must be selected",
   "MSG_ERR_ADDRESSSROLE": "fr_The roles of manufacturer, mailing, and billing have not all been selected among the list of addresses",
-  "MSG_ERR_POSTAL": "fr_Please specify a valid postal code.",
-  "MSG_ERR_ZIP": "fr_Please specify a valid zip code.",
-  "MSG_ERR_DATE_FORMAT": "fr_The date format is incorrect.",
+  "MSG_ERR_POSTAL": "Veuillez fournir un code postal valide.",
+  "MSG_ERR_ZIP": "Veuillez fournir un code postal valide.",
+  "MSG_ERR_DATE_FORMAT": "Veuillez fournir une une date valide.",
   "MANUFACT_SEL": "fr_Manufacturer Role already Selected",
   "MAIL_SEL": "fr_Mailing Role already Selected",
   "BILLING_SEL": "fr_Billing Role already Selected",
   "IMPORTER_SEL": "fr_Importer Role already Selected",
   "REPPRIM_SEL": "fr_REP Primary Role already Selected",
   "REPALT_SEL": "fr_REP Alternate Role already Selected",
-  "MSG_LENGTH_MIN5": "fr_Please enter at least 5 digits",
-  "MSG_LENGTH_6": "fr_Please enter 6 characters.",
-  "MSG_LENGTH_6NUM": "fr_Please enter 6 digits.",
-  "MSG_LENGTH_8NUM": "fr_Please enter 8 digits.",
-  "MSG_LENGTH_7": "fr_Please enter 7 characters.",
-  "MSG_LENGTH_7NUM": "fr_Please enter 7 digits.",
-  "MSG_ERR_ONE_REP": "fr_At least one contact is required.",
-  "MSG_ERR_ONE_LIFE_REC": "fr_One lifecycle record is required.",
-  "MSG_ERR_RATIONALE_SEL": "fr_Please select at least one rationale.",
-  "MSG_ERR_NOTIF_SEL": "fr_Please select at least one notifiable change."
-}
-);
+  "MSG_LENGTH_MIN5": "Veuillez fournir au moins 5 chiffres.",
+  "MSG_LENGTH_6": "Veuillez fournir au moins 6 caractères.",
+  "MSG_LENGTH_6NUM": "Veuillez fournir 6 chiffres.",
+  "MSG_LENGTH_8NUM": "Veuillez fournir 8 chiffres.",
+  "MSG_LENGTH_7": "Veuillez fournir 7 caractères.",
+  "MSG_LENGTH_7NUM": "Veuillez fournir  7 chiffres.",
+  "MSG_ERR_ONE_REP": "Au moins un contact est requis",
+  "MSG_ERR_ONE_LIFE_REC": "Un enregistrement de cycle de vie est nécessaire",
+  "MSG_ERR_RATIONALE_SEL": "Veuillez sélectionner au moins une justification",
+  "MSG_ERR_NOTIF_SEL": "Sélectionnez au moins un changement de déclaration",
+  "MSG_ERR_MIN_POS": "Doit être un nombre positif",
+  "MSG_ERR_MAX": "Dépasse le maximum."
+
+});
 
 $translateProvider.translations("en", {
   "REG_COMPANY_ENROL": "Regulatory Company Enrolment",
@@ -453,5 +466,54 @@ $translateProvider.translations("fr", {
   "ADDRESS_INSTRUCT":"fr_Company Address Record Instructions",
   "REPRESENT_INSTRUCT":"fr_Company Representative Information",
   "SAVE_INSTRUCT": "fr_Company File Save Instructions"
+});
+
+$translateProvider.translations("en", {
+  "ADDRESSLISTCTRL.ADDRESSLISTFORM": "in the Address Information section.",
+  "CONTACTLISTCTRL.CONTACTLISTFORM": "in the Company Representative Information section.",
+  "CONTACTROLESVALID": "For Company Representative, selection of  all roles: manufacturer, mailing, billing, and primary REP ",
+  "ADDRESSROLESVALID": "For the Address Information, selection of all roles: manufacturer, mailing, and billing",
+  "CONTACTREC.CONTACTRECFORM":"in the Company Representative details",
+  "ADDRESSREC.ADDRESSRECFORM":"in the Address details",
+  "COMPANY_FORM":"Company Enrolment Form",
+  "ROLEMISSING": "Record Role",
+
+});
+
+$translateProvider.translations("fr", {
+
+
+});
+
+$translateProvider.translations("en", {
+  "FOR_THE":"For the ",
+  "THERE_ARE_ERRORS":"There are errors ",
+  "ERRORS_FOUND":"errors were found.",
+  "ERROR_FOUND":"error was found.",
+  "TYPE_REQUIRED":"This field is required.",
+  "TYPE_EMAIL":"Please enter a valid email address.",
+  "TYPE_DUPLICATEROLE": "This role has already been selected.",
+  "TYPE_MINLENGTH": "Less than minimum length",
+  "POSTAL_FORMAT": "Please enter a valid format",
+  "TYPE_MIN": "Must be greater than the minimum",
+  "TYPE_DATE":"Please enter a valid date",
+  "TYPE_NUMBER":"Please enter a valid number"
+});
+
+$translateProvider.translations("fr", 
+
+{
+"FOR_THE":"Pour le ",
+"THERE_ARE_ERRORS":"Il y a des erreurs ",
+"ERRORS_FOUND":"erreurs ont été trouvées.",
+"ERROR_FOUND":"erreur a été trouvée.",
+"TYPE_REQUIRED":"Ce champ est obligatoire.",
+"TYPE_EMAIL":"Veuillez fournir une adresse électronique valide.",
+"TYPE_DUPLICATEROLE": "Ce rôle a déjà été sélectionné.",
+"TYPE_MINLENGTH": "Moins de longueur minimale.",
+"POSTAL_FORMAT": "Entrez un format valide.",
+"TYPE_MIN": "Doit être supérieur au minimum.",
+"TYPE_DATE":"Veuillez fournir une une date valide.",
+  "TYPE_NUMBER":"Veuillez fournir un numéro valide."
 });
 }]);

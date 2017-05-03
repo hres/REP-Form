@@ -25,7 +25,8 @@
                 disableSelection:'<',
                 selectRecord: '<',
                 resetToCollapsed: '<',
-                disableErrColumn:'@'
+                disableErrColumn:'@',
+                transcludeName:'@'
             }
         });
     expandingTableCtrl.$inject = ['$filter'];
@@ -37,10 +38,10 @@
         vm.tableRowExpanded = false;
         vm.tableRowIndexCurrExpanded = "";
         vm.tableRowIndexPrevExpanded = "";
-        vm.numberCols=vm.columnDef.length+2;
+        vm.numberCols=1;
         vm.disableErrorCol=false;
         vm.dayDataCollapse = _createArray(0, true);
-
+        vm.formName="";
         vm.$onInit = function () {
             if(vm.listItems) {
                 vm.dayDataCollapse = _createArray(vm.listItems.length, true);
@@ -56,7 +57,10 @@
 
         vm.$onChanges = function (changes) {
 
+            if(changes.transcludeName){
 
+                vm.formName=changes.transcludeName.currentValue;
+            }
 
             if (changes.listItems) {
                 if(vm.listItems) {

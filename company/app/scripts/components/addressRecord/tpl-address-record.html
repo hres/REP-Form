@@ -1,6 +1,13 @@
 <div class="container-fluid">
-    <ng-form name="addressRec.addressRecForm">
+    <ng-form name="addressRec.addressRecForm" id="company-address-record-form">
         <div>
+
+            <cmp-error-summary form-ref="addressRec.addressRecForm" show-errors="addressRec.showErrors()"
+                               form-preamble="{{'ADDR_DETAILS'|translate}}&nbsp;{{addressRec.recordIndex+1}}"
+                               name-suffix="addressRec.addressRecForm" set-heading-level="h4" form-id="company-address-record-form"
+                               make-focused="addressRec.setSummaryFocus" alias-list="addressRec.alias"
+                               update-errors="addressRec.updateSummary"></cmp-error-summary>
+
             <div>
                 <h3>{{'ADDR_DETAILS'|translate}}&nbsp;{{addressRec.recordIndex+1}}</h3>
                 <div class="row">
@@ -16,27 +23,26 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-12"
-                     ng-class="{'has-error':addressRec.addressRecForm.companyName.$invalid}">
-                    <label for="companyName" class="required full-width">
-                        <span class="field-name">{{"COMPANY_NOABBREV" |translate}}</span>
+                     ng-class="{'has-error':addressRec.addressRecForm[addressRec.companyNameId].$invalid}">
+                    <label for="{{::addressRec.companyNameId}}" class="required full-width">
+                        <span class="field-name">{{"COMPANYNAME" |translate}}</span>
                         <strong class="required"> {{"REQUIRED" |translate}}</strong>
-                        <input type="text" id="companyName" name="companyName"
+                        <input type="text" id="{{::addressRec.companyNameId}}" name="{{::addressRec.companyNameId}}"
                                ng-model="addressRec.addressModel.companyName"
                                class="form-control full-width" maxlength="80" size="60"
-                               ng-readonly="!addressRec.isEditable"
+                               ng-blur="addressRec.updateErrorSummaryState()" ng-readonly="!addressRec.isEditable"
                                required/>
-                        <strong id="companyName-error" class="error"
-                                ng-if="addressRec.showError(addressRec.addressRecForm.companyName.$touched,addressRec.addressRecForm.companyName.$invalid)">
-                        <span class="label label-danger" ng-messages="addressRec.addressRecForm.companyName.$error">
-                            <span ng-message="required">{{'MSG_ERR_MAND'|translate}}</span>
-                        </span>
-                        </strong>
+                        <cmp-error-message field-name="addressRec.companyNameId" form-ref="addressRec.addressRecForm"
+                                           show-error="addressRec.showErrors()"
+                                           error-types="addressRec.requiredOnly"></cmp-error-message>
+
                     </label>
                 </div>
             </div>
             <div class="row">
                 <cmp-address-details address-record="addressRec.addressModel" is-amend="addressRec.isEditable"
                                      on-update="addressRec.onUpdateAddressRecord(address)"
+                                     update-error-summary="addressRec.updateErrorSummaryState()"
                                      show-errors="addressRec.showErrors()"></cmp-address-details>
             </div>
             <div>
@@ -45,6 +51,7 @@
                                   on-update="addressRec.onAddressRoleUpdate($event.roles)"
                                   show-errors="addressRec.showErrors()"
                                   importer-updated="addressRec.importerProductState(state)"
+                                  update-error-summary="addressRec.updateErrorSummaryState()"
                                   already-selected="addressRec.isOneSelected(roleName)"></cmp-address-role>
 
             </div>
@@ -64,10 +71,14 @@
             <div class="row">
                 <div class="btn-group-sm col-xs-12 text-right">
                     <button class="btn btn-primary" name="saveAddress"
-                            id="saveAddress" ng-click="addressRec.updateAddressModel2()">{{'SAVE_ADDR'|translate}}</button>
-                    <button class="btn btn-danger" name="deleteAddress" ng-click="addressRec.delete()">{{'DELETE_ADDR'|translate}}</button>
+                            id="saveAddress" ng-click="addressRec.updateAddressModel2()">{{'SAVE_ADDR'|translate}}
+                    </button>
+                    <button class="btn btn-danger" name="deleteAddress" ng-click="addressRec.delete()">
+                        {{'DELETE_ADDR'|translate}}
+                    </button>
                     <button class="btn btn-default" name="discardAddressChanges"
-                            ng-click="addressRec.discardChanges()" >{{'DISCARD_CHANGES'|translate}}</button>
+                            ng-click="addressRec.discardChanges()">{{'DISCARD_CHANGES'|translate}}
+                    </button>
                 </div>
             </div>
         </div>

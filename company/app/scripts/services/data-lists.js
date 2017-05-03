@@ -152,8 +152,8 @@
         .factory('getContactLists', getSalService); //todo rename service
 
     /* @ngInject */
-    getSalService.$inject = ['$filter', '$q', '$http', '$translate', 'OTHER', 'FRENCH'];
-    function getSalService($filter, $q, $http,$translate, OTHER, FRENCH) {
+    getSalService.$inject = ['$filter', '$q', '$http', '$translate', 'OTHER', 'FRENCH','RELATIVE_FOLDER_DATA'];
+    function getSalService($filter, $q, $http,$translate, OTHER, FRENCH,RELATIVE_FOLDER_DATA) {
         var vm = this;
         vm.internalContacts = [];
         var service = {
@@ -185,9 +185,13 @@
                 ]);
         }
 
+        /**
+         * @private
+         * Loads Internal contacts from a datafile
+         */
         function _createInternalContacts() {
             var deferred = $q.defer();
-            var contactsUrl = "data/internalContacts.json";
+            var contactsUrl = RELATIVE_FOLDER_DATA+"internalContacts.json";
             if (!vm.internalContacts || vm.internalContacts.length === 0) {
                 $http.get(contactsUrl)
                     .success(function (data, status, headers, config) {

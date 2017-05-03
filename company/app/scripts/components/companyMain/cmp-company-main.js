@@ -13,7 +13,9 @@
             'applicationInfo',
             'filterLists',
             'hpfbConstants',
-            'ui.bootstrap'
+            'ui.bootstrap',
+            'errorSummaryModule',
+            'focus-if'
         ])
 })();
 
@@ -30,9 +32,9 @@
             }
         });
 
-    companyMainCtrl.$inject = ['CompanyService', 'ApplicationInfoService', 'hpfbFileProcessing', '$filter', '$scope', 'INTERNAL_TYPE', 'EXTERNAL_TYPE', 'APPROVED_TYPE', 'AMEND_TYPE'];
+    companyMainCtrl.$inject = ['CompanyService', 'ApplicationInfoService', 'hpfbFileProcessing', '$filter', '$scope', 'INTERNAL_TYPE', 'EXTERNAL_TYPE', 'APPROVED_TYPE', 'AMEND_TYPE','ENGLISH','$translate'];
 
-    function companyMainCtrl(CompanyService, ApplicationInfoService, hpfbFileProcessing, $filter, $scope, INTERNAL_TYPE, EXTERNAL_TYPE, APPROVED_TYPE, AMEND_TYPE) {
+    function companyMainCtrl(CompanyService, ApplicationInfoService, hpfbFileProcessing, $filter, $scope, INTERNAL_TYPE, EXTERNAL_TYPE, APPROVED_TYPE, AMEND_TYPE, ENGLISH, $translate) {
 
         var vm = this;
         vm.userType = EXTERNAL_TYPE;
@@ -60,25 +62,50 @@
         vm.applTypes = vm.companyService.getApplicationTypes();
         vm.company = vm.companyService.getModelInfo();
         vm.alerts = [false, false, false, false, false];
+        vm.updateSummary=false;
+        vm.showErrorSummary=false;
+        vm.lang = $translate.proposedLanguage() || $translate.use();
+
+        vm.exclusions = {
+            "contactListCtrl.contactListForm": "true",
+            "addressListCtrl.addressListForm": "true"
+        };
+        vm.alias = {
+            "roleMissing": {
+                "type": "fieldset",
+                "parent": "fs_roleMissing"
+            },
+            "contactRolesValid": {
+                "type": "button",
+                "parent": "",
+                "target": "addContact"
+            },
+            "addressRolesValid": {
+                "type": "button",
+                "parent": "",
+                "target": "addAddressBtn"
+            },
+            "phoneNumber": {
+                "type": "pattern",
+                "errorType": "MSG_ERR_PHONE_FORMAT"
+            },
+            "country": {
+                "type": "select2",
+                "name": "country"
+            }
+        };
 
 
-        //TODO needed?
         vm.initUser = function (id) {
-            /*
-             if (!id) id = 'EXT'
-             vm.userType = id;
-             if (id == 'INT') {
-             vm.saveXMLLabel = "APPROVE_FINAL"
-             } else {
-             vm.saveXMLLabel = "SAVE_DRAFT"
-             }*/
+
         };
 
         vm.$onInit = function () {
             //add init code here
             //reset instructions
             vm.alerts = [false, false, false, false, false];
-
+            vm.updateSummary=false;
+            vm.showErrorSummary=false;
         };
 
         vm.$onChanges = function (changes) {
@@ -113,9 +140,16 @@
          * @ngdoc method - saves the data model as XML format
          */
         vm.saveXML = function () {
-            var writeResult = _transformFile();
+            if(vm.companyEnrolForm.$invalid){
+                vm.showErrorSummary= vm.showErrorSummary+1;
+                vm.updateErrorSummary();
 
-            hpfbFileProcessing.writeAsXml(writeResult, _createFilename(), vm.rootTag);
+            }else {
+                var writeResult = _transformFile();
+                hpfbFileProcessing.writeAsXml(writeResult, _createFilename(), vm.rootTag);
+                vm.showErrorSummary=true;
+                vm.companyEnrolForm.$setPristine();
+            }
         };
 
         /**
@@ -138,10 +172,10 @@
                 filename = filename + separator+ vm.company.companyId;
             }
             if (vm.company.enrolmentVersion) {
-                //var parts = vm.company.enrolmentVersion.split('.')
-                filename = filename + separator+ vm.company.enrolmentVersion;
+                filename = filename + separator+  vm.company.enrolmentVersion;
             }
-            return filename;
+            filename=filename.replace(".",separator);
+            return filename.toLowerCase();
         }
 
         /**
@@ -150,9 +184,11 @@
         function _transformFile() {
             updateDate();
             if (!vm.isExtern()) {
-                vm.company.enrolmentVersion = vm.applicationInfoService.incrementMajorVersion(vm.company.enrolmentVersion);
-                vm.company.applicationType = ApplicationInfoService.prototype.getApprovedType();
-                updateModelOnApproval();
+                if(!vm.companyEnrolForm.$pristine) {
+                    vm.company.enrolmentVersion = vm.applicationInfoService.incrementMajorVersion(vm.company.enrolmentVersion);
+                    vm.company.applicationType = ApplicationInfoService.prototype.getApprovedType();
+                    updateModelOnApproval();
+                }
             } else {
                 vm.company.enrolmentVersion = vm.applicationInfoService.incrementMinorVersion(vm.company.enrolmentVersion)
             }
@@ -165,10 +201,10 @@
 
         function disableXMLSave() {
             var isApprovedExternal = (vm.company.applicationType == vm.companyService.getApprovedType() && vm.isExtern());
-
             vm.disableDraftButton = isApprovedExternal;
-            vm.disableXML = vm.companyEnrolForm.$invalid || isApprovedExternal;
-        }
+            vm.disableXML = vm.companyEnrolForm.$invalid || isApprovedExternal; //used to disable the generate xml button
+            //vm.showErrorSummary=true;
+        };
 
         function disableJSONSave() {
 
@@ -189,6 +225,8 @@
                 angular.extend(vm.company, vm.companyService.getModelInfo());
                 _setComplete();
                 vm.setAmend();
+                vm.showErrorSummary=false;
+                vm.companyEnrolForm.$setDirty();
 
             }
             disableXMLSave();
@@ -272,6 +310,10 @@
             }
         };
 
+        /*
+        Makes an instruction visible baseed on an index passed in
+        Index sets the UI state in the alerts array
+         */
         vm.addInstruct = function (value) {
 
             if (angular.isUndefined(value)) return;
@@ -280,6 +322,20 @@
             }
         }
 
+        /**
+         * Increments the conunter to send a signal to update the error summary module
+          */
+        vm.updateErrorSummary=function(){
+            vm.updateSummary= vm.updateSummary+1;
+
+        }
+        /**
+         * Determines if the current language is french
+         * @returns {boolean}
+         */
+        vm.isFrench=function(){
+            return(vm.lang!== ENGLISH);
+        };
 
     }
 })();

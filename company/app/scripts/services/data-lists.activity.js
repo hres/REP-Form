@@ -520,7 +520,9 @@
                 "MEETING_MINUTES",
                 "EMAIL_RQ_RESPONSE",// response to email request
                 "PROCESSING_CLARIF_RESPONSE", //Response to processing Clarification Request
-                "PHONE_RQ_RESPONSE" //Response to telephone Request
+                "PHONE_RQ_RESPONSE", //Response to telephone Request,
+                "PRESUB_MEETING_PKG", //Pre-submission Meeting Package
+                "PRESUB_MEETING_RQ"   //Pre-submission Meeting Request
             ]);
         }
 
@@ -530,7 +532,9 @@
                 "MEETING_MINUTES",
                 "EMAIL_RQ_RESPONSE",// response to email request
                 "PROCESSING_CLARIF_RESPONSE", //Response to processing Clarification Request
-                "PHONE_RQ_RESPONSE" //Response to telephone Request
+                "PHONE_RQ_RESPONSE", //Response to telephone Request,
+                "PRESUB_MEETING_PKG", //Pre-submission Meeting Package
+                "PRESUB_MEETING_RQ"   //Pre-submission Meeting Request
             ]);
         }
 
@@ -540,7 +544,9 @@
                 "MEETING_MINUTES",
                 "EMAIL_RQ_RESPONSE",// response to email request
                 "PROCESSING_CLARIF_RESPONSE", //Response to processing Clarification Request
-                "PHONE_RQ_RESPONSE" //Response to telephone Request
+                "PHONE_RQ_RESPONSE", //Response to telephone Request
+                "PRESUB_MEETING_PKG", //Pre-submission Meeting Package
+                "PRESUB_MEETING_RQ"   //Pre-submission Meeting Request
             ]);
         }
 

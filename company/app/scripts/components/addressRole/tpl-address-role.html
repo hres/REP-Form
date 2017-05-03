@@ -1,12 +1,12 @@
 <ng-form name="ar.roleForm">
-    <fieldset>
+    <fieldset id="fs_roleMissing_{{::$id}}">
         <legend class="required">
             <span class="field-name">{{ar.legendText |translate}}</span>
             <strong class="required"> {{"REQUIRED" |translate}}</strong>
-            <input id="roleMissing_{{$id}}" name="roleMissing" ng-required="true" ng-show="false"
+            <input id="roleMissing_{{::$id}}" type="text" name="roleMissing_{{::$id}}" ng-show="false"
                    ng-model="ar.isSelected" required/>
-            <strong id=" address-role-error" class="error" ng-if="ar.showErrorMissing()">
-                        <span class="label label-danger" ng-messages="ar.roleForm.roleMissing.$error">
+            <strong id=" address-role-error" class="error" ng-show="ar.showErrorMissing()">
+                        <span class="label label-danger" ng-messages="ar.roleForm.roleMissing_{{::$id}}.$error">
                             <span ng-message="required">{{"MSG_ERR_ROLE"|translate}}</span>
                         </span>
             </strong>
@@ -14,11 +14,11 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="checkbox">
-                    <label for="chk-manufacturer_{{$id}}">
+                    <label for="chk-manufacturer_{{::$id}}">
                         <input type="checkbox" ng-model="ar.roleModel.manufacturer" name="manufacturer"
                                ng-change="ar.oneSelected(ar.roleForm.manufacturer,'manufacturer')"
                                ng-disabled="!ar.isEditable"
-                               id="chk-manufacturer_{{$id}}"/>{{"MANUFACT"|translate}}
+                               id="chk-manufacturer_{{::$id}}"/>{{"MANUFACTURER"|translate}}
                         <strong id="manufacturer-role-error" class="error" ng-if="ar.roleForm.manufacturer.$invalid">
                  <span class="label label-danger" ng-messages="ar.roleForm.manufacturer.$error">
                             <span ng-message="duplicateRole">{{"MANUFACT_SEL"|translate}}</span>
@@ -30,10 +30,10 @@
             </div>
             <div class="col-sm-4">
                 <div class="checkbox">
-                    <label for="chk-mailing{{$id}}">
+                    <label for="chk-mailing_{{::$id}}">
                         <input type="checkbox" name="mailing" ng-model="ar.roleModel.mailing" name="mailing"
                                ng-disabled="!ar.isEditable"
-                               ng-change="ar.oneSelected(ar.roleForm.mailing,'mailing')" id="chk-mailing{{$id}}"/>
+                               ng-change="ar.oneSelected(ar.roleForm.mailing,'mailing')" id="chk-mailing_{{::$id}}"/>
                         {{"MAILING"|translate}}
                         <strong id="mailing-role-error" class="error" ng-if="ar.roleForm.mailing.$invalid">
                  <span class="label label-danger" ng-messages="ar.roleForm.mailing.$error">
@@ -85,7 +85,7 @@
                         <input type="checkbox" name="repPrimary" ng-model="ar.roleModel.repPrimary"
                                ng-disabled="!ar.isEditable"
                                ng-change="ar.oneSelected(ar.roleForm.repPrimary,'repPrimary')"
-                               id="chk-rep-primary_{{::$id}}"/> {{'REP_PRIM'|translate}}
+                               id="chk-rep-primary_{{::$id}}"/> {{'REPPRIMARY'|translate}}
                         <strong id="repPrimmary-role-error" class="error" ng-if="ar.roleForm.repPrimary.$invalid">
                  <span class="label label-danger" ng-messages="ar.roleForm.repPrimary.$error">
                             <span ng-message="duplicateRole">{{"REPPRIM_SEL"|translate}}</span>
@@ -100,7 +100,7 @@
                         <input type="checkbox" name="repSecondary" ng-model="ar.roleModel.repSecondary"
                                ng-disabled="!ar.isEditable"
                                ng-change="ar.oneSelected(ar.roleForm.repSecondary,'repSecondary')"
-                               id="chk-rep-secondary_{{::$id}}"/> {{'REP_ALT'|translate}}
+                               id="chk-rep-secondary_{{::$id}}"/> {{'REPSECONDARY'|translate}}
                         <strong id="repSecondary-role-error" class="error" ng-if="ar.roleForm.repSecondary.$invalid">
                  <span class="label label-danger" ng-messages="ar.roleForm.repSecondary.$error">
                             <span ng-message="duplicateRole">{{"REPALT_SEL"|translate}}</span>

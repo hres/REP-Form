@@ -20,11 +20,13 @@
         .filter('orderByCountryAndLabel', orderByTranslatedCountryAndLabel)
         .filter('orderByLocale',_orderByLocale)
         .filter('findCountryObject', findCountryObj)
+        .filter('findListItemById', _findById)
         .filter('sequenceOrderDescending', sequenceOrderBy);
 
     orderByTranslatedCountry.$inject = ['$translate', '$filter', 'CANADA', 'USA'];
     orderByTranslated.$inject = ['$translate', '$filter'];
     orderByTranslatedOtherFirst.$inject = ['$translate', '$filter', 'OTHER'];
+    _findById.$inject = ['$filter'];
 
     function orderByTranslatedCountry($translate, $filter, CANADA, USA) {
         return function (array, objKey) {
@@ -156,5 +158,28 @@
         };
     }
 
+    /**
+     * Finds an exact match by id. Using filter for the initial search as searchJson can
+     * contain multiple search criteria!, then for multiple matches, looking for exact id
+     * @param $filter
+     * @returns {Function}
+     * @private
+     */
+    function _findById($filter) {
+        return function (array, searchJson) {
+            var initialResult = $filter('filter')(array, searchJson);
+            if (!initialResult) return null; //should never happen
+            if (initialResult.length === 1) {
+                return initialResult[0];
+            } else {
+                for (var i = 0; i < initialResult.length; i++) {
+                    if (initialResult[i].id === searchJson.id) {
+                        return initialResult[i];
+                    }
+                }
+            }
+            return null;
+        };
+    }
 
     })();
