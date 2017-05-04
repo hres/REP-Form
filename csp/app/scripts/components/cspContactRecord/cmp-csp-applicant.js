@@ -25,15 +25,14 @@
             controller: cspApplicantCtrl,
             controllerAs: 'cspApplCtrl',
             bindings: {
-                record:'<',
-                addApplicant:'&',
+                record: '<',
+                addApplicant: '&',
                 deleteApplicant: '&',
                 showErrors: '&',
                 alias: '<',
                 updateErrorSummary: '&'
             }
         });
-
 
 
     cspApplicantCtrl.$inject = ['$scope'];
@@ -43,36 +42,61 @@
         var vm = this;
         vm.title = 'CspApplicantCtrl';
 
-        vm.model={
-            isBillingDifferent:false
-        };
+        vm.model =
+                {
+                    "role": {
+                        "applicant": true,
+                        "billing": true
+                    },
+                    "contact": {
+                        "salutation": "",
+                        "givenName": "",
+                        "surname": "",
+                        "initials": "",
+                        "title": "",
+                        "phone": "",
+                        "phoneExt": "",
+                        "fax": "",
+                        "email": ""
+                    },
+                    "address": {
+                        "street": "",
+                        "city": "",
+                        "stateList": "",
+                        "stateText": "",
+                        "country": "",
+                        "postalCode": ""
+                    },
+                    "applicantName": "",
+                    "isBillingDifferent": false
+                };
         vm.applicantTextAlias = "APPLICANTNAME";
 
         vm.type = "_appl"; //sets the type of applicant either applicant or billing
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
 
-        vm.$onInit=function(){
+        vm.$onInit = function () {
             //after on changes called
-            if(vm.model && vm.model.role && (!vm.model.role.applicant) ){
-                vm.applicantTextAlias="COMPANY_NOABBREV";
-                vm.type="_bill";
+            if (vm.model && vm.model.role && (!vm.model.role.applicant)) {
+                vm.applicantTextAlias = "COMPANY_NOABBREV";
+                vm.type = "_bill";
 
-            }else{
+            } else {
                 vm.applicantTextAlias = "APPLICANTNAME";
-                vm.type="_appl";
+                vm.type = "_appl";
             }
             _setIDNames();
         };
 
-        vm.$onChanges=function(changes){
+        vm.$onChanges = function (changes) {
 
-           if(changes.record){
-             vm.model=changes.record.currentValue;
-           }
-           if(changes.alias){
+            if (changes.record) {
+                vm.model = changes.record.currentValue;
+            }
+            if (changes.alias) {
 
-               vm.pref=changes.alias.currentValue;
-           }
+                vm.pref = changes.alias.currentValue;
+            }
 
         };
 
@@ -85,12 +109,12 @@
          * Adds or deletes and applicant address depending if a
          * user selects billing address or not
          */
-        vm.setBilling=function(){
-            if(vm.model.isBillingDifferent) {
+        vm.setBilling = function () {
+            if (vm.model.isBillingDifferent) {
 
                 vm.addApplicant();
-            }else{
-               vm.deleteApplicant();
+            } else {
+                vm.deleteApplicant();
             }
             vm.updateErrorSummary();
         };
@@ -106,5 +130,7 @@
 
 
     }
-})();
+    }
+
+    )();
 

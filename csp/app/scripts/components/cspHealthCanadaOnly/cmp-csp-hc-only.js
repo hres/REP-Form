@@ -32,7 +32,7 @@
     function hcOnlyController($scope) {
 
         var vm = this;
-        vm.model = null;
+        vm.model = {};
         vm.requiredOnlyError = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
 
         /**

@@ -37,7 +37,7 @@
                             <ui-select ng-model="adr.addressModel.country" id="{{::adr.countryId}}" name="{{::adr.countryId}}"
                                        on-select="adr.countryChanged()" required ng-disabled="!adr.isEditable" title="{{'COUNTRY_CHOOSE'|translate}}"
                                        class="rep-selectize-font full-width">
-                                <ui-select-match placeholder="Select or Search for country" id="country_match{{::$id}}"
+                                <ui-select-match placeholder="{{'COUNTRY_CHOOSE'|translate}}" id="country_match{{::$id}}"
                                                  class="rep-selectize-font rep-selectize-dropdown form-control">
                                     {{$select.selected[adr.lang]}}
                                 </ui-select-match>

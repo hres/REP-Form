@@ -37,8 +37,8 @@
             }
         });
 
-    cspMainCtrl.$inject = ['CspService', 'hpfbFileProcessing', 'ApplicationInfoService', 'INTERNAL_TYPE', 'EXTERNAL_TYPE'];
-    function cspMainCtrl(CspService, hpfbFileProcessing, ApplicationInfoService, INTERNAL_TYPE, EXTERNAL_TYPE) {
+    cspMainCtrl.$inject = ['CspService', 'hpfbFileProcessing', 'ApplicationInfoService', 'INTERNAL_TYPE', 'EXTERNAL_TYPE','$translate','FRENCH'];
+    function cspMainCtrl(CspService, hpfbFileProcessing, ApplicationInfoService, INTERNAL_TYPE, EXTERNAL_TYPE,$translate,FRENCH) {
 
         var vm = this;
         vm.userType = EXTERNAL_TYPE;
@@ -51,15 +51,13 @@
         vm.rootTag = "";
         vm.showContent = _loadFileContent; //could just make a function avail
         vm.applicationInfoService = null;
+        vm.lang = $translate.proposedLanguage() || $translate.use();
         vm.showErrorSummary = 0; //signals child error summaries to show
         vm.updateSummary = 0; //signals to update the error summary contents
         vm.summaryFocusIndex = 0;
 
         vm.exclusions = {
-            "contactListCtrl.contactListForm": "true",
-            "contactRec.contactRecForm": "true",
-            "addressListCtrl.addressListForm": "true",
-            "addressRec.addressRecForm": "true"
+
         };
         vm.alias = {
 
@@ -91,8 +89,6 @@
                 "type": "min",
                 "errorType": "TYPE_ZERO_MIN"
             }
-
-
         };
 
 
@@ -213,7 +209,7 @@
             updateDate();
             if (vm.userType === INTERNAL_TYPE) {
                 if(!vm.cspForm.$pristine) {
-                    vm.cspModel.enrolmentVersion  = self.applicationInfoService.incrementMajorVersion(vm.cspModel.enrolmentVersion);
+                    vm.cspModel.enrolmentVersion  = vm.applicationInfoService.incrementMajorVersion(vm.cspModel.enrolmentVersion);
                 }
 
             }else{
@@ -257,7 +253,14 @@
             vm.summaryFocusIndex++;
         }
 
+        vm.isFrench=function(){
+            return(vm.lang===FRENCH);
+        };
 
+        vm.testMe=function(){
+            var result=JSON.parse(vm.test);
+            _loadFileContent(result);
+        }
     }
 })();
 

@@ -23,7 +23,8 @@ $translateProvider.translations("en", {
   "IDENTIFY_PRODUCTS": "Provide the Dossier Identifiers for the products that are imported by this Company",
   "ADD_DOSSIER_ID":"Add Dossier Id",
   "IMPORTER_NONCDN":"Please ensure you indicate a Canadian Importer",
-  "COUNTRY_CHOOSE":"Choose a country"
+  "COUNTRY_CHOOSE":"Choose a country",
+  "COUNTRY_SEARCH":"Select or Search for country"
 });
 
 $translateProvider.translations("fr", {
@@ -44,7 +45,8 @@ $translateProvider.translations("fr", {
   "ADDR_DETAILS": "Détails de l'adresse",
   "ADDR_ROLE_LEGEND": "fr_Select one or more roles for this company",
   "IMPORTER_NONCDN":"There should be a Canadian Importer when the Manufacturer / Sponsor is not a Canadian Address",
-  "COUNTRY_CHOOSE":"Choisir un pays"
+  "COUNTRY_CHOOSE":"Choisir un pays",
+
 });
 
 $translateProvider.translations("en", {
@@ -214,11 +216,11 @@ $translateProvider.translations("en", {
 });
 
 $translateProvider.translations("fr", {
-  "FIRST_NAME": "Prénom",
-  "LAST_NAME": "Nom",
+  "FIRSTNAME": "Prénom",
+  "LASTNAME": "Nom",
   "INITIALS": "Initials",
-  "LANGUAGE_CORRESPONDENCE": "Langue de Correspondance",
-  "JOB_TITLE": "Job Title",
+  "LANGCORRESPOND": "Langue de Correspondance",
+  "JOBTITLE": "Job Title",
   "SALUTATION": "Titre de civilité",
   "SALUT_MR": "M.",
   "SALUT_MS": "Mme",
@@ -226,11 +228,11 @@ $translateProvider.translations("fr", {
   "SALUT_MRS": "Mlle",
   "ROLE_PRIMARY": "Primaire",
   "ROLE_SECONDARY": "Alterner",
-  "EMAIL": "Courriel",
+  "CONTACTEMAIL": "Courriel",
   "FAX_NUMBER": "Numéro de télécopieur",
   "PHONE_EXT": "Numéro de poste",
   "ADDR_ROLES":"fr_Roles",
-  "PHONE_NUMBER": "Numéro de téléphone",
+  "PHONENUMBER": "Numéro de téléphone",
   "CONTACT_INFO": "fr_Company Representative Information",
   "AMEND": "fr_Amend",
   "REP_CONTACT":  "fr_REP Contact",
@@ -326,7 +328,10 @@ $translateProvider.translations("en", {
   "COMPANYNAME":"Company Name (Full legal name - no abbreviations)",
   "COPY":"Copy",
   "DELETE":"Delete",
-  "SAVE_WORKING":"Save Working Copy"
+  "SAVE_WORKING":"Save Working Copy",
+  "COMPANY_NOABBREV": "Company Name (Full legal Name - no abbreviations)",
+  "PROVINCELIST": "Province or State",
+  "POSTAL": "Applicant postal or zip code"
 });
 
 $translateProvider.translations("fr", {
@@ -376,7 +381,10 @@ $translateProvider.translations("fr", {
   "COMPANYNAME":"fr_Company Name (Full legal name - no abbreviations)",
   "COPY":"fr_Copy",
   "DELETE":"fr_Delete",
-  "SAVE_WORKING":"fr_Save Working Copy"
+  "SAVE_WORKING":"fr_Save Working Copy",
+  "COMPANY_NOABBREV": "fr_Company Name (Full legal Name - no abbreviations)",
+  "PROVINCELIST": "fr_Province or State",
+  "POSTAL": "fr_Applicant postal or zip code"
 });
 
 $translateProvider.translations("en", {

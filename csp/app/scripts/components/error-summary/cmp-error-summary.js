@@ -48,41 +48,14 @@
         vm.nameAddendum = "";
         vm.rootError = "";
         vm.isFocusInput = 0;
-        vm.exclusions = {
-            "contactListCtrl.contactListForm": "true",
-            "contactRec.contactRecForm": "true",
-            "addressListCtrl.addressListForm": "true",
-            "addressRec.addressRecForm": "true"
-        };
-        vm.alias = {
-            "roleMissing": {
-                "type": "fieldset",
-                "parent": "fs_roleMissing"
-            },
-            "contactRolesValid": {
-                "type": "button",
-                "parent": "",
-                "target": "addContact"
-            },
-            "addressRolesValid": {
-                "type": "button",
-                "parent": "",
-                "target": "addAddressBtn"
-            },
-            "phoneNumber": {
-                "type": "pattern",
-                "errorType": "MSG_ERR_PHONE_FORMAT"
-            },
-            "country": {
-                "type": "select2",
-                "name": "country"
-            }
-        };
 
+        vm.exclusions={};
+        vm.alias={};
 
         vm.headingPreamble = "";
         vm.headerLevel = "";
         vm.startFormId = "";
+
         vm.$onInit = function () {
 
         };
@@ -204,7 +177,7 @@
                     if (record[j].$invalid === true && record[j].$name.indexOf('.') > 0) {
 
                         //it is assummed that if it is in the exclusion list it is a summary
-                        if (vm.exclusions.hasOwnProperty(record[j].$name)) {
+                        if (vm.exclusions && vm.exclusions.hasOwnProperty(record[j].$name)) {
                             var result = {};
                             result[record[j].$name] = {
                                 name: record[j].$name,
@@ -272,7 +245,7 @@
             var scopeId = _getElementScope(error_Name);
             var errorKey = "TYPE_" + errorType.toUpperCase();
             var destId = error_Name;
-            if (vm.alias.hasOwnProperty(scrubName)) {
+            if (vm.alias && vm.alias.hasOwnProperty(scrubName)) {
                 var aliasRec = vm.alias[scrubName];
                 switch (aliasRec.type.toLowerCase()) {
                     case "fieldset":
@@ -282,7 +255,7 @@
                             destId = destObj[0].id;
                         }
                         break;
-                    case "button":
+                    case "element":
                         destId = aliasRec.target + "_" + scopeId;
                         break;
                     case "pattern":

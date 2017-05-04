@@ -32,7 +32,13 @@
     function cspCertificationController($scope) {
 
         var vm = this;
-        vm.model = null;
+        vm.model = {
+            "givenName": "",
+            "initials": "",
+            "surname": "",
+            "title": "",
+            "dateSigned": ""
+        };
 
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
         vm.dateError = [{type: "required", displayAlias: "MSG_ERR_MAND"},

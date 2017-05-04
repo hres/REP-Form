@@ -51,7 +51,6 @@
          * @param jsonObj
          */
         CspService.prototype.transformToFileObj = function (jsonObj) {
-            //this.createExternalApplicantRecord()
             if (!jsonObj) return null;
             var model = {};
             var rootTag = this.getRootTag();
@@ -65,45 +64,96 @@
             model[rootTag].data_checksum = "";
             var hcOnly = model[rootTag].health_canada_only;
             var intHcOnly = jsonObj.healthCanadaOnly;
-            hcOnly.company_id = intHcOnly.companyId;
-            hcOnly.application_id = intHcOnly.applicationId;
-            hcOnly.date_received = $filter('date')(intHcOnly.dateReceived, "yyyy-MM-dd");
-            hcOnly.hc_notes = intHcOnly.hcNotes;
+            if (intHcOnly.companyId) {
+                hcOnly.company_id = intHcOnly.companyId;
+            }
+            if (intHcOnly.applicationId) {
+                hcOnly.application_id = intHcOnly.applicationId;
+            }
+            var date = $filter('date')(intHcOnly.dateReceived, "yyyy-MM-dd");
+            if (date) {
+                hcOnly.date_received = date;
+            }
+            if(intHcOnly.hcNotes) {
+                hcOnly.hc_notes = intHcOnly.hcNotes;
+            }
             //application info mapping
             var extInfo = model[rootTag].application_info;
             var intInfo = jsonObj.applicationInfo;
-            extInfo.control_number = intInfo.controlNumber;
-            extInfo.drug_use = intInfo.drugUse;
-            extInfo.time_application = intInfo.timeApplication;
-            extInfo.medicinal_ingredient = intInfo.medicinalIngredient;
-            extInfo.applicant_statement = intInfo.applicantStatement;
+            if(intInfo.controlNumber) {
+                extInfo.control_number = intInfo.controlNumber;
+            }
+            if( intInfo.drugUse) {
+                extInfo.drug_use = intInfo.drugUse;
+            }
+            if(intInfo.timeApplication) {
+                extInfo.time_application = intInfo.timeApplication;
+            }
+            if(intInfo.medicinalIngredient) {
+                extInfo.medicinal_ingredient = intInfo.medicinalIngredient;
+            }
+            if( intInfo.applicantStatement) {
+                extInfo.applicant_statement = intInfo.applicantStatement;
+            }
             //patent info
             var extPatent = extInfo.patent_info;
             var intPatent = jsonObj.patent;
-            extPatent.patent_number = intPatent.patentNumber;
-            extPatent.filing_date =  $filter('date')(intPatent.filingDate, "yyyy-MM-dd");
-            extPatent.granted_date = $filter('date')(intPatent.grantedDate, "yyyy-MM-dd");
-            extPatent.expiry_date = $filter('date')(intPatent.expiryDate, "yyyy-MM-dd");
+            if(intPatent.patentNumber) {
+                extPatent.patent_number = intPatent.patentNumber;
+            }
+            date=$filter('date')(intPatent.filingDate, "yyyy-MM-dd");
+            if(date){
+                extPatent.filing_date =date;
+            }
+            date= $filter('date')(intPatent.grantedDate, "yyyy-MM-dd");
+            if(date) {
+                extPatent.granted_date =date;
+            }
+            date= $filter('date')(intPatent.expiryDate, "yyyy-MM-dd");
+            if(date) {
+                extPatent.expiry_date =date;
+            }
             var extTimely = model[rootTag].timely_submission_info;
             var intTimely = jsonObj.timelySubmission;
-            extTimely.timely_submission_statement = intTimely.submissionStatement;
-            extTimely.marketing_approval_date =  $filter('date')(intTimely.approvalDate, "yyyy-MM-dd");
-            extTimely.marketing_country = intTimely.country;
-            extTimely.marketing_country_eu = intTimely.otherCountry;
+            if(intTimely.submissionStatement) {
+                extTimely.timely_submission_statement = intTimely.submissionStatement;
+            }
+            date= $filter('date')(intTimely.approvalDate, "yyyy-MM-dd");
+            if(date) {
+                extTimely.marketing_approval_date =date;
+            }
+            if(intTimely.country) {
+                extTimely.marketing_country = intTimely.country;
+            }
+            if(intTimely.otherCountry) {
+                extTimely.marketing_country_eu = intTimely.otherCountry;
+            }
             var extPayment = model[rootTag].advanced_payment;
             var intPayment = jsonObj.payment;
-            extPayment.advanced_payment_type = intPayment.advancedPaymentType;
-            extPayment.advanced_payment_fee = intPayment.advancedPaymentFee;
-            extPayment.advanced_payment_ack= intPayment.ackPaymentSubmit=== true ? YES: NO;
+            if(intPayment.advancedPaymentType) {
+                extPayment.advanced_payment_type = intPayment.advancedPaymentType;
+            }
+            if(intPayment.advancedPaymentFee) {
+                extPayment.advanced_payment_fee = intPayment.advancedPaymentFee;
+            }
+            extPayment.advanced_payment_ack = intPayment.ackPaymentSubmit === true ? YES : NO;
             var extCertification = model[rootTag].certification;
             var intCertification = jsonObj.certification;
-            extCertification.given_name = intCertification.givenName;
-            extCertification.initials = intCertification.initials;
-            extCertification.surname = intCertification.surname;
-            extCertification.job_title = intCertification.title;
-            extCertification.date_signed = $filter('date')(intCertification.dateSigned, "yyyy-MM-dd");
-            ;
-
+            if (intCertification.givenName) {
+                extCertification.given_name = intCertification.givenName;
+            }
+            if (intCertification.initials) {
+                extCertification.initials = intCertification.initials;
+            }
+            if (intCertification.surname) {
+                extCertification.surname = intCertification.surname;
+            }
+            if(intCertification.title) {
+                extCertification.job_title = intCertification.title;
+            }
+            if (intCertification.dateSigned) {
+                extCertification.date_signed = $filter('date')(intCertification.dateSigned, "yyyy-MM-dd");
+            }
             model[rootTag].applicant = this._transformApplicantInfoForOutput(jsonObj.applicant);
 
             return model;
@@ -115,7 +165,7 @@
          */
         CspService.prototype.transformFromFileObj = function (inputJsonObj) {
             var resultJson = this.getEmptyInternalModel();
-            var jsonObj=inputJsonObj[this.rootTag];
+            var jsonObj = inputJsonObj[this.rootTag];
             resultJson.applicant = this._mapApplicantToInternal(jsonObj.applicant);
             //health Canada Only Section
             resultJson.enrolmentVersion = jsonObj.enrolment_version;
@@ -137,18 +187,18 @@
             resultJson.timelySubmission.approvalDate = _parseDate(jsonObj.timely_submission_info.marketing_approval_date);
             resultJson.timelySubmission.country = jsonObj.timely_submission_info.marketing_country;
             resultJson.timelySubmission.otherCountry = jsonObj.timely_submission_info.marketing_country_eu;
-            if(jsonObj.advanced_payment.advanced_payment_fee) {
+            if (jsonObj.advanced_payment.advanced_payment_fee) {
                 resultJson.payment.advancedPaymentFee = Number(jsonObj.advanced_payment.advanced_payment_fee);
             }
             resultJson.payment.advancedPaymentType = jsonObj.advanced_payment.advanced_payment_type;
-            resultJson.payment.ackPaymentSubmit= jsonObj.advanced_payment.advanced_payment_ack===YES;
+            resultJson.payment.ackPaymentSubmit = jsonObj.advanced_payment.advanced_payment_ack === YES;
             resultJson.certification.givenName = jsonObj.certification.given_name;
             resultJson.certification.initials = jsonObj.certification.initials;
             resultJson.certification.surname = jsonObj.certification.surname;
             resultJson.certification.title = jsonObj.certification.job_title;
             resultJson.certification.dateSigned = _parseDate(jsonObj.certification.date_signed);
 
-            this._default=resultJson;
+            this._default = resultJson;
             return resultJson;
         };
 
@@ -156,7 +206,7 @@
         CspService.prototype.createApplicantRecord = function (isApplicant) {
             var record = this.createContactRecord();
             record.applicantName = "";
-            record.isBillingDifferent=false;
+            record.isBillingDifferent = false;
             if (!isApplicant) {
                 record.role.applicant = false;
                 record.role.billing = true;
@@ -348,7 +398,7 @@
             var payment = defaultCSPData.advanced_payment;
             payment.advanced_payment_type = null;
             payment.advanced_payment_fee = "";
-            payment.advanced_payment_ack=NO;
+            payment.advanced_payment_ack = NO;
 
             defaultCSPData.certification = {};
             var cert = defaultCSPData.certification;
@@ -391,36 +441,62 @@
 
             var outputArray = [];
             if (!(inputJson instanceof Array)) {
-                console.log("This is not an instance of an Array");
                 inputJson = [inputJson];
             }
             //should never happen error catch
             if (inputJson.length == 0) {
                 outputArray.push(this.createExternalApplicantRecord());
-                console.log("no data");
                 return;
             }
             for (var i = 0; i < inputJson.length; i++) {
                 var record = this.createExternalApplicantRecord();
                 /*record.role.applicant = externalRecord.applicant_role;
-                record.role.billing = externalRecord.billing_role;*/
+                 record.role.billing = externalRecord.billing_role;*/
                 record.billing_role = inputJson[i].role.billing === true ? YES : NO;
                 record.applicant_role = inputJson[i].role.applicant === true ? YES : NO;
-                record.applicant_name = inputJson[i].applicantName;
-                record.contact.salutation = inputJson[i].contact.salutation;
-                record.contact.given_name = inputJson[i].contact.givenName;
-                record.contact.initials = inputJson[i].contact.initials;
-                record.contact.surname = inputJson[i].contact.surname;
-                record.contact.language_correspondance=inputJson[i].contact.language;
-                record.contact.job_title = inputJson[i].contact.title;
-                record.contact.phone_num = inputJson[i].contact.phone;
+                if( inputJson[i].applicantName) {
+                    record.applicant_name = inputJson[i].applicantName;
+                }
+                if(inputJson[i].contact.salutation) {
+                    record.contact.salutation = inputJson[i].contact.salutation;
+                }
+                if( inputJson[i].contact.givenName) {
+                    record.contact.given_name = inputJson[i].contact.givenName;
+                }
+                if(inputJson[i].contact.initials) {
+                    record.contact.initials = inputJson[i].contact.initials;
+                }
+                if(inputJson[i].contact.surname) {
+                    record.contact.surname = inputJson[i].contact.surname;
+                }
+                if(inputJson[i].contact.language) {
+                    record.contact.language_correspondance = inputJson[i].contact.language;
+                }
+                if(inputJson[i].contact.title) {
+                    record.contact.job_title = inputJson[i].contact.title;
+                }
+                if(inputJson[i].contact.phone) {
+                    record.contact.phone_num = inputJson[i].contact.phone;
+                }
                 record.contact.phone_ext = inputJson[i].contact.phoneExt;
-                record.contact.fax_num = inputJson[i].contact.fax;
-                record.contact.email = inputJson[i].contact.email;
-                record.address.street_address = inputJson[i].address.street;
-                record.address.city = inputJson[i].address.city;
-                record.address.province_lov = inputJson[i].address.stateList;
-                record.address.province_text = inputJson[i].address.stateText;
+                if( inputJson[i].contact.fax) {
+                    record.contact.fax_num = inputJson[i].contact.fax;
+                }
+                if(inputJson[i].contact.email) {
+                    record.contact.email = inputJson[i].contact.email;
+                }
+                if(inputJson[i].address.street) {
+                    record.address.street_address = inputJson[i].address.street;
+                }
+                if(inputJson[i].address.city) {
+                    record.address.city = inputJson[i].address.city;
+                }
+                if(inputJson[i].address.stateList) {
+                    record.address.province_lov = inputJson[i].address.stateList;
+                }
+                if(inputJson[i].address.stateText) {
+                    record.address.province_text = inputJson[i].address.stateText;
+                }
 
                 if (inputJson[i].address.country) {
                     record.address.country = {
@@ -431,10 +507,11 @@
 
 
                 }
-                record.address.postal_code = inputJson[i].address.postalCode;
+                if(inputJson[i].address.postalCode) {
+                    record.address.postal_code = inputJson[i].address.postalCode;
+                }
                 outputArray.push(record);
             }
-            console.log(outputArray);
             return outputArray;
         };
 
@@ -456,19 +533,20 @@
             for (var i = 0; i < inputJson.length; i++) {
                 var record = this.createApplicantRecord(true);
                 var externalRecord = inputJson[i];
-                record.role.applicant = externalRecord.applicant_role===YES ;
-                record.role.billing = externalRecord.billing_role===YES;
+                record.role.applicant = externalRecord.applicant_role === YES;
+                record.role.billing = externalRecord.billing_role === YES;
                 //this is being managed only on the internal data model
-                if(record.role.applicant && !record.role.billing){
-                    record.isBillingDifferent=true;
-                };
-                record.applicantName =externalRecord.applicant_name;
+                if (record.role.applicant && !record.role.billing) {
+                    record.isBillingDifferent = true;
+                }
+                ;
+                record.applicantName = externalRecord.applicant_name;
                 record.contact.salutation = externalRecord.contact.salutation;
                 record.contact.givenName = externalRecord.contact.given_name;
                 record.contact.surname = externalRecord.contact.surname;
                 record.contact.initials = externalRecord.contact.initials;
                 record.contact.title = externalRecord.contact.job_title;
-                record.contact.language=externalRecord.contact.language_correspondance;
+                record.contact.language = externalRecord.contact.language_correspondance;
                 record.contact.phone = externalRecord.contact.phone_num;
                 record.contact.phoneExt = externalRecord.contact.phone_ext;
                 record.contact.fax = externalRecord.contact.fax_num;
@@ -494,10 +572,10 @@
     }
 
     function _parseDate(value) {
-        if(!value) return null;
+        if (!value) return null;
         var dateArray = value.split('-');
         if (dateArray.length != 3) {
-            console.warn("_parseDate error not 3 parts: "+value);
+            console.warn("_parseDate error not 3 parts: " + value);
         }
         var aDate = new Date(dateArray[0], dateArray[1] - 1, dateArray[2]);
         return aDate;

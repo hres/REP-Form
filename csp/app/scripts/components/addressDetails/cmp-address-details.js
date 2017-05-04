@@ -98,6 +98,9 @@
             }
             if(changes.fieldSuffix){
                 vm.fldId=changes.fieldSuffix.currentValue;
+                if(!vm.fldId){
+                    vm.fldId="";
+                }
             }
         };
         /**
