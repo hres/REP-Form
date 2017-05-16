@@ -164,3 +164,10 @@ label > select {
      vertical-align: middle;
      float:none;
  }
+
+input[type="date"] {
+    margin-top: 5px !important;
+}
+.picker-toggle{
+    margin-top: 5px !important;
+}
