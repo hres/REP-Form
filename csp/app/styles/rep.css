@@ -53,13 +53,15 @@ label > select {
     margin-top: 5px;
     font-weight: normal;
 }
-.rep-margin-top{
+
+.rep-margin-top {
     margin-top: 5px;
 }
 
-.rep-margin-minus-top{
+.rep-margin-minus-top {
     margin-top: -5px !important;
 }
+
 .rep-expander {
     cursor: pointer;
     color: #295376;
@@ -79,6 +81,7 @@ label > select {
     background-color: transparent;
     border: none;
 }
+
 .rep-help-button-primary {
     color: #1c578a;
     background-color: transparent;
@@ -94,7 +97,6 @@ label > select {
     font-size: 16px;
 }
 
-
 .rep-selectize-dropdown {
     width: 100% !important;
     font-weight: normal;
@@ -104,10 +106,10 @@ label > select {
     padding-bottom: 0px;
     padding-left: 0px;
 }
-.rep-pad-top{
-    padding-top:5px;
-}
 
+.rep-pad-top {
+    padding-top: 5px;
+}
 
 .select2-container .select2-choice {
     height: 37px !important;
@@ -128,10 +130,11 @@ label > select {
 
 .rep-error.has-error {
     border-color: #a94442 !important;
-    border-style:solid;
+    border-style: solid;
     border-width: 1px !important;
-    border-radius:4px !important;
+    border-radius: 4px !important;
 }
+
 .cloak-class {
     opacity: 0;
 }
@@ -154,20 +157,21 @@ label > select {
     text-decoration: none !important;
 }
 
-.rep-success{
+.rep-success {
     border-color: #3c763d;
     border-width: medium;
 }
 
- .rep-vertical-align {
-     display: inline-block;
-     vertical-align: middle;
-     float:none;
- }
+.rep-vertical-align {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
 
 input[type="date"] {
     margin-top: 5px !important;
 }
-.picker-toggle{
+
+.picker-toggle {
     margin-top: 5px !important;
 }
