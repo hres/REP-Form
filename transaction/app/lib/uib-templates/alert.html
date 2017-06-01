@@ -1,5 +1,5 @@
-<button ng-show="closeable" type="button" class="close" title="Close" ng-click="close({$event: $event})">
+<button ng-show="closeable" type="button" class="close" title="{{'CLOSE_ALERT'|translate}}" ng-click="close({$event: $event})">
     <span aria-hidden="true">&times;</span>
-    <span class="sr-only" aria-live="polite">Close</span>
+    <span class="sr-only" aria-live="polite">{{'CLOSE_ALERT'|translate}}</span>
 </button>
 <div ng-transclude></div>
