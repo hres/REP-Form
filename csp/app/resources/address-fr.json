@@ -1,0 +1,22 @@
+{
+  "CITY": "Ville",
+  "COUNTRY": "Pays",
+  "PROVINCE": "Province",
+  "POSTAL": "Code postal",
+  "PROVSTATE": "Province ou état",
+  "STATE": "Etat",
+  "STREET": "Adresse",
+  "ZIP": "Zip Code",
+  "COMPANY": "Compagnie",
+  "ADD_ADDRESS": "Ajouter Addresse",
+  "CITY_TOWN": "Ville",
+  "SAVE_ADDR": "Save Address",
+  "DELETE_ADDR": "Supprimer Addresse",
+  "ADDR_INFO": "Informations d'adresses",
+  "ADDR_DETAILS": "Détails de l'adresse",
+  "ADDR_ROLE_LEGEND": "fr_Select one or more roles for this company",
+  "IMPORTER_NONCDN":"There should be a Canadian Importer when the Manufacturer / Sponsor is not a Canadian Address",
+  "COUNTRY_CHOOSE":"Choisir un pays"
+
+
+}

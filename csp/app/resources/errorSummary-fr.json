@@ -1,0 +1,16 @@
+
+
+{
+"FOR_THE":"Pour le ",
+"THERE_ARE_ERRORS":"Il y a des erreurs ",
+"ERRORS_FOUND":"erreurs ont été trouvées.",
+"ERROR_FOUND":"erreur a été trouvée.",
+"TYPE_REQUIRED":"Ce champ est obligatoire.",
+"TYPE_EMAIL":"Veuillez fournir une adresse électronique valide.",
+"TYPE_DUPLICATEROLE": "Ce rôle a déjà été sélectionné.",
+"TYPE_MINLENGTH": "Moins de longueur minimale.",
+"POSTAL_FORMAT": "Entrez un format valide.",
+"TYPE_MIN": "Doit être supérieur au minimum.",
+"TYPE_DATE":"Veuillez fournir une une date valide.",
+  "TYPE_NUMBER":"Veuillez fournir un numéro valide."
+}
