@@ -7,7 +7,8 @@
 
     angular
         .module('cspHCOnly', [
-            'errorMessageModule'
+            'errorMessageModule',
+            'hpfbConstants'
         ]);
 
 })();
@@ -28,13 +29,13 @@
             }
         });
 
-    hcOnlyController.$inject = ['$scope'];
-    function hcOnlyController($scope) {
+    hcOnlyController.$inject = ['$scope','$translate','FRENCH'];
+    function hcOnlyController($scope,$translate, FRENCH) {
 
         var vm = this;
         vm.model = {};
         vm.requiredOnlyError = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
-
+        vm.lang = $translate.proposedLanguage() || $translate.use();
         /**
          * Called after onChanges evnet, initializes
          */
@@ -51,6 +52,10 @@
             }
         };
 
+
+        vm.isFrench=function(){
+            return vm.lang===FRENCH;
+        };
 
         function _setIDNames() {
             var scopeId = "_" + $scope.$id;

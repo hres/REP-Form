@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module('cspService', ['hpfbConstants', 'dataLists']);
+        .module('cspService', ['hpfbConstants', 'dataLists', 'cspDataModule']);
 })();
 
 (function () {
@@ -15,17 +15,10 @@
         .module('cspService')
         .factory('CspService', CspService);
 
-    CspService.$inject = ['$filter', 'NO', 'YES', 'PHARMA_TYPE', 'getCountryAndProvinces'];
-    function CspService($filter, NO, YES, PHARMA_TYPE, getCountryAndProvinces) {
+    CspService.$inject = ['$filter', 'CANADA', 'NO', 'YES', 'PHARMA_TYPE', 'getCountryAndProvinces', 'cspDataLists'];
+    function CspService($filter, CANADA, NO, YES, PHARMA_TYPE, getCountryAndProvinces, cspDataLists) {
 
         function CspService() {
-            //constructorlogic
-            /*var defaultCSPData = {
-             dataChecksum: "",
-             enrolmentVersion: "0.0",
-             dateSaved: "",
-             softwareVersion: "1.0.0"
-             }; //TODO appl Info*/
 
             var defaultCSPData = this.getEmptyInternalModel();
             this.rootTag = "CERTIFICATE_SUPPLEMENTARY_PROTECTION";
@@ -74,66 +67,68 @@
             if (date) {
                 hcOnly.date_received = date;
             }
-            if(intHcOnly.hcNotes) {
+            if (intHcOnly.hcNotes) {
                 hcOnly.hc_notes = intHcOnly.hcNotes;
             }
             //application info mapping
             var extInfo = model[rootTag].application_info;
             var intInfo = jsonObj.applicationInfo;
-            if(intInfo.controlNumber) {
+            if (intInfo.controlNumber) {
                 extInfo.control_number = intInfo.controlNumber;
             }
-            if( intInfo.drugUse) {
+            if (intInfo.drugUse) {
                 extInfo.drug_use = intInfo.drugUse;
             }
-            if(intInfo.timeApplication) {
+            if (intInfo.timeApplication) {
                 extInfo.time_application = intInfo.timeApplication;
             }
-            if(intInfo.medicinalIngredient) {
+            if (intInfo.medicinalIngredient) {
                 extInfo.medicinal_ingredient = intInfo.medicinalIngredient;
             }
-            if( intInfo.applicantStatement) {
+            if (intInfo.applicantStatement) {
                 extInfo.applicant_statement = intInfo.applicantStatement;
             }
             //patent info
             var extPatent = extInfo.patent_info;
             var intPatent = jsonObj.patent;
-            if(intPatent.patentNumber) {
+            if (intPatent.patentNumber) {
                 extPatent.patent_number = intPatent.patentNumber;
             }
-            date=$filter('date')(intPatent.filingDate, "yyyy-MM-dd");
-            if(date){
-                extPatent.filing_date =date;
+            date = $filter('date')(intPatent.filingDate, "yyyy-MM-dd");
+            if (date) {
+                extPatent.filing_date = date;
             }
-            date= $filter('date')(intPatent.grantedDate, "yyyy-MM-dd");
-            if(date) {
-                extPatent.granted_date =date;
+            date = $filter('date')(intPatent.grantedDate, "yyyy-MM-dd");
+            if (date) {
+                extPatent.granted_date = date;
             }
-            date= $filter('date')(intPatent.expiryDate, "yyyy-MM-dd");
-            if(date) {
-                extPatent.expiry_date =date;
+            date = $filter('date')(intPatent.expiryDate, "yyyy-MM-dd");
+            if (date) {
+                extPatent.expiry_date = date;
             }
             var extTimely = model[rootTag].timely_submission_info;
             var intTimely = jsonObj.timelySubmission;
-            if(intTimely.submissionStatement) {
+            if (intTimely.submissionStatement) {
                 extTimely.timely_submission_statement = intTimely.submissionStatement;
             }
-            date= $filter('date')(intTimely.approvalDate, "yyyy-MM-dd");
-            if(date) {
-                extTimely.marketing_approval_date =date;
+            date = $filter('date')(intTimely.approvalDate, "yyyy-MM-dd");
+            if (date) {
+                extTimely.marketing_application_date = date;
             }
-            if(intTimely.country) {
-                extTimely.marketing_country = intTimely.country;
-            }
-            if(intTimely.otherCountry) {
-                extTimely.marketing_country_eu = intTimely.otherCountry;
+            //get the marketing country
+            if (intTimely.country) {
+                extTimely.marketing_country = {
+                    _label_en: intTimely.country.en,
+                    _label_fr: intTimely.country.fr,
+                    __text: intTimely.country.id
+                }
             }
             var extPayment = model[rootTag].advanced_payment;
             var intPayment = jsonObj.payment;
-            if(intPayment.advancedPaymentType) {
+            if (intPayment.advancedPaymentType) {
                 extPayment.advanced_payment_type = intPayment.advancedPaymentType;
             }
-            if(intPayment.advancedPaymentFee) {
+            if (intPayment.advancedPaymentFee) {
                 extPayment.advanced_payment_fee = intPayment.advancedPaymentFee;
             }
             extPayment.advanced_payment_ack = intPayment.ackPaymentSubmit === true ? YES : NO;
@@ -148,12 +143,13 @@
             if (intCertification.surname) {
                 extCertification.surname = intCertification.surname;
             }
-            if(intCertification.title) {
+            if (intCertification.title) {
                 extCertification.job_title = intCertification.title;
             }
             if (intCertification.dateSigned) {
                 extCertification.date_signed = $filter('date')(intCertification.dateSigned, "yyyy-MM-dd");
             }
+            //applicant and billing information
             model[rootTag].applicant = this._transformApplicantInfoForOutput(jsonObj.applicant);
 
             return model;
@@ -184,9 +180,12 @@
             resultJson.applicationInfo.medicinalIngredient = jsonObj.application_info.medicinal_ingredient;
             resultJson.applicationInfo.applicantStatement = jsonObj.application_info.applicant_statement;
             resultJson.timelySubmission.submissionStatement = jsonObj.timely_submission_info.timely_submission_statement;
-            resultJson.timelySubmission.approvalDate = _parseDate(jsonObj.timely_submission_info.marketing_approval_date);
-            resultJson.timelySubmission.country = jsonObj.timely_submission_info.marketing_country;
-            resultJson.timelySubmission.otherCountry = jsonObj.timely_submission_info.marketing_country_eu;
+            resultJson.timelySubmission.approvalDate = _parseDate(jsonObj.timely_submission_info.marketing_application_date);
+            if (jsonObj.timely_submission_info.marketing_country) {
+                resultJson.timelySubmission.country = $filter('filter')(cspDataLists.getMarketingCountries(), {id: jsonObj.timely_submission_info.marketing_country.__text})[0];
+                //resultJson.timelySubmission.country = jsonObj.timely_submission_info.marketing_country;
+            }
+            //resultJson.timelySubmission.otherCountry = jsonObj.timely_submission_info.marketing_country_eu;
             if (jsonObj.advanced_payment.advanced_payment_fee) {
                 resultJson.payment.advancedPaymentFee = Number(jsonObj.advanced_payment.advanced_payment_fee);
             }
@@ -214,6 +213,7 @@
                 record.role.applicant = true;
                 record.role.billing = true;
             }
+
             return record;
         };
         CspService.prototype.createContactRecord = function () {
@@ -238,7 +238,11 @@
                 city: "",
                 stateList: "",
                 stateText: "",
-                country: "",
+                country: {
+                    id: "",
+                    fr: "",
+                    en: ""
+                },
                 postalCode: ""
 
             };
@@ -263,7 +267,6 @@
             } else {
                 console.warn("Tried to add an applicant when there were 2 records")
             }
-            // defaultCSPData.applicant=[this.createApplicantRecord()];
         };
         /**
          * Deletes the billing address only. Checks each record for billing role to be true
@@ -278,7 +281,6 @@
                 //this case can happen as a record could be doing this blind
                 return;
             } else {
-
                 for (var i = 0; i < numberRecords; i++) {
                     var record = this._default.applicant[i];
                     if (record.role.billing === true) {
@@ -289,16 +291,6 @@
                 this._default.applicant[0].role.applicant = true;
                 this._default.applicant[0].role.billing = true;
             }
-        };
-        CspService.prototype.getMarketingCountries = function () {
-            return ([
-                'USA',
-                'CHE',
-                'AUS',
-                'EU',
-                'JPN',
-                'EU_OTHER'
-            ]);
         };
         CspService.prototype.getAdvancedPaymentTypes = function () {
             return ([
@@ -322,8 +314,16 @@
             defaultCSPData.enrolmentVersion = "0.0";
             defaultCSPData.dateSaved = "";
             defaultCSPData.softwareVersion = "";
-            //TODO appl Info
-            defaultCSPData.applicant = [this.createApplicantRecord(true)];
+            //initial applicant is always Canada
+            defaultCSPData.applicant = [this.createApplicantRecord(true,true)];
+            var canRecord=$filter('filter')(getCountryAndProvinces.getCountries(), {id: CANADA})[0];
+            if(canRecord){
+                defaultCSPData.applicant[0].address.country = canRecord;
+            }else{
+                //TODO getting a race condition with the list load, workaround
+                console.warn("race condition with country list");
+                defaultCSPData.applicant[0].address.country = {id:CANADA,en:"Canada",fr:"Canada"};
+            }
             defaultCSPData.healthCanadaOnly = {};
             defaultCSPData.healthCanadaOnly.companyId = "";
             defaultCSPData.healthCanadaOnly.dateReceived = "";
@@ -344,7 +344,7 @@
             defaultCSPData.timelySubmission.submissionStatement = "";
             defaultCSPData.timelySubmission.approvalDate = "";
             defaultCSPData.timelySubmission.country = "";
-            defaultCSPData.timelySubmission.otherCountry = "";
+            // defaultCSPData.timelySubmission.otherCountry = "";
             defaultCSPData.payment = {};
             defaultCSPData.payment.advancedPaymentFee = null;
             defaultCSPData.payment.advancedPaymentType = "";
@@ -355,7 +355,6 @@
             defaultCSPData.certification.surname = "";
             defaultCSPData.certification.title = "";
             defaultCSPData.certification.dateSigned = "";
-
             return (defaultCSPData);
         };
         CspService.prototype.createEmptyExternalModel = function () {
@@ -366,10 +365,8 @@
             defaultCSPData.date_saved = "";
             defaultCSPData.software_version = "";
             defaultCSPData.data_checksum = "";
-
-            //TODO appl Info
-            defaultCSPData.applicant = [];
             defaultCSPData.health_canada_only = {};
+            defaultCSPData.applicant = [];
             var hc = defaultCSPData.health_canada_only;
             hc.company_id = "";
             hc.application_id = "";
@@ -391,9 +388,9 @@
             defaultCSPData.timely_submission_info = {};
             var timely = defaultCSPData.timely_submission_info;
             timely.timely_submission_statement = "";
-            timely.marketing_approval_date = "";
+            timely.marketing_application_date = "";
             timely.marketing_country = "";
-            timely.marketing_country_eu = "";
+            // timely.marketing_country_eu = "";
             defaultCSPData.advanced_payment = {};
             var payment = defaultCSPData.advanced_payment;
             payment.advanced_payment_type = null;
@@ -454,47 +451,47 @@
                  record.role.billing = externalRecord.billing_role;*/
                 record.billing_role = inputJson[i].role.billing === true ? YES : NO;
                 record.applicant_role = inputJson[i].role.applicant === true ? YES : NO;
-                if( inputJson[i].applicantName) {
+                if (inputJson[i].applicantName) {
                     record.applicant_name = inputJson[i].applicantName;
                 }
-                if(inputJson[i].contact.salutation) {
+                if (inputJson[i].contact.salutation) {
                     record.contact.salutation = inputJson[i].contact.salutation;
                 }
-                if( inputJson[i].contact.givenName) {
+                if (inputJson[i].contact.givenName) {
                     record.contact.given_name = inputJson[i].contact.givenName;
                 }
-                if(inputJson[i].contact.initials) {
+                if (inputJson[i].contact.initials) {
                     record.contact.initials = inputJson[i].contact.initials;
                 }
-                if(inputJson[i].contact.surname) {
+                if (inputJson[i].contact.surname) {
                     record.contact.surname = inputJson[i].contact.surname;
                 }
-                if(inputJson[i].contact.language) {
+                if (inputJson[i].contact.language) {
                     record.contact.language_correspondance = inputJson[i].contact.language;
                 }
-                if(inputJson[i].contact.title) {
+                if (inputJson[i].contact.title) {
                     record.contact.job_title = inputJson[i].contact.title;
                 }
-                if(inputJson[i].contact.phone) {
+                if (inputJson[i].contact.phone) {
                     record.contact.phone_num = inputJson[i].contact.phone;
                 }
                 record.contact.phone_ext = inputJson[i].contact.phoneExt;
-                if( inputJson[i].contact.fax) {
+                if (inputJson[i].contact.fax) {
                     record.contact.fax_num = inputJson[i].contact.fax;
                 }
-                if(inputJson[i].contact.email) {
+                if (inputJson[i].contact.email) {
                     record.contact.email = inputJson[i].contact.email;
                 }
-                if(inputJson[i].address.street) {
+                if (inputJson[i].address.street) {
                     record.address.street_address = inputJson[i].address.street;
                 }
-                if(inputJson[i].address.city) {
+                if (inputJson[i].address.city) {
                     record.address.city = inputJson[i].address.city;
                 }
-                if(inputJson[i].address.stateList) {
+                if (inputJson[i].address.stateList) {
                     record.address.province_lov = inputJson[i].address.stateList;
                 }
-                if(inputJson[i].address.stateText) {
+                if (inputJson[i].address.stateText) {
                     record.address.province_text = inputJson[i].address.stateText;
                 }
 
@@ -504,10 +501,8 @@
                         _label_fr: inputJson[i].address.country.fr,
                         __text: inputJson[i].address.country.id
                     };
-
-
                 }
-                if(inputJson[i].address.postalCode) {
+                if (inputJson[i].address.postalCode) {
                     record.address.postal_code = inputJson[i].address.postalCode;
                 }
                 outputArray.push(record);
@@ -538,8 +533,18 @@
                 //this is being managed only on the internal data model
                 if (record.role.applicant && !record.role.billing) {
                     record.isBillingDifferent = true;
+                    record.address.country = $filter('filter')(getCountryAndProvinces.getCountries(), {id: CANADA})[0];
+                } else if (record.role.billing) {
+                    if (externalRecord.address && externalRecord.address.country && externalRecord.address.country.__text) {
+                        record.address.country = $filter('filter')(getCountryAndProvinces.getCountries(), {id: externalRecord.address.country.__text})[0];
+                    } else {
+                        //empty record case
+                        record.address.country = {id: "", en: "", fr: ""}
+                    }
+                }else{
+                    console.warn("no applicant role, country default")
+                    record.address.country = {id: "", en: "", fr: ""}
                 }
-                ;
                 record.applicantName = externalRecord.applicant_name;
                 record.contact.salutation = externalRecord.contact.salutation;
                 record.contact.givenName = externalRecord.contact.given_name;
@@ -555,11 +560,7 @@
                 record.address.city = externalRecord.address.city;
                 record.address.stateList = externalRecord.address.province_lov;
                 record.address.stateText = externalRecord.address.province_text;
-                record.address.country = externalRecord.address.country; //TODO fix with lookup
 
-                if (record.address.country.__text) {
-                    record.address.country = $filter('filter')(getCountryAndProvinces.getCountries(), {id: record.address.country.__text})[0];
-                }
 
                 record.address.postalCode = externalRecord.address.postal_code;
                 result.push(record);

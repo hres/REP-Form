@@ -5,6 +5,8 @@
                  ng-class="{'has-error':hcOnlyCtrl.hcOnlyForm[hcOnlyCtrl.dateReceivedId].$invalid}">
                 <label for="{{::hcOnlyCtrl.dateReceivedId}}" class="required">
                     <span class="field-name">{{"DATE_APPL_REC" |translate}}</span>
+                    <span ng-if="!hcOnlyCtrl.isFrench()" class="datepicker-format">(YYYY-MM-DD)</span>
+                    <span ng-if="hcOnlyCtrl.isFrench()" class="datepicker-format">(AAAA-MM-JJ)</span>
                     <strong class="required"> {{"REQUIRED" |translate}} </strong>
                     <input type="date" id="{{::hcOnlyCtrl.dateReceivedId}}" name="{{::hcOnlyCtrl.dateReceivedId}}"
                            data-ng-model="hcOnlyCtrl.model.dateReceived" class="form-control"
@@ -21,7 +23,7 @@
                     <strong class="required"> {{"REQUIRED" |translate}} </strong>
                     <input type="text" id="{{::hcOnlyCtrl.companyCodeId}}" name="{{::hcOnlyCtrl.companyCodeId}}"
                            data-ng-model="hcOnlyCtrl.model.companyId" class="form-control"
-                           required/>
+                            maxlength="5" size="5" required/>
                     <cmp-error-message field-name="hcOnlyCtrl.companyCodeId" form-ref="hcOnlyCtrl.hcOnlyForm"
                                        show-error="hcOnlyCtrl.showErrors()"
                                        error-types="hcOnlyCtrl.requiredOnlyError"></cmp-error-message>
@@ -34,7 +36,7 @@
                     <strong class="required"> {{"REQUIRED" |translate}} </strong>
                     <input type="text" id="{{::hcOnlyCtrl.applicationCodeId}}" name="{{::hcOnlyCtrl.applicationCodeId}}"
                            data-ng-model="hcOnlyCtrl.model.applicationId" class="form-control"
-                           required/>
+                           maxlength="6" size="6" required/>
                     <cmp-error-message field-name="hcOnlyCtrl.applicationCodeId" form-ref="hcOnlyCtrl.hcOnlyForm"
                                        show-error="hcOnlyCtrl.showErrors()"
                                        error-types="hcOnlyCtrl.requiredOnlyError"></cmp-error-message>

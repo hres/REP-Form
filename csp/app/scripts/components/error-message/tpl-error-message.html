@@ -1,5 +1,5 @@
 <div>
-    <strong id="{{::errMessageCtrl.field_id}}-error" class="error" ng-if="errMessageCtrl.showErrorMessage()">
+    <strong class="error" ng-if="errMessageCtrl.showErrorMessage()">
         <span class="label label-danger" ng-messages="errMessageCtrl.form_ref[errMessageCtrl.field_name].$error">
                   <span ng-repeat="errorRec in errMessageCtrl.fieldRecords track by $index"
                         ng-message="{{::errorRec.type}}">{{errorRec.displayAlias|translate}}</span>

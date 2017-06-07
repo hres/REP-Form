@@ -9,7 +9,8 @@
         .module('cspMainApplication', [
             'cspConstants',
             'errorMessageModule',
-            'numberFormat'
+            'numberFormat',
+            'alertModule'
         ]);
 
 })();
@@ -31,8 +32,8 @@
             }
         });
 
-    mainApplicationController.$inject = ['NOC', 'GRANT', 'OWNER', 'OWNER_BEHALF', '$scope'];
-    function mainApplicationController(NOC, GRANT, OWNER, OWNER_BEHALF, $scope) {
+    mainApplicationController.$inject = ['NOC', 'GRANT', 'OWNER', 'OWNER_BEHALF','FRENCH', '$scope','$translate'];
+    function mainApplicationController(NOC, GRANT, OWNER, OWNER_BEHALF,FRENCH, $scope,$translate) {
 
         var vm = this;
         vm.model="";
@@ -47,14 +48,15 @@
         vm.numberError = [{type: "required", displayAlias: "MSG_ERR_MAND"},
             {type: "minlength", displayAlias: "MSG_LENGTH_6NUM"}
         ]; //used for control number
-
-
+        vm.alerts = [false, false, false, false];
+        vm.lang = $translate.proposedLanguage() || $translate.use();
 
         /**
          * Called after onChanges evnet, initializes
          */
         vm.$onInit=function(){
             _setIDNames();
+            vm.alerts = [false, false, false, false];
         };
 
         /**
@@ -87,5 +89,40 @@
         $scope.$watch('cspMainApplCtrl.mainApplForm.$error', function () {
             vm.updateErrorSummary();
         }, true);
+
+        /*
+         Makes an instruction visible baseed on an index passed in
+         Index sets the UI state in the alerts array
+         */
+        vm.addInstruct = function (value) {
+
+            if (angular.isUndefined(value)) return;
+            if (value < vm.alerts.length) {
+                vm.alerts[value] = true;
+            }
+        };
+
+        /**
+         * Closes the instruction alerts
+         * @param value
+         */
+        vm.closeAlert = function (value) {
+            if (angular.isUndefined(value)) return;
+            if (value < vm.alerts.length) {
+                vm.alerts[value] = false;
+            }
+        };
+        vm.toggleAlert = function (value) {
+            if (angular.isUndefined(value)) return;
+            if (value < vm.alerts.length) {
+                vm.alerts[value] = !vm.alerts[value];
+            }
+        };
+
+        vm.isFrench=function(){
+            return(vm.lang===FRENCH);
+        };
+
+
     }
 })();

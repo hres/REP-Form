@@ -2,7 +2,26 @@
     <ng-form name="cspMainApplCtrl.mainApplForm">
         <div class="row">
             <div>
-                <h3>3.&nbsp{{'NDS_TITLE'|translate}}</h3>
+                <h3>3.&nbsp;{{'NDS_TITLE'|translate}}
+                    <button title="{{'HELP_NDS'|translate}}"  class="btn rep-help-button-primary btn-xs"
+                            ng-click="cspMainApplCtrl.addInstruct(0)"><span
+                            class="fa fa-question-circle fa-2x"></span><span class="wb-inv">"{{'HELP_NDS'|translate}}"</span>
+                    </button>
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <cmp-alert  ui-state="cspMainApplCtrl.alerts[0]" msg="NDS_INSTRUCT" update-state="cspMainApplCtrl.toggleAlert(0)" type="alert-info">
+                    <section aria-live="assertive">
+                        <div ng-if="!cspMainApplCtrl.isFrench()"
+                             ng-include="'app/scripts/templates/csp/tpl-csp-nds-en.html'">
+                        </div>
+                        <div ng-if="cspMainApplCtrl.isFrench()"
+                             ng-include="'app/scripts/templates/csp/tpl-csp-nds-fr.html'">
+                        </div>
+                    </section>
+                </cmp-alert>
             </div>
         </div>
         <div class="row">
@@ -23,7 +42,26 @@
         </div>
         <div class="row">
             <div>
-                <h3>4.&nbsp{{'DRUGUSE_TITLE'|translate}}</h3>
+                <h3>4.&nbsp;{{'DRUGUSE_TITLE'|translate}}
+                    <button title="{{'HELP_DRUGUSE'|translate}}"  class="btn rep-help-button-primary btn-xs"
+                            ng-click="cspMainApplCtrl.addInstruct(1)"><span
+                            class="fa fa-question-circle fa-2x"></span><span class="wb-inv">"{{'HELP_DRUGUSE'|translate}}"</span>
+                    </button>
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <cmp-alert  ui-state="cspMainApplCtrl.alerts[1]" msg="DRUGUSE_INSTRUCT" update-state="cspMainApplCtrl.toggleAlert(1)" type="alert-info">
+                    <section aria-live="assertive">
+                        <div ng-if="!cspMainApplCtrl.isFrench()"
+                             ng-include="'app/scripts/templates/csp/tpl-csp-drugUse-en.html'">
+                        </div>
+                        <div ng-if="cspMainApplCtrl.isFrench()"
+                             ng-include="'app/scripts/templates/csp/tpl-csp-drugUse-fr.html'">
+                        </div>
+                    </section>
+                </cmp-alert>
             </div>
         </div>
         <div class="row">
@@ -44,7 +82,7 @@
         </div>
         <div class="row">
             <div>
-                <h3>5.&nbsp{{'TIMEAPP_TITLE'|translate}}</h3>
+                <h3>5.&nbsp;{{'TIMEAPP_TITLE'|translate}}</h3>
             </div>
         </div>
         <div class="row">
@@ -67,6 +105,7 @@
                             {{'NOC_120'|translate}}
                         </label>
                     </div>
+                    <br/>
                     <div class="radio">
                         <label for="within120">
                             <input type="radio" name="{{::cspMainApplCtrl.applApplyId}}"
@@ -81,7 +120,26 @@
 
         <div class="row">
             <div>
-                <h3>6.&nbsp;{{'MEDINGRED_TITLE'|translate}}</h3>
+                <h3>6.&nbsp;{{'MEDINGRED_TITLE'|translate}}
+                    <button title="{{'HELP_MI'|translate}}"  class="btn rep-help-button-primary btn-xs"
+                            ng-click="cspMainApplCtrl.addInstruct(2)"><span
+                            class="fa fa-question-circle fa-2x"></span><span class="wb-inv">"{{'HELP_MI'|translate}}"</span>
+                    </button>
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <cmp-alert  ui-state="cspMainApplCtrl.alerts[2]" msg="MI_INSTRUCT" update-state="cspMainApplCtrl.toggleAlert(2)" type="alert-info">
+                    <section aria-live="assertive">
+                        <div ng-if="!cspMainApplCtrl.isFrench()"
+                             ng-include="'app/scripts/templates/csp/tpl-csp-mi-en.html'">
+                        </div>
+                        <div ng-if="cspMainApplCtrl.isFrench()"
+                             ng-include="'app/scripts/templates/csp/tpl-csp-mi-fr.html'">
+                        </div>
+                    </section>
+                </cmp-alert>
             </div>
         </div>
         <div class="row">
@@ -102,7 +160,26 @@
         </div>
         <div class="row">
             <div>
-                <h3>7.&nbsp;{{'STATEMENT_TITLE' | translate}}</h3>
+                <h3>7.&nbsp;{{'STATEMENT_TITLE' | translate}}
+                    <button title="{{'HELP_ATTEST'|translate}}"  class="btn rep-help-button-primary btn-xs"
+                            ng-click="cspMainApplCtrl.addInstruct(3)"><span
+                            class="fa fa-question-circle fa-2x"></span><span class="wb-inv">"{{'HELP_ATTEST'|translate}}"</span>
+                    </button>
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <cmp-alert  ui-state="cspMainApplCtrl.alerts[3]" msg="ATTEST_INSTRUCT" update-state="cspMainApplCtrl.toggleAlert(3)" type="alert-info">
+                    <section aria-live="assertive">
+                        <div ng-if="!cspMainApplCtrl.isFrench()"
+                             ng-include="'app/scripts/templates/csp/tpl-csp-attest-en.html'">
+                        </div>
+                        <div ng-if="cspMainApplCtrl.isFrench()"
+                             ng-include="'app/scripts/templates/csp/tpl-csp-attest-fr.html'">
+                        </div>
+                    </section>
+                </cmp-alert>
             </div>
         </div>
         <div class="row">
@@ -125,6 +202,7 @@
                             {{'APPLICANT_OWNER'|translate}}
                         </label>
                     </div>
+                    <br/>
                     <div class="radio">
                         <label for="applicant-consent">
                             <input type="radio" name="{{::cspMainApplCtrl.applStateId}}"

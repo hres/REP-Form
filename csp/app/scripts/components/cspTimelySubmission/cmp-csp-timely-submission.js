@@ -5,7 +5,7 @@
     'use strict';
 
     angular
-        .module('cspTimelySubmission', ['cspConstants']);
+        .module('cspTimelySubmission', ['cspConstants','hpfbConstants','cspDataModule']);
 
 })();
 
@@ -22,30 +22,42 @@
                 record: '<',
                 countryList: '<',
                 showErrors: '&',
-                updateErrorSummary:'&'
+                updateErrorSummary: '&'
+
             }
         });
 
-    timelySubmissionController.$inject = ['EUOTHER', 'NO_APPLICATION', 'APPLICATION', '$scope'];
-    function timelySubmissionController(EUOTHER, NO_APPLICATION, APPLICATION, $scope) {
+    timelySubmissionController.$inject = ['FRENCH','EUOTHER', 'NO_APPLICATION', 'APPLICATION', '$scope','$translate','cspDataLists'];
+    function timelySubmissionController(FRENCH, EUOTHER, NO_APPLICATION, APPLICATION, $scope,$translate,cspDataLists) {
 
         var vm = this;
         vm.model = {};
         vm.countries = [];
-        vm.noAppValue=NO_APPLICATION;
-        vm.appValue=APPLICATION;
+        vm.noAppValue = NO_APPLICATION;
+        vm.appValue = APPLICATION;
 
         vm.dateError = [{type: "required", displayAlias: "MSG_ERR_MAND"},
             {type: "date", displayAlias: "MSG_ERR_DATE_FORMAT"}];
 
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
-
-
+        vm.lang = $translate.proposedLanguage() || $translate.use();
+        vm.alerts = [false];
         /**
          * Called after onChanges evnet, initializes
          */
         vm.$onInit = function () {
             _setIdNames();
+            vm.lang = $translate.proposedLanguage() || $translate.use();
+            vm.countries=cspDataLists.getMarketingCountries();
+            $translate('NOAPPLICATION').then(function (data) {
+                vm.noApplication = data;
+            });
+            $translate('APPLICATION').then(function (data) {
+                vm.application = data;
+            });
+            vm.alerts = [false];
+           // vm.noApplication = $translate.instant('NOAPPLICATION'); //NEW LINE
+           // vm.application = $translate.instant('APPLICATION'); //NEW LINE
         };
 
         /**
@@ -56,36 +68,29 @@
             if (changes.record) {
                 vm.model = changes.record.currentValue;
             }
-            if (changes.countryList) {
-                vm.countries = changes.countryList.currentValue;
-            }
         };
 
-        vm.isEuOther = function () {
-            vm.model.country
-            if (vm.model.country === EUOTHER) {
+        vm.isApplicationMarketing = function () {
+
+            if (!vm.model) return false;
+
+            if (vm.model.submissionStatement === APPLICATION) {
+                if(!vm.countries || !vm.countries.length>0) {
+                    //guarding against potential race conditions
+                    console.warn("Needed to redefine marketing countries")
+                    vm.countries = cspDataLists.getMarketingCountries();
+                }
                 return true;
-
             } else {
-                vm.model.otherCountry = "";
-            }
-            return false;
-
-        };
-        vm.isApplicationMarketing=function(){
-
-            if(!vm.model) return false;
-
-            if(vm.model.submissionStatement=== APPLICATION){
-              return true;
-            }else{
-                vm.model.approvalDate="";
-                vm.model.country="";
-                vm.model.otherCountry="";
+                vm.model.approvalDate = "";
+                vm.model.country = "";
+                vm.alerts[0] = false; //reset alert
                 return false;
             }
         };
-
+        vm.isFrench=function(){
+            return vm.lang===FRENCH;
+        };
 
         /**
          * sets the ids of the controls
@@ -103,6 +108,35 @@
         $scope.$watch('timelySubCtrl.timelySubForm.$error', function () {
             vm.updateErrorSummary();
         }, true);
+
+        /*
+         Makes an instruction visible baseed on an index passed in
+         Index sets the UI state in the alerts array
+         */
+        vm.addInstruct = function (value) {
+
+            if (angular.isUndefined(value)) return;
+            if (value < vm.alerts.length) {
+                vm.alerts[value] = true;
+            }
+        };
+
+        /**
+         * Closes the instruction alerts
+         * @param value
+         */
+        vm.closeAlert = function (value) {
+            if (angular.isUndefined(value)) return;
+            if (value < vm.alerts.length) {
+                vm.alerts[value] = false;
+            }
+        };
+
+        vm.isFrench=function(){
+            return(vm.lang===FRENCH);
+        };
+
+
 
     }
 })();

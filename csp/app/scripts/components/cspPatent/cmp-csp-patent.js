@@ -8,7 +8,8 @@
     angular
         .module('cspPatent', [
             'numberFormat',
-            'errorMessageModule'
+            'errorMessageModule',
+            'hpfbConstants'
         ]);
 
 })();
@@ -25,12 +26,13 @@
             bindings: {
                 record: '<',
                 showErrors: '&',
-                updateErrorSummary:'&'
+                updateErrorSummary:'&',
+                language:'<'
             }
         });
 
-    cspPatentController.$inject = ['$scope'];
-    function cspPatentController($scope) {
+    cspPatentController.$inject = ['$scope','FRENCH'];
+    function cspPatentController($scope,FRENCH) {
 
         var vm = this;
         vm.model="";
@@ -52,8 +54,10 @@
          */
         vm.$onChanges = function (changes) {
             if(changes.record){
-
                 vm.model=changes.record.currentValue;
+            }
+            if(changes.language){
+                vm.lang=changes.language.currentValue;
             }
         };
 
@@ -72,5 +76,9 @@
         $scope.$watch('cspPatentCtrl.patentForm.$error', function () {
             vm.updateErrorSummary();
         }, true);
+
+        vm.isFrench=function(){
+            return vm.lang===FRENCH;
+        };
     }
 })();

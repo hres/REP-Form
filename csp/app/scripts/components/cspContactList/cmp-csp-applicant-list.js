@@ -29,32 +29,33 @@
             bindings: {
                 record: '<',
                 showErrors: '&',
-                addApplicant:'&',
+                addApplicant: '&',
                 deleteApplicant: '&',
                 updateErrorSummary: '&'
             }
         });
-
-    //cspApplicantListController.$inject = ['$scope'];
+    cspApplicantListController.$inject = [];
     function cspApplicantListController() {
 
         var vm = this;
-        vm.model="";
+        vm.model = "";
 
         /**
          * Called after onChanges evnet, initializes
          */
-        vm.$onInit=function(){
+        vm.$onInit = function () {
         };
 
         /**
          * Called on binding changes
          */
         vm.$onChanges = function (changes) {
-            if(changes.record){
+            if (changes.record) {
 
-                vm.model=changes.record.currentValue;
+                vm.model = changes.record.currentValue;
             }
         };
+
+
     }
 })();

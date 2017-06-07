@@ -56,7 +56,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-5 form-group"
+            <div class="col-md-4 form-group"
                  ng-class="{'has-error':contCtrl.contactForm[contCtrl.langCorrespondId].$invalid}">
                 <label for="{{::contCtrl.langCorrespondId}}" class="required">
                     <span class="field-name">{{'LANGCORRESPOND'|translate}}</span>
@@ -77,7 +77,7 @@
                     <span class="field-name">{{'JOBTITLE'|translate}}</span>
                     <strong class="required">{{'REQUIRED'|translate}}</strong>
                     <input type="text" id="{{::contCtrl.jobTitleId}}"
-                           data-ng-model="contCtrl.contactModel.title" class="form-control full-width"
+                           data-ng-model="contCtrl.contactModel.title" class="form-control"
                            name="{{::contCtrl.jobTitleId}}" maxlength="40" size="40" ng-readonly="!contCtrl.isEditable"
                            required/>
                     <cmp-error-message field-name="contCtrl.jobTitleId" form-ref="contCtrl.contactForm"
@@ -85,7 +85,7 @@
                                        error-types="contCtrl.requiredOnly"></cmp-error-message>
                 </label>
             </div>
-            <div class="col-md-3 form-group"
+            <div class="col-md-4 form-group"
                  ng-class="{'has-error':contCtrl.contactForm[contCtrl.faxId].$invalid}">
                 <label for="{{::contCtrl.faxId}}" ng-class="{'required':contCtrl.faxMandatory}">
                     <span class="field-name">{{'FAX_NUMBER'|translate}}</span>
@@ -93,12 +93,12 @@
 
                     <input type="text" id="{{::contCtrl.faxId}}"
                            data-ng-model="contCtrl.contactModel.fax" ng-readonly="!contCtrl.isEditable"
-                           ng-required="contCtrl.faxMandatory" class="form-control full-width"
+                           ng-required="contCtrl.faxMandatory" class="form-control" ng-pattern="contCtrl.phoneReg"
                            name="{{::contCtrl.faxId}}" maxlength="25" size="25"/>
                     <cmp-error-message ng-if="contCtrl.faxMandatory" field-name="contCtrl.faxId"
                                        form-ref="contCtrl.contactForm"
                                        show-error="contCtrl.showErrors()"
-                                       error-types="contCtrl.requiredOnly"></cmp-error-message>
+                                       error-types="contCtrl.faxError"></cmp-error-message>
                 </label>
             </div>
         </div>

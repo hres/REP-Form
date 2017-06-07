@@ -9,7 +9,7 @@
                            name="{{::adr.streetId}}" ng-readonly="!adr.isEditable"
                            data-ng-model="adr.addressModel.street" required/>
                     <cmp-error-message field-name="adr.streetId" form-ref="adr.addressForm"
-                                       show-error="adr.showErrors()"error-types="adr.requiredOnly">
+                                       show-error="adr.showErrors()" error-types="adr.requiredOnly">
                     </cmp-error-message>
                 </label>
             </div>
@@ -19,11 +19,12 @@
                 <label for="{{::adr.cityId}}" class="required full-width">
                     <span class="field-name">{{"CITY_TOWN" |translate}}</span>
                     <strong class="required"> {{"REQUIRED" |translate}} </strong>
-                    <input type="text" id="{{::adr.cityId}}" name="{{::adr.cityId}}" data-ng-model="adr.addressModel.city"
+                    <input type="text" id="{{::adr.cityId}}" name="{{::adr.cityId}}"
+                           data-ng-model="adr.addressModel.city"
                            class="form-control  full-width" maxlength="60"
                            ng-readonly="!adr.isEditable" required/>
                     <cmp-error-message field-name="adr.cityId" form-ref="adr.addressForm"
-                                       show-error="adr.showErrors()"error-types="adr.requiredOnly">
+                                       show-error="adr.showErrors()" error-types="adr.requiredOnly">
                     </cmp-error-message>
                 </label>
             </div>
@@ -34,10 +35,13 @@
 
                     <div class="rep-pad-top">
                         <div class="rep-error" ng-class="{'has-error':adr.addressForm[adr.countryId].$invalid}">
-                            <ui-select ng-model="adr.addressModel.country" id="{{::adr.countryId}}" name="{{::adr.countryId}}"
-                                       on-select="adr.countryChanged()" required ng-disabled="!adr.isEditable" title="{{'COUNTRY_CHOOSE'|translate}}"
+                            <ui-select ng-model="adr.addressModel.country" id="{{::adr.countryId}}"
+                                       name="{{::adr.countryId}}"
+                                       on-select="adr.countryChanged()" ng-required="adr.isCountryEditable()"
+                                       ng-disabled="!adr.isCountryEditable()" title="{{'COUNTRY_CHOOSE'|translate}}"
                                        class="rep-selectize-font full-width">
-                                <ui-select-match placeholder="{{'COUNTRY_CHOOSE'|translate}}" id="country_match{{::$id}}"
+                                <ui-select-match placeholder="{{'COUNTRY_CHOOSE'|translate}}"
+                                                 id="country_match{{::$id}}"
                                                  class="rep-selectize-font rep-selectize-dropdown form-control">
                                     {{$select.selected[adr.lang]}}
                                 </ui-select-match>
@@ -50,7 +54,7 @@
                         </div>
                     </div>
                     <cmp-error-message field-name="adr.countryId" form-ref="adr.addressForm"
-                                       show-error="adr.showErrors()"error-types="adr.requiredOnly">
+                                       show-error="adr.showErrors()" error-types="adr.requiredOnly">
                     </cmp-error-message>
                 </label>
             </div>
@@ -68,7 +72,7 @@
                                 ng-disabled="!adr.isEditable" ng-required="adr.hideProvinceText"></select>
 
                         <cmp-error-message field-name="adr.stateListId" form-ref="adr.addressForm"
-                                           show-error="adr.showErrors()"error-types="adr.requiredOnly">
+                                           show-error="adr.showErrors()" error-types="adr.requiredOnly">
                         </cmp-error-message>
                     </label>
                 </div>
@@ -86,12 +90,12 @@
                     <strong ng-show="adr.isPostalRequired" class="required">{{"REQUIRED" |translate}} </strong>
                     <input type="text" id="{{::adr.postalId}}" name="{{::adr.postalId}}"
                            data-ng-model="adr.addressModel.postalCode"
-                           class="form-control full-width" ng-maxlength="7" ng-required="adr.isPostalRequired"
+                           class="form-control" ng-maxlength="7" ng-required="adr.isPostalRequired"
                            ng-change="adr.postalCodeChanged()"
                            maxlength="7" ng-pattern="adr.postalPattern" ng-readonly="!adr.isEditable"/>
 
                     <cmp-error-message field-name="adr.postalId" form-ref="adr.addressForm"
-                                       show-error="adr.showErrors()"error-types="adr.postalErrorList">
+                                       show-error="adr.showErrors()" error-types="adr.postalErrorList">
                     </cmp-error-message>
                 </label>
             </div>

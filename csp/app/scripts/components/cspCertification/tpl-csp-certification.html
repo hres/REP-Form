@@ -57,7 +57,9 @@
                      ng-class="{'has-error':cspCertCtrl.certForm[cspCertCtrl.dateSignedId].$invalid}">
                     <label for="{{::cspCertCtrl.dateSignedId}}" class="required">
                         <span class="field-name">{{"DATE_SIGNED" |translate}}</span>
-                        <strong class="required"> {{"REQUIRED" |translate}} </strong>
+                        <span ng-if="!cspCertCtrl.isFrench()" class="datepicker-format">YYYY-MM-DD</span>
+                        <span ng-if="cspCertCtrl.isFrench()" class="datepicker-format">AAAA-MM-JJ</span>
+                        <strong class="required">{{"REQUIRED"|translate}}</strong>
                         <input type="date" id="{{::cspCertCtrl.dateSignedId}}" name="{{::cspCertCtrl.dateSignedId}}"
                                data-ng-model="cspCertCtrl.model.dateSigned" class="form-control"
                                required/>

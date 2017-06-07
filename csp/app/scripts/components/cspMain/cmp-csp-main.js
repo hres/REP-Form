@@ -18,7 +18,9 @@
             'cspTimelySubmission',
             'cspFeePayment',
             'cspCertification',
-            'errorSummaryModule'
+            'errorSummaryModule',
+            'ui.bootstrap',
+            'alertModule'
         ]);
 
 })();
@@ -37,15 +39,15 @@
             }
         });
 
-    cspMainCtrl.$inject = ['CspService', 'hpfbFileProcessing', 'ApplicationInfoService', 'INTERNAL_TYPE', 'EXTERNAL_TYPE','$translate','FRENCH'];
-    function cspMainCtrl(CspService, hpfbFileProcessing, ApplicationInfoService, INTERNAL_TYPE, EXTERNAL_TYPE,$translate,FRENCH) {
+    cspMainCtrl.$inject = ['CspService', 'hpfbFileProcessing', 'ApplicationInfoService', 'INTERNAL_TYPE', 'EXTERNAL_TYPE','$translate','FRENCH','$scope'];
+    function cspMainCtrl(CspService, hpfbFileProcessing, ApplicationInfoService, INTERNAL_TYPE, EXTERNAL_TYPE,$translate,FRENCH,$scope) {
 
         var vm = this;
         vm.userType = EXTERNAL_TYPE;
         vm.saveXMLLabel = "SAVE_DRAFT"; //used to dynamically label save button
         vm.modelService = null;
         vm.cspModel = {};
-        vm.countryList = [];
+       // vm.countryList = [];
         vm.paymentType = [];
         vm.drugUseList = [];
         vm.rootTag = "";
@@ -55,7 +57,7 @@
         vm.showErrorSummary = 0; //signals child error summaries to show
         vm.updateSummary = 0; //signals to update the error summary contents
         vm.summaryFocusIndex = 0;
-
+        vm.alerts = [false, false, false, false, false];
         vm.exclusions = {
 
         };
@@ -68,6 +70,14 @@
             "phoneNumber_bill": {
                 "type": "pattern",
                 "errorType": "MSG_ERR_PHONE_FORMAT"
+            },
+            "faxNumber_appl": {
+                "type": "pattern",
+                "errorType": "MSG_ERR_FAX_FORMAT"
+            },
+            "faxNumber_bill": {
+                "type": "pattern",
+                "errorType": "MSG_ERR_FAX_FORMAT"
             },
             "country": {
                 "type": "select2",
@@ -96,9 +106,9 @@
          * Called after onChanges evnet, initializes
          */
         vm.$onInit = function () {
+            vm.alerts = [false, false, false, false, false];
             vm.modelService = new CspService(); //create the service
             vm.cspModel = vm.modelService.getModelInfo(); //the model
-            vm.countryList = vm.modelService.getMarketingCountries();
             vm.paymentType = vm.modelService.getAdvancedPaymentTypes();
             vm.drugUseList = vm.modelService.getDrugUses();
             vm.rootTag = vm.modelService.getRootTag();
@@ -261,6 +271,35 @@
             var result=JSON.parse(vm.test);
             _loadFileContent(result);
         }
+        /*
+         Makes an instruction visible baseed on an index passed in
+         Index sets the UI state in the alerts array
+         */
+        vm.addInstruct = function (value) {
+
+            if (angular.isUndefined(value)) return;
+            if (value < vm.alerts.length) {
+                vm.alerts[value] = true;
+            }
+        };
+
+        /**
+         * Closes the instruction alerts
+         * @param value
+         */
+        vm.closeAlert = function (value) {
+            if (angular.isUndefined(value)) return;
+            if (value < vm.alerts.length) {
+                vm.alerts[value] = false;
+            }
+        };
+
+        vm.toggleAlert = function (value) {
+            if (angular.isUndefined(value)) return;
+            if (value < vm.alerts.length) {
+                vm.alerts[value] = !vm.alerts[value];
+            }
+        };
     }
 })();
 

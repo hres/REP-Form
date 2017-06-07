@@ -7,7 +7,8 @@
 
     angular
         .module('cspCertification', [
-            'errorMessageModule'
+            'errorMessageModule',
+            'hpfbConstants'
         ]);
 
 })();
@@ -24,12 +25,13 @@
             bindings: {
                 record: '<',
                 showErrors: '&',
-                updateErrorSummary: '&'
+                updateErrorSummary: '&',
+                language:'<'
             }
         });
 
-    cspCertificationController.$inject = ['$scope'];
-    function cspCertificationController($scope) {
+    cspCertificationController.$inject = ['$scope','FRENCH'];
+    function cspCertificationController($scope, FRENCH) {
 
         var vm = this;
         vm.model = {
@@ -58,7 +60,9 @@
             if (changes.record) {
                 vm.model = changes.record.currentValue;
             }
-
+            if(changes.language){
+                vm.lang=changes.language.currentValue;
+            }
         };
 
         /**
@@ -74,6 +78,10 @@
             vm.jobTitleId = "certJobTitle" + scopeId;
             vm.dateSignedId = "certDateSigned" + scopeId;
         }
+
+        vm.isFrench=function(){
+            return vm.lang===FRENCH;
+        };
 
         /**
          * Watch for changes in the errors and tell the error summary

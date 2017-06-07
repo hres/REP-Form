@@ -10,7 +10,8 @@
         .module('cspApplicant', [
             'contactModule',
             'addressModule',
-            'errorMessageModule'
+            'errorMessageModule',
+            'hpfbConstants'
         ]);
 
 })();
@@ -35,10 +36,10 @@
         });
 
 
-    cspApplicantCtrl.$inject = ['$scope'];
+    cspApplicantCtrl.$inject = ['$scope','$translate','FRENCH'];
 
     /* @ngInject */
-    function cspApplicantCtrl($scope) {
+    function cspApplicantCtrl($scope,$translate,FRENCH) {
         var vm = this;
         vm.title = 'CspApplicantCtrl';
 
@@ -71,21 +72,24 @@
                     "isBillingDifferent": false
                 };
         vm.applicantTextAlias = "APPLICANTNAME";
-
+        vm.lang = $translate.proposedLanguage() || $translate.use();
         vm.type = "_appl"; //sets the type of applicant either applicant or billing
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
-
+        vm.isCountryEditable=false;
+        vm.alerts = [false,false];
         vm.$onInit = function () {
             //after on changes called
             if (vm.model && vm.model.role && (!vm.model.role.applicant)) {
                 vm.applicantTextAlias = "COMPANY_NOABBREV";
                 vm.type = "_bill";
-
+                vm.isCountryEditable=true;
             } else {
                 vm.applicantTextAlias = "APPLICANTNAME";
                 vm.type = "_appl";
+                vm.isCountryEditable=false;
             }
             _setIDNames();
+            vm.alerts = [false,false];
         };
 
         vm.$onChanges = function (changes) {
@@ -128,6 +132,39 @@
             vm.applicantId = "applicant" + vm.type + scopeId;
         }
 
+        /*
+         Makes an instruction visible baseed on an index passed in
+         Index sets the UI state in the alerts array
+         */
+        vm.addInstruct = function (value) {
+            if (angular.isUndefined(value)) return;
+            if (value < vm.alerts.length) {
+                vm.alerts[value] = true;
+            }
+        };
+
+        /**
+         * Closes the instruction alerts
+         * @param value
+         */
+        vm.closeAlert = function (value) {
+
+            if (angular.isUndefined(value)) return;
+            if (value < vm.alerts.length) {
+                vm.alerts[value] = false;
+            }
+        };
+
+        vm.isFrench = function () {
+            return (vm.lang === FRENCH);
+        };
+
+        vm.toggleAlert = function (value) {
+            if (angular.isUndefined(value)) return;
+            if (value < vm.alerts.length) {
+                vm.alerts[value] = !vm.alerts[value];
+            }
+        };
 
     }
     }
