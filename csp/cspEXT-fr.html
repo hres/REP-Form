@@ -20,7 +20,7 @@
     <!--No cache-->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
     <meta http-equiv="Pragma" content="no-cache"/>
-    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="Expires" content="-1"/>
 
     <title>Formulaire CPS de Santé Canada</title>
     <meta content="width=device-width,initial-scale=1" name="viewport">
@@ -85,10 +85,10 @@
     var defTop=document.getElementById("def-top");
     defTop.outerHTML=wet.builder.top({
         cdnEnv:"prod",
-        breadcrumbs: [{title: "Accueil", href: "https://lam-dev.hres.ca/rep-dev/index-fr.html"}],
+        breadcrumbs: [{title: "Accueil", href: "https://lam-dev.hres.ca/rep_test/index-fr.html"}],
         lngLinks:[{
             lang:"en",
-            href:"",
+            href:"cspEXT-en.html",
             text:"English"
         }]
     })
@@ -158,59 +158,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/translations_20170607_1038.js"></script>
-
-<script src="app/scripts/cspAppEXT-fr.js"></script>
-
-<script src="app/scripts/services/hpfb-constants.js"></script>
-
-<script src="app/scripts/services/filter-lists.js"></script>
-
-<script src="app/scripts/services/data-lists.js"></script>
-
-<script src="app/scripts/services/data-lists.activity.js"></script>
-
-<script src="app/scripts/services/csp-service.js"></script>
-
-<script src="app/scripts/services/csp-load-service.js"></script>
-
-<script src="app/scripts/services/csp-data-lists.js"></script>
-
-<script src="app/scripts/services/csp-constants.js"></script>
-
-<script src="app/scripts/services/application-info-service.js"></script>
-
-<script src="app/scripts/directives/numberOnly/only-digits.js"></script>
-
-<script src="app/scripts/components/fileIO/FileIO.hpfbFileReader.js"></script>
-
-<script src="app/scripts/components/error-message/cmp-error-message.js"></script>
-
-<script src="app/scripts/components/error-summary/cmp-error-summary.js"></script>
-
-<script src="app/scripts/components/cspTimelySubmission/cmp-csp-timely-submission.js"></script>
-
-<script src="app/scripts/components/cspPatent/cmp-csp-patent.js"></script>
-
-<script src="app/scripts/components/cspMainAppl/cmp-csp-main-application.js"></script>
-
-<script src="app/scripts/components/cspMain/cmp-csp-main.js"></script>
-
-<script src="app/scripts/components/cspHealthCanadaOnly/cmp-csp-hc-only.js"></script>
-
-<script src="app/scripts/components/cspContactList/cmp-csp-applicant-list.js"></script>
-
-<script src="app/scripts/components/cspFeePayment/cmp-csp-fee-payment.js"></script>
-
-<script src="app/scripts/components/cspContactRecord/cmp-csp-applicant.js"></script>
-
-<script src="app/scripts/components/cspCertification/cmp-csp-certification.js"></script>
-
-<script src="app/scripts/components/contactDetails/cmp-contact-details.js"></script>
-
-<script src="app/scripts/components/alertComponent/cmp-alert.js"></script>
-
-<script src="app/scripts/components/addressDetails/cmp-address-details.js"></script>
+<script src="app/scripts/cspAppEXT-fr_20170607_1434.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
