@@ -21,5 +21,7 @@
   {"id":"B02-20160301-085","en":"SNDS-C (Supplement to a New Drug Submission - Conditional)","fr":"SNDS-C (Supplément à 'une présentation de drogue nouvelle - Conditionnelle)"},
   {"id":"B02-20160301-087","en":"UD-PV (Undefined Data Pharmacovigilance)","fr":"UD-PV (Données non définies – Pharmacovigilance)"},
   {"id":"B02-20160301-088","en":"UDRA (Undefined Regulatory Activity)","fr":"UDRA (Activité réglementaire non définie)"},
-  {"id":"B02-20160301-089","en":"YBPR (Yearly Biologic Product Report)","fr":"YBPR (Rapport annuel sur un produit biologique)"}
+  {"id":"B02-20160301-089","en":"YBPR (Yearly Biologic Product Report)","fr":"YBPR (Rapport annuel sur un produit biologique)"},
+  {"id":"DSUR","en":"DSUR (Development Safety Update Report)","fr":"DSUR (Development Safety Update Report)"}
 ]
+
