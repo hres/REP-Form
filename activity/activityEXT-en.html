@@ -3,9 +3,24 @@
 <html class="no-js" lang="en" dir="ltr">
 <!--<![endif]-->
 <head>
+
+    <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+    <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+    <script type="text/javascript">
+        document.write(wet.builder.refTop({
+            cdnEnv:"prod"
+        }));
+    </script>
+
+    <noscript>
+        <!-- /ROOT/cdts/static/top-en.html-->
+        <!-- #include virtual="/cdts/static/top-en.html"-->
+    </noscript>
     <meta charset="utf-8">
-    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
-    wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <!--No cache-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
     <title>Health Canada Activity REP Template</title>
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <!-- Meta data -->
@@ -22,6 +37,11 @@
     <link rel="stylesheet" href="./../GCWeb/css/ie8-theme.min.css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="./../wet-boew/js/ie8-wet-boew.min.js"></script>
+
+
+    <noscript>
+    </noscript>
+
     <![endif]-->
     <!--[if lte IE 9]>
 
@@ -64,90 +84,24 @@
         <a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
     </li>
 </ul>
-<header role="banner">
-    <div id="wb-bnr" class="container">
-        <section id="wb-lng" class="visible-md visible-lg text-right">
-            <h2 class="wb-inv">Language selection</h2>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <!--<ul class="list-inline margin-bottom-none">
-                    <li><a lang="fr" href="content-fr.html">Français</a></li>
-                    </ul>-->
-                </div>
-            </div>
-        </section>
-        <div class="row">
-            <div class="brand col-xs-8 col-sm-9 col-md-6">
-                <a href="http://www.canada.ca/en/index.html">
-                    <object type="image/svg+xml" tabindex="-1" data="./../GCWeb/assets/sig-blk-en.svg"></object>
-                    <span class="wb-inv"> Government of Canada</span></a>
-            </div>
-            <section class="wb-mb-links col-xs-4 col-sm-3 visible-sm visible-xs" id="wb-glb-mn">
-                <h2>Search and menus</h2>
-                <ul class="list-inline text-right chvrn">
-                    <li><a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk"
-                           role="button"><span class="glyphicon glyphicon-search"><span
-                            class="glyphicon glyphicon-th-list"><span
-                            class="wb-inv">Search and menus</span></span></span></a></li>
-                </ul>
-                <div id="mb-pnl"></div>
-            </section>
-            <section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg">
-<h2>Search</h2>
-<form action="#" method="post" name="cse-search-box" role="search" class="form-inline">
-<div class="form-group">
-<label for="wb-srch-q" class="wb-inv">Search website</label>
-<input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="27" maxlength="150" placeholder="Search Canada.ca">
-<datalist id="wb-srch-q-ac">
-<!--[if lte IE 9]><select><![endif]-->
-<!--[if lte IE 9]></select><![endif]-->
-</datalist>
+<div id="def-top">
 </div>
-<div class="form-group submit">
-<button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub"><span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
-</div>
-</form>
-</section>
-        </div>
-    </div>
-    <nav role="navigation" id="wb-sm" data-ajax-replace="./../ajax/sitemenu-en.html" data-trgt="mb-pnl"
-         class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
-        <div class="container nvbar">
-            <h2>Topics menu</h2>
-
-            <div class="row">
-                <ul class="list-inline menu">
-                    <li><a href="http://www.esdc.gc.ca/en/jobs/index.page">Jobs</a></li>
-                    <li><a href="http://www.cic.gc.ca/english/index.asp">Immigration</a></li>
-                    <li><a href="http://travel.gc.ca">Travel</a></li>
-                    <li><a href="http://www.canada.ca/en/services/business/index.html">Business</a></li>
-                    <li><a href="http://www.canada.ca/en/services/benefits/index.html">Benefits</a></li>
-                    <li><a href="http://healthycanadians.gc.ca/index-eng.php">Health</a></li>
-                    <li><a href="http://www.canada.ca/en/services/taxes/index.html">Taxes</a></li>
-                    <li><a href="http://www.canada.ca/en/services/index.html">More services</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <nav role="navigation" id="wb-bc" property="breadcrumb">
-        <h2>You are here:</h2>
-
-        <div class="container">
-            <div class="row">
-                <ol class="breadcrumb">
-                    <li><a href="https://lam-dev.hres.ca/REP-Form/index.html">Home</a></li>
-                </ol>
-            </div>
-        </div>
-    </nav>
-</header>
+<script type="text/javascript">
+    var defTop=document.getElementById("def-top");
+    defTop.outerHTML=wet.builder.top({
+        cdnEnv:"prod",
+        breadcrumbs: [{title: "Home", href: "https://lam-dev.hres.ca/REP-Form/index.html"}],
+          })
+</script>
 <main role="main" property="mainContentOfPage" class="container">
-
 
     <!--content starts here -->
     <div>
         <h1 property="name" id="wb-cont">Regulatory Activity Template: Regulatory Enrolment Process (REP)</h1>
+        <noscript>
+            <h2>JavaScript is required to complete this form</h2>
+        </noscript>
 
         <!-- inject:mainContent-->
         <div id="app-root" ng-app="activityApp" ng-controller="MainController as ctrl">
@@ -158,65 +112,32 @@
 
     </div>
     <!--content ends here -->
+    <div id="def-preFooter">
 
-    <div class="datemod col-xs-12 mrgn-tp-lg">
-        <dl id="wb-dtmd">
-            <dt>Date modified:&#32;</dt>
-            <dd>
-                <time property="dateModified">2017-03-24 </time>
-            </dd>
-        </dl>
     </div>
+    <script type="text/javascript">
+        var defPreFooter=document.getElementById("def-preFooter");
+        defPreFooter.outerHTML=wet.builder.preFooter({
+            cdnEnv:"prod",
+            dateModified:"2017-07-20",
+            showShare:false,
+            showFeedback:false
+        })
+    </script>
 
 </main>
-<aside class="gc-nttvs container">
-    <h2>Government of Canada activities and initiatives</h2>
+<div id="def-footer">
 
-    <div id="gcwb_prts" class="wb-eqht row wb-init wb-data-ajax-replace-inited wb-eqht-inited"
-         data-ajax-append="https://cdn.canada.ca/gcweb-cdn-live/features/features-en.html">
+</div>
+<script type="text/javascript">
+    var defFooter=document.getElementById("def-footer");
+    defFooter.outerHTML=wet.builder.footer({
+        cdnEnv:"prod"
+    })
+</script>
 
-    </div>
-</aside>
-<footer role="contentinfo" id="wb-info">
-    <nav role="navigation" class="container wb-navcurr">
-        <h2 class="wb-inv">About government</h2>
-        <ul class="list-unstyled colcount-sm-2 colcount-md-3">
-            <li><a href="https://www.canada.ca/en/contact.html">Contact us</a></li>
-            <li><a href="https://www.canada.ca/en/government/dept.html">Departments and agencies</a></li>
-            <li><a href="https://www.canada.ca/en/government/publicservice.html">Public service and military</a></li>
-            <li><a href="http://news.gc.ca/">News</a></li>
-            <li><a href="https://www.canada.ca/en/government/system/laws.html">Treaties, laws and regulations</a></li>
-            <li><a href="https://www.canada.ca/en/transparency/reporting.html">Government-wide reporting</a></li>
-            <li><a href="http://pm.gc.ca/eng">Prime Minister</a></li>
-            <li><a href="https://www.canada.ca/en/government/system.html">How government works</a></li>
-            <li><a href="http://open.canada.ca/en/">Open government</a></li>
-        </ul>
-    </nav>
-    <div class="brand">
-        <div class="container">
-            <div class="row">
-                <nav class="col-md-10 ftr-urlt-lnk">
-                    <h2 class="wb-inv">About this site</h2>
-                    <ul>
-                        <li><a href="https://www1.canada.ca/en/contact/feedback.html">Feedback</a></li>
-                        <li><a href="https://www.canada.ca/en/social.html">Social media</a></li>
-                        <li><a href="https://www.canada.ca/en/mobile.html">Mobile applications</a></li>
-                        <li><a href="http://www1.canada.ca/en/newsite.html">About Canada.ca</a></li>
-                        <li><a href="https://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></li>
-                        <li><a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a></li>
-                    </ul>
-                </nav>
-                <div class="col-xs-6 visible-sm visible-xs tofpg">
-                    <a href="#wb-cont">Top of Page <span class="glyphicon glyphicon-chevron-up"></span></a>
-                </div>
-                <div class="col-xs-6 col-md-2 text-right">
-                    <object type="image/svg+xml" tabindex="-1" role="img" data="./../GCWeb/assets/wmms-blk.svg"
-                            aria-label="Symbol of the Government of Canada"></object>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+
+
 <!--[if gte IE 9 | !IE ]><!-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 <script src="./../wet-boew/js/wet-boew.min.js"></script>
@@ -242,12 +163,14 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/activityAppEXT-en_20170324_1559.min.js"></script>
+<script src="app/scripts/activityAppEXT-en_20170720_1412.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
 
 <script src="app/lib/FileSaver.min.js"></script>
+
+<script src="app/lib/focusIf.min.js"></script>
 
 <script src="app/lib/select.min.js"></script>
 

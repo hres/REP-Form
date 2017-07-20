@@ -9,8 +9,8 @@
   {"id":"B02-20160301-050","en":"NC (Notifiable Change)","fr":"NC (Préavis de modification)"},
   {"id":"B02-20160301-051","en":"NDS (New Drug Submission)","fr":"NDS (Présentation de drogue nouvelle)"},
   {"id":"B02-20160301-067","en":"PAND (Pandemic Application)","fr":"PAND (Demande pandémique)"},
-  {"id":"B02-20160301-068","en":"PBR-C ","fr":"PBR-C "},
-  {"id":"B02-20160301-069","en":"PBR-PV ","fr":"PBR-PV "},
+  {"id":"B02-20160301-068","en":"PBRER-C (Periodic Benefit Risk Evaluation Report - Confirmatory)","fr":"fr_PBRER-C (Periodic Benefit Risk Evaluation Report - Confirmatory) "},
+  {"id":"B02-20160301-069","en":"PBRER-PV (Periodic Benefit Risk Evaluation Report - Post-market Vigiliance)","fr":"fr_PBRER-PV (Periodic Benefit Risk Evaluation Report - Post-market Vigiliance)"},
   {"id":"B02-20160301-075","en":"PRNDS (Priority Request NDS)","fr":"PRNDS (Demande de statut d’évaluation prioritaire - PDN)"},
   {"id":"B02-20160301-077","en":"PRSNDS (Priority Request SNDS)","fr":"PRSNDS (Demande de statut d’évaluation prioritaire - SPDN)"},
   {"id":"B02-20160301-078","en":"PSUR-C (Periodic Safety Update Report - Conditional)","fr":"PSUR-C (Rapport périodique de pharmacovigilance - Conditionnel)"},
@@ -22,6 +22,13 @@
   {"id":"B02-20160301-087","en":"UD-PV (Undefined Data Pharmacovigilance)","fr":"UD-PV (Données non définies – Pharmacovigilance)"},
   {"id":"B02-20160301-088","en":"UDRA (Undefined Regulatory Activity)","fr":"UDRA (Activité réglementaire non définie)"},
   {"id":"B02-20160301-089","en":"YBPR (Yearly Biologic Product Report)","fr":"YBPR (Rapport annuel sur un produit biologique)"},
-  {"id":"DSUR","en":"DSUR (Development Safety Update Report)","fr":"DSUR (Development Safety Update Report)"}
+  {"id":"DSUR","en":"DSUR (Development Safety Update Report)","fr":"DSUR (Development Safety Update Report)"},
+  {"id":"DINA","en":"DINA (Application for Drug Identification Number)","fr":"fr_DINA (Application for Drug Identification Number)"},
+  {"id":"DINB","en":"DINB (Application for Drug Identification Number - Biologic)","fr":"fr_DINB (Application for Drug Identification Number - Biologic)"},
+  {"id":"DIND","en":"DIND (Application for Drug Identification Number - Disinfectant Product)","fr":"fr_DIND (Application for Drug Identification Number - Disinfectant Product)"},
+  {"id":"DINF","en":"DINF (Application for Drug Identification Number - Category IV Product)","fr":"fr_DINF (Application for Drug Identification Number - Category IV Product)"},
+  {"id":"MPDIN","en":"MPDIN (Pre-Submission Meeting Information)","fr":"fr_MPDIN (Pre-Submission Meeting Information)"},
+  {"id":"PDC","en":"PDC (Post-Authorization Division 1 Change)","fr":"PDC (Post-Authorization Division 1 Change)"},
+  {"id":"PDCB","en":"PDC-B (Post-Authorization Division 1 Change - Biologics)","fr":"fr_PDC-B (Post-Authorization Division 1 Change - Biologics)"}
 ]
 
