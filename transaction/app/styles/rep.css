@@ -175,3 +175,7 @@ input[type="date"] {
 .picker-toggle {
     margin-top: 5px !important;
 }
+
+.rep-close {
+    opacity: 0.7;
+}
