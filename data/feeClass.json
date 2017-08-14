@@ -1,13 +1,13 @@
 [
-  {"id":"FC1","en":"New active substance","fr":"Nouvelle substance active"},
-  {"id":"FC2","en":"Clinical or non-clinical data and chemistry and manufacturing data","fr":"Données cliniques ou non cliniques et données sur la chimie et la fabrication"},
-  {"id":"FC3","en":"Clinical or non-clinical data only","fr":"Données cliniques ou non cliniques seulement"},
-  {"id":"FC4","en":"Comparative studies","fr":"Études comparatives"},
-  {"id":"FC5","en":"Chemistry and manufacturing data only","fr":"Données sur la chimie et la fabrication seulement"},
-  {"id":"FC6","en":"Published data only","fr":"Données publiées seulement"},
-  {"id":"FC7","en":"Switch status from prescription drug to non-prescription drug","fr":"Déclassement d’une drogue sur ordonnance pour en faire une drogue en vente libre"},
-  {"id":"FC8","en":"Labelling only","fr":"Étiquetage seulement"},
-  {"id":"FC9","en":"Administrative submission","fr":"Présentation administrative"},
-  {"id":"FC10","en":"Disinfectants","fr":"Désinfectants"},
-  {"id":"FC11","en":"DIN application - labelling standards","fr":"Demande d’une identification numérique — normes d’étiquetage"}
+  {"id":"FC1","en":"New active substance","fr":"Nouvelle substance active","description_en":"Submissions in support of a drug, excluding a disinfectant, that contains a medicinal ingredient not previously approved in a drug for sale in Canada and that is not a variation of a previously approved ingredient such as a salt, ester, enantiomer, solvate or polymorph.","description_fr":"","fee":341770},
+  {"id":"FC2","en":"Clinical or non-clinical data and chemistry and manufacturing data","fr":"Données cliniques ou non cliniques et données sur la chimie et la fabrication","description_en":"Submissions based on clinical or non-clinical data and chemistry and manufacturing data that does not include a new active substance.","description_fr":"","fee":173106},
+  {"id":"FC3","en":"Clinical or non-clinical data only","fr":"Données cliniques ou non cliniques seulement","description_en":"Submissions based only on clinical or non-clinical data for a drug that does not include a new active substance.","description_fr":"","fee":80794},
+  {"id":"FC4","en":"Comparative studies","fr":"Études comparatives","description_en":"Submissions based on comparative studies [for example (e.g.) clinical or non-clinical data, bioavailability, pharmacokinetic and pharmacodynamic data] with or without chemistry and manufacturing data for a drug that does not include a new active substance.","description_fr":"","fee":48834},
+  {"id":"FC5","en":"Chemistry and manufacturing data only","fr":"Données sur la chimie et la fabrication seulement","description_en":"Submissions based only on chemistry and manufacturing data for a drug that does not include a new active substance.","description_fr":"","fee":23089},
+  {"id":"FC6","en":"Published data only","fr":"Données publiées seulement","description_en":"Submissions based only on published clinical or non-clinical data for a drug that does not include a new active substance.","description_fr":"","fee":19147},
+  {"id":"FC7","en":"Switch status from prescription drug to non-prescription drug","fr":"Déclassement d’une drogue sur ordonnance pour en faire une drogue en vente libre","description_en":"Submissions based only on data that support the amendment, or removal, of the reference to the medicinal ingredient on the Prescription Drug List that is applicable to the drug in question.","description_fr":"","fee":46491},
+  {"id":"FC8","en":"Labelling only","fr":"Étiquetage seulement", "description_en":"Submissions of labelling material (i.e. does not include supporting clinical or non-clinical data or chemistry and manufacturing data).","description_fr":"","fee":3111},
+  {"id":"FC9","en":"Administrative submission","fr":"Présentation administrative","description_en":"Submissions in support of a manufacturer or product name change.","description_fr":"","fee":324},
+  {"id":"FC10","en":"Disinfectants","fr":"Désinfectants","description_en":"Submissions and applications that include data in support of a disinfectant.","description_fr":"","fee":4305},
+  {"id":"FC11","en":"DIN application - labelling standards","fr":"Demande d’une identification numérique — normes d’étiquetage","description_en":"Applications attesting to compliance with a labelling standard or Category IV Monograph for a drug that does not include clinical or non-clinical data or chemistry and manufacturing data.","description_fr":"","fee":1726}
 ]
