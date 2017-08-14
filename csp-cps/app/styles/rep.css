@@ -179,3 +179,11 @@ input[type="date"] {
 .rep-close {
     opacity: 0.7;
 }
+.rep-link{
+    color: #0535d2;
+    text-decoration: underline;
+}
+ strong.required {
+    color: #d3080c !important;
+ font-weight: 700;
+}
