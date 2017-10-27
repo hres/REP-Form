@@ -25,7 +25,8 @@
                 // getNewContact: '&',
                 showListErrors: '&',
                 parentDirty: '<',
-                isAmend: '<'
+                isAmend: '<',
+                showErrorSummary:'<'
             }
         });
     contactListCtrl.$inject = ['$filter', 'RepContactService'];
@@ -41,13 +42,13 @@
         var repContactService = new RepContactService();
         vm.columnDef = [
             {
-                label: "FIRST_NAME",
+                label: "FIRSTNAME",
                 binding: "givenName",
                 width: "40"
             },
 
             {
-                label: "LAST_NAME",
+                label: "LASTNAME",
                 binding: "surname",
                 width: "40"
             },
@@ -75,6 +76,10 @@
             }
             if (changes.isAmend) {
                 vm.formAmend = changes.isAmend.currentValue;
+            }
+            if(changes.showErrorSummary){
+
+                vm.showSummmary=changes.showErrorSummary.currentValue;
             }
 
         };

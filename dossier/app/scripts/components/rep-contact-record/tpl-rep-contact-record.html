@@ -1,16 +1,21 @@
 <div class="container-fluid">
-    <ng-form name="contactRec.contactRecForm" novalidate="novalidate">
+    <ng-form name="contactRec.contactRecForm" id="{{::contactRec.repContactFormId}}" novalidate="novalidate">
         <div>
+            <cmp-error-summary form-ref="contactRec.contactRecForm" show-errors="contactRec.showErrors()"
+                               form-preamble="{{contactRec.contactModel.repRole |translate}} &nbsp;{{::'REP_CONTACT' |translate}}"
+                               name-suffix="contactRec.contactRecForm" set-heading-level="h3" form-id="contactRec.repContactFormId"
+                               make-focused="contactRec.setSummaryFocus" alias-list="contactRec.alias"
+                               update-errors="contactRec.updateSummary"></cmp-error-summary>
             <div>
                 <fieldset>
-                    <legend>{{contactRec.contactModel.repRole |translate}} &nbsp;{{'REP_CONTACT' |translate}}</legend>
+                    <legend>{{contactRec.contactModel.repRole |translate}} &nbsp;{{::'REP_CONTACT' |translate}}</legend>
                     <div class="row" ng-show="contactRec.formAmend">
                         <div class="col-sm-12 form-group">
                             <div class="checkbox">
                                 <label for="chkAmend_{{$id}}">
                                     <input type="checkbox" ng-model="contactRec.contactModel.amend" name="amendRecord"
                                            id="chkAmend_{{$id}}" ng-change="contactRec.setEditableState()"/>
-                                    {{'AMEND'|translate}}&nbsp;{{contactRec.contactModel.repRole|translate}}&nbsp;{{'REP_CONTACT'|translate}}
+                                    {{::'AMEND'|translate}}&nbsp;{{contactRec.contactModel.repRole|translate}}&nbsp;{{::'REP_CONTACT'|translate}}
                                 </label>
                             </div>
                         </div>
@@ -26,11 +31,11 @@
         </div>
         <div class="row">
             <div class="btn-group-sm col-xs-12 text-right">
-                <input type="submit" value="{{'SAVE_CONTACT' |translate}}" class="btn btn-primary" name="saveContact"
+                <input type="submit" value="{{::'SAVE_CONTACT' |translate}}" class="btn btn-primary" name="saveContact"
                        id="saveContact" ng-click="contactRec.updateContactModel()"/>
-                <input type="submit" value="{{'DELETE_CONTACT' |translate}}" class="btn btn-danger"
+                <input type="submit" value="{{::'DELETE_CONTACT' |translate}}" class="btn btn-danger"
                        ng-click="contactRec.delete()"/>
-                <input type="submit" value="{{'DISCARD_CHANGES'|translate}}" class="btn btn-default"
+                <input type="submit" value="{{::'DISCARD_CHANGES'|translate}}" class="btn btn-default"
                        ng-click="contactRec.discardChanges()"/>
             </div>
         </div>

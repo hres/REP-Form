@@ -127,7 +127,9 @@ $translateProvider.translations("en", {
   "HELP_thera":"Therapeutic Classification Instructions",
   "HELP_REFPRODUCTS":"Reference Product Instructions",
   "ADD_FORMULATION": "Add Formulation",
-  "SAVE_INSTRUCT":"Dossier File Save Instructions"
+  "SAVE_INSTRUCT":"Dossier File Save Instructions",
+  "REFPRODCTRL.PRODUCTDETAILSFORM":"in the Canadian Reference Product Record",
+  "CONTACTREC.CONTACTRECFORM":"in the REP contact record"
 });
 
 $translateProvider.translations("fr", {
@@ -164,7 +166,6 @@ $translateProvider.translations("fr", {
   "RELATED_DOSSIER": "fr_Related Dossier ID [if applicable]",
   "PROPER_NAME": "fr_Proper, Common or Non-Proprietary Name",
   "DRUG_USE": "fr_Drug Use",
-  "SCHED_A": "fr_This is a non-prescription drug to which one or more Schedule A claims apply",
   "SOURCED_ANIMAL": "fr_Provide the animal types used for this ingredient",
   "SPECIFY": "fr_Please specify the Other",
   "DETAILS": "fr_Details",
@@ -182,7 +183,7 @@ $translateProvider.translations("fr", {
   "HELP_thera":"fr_Therapeutic Classification Instructions",
   "HELP_REFPRODUCTS":"fr_Reference Product Instructions",
   "ADD_FORMULATION": "fr_Add Formulation",
-  "SAVE_INSTRUCT":"fr_Dossier File Save Instructions"
+  "SAVE_INSTRUCT":"fr_Dossier File Save Instructions",
 });
 
 $translateProvider.translations("en", {
@@ -223,40 +224,38 @@ $translateProvider.translations("en", {
   "MSG_ONE_SCHEDA": "At least one disease or disorder must be selected",
   "MSG_IS_REQUIRED": "is a required field.",
   "MSG_ERR_INVALID_NUM": "This is not a valid number.",
-  "MSG_ERR_ONE_ACTIVE": "At least one active ingredient is required.",
-  "MSG_ERR_ONE_CONTAINER":"At least one container type is required.",
-  "MSG_ERR_ONE_FORMULATION": "At least one formulation is required.",
-  "MSG_ERR_ONE_MANCOUNTRY": "At least one country of manufacture is required",
-  "MSG_ERR_ONE_ROA": "At least one route of administation is required",
-  "MSG_ERR_ONE_THERA": "At least one therapeutic classification is required",
+  "NO_ACTIVE": "At least one active ingredient is required.",
+  "NO_CONTAINER":"At least one container type is required.",
+  "NO_FORMULATION": "At least one formulation is required.",
+  "NO_COUNTRY": "At least one country of manufacture record is required",
+  "NO_ROA": "At least one Route of Administation is required",
+  "NO_THERAVAL": "At least one therapeutic classification record must be provided",
   "MSG_ERR_ONE_COUNTRY": "At least one country of origin is required",
-  "MSG_ERR_ONE_ROA": "At least one Route of Administration is required",
   "MSG_ERR_ONE_TISSUE": "At lease one Tissues of Fluids source is required",
   "MSG_ERR_ONE_CNTRY_ORIGIN": "At least one Country of origin is required",
   "MSG_ERR_ONE_CDN_REF": "At least one Canadian Reference product is required",
   "MSG_ERR_INVALID_NUM_MIN": "The value must be greater than -273",
   "MSG_ERR_INVALID_NUM_MAX": "The value must be less than 999",
   "MSG_ERR_INVALID_NUM_MIN0": "The value must be greater than 0",
-  "MSG_TISSUE_SYS_USED": "This system has been already been selected, please select another."
+  "MSG_TISSUE_SYS_USED": "This system has been already been selected, please select another.",
 });
 
 $translateProvider.translations("fr", {
   "MSG_APP4_TYPE": "fr_At least one source must be selected",
-  "MSG_ERR_ONE_SYSTEM": "fr_At least on tissue or fluid of origin must be selected",
+  "MSG_ERR_ONE_SYSTEM": "fr_At least one tissue or fluid of origin must be selected",
   "MSG_ERR_ONE_ANIMAL": "fr_At least one animal source must be selected",
-  "MSG_ERR_ONE_ANIMAL_TYPE": "fr_At least one animal type must be selected.",
-  "MSG_ERR_DRUG_USE": "fr_At least one drug use must be selected.",
-  "MSG_ONE_SCHEDA": "fr_At least one disease or disorder must be selected.",
+  "MSG_ERR_ONE_ANIMAL_TYPE": "fr_At least one animal type must be selected",
+  "MSG_ERR_DRUG_USE": "fr_At least one drug use must be selected",
+  "MSG_ONE_SCHEDA": "fr_At least one disease or disorder must be selected",
   "MSG_IS_REQUIRED": "fr_is a required field.",
-  "MSG_ERR_INVALID_NUM": "Veuillez fournir un numéro valide.",
-  "MSG_ERR_ONE_ACTIVE": "fr_At least one active ingredient is required.",
-  "MSG_ERR_ONE_CONTAINER":"fr_At least one container type is required.",
-  "MSG_ERR_ONE_FORMULATION":"fr_At least one formulation is required.",
-  "MSG_ERR_ONE_MANCOUNTRY": "fr_At least one country of manufacture is required",
-  "MSG_ERR_ONE_ROA": "fr_At least one route of administation is required",
-  "MSG_ERR_ONE_THERA": "fr_At least one therapeutic classification is required",
+  "MSG_ERR_INVALID_NUM": "fr_This is not a valid number.",
+  "NO_ACTIVE": "fr_At least one active ingredient is required.",
+  "NO_CONTAINER":"fr_At least one container type is required.",
+  "NO_FORMULATION": "fr_At least one formulation is required.",
+  "NO_COUNTRY": "fr_At least one country of manufacture record is required",
+  "NO_ROA": "fr_At least one Route of Administation is required",
+  "NO_THERAVAL": "fr_At least one therapeutic classification is required",
   "MSG_ERR_ONE_COUNTRY": "fr_At least one country of origin is required",
-  "MSG_ERR_ONE_ROA": "fr_At least one Route of Administration is required",
   "MSG_ERR_ONE_TISSUE": "fr_At lease one Tissues of Fluids source is required",
   "MSG_ERR_ONE_CNTRY_ORIGIN": "fr_At least one Country of origin is required",
   "MSG_ERR_ONE_CDN_REF": "fr_At least one Canadian Reference product is required",
@@ -271,7 +270,6 @@ $translateProvider.translations("en", {
   "BRAIN": "brain",
   "BRAINSTEM": "brain stem",
   "CEREBELLUM": "cerebellum",
-  "CEROFLUID": "cerebrospinal fluid",
   "CEROFLUID": "cerebrospinal fluid",
   "DORSALROOT": "dorsal root ganglia",
   "DURAMATER": "dura mater",
@@ -403,7 +401,10 @@ $translateProvider.translations("en", {
   "REPRODUCTIVE_DETAILS": "Other reproductive system details",
   "SKIN_DETAILS": "Other skin and glandular system details",
   "ADD_SOURCED":"Add Sourced Ingredient",
-  "DELETE_SOURCED":"Delete Sourced Ingredient"
+  "DELETE_SOURCED":"Delete Sourced Ingredient",
+  "AP4CTRL.APPENDIXFORM":"in the appendix tab",
+  "CMP-APPENDIX-FOUR-RECORD":"Human / Animal Sourced Record"
+
 });
 
 $translateProvider.translations("fr", {
@@ -535,7 +536,7 @@ $translateProvider.translations("fr", {
 });
 
 $translateProvider.translations("en", {
-  "ACUTEALCOHOL":"Acute Alcholisum",
+  "ACUTEALCOHOL":"Acute Alcoholism",
   "ACUTEANXIETY":"Acute anxiety state",
   "ACUTERESP":"Acute infectious respiratory syndromes",
   "ACUTEINFLAM":"Acute inflammatory and debilitating arthiritis",
@@ -566,7 +567,8 @@ $translateProvider.translations("en", {
   "UCLERGASTRO":"Ulcer of gastro-intestinal tract",
   "SCHEDA_CLAIMS": "Please list the schedule A Claims and Indications associated with this product",
   "SCHEDA_DISEASE": "Please check the diseases and disorders that apply to the claims made (select at least one)",
-  "ISSCHEDA": "This is a non-prescription drug to which one or more Schedule A claims apply"
+  "ISSCHEDA": "This is a non-prescription drug to which one or more Schedule A claims apply",
+  "SCHEDA_DETAILS":"Schedule A Claim Details"
 });
 
 $translateProvider.translations("fr", {
@@ -600,7 +602,8 @@ $translateProvider.translations("fr", {
   "UCLERGASTRO":"Ulcères des voies gastro-intestinales",
   "SCHEDA_CLAIMS":"Indiquer les allégations et indications de l’annexe A associées avec ce produit",
   "SCHEDA_DISEASE": "fr_Please check the diseases and disorders that apply to the claims made (select at least one)",
-  "ISSCHEDA": "Ce médicament en vente libre auquel une ou plusieurs allégations de l’annexe A s’appliquent"
+  "ISSCHEDA": "Ce médicament en vente libre auquel une ou plusieurs allégations de l’annexe A s’appliquent",
+  "SCHEDA_DETAILS":"fr_Schedule A Claim Details"
 
 });
 
@@ -655,7 +658,16 @@ $translateProvider.translations("en", {
   "SOURCED_INFO":"Please provide additional details of this ingredient / material on the Animal / Human Source tab.",
   "DELETE_FORMULATION":  "Delete Formulation",
   "COPY_FORMULATION":"Copy formulation",
-  "ADD_FORMULATION":"Add formulation"
+  "ADD_FORMULATION":"Add formulation",
+  "SELECT_DOSAGE":"Select a dosage form",
+  "SELECT_ROA":"Choose a Route of Administration",
+  "ADD_CONTAINER":"Add Container Type",
+  "ADD_INGREDIENT":"Add Ingredient",
+  "CMP-FORMULATION-RECORD":"in formulation record",
+  "INGRECCTRL.ACTIVEINGFORM":"in the active ingredient details",
+  "NINGRECCTRL.NONMEDINGFORM":"in the non-medicinal ingredient details",
+  "CTRCTRL.CONTAINERTYPEFORM":"in the container type details",
+  "FORMULCTRL.FORMULATIONSFORM":"in the formulations tab"
 });
 
 $translateProvider.translations("fr", {
@@ -710,7 +722,14 @@ $translateProvider.translations("fr", {
   "SOURCED_INFO": "fr_Please provide additional details of this ingredient/material on the Animal/Human Source tab.",
   "DELETE_FORMULATION": "fr_Delete Formulation",
   "COPY_FORMULATION": "fr_Copy formulation",
-  "ADD_FORMULATION":"fr_Add formulation"
+  "ADD_FORMULATION":"fr_Add formulation",
+  "SELECT_DOSAGE":"fr_Select a dosage form",
+  "SELECT_ROA":"fr_Choose a Route of Administration",
+  "ADD_CONTAINER":"fr_Add Container Type",
+  "CMP-FORMULATION-RECORD":"fr_ in formulation record",
+  "INGRECCTRL.ACTIVEINGFORM":"fr_in the active ingredient details",
+  "NINGRECCTRL.NONMEDINGFORM":"fr_in the nom-medicinal ingredient details",
+  "FORMULCTRL.FORMULATIONSFORM":"in the formulations tab"
 });
 
 $translateProvider.translations("en", {
@@ -728,11 +747,11 @@ $translateProvider.translations("en", {
   "en": "English",
   "fr": "French",
   "DISCARD_CHANGES": "Discard Changes",
-  "REP_ALT": "Alternate REP contact",
-  "REP_PRIM": "Primary REP contact",
+  "REPSECONDARY": "Alternate REP contact",
+  "REPPRIMARY": "Primary REP contact",
   "MAILING": "Regulatory Mailing / Annual Contact",
   "BILLING": "Billing Address",
-  "MANUFACT": "Manufacturer / Sponsor Mailing Address",
+  "MANUFACTURER": "Manufacturer / Sponsor Mailing Address",
   "IMPORTER": "Canadian Importer Mailing Address",
   "APPROVE_FINAL": "Approve Final XML",
   "SAVE_DRAFT": "Save Draft for Filing",
@@ -750,7 +769,8 @@ $translateProvider.translations("en", {
   "UNKNOWN": "Unknown",
   "BIOLOGIC": "Biologic",
   "PHARMACEUTICAL": "Pharmaceutical",
-  "HELP_FILE_LOAD": "File Load Instructions",
+  "HELP_FILE_LOAD": "file load instructions",
+  "EXPAND": "Expand",
   "HELP_ACTIVITY_MAIN": "Activity Instructions",
   "HELP_ACTIVITY_REP": "REP Contact Instructions",
   "CALENDAR": "Pick date from calendar",
@@ -758,10 +778,15 @@ $translateProvider.translations("en", {
   "OTHER": "Other",
   "HELP_REP_CONTACT": "REP Contact Instructions",
   "OTHER_UNITS": "Units other details",
-  "COMPANY_NOABBREV":"Company Name (Full legal name - no abbreviations)",
+  "COMPANYNAME":"Company Name (Full legal name - no abbreviations)",
   "COPY":"Copy",
   "DELETE":"Delete",
-  "SAVE_WORKING":"Save Working Copy"
+  "SAVE_WORKING":"Save Working Copy",
+  "COMPANY_NOABBREV": "Company Name (Full legal Name - no abbreviations)",
+  "CLOSE_ALERT":"Collapse instructions",
+  "COLLAPSE":"Collapse",
+  "SAVE_RECORD":"Save Record",
+  "DELETE_RECORD":"Delete Record"
 });
 
 $translateProvider.translations("fr", {
@@ -779,17 +804,17 @@ $translateProvider.translations("fr", {
   "en": "Anglais",
   "fr": "Français",
   "DISCARD_CHANGES": "fr_Discard Changes",
-  "REP_ALT": "fr_Alternate REP contact",
-  "REP_PRIM": "fr_Primary REP contact",
+  "REPSECONDARY": "fr_Alternate REP contact",
+  "REPPRIMARY": "fr_Primary REP contact",
   "MAILING": "Contact pour le courrier réglementaire",
   "BILLING": "fr_Billing",
-  "MANUFACT": "fr_Manufacturer",
+  "MANUFACTURER": "fr_Manufacturer",
   "IMPORTER": "Importateur canadien",
-  "APPROVE_FINAL": "fr_Approve Final XML",
+  "APPROVE_FINAL": "Approuver XML final",
   "PRIMARY": "fr_Primary",
   "SECONDARY": "fr_Alternate",
   "TOGGLE_EXPAND": "fr_Click to toggle collapse or expand details of row",
-  "SAVE_DRAFT": "fr_Save Draft for filing",
+  "SAVE_DRAFT": "Enregistrer le brouillon",
   "CONTROL_NUMBER": "fr_Control Number",
   "REP_CONTACT_INFO": "fr_Main Contact Information",
   "SAVE_CONTACT": "fr_Save Contact",
@@ -801,6 +826,7 @@ $translateProvider.translations("fr", {
   "BIOLOGIC": "fr_Biologic",
   "PHARMACEUTICAL": "fr_Pharmaceutical",
   "HELP_FILE_LOAD": "fr_File Load Instructions",
+  "EXPAND": "fr_Expand",
   "HELP_ACTIVITY_MAIN": "fr_Activity Instructions",
   "HELP_ACTIVITY_REP": "fr_REP Contact Instructions",
   "CALENDAR": "fr_Pick date from calendar",
@@ -808,10 +834,15 @@ $translateProvider.translations("fr", {
   "OTHER": "Autre",
   "HELP_REP_CONTACT": "fr_REP Contact Instructions",
   "OTHER_UNITS": "fr_Units other details",
-  "COMPANY_NOABBREV":"fr_Company Name (Full legal name - no abbreviations)",
+  "COMPANYNAME":"fr_Company Name (Full legal name - no abbreviations)",
   "COPY":"fr_Copy",
   "DELETE":"fr_Delete",
-  "SAVE_WORKING":"fr_Save Working Copy"
+  "SAVE_WORKING":"Enregistrer une copie de travail",
+  "COMPANY_NOABBREV": "fr_Company Name (Full legal Name - no abbreviations)",
+  "CLOSE":"Minimiser les instructions",
+  "COLLAPSE":"Minimiser les",
+  "SAVE_RECORD":"fr_Save Record",
+  "DELETE_RECORD":"fr_Delete Record"
 });
 
 $translateProvider.translations("en", {
@@ -826,14 +857,14 @@ $translateProvider.translations("en", {
 });
 
 $translateProvider.translations("fr", {
-  "SELECT_LOAD": "fr_Select a data file to load",
-  "MSG_SUCCESS_LOAD": "fr_The file was loaded successfully",
-  "MSG_ERR_JSONPARSE": "fr_Error: there was an error parsing the working file.",
-  "MSG_ERR_XMLPARSE": "fr_Error: there was an error parsing the draft XML file.",
-  "MSG_ERR_FILE_LOAD": "fr_Error: there was a problem loading the file.",
-  "MSG_ERR_FILE_TYPE": "fr_Error: An invalid file type was selected.",
-  "MSG_ERR_FORM_TYPE": "fr_Error: the wrong form type was selected for this form.",
-  "MSG_ERR_CHECKSUM_FAIL": "fr_Error: the checksum in the file does not match the calculated checksum"
+  "SELECT_LOAD": "Sélectionnez un fichier à charger",
+  "MSG_SUCCESS_LOAD": "Le fichier a été chargé avec succès",
+  "MSG_ERR_JSONPARSE": "Erreur: il y a eu une erreur en analysant le fichier de travail.",
+  "MSG_ERR_XMLPARSE": "Erreur: il y avait une erreur d'analyse du projet de fichier XML,",
+  "MSG_ERR_FILE_LOAD": "Erreur: il y a eu un problème lors du chargement du fichier.",
+  "MSG_ERR_FILE_TYPE": "Erreur: un type de fichier invalide a été sélectionné.",
+  "MSG_ERR_FORM_TYPE": "Erreur: le type de formulaire incorrect a été sélectionné pour ce formulaire.",
+  "MSG_ERR_CHECKSUM_FAIL": "Erreur: La somme de contrôle dans le fichier ne correspond pas à la somme de contrôle calculée."
 });
 
 $translateProvider.translations("en", {
@@ -846,8 +877,8 @@ $translateProvider.translations("en", {
 
 $translateProvider.translations("fr", {
   "APPL_STATUS": "fr_Application Status",
-  "ENROL_VERSION": "fr_Enrolment Version",
-  "DATE_SAVED": "fr_Date Last Saved",
+  "ENROL_VERSION": "Version d’inscription",
+  "DATE_SAVED": "Date du dernier enregistrement",
   "AMEND_ENROL": "fr_Amend Enrolment",
   "AMEND_MSG":"fr_Edit records to be amended below."
 });
@@ -857,7 +888,8 @@ $translateProvider.translations("en", {
   "MSG_ERR_EMAIL_FORMAT": "Please enter a valid email address.",
   "MSG_ERR_ROLE": "Please select at least one role",
   "MSG_ERR_CONTACT_NUM": "All the roles have to be used for the contacts",
-  "MSG_ERR_PHONE_FORMAT": "Please specify a valid phone number",
+  "MSG_ERR_PHONE_FORMAT": "Specify a valid phone number",
+  "MSG_ERR_FAX_FORMAT":"Specify a valid fax number",
   "MSG_ERR_ALLROLE": "The roles of manufacturer, mailing, billing, and primary REP contact  have not all been selected among the list of contacts",
   "MSG_ERR_ADDRESSSROLE": "The roles of manufacturer, mailing, and billing have not all been selected among the list of addresses",
   "MSG_ERR_POSTAL": "Please specify a valid postal code.",
@@ -876,47 +908,52 @@ $translateProvider.translations("en", {
   "MSG_LENGTH_8NUM": "Please enter 8 digits.",
   "MSG_LENGTH_7": "Please enter 7 characters.",
   "MSG_LENGTH_7NUM": "Please enter 7 digits.",
-  "MSG_ERR_ONE_REP": "At least one contact is required.",
+  "ONE_REP": "At least one contact is required.",
   "MSG_ERR_ONE_LIFE_REC": "One lifecycle record is required.",
   "MSG_ERR_RATIONALE_SEL": "Please select at least one rationale.",
-  "MSG_ERR_NOTIF_SEL": "Please select at least one notifiable change."
+  "MSG_ERR_NOTIF_SEL": "Please select at least one notifiable change.",
+  "MSG_ERR_MIN_POS": "Must be a positive number",
+  "MSG_ERR_MAX": "Exceeds the maximum"
 });
 
 $translateProvider.translations("fr", {
   "MSG_ERR_MAND": "Ce champ est obligatoire.",
   "MSG_ERR_EMAIL_FORMAT": "Veuillez fournir une adresse électronique valide.",
   "MSG_ERR_CONTACT_NUM": "fr_All the roles have to be used for the company contacts",
-  "MSG_ERR_PHONE_FORMAT": "fr_Please specify a valid phone number",
+  "MSG_ERR_PHONE_FORMAT": "Veuillez fournir un numéro de téléphone valide.",
+  "MSG_ERR_FAX_FORMAT":"Veuillez fournir un numéro de télécopieur valide.",
   "MSG_ERR_ALLROLE": "fr_Across the contact records, the roles of manufacturer, mailing, billing, and REP primary contact must be selected",
   "MSG_ERR_ADDRESSSROLE": "fr_The roles of manufacturer, mailing, and billing have not all been selected among the list of addresses",
-  "MSG_ERR_POSTAL": "fr_Please specify a valid postal code.",
-  "MSG_ERR_ZIP": "fr_Please specify a valid zip code.",
-  "MSG_ERR_DATE_FORMAT": "fr_The date format is incorrect.",
+  "MSG_ERR_POSTAL": "Veuillez fournir un code postal valide.",
+  "MSG_ERR_ZIP": "Veuillez fournir un code postal valide.",
+  "MSG_ERR_DATE_FORMAT": "Veuillez fournir une une date valide.",
   "MANUFACT_SEL": "fr_Manufacturer Role already Selected",
   "MAIL_SEL": "fr_Mailing Role already Selected",
   "BILLING_SEL": "fr_Billing Role already Selected",
   "IMPORTER_SEL": "fr_Importer Role already Selected",
   "REPPRIM_SEL": "fr_REP Primary Role already Selected",
   "REPALT_SEL": "fr_REP Alternate Role already Selected",
-  "MSG_LENGTH_MIN5": "fr_Please enter at least 5 digits",
-  "MSG_LENGTH_6": "fr_Please enter 6 characters.",
-  "MSG_LENGTH_6NUM": "fr_Please enter 6 digits.",
-  "MSG_LENGTH_8NUM": "fr_Please enter 8 digits.",
-  "MSG_LENGTH_7": "fr_Please enter 7 characters.",
-  "MSG_LENGTH_7NUM": "fr_Please enter 7 digits.",
-  "MSG_ERR_ONE_REP": "fr_At least one contact is required.",
-  "MSG_ERR_ONE_LIFE_REC": "fr_One lifecycle record is required.",
-  "MSG_ERR_RATIONALE_SEL": "fr_Please select at least one rationale.",
-  "MSG_ERR_NOTIF_SEL": "fr_Please select at least one notifiable change."
-}
-);
+  "MSG_LENGTH_MIN5": "Veuillez fournir au moins 5 chiffres.",
+  "MSG_LENGTH_6": "Veuillez fournir au moins 6 caractères.",
+  "MSG_LENGTH_6NUM": "Veuillez fournir 6 chiffres.",
+  "MSG_LENGTH_8NUM": "Veuillez fournir 8 chiffres.",
+  "MSG_LENGTH_7": "Veuillez fournir 7 caractères.",
+  "MSG_LENGTH_7NUM": "Veuillez fournir  7 chiffres.",
+  "ONE_REP": "Au moins un contact est requis",
+  "MSG_ERR_ONE_LIFE_REC": "Un enregistrement de cycle de vie est nécessaire",
+  "MSG_ERR_RATIONALE_SEL": "Veuillez sélectionner au moins une justification",
+  "MSG_ERR_NOTIF_SEL": "Sélectionnez au moins un changement de déclaration",
+  "MSG_ERR_MIN_POS": "Doit être un nombre positif",
+  "MSG_ERR_MAX": "Dépasse le maximum."
+
+});
 
 $translateProvider.translations("en", {
-  "FIRST_NAME": "First Name",
-  "LAST_NAME": "Last Name",
+  "FIRSTNAME": "First Name",
+  "LASTNAME": "Last Name",
   "INITIALS": "Initials",
-  "LANGUAGE_CORRESPONDENCE": "Language of Correspondance",
-  "JOB_TITLE": "Job Title",
+  "LANGCORRESPOND": "Language of Correspondance",
+  "JOBTITLE": "Job Title",
   "SALUTATION": "Salutation",
   "SALUT_MR": "Mr.",
   "SALUT_MS": "Ms.",
@@ -924,11 +961,11 @@ $translateProvider.translations("en", {
   "SALUT_MRS": "Mrs.",
   "ROLE_PRIMARY": "Primary",
   "ROLE_SECONDARY": "Alternate",
-  "EMAIL":  "Email",
+  "CONTACTEMAIL":  "Email",
   "FAX_NUMBER": "Fax Number",
   "PHONE_EXT": "Phone Extension",
   "ROLES": "Roles",
-  "PHONE_NUMBER": "Phone Number",
+  "PHONENUMBER": "Phone Number",
   "CONTACT_INFO": "Company Representative Information",
   "AMEND": "Amend",
   "REP_CONTACT":  "REP Contact",
@@ -942,11 +979,11 @@ $translateProvider.translations("en", {
 });
 
 $translateProvider.translations("fr", {
-  "FIRST_NAME": "Prénom",
-  "LAST_NAME": "Nom",
-  "INITIALS": "Initials",
-  "LANGUAGE_CORRESPONDENCE": "Langue de Correspondance",
-  "JOB_TITLE": "Job Title",
+  "FIRSTNAME": "Prénom",
+  "LASTNAME": "Nom",
+  "INITIALS": "Initiales",
+  "LANGCORRESPOND": "Langue de correspondance",
+  "JOBTITLE": "Titre de poste",
   "SALUTATION": "Titre de civilité",
   "SALUT_MR": "M.",
   "SALUT_MS": "Mme",
@@ -954,11 +991,11 @@ $translateProvider.translations("fr", {
   "SALUT_MRS": "Mlle",
   "ROLE_PRIMARY": "Primaire",
   "ROLE_SECONDARY": "Alterner",
-  "EMAIL": "Courriel",
+  "CONTACTEMAIL": "Adresse électronique",
   "FAX_NUMBER": "Numéro de télécopieur",
-  "PHONE_EXT": "Numéro de poste",
+  "PHONE_EXT": "Poste",
   "ADDR_ROLES":"fr_Roles",
-  "PHONE_NUMBER": "Numéro de téléphone",
+  "PHONENUMBER": "Numéro de téléphone",
   "CONTACT_INFO": "fr_Company Representative Information",
   "AMEND": "fr_Amend",
   "REP_CONTACT":  "fr_REP Contact",
@@ -966,5 +1003,59 @@ $translateProvider.translations("fr", {
   "CONTACT_DETAILS": "fr_Company Representative Details",
   "ADD_CONTACT": "fr_Add REP Contact",
   "CONTACT_ROLE_LEGEND": "fr_Select one or more roles for this company representative"
+});
+
+$translateProvider.translations("en", {
+  "FOR_THE":"For the ",
+  "THERE_ARE_ERRORS":"There are errors",
+  "ERRORS_FOUND":"errors were found.",
+  "ERROR_FOUND":"error was found.",
+  "TYPE_REQUIRED":"This field is required.",
+  "TYPE_EMAIL":"Please enter a valid email address.",
+  "TYPE_DUPLICATEROLE": "This role has already been selected.",
+  "TYPE_MINLENGTH": "Less than minimum length",
+  "POSTAL_FORMAT": "Please enter a valid format",
+  "TYPE_MIN": "Must be greater than the minimum",
+  "TYPE_DATE":"Please enter a valid date",
+  "TYPE_NUMBER":"Please enter a valid number"
+});
+
+$translateProvider.translations("fr", 
+
+{
+"FOR_THE":"Pour le ",
+"THERE_ARE_ERRORS":"Il y a des erreurs",
+"ERRORS_FOUND":"erreurs ont été trouvées.",
+"ERROR_FOUND":"erreur a été trouvée.",
+"TYPE_REQUIRED":"Ce champ est obligatoire.",
+"TYPE_EMAIL":"Veuillez fournir une adresse électronique valide.",
+"TYPE_DUPLICATEROLE": "Ce rôle a déjà été sélectionné.",
+"TYPE_MINLENGTH": "Moins de longueur minimale.",
+"POSTAL_FORMAT": "Entrez un format valide.",
+"TYPE_MIN": "Doit être supérieur au minimum.",
+"TYPE_DATE":"Veuillez fournir une une date valide.",
+  "TYPE_NUMBER":"Veuillez fournir un numéro valide."
+});
+
+$translateProvider.translations("en", {
+
+  "LOAD_DRUGPROD":"Load a Drug Product File",
+  "INFO_DRUGPROD":"Drug Product Information",
+  "DRUGPROD":"Drug Product",
+  "TYPE_DRUGPROD":"Drug Product Type",
+  "SCHED_DIN":"Schedule A DIN Number",
+  "FAKE.APPENDIX_MISSING_ERROR":"with the Human /Animal Sourced Records, missing source",
+  "FAKE.APPENDIX_EXTRA_ERROR":"with the Human /Animal Sourced Records, extra source"
+});
+
+$translateProvider.translations("fr", {
+
+  "LOAD_DRUGPROD":"fr_Load a Drug Product File",
+  "INFO_DRUGPROD":"fr_Drug Product Information",
+  "DRUGPROD":"fr_Drug Product",
+  "TYPE_DRUGPROD":"fr_Drug Product Type",
+  "SCHED_DIN":"fr_Schedule A DIN Number"
+
+
 });
 }]);

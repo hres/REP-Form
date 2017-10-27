@@ -19,10 +19,11 @@
     angular
         .module('dossierService')
         .factory('DossierService', DossierService);
-    DossierService.$inject = ['DossierLists', '$translate', '$filter','getCountryAndProvinces', 'OTHER','UNKNOWN'];
-    function DossierService(DossierLists, $translate, $filter,getCountryAndProvinces, OTHER, UNKNOWN) {
-        var yesValue = 'Y';
-        var noValue = 'N';
+    DossierService.$inject = ['DossierLists', '$translate', '$filter', 'getCountryAndProvinces', 'OTHER', 'UNKNOWN', 'YES', 'NO'];
+
+    function DossierService(DossierLists, $translate, $filter, getCountryAndProvinces, OTHER, UNKNOWN, YES, NO) {
+        var yesValue = YES;
+        var noValue = NO;
 
         // Define the DossierService objecy
         function DossierService() {
@@ -44,7 +45,7 @@
                 enrolmentVersion: "0.00",
                 dateSaved: "",
                 applicationType: "NEW",
-                softwareVersion: "1.0.0",
+                softwareVersion: "1.2.0",
                 dataChecksum: "",
                 dossierType: "",
                 productName: "",
@@ -52,15 +53,16 @@
                 isRefProducts: "",
                 drugProduct: {
                     thirdPartySigned: "",
-                    drugUseList: getDefaultDrugUseList(),
-                    isScheduleA: false,
-                    scheduleAGroup: getDefaultSchedA(),
+                    //drugUseList: getDefaultDrugUseList(),
+                    drugUse: "",
+                   // isScheduleA: false,
+                    //scheduleAGroup: getDefaultSchedA(),
                     therapeutic: [],
-                    canRefProducts: [],//grid
-                    formulations: [],//tab + grid +
-                    appendixFourList: []/*{
-                     ingredientList:[]
-                     }//tab + grid +*/
+                    canRefProducts: []//grid
+                   // formulations: [],//tab + grid +
+                   // appendixFourList: []/*{
+                   //  ingredientList:[]
+                  //   }//tab + grid +*/
 
                 },
                 contactList: []
@@ -73,15 +75,18 @@
 
             },
             loadFromFile: function (info) {
-
+                var rootTag=this.getRootTagName();
                 if (!info)
                     return this._default;
 
-                if (!info['DOSSIER_ENROL'])
+                if (!info[rootTag])
                     return this._default;
 
-                info = info['DOSSIER_ENROL'];
-
+                info = info[rootTag];
+                var drugUseValue ="";
+                if(info.drug_use) {
+                    drugUseValue = info.drug_use.__text;
+                }
                 var dossierModel = {
                     dossierID: info.dossier_id,
                     companyID: info.company_id,
@@ -97,29 +102,28 @@
                     isRefProducts: info.is_ref_products,
                     drugProduct: {
                         thirdPartySigned: info.third_party_signed,
-                        drugUseList: loadDrugUseValues(info),
-                        isScheduleA: info.is_sched_a === 'Y',
-                        therapeutic:[] ,
+                       // drugUseList: loadDrugUseValues(info),
+                        drugUse: $filter('findListItemById')(DossierLists.getDrugUseList(), {id: drugUseValue}),
+                       // isScheduleA: info.is_sched_a === 'Y',
+                        therapeutic: [],
                         canRefProducts: getCanRefProductList(info.ref_product_list.cdn_ref_product),//grid
-                        formulations: getFormulationList(info.formulation_group.formulation_details),//tab + grid +
-                        appendixFourList: getAppendix4IngredientList(info.appendix4_group)
-
-
+                       // formulations: getFormulationList(info.formulation_group.formulation_details),//tab + grid +
+                        //appendixFourList: getAppendix4IngredientList(info.appendix4_group)
                     },
                     contactList: getContactList(info.contact_record)
 
                 };
-                if(info.therapeutic_class_list.therapeutic_class) {
+                if (info.therapeutic_class_list.therapeutic_class) {
                     dossierModel.drugProduct.therapeutic = getTherapeuticList(info.therapeutic_class_list.therapeutic_class)
                 }
-                dossierModel.drugProduct.scheduleAGroup = getDefaultSchedA();//always create the default for the forms
+               // dossierModel.drugProduct.scheduleAGroup = getDefaultSchedA();//always create the default for the forms
                 //dossierModel.drugProduct.drugUseList=loadDrugUseValues(info);
 
-                if (info.schedule_a_group) {
+               /* if (info.schedule_a_group) {
                     dossierModel.drugProduct.scheduleAGroup.drugIdNumber = info.schedule_a_group.din_number;
                     dossierModel.drugProduct.scheduleAGroup.scheduleAClaimsIndDetails = info.schedule_a_group.sched_a_claims_ind_details;
                     getDiseaseDisorderList(info.schedule_a_group, dossierModel.drugProduct.scheduleAGroup.diseaseDisorderList);
-                }
+                }*/
 
                 return dossierModel;
 
@@ -155,13 +159,22 @@
             baseDossier.ref_product_list = {};
             //  baseDossier.ref_product_list.amend_record = "N" //TODO implement this functionality?
             //initialize values and order
-            baseDossier.human_drug_use = 'N';
-            baseDossier.radiopharm_drug_use = 'N';
-            baseDossier.vet_drug_use = 'N';
-            baseDossier.disinfectant_drug_use = 'N';
-            drugUseValuesToOutput(jsonObj.drugProduct.drugUseList, baseDossier);
+           // baseDossier.human_drug_use = 'N';
+           // baseDossier.radiopharm_drug_use = 'N';
+           // baseDossier.vet_drug_use = 'N';
+            //baseDossier.disinfectant_drug_use = 'N';
+            if(jsonObj.drugProduct.drugUse) {
+                baseDossier.drug_use = {
+                    _label_en: jsonObj.drugProduct.drugUse.en,
+                    _label_fr: jsonObj.drugProduct.drugUse.fr,
+                    __text: jsonObj.drugProduct.drugUse.id
+                };
+            }else{
+                baseDossier.drug_use="";
+            }
+            //drugUseValuesToOutput(jsonObj.drugProduct.drugUseList, baseDossier);
             baseDossier.therapeutic_class_list = {};
-            baseDossier.is_sched_a = jsonObj.drugProduct.isScheduleA === true ? 'Y' : 'N';
+           // baseDossier.is_sched_a = jsonObj.drugProduct.isScheduleA === true ? 'Y' : 'N';
 
             if (jsonObj.drugProduct.therapeutic && jsonObj.drugProduct.therapeutic.length > 0) {
                 baseDossier.therapeutic_class_list.therapeutic_class = therapeuticClassToOutput(jsonObj.drugProduct.therapeutic);
@@ -170,12 +183,12 @@
             if (jsonObj.drugProduct.canRefProducts && jsonObj.drugProduct.canRefProducts.length > 0) {
                 baseDossier.ref_product_list.cdn_ref_product = canRefProductListToOutput(jsonObj.drugProduct.canRefProducts)
             }
-            if (jsonObj.drugProduct.isScheduleA) {
+           /* if (jsonObj.drugProduct.isScheduleA) {
                 baseDossier.schedule_a_group = scheduleAToOutput(jsonObj.drugProduct.scheduleAGroup);
-            }
-            if (jsonObj.drugProduct) {
+            }*/
+            /*if (jsonObj.drugProduct) {
                 var appendix4 = appendix4IngredientListToOutput(jsonObj.drugProduct.appendixFourList);
-                if (appendix4 && appendix4.length>0) {
+                if (appendix4 && appendix4.length > 0) {
                     baseDossier.appendix4_group = appendix4;
                 }
                 var formulations = formulationListToOutput(jsonObj.drugProduct.formulations);
@@ -183,7 +196,7 @@
                 if (formulations) {
                     baseDossier.formulation_group.formulation_details = formulations;
                 }
-            }
+            }*/
             //forgot to add root tag!
             return {DOSSIER_ENROL: baseDossier};
 
@@ -278,8 +291,8 @@
 
             if (angular.isDefined(contacts)) {
 
-                if(!(contacts instanceof Array)){
-                    contacts=[contacts];
+                if (!(contacts instanceof Array)) {
+                    contacts = [contacts];
                 }
 
                 for (var i = 0; i < contacts.length; i++) {
@@ -307,119 +320,21 @@
         }
 
         /**
-         * Get diseaseDisorderList
+         * Get diseaseDisorderList from the xml fiel
          * @param info
          * @param diseaseList
          * @returns {*}
          */
-        function getDiseaseDisorderList(info, diseaseList) {
+        function getDiseaseDisorderList(info, diseaseListModel) {
 
-            if (!info || !diseaseList) return;
-            for (var i = 0; i < diseaseList.length; i++) {
-                var checkboxRec = diseaseList[i];
-                switch (checkboxRec.name) {
-                    case "acute-alcohol":
-                        checkboxRec.value = info.acute_alcohol === 'Y';
-                        break;
-                    case "acute-anxiety":
-                        checkboxRec.value = info.acute_anxiety === 'Y';
-                        break;
-                    case "acute-infectious":
-                        checkboxRec.value = info.acute_infectious === 'Y';
-                        break;
-                    case "acute-inflammatory":
-                        checkboxRec.value = info.acute_inflammatory === 'Y';
-                        break;
-                    case "acute-psychotic":
-                        checkboxRec.value = info.acute_psychotic === 'Y';
-                        break;
-                    case "addiction":
-                        checkboxRec.value = info.addiction === 'Y';
-                        break;
-                    case "ateriosclerosis":
-                        checkboxRec.value = info.ateriosclerosis === 'Y';
-                        break;
-                    case "appendicitis":
-                        checkboxRec.value = info.appendicitis === 'Y';
-                        break;
-                    case "asthma":
-                        checkboxRec.value = info.asthma === 'Y';
-                        break;
+            if (!info || !diseaseListModel) return;
 
-                    case "cancer":
-                        checkboxRec.value = info.cancer === 'Y';
-                        break;
-                    case "congest-heart-fail":
-                        checkboxRec.value = info.congest_heart_fail === 'Y';
-                        break;
-                    case "convulsions":
-                        checkboxRec.value = info.convulsions === 'Y';
-                        break;
-
-                    case "dementia":
-                        checkboxRec.value = info.dementia === 'Y';
-                        break;
-
-                    case "depression":
-                        checkboxRec.value = info.depression === 'Y';
-                        break;
-
-                    case "diabetes":
-                        checkboxRec.value = info.diabetes === 'Y';
-                        break;
-
-                    case "gangrene":
-                        checkboxRec.value = info.gangrene === 'Y';
-                        break;
-
-                    case "glaucoma":
-                        checkboxRec.value = info.glaucoma === 'Y';
-                        break;
-
-                    case "haematologic-bleeding":
-                        checkboxRec.value = info.haematologic_bleeding === 'Y';
-                        break;
-
-                    case "hepatitis":
-                        checkboxRec.value = info.hepatitis === 'Y';
-                        break;
-
-                    case "hypertension":
-                        checkboxRec.value = info.hypertension === 'Y';
-                        break;
-
-                    case "nausea-pregnancy":
-                        checkboxRec.value = info.nausea_pregnancy === 'Y';
-                        break;
-
-                    case "obesity":
-                        checkboxRec.value = info.obesity === 'Y';
-                        break;
-                    case "rheumatic-fever":
-                        checkboxRec.value = info.rheumatic_fever === 'Y';
-                        break;
-                    case "septicemia":
-                        checkboxRec.value = info.septicemia === 'Y';
-                        break;
-                    case "sex-transmit-disease":
-                        checkboxRec.value = info.sex_transmit_disease === 'Y';
-                        break;
-                    case "strangulated-hernia":
-                        checkboxRec.value = info.strangulated_hernia === 'Y';
-                        break;
-                    case "thrombotic-embolic-disorder":
-                        checkboxRec.value = info.thrombotic_embolic_disorder === 'Y';
-                        break;
-                    case "thyroid-disease":
-                        checkboxRec.value = info.thyroid_disease === 'Y';
-                        break;
-                    case "ulcer-gastro":
-                        checkboxRec.value = info.ulcer_gastro === 'Y';
-                        break;
-
-                }
+            var keys = Object.keys(info);
+            for (var i=0;i<keys.length;i++) {
+                diseaseListModel[keys[i]] = (info[keys[i]] === 'Y');
             }
-            return diseaseList;
+
+            return diseaseListModel;
         }
 
 
@@ -429,13 +344,15 @@
                 input = [input];
             }
             if (input) {
-                list=[];
+                list = [];
                 for (var i = 0; i < input.length; i++) {
-                    var item = {
-                        "id": "" + i + 1,
-                        "name": input[i]
-                    };
-                    list.push(item);
+                    if (angular.isString(input[i])&&input[i].length>0) {
+                        var item = {
+                            "id": ( i + 1),
+                            "name": input[i]
+                        };
+                        list.push(item);
+                    }
                 }
             }
             return list;
@@ -447,7 +364,7 @@
         function getCanRefProductList(info) {
             var list = [];
 
-            if (angular.isDefined(info)) {
+            if (angular.isString(info)&& info.length>0) {
                 if (!(info instanceof Array)) {
                     //make it an array, case there is only one
                     info = [info]
@@ -456,23 +373,34 @@
                 for (var i = 0; i < info.length; i++) {
                     var product = {};
                     product.brandName = info[i].brand_name;
-                    product.ingId= info[i].ingredient_id;
+                    product.ingId = info[i].ingredient_id;
                     product.ingLabel = info[i].ingredient_name;
-                    product.autoIngred="Y";
+                    product.autoIngred = YES;
 
                     if (!product.ingId) {
-                        product.autoIngred = 'N'
+                        product.autoIngred = NO;
                     }
 
                     product.dosageForm = "";
                     if (info[i].dosage_form) {
-                        product.dosageForm = $filter('filter')(DossierLists.getDosageFormList(), {id: info[i].dosage_form.__text})[0];
+
+                        var dosageValue = DossierLists.getDosageFormPrefix() + info[i].dosage_form.__text; //add the prefix
+                        //if other revert the value. OTHER value never has a prefix
+                        if (info[i].dosage_form.__text === OTHER) {
+                            dosageValue = info[i].dosage_form.__text;
+                        }
+                        product.dosageForm = $filter('findListItemById')(DossierLists.getDosageFormList(), {id: dosageValue});
                     }
                     product.dosageFormOther = info[i].dosage_form_other;
                     product.strengths = Number(info[i].strengths);
                     product.units = "";
                     if (info[i].units) {
-                        product.units = $filter('filter')(DossierLists.getUnitsList(), {id: info[i].units.__text})[0];
+                        var unitsValue = DossierLists.getUnitsPrefix() + info[i].units.__text; //add the prefix
+                        //if other revert the value. OTHER value never has a prefix
+                        if (info[i].units.__text === OTHER) {
+                            unitsValue = info[i].units.__text;
+                        }
+                        product.units = $filter('findListItemById')(DossierLists.getUnitsList(), {id: unitsValue});
                     }
                     product.otherUnits = info[i].units_other;
                     product.per = info[i].per;
@@ -488,32 +416,36 @@
 
         }
 
-
+        /**
+         * Loads all the external appendix 4 information into the internal data model
+         * @param info - the 'external type' formatted json object
+         * @returns {Array}
+         */
         function getAppendix4IngredientList(info) { //info = dossier.appendixFour.ingredientList
             var list = [];
             //TODO externalize
             var getCountries = function (input) {
                 var list = [];
-                if(!(input instanceof Array)){
-                    input=[input];
+                if (!(input instanceof Array)) {
+                    input = [input];
                 }
                 for (var i = 0; i < input.length; i++) {
 
-                   var obj = {
+                    var obj = {
                         "id": i,
-                        "country":"",
-                        "display":"",
-                        "unknownCountryDetails":""
+                        "country": "",
+                        "display": "",
+                        "unknownCountryDetails": ""
                     };
-                    if( input[i].country_with_unknown.__text===UNKNOWN){
+                    if (input[i].country_with_unknown.__text === UNKNOWN) {
                         obj.country = getCountryAndProvinces.getUnknownCountryRecord();
-                    }else {
-                        obj.country = $filter('filter')(getCountryAndProvinces.getCountries(), {id:  input[i].country_with_unknown.__text})[0];
+                    } else {
+                        obj.country = $filter('filter')(getCountryAndProvinces.getCountries(), {id: input[i].country_with_unknown.__text})[0];
                     }
-                    if(obj.country){
-                        obj.display=obj.country.id
+                    if (obj.country) {
+                        obj.display = obj.country.id
                     }
-                    obj.unknownCountryDetails=input[i].unknown_country_details;
+                    obj.unknownCountryDetails = input[i].unknown_country_details;
                     list.push(obj);
                 }
                 return list;
@@ -521,8 +453,8 @@
 
             if (angular.isDefined(info)) {
 
-                if (!(info instanceof Array)){
-                    info=[info];
+                if (!(info instanceof Array)) {
+                    info = [info];
                 }
                 for (var i = 0; i < info.length; i++) {
                     var ing = {};
@@ -550,8 +482,8 @@
                         ing.sourceAnimalDetails.ageAnimals = Number(info[i].animal_sourced_section.animal_age);
                         //var animalSrcObj=info[i].sourceAnimalDetails;
                         var animalTypeList = info[i].animal_sourced_section.animal_src_record;
-                        if (!(animalTypeList instanceof Array)){
-                            animalTypeList=[animalTypeList];
+                        if (!(animalTypeList instanceof Array)) {
+                            animalTypeList = [animalTypeList];
                         }
                         for (var srcCount = 0; srcCount < animalTypeList.length; srcCount++) { //TODO function?
                             var oneRec = animalTypeList[srcCount];
@@ -604,7 +536,7 @@
                 if (!item.dosage_form_group.dosage_form) {
                     obj.dosageForm = item.dosage_form_group.dosage_form;
                 } else {
-                    var dosageFormObj = $filter('filter')(DossierLists.getDosageFormList(), {id: item.dosage_form_group.dosage_form.__text})[0];
+                    var dosageFormObj = $filter('findListItemById')(DossierLists.getDosageFormList(), {id: DossierLists.getDosageFormPrefix() + item.dosage_form_group.dosage_form.__text});
                     obj.dosageForm = dosageFormObj;
                 }
 
@@ -617,24 +549,34 @@
                 obj.dosageFormOther = item.dosage_form_group.dosage_form_other;
                 if (item.nonmedicinal_ingredient) {
                     obj.nMedIngList = getNonMedIngList(item.nonmedicinal_ingredient);
+                } else {
+                    obj.nMedIngList = [];
                 }
                 if (item.active_ingredient) {
                     obj.activeIngList = getActiveIngList(item.active_ingredient);
+                } else {
+                    obj.animalHumanMaterials = [];
                 }
                 //container_group is static but do a check to be safe
                 if (item.container_group && item.container_group.container_details) {
                     obj.containerTypes = getContainerTypeList(item.container_group.container_details);
-                }else{
-                    obj.containerTypes=[];
+                } else {
+                    obj.containerTypes = [];
                 }
                 if (item.material_ingredient) {
                     obj.animalHumanMaterials = getMaterialList(item.material_ingredient);
+                } else {
+                    obj.animalHumanMaterials = [];
                 }
                 if (item.roa_group && item.roa_group.roa_details) {
                     obj.routeAdmins = getRouteAdminList(item.roa_group.roa_details);
+                } else {
+                    obj.routeAdmins = [];
                 }
                 if (item.country_group && item.country_group.country_manufacturer) {
                     obj.countryList = getFormulationCountryList(item.country_group.country_manufacturer);
+                } else {
+                    obj.countryList = [];
                 }
                 formulationList.push(obj);
             });
@@ -643,6 +585,11 @@
 
         }
 
+        /**
+         * Loads all the active ingredient records into the internal Data model
+         * @param list
+         * @returns {Array}
+         */
         function getActiveIngList(list) {
 
             var resultList = [];
@@ -655,32 +602,40 @@
                 var obj = {
                     "ingId": item.ingredient_id,
                     "ingLabel": item.ingredient_name,
-                    "autoIngred": "N",
+                    "autoIngred": YES,
                     "cas": item.cas_number,
                     "humanAnimalSourced": item.is_human_animal_src,
                     "standard": item.ingred_standard,
                     "strength": Number(item.strength),
                     "per": item.per,
                     "units": "",
+                    "otherUnits": item.units_other,
                     "calcAsBase": item.is_base_calc,
-                    "nanoMaterial":"",
+                    "nanoMaterial": "",
                     "nanoMaterialOther": item.nanomaterial_details
                 };
 
                 if (item.units) {
-                    var unitsObj = $filter('filter')(DossierLists.getUnitsList(), {id: item.units.__text})[0];
-                    obj.units = unitsObj;
-                }
-                if( item.is_nanomaterial){
-                    var nanoValue=DossierLists.getNanoPrefix()+item.is_nanomaterial.__text;
-                    if(item.is_nanomaterial.__text===OTHER){
-                        nanoValue=item.is_nanomaterial.__text;
+                    var unitsValue = DossierLists.getUnitsPrefix() + item.units.__text; //add the prefix
+                    //if other revert the value. OTHER value never has a prefix
+                    if (item.units.__text === OTHER) {
+                        unitsValue = item.units.__text;
                     }
-                    obj.nanoMaterial=$filter('filter')(DossierLists.getNanoMaterials() , {id: nanoValue})[0];
+                    obj.units = $filter('findListItemById')(DossierLists.getUnitsList(), {id: unitsValue});
+                }
+                if (item.is_nanomaterial) {
+                    //prefixed so need to do things differently than units
+                    var nanoValue = DossierLists.getNanoPrefix() + item.is_nanomaterial.__text;
+                    if (item.is_nanomaterial.__text === OTHER) {
+                        nanoValue = item.is_nanomaterial.__text;
+                    }
+                    obj.nanoMaterial = $filter('findListItemById')(DossierLists.getNanoMaterials(), {id: nanoValue});
                 }
                 // used to identify if the ingredient is not from the type ahead lookup
                 if (!obj.ingId) {
-                    obj.autoIngred = 'N'
+                    obj.autoIngred = NO
+                } else {
+                    obj.autoIngred = YES;
                 }
                 resultList.push(obj);
 
@@ -709,21 +664,27 @@
                     "strength": Number(item.strength),
                     "per": item.per,
                     "units": "",
+                    "otherUnits": item.units_other,
                     "calcAsBase": item.is_base_calc,
-                    "nanoMaterial":"",
+                    "nanoMaterial": "",
                     "nanoMaterialOther": item.nanomaterial_details
                 };
 
                 if (item.units) {
-                    obj.units = $filter('filter')(DossierLists.getUnitsList(), {id: item.units.__text})[0];
-                }
-                if( item.is_nanomaterial){
-                    //prefixed so need to do things differently than units
-                    var nanoValue=DossierLists.getNanoPrefix()+item.is_nanomaterial.__text;
-                    if(item.is_nanomaterial.__text===OTHER){
-                        nanoValue=item.is_nanomaterial.__text;
+                    var unitsValue = DossierLists.getUnitsPrefix() + item.units.__text; //add the prefix
+                    //if other revert the value. OTHER value never has a prefix
+                    if (item.units.__text === OTHER) {
+                        unitsValue = item.units.__text;
                     }
-                   obj.nanoMaterial=$filter('filter')(DossierLists.getNanoMaterials() , {id: nanoValue})[0];
+                    obj.units = $filter('findListItemById')(DossierLists.getUnitsList(), {id: unitsValue});
+                }
+                if (item.is_nanomaterial) {
+                    //prefixed so need to do things differently than units
+                    var nanoValue = DossierLists.getNanoPrefix() + item.is_nanomaterial.__text;
+                    if (item.is_nanomaterial.__text === OTHER) {
+                        nanoValue = item.is_nanomaterial.__text;
+                    }
+                    obj.nanoMaterial = $filter('findListItemById')(DossierLists.getNanoMaterials(), {id: nanoValue});
                 }
 
                 resultList.push(obj);
@@ -792,7 +753,11 @@
             var _id = 0;
 
             angular.forEach(list, function (item) {
-                var roaObj = $filter('filter')(DossierLists.getRoa(), {id: item.roa.__text})[0];
+                var roaValue = DossierLists.getRoaPrefix() + item.roa.__text;
+                if (item.roa.__text === OTHER) {
+                    roaValue = item.roa.__text;
+                }
+                var roaObj = $filter('findListItemById')(DossierLists.getRoa(), {id: roaValue});
                 _id = _id + 1;
                 var obj = {
                     "id": _id,
@@ -825,17 +790,17 @@
 
                 var obj = {
                     "id": _id,
-                    "country":"",
-                    "display":"",
-                    "unknownCountryDetails":""
+                    "country": "",
+                    "display": "",
+                    "unknownCountryDetails": ""
                 };
-                if(item.__text===UNKNOWN){
+                if (item.__text === UNKNOWN) {
                     obj.country = getCountryAndProvinces.getUnknownCountryRecord();
-                }else {
+                } else {
                     obj.country = $filter('filter')(getCountryAndProvinces.getCountries(), {id: item.__text})[0];
                 }
-                if(obj.country){
-                    obj.display=obj.country.id
+                if (obj.country) {
+                    obj.display = obj.country.id
                 }
                 resultList.push(obj);
             });
@@ -856,11 +821,19 @@
                 for (var i = 0; i < info.length; i++) {
                     var product = {};
                     product.brand_name = info[i].brandName;
-                   // product.medicinal_ingredient = info[i].medIngredient;
-                    product.ingredient_id= info[i].ingId;
-                    product.ingredient_name = info[i].ingLabel;
-                    //make dosage form with both english and french labels
+                    // product.medicinal_ingredient = info[i].medIngredient;
 
+                    //BUG Fix April 10, 2017
+                    // This fixes data issues where ingredient is not on the list
+                    //id should be empty in this case
+                    if (info[i].ingId && (info[i].ingId !== info[i].ingLabel)) {
+                        product.ingredient_id = "";
+                        product.ingredient_name = info[i].ingLabel;
+                    } else {
+                        product.ingredient_id = info[i].ingId;
+                        product.ingredient_name = info[i].ingLabel;
+                    }
+                    //make dosage form with both english and french labels
                     if (info[i].dosageForm) {
                         var splitArray = (info[i].dosageForm.id).split(DossierLists.getDosageFormPrefix()); //needed to remove the internal uniqueness
                         var newDosage = splitArray[splitArray.length - 1];
@@ -970,12 +943,12 @@
                         countryRecord.country_with_unknown = {
                             _label_en: "",
                             _label_fr: "",
-                            __text:  ""
+                            __text: ""
                         };
-                        if( countries[v].country){
-                            countryRecord.country_with_unknown._label_en= countries[v].country.en;
-                            countryRecord.country_with_unknown._label_fr= countries[v].country.fr;
-                            countryRecord.country_with_unknown.__text= countries[v].country.id;
+                        if (countries[v].country) {
+                            countryRecord.country_with_unknown._label_en = countries[v].country.en;
+                            countryRecord.country_with_unknown._label_fr = countries[v].country.fr;
+                            countryRecord.country_with_unknown.__text = countries[v].country.id;
                         }
 
                         countryRecord.unknown_country_details = countries[v].unknownCountryDetails;
@@ -1064,12 +1037,12 @@
                     "units": "",
                     "units_other": item.otherUnits,
                     "is_base_calc": item.calcAsBase,
-                    "is_nanomaterial":"",
+                    "is_nanomaterial": "",
                     "nanomaterial_details": item.nanoMaterialOther
                 };
                 //item.units
                 obj.units = _unitsFldToOutput(item.units, DossierLists.getUnitsPrefix());
-                obj.is_nanomaterial=_unitsFldToOutput(item.nanoMaterial, DossierLists.getNanoPrefix());
+                obj.is_nanomaterial = _unitsFldToOutput(item.nanoMaterial, DossierLists.getNanoPrefix());
 
                 resultList.push(obj);
             });
@@ -1128,7 +1101,7 @@
                     "nanomaterial_details": item.nanoMaterialOther
                 };
                 obj.units = _unitsFldToOutput(item.units, DossierLists.getUnitsPrefix());
-                obj.is_nanomaterial=_unitsFldToOutput(item.nanoMaterial, DossierLists.getNanoPrefix());
+                obj.is_nanomaterial = _unitsFldToOutput(item.nanoMaterial, DossierLists.getNanoPrefix());
 
                 resultList.push(obj);
             });
@@ -1187,7 +1160,7 @@
             var resultList = [];
             angular.forEach(list, function (item) {
                 //check to see if this is an object. If not it was empty
-                if(angular.isObject(item.roa)) {
+                if (angular.isObject(item.roa)) {
                     var splitArray = (item.roa.id).split(DossierLists.getRoaPrefix()); //needed to remove the internal uniqueness
                     var newRoa = splitArray[splitArray.length - 1];
                     //roa is a field with 2 attributes
@@ -1214,7 +1187,7 @@
 
             var resultList = [];
             angular.forEach(list, function (item) {
-                var country= {
+                var country = {
                     _label_en: item.country.en,
                     _label_fr: item.country.fr,
                     __text: item.country.id
@@ -1256,7 +1229,9 @@
             var resultList = [];
             for (var i = 0; i < jsonObj.length; i++) {
                 //TODO save the ids??
-                resultList.push(jsonObj[i].name);
+                if (angular.isString(jsonObj[i].name)&&jsonObj[i].name.length>0) {
+                    resultList.push(jsonObj[i].name);
+                }
             }
             return (resultList);
         }
@@ -1265,109 +1240,10 @@
             var result = createEmptyScheduleAForOutput();
             result.din_number = jsonObj.drugIdNumber;
             var disorderList = jsonObj.diseaseDisorderList;
-            for (var i = 0; i < disorderList.length; i++) {
-                switch (disorderList[i].name) {
-                    case "acute-alcohol":
-                        result.acute_alcohol = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-                    case "acute-anxiety":
-                        result.acute_anxiety = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-                    case "acute-infectious":
-                        result.acute_infectious = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-                    case "acute-inflammatory":
-                        result.acute_inflammatory = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-                    case "acute-psychotic":
-                        result.acute_psychotic = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-                    case "addiction":
-                        result.addiction = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-                    case "ateriosclerosis":
-                        result.ateriosclerosis = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-                    case "appendicitis":
-                        result.appendicitis = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-                    case "asthma":
-                        result.asthma = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-                    case "cancer":
-                        result.cancer = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-                    case "congest-heart-fail":
-                        result.congest_heart_fail = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-                    case "convulsions":
-                        result.convulsions = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-                    case "dementia":
-                        result.dementia = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-                    case "depression":
-                        result.depression = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-                    case "diabetes":
-                        result.diabetes = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-
-                    case "gangrene":
-                        result.gangrene = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-                    case "glaucoma":
-                        result.glaucoma = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-
-                    case "haematologic-bleeding":
-                        result.haematologic_bleeding = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-
-                    case "hepatitis":
-                        result.hepatitis = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-
-                    case "hypertension":
-                        result.hypertension = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-
-                    case "nausea-pregnancy":
-                        result.nausea_pregnancy = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-
-                    case "obesity":
-                        result.obesity = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-
-                    case "rheumatic-fever":
-                        result.rheumatic_fever = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-
-                    case "septicemia":
-                        result.septicemia = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-
-                    case "sex-transmit-disease":
-                        result.sex_transmit_disease = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-
-                    case "strangulated-hernia":
-                        result.strangulated_hernia = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-
-                    case "thrombotic-embolic-disorder":
-                        result.thrombotic_embolic_disorder = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-                    case "thyroid-disease":
-                        result.thyroid_disease = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-
-                    case "ulcer-gastro":
-                        result.ulcer_gastro = disorderList[i].value === true ? 'Y' : 'N';
-                        break;
-
-                }
+            var keys = Object.keys(result);
+            console.log("keys "+keys.length)
+            for (var i=0;i<keys.length;i++) {
+                result[keys[i]] = (disorderList[keys[i]] === true ? 'Y' : 'N');
             }
             result.sched_a_claims_ind_details = jsonObj.scheduleAClaimsIndDetails;
             return (result);
@@ -1526,40 +1402,41 @@
          */
         function getDefaultDiseaseDisorderList() {
             var noModelValue = false;
-            return [
-                {name: "acute-alcohol", label: "ACUTEALCOHOL", value: noModelValue},
-                {name: "acute-anxiety", label: "ACUTEANXIETY", value: noModelValue},
-                {name: "acute-infectious", label: "ACUTERESP", value: noModelValue},
-                {name: "acute-inflammatory", label: "ACUTEINFLAM", value: noModelValue},
-                {name: "acute-psychotic", label: "ACUTEPSYCHOTIC", value: noModelValue},
-                {name: "addiction", label: "ADDICTION", value: noModelValue},
-                {name: "ateriosclerosis", label: "ATERIOSCLEROSIS", value: noModelValue},
-                {name: "appendicitis", label: "APPENDICITIS", value: noModelValue},
-                {name: "asthma", label: "ASTHMA", value: noModelValue},
-                {name: "cancer", label: "CANCER", value: noModelValue},
-                {name: "congest-heart-fail", label: "HEARTCONGEST", value: noModelValue},
-                {name: "convulsions", label: "CONVULSIONS", value: noModelValue},
-                {name: "dementia", label: "DEMENTIA", value: noModelValue},
-                {name: "depression", label: "DEPRESSION", value: noModelValue},
-                {name: "diabetes", label: "DIABETES", value: noModelValue},
-                {name: "gangrene", label: "GANGRENE", value: noModelValue},
-                {name: "glaucoma", label: "GLAUCOMA", value: noModelValue},
-                {name: "haematologic-bleeding", label: "BLEEDINGDISORDERS", value: noModelValue},
-                {name: "hepatitis", label: "HEPATITIS", value: noModelValue},
-                {name: "hypertension", label: "HYPERTENSION", value: noModelValue},
-                {name: "nausea-pregnancy", label: "NAUSEAPREG", value: noModelValue},
-                {name: "obesity", label: "OBESITY", value: noModelValue},
-                {name: "rheumatic-fever", label: "RHEUMATICFEVER", value: noModelValue},
-                {name: "septicemia", label: "SEPTICEMIA", value: noModelValue},
-                {name: "sex-transmit-disease", label: "SEXDISEASE", value: noModelValue},
-                {name: "strangulated-hernia", label: "STRANGHERNIA", value: noModelValue},
-                {name: "thrombotic-embolic-disorder", label: "THROMBOTICDISORDER", value: noModelValue},
-                {name: "thyroid-disease", label: "THYROIDDISEASE", value: noModelValue},
-                {name: "ulcer-gastro", label: "UCLERGASTRO", value: noModelValue}
-            ];
+            return (
 
-        }
-
+            {
+                "acute_alcohol": false,
+                "acute_anxiety": false,
+                "acute_infectious": false,
+                "acute_inflammatory": false,
+                "acute_psychotic": false,
+                "addiction": false,
+                "ateriosclerosis": false,
+                "appendicitis": false,
+                "asthma": false,
+                "cancer": false,
+                "congest_heart_fail": false,
+                "convulsions": false,
+                "dementia": false,
+                "depression": false,
+                "diabetes": false,
+                "gangrene": false,
+                "glaucoma": false,
+                "haematologic_bleeding": false,
+                "hepatitis": false,
+                "hypertension": false,
+                "nausea_pregnancy": false,
+                "obesity": false,
+                "rheumatic_fever": false,
+                "septicemia": false,
+                "sex_transmit_disease": false,
+                "strangulated_hernia": false,
+                "thrombotic_embolic_disorder": false,
+                "thyroid_disease": false,
+                "ulcer_gastro": false
+            }
+            );
+        };
         /*
          * Returns an empty list of drug uses
          *

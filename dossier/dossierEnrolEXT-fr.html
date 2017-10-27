@@ -3,25 +3,40 @@
 <html class="no-js" lang="fr" dir="ltr">
 <!--<![endif]-->
 <head>
+    <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-fr.js"></script>
+    <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+    <script type="text/javascript">
+        document.write(wet.builder.refTop({
+            cdnEnv:"prod"
+        }));
+    </script>
+
+    <noscript>
+        <!-- /ROOT/cdts/static/top-en.html-->
+        <!-- #include virtual="/cdts/static/top-fr.html"-->
+    </noscript>
+
     <meta charset="utf-8">
-    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
-    wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <!--No cache-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+
     <title>fr_Health Canada Dossier Template</title>
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <!-- Meta data -->
-    <meta name="description"
-          content="La Boîte à outils de l’expérience Web (BOEW) rassemble différents composants réutilisables et prêts-à-utiliser pour la conception et la mise à jour de sites Web innovateurs qui sont à la fois accessibles, conviviaux et interopérables. Tous ces composants réutilisables sont des logiciels libres mis à la disposition des ministères et des collectivités Web externes.">
+    <meta name="description" content="REP Forms">
     <!-- Meta data-->
     <!--[if gte IE 9 | !IE ]><!-->
-    <link href="./GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon">
-    <link rel="stylesheet" href="./GCWeb/css/theme.min.css">
+    <link href="./../GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="./../GCWeb/css/theme.min.css">
     <!--<![endif]-->
     <!--[if lt IE 9]>
-    <link href="./GCWeb/assets/favicon.ico" rel="shortcut icon"/>
+    <link href="./../GCWeb/assets/favicon.ico" rel="shortcut icon"/>
 
-    <link rel="stylesheet" href="./GCWeb/css/ie8-theme.min.css"/>
+    <link rel="stylesheet" href="./../GCWeb/css/ie8-theme.min.css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="./wet-boew/js/ie8-wet-boew.min.js"></script>
+    <script src="./../wet-boew/js/ie8-wet-boew.min.js"></script>
     <![endif]-->
     <!--[if lte IE 9]>
 
@@ -35,7 +50,7 @@
     <link rel="stylesheet" href="app/styles/select2.min.css">
     <!-- endinject -->
     <noscript>
-        <link rel="stylesheet" href="./wet-boew/css/noscript.min.css"/>
+        <link rel="stylesheet" href="./../wet-boew/css/noscript.min.css"/>
     </noscript>
     <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
     <script>dataLayer1 = [];</script>
@@ -64,89 +79,28 @@
         <a class="wb-sl" href="#wb-info">Passer à «&#160;À propos de ce site&#160;»</a>
     </li>
 </ul>
-<header role="banner">
-    <div id="wb-bnr" class="container">
-        <!--<section id="wb-lng" class="visible-md visible-lg text-right">
-        <h2 class="wb-inv">Sélection de la langue</h2>
-        <div class="row">
-        <div class="col-md-12">
-        <ul class="list-inline margin-bottom-none">
-        <li><a lang="en" href="content-en.html">English</a></li>
-        </ul>
-        </div>
-        </div>
-        </section>-->
-        <div class="row">
-            <div class="brand col-xs-8 col-sm-9 col-md-6">
-                <a href="http://www.canada.ca/fr/index.html">
-                    <object type="image/svg+xml" tabindex="-1" data="./GCWeb/assets/sig-blk-fr.svg"></object>
-                    <span class="wb-inv"> Gouvernement du Canada</span></a>
-            </div>
-            <section class="wb-mb-links col-xs-4 col-sm-3 visible-sm visible-xs" id="wb-glb-mn">
-                <h2>Recherche et menus</h2>
-                <ul class="list-inline text-right chvrn">
-                    <li><a href="#mb-pnl" title="Recherche et menus" aria-controls="mb-pnl" class="overlay-lnk"
-                           role="button"><span class="glyphicon glyphicon-search"><span
-                            class="glyphicon glyphicon-th-list"><span
-                            class="wb-inv">Recherche et menus</span></span></span></a></li>
-                </ul>
-                <div id="mb-pnl"></div>
-            </section>
-            <section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg">
-<h2>Recherche</h2>
-<form action="#" method="post" name="cse-search-box" role="search" class="form-inline">
-<div class="form-group">
-<label for="wb-srch-q" class="wb-inv">Recherchez le site Web</label>
-<input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="27" maxlength="150" placeholder="Rechercher dans Canada.ca">
-<datalist id="wb-srch-q-ac">
-<!--[if lte IE 9]><select><![endif]-->
-<!--[if lte IE 9]></select><![endif]-->
-</datalist>
+<div id="def-top">
 </div>
-<div class="form-group submit">
-<button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub"><span class="glyphicon-search glyphicon"></span><span class="wb-inv">Recherche</span></button>
-</div>
-</form>
-</section>
-        </div>
-    </div>
-    <nav role="navigation" id="wb-sm" data-ajax-replace="./ajax/sitemenu-fr.html" data-trgt="mb-pnl"
-         class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
-        <div class="container nvbar">
-            <h2>Menu des sujets</h2>
-
-            <div class="row">
-                <ul class="list-inline menu">
-                    <li><a href="http://www.edsc.gc.ca/fr/emplois/index.page">Emplois</a></li>
-                    <li><a href="http://www.cic.gc.ca/francais/index.asp">Immigration</a></li>
-                    <li><a href="http://voyage.gc.ca">Voyage</a></li>
-                    <li><a href="http://www.canada.ca/fr/services/entreprises/index.html">Entreprises</a></li>
-                    <li><a href="http://www.canada.ca/fr/services/prestations/index.html">Prestations</a></li>
-                    <li><a href="http://canadiensensante.gc.ca/index-fra.php">Santé</a></li>
-                    <li><a href="http://www.canada.ca/fr/services/impots/index.html">Impôts</a></li>
-                    <li><a href="http://www.canada.ca/fr/services/index.html">Autres services</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <nav role="navigation" id="wb-bc" property="breadcrumb">
-        <h2>Vous êtes ici :</h2>
-
-        <div class="container">
-            <div class="row">
-                <ol class="breadcrumb">
-                    <li><a href="https://lam-dev.hres.ca/rep-dev/index-fr.html">Accueil</a></li>
-                </ol>
-            </div>
-        </div>
-    </nav>
-</header>
+<script type="text/javascript">
+    var defTop=document.getElementById("def-top");
+    defTop.outerHTML=wet.builder.top({
+        cdnEnv:"prod",
+        breadcrumbs: [{title: "Accueil", href: "https://lam-dev.hres.ca/rep-dev/index-fr.html"}],
+        lngLinks:[{
+            lang:"en",
+            href:"",
+            text:"English"
+        }]
+    })
+</script>
 <main role="main" property="mainContentOfPage" class="container">
 
     <!--content starts here -->
     <div>
         <h1 property="name" id="wb-cont">fr_Dossier Template: Regulatory Enrolment Process (REP)</h1>
-
+        <noscript>
+            <h2>JavaScript doit être activé pour remplir ce formulaire</h2>
+        </noscript>
         <!-- inject:mainContent-->
         <div class="container" id="app-root" ng-app="dossierApp" ng-controller="MainController as ctrl">
     <cmp-dossier form-type="{{ctrl.formType}}"></cmp-dossier>
@@ -154,80 +108,38 @@
 
         <!-- endinject-->
 
-
     </div>
     <!--content ends here -->
-
-    <div class="datemod col-xs-12 mrgn-tp-lg">
-        <dl id="wb-dtmd">
-            <dt>Date de modification&#160;:&#32;</dt>
-            <dd>
-                <time property="dateModified">2017-03-17 </time>
-            </dd>
-        </dl>
+    <div id="def-preFooter">
     </div>
-
+    <script type="text/javascript">
+        var defPreFooter=document.getElementById("def-preFooter");
+        defPreFooter.outerHTML=wet.builder.preFooter({
+            cdnEnv:"prod",
+            dateModified:"2017-10-27",
+            showShare:false,
+            showFeedback:false
+        })
+    </script>
 </main>
-<aside class="gc-nttvs container">
-    <h2>Activités et initiatives du gouvernement du Canada</h2>
+<div id="def-footer">
 
-    <div id="gcwb_prts" class="wb-eqht row wb-init wb-data-ajax-replace-inited wb-eqht-inited"
-         data-ajax-append="https://cdn.canada.ca/gcweb-cdn-live/features/features-fr.html">
-
-    </div>
-</aside>
-<footer role="contentinfo" id="wb-info">
-    <nav role="navigation" class="container wb-navcurr">
-        <h2 class="wb-inv">Au sujet du gouvernement</h2>
-        <ul class="list-unstyled colcount-sm-2 colcount-md-3">
-            <li><a href="https://www.canada.ca/fr/contact.html">Contactez-nous</a></li>
-            <li><a href="https://www.canada.ca/fr/gouvernement/min.html">Ministères et organismes</a></li>
-            <li><a href="https://www.canada.ca/fr/gouvernement/fonctionpublique.html">Fonction publique et force
-                militaire</a></li>
-            <li><a href="http://nouvelles.gc.ca/">Nouvelles</a></li>
-            <li><a href="https://www.canada.ca/fr/gouvernement/systeme/lois.html">Traités, lois et règlements</a></li>
-            <li><a href="https://www.canada.ca/fr/transparence/rapports.html">Rapports à l'échelle du gouvernement</a>
-            </li>
-            <li><a href="http://pm.gc.ca/fra">Premier ministre</a></li>
-            <li><a href="https://www.canada.ca/fr/gouvernement/systeme.html">Comment le gouvernement fonctionne</a></li>
-            <li><a href="http://ouvert.canada.ca/">Gouvernement ouvert</a></li>
-        </ul>
-    </nav>
-    <div class="brand">
-        <div class="container">
-            <div class="row">
-                <nav class="col-md-10 ftr-urlt-lnk">
-                    <h2 class="wb-inv">À propos du site</h2>
-                    <ul>
-                        <li><a href="https://www1.canada.ca/fr/contact/retroaction.html">Rétroaction</a></li>
-                        <li><a href="https://www.canada.ca/fr/sociaux.html">Médias sociaux</a></li>
-                        <li><a href="https://www.canada.ca/fr/mobile.html">Applications mobiles</a></li>
-                        <li><a href="http://www1.canada.ca/fr/nouveausite.html">À propos de Canada.ca</a></li>
-                        <li><a href="https://www.canada.ca/fr/transparence/avis.html">Avis</a></li>
-                        <li><a href="https://www.canada.ca/fr/transparence/confidentialite.html">Confidentialité</a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="col-xs-6 visible-sm visible-xs tofpg">
-                    <a href="#wb-cont">Haut de la page <span class="glyphicon glyphicon-chevron-up"></span></a>
-                </div>
-                <div class="col-xs-6 col-md-2 text-right">
-                    <object type="image/svg+xml" tabindex="-1" role="img" data="./GCWeb/assets/wmms-blk.svg"
-                            aria-label="Symbole du gouvernement du Canada"></object>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+</div>
+<script type="text/javascript">
+    var defFooter=document.getElementById("def-footer");
+    defFooter.outerHTML=wet.builder.footer({
+        cdnEnv:"prod"
+    })
+</script>
 <!--[if gte IE 9 | !IE ]><!-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-<script src="./wet-boew/js/wet-boew.min.js"></script>
+<script src="./../wet-boew/js/wet-boew.min.js"></script>
 <!--<![endif]-->
 <!--[if lt IE 9]>
-<script src="./wet-boew/js/ie8-wet-boew2.min.js"></script>
+<script src="./../wet-boew/js/ie8-wet-boew2.min.js"></script>
 
 <![endif]-->
-<script src="./GCWeb/js/theme.min.js"></script>
+<script src="./../GCWeb/js/theme.min.js"></script>
 
 <!--Start add custom scripts here-->
 
@@ -247,7 +159,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/translations_20170317_0926.js"></script>
+<script src="app/scripts/translations_20171027_1147.js"></script>
 
 <script src="app/scripts/dossierAppEXT-fr.js"></script>
 
@@ -258,6 +170,8 @@
 <script src="app/scripts/services/filter-lists.js"></script>
 
 <script src="app/scripts/services/dossier-service.js"></script>
+
+<script src="app/scripts/services/dossier-service-orig.js"></script>
 
 <script src="app/scripts/services/dossier-load-service.js"></script>
 
@@ -311,9 +225,15 @@
 
 <script src="app/scripts/components/fileIO/FileIO.hpfbFileReader.js"></script>
 
-<script src="app/scripts/components/drug-use/cmp-drug-use.js"></script>
-
 <script src="app/scripts/components/expandingTable/cmp-expanding-table.js"></script>
+
+<script src="app/scripts/components/error-summary/cmp-error-summary.js"></script>
+
+<script src="app/scripts/components/error-message/cmp-error-message.js"></script>
+
+<script src="app/scripts/components/checkbox-list/cmp-checkbox-list.js"></script>
+
+<script src="app/scripts/components/drug-use/cmp-drug-use.js"></script>
 
 <script src="app/scripts/components/dossier/cmp-dossier.js"></script>
 
@@ -322,8 +242,6 @@
 <script src="app/scripts/components/country-list/cmp-country-list.js"></script>
 
 <script src="app/scripts/components/contactDetails/cmp-contact-details.js"></script>
-
-<script src="app/scripts/components/checkbox-list/cmp-checkbox-list.js"></script>
 
 <script src="app/scripts/components/can-ref-products/cmp-ref-product-list.js"></script>
 
@@ -367,6 +285,8 @@
 <script src="app/lib/deep-diff-0.3.4.min.js"></script>
 
 <script src="app/lib/FileSaver.min.js"></script>
+
+<script src="app/lib/focusIf.min.js"></script>
 
 <script src="app/lib/select.min.js"></script>
 
