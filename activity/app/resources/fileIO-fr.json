@@ -1,0 +1,10 @@
+{
+  "SELECT_LOAD": "Sélectionnez un fichier à charger",
+  "MSG_SUCCESS_LOAD": "Le fichier a été chargé avec succès",
+  "MSG_ERR_JSONPARSE": "Erreur: il y a eu une erreur en analysant le fichier de travail.",
+  "MSG_ERR_XMLPARSE": "Erreur: il y avait une erreur d'analyse du projet de fichier XML,",
+  "MSG_ERR_FILE_LOAD": "Erreur: il y a eu un problème lors du chargement du fichier.",
+  "MSG_ERR_FILE_TYPE": "Erreur: un type de fichier invalide a été sélectionné.",
+  "MSG_ERR_FORM_TYPE": "Erreur: le type de formulaire incorrect a été sélectionné pour ce formulaire.",
+  "MSG_ERR_CHECKSUM_FAIL": "Erreur: La somme de contrôle dans le fichier ne correspond pas à la somme de contrôle calculée."
+}
