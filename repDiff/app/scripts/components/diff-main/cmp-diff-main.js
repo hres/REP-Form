@@ -29,6 +29,8 @@
     MainController.$inject = ['$translate', '$filter','$scope','diffEngine'];
     function MainController($translate, $filter,$scope,diffEngine) {
         var vm = this;
+        vm.version=0.2; //version number of the form
+
         vm.showContent = _loadFileContent;
         vm.showContent2 = _loadFileContent2;
         vm.content1 = null;
@@ -37,38 +39,58 @@
         vm.listResults = null;
         vm.exceptionUrl = "data/xmlDiffExclusions.json";
         vm.exclusions = {};
+        vm.twoFiles=true;
+        vm.resetFilenames=0;
+        vm.isRaw= false; // toggle to show or hide the
+
 
         vm.$onInit = function () {
             _loadExceptionData();
-
+            vm.twoFiles=true;
         };
         vm.$onChanges = function (changes) {
             //if change events
         };
 
-
         /***
-         * Compares the two files
+         * Compares the two files ff
          */
         vm.compareFiles = function () {
             if (vm.content1 && vm.content2) {
+                vm.twoFiles=true;
                 var diffList=diffEngine.compareJson(vm.content1, vm.content2);
                 vm.diffList=diffList;
                 vm.listResults=diffEngine.consolidateResults(diffList,  vm.exclusions);
             } else {
-                console.error("One of the files does not have content")
+                console.error("One of the files does not have content");
+                vm.twoFiles=false;
             }
         };
+
+        vm.clear=function(){
+            vm.content1=null;
+            vm.content2=null;
+            vm.listResults=null;
+            vm.twoFiles=true;
+            vm.resetFilenames++;
+        }
+
         function _loadFileContent(fileContent) {
             if (!fileContent)return;
             vm.content1 = fileContent.jsonResult;
         }
 
         function _loadFileContent2(fileContent) {
+
             if (!fileContent)return;
 
             vm.content2 = fileContent.jsonResult;
         }
+
+        vm.showRaw=function(){
+          vm.isRaw=!vm.isRaw;
+
+        };
 
         vm.collapseAll = function () {
             $scope.$broadcast('angular-ui-tree:collapse-all');
@@ -86,15 +108,5 @@
                     return true;
                 });
         }
-
-        function _dossierExample(){
-            vm.content1="";
-
-            vm.content2="";
-
-
-        }
-
-
     }
 })();

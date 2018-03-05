@@ -1,3 +1,4 @@
+<ng-form id="{{::selectCtrl.formId}}" name="selectCtrl.selectForm">
 <section>
     <div class="row">
         <div class="form-group">
@@ -9,17 +10,18 @@
 
                     <div class="col-sm-8">
                         <input  id="fileLoad" type="file" accept=".xml, .json, .hcsc"
-                               hpfb-file-select="$ctrl.modelCallback(fileContent)"
-                               root-tag="{{$ctrl.rootElem}}"/>
+                               hpfb-file-select="selectCtrl.modelCallback(fileContent)"
+                               root-tag="{{selectCtrl.rootElem}}"/>
                     </div>
                 </row>
                 <row>
                     <div class="col-sm-12" aria-live='polite'>
-                        <p><br/><span>{{$ctrl.status|translate}}</span></p>
+                        <p><br/><span>{{selectCtrl.status|translate}}</span></p>
                     </div>
                 </row>
             </div>
         </div>
     </div>
 </section>
+</ng-form>
 

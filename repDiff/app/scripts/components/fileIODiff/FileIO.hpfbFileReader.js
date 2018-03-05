@@ -58,16 +58,19 @@
     angular.module('fileIODiff').component('hpfbFileSelect', {
         templateUrl: 'app/scripts/components/fileIODiff/fileSelect.html',
         controller: FileSelectController,
+        controllerAs:'selectCtrl',
         bindings: {
             updateModelRoot: '&',
             rootElem: '@',
+            resetFile:'<'
         }
     });
 
 
-    FileSelectController.$inject = ['fileIODiff'];
-    function FileSelectController(hpfbFileProcessing) {
+    FileSelectController.$inject = ['fileIODiff','$scope'];
+    function FileSelectController(hpfbFileProcessing, $scope) {
         var vm = this;
+        vm.formId="fileSelect_"+$scope.$id;
         vm.fileTypes = ".xml,.json,.hcsc";
         vm.modelCallback = function (fileContent) {
             vm.status = "";
@@ -77,10 +80,20 @@
             vm.updateModelRoot({fileContent: fileContent});
             angular.element(fileLoad).trigger('focus');
 
+    };
+        vm.$onChanges = function (changes) {
+            //if change events
+
+            if(changes.resetFile){
+                vm.reset();
+            }
         };
+        vm.reset=function(){
+            angular.element("input[type='file']").val(null);
+            vm.status="";
+        }
     }
 })();
-
 
 (function () {
     'use strict';

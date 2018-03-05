@@ -2,6 +2,22 @@
  * Created by dkilty on 10/03/2017.
  */
 
+/**
+
+ Deep diff - decode of what the json issue
+
+ kind - indicates the kind of change; will be one of the following:
+ N - indicates a newly added property/element
+ D - indicates a property/element was deleted
+ E - indicates a property/element was edited
+ A - indicates a change occurred within an array
+ path - the property path (from the left-hand-side root)
+ lhs - the value on the left-hand-side of the comparison (undefined if kind === 'N')
+ rhs - the value on the right-hand-side of the comparison (undefined if kind === 'D')
+ index - when kind === 'A', indicates the array index where the change occurred
+ item - when kind === 'A', contains a nested change record indicating the change that occurred at the array index
+ */
+
 (function () {
     'use strict';
     angular
@@ -22,7 +38,7 @@
     /* @ngInject */
     function differenceEngine($filter, $http, $q) {
 
-       var kindSuffix="_DIFF";
+        var kindSuffix = "_DIFF";
         var service = {
             compareJson: _compareFiles,
             consolidateResults: _consolidateDiffResults,
@@ -54,11 +70,23 @@
             return (resultList);
         }
 
+        /**
+         *
+         * @param node - the starting node to walk the path
+         * @param resultList- the array list to place the results
+         * @param exclusionList - values to exclude?
+         * @param currentNode -
+         * @private
+         */
         function _processNode(node, resultList, exclusionList, currentNode) {
 
             var _index = 0;
             var existingRecord = null;
             var searchList = resultList;
+
+           // console.log(node);
+            //console.log(resultList);
+           // console.log(currentNode); asdsad
 
             if (angular.isUndefined(exclusionList)) {
                 exclusionList = {}; //easiest just to make this empty if there is none
@@ -102,8 +130,8 @@
                 if (!exclusionList.hasOwnProperty(node.path[i])) {
                 //checking for the case where one file has a single record and another file has an array of the same
                 //records. This needs to be specially handled
-                if (isLeaf&&(((node.lhs instanceof Array) && (!(node.rhs instanceof Array) && (node.rhs instanceof Object))) ||
-                    ((node.rhs instanceof Array) && (!(node.lhs instanceof Array) && (node.lhs instanceof Object))))) {
+                    if (isLeaf && (((node.lhs instanceof Array) && (!(node.rhs instanceof Array) && (node.rhs instanceof Object))) ||
+                        ((node.rhs instanceof Array) && (!(node.lhs instanceof Array) && (node.lhs instanceof Object))))) {
 
                     _processArrayUpdate(node, node.path[i], _index, existingRecord, resultList, exclusionList);
                     continue;
@@ -182,21 +210,21 @@
              A - indicates a change occurred within an array
              */
             if (isLeaf) {
-                var type="";
+                var type = "";
                 if (node.kind === 'A') {
 
-                    if(node.item.kind){
-                        type=node.item.kind+kindSuffix;
+                    if (node.item.kind) {
+                        type = node.item.kind + kindSuffix;
                     }
                     record.type = type;
                     record.original = node.item.lhs;
                     record.diff = node.item.rhs;
                     record.index = node.index;
                 } else {
-                    if( node.kind){
-                        type= node.kind+kindSuffix;
+                    if (node.kind) {
+                        type = node.kind + kindSuffix;
                     }
-                    record.type =type;
+                    record.type = type;
                     record.original = node.lhs;
                     record.diff = node.rhs;
                 }
@@ -216,7 +244,7 @@
         function _updateNodeRecord(node, record, isLeaf) {
 
             record.isChange = isLeaf;
-            var type="";
+            var type = "";
             /**
              * kind - indicates the kind of change; will be one of the following:
              N - indicates a newly added property/element
@@ -227,15 +255,15 @@
             if (isLeaf) {
                 if (node.kind === 'A') {
 
-                    if(node.item.kind){
-                        type=node.item.kind+kindSuffix;
+                    if (node.item.kind) {
+                        type = node.item.kind + kindSuffix;
                     }
                     record.type = type;
                     record.original = node.item.lhs;
                     record.diff = node.item.rhs;
                 } else {
-                    if(node.kind){
-                        type=node.kind+kindSuffix;
+                    if (node.kind) {
+                        type = node.kind + kindSuffix;
                     }
                     record.type = type;
                     record.original = node.lhs;
