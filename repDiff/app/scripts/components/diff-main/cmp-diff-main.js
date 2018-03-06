@@ -1,21 +1,21 @@
+"use strict";
 /**
  * Created by dkilty on 8/26/2016.
  */
 (function () {
-    'use strict';
+
     angular
         .module('diffMain', [
             'fileIODiff',
             'ui.tree',
-            'diffModule'
+            'diffModule',
+            'repCommon'
         ])
 })();
 
 // https://github.com/angular-ui-tree/angular-ui-tree
 
-
 (function () {
-    'use strict';
     angular
         .module('diffMain')
         .component('cmpDiffMain', {
@@ -26,8 +26,8 @@
             }
         });
 
-    MainController.$inject = ['$translate', '$filter','$scope','diffEngine'];
-    function MainController($translate, $filter,$scope,diffEngine) {
+    MainController.$inject = ['$translate', '$filter','$scope','diffEngine','repUtil'];
+    function MainController($translate, $filter,$scope,diffEngine,repUtil) {
         var vm = this;
         vm.version=0.2; //version number of the form
 
@@ -66,7 +66,9 @@
                 vm.twoFiles=false;
             }
         };
-
+        /**
+         * Clears the comparison data, filenames, and messages
+         */
         vm.clear=function(){
             vm.content1=null;
             vm.content2=null;
@@ -75,6 +77,11 @@
             vm.resetFilenames++;
         }
 
+        /**
+         * loads the base file content
+         * @param fileContent -
+         * @private
+         */
         function _loadFileContent(fileContent) {
             if (!fileContent)return;
             vm.content1 = fileContent.jsonResult;
@@ -89,8 +96,18 @@
 
         vm.showRaw=function(){
           vm.isRaw=!vm.isRaw;
-
         };
+
+         vm.test=function(){
+           // $window.open('https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/fees/fees-review-drug-submissions-applications.html#a2323');
+             repUtil.openExternalLink('https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/fees/fees-review-drug-submissions-applications.html#a2323',null);
+
+        }
+        vm.testfr=function(){
+             repUtil.openInternalLink('help/help-activity-load-en.html',null)
+           // $window.open('https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/frais/examen-presentations-demandes-drogue.html#a2.3.2.3');
+        }
+
 
         vm.collapseAll = function () {
             $scope.$broadcast('angular-ui-tree:collapse-all');
