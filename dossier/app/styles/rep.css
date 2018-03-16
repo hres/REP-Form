@@ -204,3 +204,7 @@ input[type="date"] {
 .checkbox-pi {
      margin-left: 25px;
  }
+
+.label-pi {
+    font-size: 16px;
+}
