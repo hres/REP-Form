@@ -208,3 +208,8 @@ input[type="date"] {
 .label-pi {
     font-size: 16px;
 }
+
+ul.no-bullets li
+{
+    list-style-type: none;
+}
