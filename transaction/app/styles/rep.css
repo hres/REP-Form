@@ -111,6 +111,14 @@ label > select {
     padding-top: 5px;
 }
 
+.rep-pad-top-10 {
+    padding-top: 10px;
+}
+
+.rep-bottom {
+    bottom: 5px;
+}
+
 .select2-container .select2-choice {
     height: 37px !important;
     padding: 6px 12px !important;
