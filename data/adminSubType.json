@@ -1,43 +1,43 @@
 [
   {
     "id": "MANUFACT_NAME_CHGE",
-    "en": "Manufacturer Name Changes",
-    "fr": "fr_Manufacturer Name Changes"
+    "en": "Manufacturer Name Change",
+    "fr": "fr_Manufacturer Name Change"
   },
   {
     "id": "PRODUCT_NAME_CHGE",
-    "en": "Product Name Changes",
-    "fr": "fr_Product Name Changes"
+    "en": "Product Name Change",
+    "fr": "fr_Product Name Change"
   },
   {
     "id": "PRODUCT_MANUFACT_NAME_CHGE",
-    "en": "Manufacturer and Product Name Changes",
-    "fr": "fr_Manufacturer and Product Name Changes"
+    "en": "Manufacturer and Product Name Change",
+    "fr": "fr_Manufacturer and Product Name Change"
   },
   {
     "id": "OWNERSHIP_CHGE",
-    "en": "Changes in Product Ownership / DIN Transfer",
-    "fr": "fr_Changes in Product Ownership / DIN Transfer"
+    "en": "Change in Product Ownership / DIN Transfer",
+    "fr": "fr_Change in Product Ownership / DIN Transfer"
   },
   {
     "id": "MERGER",
-    "en": "Mergers and Buyouts",
-    "fr": "fr_Mergers and Buyouts"
+    "en": "Merger/Buyout",
+    "fr": "fr_Merger/Buyout"
   },
   {
     "id": "LICENGSING",
-    "en": "Licensing Agreements",
-    "fr": "fr_Licensing Agreements"
+    "en": "Licensing Agreement",
+    "fr": "fr_Licensing Agreement"
   },
   {
     "id": "POSTAUTH_LABEL_CHGE",
-    "en": "Post-Authorization Labelling Changes",
-    "fr": "fr_Post-Authorization Labelling Changes"
+    "en": "Post-Authorization Labelling Change",
+    "fr": "fr_Post-Authorization Labelling Change"
   },
   {
     "id": "POSTAUTH_CHEMISTRY_CHGE",
-    "en": "Post-Authorization Chemistry and Manufacturing Updates [Only for Schedules C and D drug products]",
-    "fr": "fr_Post-Authorization Chemistry and Manufacturing Updates [Only for Schedules C and D drug products]"
+    "en": "Post-Authorization Chemistry and Manufacturing Updates [Only for Schedule C and D drug products]",
+    "fr": "fr_Post-Authorization Chemistry and Manufacturing Updates [Only for Schedule C and D drug products]"
   },
   {
     "id": "ADDITIONAL_PRODUCT_CHGE",

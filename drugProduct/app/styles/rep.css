@@ -57,6 +57,13 @@ label > select {
 .rep-margin-top {
     margin-top: 5px;
 }
+.rep-margin-top-12 {
+    margin-top: 12px;
+}
+
+.rep-margin-left {
+    margin-left: 50px;
+}
 
 .rep-margin-minus-top {
     margin-top: -5px !important;
