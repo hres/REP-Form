@@ -12,10 +12,20 @@
         }));
     </script>
 
+
     <noscript>
+        <!--Write closure fall-back static file -->
         <!-- /ROOT/cdts/static/top-en.html-->
-        <!-- #include virtual="/cdts/static/top-en.html"-->
+            <!-- /ROOT/etc/designs/canada/cdts/gcweb/v4_0_27/cdts/static/transactTop-en.html-->
+            <!-- #include virtual="/etc/designs/canada/cdts/gcweb/v4_0_27/cdts/static/transactTop-en.html"-->
+            <!-- #include virtual="/cdts/static/top-en.html"-->
     </noscript>
+    <!--Write closure template -->
+    <script type="text/javascript">
+        document.write(wet.builder.splashTop({
+        }));
+    </script>
+
     <meta charset="utf-8">
     <!--No cache-->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
@@ -91,7 +101,14 @@
     var defTop=document.getElementById("def-top");
     defTop.outerHTML=wet.builder.top({
         cdnEnv:"prod",
-        breadcrumbs: [{title: "Home", href: "https://lam-dev.hres.ca/REP-Form/index.html"}]
+        breadcrumbs: [{title: "Home", href: "https://lam-dev.hres.ca/REP-Form/index.html"}],
+        search: true,
+        lngLinks:[{
+            lang: "fr",
+            href: "formulaire-certificat-protection-supplementaire.html",
+            text: "Francais"
+        }],
+
     })
 </script>
 <main role="main" property="mainContentOfPage" class="container">
@@ -121,15 +138,16 @@
         var defPreFooter=document.getElementById("def-preFooter");
         defPreFooter.outerHTML=wet.builder.preFooter({
             cdnEnv:"prod",
-            dateModified:"2018-08-07",
-            showShare:false,
-            showFeedback:false
+            dateModified:"2018-08-20",
+            showShare:true,
+            showFeedback:true
         })
     </script>
 
 </main>
 <div id="def-footer">
-
+    <!--Write closure fall-back static file -->
+    <!-- #include virtual="/cdts/static/footer-en.html"-->
 </div>
 <script type="text/javascript">
     var defFooter=document.getElementById("def-footer");
@@ -165,7 +183,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/cspAppINT-en_20180807_1448.min.js"></script>
+<script src="app/scripts/cspAppINT-en_20180820_1301.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
