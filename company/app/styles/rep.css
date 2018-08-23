@@ -57,6 +57,13 @@ label > select {
 .rep-margin-top {
     margin-top: 5px;
 }
+.rep-margin-top-12 {
+    margin-top: 12px;
+}
+
+.rep-margin-left {
+    margin-left: 50px;
+}
 
 .rep-margin-minus-top {
     margin-top: -5px !important;
@@ -109,6 +116,14 @@ label > select {
 
 .rep-pad-top {
     padding-top: 5px;
+}
+
+.rep-pad-top-10 {
+    padding-top: 10px;
+}
+
+.rep-bottom {
+    bottom: 5px;
 }
 
 .select2-container .select2-choice {
@@ -207,4 +222,9 @@ input[type="date"] {
 
 .label-pi {
     font-size: 16px;
+}
+
+ul.no-bullets li
+{
+    list-style-type: none;
 }
