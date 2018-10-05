@@ -1,0 +1,117 @@
+[
+  {
+    "id":"AFFCSA",
+    "en":"AFFILIATED CMDCAS REGISTRAR",
+    "fr":"fr_AFFILIATED CMDCAS REGISTRAR"
+  },
+  {
+    "id":"AMTAC",
+    "en":"AMTAC MEDIQA/AMTAC CERTIFICATION SERVICES LTD.",
+    "fr":"fr_AMTAC MEDIQA/AMTAC CERTIFICATION SERVICES LTD."
+  },
+  {"id":"BSI",
+    "en":"BSI, INC.",
+    "fr":"fr_BSI, INC."
+  },
+  {"id":"DEKRA",
+    "en":"DEKRA CERTIFICATION B.V.",
+    "fr":"fr_DEKRA CERTIFICATION B.V."
+  },
+  {"id":"DQS",
+    "en":"DQS GMBH",
+    "fr":"fr_DQS GMBH"
+  },
+  {"id":"DQSMED",
+    "en":"DQS MEDIZINPRODUKTE GMBH",
+    "fr":"fr_DQS MEDIZINPRODUKTE GMBH"
+  },
+  {"id":"ITSNA",
+    "en":"INTERTEK TESTING SERVICES NA LTD.",
+    "fr":"fr_INTERTEK TESTING SERVICES NA LTD."
+  },
+  {"id":"KBV",
+    "en":"KEMA QUALITY B.V.",
+    "fr":"fr_KEMA QUALITY B.V."
+  },
+  {"id":"KRQ",
+    "en":"KEMA-REGISTERED QUALITY, INC",
+    "fr":"fr_KEMA-REGISTERED QUALITY, INC"
+  },
+  {"id":"LGAIC",
+    "en":"LGA INTERCERT GMBH",
+    "fr":"fr_LGA INTERCERT GMBH"
+  },
+  {"id":"LNEGMED",
+    "en":"LABORATOIRE NATIONAL DE METROLOGIE ET D'ESSAIS (LNE)",
+    "fr":"fr_LABORATOIRE NATIONAL DE METROLOGIE ET D'ESSAIS (LNE)"
+  },
+  {
+    "id":"LRQA",
+    "en":"LLOYD'S REGISTER QUALITY ASSURANCE INC.",
+    "fr":"fr_LLOYD'S REGISTER QUALITY ASSURANCE INC."
+  },
+  {
+    "id":"NOTCSA",
+    "en":"NOT A CMDCAS RECOGNIZED REGISTRAR",
+    "fr":"fr_NOT A CMDCAS RECOGNIZED REGISTRAR"
+  },
+  {
+    "id":"NSAI",
+    "en":"THE NATIONAL STANDARDS AUTHORITY OF IRELAND",
+    "fr":"fr_THE NATIONAL STANDARDS AUTHORITY OF IRELAND"
+  },
+  {"id":"ORION",
+    "en":"ORION REGISTRAR INC.",
+    "fr":"fr_ORION REGISTRAR INC."
+  },
+  {"id":"QMI",
+    "en":"QUALITY MANAGEMENT INSTITUTE",
+    "fr":"fr_QUALITY MANAGEMENT INSTITUTE"
+  },
+  {"id":"RWTUV",
+    "en":"RWTUV SYSTEMS GMBH",
+    "fr":"fr_RWTUV SYSTEMS GMBH"
+  },
+  {"id":"SAI",
+    "en":"SAI GLOBAL CERTIFICATION SERVICES PTY LTD.",
+    "fr":"fr_SAI GLOBAL CERTIFICATION SERVICES PTY LTD."
+  },
+  {"id":"SGS",
+    "en":"SGS INTERNATIONAL CERTIFICATION SERVICES CANADA INC.",
+    "fr":"fr_SGS INTERNATIONAL CERTIFICATION SERVICES CANADA INC."
+  },
+  {"id":"SGS-UK",
+    "en":"SGS UNITED KINGDOM LIMITED",
+    "fr":"fr_SGS UNITED KINGDOM LIMITED"
+  },
+  {"id":"TGA",
+    "en":"THERAPEUTIC GOODS ADMINISTRATION",
+    "fr":"fr_THERAPEUTIC GOODS ADMINISTRATION"
+  },
+  {"id":"TUV-USA",
+    "en":"TUV USA, INC.",
+    "fr":"fr_TUV USA, INC."
+  },
+  {
+    "id":"TUVAM",
+    "en":"TUV SUD AMERICA INC.",
+    "fr":"fr_TUV SUD AMERICA INC."
+  },
+  {"id":"TUVNORD",
+    "en":"TUV NORD CERT GMBH",
+    "fr":"fr_TUV NORD CERT GMBH"
+  },
+  {"id":"TUVRNA",
+    "en":"TUV RHEINLAND OF NORTH AMERICA, INC.",
+    "fr":"fr_TUV RHEINLAND OF NORTH AMERICA, INC."
+  },
+  {
+    "id":"UL",
+    "en":"UL LLC",
+    "fr":"fr_UL LLC"
+  },
+  {"id":"UNDLAB",
+    "en":"UNDERWRITERS LABORATORIES INC.",
+    "fr":"fr_UNDERWRITERS LABORATORIES INC."
+  }
+]
