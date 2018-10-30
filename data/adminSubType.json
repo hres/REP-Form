@@ -1,0 +1,48 @@
+[
+  {
+    "id": "MANUFACT_NAME_CHGE",
+    "en": "Manufacturer Name Changes",
+    "fr": "fr_Manufacturer Name Changes"
+  },
+  {
+    "id": "PRODUCT_NAME_CHGE",
+    "en": "Product Name Changes",
+    "fr": "fr_Product Name Changes"
+  },
+  {
+    "id": "PRODUCT_MANUFACT_NAME_CHGE",
+    "en": "Manufacturer and Product Name Changes",
+    "fr": "fr_Manufacturer and Product Name Changes"
+  },
+  {
+    "id": "OWNERSHIP_CHGE",
+    "en": "Changes in Product Ownership / DIN Transfer",
+    "fr": "fr_Changes in Product Ownership / DIN Transfer"
+  },
+  {
+    "id": "MERGER",
+    "en": "Mergers/Buyouts",
+    "fr": "fr_Mergers/Buyouts"
+  },
+  {
+    "id": "LICENGSING",
+    "en": "Licensing Agreements",
+    "fr": "fr_Licensing Agreements"
+  },
+  {
+    "id": "POSTAUTH_LABEL_CHGE",
+    "en": "Post-Authorization Labelling Changes",
+    "fr": "fr_Post-Authorization Labelling Changes"
+  },
+  {
+    "id": "POSTAUTH_CHEMISTRY_CHGE",
+    "en": "Post-Authorization Chemistry and Manufacturing Updates (only for Schedules C and D drug products)",
+    "fr": "fr_Post-Authorization Chemistry and Manufacturing Updates (only for Schedules C and D drug products)"
+  },
+  {
+    "id": "ADDITIONAL_PRODUCT_CHGE",
+    "en": "Additional Product Name",
+    "fr": "fr_Additional Product Name"
+  }
+
+]
