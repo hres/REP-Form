@@ -91,7 +91,12 @@
     var defTop=document.getElementById("def-top");
     defTop.outerHTML=wet.builder.top({
         cdnEnv:"prod",
-        breadcrumbs: [{title: "Home", href: "https://lam-dev.hres.ca/REP-Form/index.html"}]
+        breadcrumbs: [{title: "Home", href: "https://lam-dev.hres.ca/REP-Form/index.html"}],
+        lngLinks:[{
+           lang:"fr",
+            href:"companyEXT-fr.html",
+            text:"Français"
+        }]
     })
 </script>
 <main role="main" property="mainContentOfPage" class="container">
@@ -119,7 +124,7 @@
         var defPreFooter=document.getElementById("def-preFooter");
         defPreFooter.outerHTML=wet.builder.preFooter({
             cdnEnv:"prod",
-            dateModified:"2017-12-13",
+            dateModified:"2018-09-12",
             showShare:false,
             showFeedback:false
         })
@@ -163,7 +168,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/companyAppEXT-en_20171213_1331.min.js"></script>
+<script src="app/scripts/companyAppEXT-en_20180912_1336.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
