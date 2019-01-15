@@ -23,11 +23,15 @@ $(document).ready(() => {
 
     if (queryObj.hasOwnProperty("q")) q = (queryObj.q).split(" ");
     if (queryObj.hasOwnProperty("page") && !isNaN(queryObj.page)) page = parseInt(queryObj.page) - 1;
+    //remove brackets
+    for(let i=0;i<q.length;i++){
+        let _q=q[i];
+        if (_q.indexOf("(") > -1 || _q.indexOf(")") > -1){
+            q.splice(q.indexOf(_q), 1);
+            i=i-1; //dont increment
+        }
+    }
 
-    q.forEach((_q) => {
-
-        if (_q.indexOf("(") > -1 || _q.indexOf(")") > -1) q.splice(q.indexOf(_q), 1);
-    });
 
     $("#terms").text(q.join(" "));
     console.log(q);
@@ -42,12 +46,13 @@ $(document).ready(() => {
 
 function requestDocuments(q) {
 
-    var url = documentURL + "?";
+    var url = documentURL + "?select=incident.incident_id";
 
     q.forEach((_q) => {
         console.log(_q)
+        //https://rest-dev.hres.ca/mdi/mdi_search?select=incident.incident_id&search=fts.123
+        //https://rest-dev.hres.ca/mdi/mdi_search?select=incident.incident_id&search=fts.onetouch&search=fts.ultra&search=fts.blood&offset=0&limit=25
         url += ("&search=fts." + _q);
-        //url += ("trade_name=fts." + _q);
     });
     url+="&offset="+page;
     url+="&limit="+limit;
@@ -113,7 +118,7 @@ function populateTable2(data) {
             risk_classes=risk_classes.substring(0,risk_classes.length-4);
         }
         body += "<tr>" +
-            "<td>" + d.incident_id + "</td>" +
+            "<td>" + d.incident.incident_id + "</td>" +
             "<td>" + trade_names + "</td>" +
             "<td>" + company_names + "</td>" +
             "<td>" + ((document.documentElement.lang == "fr") ?   d.incident.hazard_severity_code_f :   d.incident.hazard_severity_code_e) + "</td>" +
@@ -127,43 +132,6 @@ function populateTable2(data) {
     $("#table-content").html(body);
     $("#pagination").attr("hidden", false);
     $("#empty").attr("hidden", true);
-}
-
-//dpd TODO: delete
-function populateTable(data) {
-
-
-    var body = "";
-
-    const drugPageURL = document.documentElement.lang == "fr" ? "drug-fr.html" : "drug.html";
-
-    data.forEach((d) => {
-
-        const drug = d.drug_product;
-
-        var status = document.documentElement.lang == "fr" ? drug.status_current_f : drug.status_current;
-        var drugClass = document.documentElement.lang == "fr" ? drug.class_f : drug.class;
-
-        var ingredients = $.map(drug.active_ingredients_detail, (ing) => {
-
-            return (document.documentElement.lang == "fr") ? (ing.ingredient_f + " (" + ing.strength + " " + ing.strength_unit_f + ")") : (ing.ingredient + " (" + ing.strength + " " + ing.strength_unit + ")");
-        }).join(", ");
-
-        body += "<tr>" +
-            "<td>" + status + "</td>" +
-            "<td><a href='" + drugPageURL + "?pr=" + drug.drug_code + "'>" + drug.drug_identification_number + "</a></td>" +
-            "<td>" + drug.company.company_name + "</td>" +
-            "<td>" + drug.brand_name + "</td>" +
-            "<td>" + drugClass + "</td>" +
-            "<td>" + ingredients + "</td>" +
-            "</tr>";
-    });
-
-    $("#drug-table").attr("hidden", false);
-    $("#table-content").html(body);
-    $("#pagination").attr("hidden", false);
-    $("#empty").attr("hidden", true);
-    $("#refresh").text(makeDate(data[0].drug_product.last_refresh));
 }
 
 function createPagination(content) {
