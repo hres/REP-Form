@@ -269,6 +269,12 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
       <button id="pg-3" class="btn"></button>
       <button id="pg-4" class="btn"></button>
     </div>
+    <div>
+      <li class="btn-group btn-group-xs">
+        <a href="#" id="linkExcel" class="btn btn-default btn-xs mrgn-rght-md">Download excel</a>
+
+      </li>
+    </div>
     <div class="pagedetails">
       <dl id="wb-dtmd">
         <dt>Last refresh: </dt>
@@ -387,5 +393,11 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
   <script src="https://ssl-templates.services.gc.ca/app/cls/WET/gcweb/v4_0_28/js/ie8-wet-boew2.min.js"></script>
   <![endif]-->
   <script src="dep2/theme.min.js"></script>
+  <script>
+    // This must be a hyperlink
+    $('#linkExcel').on('click', function (event) {
+      ExportTableToCSV.apply(this, [$('#drug-table'), 'mdi_result.csv']);
+    });
 
+  </script>
 </body></html>
