@@ -9,14 +9,14 @@ const SEARCH_BOX_ID = "#search";
 ;
 
 //https://rest.hres.ca/mdi/mdi_search?select=incident.incident_id&search=fts.hip&limit=30
-/*$(document).ready(() => {
-
-    autocompleteInit()
-});*/
-wb.doc.on("wb-ready.wb",function(){
+$(document).ready(() => {
 
     autocompleteInit()
 });
+/*wb.doc.on("wb-ready.wb",function(){
+
+    autocompleteInit()
+});*/
 
 /**
  * Create the autocomplete url based on the terms the user adds
