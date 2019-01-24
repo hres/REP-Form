@@ -13,10 +13,7 @@ $(document).ready(() => {
 
     autocompleteInit()
 });
-/*wb.doc.on("wb-ready.wb",function(){
 
-    autocompleteInit()
-});*/
 
 /**
  * Create the autocomplete url based on the terms the user adds
@@ -48,7 +45,7 @@ function processAutoCompleteTerms(term, data) {
     var unique_type = {};
     if (!term) return [];
     term=term.toLowerCase();
-    //TODO cleanup
+    //TODO cleanup nested map object maybe?
     for (var i = 0; i < data.length; i++) {
         var inc_trade = "";
         var obj = data[i];

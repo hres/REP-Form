@@ -80,6 +80,7 @@ function getQueryTermsFromUrl() {
  */
 function _collectTermTypes(termArray) {
     if (!termArray) return "";
+    console.log(termArray);
     var result = {};
     //TODO make into a map? or maps for each type
     result.company = [];
@@ -88,6 +89,7 @@ function _collectTermTypes(termArray) {
     result.none = [];
     for (var i = 0; i < termArray.length; i++) {
         var terms = (termArray[i]).split("[");
+        console.log(terms);
         if (terms && terms.length > 1) {
             var value = $.trim(terms[0]);
             switch ($.trim(terms[1])) {
@@ -103,10 +105,14 @@ function _collectTermTypes(termArray) {
                    // console.log("type");
                     result.type.push(value);
                     break;
+                default:
+                   result.none.push(value);
+                    break;
             }
         } else {
-            if (terms.isPrototypeOf(Array) && terms[0].length) {
+            if (terms[0].length) {
                 result.none.push(terms[0]);
+                console.log( result.none)
                 //console.log("none")
             }
         }
@@ -335,11 +341,14 @@ function ExportTableToCSV($table, filename) {
  * @param queryObj
  * @private
  */
+
+//TODO delete
 function _constructURLFromTerms2(queryObj) {
     var q_company = "";
     var q_device = "";
     var q_type = "";
-    var result = ""
+    var q_none="";
+    var result = "";
 
     if (!queryObj) return "";
     //https://rest.hres.ca/mdi/mdi_search?incident-%3E%3Etrade_name=plfts.CEMENT&incident-%3E%3Ecompany_name=plfts.BIOMET&incident-%3E%3Eincident_type_e=plfts.Voluntary%20problem%20report&limit=20
@@ -368,7 +377,13 @@ function _constructURLFromTerms2(queryObj) {
         q_type += encodeURIComponent(queryObj.type[0]);
          result+=("&"+q_type);
     }
-
+    if(queryObj.none.length === 1){
+        //TODO this is problematic as searching on french and english
+        q_none="incident.incident_id_e=plfts.";
+        //https://rest.hres.ca/mdi/mdi_search?incident.incident_id=plfts.rest&limit=3000
+        q_none += encodeURIComponent(queryObj.non[0]);
+        result+=("&"+q_none);
+    }
    /* var result_array = [];
     if (q_company) result_array.push(q_company);
     if (q_device) result_array.push(q_device);
@@ -398,8 +413,9 @@ function _constructURLFromTerms(queryObj) {
     var q_company = "";
     var q_device = "";
     var q_type = "";
-    var result = ""
-
+    var q_none = "";
+    var result = "";
+    console.log(queryObj)
     if (!queryObj) return "";
     //https://rest.hres.ca/mdi/mdi_search?incident-%3E%3Etrade_name=plfts.CEMENT&incident-%3E%3Ecompany_name=plfts.BIOMET&incident-%3E%3Eincident_type_e=plfts.Voluntary%20problem%20report&limit=20
     if (queryObj.company.length === 1) {
@@ -428,7 +444,14 @@ function _constructURLFromTerms(queryObj) {
         q_type += encodeURIComponent(queryObj.type[0]);
         result += ("&" + q_type);
     }
-
+    if(queryObj.none.length === 1){
+        //TODO this is problematic as searching on french and english
+        q_none="incident.incident_id=plfts.";
+        //https://rest.hres.ca/mdi/mdi_search?incident.incident_id=plfts.rest&limit=3000
+        q_none += encodeURIComponent(queryObj.none[0]);
+        result+=("&"+q_none);
+    }
+    //get rid of first ampersand
     if (result.indexOf("&") === 0) {
         result = result.substring(1, result.length);
     }
