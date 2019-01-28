@@ -209,7 +209,10 @@ input[type="date"] {
     color: #d3080c !important;
  font-weight: 700;
 }
-
+.legend-rep{
+    font-size: 16px !important;
+    font-weight: 700 !important;
+}
 .legend-rep-h3{
     display: block;
     width: 100%;
