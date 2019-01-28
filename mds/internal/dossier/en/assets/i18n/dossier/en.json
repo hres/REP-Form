@@ -14,6 +14,9 @@
 	"fileio.msg.dataTypeError": "Error: the wrong form data was selected for this form.",
   "required": "This field is required",
   "minlength": "Minimum length 10",
+  "minNumber5": "(5 numbers)",
+  "minAlphanumeric5": "(5 characters)",
+  "minAlphanumeric7": "(1 letter and 6 numbers)",
   "error.msg.phone": "Please specify a valid phone number",
   "error.msg.email": "Please specify a valid email address",
   "error.msg.postal": "Please specify a valid postal code.",
@@ -24,7 +27,8 @@
   "device.class": "Device Class",
   "device.name": "Name of device, as it appears on the label",
   "has.qmsc": "Quality Management System Certificate (QMSC) is available",
-  "qmsc.registrar": "QMSC registrar",
+  "qmsc.registrar": "Quality Management System Certificate (QMSC) registrar",
+  "qmsc.no":"Quality Management System Certificate (QMSC) must be issued by CMDCAS recognized/certified",
   "licence.app.type": "Licence Application Type",
   "add.field": "Additional field for context",
   "commmon.required.bracket": "(required)",
@@ -49,5 +53,6 @@
   "msg.err.file.load": "There was a problem loading the file.",
   "msg.err.file.type": "An invalid file type was selected.",
   "msg.err.form.type": "The wrong form type was selected for this form.",
-  "msg.err.checksum.fail": "The checksum in the file does not match the calculated checksum"
+  "msg.err.checksum.fail": "The checksum in the file does not match the calculated checksum",
+  "error.found.because":"could not be saved because"
 }
