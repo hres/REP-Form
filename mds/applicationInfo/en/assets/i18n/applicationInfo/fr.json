@@ -36,6 +36,7 @@
   "heading.device.material": "fr_Devices containing Biological Material",
   "heading.material.table": "fr_Biological Material Attribute Table",
   "heading.material": "fr_Biological Material",
+  "heading.material.record": "fr_Biological Material Record",
   "device.name": "fr_Name of Compatible Device",
   "licence.number": "fr_Licence number",
   "material.name": "fr_Name of Material",
@@ -92,5 +93,8 @@
   "msg.err.file.load": "fr_There was a problem loading the file.",
   "msg.err.file.type": "fr_An invalid file type was selected.",
   "msg.err.form.type": "fr_The wrong form type was selected for this form.",
-  "msg.err.checksum.fail": "fr_The checksum in the file does not match the calculated checksum"
+  "msg.err.checksum.fail": "fr_The checksum in the file does not match the calculated checksum",
+  "instruction": "fr_instruction",
+  "instruction.help": "fr_Instructions for completing sections on form",
+  "return.instruction": "fr_Return to instruction"
 }

@@ -54,5 +54,8 @@
   "msg.err.file.type": "An invalid file type was selected.",
   "msg.err.form.type": "The wrong form type was selected for this form.",
   "msg.err.checksum.fail": "The checksum in the file does not match the calculated checksum",
-  "error.found.because":"could not be saved because"
+  "error.found.because":"could not be saved because",
+  "instruction": "instruction",
+  "instruction.help": "Instructions for completing sections on form",
+  "return.instruction": "Return to instruction"
 }
