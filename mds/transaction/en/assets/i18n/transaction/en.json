@@ -18,7 +18,10 @@
   "amend.reason": "Reason for filing this Amendment",
   "licence.number": "Licence Number",
   "application.number": "Application Number",
+  "meeting.id": "Meeting ID",
   "device.name": "Name of Device, as it appears on the label",
+  "licence.name": "Proposed licence name",
+  "include.ddt": "Include device details table in transaction specifying the proposed device names compared to the original device namesr",
   "request.date": "Date of Request (MM/DD/YYYY)",
   "brief.descr": "Brief Description",
   "has.ddt": "Device details table included?",
@@ -58,7 +61,8 @@
   "payment": "Payment",
   "review.fees": "Review fees and remission processing fee must not be included with the submission, supplement or application. Sponsor will be invoiced for the applicable fee.",
   "classification.change": "Change to the classification of a device",
-  "licence.change": "Change in the licence and/or device name",
+  "licence.change": "Change in the licence name",
+  "device.change": "Change in the device name",
   "process.change": "Significant change in manufacturing process, facility of equipment",
   "quality.change": "Significant change in manufacturing quality control procedures",
   "design.change": "Significant change in design or performance",
@@ -106,5 +110,8 @@
   "msg.err.file.load": "There was a problem loading the file.",
   "msg.err.file.type": "An invalid file type was selected.",
   "msg.err.form.type": "The wrong form type was selected for this form.",
-  "msg.err.checksum.fail": "The checksum in the file does not match the calculated checksum"
+  "msg.err.checksum.fail": "The checksum in the file does not match the calculated checksum",
+  "instruction": "instruction",
+  "instruction.help": "Instructions for completing sections on form",
+  "return.instruction": "Return to instruction"
 }

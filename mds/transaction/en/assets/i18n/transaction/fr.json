@@ -18,7 +18,10 @@
   "amend.reason": "fr_Reason for filing this Amendment",
   "licence.number": "fr_Licence Number",
   "application.number": "fr_Application Number",
+  "meeting.id": "fr_Meeting ID",
   "device.name": "fr_Name of Device, as it appears on the label",
+  "licence.name": "fr_Proposed licence name",
+  "include.ddt": "fr_Include device details table in transaction specifying the proposed device names compared to the original device namesr",
   "request.date": "fr_Date of Request (MM/DD/YYYY)",
   "brief.descr": "fr_Brief Description",
   "has.ddt": "fr_Device details table included?",
@@ -58,7 +61,8 @@
   "payment": "fr_Payment",
   "review.fees": "fr_Review fees and remission processing fee must not be included with the submission, supplement or application. Sponsor will be invoiced for the applicable fee.",
   "classification.change": "fr_Change to the classification of a device",
-  "licence.change": "fr_Change in the licence and/or device name",
+  "licence.change": "fr_Change in the licence name",
+  "device.change": "fr_Change in the device name",
   "process.change": "fr_Significant change in manufacturing process, facility of equipment",
   "quality.change": "fr_Significant change in manufacturing quality control procedures",
   "design.change": "fr_Significant change in design or performance",
@@ -106,5 +110,8 @@
   "msg.err.file.load": "fr_There was a problem loading the file.",
   "msg.err.file.type": "fr_An invalid file type was selected.",
   "msg.err.form.type": "fr_The wrong form type was selected for this form.",
-  "msg.err.checksum.fail": "fr_The checksum in the file does not match the calculated checksum"
+  "msg.err.checksum.fail": "fr_The checksum in the file does not match the calculated checksum",
+  "instruction": "fr_instruction",
+  "instruction.help": "fr_Instructions for completing sections on form",
+  "return.instruction": "fr_Return to instruction"
 }
