@@ -1,0 +1,22 @@
+[
+  {
+    "id": "SMALL_BUSINESS",
+    "en": "Small Business",
+    "fr": "fr_Small Business"
+  },
+  {
+    "id": "URGENT_HEALTH_NEED",
+    "en": "Urgent Public Health Need Drug",
+    "fr": "fr_Urgent Public Health Need Drug"
+  },
+  {
+    "id": "FUNDED_INSTITUTION",
+    "en": "Publicly Funded Health Care Institutions",
+    "fr": "fr_Publicly Funded Health Care Institution"
+  },
+  {
+    "id": "GOVERMENT_ORGANIZATION",
+    "en": "Government Organization",
+    "fr": "Government Organization"
+  }
+]
