@@ -1,4 +1,4 @@
-[  {"id":"FC1",
+[  {"id":"FC01",
     "en":"New active substance",
     "fr":"Nouvelle substance active",
     "description_en":"Submissions in support of a drug,  other than a disinfectant, that contains a medicinal ingredient not previously approved in a drug for sale in Canada and that is not a variation of a previously approved ingredient such as a salt, ester, enantiomer, solvate or polymorph.",
@@ -6,56 +6,56 @@
     "fee":392439
   },
   {
-    "id":"FC2",
+    "id":"FC02",
     "en":"Clinical or non-clinical data and chemistry and manufacturing data",
     "fr":"Données cliniques ou non cliniques et données sur la chimie et la fabrication",
     "description_en":"Submissions based on clinical or non-clinical data and chemistry and manufacturing data for a drug that does not include a new active substance.",
     "description_fr":"",
     "fee":200193
   },
-  {"id":"FC3",
+  {"id":"FC03",
     "en":"Clinical or non-clinical data only",
     "fr":"Données cliniques ou non cliniques seulement",
     "description_en":"Submissions based only on clinical or non-clinical data for a drug that does not include a new active substance.",
     "description_fr":"Présentations fondées seulement sur des données cliniques ou non cliniques à l’égard d’une drogue exempte de nouvelle substance active",
     "fee":89082
   },
-  {"id":"FC4",
+  {"id":"FC04",
     "en":"Comparative studies",
     "fr":"Études comparatives",
     "description_en":"Submissions based on comparative studies (e.g., clinical or non-clinical data, bioavailability data, and data on the pharmacokinetics and pharmacodynamics of the drug) with or without chemistry and manufacturing data for a drug that does not include a new active substance.",
     "description_fr":"Présentations fondées sur des études comparatives (p. ex. données cliniques ou non cliniques, données sur la biodisponibilité et sur la pharmacocinétique et la pharmacodynamie de la drogue) avec ou sans données sur la chimie et la fabrication à l’égard d’une drogue exempte de nouvelle substance active",
     "fee":52780
   },
-  {"id":"FC5",
+  {"id":"FC05",
     "en":"Chemistry and manufacturing data only",
     "fr":"Données sur la chimie et la fabrication seulement",
     "description_en":"Submissions based only on chemistry and manufacturing data for a drug that does not include a new active substance.",
     "description_fr":"Présentations fondées uniquement sur les données sur la chimie et la fabrication à l’égard d’une drogue exempte de nouvelle substance active.",
     "fee":27046
   },
-  {"id":"FC6",
+  {"id":"FC06",
     "en":"Clinical or non-clinical data only, in support of safety updates to the labelling",
     "fr":"Données cliniques ou non cliniques seulement, à l’appui des mises à jour de l’étiquetage concernant l’innocuité",
     "description_en":"Submissions based only on clinical or non-clinical data, in support of safety updates to the labelling materials for a  new drug that does not include a new active substance",
     "description_fr":"Présentations fondées uniquement sur des données cliniques ou non cliniques, à l’appui des mises à jour du matériel d’étiquetage concernant l’innocuité à l’égard d’une drogue nouvelle exempte de nouvelle substance active",
     "fee":19060
   },
-  {"id":"FC7",
+  {"id":"FC07",
     "en":"Labelling only",
     "fr":"Étiquetage seulement",
     "description_en":"Submissions, other than Product name, Manufacturer/Sponsor company name, or Address,  of labelling material, that include data in support of the following: brand name assessment, standardized or published test methods, in vitro or in vivo photostability or applications for a drug identification number in support of changes to brand names of non-prescription drugs (but not including examination of other supporting clinical or non-clinical data, comparative data, or chemistry and manufacturing data).",
     "description_fr":"Présentations de matériel d’étiquetage, à l’exception de nom du produit, nom de l'entreprise du fabricant / sponsor ou adresse, y compris les données à l’appui d’une évaluation du nom de marque, des méthodes d’essai normalisées ou publiées, de la photostabilité in vitro ou in vivo , ou des demandes d’identification numérique à l’appui de modifications de marques nominatives de drogues vendues sans ordonnance (mais ne comprenant pas de données à l’appui de l’examen d’autres données cliniques ou non cliniques, de données comparatives ou de données sur la chimie et la fabrication)",
-    "fee":3714
+    "fee":3741
   },
-  {"id":"FC8",
+  {"id":"FC08",
     "en":"Labelling only (generic drugs)",
     "fr":"Étiquetage seulement (générique)",
     "description_en":"Submissions in support of a change to the labelling to be  consistent with the Canadian reference product that do not include any additional labelling updates requiring a labelling assessment",
     "description_fr":"Présentations à l’appui d’une modification de l’étiquetage qui correspond au produit de référence canadien, qui ne comprennent pas d’autres mises à jour de l’étiquetage nécessitant une évaluation de celui-ci",
     "fee":1970
   },
-  {"id":"FC9",
+  {"id":"FC09",
     "en":"Administrative submission",
     "fr":"Présentation administrative",
     "description_en":"Submissions in support of a change in the manufacturer’s name or brand  name,  including the following: changes in ownership of the drug, request for an additional brand name or changes resulting from a licensing agreement being entered into by two manufacturers that do not require an assessment of labelling material or brand name (e.g., post-authorization label changes filed by licensees to remain identical to licensor’s drug and post-authorization chemistry and manufacturing updates for drugs listed in Schedule C or D of the Food and Drugs Act).",
@@ -69,18 +69,19 @@
     "description_fr":"Présentations, à l’exception de nom de l'entreprise du fabricant / sponsor, qui comprennent des données à l’appui d’un désinfectant",
     "fee":5600
   },
-  {"id":"FC12",
-    "en":"Drug Identification Number application - labelling standards",
-    "fr":"Demande d’une identification numérique — normes d’étiquetage",
-    "description_en":"Applications, including those that pertain to changes to brand names for non-prescription drugs, that include an attestation of compliance  with a labelling standard or Category IV Monograph for a drug and that do not include clinical or non-clinical data or chemistry and manufacturing data.",
-    "description_fr":"Demandes, notamment celles portant sur des modifications des marques nominatives de drogues vendues sans ordonnance, qui comprennent une attestation de conformité à une norme d’étiquetage ou à une monographie de catégorie IV, mais qui ne comprennent pas de données cliniques ou non cliniques ou de données sur la chimie et la fabrication",
-    "fee":1584
-  },
   {"id":"FC11",
     "en":"Labelling only (Disinfectants)",
     "fr":"Étiquetage seulement (Désinfectants)",
     "description_en":"Submissions  in support of changes to the labelling of disinfectants that do not require supporting data, submissions in support of  safety updates for disinfectants that are new drugs or submissions in support of a change in the manufacturer’s name or  brand name that requires  a review of labelling material due to deviations from the previously authorized labelling or drug .",
     "description_fr":"Présentations à l’appui d’une modification des étiquettes de désinfectants qui ne nécessitent pas de données justificatives, présentations à l’appui de mises à jour sur l’innocuité de désinfectants qui sont de nouvelles drogues; ou présentations à l’appui d’une modification du nom du fabricant ou de la marque nominative nécessitant un examen du matériel d’étiquetage en raison de différences par rapport à l’étiquetage ou à la drogue préalablement autorisé",
     "fee":2457
+  },
+  {"id":"FC12",
+    "en":"Drug Identification Number application - labelling standards",
+    "fr":"Demande d’une identification numérique — normes d’étiquetage",
+    "description_en":"Applications, including those that pertain to changes to brand names for non-prescription drugs, that include an attestation of compliance  with a labelling standard or Category IV Monograph for a drug and that do not include clinical or non-clinical data or chemistry and manufacturing data.",
+    "description_fr":"Demandes, notamment celles portant sur des modifications des marques nominatives de drogues vendues sans ordonnance, qui comprennent une attestation de conformité à une norme d’étiquetage ou à une monographie de catégorie IV, mais qui ne comprennent pas de données cliniques ou non cliniques ou de données sur la chimie et la fabrication",
+    "fee":1584
   }
+
 ]

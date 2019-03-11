@@ -12,7 +12,7 @@
     <meta property="dcterms.title" content="Dossier Template: Regulatory Enrolment Process - Canada.ca">
     <meta property="dcterms.creator" content="Government of Canada, Health Canada">
     <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-    <meta property="dcterms.modified" title="W3CDTF" content="2019-02-15">
+    <meta property="dcterms.modified" title="W3CDTF" content="2019-03-11">
     <meta property="dcterms.subject" title="gccore" content="Drugs; Pharmaceuticals, Health care products; Regulatory Enrolment Process">
     <meta property="dcterms.language" title="ISO639-2/T" content="eng">
 
@@ -79,10 +79,25 @@
                 <strong>From <a href="http://www.healthycanadians.gc.ca/department-ministere/hc-sc-eng.php?_ga=1.203751760.1566644155.1449063473">Health Canada</a></strong>
             </p>
         </div>
+        <div class=" col-md-12 module-table-contents">
+            <section class="panel panel-default">
+                <header class="panel-heading clearfix">
+                    <h2  class="panel-title">Table of contents</h2>
+                </header>
+                <div class="panel-body">
+                    <ul>
+                        <li><a class="ui-link" href="#privacy">Privacy Notice Statement</a></li>
+                        <li><a class="ui-link" href="#instructions">Instructions</a></li>
+                        <li><a class="ui-link" href="#main">Form</a></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
     </div>
     <!-- the main content -->
         <!-- inject:mainContent-->
-        <div class="container" id="app-root" data-ng-app="dossierApp" data-ng-controller="MainController as ctrl">
+        <div id="app-root" data-ng-app="dossierApp" data-ng-controller="MainController as ctrl">
     <cmp-dossier form-type="{{ctrl.formType}}"></cmp-dossier>
 </div>
 
@@ -101,7 +116,7 @@
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
             cdnEnv: "prod",
-            dateModified: "2019-02-15",
+            dateModified: "2019-03-11",
             showPostContent: true,
             showFeedback:true,
             showShare:true
@@ -144,7 +159,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/dossierAppINT-en_20190215_0944.min.js"></script>
+<script src="app/scripts/dossierAppINT-en_20190311_0949.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
