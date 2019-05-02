@@ -21,6 +21,7 @@
   "required": "This field is required",
   "minlength": "Minimum length 10",
   "error.msg.phone": "Please specify a valid phone number",
+  "error.msg.fax": "Please specify a valid fax number",
   "error.msg.email": "Please specify a valid email address",
   "error.msg.postal": "Please specify a valid postal code.",
   "error.mgs.zip": "Please specify a valid zip code.",
