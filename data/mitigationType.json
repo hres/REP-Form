@@ -1,4 +1,8 @@
-[
+[{
+  "id": "NOT_APPLICABLE",
+  "en": "Not applicable",
+  "fr": "fr_Not applicable"
+},
   {
     "id": "SMALL_BUSINESS",
     "en": "Small Business",

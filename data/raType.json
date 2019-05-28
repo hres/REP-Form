@@ -10,7 +10,7 @@
   {"id":"B02-20160301-051","en":"NDS (New Drug Submission)","fr":"NDS (Présentation de drogue nouvelle)"},
   {"id":"B02-20160301-067","en":"PAND (Pandemic Application)","fr":"PAND (Demande pandémique)"},
   {"id":"B02-20160301-068","en":"PBRER-C (Periodic Benefit Risk Evaluation Report - Confirmatory)","fr":"PBRER-C"},
-  {"id":"B02-20160301-069","en":"PBRER-PV (Periodic Benefit Risk Evaluation Report - Post-market Vigiliance)","fr":"fr_PBRER-PV (Periodic Benefit Risk Evaluation Report - Post-market Vigiliance)"},
+  {"id":"B02-20160301-069","en":"PBRER-PV (Periodic Benefit Risk Evaluation Report - Post-market Vigiliance)","fr":"PBRER-PV (rapport périodique d'évaluation des avantages et des risques - Vigilance après la mise en marché)"},
   {"id":"B02-20160301-075","en":"PRNDS (Request for Priority Review Status: NDS)","fr":"PRNDS (Demande de statut d’évaluation prioritaire - PDN)"},
   {"id":"B02-20160301-077","en":"PRSNDS (Request for Priority Review Status: SNDS)","fr":"PRSNDS (Demande de statut d’évaluation prioritaire - SPDN)"},
   {"id":"B02-20160301-078","en":"PSUR-C (Periodic Safety Update Report - Confirmatory)","fr":"PSUR-C (Rapport périodique de pharmacovigilance - Confirmation)"},
@@ -22,13 +22,13 @@
   {"id":"B02-20160301-087","en":"UD-PV (Undefined Data Post-market Vigilance)","fr":"UD-PV (Données non définies – Pharmacovigilance)"},
   {"id":"B02-20160301-088","en":"UDRA (Undefined Regulatory Activity)","fr":"UDRA (Activité réglementaire non définie)"},
   {"id":"B02-20160301-089","en":"YBPR (Yearly Biologic Product Report)","fr":"YBPR (Rapport annuel sur un produit biologique)"},
-  {"id":"B02-20160301-028","en":"DSUR (Developmental Safety Update Report)","fr":"fr_DSUR (Developmental Safety Update Report)"},
-  {"id":"B02-20160301-018","en":"DINA (Application for Drug Identification Number)","fr":"fr_DINA (Application for Drug Identification Number)"},
-  {"id":"B02-20160301-019","en":"DINB (Application for Drug Identification Number - Biologic)","fr":"fr_DINB (Application for Drug Identification Number - Biologic)"},
-  {"id":"B02-20160301-020","en":"DIND (Application for Drug Identification Number - Disinfectant Product)","fr":"fr_DIND (Application for Drug Identification Number - Disinfectant Product)"},
-  {"id":"B02-20160301-021","en":"DINF (Application for Drug Identification Number - Category IV Product)","fr":"fr_DINF (Application for Drug Identification Number - Category IV Product)"},
-  {"id":"B02-20160301-043","en":"MPDIN (Pre-Submission Meeting Information)","fr":"fr_MPDIN (Pre-Submission Meeting Information)"},
-  {"id":"B02-20160301-070","en":"PDC (Post-Authorization Division 1 Change)","fr":"PDC (Post-Authorization Division 1 Change)"},
-  {"id":"B02-20160301-071","en":"PDC-B (Post-Authorization Division 1 Change - Biologics)","fr":"fr_PDC-B (Post-Authorization Division 1 Change - Biologics)"}
+  {"id":"B02-20160301-028","en":"DSUR (Developmental Safety Update Report)","fr":"DSUR (Rapports de mises à jour aux produits en développement)"},
+  {"id":"B02-20160301-018","en":"DINA (Application for Drug Identification Number)","fr":"DINA (Demande d'identification numérique de drogue)"},
+  {"id":"B02-20160301-019","en":"DINB (Application for Drug Identification Number - Biologic)","fr":"DINB (Demande d'identification numérique de drogue - produits biologiques)"},
+  {"id":"B02-20160301-020","en":"DIND (Application for Drug Identification Number - Disinfectant Product)","fr":"DIND (Demande d'identification numérique de drogue - produits désinfectant)"},
+  {"id":"B02-20160301-021","en":"DINF (Application for Drug Identification Number - Category IV Product)","fr":"DINF (Demande d'identification numérique de drogue - produits catégorie IV)"},
+  {"id":"B02-20160301-043","en":"MPDIN (Pre-Submission Meeting Information)","fr":"MPDIN (Information des rencontres préalables à la présentation)"},
+  {"id":"B02-20160301-070","en":"PDC (Post-Authorization Division 1 Change)","fr":"PDC (Changement post-approbation de Titre 1)"},
+  {"id":"B02-20160301-071","en":"PDC-B (Post-Authorization Division 1 Change - Biologics)","fr":"PDCB (Changement post-approbation de Titre 1 - biologiques)"}
 ]
 
