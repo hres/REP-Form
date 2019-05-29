@@ -2,47 +2,47 @@
   {
     "id": "MANUFACT_NAME_CHGE",
     "en": "Manufacturer Name Changes",
-    "fr": "fr_Manufacturer Name Changes"
+    "fr": "Changement de nom du fabricant"
   },
   {
     "id": "PRODUCT_NAME_CHGE",
     "en": "Product Name Changes",
-    "fr": "fr_Product Name Changes"
+    "fr": "Changement de nom du produit"
   },
   {
     "id": "PRODUCT_MANUFACT_NAME_CHGE",
     "en": "Manufacturer and Product Name Changes",
-    "fr": "fr_Manufacturer and Product Name Changes"
+    "fr": "Changement de nom du fabricant et du produit"
   },
   {
     "id": "OWNERSHIP_CHGE",
     "en": "Changes in Product Ownership / DIN Transfer",
-    "fr": "fr_Changes in Product Ownership / DIN Transfer"
+    "fr": "Changement apporté à la propriété/transfert du DIN"
   },
   {
     "id": "MERGER",
     "en": "Mergers/Buyouts",
-    "fr": "fr_Mergers/Buyouts"
+    "fr": "Fusion ou rachat"
   },
   {
     "id": "LICENGSING",
     "en": "Licensing Agreements",
-    "fr": "fr_Licensing Agreements"
+    "fr": "Contrat de licence"
   },
   {
     "id": "POSTAUTH_LABEL_CHGE",
     "en": "Post-Authorization Labelling Changes",
-    "fr": "fr_Post-Authorization Labelling Changes"
+    "fr": "Modifications post autorisation d'étiquettes"
   },
   {
     "id": "POSTAUTH_CHEMISTRY_CHGE",
     "en": "Post-Authorization Chemistry and Manufacturing Updates (only for Schedules C and D drug products)",
-    "fr": "fr_Post-Authorization Chemistry and Manufacturing Updates (only for Schedules C and D drug products)"
+    "fr": "Modifications post-autorisation des données sur la chimie et la fabrication [seulement pour les produits visés aux annexes C et D]"
   },
   {
     "id": "ADDITIONAL_PRODUCT_CHGE",
     "en": "Additional Product Name",
-    "fr": "fr_Additional Product Name"
+    "fr": "Noms complémentaires de produits"
   }
 
 ]
