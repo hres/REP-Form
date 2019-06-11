@@ -4,7 +4,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en" data-th-lang="#{lang}" dir="ltr">
 <!--<![endif]-->
 <head>
+    <!--No cache-->
     <meta charset="utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
     <!--<meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
     <meta name='description' content="Regulatory Enrolment Process Forms"/>
     <meta name="keywords" content="Health, Regulatory Enrolment Process, REP"/>
@@ -12,7 +16,7 @@
     <meta property="dcterms.title" content="Product Information Template: Regulatory Enrolment Process - Canada.ca">
     <meta property="dcterms.creator" content="Government of Canada, Health Canada">
     <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-    <meta property="dcterms.modified" title="W3CDTF" content="2019-05-31">
+    <meta property="dcterms.modified" title="W3CDTF" content="2019-06-11">
     <meta property="dcterms.subject" title="gccore" content="Drugs; Pharmaceuticals, Health care products; Regulatory Enrolment Process">
     <meta property="dcterms.language" title="ISO639-2/T" content="eng">
 
@@ -23,8 +27,8 @@
     <!-- Additional analytics, if required. -->
     <!--/*/ <th:block th:replace="analytics/analytics-header"></th:block> /*/-->
     <!-- Load closure template scripts -->
-    <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_27/cdts/compiled/soyutils.js" integrity="sha384-32eoaED5PWLqUcm/SmCNYkjyLGbZouGKcA7SqNkg4pw/HO5GQvYe41sFH2Gurff2" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_27/cdts/compiled/wet-en.js" integrity="sha384-IJEq7xXwCsGhugLUYN0xdUfIccLGc7JpDl6yPR4oqiMSmLhxGX6BaGr0crKCm9eA" crossorigin="anonymous"></script>
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_27/cdts/compiled/soyutils.js" integrity="sha384-32eoaED5PWLqUcm/SmCNYkjyLGbZouGKcA7SqNkg4pw/HO5GQvYe41sFH2Gurff2" crossorigin="anonymous"></script>
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_27/cdts/compiled/wet-en.js" integrity="sha384-IJEq7xXwCsGhugLUYN0xdUfIccLGc7JpDl6yPR4oqiMSmLhxGX6BaGr0crKCm9eA" crossorigin="anonymous"></script>
     <noscript>
         <!-- Write closure fall-back static file -->
         <!--# include virtual="/rep-dev/cdts/static/refTop.html"-->
@@ -116,10 +120,7 @@
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
             cdnEnv: "prod",
-            dateModified: "2019-05-31",
-            showPostContent: true,
-            showFeedback:true,
-            showShare:true
+            dateModified: "2019-06-11"
         });
     </script>
 </main>
@@ -159,7 +160,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/drugProductAppEXT-en_20190531_1631.min.js"></script>
+<script src="app/scripts/drugProductAppEXT-en_20190611_1138.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
