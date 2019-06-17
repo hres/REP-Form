@@ -27,10 +27,10 @@
     </div>
     <div class="row  margin-bottom-medium">
         <div class="col-sm-12 button-group">
-            <button class="btn btn-primary" ng-click="ctrl.compareFiles()">Start Compare</button>
-            <button class="btn btn-default" ng-click="ctrl.clear()">Clear</button>
+            <button class="btn btn-primary" data-ng-click="ctrl.compareFiles()">Start Compare</button>
+            <button class="btn btn-default" data-ng-click="ctrl.clear()">Clear</button>
         </div>
-        <div class="col-sm-12 form-group" ng-if="!ctrl.twoFiles">
+        <div class="col-sm-12 form-group" data-ng-if="!ctrl.twoFiles">
             <p><span>Please select two files to compare</span></p>
         </div>
     </div>
@@ -41,7 +41,7 @@
             </header>
             <div class="panel-body">
                 <div class="row" aria-live='polite'
-                     ng-if="ctrl.listResults && ctrl.listResults.length==0">
+                     data-ng-if="ctrl.listResults && ctrl.listResults.length==0">
                     <div class="col-xs-12">
                         <p>
                             <b><span> No differences have been detected</span></b>
@@ -54,12 +54,12 @@
                         <button class="btn btn-default" ng-click="ctrl.collapseAll()">Collapse all</button>
                     </div>
                 </div>
-                <div ng-if="ctrl.listResults.length>0">
+                <div data-ng-if="ctrl.listResults.length>0">
                     <div class="row margin-top-large">
                         <div class="col-sm-12 form-group">
                             <div ui-tree id="tree-root" data-drag-enabled="false">
                                 <ol ui-tree-nodes ng-model="ctrl.listResults">
-                                    <li ng-repeat="node in ctrl.listResults" ui-tree-node
+                                    <li data-ng-repeat="node in ctrl.listResults" ui-tree-node
                                         ng-include="'app/scripts/components/nodes-renderer/nodes-renderer.html'"></li>
                                 </ol>
                             </div>
@@ -71,17 +71,17 @@
     </div>
     <div>
         <div class="xs-col-12 btn-group">
-            <button class=" btn btn-default" ng-click="ctrl.showRaw()">Show / Hide Raw Data</button>
+            <button class=" btn btn-default" data-ng-click="ctrl.showRaw()">Show / Hide Raw Data</button>
         </div>
     </div>
     <div class="row margin-top-large">
 
-        <details ng-if="ctrl.isRaw">
+        <details data-ng-if="ctrl.isRaw">
             <summary>Raw Data</summary>
 
             <details>
                 <summary>Difference Engine Raw Results</summary>
-                <div class="row" ng-if="ctrl.diffList">
+                <div class="row" data-ng-if="ctrl.diffList">
                     <pre>Number of Diff Records:{{ctrl.diffList.length}}</pre>
                 </div>
                 <div class="row">
@@ -109,8 +109,8 @@
         </details>
     </div>
     <div>
-        <button ng-click="ctrl.test()">Test External Link</button>
-        <button ng-click="ctrl.testfr()">Test Internal Link</button>
+        <button data-ng-click="ctrl.test()">Test External Link</button>
+        <button data-ng-click="ctrl.testfr()">Test Internal Link</button>
     </div>
     <div class="row">
         <div class="col-xs-12">

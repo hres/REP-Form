@@ -1,156 +1,147 @@
-<!DOCTYPE html><!--[if lt IE 9]>
-<html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
-<html class="no-js" lang="en" dir="ltr">
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en" data-th-lang="#{lang}" dir="ltr">
 <!--<![endif]-->
 <head>
-
-    <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
-    <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
-    <script type="text/javascript">
-        document.write(wet.builder.refTop({
-            cdnEnv:"prod"
-        }));
-    </script>
-
-    <noscript>
-        <!-- /ROOT/cdts/static/top-en.html-->
-        <!-- #include virtual="/cdts/static/top-en.html"-->
-    </noscript>
-    <meta charset="utf-8">
     <!--No cache-->
+    <meta charset="utf-8" />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
     <meta http-equiv="Pragma" content="no-cache"/>
     <meta http-equiv="Expires" content="-1"/>
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+    <meta name='description' content="Regulatory Enrolment Process Forms"/>
+    <meta name="keywords" content="Health, Regulatory Enrolment Process, REP"/>
+    <meta name="author" content="Health Canada"/>
+    <meta property="dcterms.title" content="REP File Compare Utility">
+    <meta property="dcterms.creator" content="Government of Canada, Health Canada">
+    <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
+    <meta property="dcterms.modified" title="W3CDTF" content="2019-06-17">
+    <meta property="dcterms.subject" title="gccore" content="Drugs; Pharmaceuticals, Health care products; Regulatory Enrolment Process">
+    <meta property="dcterms.language" title="ISO639-2/T" content="eng">
+
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+         wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
     <title>REP File Compare Utility</title>
-    <meta content="width=device-width,initial-scale=1" name="viewport">
-    <!-- Meta data -->
-    <meta name="description"
-          content="REP Forms">
-    <!-- Meta data-->
-    <!--[if gte IE 9 | !IE ]><!-->
-    <link href="./../GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon">
-    <link rel="stylesheet" href="./../GCWeb/css/theme.min.css">
-    <!--<![endif]-->
-    <!--[if lt IE 9]>
-    <link href="./../GCWeb/assets/favicon.ico" rel="shortcut icon"/>
-
-    <link rel="stylesheet" href="./../GCWeb/css/ie8-theme.min.css"/>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="./../wet-boew/js/ie8-wet-boew.min.js"></script>
-
-
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <!-- Additional analytics, if required. -->
+    <!--/*/ <th:block th:replace="analytics/analytics-header"></th:block> /*/-->
+    <!-- Load closure template scripts -->
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_27/cdts/compiled/soyutils.js" integrity="sha384-32eoaED5PWLqUcm/SmCNYkjyLGbZouGKcA7SqNkg4pw/HO5GQvYe41sFH2Gurff2" crossorigin="anonymous"></script>
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_27/cdts/compiled/wet-en.js" integrity="sha384-IJEq7xXwCsGhugLUYN0xdUfIccLGc7JpDl6yPR4oqiMSmLhxGX6BaGr0crKCm9eA" crossorigin="anonymous"></script>
     <noscript>
+        <!-- Write closure fall-back static file -->
+        <!--# include virtual="/rep-dev/cdts/static/refTop.html"-->
     </noscript>
-
-    <![endif]-->
-    <!--[if lte IE 9]>
-
-
-    <![endif]-->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" integrity="sha384-+2PnMSZobRWHUFuaarq2tDCtf7FFSZpeMRVRe7C0l8bRZMBTjUinKl1AuYRON/A2" crossorigin="anonymous"/>
+    <!--<link rel="stylesheet" href="./app/styles/rep.css ">-->
     <!-- inject:css -->
     <link rel="stylesheet" href="app/styles/rep-diff.css">
     <link rel="stylesheet" href="app/styles/angular-ui-tree.min.css">
     <!-- endinject -->
-    <noscript>
-        <link rel="stylesheet" href="./../wet-boew/css/noscript.min.css"/>
-    </noscript>
-    <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
-    <script>dataLayer1 = [];</script>
-    <!-- End Google Tag Manager -->
+
+    <!-- Write closure template -->
+    <script type="text/javascript">
+        document.write(wet.builder.refTop({
+            cdnEnv: "prod" //jqueryEnv:false
+        }));
+    </script>
 </head>
-<body vocab="http://schema.org/" typeof="WebPage">
-<!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
-<noscript>
-    <iframe title="Google Tag Manager" src="//www.googletagmanager.com/ns.html?id=GTM-TLGQ9K" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe>
-</noscript>
-<script>(function (w, d, s, l, i) {
-    w[l] = w[l] || [];
-    w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-    var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer1' ? '&l=' + l : '';
-    j.async = true;
-    j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-    f.parentNode.insertBefore(j, f);
-})(window, document, 'script', 'dataLayer1', 'GTM-TLGQ9K');</script>
-<!-- End Google Tag Manager -->
-<ul id="wb-tphp">
-    <li class="wb-slc">
-        <a class="wb-sl" href="#wb-cont">Skip to main content</a>
-    </li>
-    <li class="wb-slc visible-sm visible-md visible-lg">
-        <a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
-    </li>
-</ul>
 
+<body vocab="http://schema.org/" typeof="WebPage" style="min-width:543px;">
 <div id="def-top">
+    <!-- Write closure fall-back static file -->
+    <!-- ./wet_4_0_27/cdts/static/top-en.html-->
+    <!--# include virtual="/rep-dev/cdts/static/top-en.html"-->
 </div>
+<!-- Write closure template -->
 <script type="text/javascript">
-    var defTop=document.getElementById("def-top");
-    defTop.outerHTML=wet.builder.top({
-        cdnEnv:"prod",
-        breadcrumbs: [{title: "Home", href: "https://lam-dev.hres.ca/rep-dev/index.html"}],
-        lngLinks:[{
-           lang:"fr",
-            href:"",
-            text:"Français"
-        }]
-    })
+    var defTop = document.getElementById("def-top");
+    defTop.outerHTML = wet.builder.top({
+        cdnEnv: "prod",
+        search: true,
+        lngLinks: [{
+            lang: "fr",
+            href: "",
+            text: "Français"
+        }],
+        showPreContent: false,
+        breadcrumbs: [{title: "Home", href: "https://www.canada.ca/en.html"},
+            {title: "Health Canada", href: "https://www.canada.ca/en/health-canada.html"},
+            {title: "Regulatory Enrolment Process Forms", href: "https://lam-dev.hres.ca/rep-dev/index.html"}]
+    });
 </script>
+
 <main role="main" property="mainContentOfPage" class="container">
-
     <!--content starts here -->
-    <div>
-        <h1 property="name" id="wb-cont">Beta 1:REP File Compare Utility</h1>
-        <noscript>
-            <h2>JavaScript is required to complete this form</h2>
-        </noscript>
 
+    <div class="row">
+        <div class="col-md-12">
+            <h1 property="name" id="wb-cont">Beta 1:REP File Compare Utility</h1>
+            <p class="pagetag">
+                <strong>From <a href="https://www.canada.ca/en/health-canada.html">Health Canada</a></strong>
+            </p>
+        </div>
+        <div class=" col-md-12 module-table-contents">
+            <section class="panel panel-default">
+                <header class="panel-heading clearfix">
+                    <h2  class="panel-title">Table of contents</h2>
+                </header>
+                <div class="panel-body">
+                    <ul>
+                        <li><a class="ui-link" href="#privacy">Privacy Notice Statement</a></li>
+                        <li><a class="ui-link" href="#instructions">Instructions</a></li>
+                        <li><a class="ui-link" href="#main">Form</a></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    <!-- the main content -->
         <!-- inject:mainContent-->
         <div id="app-root" ng-app="diffFormApp" ng-controller="MainController as ctrl">
     <cmp-diff-main></cmp-diff-main>
 </div>
         <!-- endinject-->
+    <!-- end main content -->
 
-
-    </div>
     <!--content ends here -->
     <div id="def-preFooter">
-
+        <!-- Write closure fall-back static file -->
+        <!-- ./wet_4_0_27/cdts/static/preFooter-en.html-->
+        <!--# include virtual="/rep-dev/cdts/static/preFooter-en.html"-->
     </div>
-    <script type="text/javascript">
-        var defPreFooter=document.getElementById("def-preFooter");
-        defPreFooter.outerHTML=wet.builder.preFooter({
-            cdnEnv:"prod",
-            dateModified:"2018-10-02",
-            showShare:false,
-            showFeedback:false
-        })
-    </script>
 
+    <!-- Write closure template -->
+    <script type="text/javascript">
+        var defPreFooter = document.getElementById("def-preFooter");
+        defPreFooter.outerHTML = wet.builder.preFooter({
+            cdnEnv: "prod",
+            dateModified: "2019-06-17"
+        });
+    </script>
 </main>
 <div id="def-footer">
-
+    <!-- Write closure fall-back static file -->
+    <!-- ./wet_4_0_27/cdts/static/footer-en.html-->
+    <!--# include virtual="/rep-dev/cdts/static/footer-en.html"-->
 </div>
+<!-- Write closure template -->
 <script type="text/javascript">
-    var defFooter=document.getElementById("def-footer");
-    defFooter.outerHTML=wet.builder.footer({
-        cdnEnv:"prod"
-    })
+    var defFooter = document.getElementById("def-footer");
+    defFooter.outerHTML = wet.builder.footer({
+        cdnEnv: "prod"
+    });
+</script>
+<!-- Write closure template -->
+<script type="text/javascript">
+    document.write(wet.builder.refFooter({
+        cdnEnv: "prod",
+        exitScript: false
+    }));
 </script>
 
-
-
-<!--[if gte IE 9 | !IE ]><!-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-<script src="./../wet-boew/js/wet-boew.min.js"></script>
-<!--<![endif]-->
-<!--[if lt IE 9]>
-<script src="./../wet-boew/js/ie8-wet-boew2.min.js"></script>
-
-<![endif]-->
-<script src="./../GCWeb/js/theme.min.js"></script>
 <!--Start add custom scripts here-->
 
 <!-- inject:js -->
@@ -167,7 +158,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/translations_20181002_1250.js"></script>
+<script src="app/scripts/translations_20190617_1124.js"></script>
 
 <script src="app/scripts/diffAppEXT-en.js"></script>
 
@@ -189,7 +180,5 @@
 <script src="app/lib/xml2json.js"></script>
 
 <!-- endinject -->
-
-
 </body>
 </html>

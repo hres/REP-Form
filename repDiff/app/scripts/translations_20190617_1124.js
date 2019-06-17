@@ -246,14 +246,9 @@ $translateProvider.translations("en", {
   "given_name": "Given Name",
   "initials": "Initials",
   "rep_contact_role": "REP Contact Type",
-  "rep_contact_role": "REP Contact Type",
   "rep_contact_details": "REP Contact Details",
   "salutation": "Salutation",
-  "given_name": "Given Name",
-  "initials": "Initials",
   "surname": "Surname",
-  "job_title": "Job Title",
-  "language_correspondance": "Language of Correspondance",
   "phone_num": "Phone Number",
   "phone_ext": "Phone Extension",
   "fax_num": "Fax Number",
@@ -261,23 +256,18 @@ $translateProvider.translations("en", {
 });
 
 $translateProvider.translations("fr", {
-  "job_title": "Job Title",
-  "language_correspondance": "Language of Correspondence",
-  "given_name": "Given Name",
-  "initials": "Initials",
-  "rep_contact_role": "REP Contact Type",
+  "job_title": "Titre",
+  "language_correspondance": "Langue de correspondance",
+  "given_name": "Prénom",
+  "initials": "Initiales",
+  "surname": "Nom de famille",
   "rep_contact_role": "REP Contact Type",
   "rep_contact_details": "REP Contact Details",
   "salutation": "Salutation",
-  "given_name": "Given Name",
-  "initials": "Initials",
-  "surname": "Surname",
-  "job_title": "Job Title",
-  "language_correspondance": "Language of Correspondance",
-  "phone_num": "Phone Number",
-  "phone_ext": "Phone Extension",
-  "fax_num": "Fax Number",
-  "email": "Email"
+  "phone_num": "No. de téléphone",
+  "phone_ext": "Extension de téléohone",
+  "fax_num": "No. de fax",
+  "email": "Courriel"
 });
 
 $translateProvider.translations("en", {
@@ -299,7 +289,6 @@ $translateProvider.translations("en", {
   "template_type": "Template Type",
   "data_checksum": "Data checksum",
   "amend_record": "Amend Record",
-  "template_type": "Template Type",
   "Y": "Yes",
   "N": "No",
   "address_id" : "Address ID",
@@ -307,6 +296,7 @@ $translateProvider.translations("en", {
   "rep_secondary" : "REP Secondary",
   "contact_id" : "Contact ID",
   "reason_amend" : "Reason Amend",
+  "_id":"ID",
   "importer_id" : "Importer ID"
 }
 );
@@ -330,7 +320,6 @@ $translateProvider.translations("fr", {
   "template_type": "Template Type",
   "data_checksum": "Data checksum",
   "amend_record": "Amend Record",
-  "template_type": "Template Type",
   "Y": "Yes",
   "N": "No",
   "address_id" : "Address ID",
@@ -347,24 +336,54 @@ $translateProvider.translations("en", {
   "is_ectd": "Is ECTD?",
   "ectd": "ECTD Record",
   "dossier_name": "Dossier Name",
-  "lifecycle_record": "Lifecycle Record",
+  "lifecycle_record": "Transaction Details Record",
   "date_filed": "Data Filed",
   "control_number": "Control Number",
-  "sequence_activity_type": "Activity Type",
+  "regulatory_activity_type": "Activity Type",
   "sequence_description_value": "Description",
   "sequence_from_date": "Start Date",
   "sequence_to_date": "End Date",
   "sequence_details": "Details",
   "sequence_version": "Version",
   "sequence_year": "Year",
-  "sequence_concat": "Conacatenated",
   "is_solicited": "Is Solicited",
-  "solicited_requester": "Solicited Requester",
   "regulatory_project_manager1": "Project Manager 1",
   "regulatory_project_manager2": "Project Manager 2",
   "regulatory_activity_address": "Regulatory Activity Address",
   "regulatory_activity_contact": "Regulatory Activity Contact",
-  "same_regulatory_contact": "Same Regulatory Contact"
+  "same_regulatory_contact": "Same Regulatory Contact",
+  "is_third_party":"Will the submission be signed / filed by a third party on behalf of the manufacturer / sponsor?",
+  "is_priority":"Was this regulatory activity approved for priority review?",
+  "is_admin_sub":"Is this regulatory activity an Administrative Submission or does this regulatory activity contain an administrative component?",
+  "transaction_description":"Regulatory Transaction Description",
+  "requester_of_solicited_information":"Requester of Solicited Information",
+  "regulatory_activity_lead":"Regulatory Activity Lead",
+  "requester_name":"Name of requester",
+  "requester_name2" :"Name of requester 2",
+  "requester_name3" :"Name of requester 3",
+  "fee_details":"Fee Detail",
+  "fee":"Fees",
+  "gross_revenue":"Anticipated gross revenue for this drug product during the fee verification period",
+  "percent_gross":"10% of anticipated gross revenue",
+  "submission_class ":"Submission Class",
+  "submission_description":"Submission Description",
+  "required_docs":"Required Documentation",
+  "sales_history":"Sales history prior to product upgrades or sales history of similar products",
+  "avg_sale_price":"Average sale price and demand",
+  "est_market_share":"Estimated market share (that is [i.e.], product's market potential compared to the total market for similar products in Canada)",
+  "comparison_products":"Comparison to similar products on the Canadian market or other similar markets (e.g., United States, European Union)",
+  "market_plan":"Marketing plan/product plan for the drug product",
+  "other":"Other",
+  "other_details":"Other Detail",
+  "payment_method":"Please select all the payment methods you intend to use",
+  "credit_card":"MasterCard/Visa/American Express (AMEX)",
+  "cheque":"Cheque",
+  "money_order":"Money Order",
+  "bank_wire":"Wire (include bank confirmation)",
+  "bill_payment":"Payment",
+  "sub_type":"Reason for Administrative Submission or administrative component",
+  "submission_class":"Submission Class"
+
 }
 );
 
@@ -373,19 +392,19 @@ $translateProvider.translations("fr", {
   "is_ectd": "Is ECTD?",
   "ectd": "ECTD Record",
   "dossier_name": "Dossier Name",
-  "lifecycle_record": "Lifecycle Record",
+  "lifecycle_record": "Transaction Details Record",
   "date_filed": "Data Filed",
   "control_number": "Control Number",
-  "sequence_activity_type": "Activity Type",
+  "regulatory_activity_type": "Activity Type",
   "sequence_description_value": "Description",
   "sequence_from_date": "Start Date",
   "sequence_to_date": "End Date",
   "sequence_details": "Details",
   "sequence_version": "Version",
   "sequence_year": "Year",
-  "sequence_concat": "Conacatenated",
+  "transaction_description": "Conacatenated",
   "is_solicited": "Is Solicited",
-  "solicited_requester": "Solicited Requester",
+  "requester_of_solicited_information": "Solicited Requester",
   "regulatory_project_manager1": "Project Manager 1",
   "regulatory_project_manager2": "Project Manager 2",
   "regulatory_activity_address": "Regulatory Activity Address",
@@ -405,7 +424,7 @@ $translateProvider.translations("en", {
   "is_admin_submission": "Is adminstrative submission?",
   "notifiable_change_types": "Notifiable change types",
   "text_label_change": "Text Label Change",
-  "text_label_change": "Drug Substance Change",
+  "drug_substance_change": "Drug Substance Change",
   "formulation_change": "Formulation Change",
   "specification_change": "Specification Change",
   "expiry_storage_change": "Expiry Storage Change",
@@ -427,7 +446,6 @@ $translateProvider.translations("en", {
   "related_activity": "Related Activity",
   "sponsor_name": "Sponsor Name",
   "date_cleared": "Date Cleared",
-  "reg_activity_type": "Regulatory Activity Type",
   "control_number": "Control Number",
   "license_agreement": "License Agreement",
   "din_transfer": "DIN transfer",
@@ -447,7 +465,7 @@ $translateProvider.translations("fr", {
   "is_admin_submission": "Is adminstrative submission?",
   "notifiable_change_types": "Notifiable change types",
   "text_label_change": "Text Label Change",
-  "text_label_change": "Drug Substance Change",
+  "drug_substance_change": "Drug Substance Change",
   "formulation_change": "Formulation Change",
   "specification_change": "Specification Change",
   "expiry_storage_change": "Expiry Storage Change",
@@ -469,7 +487,6 @@ $translateProvider.translations("fr", {
   "related_activity": "Related Activity",
   "sponsor_name": "Sponsor Name",
   "date_cleared": "Date Cleared",
-  "reg_activity_type": "Regulatory Activity Type",
   "control_number": "Control Number",
   "license_agreement": "License Agreement",
   "din_transfer": "DIN transfer",
@@ -485,7 +502,7 @@ $translateProvider.translations("en", {
 });
 
 $translateProvider.translations("fr", {
-  "dossier_id": "Dossier Id",
+  "dossier_id": "fr_Dossier Id",
   "amend_record": "fr_Amend Record"
 });
 
@@ -510,7 +527,7 @@ $translateProvider.translations("en", {
 	"active_ingredient": "Active Ingredient",
 	"ingredient_id": "Ingredient ID",
 	"ingredient_name": "Ingredient Name",
-	"cas_number": "CAS",
+	"cas_number": "Chemical Abstract Services",
 	"ingred_standard": "Standard",
 	"is_human_animal_src": "Is animal / human sourced",
 	"strength": "Strength",
@@ -520,7 +537,7 @@ $translateProvider.translations("en", {
 	"is_base_calc": "Is calculated as base?",
 	"is_nanomaterial": "Nanomaterial type",
 	"nanomaterial_details": "Other Nanomaterial",
-	"variant_name": "Variant Name",
+	"variant_name": "Formulation Variant Name (if applicable)",
 	"in_final_container": "In final container?",
 	"nonmedicinal_ingredient": "Non-medicinal Ingredient",
 	"material_ingredient": "Material",
@@ -688,11 +705,10 @@ $translateProvider.translations("en", {
 	"medical_instruments": "Medical instruments",
 	"is_animal_age_known": "Is animal age known",
 	"is_animal_human_material": "Is animal human material",
-	"ingredient_role": "Ingredient Role"
-
-
-
-
+	"ingredient_role": "Ingredient Role",
+	"add_importer" : "Add Importer",
+	"other_shelf_life_considerations":"Other Shelf Life Considerations",
+	"per_units_other_details":"Per Units Other Details"
 }
 );
 
@@ -717,7 +733,7 @@ $translateProvider.translations("fr", {
 	"active_ingredient": "Active Ingredient",
 	"ingredient_id": "Ingredient ID",
 	"ingredient_name": "Ingredient Name",
-	"cas_number": "CAS",
+	"cas_number": "Chemical Abstract Services",
 	"ingred_standard": "Standard",
 	"is_human_animal_src": "Is animal / human sourced",
 	"strength": "Strength",
@@ -727,7 +743,7 @@ $translateProvider.translations("fr", {
 	"is_base_calc": "Is calculated as base?",
 	"is_nanomaterial": "Nanomaterial type",
 	"nanomaterial_details": "Other Nanomaterial",
-	"variant_name": "Variant Name",
+	"variant_name": "Formulation Variant Name (if applicable)",
 	"in_final_container": "In final Container?",
 	"nonmedicinal_ingredient": "Non-medicinal Ingredient",
 	"material_ingredient": "Material",
@@ -879,7 +895,7 @@ $translateProvider.translations("fr", {
 	"domestic" : "Domestic",
 	"barn" : "Barn",
 	"product_name": "Product Name",
-	"importer_company_id": "Importer Company ID",
+	"importer_company_id": "ID d'entreprise de l'importateurD",
 	"importer_company_name": "Importer Company Name",
 	"disinfectant_type": "Disinfectant Type",
 	"formulation_ingredient": "Formulation Ingredient",
@@ -905,12 +921,12 @@ $translateProvider.translations("en", {
 
 $translateProvider.translations("fr", {
   "COMPANY_ENROL": "fr_REP Company Form",
-  "manufacturer": "Manufacturer",
-  "mailing": "Mailing",
-  "billing": "Billing",
-  "importer": "Importer",
-  "company_name": "Company Name",
-  "address_record": "Address Record",
-  "contact_record": "Contact Record"
+  "manufacturer": "fr_Manufacturer",
+  "mailing": "fr_Mailing",
+  "billing": "fr_Billing",
+  "importer": "fr_Importer",
+  "company_name": "fr_Company Name",
+  "address_record": "fr_Address Record",
+  "contact_record": "fr_Contact Record"
 });
 }]);
