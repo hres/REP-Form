@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="no-js lt-ie9" dir="ltr"><![endif]-->
 <!--[if gt IE 8]><!-->
-<html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en" data-th-lang="#{lang}" dir="ltr">
+<html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en" manifest="" dir="ltr">
 <!--<![endif]-->
 <head>
     <!--No cache-->
     <meta charset="utf-8" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
-    <meta http-equiv="Pragma" content="no-cache"/>
-    <meta http-equiv="Expires" content="-1"/>
+    <!--<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>-->
+    <!--<meta http-equiv="Pragma" content="no-cache"/>-->
+    <!--<meta http-equiv="Expires" content="-1"/>-->
     <!--<meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
     <meta name='description' content="Regulatory Enrolment Process Forms"/>
     <meta name="keywords" content="Health, Regulatory Enrolment Process, REP"/>
@@ -16,7 +16,7 @@
     <meta property="dcterms.title" content="Company Template: Regulatory Enrolment Process - Canada.ca">
     <meta property="dcterms.creator" content="Government of Canada, Health Canada">
     <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-    <meta property="dcterms.modified" title="W3CDTF" content="2019-07-05">
+    <meta property="dcterms.modified" title="W3CDTF" content="2019-07-17">
     <meta property="dcterms.subject" title="gccore" content="Drugs; Pharmaceuticals, Health care products; Regulatory Enrolment Process">
     <meta property="dcterms.language" title="ISO639-2/T" content="eng">
 
@@ -46,6 +46,25 @@
         document.write(wet.builder.refTop({
             cdnEnv: "prod" //jqueryEnv:false
         }));
+        function focusOnRow(e) {
+            var myTable = $(e).closest('table');
+            var firstTr = $(myTable).find('tr');
+            if (firstTr.length > 0) {
+                $(firstTr[0]).focus();
+            } else {
+                $(myTable).focus();
+            }
+        }
+        function focusOnTable(node, idStartWith){
+            var myTable = null;
+            if(node != null){
+                myTable = $(node).find('table[id^=' + e + ']')[0];
+            }
+            if(myTable != null){
+                alert($(myTable).attr('id'));
+                $(myTable).focus();
+            }
+        }
     </script>
 </head>
 
@@ -119,7 +138,7 @@
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
             cdnEnv: "prod",
-            dateModified: "2019-07-05"
+            dateModified: "2019-07-17"
         });
     </script>
 </main>
@@ -159,7 +178,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/companyAppEXT-en_20190705_1559.min.js"></script>
+<script src="app/scripts/companyAppEXT-en_20190717_1045.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
