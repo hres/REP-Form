@@ -7,8 +7,7 @@
         .module('diffFormApp', [
             'pascalprecht.translate',
             'translations',
-            'diffMain',
-            'repCommon'
+            'diffMain'
         ])
 })();
 

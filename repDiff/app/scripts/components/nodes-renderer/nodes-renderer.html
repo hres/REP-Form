@@ -2,13 +2,13 @@
     <div >
         <div class="row margin-top-medium">
             <div class="margin-bottom-medium">
-                <a class="" ng-if="node.nodes" class="rep-anchor"
-                   ng-click="toggle(this)"><i class="glyphicon"
-                                              ng-class="{'fa fa-caret-right fa-lg fa-fw': collapsed, 'fa fa-caret-down fa-lg fa-fw': !collapsed}"></i>
+                <a class="" data-ng-if="node.nodes" class="rep-anchor"
+                   data-ng-click="toggle(this)"><i class="glyphicon"
+                                                   data-ng-class="{'fa fa-caret-right fa-lg fa-fw': collapsed, 'fa fa-caret-down fa-lg fa-fw': !collapsed}"></i>
                     {{node.recordName|translate}}&nbsp;-&nbsp;Record&nbsp{{node.index+1}}
                 </a>
             </div>
-            <div ng-if="node.value && node.value.length>0 && !collapsed" class="col-xs-12">
+            <div data-ng-if="node.value && node.value.length>0 && !collapsed" class="col-xs-12">
 
                 <table class="table dataTable table-bordered table-hover table-condensed table-striped">
                     <tr>
@@ -17,19 +17,19 @@
                         <th width="30%" scope="col">Original Value</th>
                         <th width="30%" scope="col">Changed Value</th>
                     </tr>
-                    <tr ng-repeat="child in node.value">
+                    <tr data-ng-repeat="child in node.value">
                         <td width="20%">{{child.recordName |translate}}</td>
                         <td width="15%">{{child.type |translate}}</td>
-                        <td width="30%" ng-if="child.type==='A'|| child.type==='D'">{{child.original |json }}</td>
-                        <td width="30%" ng-if="child.type==='A'|| child.type==='D'">{{child.diff |json}}</td>
-                        <td width="30%" ng-if="!(child.type==='A'|| child.type==='D')">{{child.original |translate }}
+                        <td width="30%" data-ng-if="child.type==='A'|| child.type==='D'">{{child.original |json }}</td>
+                        <td width="30%" data-ng-if="child.type==='A'|| child.type==='D'">{{child.diff |json}}</td>
+                        <td width="30%" data-ng-if="!(child.type==='A'|| child.type==='D')">{{child.original |translate }}
                         </td>
-                        <td width="30%" ng-if="!(child.type==='A'|| child.type==='D')">{{child.diff |translate }}</td>
+                        <td width="30%" data-ng-if="!(child.type==='A'|| child.type==='D')">{{child.diff |translate }}</td>
                     </tr>
                 </table>
 
             </div>
-            <div ng-if="node.isChange &&!collapsed">
+            <div data-ng-if="node.isChange &&!collapsed">
                 <div class="col-xs-12">
                     <label>(Entire record&nbsp;{{node.type |translate}})</label>
                     <table class="table dataTable table-bordered table-hover table-condensed table-striped">
@@ -47,8 +47,8 @@
                 </div>
             </div>
         </div>
-        <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
-            <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'app/scripts/components/nodes-renderer/nodes-renderer.html'">
+        <ol ui-tree-nodes="" data-ng-model="node.nodes" data-ng-class="{hidden: collapsed}">
+            <li data-ng-repeat="node in node.nodes" ui-tree-node ng-include="'app/scripts/components/nodes-renderer/nodes-renderer.html'">
             </li>
         </ol>
     </div>
