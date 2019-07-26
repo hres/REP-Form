@@ -40,7 +40,7 @@
     "en": "Chemistry and manufacturing data only",
     "fr": "Données sur la chimie et la fabrication seulement",
     "description_en": "Submissions based only on chemistry and manufacturing data for a drug that does not include a new active substance.",
-    "description_fr": "Submissions based only on chemistry and manufacturing data for a drug that does not include a new active substance.",
+    "description_fr": "Les présentations basées uniquement sur les données de chimie et de fabrication d'un médicament ne contenant pas de nouvelle substance active.",
     "fee": "23551",
     "sortBy":"FC05"
   },
