@@ -16,7 +16,7 @@
     <meta property="dcterms.title" content="Company Template: Regulatory Enrolment Process - Canada.ca">
     <meta property="dcterms.creator" content="Government of Canada, Health Canada">
     <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-    <meta property="dcterms.modified" title="W3CDTF" content="2019-07-31">
+    <meta property="dcterms.modified" title="W3CDTF" content="2019-08-06">
     <meta property="dcterms.subject" title="gccore" content="Drugs; Pharmaceuticals, Health care products; Regulatory Enrolment Process">
     <meta property="dcterms.language" title="ISO639-2/T" content="eng">
 
@@ -46,29 +46,59 @@
         document.write(wet.builder.refTop({
             cdnEnv: "prod" //jqueryEnv:false
         }));
-        function focusOnRow(e) {
+        function focusOnRow(e, alter) {
             var myTable = $(e).closest('table');
-            var firstTr = $(myTable).find('tr');
-            if (firstTr.length > 0) {
-                $(firstTr[0]).focus();
-            } else {
-                $(myTable).focus();
-            }
+            window.setTimeout(function(){
+                $('html, body').animate({
+                    scrollTop: $(myTable).offset().top + 'px'
+                }, 'fast');
+                var myTr = $(myTable).find('tr').last();
+                if(! $(myTr).attr('id')){
+                    myTr = $(myTr).prev();
+                }
+                var td = $(myTr).find(' > td ').first();
+                if($(td).length < 1){
+                    if(alter != ''){
+                        var parent = $(myTable);
+                        var button = $(parent).find('button[id^=' + alter + ']');
+                        while ($(button).length < 1){
+                            parent = $(parent).parent();
+                            button = $(parent).find('button[id^=' + alter + ']');
+                        }
+                        $(button).focus();
+                    } else {
+                        $(myTable).focus();
+                    }
+                } else {
+                    $(td).focus();
+                }
+            }, 100);
         }
         function focusOnTable(node, idStartWith){
             var myTable = null;
             if(node != null){
-                myTable = $(node).find('table[id^=' + e + ']')[0];
+                myTable = $(node).closest('tr').find('table[id^=' + idStartWith + ']')[0];
             }
             if(myTable != null){
-                alert($(myTable).attr('id'));
-                $(myTable).focus();
+                $('html, body').animate({
+                    scrollTop: $(myTable).offset().top + 'px'
+                }, 'fast');
+                window.setTimeout(function() {
+                    var myTr = $(myTable).find('> tbody > tr').last();
+                    var myTrId = $(myTr).attr('id');
+                    if(! myTrId || myTrId == ''){
+                        myTr = $(myTr).prev();
+                    }
+                    var myTd = $(myTr).find(' > td ').first();
+                    $(myTd).focus();
+                }, 100);
             }
         }
     </script>
 </head>
 
 <body vocab="http://schema.org/" typeof="WebPage" style="min-width:543px;">
+
 <div id="def-top">
     <!-- Write closure fall-back static file -->
     <!-- ./wet_4_0_27/cdts/static/top-en.html-->
@@ -139,7 +169,7 @@
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
             cdnEnv: "prod",
-            dateModified: "2019-07-31"
+            dateModified: "2019-08-06"
         });
     </script>
 </main>
@@ -179,7 +209,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/companyAppINT-en_20190731_1043.min.js"></script>
+<script src="app/scripts/companyAppINT-en_20190806_1457.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->

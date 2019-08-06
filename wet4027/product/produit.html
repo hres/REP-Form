@@ -16,7 +16,7 @@
     <meta property="dcterms.title" content="Modèle d'information sur le produit: Processus d'inscription réglementaire - Canada.ca">
     <meta property="dcterms.creator" content="Gouvernement du Canada, Santé Canada">
     <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-    <meta property="dcterms.modified" title="W3CDTF" content="2019-07-26">
+    <meta property="dcterms.modified" title="W3CDTF" content="2019-08-06">
     <meta property="dcterms.subject" title="gccore" content="Médicaments; Pharmaceutiques, produits de santé; Processus d’inscription réglementaire">
     <meta property="dcterms.language" title="ISO639-2/T" content="fra">
 
@@ -46,6 +46,54 @@
         document.write(wet.builder.refTop({
             cdnEnv: "prod" //jqueryEnv:false
         }));
+        function focusOnRow(e, alter) {
+            var myTable = $(e).closest('table');
+            window.setTimeout(function(){
+                $('html, body').animate({
+                    scrollTop: $(myTable).offset().top + 'px'
+                }, 'fast');
+                var myTr = $(myTable).find('tr').last();
+                if(! $(myTr).attr('id')){
+                    myTr = $(myTr).prev();
+                }
+                var td = $(myTr).find(' > td ').first();
+                if($(td).length < 1){
+                    if(alter != ''){
+                        var parent = $(myTable);
+                        var button = $(parent).find('button[id^=' + alter + ']');
+                        while ($(button).length < 1){
+                            parent = $(parent).parent();
+                            button = $(parent).find('button[id^=' + alter + ']');
+                        }
+                        $(button).focus();
+                    } else {
+                        $(myTable).focus();
+                    }
+                } else {
+                    $(td).focus();
+                }
+            }, 100);
+        }
+        function focusOnTable(node, idStartWith){
+            var myTable = null;
+            if(node != null){
+                myTable = $(node).closest('tr').find('table[id^=' + idStartWith + ']')[0];
+            }
+            if(myTable != null){
+                $('html, body').animate({
+                    scrollTop: $(myTable).offset().top + 'px'
+                }, 'fast');
+                window.setTimeout(function() {
+                    var myTr = $(myTable).find('> tbody > tr').last();
+                    var myTrId = $(myTr).attr('id');
+                    if(! myTrId || myTrId == ''){
+                        myTr = $(myTr).prev();
+                    }
+                    var myTd = $(myTr).find(' > td ').first();
+                    $(myTd).focus();
+                }, 100);
+            }
+        }
     </script>
 </head>
 
@@ -121,7 +169,7 @@
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
             cdnEnv: "prod",
-            dateModified: "2019-07-26"
+            dateModified: "2019-08-06"
         });
     </script>
 </main>
@@ -161,7 +209,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/drugProductAppEXT-fr_20190726_1551.min.js"></script>
+<script src="app/scripts/drugProductAppEXT-fr_20190806_1527.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
