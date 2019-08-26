@@ -16,7 +16,7 @@
     <meta property="dcterms.title" content="Modèle de transaction réglementaire: Processus d'inscription réglementaire - Canada.ca">
     <meta property="dcterms.creator" content="Gouvernement du Canada, Santé Canada">
     <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-    <meta property="dcterms.modified" title="W3CDTF" content="2019-08-06">
+    <meta property="dcterms.modified" title="W3CDTF" content="2019-08-26">
     <meta property="dcterms.subject" title="gccore" content="Médicaments; Pharmaceutiques, produits de santé; Processus d’inscription réglementaire">
     <meta property="dcterms.language" title="ISO639-2/T" content="fra">
 
@@ -46,6 +46,15 @@
         document.write(wet.builder.refTop({
             cdnEnv: "prod" //jqueryEnv:false
         }));
+        function addLeavingChk(){
+            window.addEventListener('beforeunload', function(event){
+                return 'fr_The form has been updated, do you want to stay on the page?';
+            });
+            window.onbeforeunload = function(){
+                return 'fr_The form has been updated, do you want to stay on the page?';
+            }
+            $('.modal-body').after('<div class="modal-footer"><button type="button" id="ftrClose" class="btn btn-sm btn-primary pull-left overlay-close" style="" title="Fermer (touche d&#39;échappement)">Fermer<span class="wb-inv">(touche d&#39;échappement)</span></button></div>');
+        }
         function focusOnRow(e, alter) {
             var myTable = $(e).closest('table');
             window.setTimeout(function(){
@@ -94,10 +103,17 @@
                 }, 100);
             }
         }
+        function focusOnProvince(e){
+            var node = $(e).parent().parent().parent().next();
+            window.setTimeout(function() {
+                var id = $(node).find('[id^="province_"],[id^="state_"],[id^="proveState_"]').attr('id');
+                $('#' + id).focus();
+            }, 200);
+        }
     </script>
 </head>
 
-<body vocab="http://schema.org/" typeof="WebPage" style="min-width:543px;">
+<body vocab="http://schema.org/" typeof="WebPage" style="min-width:543px;" onload="addLeavingChk();">
 <div id="def-top">
     <!-- Write closure fall-back static file -->
     <!-- ./wet_4_0_27/cdts/static/top-fr.html-->
@@ -168,7 +184,7 @@
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
             cdnEnv: "prod",
-            dateModified: "2019-08-06"
+            dateModified: "2019-08-26"
         });
     </script>
 </main>
@@ -208,7 +224,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/transactionAppEXT-fr_20190806_1535.min.js"></script>
+<script src="app/scripts/transactionAppEXT-fr_20190826_1022.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
