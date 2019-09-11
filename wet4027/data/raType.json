@@ -14,8 +14,8 @@
   {"id":"B02-20160301-075","en":"PRNDS (Request for Priority Review Status: NDS)","fr":"PRNDS (Demande de statut d’évaluation prioritaire - PDN)"},
   {"id":"B02-20160301-077","en":"PRSNDS (Request for Priority Review Status: SNDS)","fr":"PRSNDS (Demande de statut d’évaluation prioritaire - SPDN)"},
   {"id":"B02-20160301-078","en":"PSUR-C (Periodic Safety Update Report - Confirmatory)","fr":"PSUR-C (Rapport périodique de pharmacovigilance - Confirmation)"},
-  {"id":"B02-20160301-079","en":"PSUR-PV (Periodic Safety Update Report - Post-Market Vigilance)","fr":"PSUR-PV (Rapport périodique de pharmacovigilance - pharmacovigilance)"},
-  {"id":"B02-20160301-080","en":"RMP-PV (Risk Management Plan - Post-Market Vigilance)","fr":"RMP-PV (Plan de gestion des risques - Pharmacovigilance)"},
+  {"id":"B02-20160301-079","en":"PSUR-PV (Periodic Safety Update Report - Post-Market Vigilance)","fr":"PSUR-PV (Rapport périodique de pharmacovigilance - Vigilance après la mise en marché)"},
+  {"id":"B02-20160301-080","en":"RMP-PV (Risk Management Plan - Post-Market Vigilance)","fr":"RMP-PV (Plan de gestion des risques - Vigilance après la mise en marché)"},
   {"id":"B02-20160301-082","en":"SANDS (Supplement to an Abbreviated New Drug Submission)","fr":"SANDS (Supplément à une présentation abrégée de drogue nouvelle)"},
   {"id":"B02-20160301-084","en":"SNDS (Supplement to a New Drug Submission)","fr":"SNDS (Supplément à une présentation de drogue nouvelle)"},
   {"id":"B02-20160301-085","en":"SNDS-C (Supplement to a New Drug Submission - Confirmatory)","fr":"SNDS-C (Supplément à 'une présentation de drogue nouvelle - Confirmation)"},
@@ -32,11 +32,14 @@
   {"id":"B02-20190627-01","en":"IRSRPV (Issue Related Summary Report - Post-market Vigilance)","fr":"IRSRPV (Rapport de synthèse relatif à un sujet de préoccupation)"},
   {"id":"B02-20190627-02","en":"PA-PV (Post-Authorization commitments - Post-market Vigilance)","fr":"PA-PV (Engagements postérieurs à l'autorisation - Vigilance après la commercialisation)"},
   {"id":"B02-20190627-03","en":"PSA-PV (Patient Safety/Advertising Ad-Hoc Post market requests - Post-market Vigilance)","fr":"PSA-PV (Demandes postérieures à la commercialisation sur la sécurité des patients/la publicité ad hoc)"},
-  {"id":"B02-20190627-04","en":"RC-PV (Risk Communication - Post-market Vigilance)","fr":"RC-PV (Rapport de synthèse relatif à un sujet de préoccupation)"},
+  {"id":"B02-20190627-04","en":"RC-PV (Risk Communication - Post-market Vigilance)","fr":"RC-PV (Communication des risques - Vigilance après la commercialisation)"},
   {"id":"B02-20190627-05","en":"REG-PV (Post-Authorization Act and Regulations - Post-market Vigilance)","fr":"REG-PV (Loi et règlements postérieurs à l'autorisation - Vigilance après la commercialisation)"},
   {"id":"B02-20190627-06","en":"SANDS-C (Supplement to a New Abbreviated Drug Submission - Confirmatory","fr":"SANDS-C (Supplément à une présentation abrégée de drogue nouvelle - Confirmation)"},
   {"id":"B02-20160819-01","en":"Post-DIN Notification","fr":"Avis après la délivrance d'un DIN "},
   {"id":"B02-20190627-07","en":"EUANDS (Extraordinary Use Abbreviated New Drug Submission)","fr":"EUANDS (Présentation abrégée de drogue nouvelle pour usage exceptionnel)"},
-  {"id":"B02-20190627-08","en":"EUSANDS (Extraordinary Use Supplement to a Abbreviated New Drug Submission)","fr":"EUSANDS (Supplément à une présentation abrégée de drogue nouvelle pour usage exceptionnel)"}
+  {"id":"B02-20190627-08","en":"EUSANDS (Extraordinary Use Supplement to a Abbreviated New Drug Submission)","fr":"EUSANDS (Supplément à une présentation abrégée de drogue nouvelle pour usage exceptionnel)"},
+  {"id":"B02-20160301-014","en":"CTA (Clinical Trial Application)","fr":"(DEC) Demande d’essai clinique"},
+  {"id":"B02-20160301-015","en":"CTA-A (Clinical Trial Application - Amendment)","fr":"(MDEC) Modification de demande d’essai clinique"},
+  {"id":"B02-20160301-016","en":"CTN (Clinical Trial Application - Notification)","fr":"Réunion de consultation préalable au dépôt d’une Demande d’essai clinique (DEC)"}
 ]
 
