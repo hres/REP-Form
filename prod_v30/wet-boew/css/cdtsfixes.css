@@ -1,0 +1,22 @@
+/********** CDTS fixes file **********/
+/********** Follow the correct format and link to Github issue for info **********/
+
+/********** AJOUTÃ‰ PAR NICK LE 2017/08/31 **********/
+/********** Date modified/Screen identifier/Version **********/
+#wb-dtmd dt, #wb-dtmd dd{
+    float: left
+}
+#wb-dtmd dt{
+    clear: both
+}
+#wb-dtmd dd{
+    margin-left: 5px
+}
+/********** AJOUTÃ‰ PAR NICK LE 2017/08/25 **********/
+/********** Barre bleue qui remplace le menu en transactional et espace gris avant le footer **********/
+#wb-sm{
+    min-height: 55px;
+}
+#transactFooter{
+    min-height: 75px;
+}
