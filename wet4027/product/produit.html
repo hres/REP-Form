@@ -16,7 +16,7 @@
     <meta property="dcterms.title" content="Modèle d'information sur le produit: Processus d'inscription réglementaire - Canada.ca">
     <meta property="dcterms.creator" content="Gouvernement du Canada, Santé Canada">
     <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-    <meta property="dcterms.modified" title="W3CDTF" content="2019-08-27">
+    <meta property="dcterms.modified" title="W3CDTF" content="2019-09-27">
     <meta property="dcterms.subject" title="gccore" content="Médicaments; Pharmaceutiques, produits de santé; Processus d’inscription réglementaire">
     <meta property="dcterms.language" title="ISO639-2/T" content="fra">
 
@@ -33,7 +33,7 @@
         <!-- Write closure fall-back static file -->
         <!--# include virtual="/rep-dev/cdts/static/refTop.html"-->
     </noscript>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" integrity="sha384-+2PnMSZobRWHUFuaarq2tDCtf7FFSZpeMRVRe7C0l8bRZMBTjUinKl1AuYRON/A2" crossorigin="anonymous"/>
+    <link href="../wet-boew/css/font-awesome.css" rel="stylesheet" crossorigin="anonymous"/>
     <!--<link rel="stylesheet" href="./app/styles/rep.css ">-->
     <!-- inject:css -->
     <link rel="stylesheet" href="app/styles/rep.css">
@@ -54,6 +54,7 @@
                 return 'fr_The form has been updated, do you want to stay on the page?';
             }
             $('.modal-body').after('<div class="modal-footer"><button type="button" id="ftrClose" class="btn btn-sm btn-primary pull-left overlay-close" style="" title="Fermer (touche d&#39;échappement)">Fermer<span class="wb-inv">(touche d&#39;échappement)</span></button></div>');
+            $( "input[type=date]" ).trigger( "wb-init.wb-date" );
         }
         function focusOnRow(e, alter) {
             var myTable = $(e).closest('table');
@@ -185,7 +186,7 @@
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
             cdnEnv: "prod",
-            dateModified: "2019-08-27"
+            dateModified: "2019-09-27"
         });
     </script>
 </main>
@@ -225,7 +226,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/drugProductAppEXT-fr_20190827_1127.min.js"></script>
+<script src="app/scripts/drugProductAppEXT-fr_20190927_1053.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
