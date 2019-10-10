@@ -16,7 +16,7 @@
     <meta property="dcterms.title" content="Modèle d'information sur le produit: Processus d'inscription réglementaire - Canada.ca">
     <meta property="dcterms.creator" content="Gouvernement du Canada, Santé Canada">
     <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-    <meta property="dcterms.modified" title="W3CDTF" content="2019-09-27">
+    <meta property="dcterms.modified" title="W3CDTF" content="2019-10-10">
     <meta property="dcterms.subject" title="gccore" content="Médicaments; Pharmaceutiques, produits de santé; Processus d’inscription réglementaire">
     <meta property="dcterms.language" title="ISO639-2/T" content="fra">
 
@@ -111,6 +111,12 @@
                 $('#' + id).focus();
             }, 200);
         }
+        function expandAll(theClass){
+            $('.' + theClass).filter(function(){return ! $(this).attr('open')}).attr('open','open');
+        }
+        function collapseAll(theClass){
+            $('.' + theClass).filter(function(){return $(this).attr('open')}).removeAttr('open');
+        }
     </script>
 </head>
 
@@ -147,6 +153,14 @@
             <p class="pagetag">
                 <strong>De <a href="https://www.canada.ca/fr/sante-canada.html">Santé Canada</a></strong>
             </p>
+            <div class="pull-right btn-group-sm">
+                <button class="btn btn-info btn-sm active " id="btn_expandAll" onclick="expandAll('expandableForm')"
+                >&nbsp;+&nbsp;Expand All
+                </button>
+                <button class="btn btn-info btn-sm active " id="btn_collapseAll" onclick="collapseAll('expandableForm')"
+                >&nbsp;-&nbsp;Collapse All
+                </button>
+            </div>
         </div>
         <div class=" col-md-12 module-table-contents">
             <section class="panel panel-default">
@@ -186,7 +200,7 @@
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
             cdnEnv: "prod",
-            dateModified: "2019-09-27"
+            dateModified: "2019-10-10"
         });
     </script>
 </main>
@@ -226,7 +240,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/drugProductAppEXT-fr_20190927_1053.min.js"></script>
+<script src="app/scripts/drugProductAppEXT-fr_20191010_1549.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
