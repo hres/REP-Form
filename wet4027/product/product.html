@@ -16,7 +16,7 @@
     <meta property="dcterms.title" content="Product Information Template: Regulatory Enrolment Process - Canada.ca">
     <meta property="dcterms.creator" content="Government of Canada, Health Canada">
     <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-    <meta property="dcterms.modified" title="W3CDTF" content="2019-10-10">
+    <meta property="dcterms.modified" title="W3CDTF" content="2019-10-11">
     <meta property="dcterms.subject" title="gccore" content="Drugs; Pharmaceuticals, Health care products; Regulatory Enrolment Process">
     <meta property="dcterms.language" title="ISO639-2/T" content="eng">
 
@@ -56,10 +56,7 @@
             $('.modal-body:first-child').after('<div class="modal-footer"><button type="button" id="ftrClose" class="btn btn-sm btn-primary pull-left overlay-close" style="" title="Close (escape key)">Close<span class="wb-inv">(escape key)</span></button></div>');
             setTimeout(setupDateFields, 1000);
             setTimeout(setupDataList, 1000);
-            if($("ng-form[name='drugProdCtrl.drugProdForm']").length > 0){
-                $('#expand_collapse_top_btns').removeClass('hide');
-                $('#content_table').addClass('hide');
-            }
+            setTimeout(initialTopExpandCollapse, 1000);
         }
         var maxDateTimes = 5;
         function setupDateFields(){
@@ -86,6 +83,11 @@
                 maxDataListTimes --;
             } else {
                 $( "input[type=list]" ).trigger( "wb-init.wb-datalist" );
+            }
+        }
+        function initialTopExpandCollapse(){
+            if($("ng-form[name='drugProdCtrl.drugProdForm']").length > 0){
+                $('#expand_collapse_top_btns').removeClass('hide');
             }
         }
         function onchange(e) {
@@ -236,7 +238,7 @@
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
             cdnEnv: "prod",
-            dateModified: "2019-10-10"
+            dateModified: "2019-10-11"
         });
     </script>
 </main>
@@ -276,7 +278,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/drugProductAppEXT-en_20191010_1549.min.js"></script>
+<script src="app/scripts/drugProductAppEXT-en_20191011_1044.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
