@@ -69,6 +69,19 @@ label > select {
     margin-top: -5px !important;
 }
 
+.rep-margin-bottom {
+    margin-bottom: 0px !important;
+}
+
+.rep-margin-top-bottom {
+    margin-top: 23px;
+    margin-bottom: 23px;
+}
+
+.rep-margin-right {
+    margin-right: 15px;
+}
+
 .rep-expander {
     cursor: pointer;
     color: #295376;

@@ -16,7 +16,7 @@
     <meta property="dcterms.title" content="Company Template: Regulatory Enrolment Process - Canada.ca">
     <meta property="dcterms.creator" content="Government of Canada, Health Canada">
     <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-    <meta property="dcterms.modified" title="W3CDTF" content="2019-10-10">
+    <meta property="dcterms.modified" title="W3CDTF" content="2019-10-22">
     <meta property="dcterms.subject" title="gccore" content="Drugs; Pharmaceuticals, Health care products; Regulatory Enrolment Process">
     <meta property="dcterms.language" title="ISO639-2/T" content="eng">
 
@@ -55,20 +55,43 @@
             }
             $('.modal-body:first-child').after('<div class="modal-footer"><button type="button" id="ftrClose" class="btn btn-sm btn-primary pull-left overlay-close" style="" title="Close (escape key)">Close<span class="wb-inv">(escape key)</span></button></div>');
             setTimeout(setupDateFields, 1000);
+            setTimeout(setupDataList, 1000);
+            setTimeout(initialTopExpandCollapse, 1000);
         }
-        var maxTimes = 5;
+        var maxDateTimes = 5;
         function setupDateFields(){
             initialDateInput();
         }
         function initialDateInput(){
-            if($( "input[type=date]" ).length == 0 && maxTimes > 0) {
+            if($( "input[type=date]" ).length == 0 && maxDateTimes > 0) {
                 setTimeout(setupDateFields, 200);
                 // console.log("continue...");
-                maxTimes --;
+                maxDateTimes --;
             } else {
                 $( "input[type=date]" ).trigger( "wb-init.wb-date" );
+                window.location.href = "#main";
                 // console.log("initialed");
             }
+        }
+        var maxDataListTimes = 5;
+        function setupDataList(){
+            initialDataList();
+        }
+        function initialDataList(){
+            if($( "input[type=list]" ).length == 0 && maxDataListTimes > 0) {
+                setTimeout(setupDataList, 200);
+                maxDataListTimes --;
+            } else {
+                $( "input[type=list]" ).trigger( "wb-init.wb-datalist" );
+            }
+        }
+        function initialTopExpandCollapse(){
+            if($("ng-form[name='drugProdCtrl.drugProdForm']").length > 0){
+                $('#expand_collapse_top_btns').removeClass('hide');
+            }
+        }
+        function onchange(e) {
+            console.log(e);
         }
         function focusOnRow(e, alter) {
             var myTable = $(e).closest('table');
@@ -125,6 +148,12 @@
                 $('#' + id).focus();
             }, 200);
         }
+        function expandAll(theClass){
+            $('.' + theClass).filter(function(){return ! $(this).attr('open')}).attr('open','open');
+        }
+        function collapseAll(theClass){
+            $('.' + theClass).filter(function(){return $(this).attr('open')}).removeAttr('open');
+        }
     </script>
 </head>
 
@@ -162,8 +191,16 @@
             <p class="pagetag">
                 <strong>From <a href="https://www.canada.ca/en/health-canada.html">Health Canada</a></strong>
             </p>
+            <div class="pull-right btn-group-sm hide" id="expand_collapse_top_btns">
+                <button class="btn btn-info btn-sm active " id="btn_expandAll_top" onclick="expandAll('expandableForm')"
+                >&nbsp;+&nbsp;Expand All
+                </button>
+                <button class="btn btn-info btn-sm active " id="btn_collapseAll_top" onclick="collapseAll('expandableForm')"
+                >&nbsp;-&nbsp;Collapse All
+                </button>
+            </div>
         </div>
-        <div class=" col-md-12 module-table-contents">
+        <div class=" col-md-12 module-table-contents" id="content_table">
             <section class="panel panel-default">
                 <header class="panel-heading clearfix">
                     <h2  class="panel-title">Table of contents</h2>
@@ -200,7 +237,7 @@
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
             cdnEnv: "prod",
-            dateModified: "2019-10-10"
+            dateModified: "2019-10-22"
         });
     </script>
 </main>
@@ -240,7 +277,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/companyAppINT-en_20191010_0954.min.js"></script>
+<script src="app/scripts/companyAppINT-en_20191022_1413.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
