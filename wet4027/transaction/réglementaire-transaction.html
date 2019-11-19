@@ -9,14 +9,14 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
     <meta http-equiv="Pragma" content="no-cache"/>
     <meta http-equiv="Expires" content="-1"/>
-    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name='description' content="Formularies du processus d'inscription réglementaire"/>
     <meta name="keywords" content="Santé, Processus d'inscription réglementaire, PIR"/>
     <meta name="author" content="Santé Canada"/>
     <meta property="dcterms.title" content="Modèle de transaction réglementaire: Processus d'inscription réglementaire - Canada.ca">
     <meta property="dcterms.creator" content="Gouvernement du Canada, Santé Canada">
     <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-    <meta property="dcterms.modified" title="W3CDTF" content="2019-11-05">
+    <meta property="dcterms.modified" title="W3CDTF" content="2019-11-19">
     <meta property="dcterms.subject" title="gccore" content="Médicaments; Pharmaceutiques, produits de santé; Processus d’inscription réglementaire">
     <meta property="dcterms.language" title="ISO639-2/T" content="fra">
 
@@ -58,22 +58,27 @@
             setTimeout(setupDataList, 1000);
             setTimeout(initialTopExpandCollapse, 1000);
         }
-        var maxDateTimes = 5;
+        var maxDateTimes = 6;
         function setupDateFields(){
             initialDateInput();
         }
         function initialDateInput(){
             if($( "input[type=date]" ).length == 0 && maxDateTimes > 0) {
-                setTimeout(setupDateFields, 200);
-                // console.log("continue...");
+                setTimeout(setupDateFields, 300);
                 maxDateTimes --;
             } else {
-                $( "input[type=date]" ).trigger( "wb-init.wb-date" );
-                window.location.href = "#main";
-                // console.log("initialed");
+                try {
+                    window.location.href = "#main";
+                    $( "input[type=date]" ).trigger( "wb-init.wb-date" );
+                } catch( err ) {
+                    if(maxDateTimes < 1){
+                        maxDateTimes = 8;
+                    }
+                    setTimeout(setupDateFields, 500);
+                }
             }
         }
-        var maxDataListTimes = 5;
+        var maxDataListTimes = 6;
         function setupDataList(){
             initialDataList();
         }
@@ -142,7 +147,7 @@
             }
         }
         function focusOnProvince(e){
-            var node = $(e).parent().parent().parent().next();
+                var node = $(e).parent().parent().parent().next();
             window.setTimeout(function() {
                 var id = $(node).find('[id^="province_"],[id^="state_"],[id^="proveState_"]').attr('id');
                 $('#' + id).focus();
@@ -236,7 +241,7 @@
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
             cdnEnv: "prod",
-            dateModified: "2019-11-05"
+            dateModified: "2019-11-19"
         });
     </script>
 </main>
@@ -276,7 +281,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/transactionAppEXT-fr_20191105_1144.min.js"></script>
+<script src="app/scripts/transactionAppEXT-fr_20191119_1020.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
