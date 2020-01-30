@@ -97,5 +97,6 @@
   {"id":"VEAL CALVES","en":"Veal calves","fr":"Veaux de veau"},
   {"id":"WEANLINGS","en":"Weanlings","fr":"Les sevrés"},
   {"id":"WILDGAMEBIRDS","en":"Wild/game birds","fr":"Sauvage/ divers"},
-  {"id":"ZEBRA","en":"Zebra","fr":"Zèbre"}
+  {"id":"ZEBRA","en":"Zebra","fr":"Zèbre"},
+  {"id":"NOTAPPLICABLE","en":"Not Applicable","fr":"Ne s'applique pas"}
 ]
