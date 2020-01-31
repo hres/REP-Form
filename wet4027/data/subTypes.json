@@ -1,4 +1,5 @@
 [
+  {"id":"NOTAPPLICABLE","en":"Not Applicable","fr":"Ne s'applique pas"},
   {"id":"AQUARIUM FISH","en":"Aquarium fish","fr":"Poissons d'aquarium"},
   {"id":"BEEF CATTLE","en":"Beef cattle","fr":"Bovins de boucherie"},
   {"id":"BEEF HEIFERS","en":"Beef heifers","fr":"Taures de boucherie"},
@@ -97,6 +98,5 @@
   {"id":"VEAL CALVES","en":"Veal calves","fr":"Veaux de veau"},
   {"id":"WEANLINGS","en":"Weanlings","fr":"Les sevrés"},
   {"id":"WILDGAMEBIRDS","en":"Wild/game birds","fr":"Sauvage/ divers"},
-  {"id":"ZEBRA","en":"Zebra","fr":"Zèbre"},
-  {"id":"NOTAPPLICABLE","en":"Not Applicable","fr":"Ne s'applique pas"}
+  {"id":"ZEBRA","en":"Zebra","fr":"Zèbre"}
 ]
