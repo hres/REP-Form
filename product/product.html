@@ -16,7 +16,7 @@
     <meta property="dcterms.title" content="Product Information Template: Regulatory Enrolment Process - Canada.ca">
     <meta property="dcterms.creator" content="Government of Canada, Health Canada">
     <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-    <meta property="dcterms.modified" title="W3CDTF" content="2019-11-01">
+    <meta property="dcterms.modified" title="W3CDTF" content="2020-01-30">
     <meta property="dcterms.subject" title="gccore" content="Drugs; Pharmaceuticals, Health care products; Regulatory Enrolment Process">
     <meta property="dcterms.language" title="ISO639-2/T" content="eng">
 
@@ -58,22 +58,28 @@
             setTimeout(setupDataList, 1000);
             setTimeout(initialTopExpandCollapse, 1000);
         }
-        var maxDateTimes = 5;
+        var maxDateTimes = 8;
         function setupDateFields(){
             initialDateInput();
         }
         function initialDateInput(){
             if($( "input[type=date]" ).length == 0 && maxDateTimes > 0) {
-                setTimeout(setupDateFields, 200);
-                // console.log("continue...");
+                setTimeout(setupDateFields, 300);
                 maxDateTimes --;
             } else {
-                $( "input[type=date]" ).trigger( "wb-init.wb-date" );
-                window.location.href = "#main";
-                // console.log("initialed");
+                try {
+                    window.location.href = "#main";
+                    $( "input[type=date]" ).trigger( "wb-init.wb-date" );
+                } catch( err ) {
+                    console.log(err.message);
+                    if(maxDateTimes < 1){
+                        maxDateTimes = 8;
+                    }
+                    setTimeout(setupDateFields, 500);
+                }
             }
         }
-        var maxDataListTimes = 5;
+        var maxDataListTimes = 8;
         function setupDataList(){
             initialDataList();
         }
@@ -238,7 +244,7 @@
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
             cdnEnv: "prod",
-            dateModified: "2019-11-01"
+            dateModified: "2020-01-30"
         });
     </script>
 </main>
@@ -278,7 +284,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/drugProductAppEXT-en_20191101_1040.min.js"></script>
+<script src="app/scripts/drugProductAppEXT-en_20200130_1128.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
