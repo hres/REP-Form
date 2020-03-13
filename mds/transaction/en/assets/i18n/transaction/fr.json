@@ -121,5 +121,7 @@
   "msg.err.checksum.fail": "fr_The checksum in the file does not match the calculated checksum",
   "instruction": "fr_instruction",
   "instruction.help": "fr_Instructions for completing sections on form",
-  "return.instruction": "fr_Return to instruction"
+  "return.instruction": "fr_Return to instruction",
+  "orgManufactureId": "fr_Orginal Manufacturer's Company Identifier",
+  "orgManufactureLic": "fr_Orginal Manufacturer's Licence Number"
 }
