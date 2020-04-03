@@ -125,7 +125,7 @@
   "msg.err.form.type": "The wrong form type was selected for this form.",
   "msg.err.checksum.fail": "The checksum in the file does not match the calculated checksum",
   "error.msg.number": "Please enter a valid number",
-  "instruction": "instruction",
+  "instruction": "instruction ",
   "instruction.help": "Instructions for completing sections on form",
   "return.instruction": "Return to instruction",
   "template.version": "Template version: ",

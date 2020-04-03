@@ -22,7 +22,7 @@
   "minlength": "fr_Minimum length 10",
   "error.msg.phone": "fr_Please specify a valid phone number",
   "error.msg.fax": "fr_Please specify a valid fax number",
-  "error.msg.email": "fr_Please specify a valid email address",
+  "error.msg.email": "fr_Please specify a valid email",
   "error.msg.postal": "fr_Please specify a valid postal code.",
   "error.mgs.zip": "fr_Please specify a valid zip code.",
   "error.mgs.company.id": "fr_Please specify a valid company Identifier.",
