@@ -16,7 +16,7 @@
     <meta property="dcterms.title" content="Regulatory Transaction Template: Regulatory Enrolment Process - Canada.ca">
     <meta property="dcterms.creator" content="Government of Canada, Health Canada">
     <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-    <meta property="dcterms.modified" title="W3CDTF" content="2020-04-06">
+    <meta property="dcterms.modified" title="W3CDTF" content="2020-03-04">
     <meta property="dcterms.subject" title="gccore" content="Drugs; Pharmaceuticals, Health care products; Regulatory Enrolment Process">
     <meta property="dcterms.language" title="ISO639-2/T" content="eng">
 
@@ -46,15 +46,6 @@
         document.write(wet.builder.refTop({
             cdnEnv: "prod" //jqueryEnv:false
         }));
-        function addLeavingChk(){
-            window.addEventListener('beforeunload', function(event){
-                return 'The form has been updated, do you want to stay on the page?';
-            });
-            window.onbeforeunload = function(){
-                return 'The form has been updated, do you want to stay on the page?';
-            }
-            $('.modal-body:first-child').after('<div class="modal-footer"><button type="button" id="ftrClose" class="btn btn-sm btn-primary pull-left overlay-close" style="" title="Close (escape key)">Close<span class="wb-inv">(escape key)</span></button></div>');
-        }
         function focusOnRow(e) {
             var myTable = $(e).closest('table');
             var firstTr = $(myTable).find('tr');
@@ -77,8 +68,7 @@
     </script>
 </head>
 
-<body vocab="http://schema.org/" typeof="WebPage" style="min-width:543px;" onload="addLeavingChk();">
-
+<body vocab="http://schema.org/" typeof="WebPage" style="min-width:543px;">
 <div id="def-top">
     <!-- Write closure fall-back static file -->
     <!-- ./wet_4_0_27/cdts/static/top-en.html-->
@@ -98,7 +88,7 @@
         showPreContent: false,
         breadcrumbs: [{title: "Home", href: "https://www.canada.ca/en.html"},
             {title: "Health Canada", href: "https://www.canada.ca/en/health-canada.html"},
-            {title: "Regulatory Enrolment Process", href: "https://health-products.canada.ca/rep-pir/index.html"}]
+            {title: "Regulatory Enrolment Process", href: "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/regulatory-enrolment-process.html"}]
     });
 </script>
 
@@ -107,7 +97,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1 property="name" id="wb-cont">Regulatory Transaction Template: Regulatory Enrolment Process (REP) (Version 3.1.0)</h1>
+            <h1 property="name" id="wb-cont">Regulatory Transaction Template: Regulatory Enrolment Process (REP)</h1>
             <p class="pagetag">
                 <strong>From <a href="https://www.canada.ca/en/health-canada.html">Health Canada</a></strong>
             </p>
@@ -149,7 +139,7 @@
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
             cdnEnv: "prod",
-            dateModified: "2020-04-06"
+            dateModified: "2020-03-04"
         });
     </script>
 </main>
@@ -189,7 +179,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/transactionAppEXT-en_20200406_1654.min.js"></script>
+<script src="app/scripts/transactionAppEXT-en_20200304_1339.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->

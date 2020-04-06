@@ -16,7 +16,7 @@
     <meta property="dcterms.title" content="Modèle de transaction réglementaire: Processus d'inscription réglementaire - Canada.ca">
     <meta property="dcterms.creator" content="Gouvernement du Canada, Santé Canada">
     <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-    <meta property="dcterms.modified" title="W3CDTF" content="2020-03-04">
+    <meta property="dcterms.modified" title="W3CDTF" content="2020-04-06">
     <meta property="dcterms.subject" title="gccore" content="Médicaments; Pharmaceutiques, produits de santé; Processus d’inscription réglementaire">
     <meta property="dcterms.language" title="ISO639-2/T" content="fra">
 
@@ -46,10 +46,39 @@
         document.write(wet.builder.refTop({
             cdnEnv: "prod" //jqueryEnv:false
         }));
+        function addLeavingChk(){
+            window.addEventListener('beforeunload', function(event){
+                return 'The form has been updated, do you want to stay on the page?';
+            });
+            window.onbeforeunload = function(){
+                return 'The form has been updated, do you want to stay on the page?';
+            }
+            $('.modal-body:first-child').after('<div class="modal-footer"><button type="button" id="ftrClose" class="btn btn-sm btn-primary pull-left overlay-close" style="" title="Close (escape key)">Close<span class="wb-inv">(escape key)</span></button></div>');
+        }
+        function focusOnRow(e) {
+            var myTable = $(e).closest('table');
+            var firstTr = $(myTable).find('tr');
+            if (firstTr.length > 0) {
+                $(firstTr[0]).focus();
+            } else {
+                $(myTable).focus();
+            }
+        }
+        function focusOnTable(node, idStartWith){
+            var myTable = null;
+            if(node != null){
+                myTable = $(node).find('table[id^=' + e + ']')[0];
+            }
+            if(myTable != null){
+                alert($(myTable).attr('id'));
+                $(myTable).focus();
+            }
+        }
     </script>
 </head>
 
-<body vocab="http://schema.org/" typeof="WebPage" style="min-width:543px;">
+<body vocab="http://schema.org/" typeof="WebPage" style="min-width:543px;" onload="addLeavingChk();">
+
 <div id="def-top">
     <!-- Write closure fall-back static file -->
     <!-- ./wet_4_0_27/cdts/static/top-fr.html-->
@@ -69,7 +98,7 @@
         showPreContent: false,
         breadcrumbs: [{title: "Accueil", href: "https://www.canada.ca/fr.html"},
             {title: "Santé Canada", href: "https://www.canada.ca/fr/sante-canada.html"},
-            {title: "Processus d'inscription réglementaire", href: "https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/processus-inscription-reglementaire.html"}]
+            {title: "Processus d'inscription réglementaire", href: "https://health-products.canada.ca/rep-pir/index-fr.html"}]
     });
 </script>
 
@@ -78,7 +107,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1 property="name" id="wb-cont">Modèle de transaction réglementaire: Processus d'inscription réglementaire</h1>
+            <h1 property="name" id="wb-cont">Modèle de transaction réglementaire: Processus d'inscription réglementaire (Version 3.1.0)</h1>
             <p class="pagetag">
                 <strong>De <a href="https://www.canada.ca/fr/sante-canada.html">Santé Canada</a></strong>
             </p>
@@ -120,7 +149,7 @@
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
             cdnEnv: "prod",
-            dateModified: "2020-03-04"
+            dateModified: "2020-04-06"
         });
     </script>
 </main>
@@ -160,7 +189,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/transactionAppEXT-fr_20200304_1339.min.js"></script>
+<script src="app/scripts/transactionAppEXT-fr_20200406_1654.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
