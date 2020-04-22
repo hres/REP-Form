@@ -43,6 +43,8 @@
   {"id":"B02-20160301-072","en":"Pre-CTA (Pre-Clinical Trial Application)","fr":"Réunion de consultation préalable au dépôt d’une Demande d’essai clinique (DEC)"},
   {"id":"B02-20160301-041","en":"MPANDS (Pre-ANDS Meeting)","fr":"fr_MPANDS (Pre-ANDS Meeting)"},
   {"id":"B02-20160301-048","en":"MPSANDS (Pre-SANDS Meeting)","fr":"fr_MPSANDS (Pre-SANDS Meeting)"},
-  {"id":"B02-20180912-01","en":"RCC (Regulatory Cooperation Council)","fr":"RCC (Regulatory Cooperation Council)"}
+  {"id":"B02-20180912-01","en":"RCC (Regulatory Cooperation Council)","fr":"RCC (Regulatory Cooperation Council)"},
+  {"id":"B02-20200417-01","en":"COVID-19 Interim Order Application","fr":"Demande d'ordonnance provisoire COVID-19"},
+  {"id":"B02-20200417-02","en":"COVID-19 Interim Order Ap - Amendment","fr":"Demande d'ordonnance provisoire COVID-19 - Modification"}
 ]
 
