@@ -46,7 +46,7 @@
   "device.authorized": "fr_Has this device been authorized by Health Canada?",
   "device.application.submitted": "fr_Has an application been previously submitted for this device?",
   "device.explain": "fr_Please explain:",
-  "application.number": "fr_Application Number",
+  "application.number": "fr_Application Number (6 numbers)",
   "licence.application.number": "fr_Licence Number",
   "material.name": "fr_Name of Material",
   "device.label.name": "fr_Name of Device (as it appears on the label)",

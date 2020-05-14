@@ -46,7 +46,7 @@
   "licence.number": "Licence Number",
   "device.application.submitted": "Has an application been previously submitted for this device?",
   "device.explain": "Please explain:",
-  "application.number": "Application Number",
+  "application.number": "Application Number (6 numbers)",
   "licence.application.number": "Licence Number",
   "material.name": "Name of Material",
   "device.label.name": "Name of Device (as it appears on the label)",
