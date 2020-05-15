@@ -82,7 +82,7 @@
   "is.same.material": "Is the biological material the same for all devices listed in the device details table?",
   "yes": "Yes",
   "no": "No",
-  "minlength": "Minimum length 10",
+  "minlength": "Minimum length 6",
   "error.mgs.company.id": "Please specify a valid Manufacturer Company Identifier.",
   "error.mgs.dossier.id": "Please specify a valid Dossier Identifier.",
   "error.mgs.din": "Please specify a valid Drug Identification Number (DIN).",
