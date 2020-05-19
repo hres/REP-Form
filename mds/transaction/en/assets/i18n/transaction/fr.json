@@ -91,10 +91,10 @@
   "heading.requester.record": "fr_Transaction Requester Record",
   "heading.requester.detail": "fr_Transaction Requester Detail",
   "discard.changes": "fr_Discard Changes",
-  "commmon.required.bracket": "fr_(required)",
+  "commmon.required.bracket": " fr_(required)",
   "common.saveRevert": "fr_Please save or revert the record",
   "errorSummary.transaction": "fr_Transaction Form",
-  "error.found.because":"fr_could not be saved because",
+  "error.found.because":" fr_could not be saved because ",
   "error.found.plural": "fr_errors were found",
   "error.found.singular": "fr_error was found",
   "appl.status": "fr_Enrolment Status",
@@ -121,5 +121,7 @@
   "msg.err.checksum.fail": "fr_The checksum in the file does not match the calculated checksum",
   "instruction": "fr_instruction",
   "instruction.help": "fr_Instructions for completing sections on form",
-  "return.instruction": "fr_Return to instruction"
+  "return.instruction": "fr_Return to instruction",
+  "orgManufactureId": "fr_Orginal Manufacturer's Company Identifier",
+  "orgManufactureLic": "fr_Orginal Manufacturer's Licence Number"
 }
