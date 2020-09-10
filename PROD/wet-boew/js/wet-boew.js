@@ -6828,8 +6828,7 @@
                 menuitem = " role='menuitem' aria-setsize='",
                 sectionHtml = "<li><details>" + "<summary class='mb-item" +
                     ( $section.hasClass("wb-navcurr") || $section.children(".wb-navcurr").length !== 0 ? " wb-navcurr'" : "'" ) +
-                    menuitem + sectionsLength + posinset + ( sectionIndex + 1 ) +
-                    "' aria-haspopup='true'>" + $section.text() + "</summary>" +
+                    ">" + $section.text() + "</summary>" +
                     "<ul class='list-unstyled mb-sm' role='menu' aria-expanded='false' aria-hidden='true'>";
 
             // Convert each of the list items into WAI-ARIA menuitems

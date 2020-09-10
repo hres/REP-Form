@@ -69,6 +69,19 @@ label > select {
     margin-top: -5px !important;
 }
 
+.rep-margin-bottom {
+    margin-bottom: 0px !important;
+}
+
+.rep-margin-top-bottom {
+    margin-top: 23px;
+    margin-bottom: 23px;
+}
+
+.rep-margin-right {
+    margin-right: 15px;
+}
+
 .rep-expander {
     cursor: pointer;
     color: #295376;
@@ -263,4 +276,17 @@ div .module-attention {
 }
 .fa-info-circle:before {
     color: white;
+}
+.floatLeft {
+    float:left;
+}
+.floatRight {
+    float:right;
+}
+.padding-bttm-lg[open] {
+    padding-bottom: 2.5em;
+}
+.radioButtonTitle {
+    font-size:16px;
+    font-weight:700;
 }
