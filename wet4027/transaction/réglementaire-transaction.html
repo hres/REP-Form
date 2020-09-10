@@ -9,16 +9,16 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
     <meta http-equiv="Pragma" content="no-cache"/>
     <meta http-equiv="Expires" content="-1"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
     <meta name='description' content="Formularies du processus d'inscription réglementaire"/>
     <meta name="keywords" content="Santé, Processus d'inscription réglementaire, PIR"/>
     <meta name="author" content="Santé Canada"/>
-    <meta property="dcterms.title" content="Modèle de transaction réglementaire: Processus d'inscription réglementaire - Canada.ca">
-    <meta property="dcterms.creator" content="Gouvernement du Canada, Santé Canada">
-    <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-    <meta property="dcterms.modified" title="W3CDTF" content="2020-04-22">
-    <meta property="dcterms.subject" title="gccore" content="Médicaments; Pharmaceutiques, produits de santé; Processus d’inscription réglementaire">
-    <meta property="dcterms.language" title="ISO639-2/T" content="fra">
+    <meta property="dcterms.title" content="Modèle de transaction réglementaire: Processus d'inscription réglementaire - Canada.ca"/>
+    <meta property="dcterms.creator" content="Gouvernement du Canada, Santé Canada"/>
+    <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01"/>
+    <meta property="dcterms.modified" title="W3CDTF" content="2020-09-10"/>
+    <meta property="dcterms.subject" title="gccore" content="Médicaments; Pharmaceutiques, produits de santé; Processus d’inscription réglementaire"/>
+    <meta property="dcterms.language" title="ISO639-2/T" content="fra"/>
 
     <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
          wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -48,10 +48,10 @@
         }));
         function addLeavingChk(){
             window.addEventListener('beforeunload', function(event){
-                return 'fr_The form has been updated, do you want to stay on the page?';
+                return 'The form has been updated, do you want to stay on the page?';
             });
             window.onbeforeunload = function(){
-                return 'fr_The form has been updated, do you want to stay on the page?';
+                return 'The form has been updated, do you want to stay on the page?';
             }
             $('.modal-body:first-child').after('<div class="modal-footer"><button type="button" id="ftrClose" class="btn btn-sm btn-primary pull-left overlay-close" style="" title="Close (escape key)">Close<span class="wb-inv">(escape key)</span></button></div>');
             setTimeout(setupDateFields, 1000);
@@ -182,7 +182,7 @@
         showPreContent: false,
         breadcrumbs: [{title: "Accueil", href: "https://www.canada.ca/fr.html"},
             {title: "Santé Canada", href: "https://www.canada.ca/fr/sante-canada.html"},
-            {title: "Processus d'inscription réglementaire", href: "https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/processus-inscription-reglementaire.html"}]
+            {title: "Processus d'inscription réglementaire", href: "https://health-products.canada.ca/rep-pir/index-fr.html"}]
     });
 </script>
 
@@ -191,18 +191,10 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1 property="name" id="wb-cont">Modèle de transaction réglementaire: Processus d'inscription réglementaire</h1>
+            <h1 property="name" id="wb-cont">Modèle de transaction réglementaire: Processus d'inscription réglementaire (Version 4.1.0)</h1>
             <p class="pagetag">
                 <strong>De <a href="https://www.canada.ca/fr/sante-canada.html">Santé Canada</a></strong>
             </p>
-            <div class="pull-right btn-group-sm hide">
-                <button class="btn btn-info btn-sm active " id="btn_expandAll" onclick="expandAll('expandableForm')"
-                >&nbsp;+&nbsp;Expand All
-                </button>
-                <button class="btn btn-info btn-sm active " id="btn_collapseAll" onclick="collapseAll('expandableForm')"
-                >&nbsp;-&nbsp;Collapse All
-                </button>
-            </div>
         </div>
         <div class=" col-md-12 module-table-contents">
             <section class="panel panel-default">
@@ -241,7 +233,7 @@
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
             cdnEnv: "prod",
-            dateModified: "2020-04-22"
+            dateModified: "2020-09-10"
         });
     </script>
 </main>
@@ -281,7 +273,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/transactionAppEXT-fr_20200422_1329.min.js"></script>
+<script src="app/scripts/transactionAppEXT-fr_20200910_1604.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
