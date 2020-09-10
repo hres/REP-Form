@@ -13,12 +13,12 @@
     <meta name='description' content="Regulatory Enrolment Process Forms"/>
     <meta name="keywords" content="Health, Regulatory Enrolment Process, REP"/>
     <meta name="author" content="Health Canada"/>
-    <meta property="dcterms.title" content="Regulatory Transaction Template: Regulatory Enrolment Process - Canada.ca">
-    <meta property="dcterms.creator" content="Government of Canada, Health Canada">
-    <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-    <meta property="dcterms.modified" title="W3CDTF" content="2019-11-27">
-    <meta property="dcterms.subject" title="gccore" content="Drugs; Pharmaceuticals, Health care products; Regulatory Enrolment Process">
-    <meta property="dcterms.language" title="ISO639-2/T" content="eng">
+    <meta property="dcterms.title" content="Regulatory Transaction Template: Regulatory Enrolment Process - Canada.ca"/>
+    <meta property="dcterms.creator" content="Government of Canada, Health Canada"/>
+    <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01"/>
+    <meta property="dcterms.modified" title="W3CDTF" content="2020-09-10"/>
+    <meta property="dcterms.subject" title="gccore" content="Drugs; Pharmaceuticals, Health care products; Regulatory Enrolment Process"/>
+    <meta property="dcterms.language" title="ISO639-2/T" content="eng"/>
 
     <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
          wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -149,6 +149,7 @@
         }
         function focusOnProvince(e){
                 var node = $(e).parent().parent().parent().next();
+
             window.setTimeout(function() {
                 var id = $(node).find('[id^="province_"],[id^="state_"],[id^="proveState_"]').attr('id');
                 $('#' + id).focus();
@@ -184,7 +185,7 @@
         showPreContent: false,
         breadcrumbs: [{title: "Home", href: "https://www.canada.ca/en.html"},
             {title: "Health Canada", href: "https://www.canada.ca/en/health-canada.html"},
-            {title: "Regulatory Enrolment Process", href: "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/regulatory-enrolment-process.html"}]
+            {title: "Regulatory Enrolment Process", href: "https://health-products.canada.ca/rep-pir/index.html"}]
     });
 </script>
 
@@ -193,18 +194,10 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1 property="name" id="wb-cont">Regulatory Transaction Template: Regulatory Enrolment Process (REP)</h1>
+            <h1 property="name" id="wb-cont">Regulatory Transaction Template: Regulatory Enrolment Process (REP) (Version 4.1.0)</h1>
             <p class="pagetag">
                 <strong>From <a href="https://www.canada.ca/en/health-canada.html">Health Canada</a></strong>
             </p>
-            <!--<div class="pull-right btn-group-sm hide" id="expand_collapse_top_btns">-->
-                <!--<button class="btn btn-info btn-sm active " id="btn_expandAll_top" onclick="expandAll('expandableForm')"-->
-                <!--&gt;&nbsp;+&nbsp;Expand All-->
-                <!--</button>-->
-                <!--<button class="btn btn-info btn-sm active " id="btn_collapseAll_top" onclick="collapseAll('expandableForm')"-->
-                <!--&gt;&nbsp;-&nbsp;Collapse All-->
-                <!--</button>-->
-            <!--</div>-->
         </div>
         <div class=" col-md-12 module-table-contents" id="content_table">
             <section class="panel panel-default">
@@ -224,11 +217,11 @@
 
     </div>
     <!-- the main content -->
-        <!-- inject:mainContent-->
-        <div id="app-root" data-ng-app="transactionApp" data-ng-controller="MainController as ctrl">
+    <!-- inject:mainContent-->
+    <div id="app-root" data-ng-app="transactionApp" data-ng-controller="MainController as ctrl">
     <cmp-transaction-main></cmp-transaction-main>
 </div>
-        <!-- endinject-->
+    <!-- endinject-->
     <!-- end main content -->
 
     <!--content ends here -->
@@ -243,7 +236,7 @@
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
             cdnEnv: "prod",
-            dateModified: "2019-11-27"
+            dateModified: "2020-09-10"
         });
     </script>
 </main>
@@ -283,7 +276,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/transactionAppEXT-en_20191127_1024.min.js"></script>
+<script src="app/scripts/transactionAppEXT-en_20200910_1604.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
