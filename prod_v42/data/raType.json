@@ -44,8 +44,10 @@
   {"id":"B02-20160301-041","en":"MPANDS (Pre-Submission Meeting Information - ANDS)","fr":"MPANDS (Réunions préalables - ANDS)"},
   {"id":"B02-20160301-048","en":"MPSANDS (Pre-Submission Meeting Information - SANDS)","fr":"MPSANDS (Réunions préalables - SANDS)"},
   {"id":"B02-20180912-01","en":"RCC (Regulatory Cooperation Council)","fr":"RCC (Conseil de coopération en matière de réglementation)"},
-  {"id":"B02-20200417-01","en":"COVID-19 Interim Order Application","fr":"Demande d'ordonnance provisoire COVID-19"},
-  {"id":"B02-20200417-02","en":"COVID-19 Interim Order Ap - Amendment","fr":"Demande d'ordonnance provisoire COVID-19 - Modification"},
-  {"id":"B02-20201028-01","en":"MPCOV (Pre-COVID-19 For IO Application Meeting)","fr":"MPCOV (Réunion préalable pour demande d'ordonnace provisiore COVID-19)"}
+  {"id":"B02-20200417-01","en":"COV19 (COVID-19 Interim Order Application)","fr":"COV19 (Demande d'ordonnance provisoire COVID-19)"},
+  {"id":"B02-20200417-02","en":"COV19A (COVID-19 Interim Order Ap - Amendment)","fr":"COV19A (Demande d'ordonnance provisoire COVID-19 - Modification)"},
+  {"id":"B02-20201028-01","en":"MPCOV (Pre-COVID-19 For IO Application Meeting)","fr":"MPCOV (Réunion préalable pour demande d'ordonnance provisoire COVID-19)"},
+  {"id":"B02-20160301-022","en":"DINV (Application for Drug Identification Number - Veterinary)","fr":"DINF (Demande d'identification numérique de drogue - Vétérinaire)"},
+  {"id":"B02-20201214-01","en":"MPCOVA (Pre-COVID-19 For IO Application Amendment Meeting)","fr":"MPCOVA (Réunion préalable à une modification de demande d'ordonnance provisoire COVID-19)"}
 ]
 
