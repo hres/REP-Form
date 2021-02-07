@@ -12,8 +12,8 @@
     "id": "FC2",
     "en": "Clinical or non-clinical data and chemistry and manufacturing data",
     "fr": "Données cliniques ou non cliniques et données sur la chimie et la fabrication",
-    "description_en": "Submissions based on clinical or non-clinical data and chemistry and manufacturing data that does not include a new active substance.\nThis fee applies to the following submission types: NDS, SNDS, ANDS, SANDS, DINA, DINB",
-    "description_fr": "Présentations fondées sur des données cliniques ou non cliniques et des données sur la chimie et la fabrication d’un médicament exempt de nouvelle substance active.\nCes frais s'appliquent aux types de présentation suivants : PDN, SPDN, PADN, SPADN, DDIN, DDINB",
+    "description_en": "Submissions based on clinical or non-clinical data and chemistry and manufacturing data that does not include a new active substance.\nThis fee applies to the following submission types: NDS, SNDS, DINA, DINB",
+    "description_fr": "Présentations fondées sur des données cliniques ou non cliniques et des données sur la chimie et la fabrication d’un médicament exempt de nouvelle substance active.\nCes frais s'appliquent aux types de présentation suivants : PDN, SPDN, DDIN, DDINB",
     "fee": "204197",
     "sortBy":"FC02"
   },
@@ -21,8 +21,8 @@
     "id": "FC3",
     "en": "Clinical or non-clinical data only",
     "fr": "Données cliniques ou non cliniques seulement",
-    "description_en": "Submissions based only on clinical or non-clinical data for a drug that does not include a new active substance.\nThis fee applies to the following submission types: NDS, SNDS, ANDS, SANDS, DINA, DINB",
-    "description_fr": "Présentations fondées seulement sur des données cliniques ou non cliniques à l’égard d’un médicament exempt de nouvelle substance active.\nCes frais s'appliquent aux types de présentation suivants : PDN, SPDN, PADN, SPADN, DDIN, DDINB",
+    "description_en": "Submissions based only on clinical or non-clinical data for a drug that does not include a new active substance.\nThis fee applies to the following submission types: NDS, SNDS, DINA, DINB",
+    "description_fr": "Présentations fondées seulement sur des données cliniques ou non cliniques à l’égard d’un médicament exempt de nouvelle substance active.\nCes frais s'appliquent aux types de présentation suivants : PDN, SPDN, DDIN, DDINB",
     "fee": "90864",
     "sortBy":"FC03"
   },
