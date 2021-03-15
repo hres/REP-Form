@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+    <!--No cache-->
+    <meta charset="utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+    <meta name='description' content="Formularies du processus d'inscription réglementaire"/>
+    <meta name="keywords" content="Santé, Processus d'inscription réglementaire, PIR"/>
+    <meta name="author" content="Santé Canada"/>
+    <meta property="dcterms.title" content="<!--build:formTitle--><!--endbuild-->"/>
+    <meta property="dcterms.creator" content="Gouvernement du Canada, Santé Canada"/>
+    <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01"/>
+    <meta property="dcterms.modified" title="W3CDTF" content="<!--build:dateToday--><!--endbuild-->"/>
+    <meta property="dcterms.subject" title="gccore" content="Médicaments; Pharmaceutiques, produits de santé; Processus d’inscription réglementaire"/>
+    <meta property="dcterms.language" title="ISO639-2/T" content="fra"/>
+
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+         wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title><!--build:formTitle--><!--endbuild--></title>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <!-- Additional analytics, if required. -->
+    <!--/*/ <th:block th:replace="analytics/analytics-header"></th:block> /*/-->
+    <!-- Load closure template scripts -->
+    <script src="../GCWeb/<!--build:wetVersion--><!--endbuild-->/js/wet-fr.js" crossorigin="anonymous"></script>
+    <script src="../GCWeb/<!--build:wetVersion--><!--endbuild-->/js/soyutils.js" crossorigin="anonymous"></script>
+
+    <noscript>
+    	<link rel="stylesheet" href="../GCWeb/wet-boew/css/noscript.min.css" />
+        <!-- Write closure fall-back static file -->
+        <!--# include virtual="/rep-dev/cdts/static/refTop.html"-->
+    </noscript>
+    <link rel="stylesheet" href="../GCWeb/<!--build:wetVersion--><!--endbuild-->/css/wai-wcag.css" />
+    <!-- inject:css -->
+    <!-- endinject -->
+
+    <!-- Write closure template -->
+    <script type="text/javascript">
+        document.write(wet.builder.refTop({
+            cdnEnv: "prod" //jqueryEnv:false
+        }));
+        function addLeavingChk(){
+            window.addEventListener('beforeunload', function(event){
+                return 'The form has been updated, do you want to stay on the page?';
+            });
+            window.onbeforeunload = function(){
+                return 'The form has been updated, do you want to stay on the page?';
+            }
+            $('.modal-body:first-child').after('<div class="modal-footer"><button type="button" id="ftrClose" class="btn btn-sm btn-primary pull-left overlay-close" style="" title="Close (escape key)">Close<span class="wb-inv">(escape key)</span></button></div>');
+            setTimeout(setupDateFields, 1000);
+            setTimeout(setupDataList, 1000);
+            setTimeout(initialTopExpandCollapse, 1000);
+        }
+        var maxDateTimes = 6;
+        function setupDateFields(){
+            initialDateInput();
+        }
+        function initialDateInput(){
+            if($( "input[type=date]" ).length == 0 && maxDateTimes > 0) {
+                setTimeout(setupDateFields, 300);
+                maxDateTimes --;
+            } else {
+                try {
+                    window.location.href = "#main";
+                    $( "input[type=date]" ).trigger( "wb-init.wb-date" );
+                } catch( err ) {
+                    if(maxDateTimes < 1){
+                        maxDateTimes = 8;
+                    }
+                    setTimeout(setupDateFields, 500);
+                }
+            }
+        }
+        var maxDataListTimes = 6;
+        function setupDataList(){
+            initialDataList();
+        }
+        function initialDataList(){
+            if($( "input[type=list]" ).length == 0 && maxDataListTimes > 0) {
+                setTimeout(setupDataList, 200);
+                maxDataListTimes --;
+            } else {
+                $( "input[type=list]" ).trigger( "wb-init.wb-datalist" );
+            }
+        }
+        function initialTopExpandCollapse(){
+            if($("ng-form[name='drugProdCtrl.drugProdForm']").length > 0){
+                $('#expand_collapse_top_btns').removeClass('hide');
+            }
+        }
+        function onchange(e) {
+            console.log(e);
+        }
+        function focusOnRow(e, alter) {
+            var myTable = $(e).closest('table');
+            window.setTimeout(function(){
+                $('html, body').animate({
+                    scrollTop: $(myTable).offset().top + 'px'
+                }, 'fast');
+                var myTr = $(myTable).find('tr').last();
+                if(! $(myTr).attr('id')){
+                    myTr = $(myTr).prev();
+                }
+                var td = $(myTr).find(' > td ').first();
+                if($(td).length < 1){
+                    if(alter != ''){
+                        var parent = $(myTable);
+                        var button = $(parent).find('button[id^=' + alter + ']');
+                        while ($(button).length < 1){
+                            parent = $(parent).parent();
+                            button = $(parent).find('button[id^=' + alter + ']');
+                        }
+                        $(button).focus();
+                    } else {
+                        $(myTable).focus();
+                    }
+                } else {
+                    $(td).focus();
+                }
+            }, 100);
+        }
+        function focusOnTable(node, idStartWith){
+            var myTable = null;
+            if(node != null){
+                myTable = $(node).closest('tr').find('table[id^=' + idStartWith + ']')[0];
+            }
+            if(myTable != null){
+                $('html, body').animate({
+                    scrollTop: $(myTable).offset().top + 'px'
+                }, 'fast');
+                window.setTimeout(function() {
+                    var myTr = $(myTable).find('> tbody > tr').last();
+                    var myTrId = $(myTr).attr('id');
+                    if(! myTrId || myTrId == ''){
+                        myTr = $(myTr).prev();
+                    }
+                    var myTd = $(myTr).find(' > td ').first();
+                    $(myTd).focus();
+                }, 100);
+            }
+        }
+        function focusOnProvince(e){
+                var node = $(e).parent().parent().parent().next();
+            window.setTimeout(function() {
+                var id = $(node).find('[id^="province_"],[id^="state_"],[id^="proveState_"]').attr('id');
+                $('#' + id).focus();
+            }, 200);
+        }
+        function expandAll(theClass){
+            $('.' + theClass).filter(function(){return ! $(this).attr('open')}).attr('open','open');
+        }
+        function collapseAll(theClass){
+            $('.' + theClass).filter(function(){return $(this).attr('open')}).removeAttr('open');
+        }
+    </script>
+</head>
+
+<body vocab="http://schema.org/" typeof="WebPage" onload="addLeavingChk();">
+<div id="def-top">
+    <!-- Write closure fall-back static file -->
+    <!-- ./wet_4_0_27/cdts/static/top-fr.html-->
+    <!--# include virtual="/rep-dev/cdts/static/top-fr.html"-->
+</div>
+<!-- Write closure template -->
+<script type="text/javascript">
+    var defTop = document.getElementById("def-top");
+    defTop.outerHTML = wet.builder.top({
+        cdnEnv: "prod",
+        search: true,
+        lngLinks: [{
+            lang: "en",
+            href: "<!--build:langHtml--><!--endbuild-->",
+            text: "English"
+        }],
+        showPreContent: false,
+        breadcrumbs: [{title: "Accueil", href: "https://www.canada.ca/fr.html"},
+            {title: "Santé Canada", href: "https://www.canada.ca/fr/sante-canada.html"},
+            {title: "Processus d'inscription réglementaire", href: "<!--build:homeAnchor--><!--endbuild-->"}]
+    });
+</script>
+
+<main role="main" property="mainContentOfPage" class="container">
+    <!--content starts here -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1 property="name" id="wb-cont"><!--build:mainHeading--><!--endbuild--></h1>
+            <p class="pagetag">
+                <strong>De <a href="https://www.canada.ca/fr/sante-canada.html">Santé Canada</a></strong>
+            </p>
+        </div>
+        <div class=" col-md-12 module-table-contents">
+            <section class="panel panel-default">
+                <header class="panel-heading clearfix">
+                    <h2  class="panel-title">Table de matières</h2>
+                </header>
+                <div class="panel-body">
+                    <ul>
+                        <li><a class="ui-link" href="#privacy">Énoncé de confidentialité</a></li>
+                        <li><a class="ui-link" href="#security">Avis de non-responsabilité concernant la sécurité</a></li>
+                        <li><a class="ui-link" href="#instructions">Instructions</a></li>
+                        <li><a class="ui-link" href="#main">Formulaire</a></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    <!-- the main content -->
+    <!-- inject:mainContent-->
+    <!-- endinject-->
+    <!-- end main content -->
+
+    <!--content ends here -->
+	<div id="repPreFooter" class="pagedetails container">
+	  <div class="row">
+	  	<div id="repProblemReport" class="col-sm-6 col-md-5 col-lg-4" data-ajax-replace="../GCWeb/ajax/prefooter-v2-en.html"></div>
+	  	<div id="repSocialShare" class="wb-share col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5" data-wb-share='{"lnkClass": "btn btn-default btn-block"}'></div>
+	  </div>
+	  <dl id="wb-dtmd">
+	    <dt>Date de modification :</dt>
+	    <dd>
+	      <time property="dateModified">
+	        <!--build:dateToday--><!--endbuild-->
+	      </time>
+	    </dd>
+	  </dl>
+	</div>
+</main>
+<div id="def-footer">
+    <!-- Write closure fall-back static file -->
+    <!-- ./wet_4_0_27/cdts/static/footer-fr.html-->
+    <!--# include virtual="/rep-dev/cdts/static/footer-fr.html"-->
+</div>
+<!-- Write closure template -->
+<script type="text/javascript">
+    var defFooter = document.getElementById("def-footer");
+    defFooter.outerHTML = wet.builder.footer({
+        cdnEnv: "prod"
+    });
+</script>
+<!-- Write closure template -->
+<script type="text/javascript">
+    document.write(wet.builder.refFooter({
+        cdnEnv: "prod",
+        exitScript: false
+    }));
+</script>
+
+<!--Start add custom scripts here-->
+
+<!-- inject:js -->
+
+<!-- endinject -->
+<!-- thirdParty:js  -->
+
+<!-- endinject -->
+</body>
+</html>

@@ -1,0 +1,16 @@
+.wb-fnote dd > ul,.wb-fnote dd > ol {
+     list-style-position: inside;
+     padding-left: 0;
+}
+
+.wb-fnote dd p:first-child {
+	padding-left: 0;
+}
+
+.container {
+	font-size: 15px;
+}
+
+.panel-title {
+    line-height: 200%;
+}
