@@ -18,5 +18,10 @@
     "id": "GOVERMENT_ORGANIZATION",
     "en": "Government Organization",
     "fr": "Organisation gouvernementale"
+  },
+  {
+    "id": "ISAD",
+    "en": "Previously filed under ISAD Interim Order",
+    "fr": "Précédemment déposé en vertu de l'ordonnance provisoire de l'ISAD"
   }
 ]
