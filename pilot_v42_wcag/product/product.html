@@ -16,7 +16,7 @@
     <meta property="dcterms.title" content="Product Information Template: Regulatory Enrolment Process - Canada.ca"/>
     <meta property="dcterms.creator" content="Government of Canada, Health Canada"/>
     <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01"/>
-    <meta property="dcterms.modified" title="W3CDTF" content="2021-02-25"/>
+    <meta property="dcterms.modified" title="W3CDTF" content="2021-04-14"/>
     <meta property="dcterms.subject" title="gccore" content="Drugs; Pharmaceuticals, Health care products; Regulatory Enrolment Process"/>
     <meta property="dcterms.language" title="ISO639-2/T" content="eng"/>
 
@@ -34,7 +34,7 @@
         <!-- Write closure fall-back static file -->
         <!--# include virtual="/rep-dev/cdts/static/refTop.html"-->
     </noscript>
-    <!--<link rel="stylesheet" href="./app/styles/rep.css ">-->
+    <link rel="stylesheet" href="../GCWeb/v4.0.41/css/wai-wcag.css" />
     <!-- inject:css -->
     <link rel="stylesheet" href="app/styles/rep.css">
     <link rel="stylesheet" href="app/styles/select.min.css">
@@ -68,7 +68,7 @@
                 maxDateTimes --;
             } else {
                 try {
-                    window.location.href = "#main";
+//                    window.location.href = "#main";
                     $( "input[type=date]" ).trigger( "wb-init.wb-date" );
                 } catch( err ) {
                     console.log(err.message);
@@ -164,7 +164,7 @@
     </script>
 </head>
 
-<body vocab="http://schema.org/" typeof="WebPage" style="min-width:543px;" onload="addLeavingChk();">
+<body vocab="http://schema.org/" typeof="WebPage" onload="addLeavingChk();">
 
 <div id="def-top">
     <!-- Write closure fall-back static file -->
@@ -226,20 +226,17 @@
     <!-- end main content -->
 
     <!--content ends here -->
-    <div id="def-preFooter">
-        <!-- Write closure fall-back static file -->
-        <!-- ./wet_4_0_27/cdts/static/preFooter-en.html-->
-        <!--# include virtual="/rep-dev/cdts/static/preFooter-en.html"-->
-    </div>
+	<div id="repPreFooter" class="pagedetails container">
+	  <div class="row">
+	  	<div id="repProblemReport" class="col-sm-6 col-md-5 col-lg-4" data-ajax-replace="../GCWeb/ajax/prefooter-v2-en.html"></div>
+	  	<div id="repSocialShare" class="wb-share col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5" data-wb-share='{"lnkClass": "btn btn-default btn-block"}'></div>
+	  </div>
+	  <dl id="wb-dtmd">
+	    <dt>Date modified:&#32;</dt>
+	    <dd><time property="dateModified">2021-04-14</time></dd>
+	  </dl>
+	</div>
 
-    <!-- Write closure template -->
-    <script type="text/javascript">
-        var defPreFooter = document.getElementById("def-preFooter");
-        defPreFooter.outerHTML = wet.builder.preFooter({
-            cdnEnv: "prod",
-            dateModified: "2021-02-25"
-        });
-    </script>
 </main>
 <div id="def-footer">
     <!-- Write closure fall-back static file -->
@@ -277,7 +274,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/drugProductAppEXT-en_20210225_1001.min.js"></script>
+<script src="app/scripts/drugProductAppEXT-en_20210414_0836.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
