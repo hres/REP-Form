@@ -14,3 +14,7 @@
 .panel-title {
     line-height: 200%;
 }
+
+.custom-popup-wrapper > li.active > a:visited {
+    color: white !important;
+}
