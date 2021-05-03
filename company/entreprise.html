@@ -16,7 +16,7 @@
     <meta property="dcterms.title" content="'Modèle de compagnie': Processus d'Inscription Réglementaire - Canada.ca"/>
     <meta property="dcterms.creator" content="Gouvernement du Canada, Santé Canada"/>
     <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01"/>
-    <meta property="dcterms.modified" title="W3CDTF" content="2020-09-18"/>
+    <meta property="dcterms.modified" title="W3CDTF" content="2021-04-29"/>
     <meta property="dcterms.subject" title="gccore" content="Médicaments; Pharmaceutiques, produits de santé; Processus d’inscription réglementaire"/>
     <meta property="dcterms.language" title="ISO639-2/T" content="fra"/>
 
@@ -27,14 +27,15 @@
     <!-- Additional analytics, if required. -->
     <!--/*/ <th:block th:replace="analytics/analytics-header"></th:block> /*/-->
     <!-- Load closure template scripts -->
-    <script src="../wet-boew/js/soyutils.js"></script>
-    <script src="../wet-boew/js/wet-fr.js"></script>
+    <script src="../GCWeb/v4.0.41/js/wet-fr.js" crossorigin="anonymous"></script>
+    <script src="../GCWeb/v4.0.41/js/soyutils.js" crossorigin="anonymous"></script>
+
     <noscript>
+    	<link rel="stylesheet" href="../GCWeb/wet-boew/css/noscript.min.css" />
         <!-- Write closure fall-back static file -->
         <!--# include virtual="/rep-dev/cdts/static/refTop.html"-->
     </noscript>
-    <link href="../wet-boew/css/font-awesome.css" rel="stylesheet" crossorigin="anonymous"/>
-    <!--<link rel="stylesheet" href="./app/styles/rep.css ">-->
+    <link rel="stylesheet" href="../GCWeb/v4.0.41/css/wai-wcag.css" />
     <!-- inject:css -->
     <link rel="stylesheet" href="app/styles/rep.css">
     <link rel="stylesheet" href="app/styles/select.min.css">
@@ -68,7 +69,7 @@
                 maxDateTimes --;
             } else {
                 try {
-                    window.location.href = "#main";
+//                    window.location.href = "#main";
                     $( "input[type=date]" ).trigger( "wb-init.wb-date" );
                 } catch( err ) {
                     if(maxDateTimes < 1){
@@ -162,7 +163,7 @@
     </script>
 </head>
 
-<body vocab="http://schema.org/" typeof="WebPage" style="min-width:543px;" onload="addLeavingChk();">
+<body vocab="http://schema.org/" typeof="WebPage" onload="addLeavingChk();">
 <div id="def-top">
     <!-- Write closure fall-back static file -->
     <!-- ./wet_4_0_27/cdts/static/top-fr.html-->
@@ -191,7 +192,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1 property="name" id="wb-cont">'Modèle de compagnie': Processus d'Inscription Réglementaire (Version 4.1.0)</h1>
+            <h1 property="name" id="wb-cont">'Modèle de compagnie': Processus d'Inscription Réglementaire (Version 4.2.0)</h1>
             <p class="pagetag">
                 <strong>De <a href="https://www.canada.ca/fr/sante-canada.html">Santé Canada</a></strong>
             </p>
@@ -222,20 +223,21 @@
     <!-- end main content -->
 
     <!--content ends here -->
-    <div id="def-preFooter">
-        <!-- Write closure fall-back static file -->
-        <!-- ./wet_4_0_27/cdts/static/preFooter-fr.html-->
-        <!--# include virtual="/rep-dev/cdts/static/preFooter-fr.html"-->
-    </div>
+	<div id="repPreFooter" class="pagedetails container">
+	  <div class="row">
+	  	<div id="repProblemReport" class="col-sm-6 col-md-5 col-lg-4" data-ajax-replace="../GCWeb/ajax/prefooter-v2-fr.html"></div>
+	  	<div id="repSocialShare" class="wb-share col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5" data-wb-share='{"lnkClass": "btn btn-default btn-block"}'></div>
+	  </div>
+	  <dl id="wb-dtmd">
+	    <dt>Date de modification :</dt>
+	    <dd>
+	      <time property="dateModified">
+	        2021-04-29
 
-    <!-- Write closure template -->
-    <script type="text/javascript">
-        var defPreFooter = document.getElementById("def-preFooter");
-        defPreFooter.outerHTML = wet.builder.preFooter({
-            cdnEnv: "prod",
-            dateModified: "2020-09-18"
-        });
-    </script>
+	      </time>
+	    </dd>
+	  </dl>
+	</div>
 </main>
 <div id="def-footer">
     <!-- Write closure fall-back static file -->
@@ -273,7 +275,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/companyAppEXT-fr_20200918_1010.min.js"></script>
+<script src="app/scripts/companyAppEXT-fr_20210429_0859.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->

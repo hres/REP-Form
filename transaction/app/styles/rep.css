@@ -121,13 +121,13 @@ label > select {
 
 .rep-selectize-font {
     font-weight: normal;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .rep-selectize-dropdown {
     width: 100% !important;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 15px;
     padding-top: 0px;
     padding-right: 0px;
     padding-bottom: 0px;
@@ -223,7 +223,7 @@ input[type="date"] {
  font-weight: 700;
 }
 .legend-rep{
-    font-size: 16px !important;
+    font-size: 15px !important;
     font-weight: 700 !important;
 }
 .legend-rep-h3{
@@ -244,7 +244,7 @@ input[type="date"] {
  }
 
 .label-pi {
-    font-size: 16px;
+    font-size: 15px;
 }
 
 ul.no-bullets li
@@ -287,6 +287,6 @@ div .module-attention {
     padding-bottom: 2.5em;
 }
 .radioButtonTitle {
-    font-size:16px;
+    font-size:15px;
     font-weight:700;
 }
