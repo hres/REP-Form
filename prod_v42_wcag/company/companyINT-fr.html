@@ -16,7 +16,7 @@
     <meta property="dcterms.title" content="'Modèle de compagnie': Processus d'Inscription Réglementaire - Canada.ca"/>
     <meta property="dcterms.creator" content="Gouvernement du Canada, Santé Canada"/>
     <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01"/>
-    <meta property="dcterms.modified" title="W3CDTF" content="2021-05-27"/>
+    <meta property="dcterms.modified" title="W3CDTF" content="2021-06-21"/>
     <meta property="dcterms.subject" title="gccore" content="Médicaments; Pharmaceutiques, produits de santé; Processus d’inscription réglementaire"/>
     <meta property="dcterms.language" title="ISO639-2/T" content="fra"/>
 
@@ -101,29 +101,35 @@
         }
         function focusOnRow(e, alter) {
             var myTable = $(e).closest('table');
+            var myForm = $(e).closest('ng-form');
             window.setTimeout(function(){
                 $('html, body').animate({
                     scrollTop: $(myTable).offset().top + 'px'
                 }, 'fast');
                 var myTr = $(myTable).find('tr').last();
-                if(! $(myTr).attr('id')){
-                    myTr = $(myTr).prev();
-                }
-                var td = $(myTr).find(' > td ').first();
-                if($(td).length < 1){
-                    if(alter != ''){
-                        var parent = $(myTable);
-                        var button = $(parent).find('button[id^=' + alter + ']');
-                        while ($(button).length < 1){
-                            parent = $(parent).parent();
-                            button = $(parent).find('button[id^=' + alter + ']');
-                        }
-                        $(button).focus();
-                    } else {
-                        $(myTable).focus();
-                    }
+                var errSum = $(myForm).find('div[id*="errors-summary"]:visible');
+                if ($(errSum).length > 0) {
+                    $(errSum).find('section').focus();
                 } else {
-                    $(td).focus();
+                    if (!$(myTr).attr('id')) {
+                        myTr = $(myTr).prev();
+                    }
+                    var td = $(myTr).find(' > td ').first();
+                    if ($(td).length < 1) {
+                        if (alter != '') {
+                            var parent = $(myTable);
+                            var button = $(parent).find('button[id^=' + alter + ']');
+                            while ($(button).length < 1) {
+                                parent = $(parent).parent();
+                                button = $(parent).find('button[id^=' + alter + ']');
+                            }
+                            $(button).focus();
+                        } else {
+                            $(myTable).focus();
+                        }
+                    } else {
+                        $(td).focus();
+                    }
                 }
             }, 100);
         }
@@ -197,7 +203,7 @@
                 <strong>De <a href="https://www.canada.ca/fr/sante-canada.html">Santé Canada</a></strong>
             </p>
         </div>
-        <div class=" col-md-12 module-table-contents">
+        <div class=" col-md-12 module-table-contents" id="content_table">
             <section class="panel panel-default">
                 <header class="panel-heading clearfix">
                     <h2  class="panel-title">Table de matières</h2>
@@ -232,7 +238,7 @@
 	    <dt>Date de modification :</dt>
 	    <dd>
 	      <time property="dateModified">
-	        2021-05-27
+	        2021-06-21
 
 	      </time>
 	    </dd>
@@ -275,7 +281,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/companyAppINT-fr_20210527_1102.min.js"></script>
+<script src="app/scripts/companyAppINT-fr_20210621_1007.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
