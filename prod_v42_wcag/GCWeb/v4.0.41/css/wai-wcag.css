@@ -34,3 +34,8 @@ fieldset.chkbxrdio-grp input[type="radio"] + label {
 strong.error span.label-danger span {
 	white-space: normal !important;
 }
+
+div.btn-group-sm input.btn[type="submit"] {
+  height:auto;
+  min-height: 36px;
+}
