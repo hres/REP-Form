@@ -36,7 +36,7 @@
   "error.mgs.primary.contact.id": "Please specify a valid contact Identifier for REP Contact.",
   "error.mgs.primary.company.id": "Please specify a valid company Identifier for REP Contact.",
   "error.mgs.contact.id": "Please specify a valid contact identifier.",
-  "error.msg.contact.one.record": "At least one New, Active, or Revise company representative must be entered ",
+  "error.msg.contact.one.record": "At least one company representative with new, active, revise status must be listed",
   "postal.canada": "Postal Code",
   "postal.usa": "Zip Code",
   "heading.company": "Regulatory Company Enrolment",

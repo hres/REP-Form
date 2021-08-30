@@ -34,7 +34,7 @@
   "error.mgs.company.id": "fr_Please specify a valid company Identifier.",
   "error.mgs.licence.number": "fr_Please specify a valid licence number.",
   "error.mgs.contact.id": "fr_Please specify a valid contact Identifier.",
-  "error.msg.contact.one.record": "fr_At least one New, Active, or Revise company representative should be entered ",
+  "error.msg.contact.one.record": "fr_At least one company representative with new, active, revise status must be listed",
   "postal.canada": "fr_Postal Code",
   "postal.usa": "fr_Zip Code",
   "heading.company": "fr_Regulatory Company Enrolment",
