@@ -1,0 +1,41 @@
+.wb-fnote dd > ul,.wb-fnote dd > ol {
+     list-style-position: inside;
+     padding-left: 0;
+}
+
+.wb-fnote dd p:first-child {
+	padding-left: 0;
+}
+
+.container {
+	font-size: 15px;
+}
+
+.panel-title {
+    line-height: 200%;
+}
+
+.custom-popup-wrapper > li.active > a:visited {
+    color: white !important;
+}
+
+fieldset.chkbxrdio-grp legend {
+	font-size: 15px !important;
+}
+
+fieldset.chkbxrdio-grp input[type="radio"] {
+	margin-left:15px;
+}
+
+fieldset.chkbxrdio-grp input[type="radio"] + label {
+	font-weight: normal;
+}
+
+strong.error span.label-danger span {
+	white-space: normal !important;
+}
+
+div.btn-group-sm input.btn[type="submit"] {
+  height:auto;
+  min-height: 36px;
+}
