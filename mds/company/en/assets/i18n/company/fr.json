@@ -48,7 +48,7 @@
   "heading.contactRecord": "fr_Company Representative Record",
   "heading.contactDetails": "fr_Company Representative Detail",
   "contact.id": "fr_Contact Identifier",
-  "full.name": "fr_Full Name",
+  "full.name": "fr_Full Name (First and Last)",
   "first.name": "fr_First Name",
   "last.name": "fr_Last Name",
   "initials": "fr_Initials",

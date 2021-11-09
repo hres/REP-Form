@@ -50,7 +50,7 @@
   "heading.contactRecord": "Company Representative Record",
   "heading.contactDetails": "Company Representative Detail",
   "contact.id": "Contact Identifier",
-  "full.name": "Full Name",
+  "full.name": "Full Name (First and Last)",
   "first.name": "First Name",
   "last.name": "Last Name",
   "initials": "Initials",
