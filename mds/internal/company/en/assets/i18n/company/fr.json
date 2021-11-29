@@ -17,6 +17,7 @@
   "fileio.msg.fileTypeError": "fr_File Type Error",
   "fileio.msg.dataTypeError": "fr_Error: the wrong form data was selected for this form.",
   "amend.note": "fr_The “Amend Enrolment” button must be selected when amending a Final Company XML.",
+  "refresh.page": "fr_Always upload XML file into a blank template. Refresh this page to reset template to blank.",
   "save.record": "fr_Add Record",
   "delete.record": "fr_Delete Record",
   "save.contact": "fr_Save Contact",
