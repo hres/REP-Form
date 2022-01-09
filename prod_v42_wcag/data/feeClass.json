@@ -5,7 +5,7 @@
     "fr": "Nouvelle substance active",
     "description_en": "Submissions in support of a drug, excluding a disinfectant, that contains a medicinal ingredient not previously approved in a drug for sale in Canada and that is not a variation of a previously approved ingredient such as a salt, ester, enantiomer, solvate or polymorph.",
     "description_fr": "Présentations à l’appui d’un médicament, à l’exclusion d’un désinfectant, contenant un ingrédient médicinal jamais approuvé dans un médicament pour la vente au Canada et ne constituant pas une variante d’un ingrédient médicinal déjà approuvé tel un sel, un ester, un énantiomère, un solvate ou un polymorphe.",
-    "fee": "437009",
+    "fee": "490666",
     "sortBy":"FC01"
   },
   {
@@ -14,7 +14,7 @@
     "fr": "Données cliniques ou non cliniques et données sur la chimie et la fabrication",
     "description_en": "Submissions based on clinical or non-clinical data and chemistry and manufacturing data that does not include a new active substance.\nThis fee applies to the following submission types: NDS, SNDS, DINA, DINB",
     "description_fr": "Présentations fondées sur des données cliniques ou non cliniques et des données sur la chimie et la fabrication d’un médicament exempt de nouvelle substance active.\nCes frais s'appliquent aux types de présentation suivants : PDN, SPDN, DDIN, DDINB",
-    "fee": "224242",
+    "fee": "253015",
     "sortBy":"FC02"
   },
   {
@@ -23,7 +23,7 @@
     "fr": "Données cliniques ou non cliniques seulement",
     "description_en": "Submissions based only on clinical or non-clinical data for a drug that does not include a new active substance.\nThis fee applies to the following submission types: NDS, SNDS, DINA, DINB",
     "description_fr": "Présentations fondées seulement sur des données cliniques ou non cliniques à l’égard d’un médicament exempt de nouvelle substance active.\nCes frais s'appliquent aux types de présentation suivants : PDN, SPDN, DDIN, DDINB",
-    "fee": "95796",
+    "fee": "104339",
     "sortBy":"FC03"
   },
   {
@@ -32,7 +32,7 @@
     "fr": "Études comparatives",
     "description_en": "Submissions based on comparative studies (e.g., clinical or non-clinical data, bioavailability data, and data on the pharmacokinetics and pharmacodynamics of the drug) with or without chemistry and manufacturing data for a drug that does not include a new active substance.\nThis fee applies to the following submission types: NDS, SNDS, ANDS, SANDS, DINA, DINB",
     "description_fr": "Présentations fondées sur des études comparatives (p. ex. données cliniques ou non cliniques, données sur la biodisponibilité et sur le comportement pharmacocinétique et pharmacodynamique du médicament) avec ou sans données sur la chimie et la fabrication d’un médicament exempt de nouvelle substance active.\nCes frais s'appliquent aux types de présentation suivants : PDN, SPDN, PADN, SPADN, DDIN, DDINB",
-    "fee": "55737",
+    "fee": "59708",
     "sortBy":"FC04"
   },
   {
@@ -41,7 +41,7 @@
     "fr": "Données sur la chimie et la fabrication seulement",
     "description_en": "Submissions based only on chemistry and manufacturing data for a drug that does not include a new active substance.\nThis fee applies to the following submission types: NDS, SNDS, ANDS, SANDS, DINA, DINB",
     "description_fr": "Présentations fondées seulement sur des données portant sur la chimie et la fabrication d’un médicament exempt de nouvelle substance active.\nCes frais s'appliquent aux types de présentation suivants : PDN, SPDN, PADN, SPADN, DDIN, DDINB",
-    "fee": "30609",
+    "fee": "34831",
     "sortBy":"FC05"
   },
   {
@@ -50,7 +50,7 @@
     "fr": "Données cliniques ou non cliniques seulement, à l’appui des mises à jour de l’étiquetage concernant l’innocuité",
     "description_en": "Submissions based only on clinical or non-clinical data, in support of safety updates to the labelling materials for a  new drug that does not include a new active substance.\nThis fee applies to the following submission types: SNDS and SANDS",
     "description_fr": "Présentations fondées seulement sur des données cliniques ou non cliniques à l’appui de mises à jour de l’innocuité sur l’étiquetage à l’égard d’un nouveau médicament exempt de nouvelle substance active.\nCes frais s'appliquent aux types de présentation suivants : SPDN et SPADN",
-    "fee": "19404",
+    "fee": "20064",
     "sortBy":"FC06"
   },
   {
@@ -59,7 +59,7 @@
     "fr": "Étiquetage seulement",
     "description_en": "Submissions of labelling material, that include data in support of the following: brand name assessment, standardized or published test methods, in vitro or in vivo photostability or applications for a drug identification number in support of changes to brand names of non-prescription drugs (but not including examination of other supporting clinical or non-clinical data, comparative data, or chemistry and manufacturing data).\nThis fee applies to the following submission types: NDS, SNDS, ANDS, SANDS, DINA, DINB",
     "description_fr": "Présentations de matériel d’étiquetage qui comprend des données à l'appui des éléments suivants : l’examen de la marque nominative, les méthodes d'essai normalisées ou publiées, la photostabilité in vitro ou in vivo ou les demandes d’identification numérique de médicament à l'appui des modifications à des marques nominatives de médicaments vendus sans ordonnance (mais ne comportant aucun examen d’autres données justificatives cliniques ou non cliniques, comparatives ou sur la chimie et la fabrication).\nCes frais s'appliquent aux types de présentation suivants : PDN, SPDN, PADN, SPADN, DDIN, DDINB",
-    "fee": "4320",
+    "fee": "4997",
     "sortBy":"FC07"
   },
   {
@@ -68,16 +68,16 @@
     "fr": "Étiquetage seulement (générique)",
     "description_en": "Submissions in support of a change to the labelling to be  consistent with the Canadian reference product that do not include any additional labelling updates requiring a labelling assessment.\nThis fee applies to the following submission types: SNDS and SANDS",
     "description_fr": "Présentations à l’appui d’une modification à l’étiquetage par souci de cohérence avec le produit de référence canadien qui ne comprennent aucune mise à jour supplémentaire nécessitant une évaluation de l’étiquetage.\nCes frais s'appliquent aux types de présentation suivants : SPDN et SPADN",
-    "fee": "2006",
+    "fee": "2075",
     "sortBy":"FC08"
   },
   {
     "id": "FC9",
     "en": "Administrative submission",
     "fr": "Présentation administrative",
-    "description_en": "Submissions in support of a change in the manufacturer’s name or brand  name,  including the following: changes in ownership of the drug, request for an additional brand name or changes resulting from a licensing agreement being entered into by two manufacturers that do not require an assessment of labelling material or brand name (e.g., post-authorization label changes filed by licensees to remain identical to licensor’s drug and post-authorization chemistry and manufacturing updates for drugs listed in Schedule C or D of the Food and Drugs Act).\nThis fee applies to the following submission types:NDS (including disinfectants), SNDS (including disinfectants), ANDS, SANDS, DINA, DINB, DIND, DINF",
+    "description_en": "Submissions in support of a change in the manufacturer’s name or brand  name,  including the following: changes in ownership of the drug, request for an additional brand name or changes resulting from a licensing agreement being entered into by two manufacturers that do not require an assessment of labelling material or brand name (e.g., post-authorization label changes filed by licensees to remain identical to licensor’s drug and post-authorization chemistry and manufacturing updates for drugs listed in Schedule C or D of the Food and Drugs Act).\nThis fee applies to the following submission types:NDS (including disinfectants), SNDS (including disinfectants), ANDS, SANDS, DINA, DINB, DIND, DINF. \nThis fee does not apply to submissions filed outside the administrative pathway that contain administrative components.",
     "description_fr": "Présentations à l’appui d’un changement du nom du fabricant ou de marque, notamment des changements aux droits de propriété du médicament, une demande d’ajout de nom de marque ou des changements découlant d’une entente d’homologation conclue entre deux fabricants et qui ne nécessitent aucune évaluation du matériel d’étiquetage ou du nom de marque (p. ex. des changements à l’étiquetage apportés après l’autorisation et demandés par des titulaires afin que l’étiquetage demeure identique aux mises à jour du concédant sur le médicament et des mises à jour sur la chimie et la fabrication après l’autorisation pour les médicaments énumérés à l’annexe C ou D de la Loi sur les aliments et drogues).\nCes frais s'appliquent aux types de présentation suivants : PDN (incluant les produits désinfectants), SPDN (incluant les produits désinfectants), PADN, SPADN, DDIN, DDINB, DDIND, DDINF ",
-    "fee": "539",
+    "fee": "698",
     "sortBy":"FC09"
   },
   {
@@ -86,7 +86,7 @@
     "fr": "Désinfectants - éxamen complet",
     "description_en": "Submissions that include data in support of a disinfectant Submissions and applications that include data in support of a disinfectant.\nThis fee applies to the following submission types: NDS, SNDS, DIND",
     "description_fr": "Présentations et demandes comprenant des données à l’appui d’un désinfectant.\nCes frais s'appliquent aux types de présentation suivants : PDN, SPDN, DDIND",
-    "fee": "7126",
+    "fee": "9211",
     "sortBy":"FC10"
   },
   {
@@ -95,7 +95,7 @@
     "fr": "Étiquetage seulement (Désinfectants)",
     "description_en": "Submissions  in support of changes to the labelling of disinfectants that do not require supporting data, submissions in support of safety updates for disinfectants that are new drugs or submissions in support of a change in the manufacturer’s name or  brand name that requires  a review of labelling material due to deviations from the previously authorized labelling or drug.\nThis fee applies to the following submission types: NDS, SNDS, DIND ",
     "description_fr": "Présentations à l’appui de changements à l’étiquetage de désinfectants et qui ne nécessitent pas de données complémentaires, présentations à l’appui de mises à jour sur l’innocuité pour des désinfectants qui sont de nouveaux médicaments ou présentations à l’appui d’un changement de nom du fabricant ou de la marque et qui nécessitent un examen du matériel d’étiquetage en raison de dérogations à l’étiquetage ou au médicament préalablement autorisés.\nCes frais s'appliquent aux types de présentation suivants : PDN, SPDN, DDIND",
-    "fee": "2502",
+    "fee": "2588",
     "sortBy":"FC11"
   },
   {
@@ -104,7 +104,16 @@
     "fr": "Demande d’une identification numérique — norme d’étiquetage",
     "description_en": "Applications, including those that pertain to changes to brand names for non-prescription drugs, that include an attestation of compliance  with a labelling standard or Category IV Monograph for a drug and that do not include clinical or non-clinical data or chemistry and manufacturing data.\nThis fee applies to the following submission types: DINA, DINB, DIND, DINF",
     "description_fr": "Demandes, y compris les demandes relatives à des changements de nom de marque pour des médicaments sans ordonnance, qui comprennent une attestation de conformité à une norme d’étiquetage ou à une monographie de catégorie IV pour un médicament et qui ne comportent pas de données cliniques ou non cliniques ou de données sur la chimie ou la fabrication.\nCes frais s'appliquent aux types de présentation suivants : DDIN, DDINB, DDIND, DDINF",
-    "fee": "1613",
+    "fee": "1668",
     "sortBy":"FC12"
+  },
+  {
+    "id": "FC13",
+    "en": "Labelling only – with administrative component",
+    "fr": "Étiquetage seulement – avec composante administrative",
+    "description_en": "Submissions of labelling material, that include data in support of the following: brand name assessment, standardized or published test methods, in vitro or in vivo photostability or applications for a drug identification number in support of changes to brand names of non-prescription drugs (but not including examination of other supporting clinical or non-clinical data, comparative data, or chemistry and manufacturing data).\nThis fee applies to the following submission types: NDS, SNDS, ANDS, SANDS, DINA, DINB",
+    "description_fr": "Présentations de matériel d’étiquetage qui comprend des données à l'appui des éléments suivants : l’examen de la marque nominative, les méthodes d'essai normalisées ou publiées, la photostabilité in vitro ou in vivo ou les demandes d’identification numérique de médicament à l'appui des modifications à des marques nominatives de médicaments vendus sans ordonnance (mais ne comportant aucun examen d’autres données justificatives cliniques ou non cliniques, comparatives ou sur la chimie et la fabrication).\nCes frais s'appliquent aux types de présentation suivants : PDN, SPDN, PADN, SPADN, DDIN, DDINB",
+    "fee": "4997",
+    "sortBy":"FC13"
   }
 ]
