@@ -25,7 +25,7 @@
   {"id":"B02-20160301-018","en":"DINA (Application for Drug Identification Number)","fr":"DDIN (Demande d'identification numérique de drogue)"},
   {"id":"B02-20160301-019","en":"DINB (Application for Drug Identification Number - Biologic)","fr":"DIN-B (Demande d'identification numérique de drogue - produits biologiques)"},
   {"id":"B02-20160301-020","en":"DIND (Application for Drug Identification Number - Disinfectant Product)","fr":"DIN-D (Demande d'identification numérique de drogue - produits désinfectant)"},
-  {"id":"B02-20160301-021","en":"DINF (Application for Drug Identification Number - Category IV Product)","fr":"DIN-F (Demande d'identification numérique de drogue - produits catégorie IV)"},
+  {"id":"B02-20160301-021","en":"DINF (Application for Drug Identification Number - Category IV Monograph Product)","fr":"DIN-F (Demande d'identification numérique de drogue - produit monographique de catégorie IV)"},
   {"id":"B02-20160301-022","en":"DINV (Application for Drug Identification Number - Veterinary)","fr":"DINV (Demande d'identification numérique de drogue - Vétérinaire)"},
   {"id":"B02-20160301-043","en":"MPDIN (Pre-Submission Meeting Information - DIN)","fr":"MPDIN (Réunions préalables - DIN)"},
   {"id":"B02-20160301-070","en":"PDC (Post-Authorization Division 1 Change)","fr":"CPA (Changement post-approbation de Titre 1)"},
