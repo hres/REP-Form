@@ -7,8 +7,7 @@ $translateProvider.translations("en", {
   "MSG_ERR_FILE_LOAD": "Error: there was a problem loading the file.",
   "MSG_ERR_FILE_TYPE": "Error: An invalid file type was selected.",
   "MSG_ERR_FORM_TYPE": "Error: the wrong form type was selected for this form.",
-  "MSG_ERR_CHECKSUM_FAIL": "Error: the checksum in the file does not match the calculated checksum",
-  "MSG_ERR_FILE_VERSION": "Error: An invalid file version was selected."
+  "MSG_ERR_CHECKSUM_FAIL": "Error: the checksum in the file does not match the calculated checksum"
 });
 
 $translateProvider.translations("fr", {
@@ -19,8 +18,7 @@ $translateProvider.translations("fr", {
   "MSG_ERR_FILE_LOAD": "Erreur: il y a eu un problème lors du chargement du fichier.",
   "MSG_ERR_FILE_TYPE": "Erreur: un type de fichier invalide a été sélectionné.",
   "MSG_ERR_FORM_TYPE": "Erreur: le type de formulaire incorrect a été sélectionné pour ce formulaire.",
-  "MSG_ERR_CHECKSUM_FAIL": "Erreur: La somme de contrôle dans le fichier ne correspond pas à la somme de contrôle calculée.",
-  "MSG_ERR_FILE_VERSION": "Erreur: un version de fichier invalide a été sélectionné."
+  "MSG_ERR_CHECKSUM_FAIL": "Erreur: La somme de contrôle dans le fichier ne correspond pas à la somme de contrôle calculée."
 });
 
 $translateProvider.translations("en", {
@@ -65,6 +63,7 @@ $translateProvider.translations("fr", {
   "roa_other": "Other route of administration",
   "container_details": "Container Record",
   "container_type": "Container Type",
+  "package_size": "Package Size",
   "shelf_life_years": "Shelf life Years",
   "shelf_life_months": "Shelf life Months",
   "temperature_min": "Minimum temperature",
@@ -123,7 +122,7 @@ $translateProvider.translations("fr", {
   "appendix4_group": "Animal /Human Source",
   "animal_sourced": "Animal Sourced",
   "human_sourced": "Human Sourced",
-  "cardio_system": "Système cardio-respiratoire",
+  "cardio_system": "Cardio-Respiratory System",
   "heart_pericardium": "Heart Pericardium",
   "lung": "Lung",
   "nasal_fluid": "Nasal Fluid",
@@ -146,6 +145,7 @@ $translateProvider.translations("fr", {
   "thymus": "Thymus",
   "tonsils": "Tonsils",
   "other_immune": "Other Immune System",
+  "other_immune_details": "Other Immune System details",
   "musculo_system": "Musculo-Skeletal System",
   "abdomen": "Abdomen",
   "skull": "Skull",
@@ -168,6 +168,7 @@ $translateProvider.translations("fr", {
   "spinal_cord": "Spinal Cord",
   "trigerminal_ganglia": "Trigerminal Ganglia",
   "other_nervous": "Other Nervous System",
+  "other_nervous_details": "Other Nervous System Details",
   "other_system": "Other System",
   "adipose": "Adipose",
   "ascites": "Ascites",
@@ -251,8 +252,7 @@ $translateProvider.translations("en", {
   "phone_num": "Phone Number",
   "phone_ext": "Phone Extension",
   "fax_num": "Fax Number",
-  "email": "Email",
-  "imp_company_name": "Canadian Importer Company Name"
+  "email": "Email"
 });
 
 $translateProvider.translations("fr", {
@@ -265,10 +265,9 @@ $translateProvider.translations("fr", {
   "rep_contact_details": "REP Contact Details",
   "salutation": "Salutation",
   "phone_num": "No. de téléphone",
-  "phone_ext": "Extension de téléphone",
+  "phone_ext": "Extension de téléohone",
   "fax_num": "No. de fax",
-  "email": "Courriel",
-  "imp_company_name": "Nom de la compagnie de l'importateur canadien"
+  "email": "Courriel"
 });
 
 $translateProvider.translations("en", {
@@ -313,8 +312,8 @@ $translateProvider.translations("fr", {
   "date_saved": "Date Saved",
   "application_type": "Application Type",
   "software_version": "Software Version",
-  "company_id": "Company Identifier",
-  "dossier_id": "Dossier Identifier",
+  "company_id": "Company ID",
+  "dossier_id": "Dossier ID",
   "__text": "Save Value",
   "_label_en": "English Caption",
   "_label_fr": "French Caption",
@@ -328,7 +327,7 @@ $translateProvider.translations("fr", {
   "rep_secondary" : "REP Secondary",
   "contact_id" : "Contact ID",
   "reason_amend" : "Reason Amend",
-  "importer_id" : "Importer Identifier"
+  "importer_id" : "Importer ID"
 }
 );
 
@@ -512,13 +511,14 @@ $translateProvider.translations("en", {
 	"is_sched_a": "Is Schedule A?",
 	"formulation_details": "Formulation Details",
 	"formulation_name": "Formulation Name",
-	"formulation_id": "Formulation Identifier",
+	"formulation_id": "Formulation ID",
 	"dosage_form": "Dosage Form",
 	"roa_details": "Route of Administration record",
 	"roa": "Route of Administration details",
 	"roa_other": "Other route of administration",
 	"container_details": "Container Record",
 	"container_type": "Container Type",
+	"package_size": "Package Size",
 	"shelf_life_years": "Shelf life Years",
 	"shelf_life_months": "Shelf life Months",
 	"temperature_min": "Minimum temperature",
@@ -689,7 +689,7 @@ $translateProvider.translations("en", {
 	"domestic" : "Domestic",
 	"barn" : "Barn",
 	"product_name": "Product Name",
-	"importer_company_id": "Importer Company Identifier",
+	"importer_company_id": "Importer Company ID",
 	"importer_company_name": "Importer Company Name",
 	"disinfectant_type": "Disinfectant Type",
 	"formulation_ingredient": "Formulation Ingredient",
@@ -708,15 +708,7 @@ $translateProvider.translations("en", {
 	"ingredient_role": "Ingredient Role",
 	"add_importer" : "Add Importer",
 	"other_shelf_life_considerations":"Other Shelf Life Considerations",
-	"per_units_other_details":"Per Units Other Details",
-	"does_include_ct_data": "Does this submission include clinical trial data? ",
-	"efficacy_are_rltd_sex": "Are the clinical trial data in your submission disaggregated by sex (male / female) by? Efficacy",
-	"efficacy_are_rltd_age": "Are the clinical trial data in your submission disaggregated by age by? Efficacy",
-	"efficacy_are_rltd_race": "Are the clinical trial data in your submission disaggregated by race / ethnicity by? Efficacy",
-	"safety_are_rltd_sex": "Are the clinical trial data in your submission disaggregated by sex (male / female) by? Safety",
-	"safety_are_rltd_age": "Are the clinical trial data in your submission disaggregated by age by? Safety",
-	"safety_are_rltd_race": "Are the clinical trial data in your submission disaggregated by race / ethnicity by? Safety",
-	"from_pediatric_populations": "Does this submission include clinical trial data from pediatric populations (those under 18 years of age)? "
+	"per_units_other_details":"Per Units Other Details"
 }
 );
 
@@ -725,13 +717,14 @@ $translateProvider.translations("fr", {
 	"is_sched_a": "Is Schedule A?",
 	"formulation_details": "Formulation Details",
 	"formulation_name": "Formulation Name",
-	"formulation_id": "Numéro de la formulation",
+	"formulation_id": "Formulation ID",
 	"dosage_form": "Dosage Form",
 	"roa_details": "Route of Administration record",
 	"roa": "Route of Administration Details",
 	"roa_other": "Other route of administration",
 	"container_details": "Container Record",
 	"container_type": "Container Type",
+	"package_size": "Package Size",
 	"shelf_life_years": "Shelf life Years",
 	"shelf_life_months": "Shelf life Months",
 	"temperature_min": "Minimum temperature",
@@ -796,7 +789,7 @@ $translateProvider.translations("fr", {
 	"nasal_fluid": "Nasal Fluid",
 	"trachea": "Trachea",
 	"other_cardio_respiratory": "Other Cardio-Respiratory ",
-	"other_cardio_respiratory_details": "Autre détails du système cardio-respiratore",
+	"other_cardio_respiratory_details": "Other Cardio-Respiratory Details",
 	"digestive_system": "Digestive System",
 	"appendix": "Appendix",
 	"bile": "Bile",
@@ -806,14 +799,14 @@ $translateProvider.translations("fr", {
 	"small_intestine": "Small Intestine",
 	"stomach": "Stomach",
 	"other_digestive": "Other Digestive System",
-	"other_digestive_details": "Autre détails du système digestif",
+	"other_digestive_details": "Other Digestive System Details",
 	"immune_system": "Immune System",
 	"lymph_nodes": "Lymph Nodes",
 	"spleen": "Spleen",
 	"thymus": "Thymus",
 	"tonsils": "Tonsils",
 	"other_immune": "Other Immune System",
-	"other_immune_details": "Autre détails du système immunitaire",
+	"other_immune_details": "Other Immune System details",
 	"musculo_system": "Musculo-Skeletal System",
 	"abdomen": "Abdomen",
 	"skull": "Skull",
@@ -823,7 +816,7 @@ $translateProvider.translations("fr", {
 	"vertebral_column": "Vertebral Column",
 	"muscle": "Muscle",
 	"other_musculo_skeletal": "Other Musculo-Skeletal System",
-	"other_musculo_skeletal_details": "Autre détails du système musculo-squelettique",
+	"other_musculo_skeletal_details": "Other Musculo-Skeletal System Details",
 	"nervous_system": "Nervous System",
 	"brain": "Brain",
 	"brain_stem": "Brain Stem",
@@ -836,7 +829,7 @@ $translateProvider.translations("fr", {
 	"spinal_cord": "Spinal Cord",
 	"trigerminal_ganglia": "Trigerminal Ganglia",
 	"other_nervous": "Other Nervous System",
-	"other_nervous_details": "Autres détails du système nerveux",
+	"other_nervous_details": "Other Nervous System Details",
 	"other_system": "Other System",
 	"adipose": "Adipose",
 	"ascites": "Ascites",
@@ -850,7 +843,7 @@ $translateProvider.translations("fr", {
 	"eyes_cornea": "Eyes Cornea",
 	"gall_bladder": "Gall Bladder",
 	"other_fluids_tissues": "Other Fluids Tissues",
-	"other_fluids_tissues_details": "Autres détails tissulaires",
+	"other_fluids_tissues_details": "Other Fluids Tissues Details",
 	"reproductive_system": "Reproductive System",
 	"milk_products": "Milk Products",
 	"kidney": "Kidney",
@@ -863,7 +856,7 @@ $translateProvider.translations("fr", {
 	"testes": "Testes",
 	"urine": "Urine",
 	"other_reproductive": "Other Reproductive System",
-	"other_reproductive_details": "Autre détails du système reproductif et urinaire",
+	"other_reproductive_details": "Other Reproductive Details",
 	"skin_system": "Skin and Glandular System",
 	"adrenal_gland": "Adrenal Gland",
 	"hair_hooves_feathers": "Hair, hooves, feathers",
@@ -873,7 +866,7 @@ $translateProvider.translations("fr", {
 	"skin_hides": "Skin / Hides",
 	"thyroid_parathyroid": "Thyroid / Parathyroid",
 	"other_skin_glandular": "Other Skin and Glandular System",
-	"other_skin_glandular_details": "Autre détails du système peau et glandulaire",
+	"other_skin_glandular_details": "Other Skin and Glandular System Details",
 	"animal_src_record": "Animal Type Details",
 	"animal_type": "Animal Type",
 	"animal_detail": "Animal Type description",
@@ -902,7 +895,7 @@ $translateProvider.translations("fr", {
 	"domestic" : "Domestic",
 	"barn" : "Barn",
 	"product_name": "Product Name",
-	"importer_company_id": "Numéro d'entreprise de l'importateur",
+	"importer_company_id": "ID d'entreprise de l'importateurD",
 	"importer_company_name": "Importer Company Name",
 	"disinfectant_type": "Disinfectant Type",
 	"formulation_ingredient": "Formulation Ingredient",
@@ -910,15 +903,7 @@ $translateProvider.translations("fr", {
 	"nanomaterial": "Nanomaterial",
 	"contact_lens":"Contact Lens",
 	"importer_name": "Importer Name",
-	"institutional_industrial": "Institutional Industrial",
-	"does_include_ct_data": "Cette soumission inclut-elle des données d'essais cliniques? ",
-	"efficacy_are_rltd_sex": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par sexe (homme / femme) par? efficacité",
-	"efficacy_are_rltd_age": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par âge par? efficacité",
-	"efficacy_are_rltd_race": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par race/ethnie par? efficacité",
-	"safety_are_rltd_sex": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par sexe (homme / femme) par? innocuité",
-	"safety_are_rltd_age": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par âge par? innocuité",
-	"safety_are_rltd_race": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par race/ethnie par? innocuité",
-	"from_pediatric_populations": "Cette soumission inclut-elle des données d'essais cliniques provenant de populations pédiatriques (personnes âgées de moins de 18 ans)? "
+	"institutional_industrial": "Institutional Industrial"
 }
 );
 
