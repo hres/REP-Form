@@ -3,16 +3,16 @@
 	"CO": {
 		"major": "4",
 	  	"minor": "2",
-	  	"patch": "0"
+	  	"patch": "3"
 		},
 	"RT": {
 		"major": "4",
-	  	"minor": "2",
+	  	"minor": "4",
 	  	"patch": "0"
 		},		
 	"PI": {
 		"major": "4",
-	  	"minor": "2",
+	  	"minor": "4",
 	  	"patch": "0"
 		},
 	"WET": {
