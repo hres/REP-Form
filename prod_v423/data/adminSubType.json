@@ -1,0 +1,48 @@
+[
+  {
+    "id": "MANUFACT_NAME_CHGE",
+    "en": "Manufacturer Name Changes",
+    "fr": "Changement de nom du fabricant"
+  },
+  {
+    "id": "PRODUCT_NAME_CHGE",
+    "en": "Product Name Changes",
+    "fr": "Changement de nom du produit"
+  },
+  {
+    "id": "PRODUCT_MANUFACT_NAME_CHGE",
+    "en": "Manufacturer and Product Name Changes",
+    "fr": "Changement de nom du fabricant et du produit"
+  },
+  {
+    "id": "OWNERSHIP_CHGE",
+    "en": "Changes in Product Ownership (Change in DIN Holder)",
+    "fr": "Changement de propriété du produit"
+  },
+  {
+    "id": "MERGER",
+    "en": "Mergers/Buyouts",
+    "fr": "Fusion ou rachat"
+  },
+  {
+    "id": "LICENGSING",
+    "en": "Licensing Agreements between two Manufacturers",
+    "fr": "Accord de licence entre deux fabricants"
+  },
+  {
+    "id": "POSTAUTH_LABEL_CHGE",
+    "en": "Label update (to match licensor)",
+    "fr": "Mise à jour de l'étiquetage (pour correspondre au concédant)"
+  },
+  {
+    "id": "POSTAUTH_CHEMISTRY_CHGE",
+    "en": "Chemistry and Manufacturing Updates (to match licensor for Schedules C and D products)",
+    "fr": "Mise à jour sur la chimie et la fabrication (pour correspondre au concédant)"
+  },
+  {
+    "id": "ADDITIONAL_PRODUCT_CHGE",
+    "en": "Additional Product Name",
+    "fr": "Noms complémentaires de produits"
+  }
+
+]
