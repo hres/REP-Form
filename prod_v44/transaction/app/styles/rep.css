@@ -296,3 +296,9 @@ div .module-attention {
     margin-right: 15px;
     margin-left: 15px;
 }
+
+.rep-panel-title {
+    font-size:15px;
+    font-weight:700;
+    font-family: "Noto Sans",sans-serif;
+}
