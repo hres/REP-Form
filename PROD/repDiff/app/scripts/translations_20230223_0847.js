@@ -708,7 +708,15 @@ $translateProvider.translations("en", {
 	"ingredient_role": "Ingredient Role",
 	"add_importer" : "Add Importer",
 	"other_shelf_life_considerations":"Other Shelf Life Considerations",
-	"per_units_other_details":"Per Units Other Details"
+	"per_units_other_details":"Per Units Other Details",
+	"does_include_ct_data": "Does this submission include clinical trial data? ",
+	"efficacy_are_rltd_sex": "Are the clinical trial data in your submission disaggregated by sex (male / female) by? Efficacy",
+	"efficacy_are_rltd_age": "Are the clinical trial data in your submission disaggregated by age by? Efficacy",
+	"efficacy_are_rltd_race": "Are the clinical trial data in your submission disaggregated by race / ethnicity by? Efficacy",
+	"safety_are_rltd_sex": "Are the clinical trial data in your submission disaggregated by sex (male / female) by? Safety",
+	"safety_are_rltd_age": "Are the clinical trial data in your submission disaggregated by age by? Safety",
+	"safety_are_rltd_race": "Are the clinical trial data in your submission disaggregated by race / ethnicity by? Safety",
+	"from_pediatric_populations": "Does this submission include clinical trial data from pediatric populations (those under 18 years of age)? "
 }
 );
 
@@ -902,7 +910,15 @@ $translateProvider.translations("fr", {
 	"nanomaterial": "Nanomaterial",
 	"contact_lens":"Contact Lens",
 	"importer_name": "Importer Name",
-	"institutional_industrial": "Institutional Industrial"
+	"institutional_industrial": "Institutional Industrial",
+	"does_include_ct_data": "Cette soumission inclut-elle des données d'essais cliniques? ",
+	"efficacy_are_rltd_sex": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par sexe (homme / femme) par? efficacité",
+	"efficacy_are_rltd_age": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par âge par? efficacité",
+	"efficacy_are_rltd_race": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par race/ethnie par? efficacité",
+	"safety_are_rltd_sex": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par sexe (homme / femme) par? innocuité",
+	"safety_are_rltd_age": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par âge par? innocuité",
+	"safety_are_rltd_race": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par race/ethnie par? innocuité",
+	"from_pediatric_populations": "Cette soumission inclut-elle des données d'essais cliniques provenant de populations pédiatriques (personnes âgées de moins de 18 ans)? "
 }
 );
 

@@ -60,7 +60,19 @@
                 vm.twoFiles=true;
                 var diffList=diffEngine.compareJson(vm.content1, vm.content2);
                 vm.diffList=diffList;
-                vm.listResults=diffEngine.consolidateResults(diffList,  vm.exclusions);
+                console.log(diffList.length);
+                // console.log(JSON.stringify(diffList));
+
+                // REPPBFORM-572, Remove ID row from Beta 1:REP File Compare Utility
+                var skippedNode = ["TRANSACTION_ENROL", "fee_details", "submission_class", "_id"];
+
+                var filteredDiffList = $filter('filter')(diffList, function(item) {
+                    return JSON.stringify(item.path) != JSON.stringify(skippedNode);
+                });
+
+                console.log(filteredDiffList.length);
+
+                vm.listResults=diffEngine.consolidateResults(filteredDiffList,  vm.exclusions);
             } else {
                 console.error("One of the files does not have content");
                 vm.twoFiles=false;

@@ -8,7 +8,7 @@
         .module('hpfbConstants', []);
 
     angular.module('hpfbConstants')
-        .constant('SOFTWARE_VERSION','4.1.0')
+        .constant('SOFTWARE_VERSION','4.4.0')
         .constant('PROD', 'PROD')
         .constant('CANADA','CAN')
         .constant('OTHER', 'OTHER')
