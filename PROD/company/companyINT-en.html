@@ -13,12 +13,12 @@
     <meta name='description' content="Regulatory Enrolment Process Forms"/>
     <meta name="keywords" content="Health, Regulatory Enrolment Process, REP"/>
     <meta name="author" content="Health Canada"/>
-    <meta property="dcterms.title" content="Company Template: Regulatory Enrolment Process - Canada.ca"/>
-    <meta property="dcterms.creator" content="Government of Canada, Health Canada"/>
-    <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01"/>
-    <meta property="dcterms.modified" title="W3CDTF" content="2023-02-14"/>
-    <meta property="dcterms.subject" title="gccore" content="Drugs; Pharmaceuticals, Health care products; Regulatory Enrolment Process"/>
-    <meta property="dcterms.language" title="ISO639-2/T" content="eng"/>
+    <meta property="dcterms.title" content="Company Template: Regulatory Enrolment Process - Canada.ca">
+    <meta property="dcterms.creator" content="Government of Canada, Health Canada">
+    <meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
+    <meta property="dcterms.modified" title="W3CDTF" content="2019-07-31">
+    <meta property="dcterms.subject" title="gccore" content="Drugs; Pharmaceuticals, Health care products; Regulatory Enrolment Process">
+    <meta property="dcterms.language" title="ISO639-2/T" content="eng">
 
     <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
          wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -27,14 +27,14 @@
     <!-- Additional analytics, if required. -->
     <!--/*/ <th:block th:replace="analytics/analytics-header"></th:block> /*/-->
     <!-- Load closure template scripts -->
-    <script src="../GCWeb/v4.0.41/js/wet-en.js" crossorigin="anonymous"></script>
-    <script src="../GCWeb/v4.0.41/js/soyutils.js" crossorigin="anonymous"></script>
+    <script src="../wet-boew/js/soyutils.js"></script>
+    <script src="../wet-boew/js/wet-en.js"></script>
     <noscript>
-    	<link rel="stylesheet" href="../GCWeb/wet-boew/css/noscript.min.css" />
         <!-- Write closure fall-back static file -->
         <!--# include virtual="/rep-dev/cdts/static/refTop.html"-->
     </noscript>
-    <link rel="stylesheet" href="../GCWeb/v4.0.41/css/wai-wcag.css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" integrity="sha384-+2PnMSZobRWHUFuaarq2tDCtf7FFSZpeMRVRe7C0l8bRZMBTjUinKl1AuYRON/A2" crossorigin="anonymous"/>
+    <!--<link rel="stylesheet" href="./app/styles/rep.css ">-->
     <!-- inject:css -->
     <link rel="stylesheet" href="app/styles/rep.css">
     <link rel="stylesheet" href="app/styles/select.min.css">
@@ -46,132 +46,29 @@
         document.write(wet.builder.refTop({
             cdnEnv: "prod" //jqueryEnv:false
         }));
-        function addLeavingChk(){
-            window.addEventListener('beforeunload', function(event){
-                return 'The form has been updated, do you want to stay on the page?';
-            });
-            window.onbeforeunload = function(){
-                return 'The form has been updated, do you want to stay on the page?';
-            }
-            $('.modal-body:first-child').after('<div class="modal-footer"><button type="button" id="ftrClose" class="btn btn-sm btn-primary pull-left overlay-close" style="" title="Close (escape key)">Close<span class="wb-inv">(escape key)</span></button></div>');
-            setTimeout(setupDateFields, 1000);
-            setTimeout(setupDataList, 1000);
-            setTimeout(initialTopExpandCollapse, 1000);
-        }
-        var maxDateTimes = 8;
-        function setupDateFields(){
-            initialDateInput();
-        }
-        function initialDateInput(){
-            if($( "input[type=date]" ).length == 0 && maxDateTimes > 0) {
-                setTimeout(setupDateFields, 300);
-                maxDateTimes --;
-            } else {
-                try {
-//                    window.location.href = "#main";
-                    $( "input[type=date]" ).trigger( "wb-init.wb-date" );
-                } catch( err ) {
-                    console.log(err.message);
-                    if(maxDateTimes < 1){
-                        maxDateTimes = 8;
-                    }
-                    setTimeout(setupDateFields, 500);
-                }
-            }
-        }
-        var maxDataListTimes = 8;
-        function setupDataList(){
-            initialDataList();
-        }
-        function initialDataList(){
-            if($( "input[type=list]" ).length == 0 && maxDataListTimes > 0) {
-                setTimeout(setupDataList, 200);
-                maxDataListTimes --;
-            } else {
-                $( "input[type=list]" ).trigger( "wb-init.wb-datalist" );
-            }
-        }
-        function initialTopExpandCollapse(){
-            if($("ng-form[name='drugProdCtrl.drugProdForm']").length > 0){
-                $('#expand_collapse_top_btns').removeClass('hide');
-            }
-        }
-        function onchange(e) {
-            console.log(e);
-        }
-        function focusOnRow(e, alter) {
+        function focusOnRow(e) {
             var myTable = $(e).closest('table');
-            var myForm = $(e).closest('ng-form');
-            window.setTimeout(function(){
-                $('html, body').animate({
-                    scrollTop: $(myTable).offset().top + 'px'
-                }, 'fast');
-                var myTr = $(myTable).find('tr').last();
-                var errSum = $(myForm).find('div[id*="errors-summary"]:visible');
-                if ($(errSum).length > 0) {
-                    $(errSum).find('section').focus();
-                } else {
-                    if (!$(myTr).attr('id')) {
-                        myTr = $(myTr).prev();
-                    }
-                    var td = $(myTr).find(' > td ').first();
-                    if ($(td).length < 1) {
-                        if (alter != '') {
-                            var parent = $(myTable);
-                            var button = $(parent).find('button[id^=' + alter + ']');
-                            while ($(button).length < 1) {
-                                parent = $(parent).parent();
-                                button = $(parent).find('button[id^=' + alter + ']');
-                            }
-                            $(button).focus();
-                        } else {
-                            $(myTable).focus();
-                        }
-                    } else {
-                        $(td).focus();
-                    }
-                }
-            }, 100);
+            var firstTr = $(myTable).find('tr');
+            if (firstTr.length > 0) {
+                $(firstTr[0]).focus();
+            } else {
+                $(myTable).focus();
+            }
         }
         function focusOnTable(node, idStartWith){
             var myTable = null;
             if(node != null){
-                myTable = $(node).closest('tr').find('table[id^=' + idStartWith + ']')[0];
+                myTable = $(node).find('table[id^=' + e + ']')[0];
             }
             if(myTable != null){
-                $('html, body').animate({
-                    scrollTop: $(myTable).offset().top + 'px'
-                }, 'fast');
-                window.setTimeout(function() {
-                    var myTr = $(myTable).find('> tbody > tr').last();
-                    var myTrId = $(myTr).attr('id');
-                    if(! myTrId || myTrId == ''){
-                        myTr = $(myTr).prev();
-                    }
-                    var myTd = $(myTr).find(' > td ').first();
-                    $(myTd).focus();
-                }, 100);
+                alert($(myTable).attr('id'));
+                $(myTable).focus();
             }
-        }
-        function focusOnProvince(e){
-                var node = $(e).parent().parent().parent().next();
-
-            window.setTimeout(function() {
-                var id = $(node).find('[id^="province_"],[id^="state_"],[id^="proveState_"]').attr('id');
-                $('#' + id).focus();
-            }, 200);
-        }
-        function expandAll(theClass){
-            $('.' + theClass).filter(function(){return ! $(this).attr('open')}).attr('open','open');
-        }
-        function collapseAll(theClass){
-            $('.' + theClass).filter(function(){return $(this).attr('open')}).removeAttr('open');
         }
     </script>
 </head>
 
-<body vocab="http://schema.org/" typeof="WebPage" onload="addLeavingChk();">
-
+<body vocab="http://schema.org/" typeof="WebPage" style="min-width:543px;">
 <div id="def-top">
     <!-- Write closure fall-back static file -->
     <!-- ./wet_4_0_27/cdts/static/top-en.html-->
@@ -200,12 +97,12 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1 property="name" id="wb-cont">Company Template: Regulatory Enrolment Process (REP) (Version 4.2.4)</h1>
+            <h1 property="name" id="wb-cont">Company Template: Regulatory Enrolment Process (REP)</h1>
             <p class="pagetag">
                 <strong>From <a href="https://www.canada.ca/en/health-canada.html">Health Canada</a></strong>
             </p>
         </div>
-        <div class=" col-md-12 module-table-contents" id="content_table">
+        <div class=" col-md-12 module-table-contents">
             <section class="panel panel-default">
                 <header class="panel-heading clearfix">
                     <h2  class="panel-title">Table of contents</h2>
@@ -223,25 +120,28 @@
 
     </div>
     <!-- the main content -->
-    <!-- inject:mainContent-->
-    <div id="app-root" data-ng-app="companyApp" data-ng-controller="MainController as ctrl">
+        <!-- inject:mainContent-->
+        <div id="app-root" data-ng-app="companyApp" data-ng-controller="MainController as ctrl">
     <cmp-company-main form-type="{{ctrl.formType}}"></cmp-company-main>
 </div>
-    <!-- endinject-->
+        <!-- endinject-->
     <!-- end main content -->
 
     <!--content ends here -->
-	<div id="repPreFooter" class="pagedetails container">
-	  <div class="row">
-	  	<div id="repProblemReport" class="col-sm-6 col-md-5 col-lg-4" data-ajax-replace="../GCWeb/ajax/prefooter-v2-en.html"></div>
-	  	<div id="repSocialShare" class="wb-share col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5" data-wb-share='{"lnkClass": "btn btn-default btn-block"}'></div>
-	  </div>
-	  <dl id="wb-dtmd">
-	    <dt>Date modified:&#32;</dt>
-	    <dd><time property="dateModified">2023-02-14</time></dd>
-	  </dl>
-	</div>
+    <div id="def-preFooter">
+        <!-- Write closure fall-back static file -->
+        <!-- ./wet_4_0_27/cdts/static/preFooter-en.html-->
+        <!--# include virtual="/rep-dev/cdts/static/preFooter-en.html"-->
+    </div>
 
+    <!-- Write closure template -->
+    <script type="text/javascript">
+        var defPreFooter = document.getElementById("def-preFooter");
+        defPreFooter.outerHTML = wet.builder.preFooter({
+            cdnEnv: "prod",
+            dateModified: "2019-07-31"
+        });
+    </script>
 </main>
 <div id="def-footer">
     <!-- Write closure fall-back static file -->
@@ -279,7 +179,7 @@
 
 <script src="app/lib/angular-aria.min.js"></script>
 
-<script src="app/scripts/companyAppINT-en_20230214_1110.min.js"></script>
+<script src="app/scripts/companyAppINT-en_20190731_1043.min.js"></script>
 
 <!-- endinject -->
 <!-- thirdParty:js  -->
