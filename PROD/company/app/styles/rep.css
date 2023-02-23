@@ -69,6 +69,19 @@ label > select {
     margin-top: -5px !important;
 }
 
+.rep-margin-bottom {
+    margin-bottom: 0px !important;
+}
+
+.rep-margin-top-bottom {
+    margin-top: 23px;
+    margin-bottom: 23px;
+}
+
+.rep-margin-right {
+    margin-right: 15px;
+}
+
 .rep-expander {
     cursor: pointer;
     color: #295376;
@@ -108,13 +121,13 @@ label > select {
 
 .rep-selectize-font {
     font-weight: normal;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .rep-selectize-dropdown {
     width: 100% !important;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 15px;
     padding-top: 0px;
     padding-right: 0px;
     padding-bottom: 0px;
@@ -210,7 +223,7 @@ input[type="date"] {
  font-weight: 700;
 }
 .legend-rep{
-    font-size: 16px !important;
+    font-size: 15px !important;
     font-weight: 700 !important;
 }
 .legend-rep-h3{
@@ -231,7 +244,7 @@ input[type="date"] {
  }
 
 .label-pi {
-    font-size: 16px;
+    font-size: 15px;
 }
 
 ul.no-bullets li
@@ -263,4 +276,29 @@ div .module-attention {
 }
 .fa-info-circle:before {
     color: white;
+}
+.floatLeft {
+    float:left;
+}
+.floatRight {
+    float:right;
+}
+.padding-bttm-lg[open] {
+    padding-bottom: 2.5em;
+}
+.radioButtonTitle {
+    font-size:15px;
+    font-weight:700;
+}
+
+.cd-data-pi {
+    margin-top: 70px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.rep-panel-title {
+    font-size:15px;
+    font-weight:700;
+    font-family: "Noto Sans",sans-serif;
 }
