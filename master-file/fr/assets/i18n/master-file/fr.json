@@ -40,7 +40,7 @@
   "required": "Ce champ est obligatoire.",
   "minlength": "fr_Minimum length",
   "error.mgs.number": "fr_Please specify a number.",
-  "error.mgs.dossier.id": "fr_Please specify a valid dossier Identifier.",
+  "error.mgs.dossier.id": "Format incorrect. Le numéro de dossier est incorrect.",
   "error.mgs.company.id": "fr_Please specify a valid manufacturer company Identifier.",
   "error.mgs.regu.company.id": "fr_Please specify a valid regulatory company Identifier.",
   "error.mgs.regu.contact.id": "fr_Please specify a valid regulatory manufacturer contact Identifier.",
