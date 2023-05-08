@@ -19,7 +19,7 @@
   "masterfile.type": "Master File Type",
   "masterfile.use": "Master File Use",
   "transaction.description": "Transaction Description",
-  "dossier.id": "Dossier Identifier (a lowercase letter followed by 6 or 7 numbers)",
+  "dossier.id": "Dossier Identifier ",
   "licence.number": "Licence Number",
   "request.date": "Date (YYYY-MM-DD)",
   "requester.title": "Requester of solicited information",

@@ -19,7 +19,7 @@
   "masterfile.type": "Type de la fiche maîtresse",
   "masterfile.use": "Usage du fiche maîtresse",
   "transaction.description": "Description de la transaction",
-  "dossier.id": "Numéro de dossier (composé d’une lettre minuscule suivie de six ou sept chiffres)",
+  "dossier.id": "Numéro de dossier ",
   "regulatory.contact.id": "fr_Regulatory Contact Identifier",
   "request.date": "Date (AAAA-MM-JJ)",
   "requester.title": "Demandeur d’information sollicitée",
