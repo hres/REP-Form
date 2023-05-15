@@ -23,7 +23,7 @@
         "id": "5",
         "en": "Conversion ",
         "fr": "Conversion",
-        "defEn": "The Master File is being converted from the non-eCTD format to the eCTD Format. As a baseline requirement when converting Master Files from the non-eCTD format to the eCTD format, the Master File Holder must include a copy of the entire Master File in their first eCTD transaction. Any changes/updates filed with a conversion will be subject to Update fees. If you have changes/updates to file with your conversion to eCTD format, select Transaction Description: Update and Conversion. If your Master File exisits in paper format only or has been closed previously, select Transaction Description Master File Reactivation.",
+        "defEn": "The Master File is being converted from the non-eCTD format to the eCTD Format. As a baseline requirement when converting Master Files from the non-eCTD format to the eCTD format, the Master File Holder must include a copy of the entire Master File in their first eCTD transaction. Any changes/updates filed with a conversion will be subject to Update fees. If you have changes/updates to file with your conversion to eCTD format, select Transaction Description: Update and Conversion. If your Master File exists in paper format only or has been closed previously, select Transaction Description Master File Reactivation.",
         "defFr": "La fiche maîtresse est convertie du format non-eCTD au format eCTD. En tant qu'exigence de base lors de la conversion des fiches maîtresses d'un format non-eCTD au format eCTD, le titulaire de la fiche maîtresse doit inclure une copie de la fiche maîtresse complète dans leur première transaction eCTD. Tout changement et ou mises à jour apportés avec une conversion impliquent des frais. Si vous avez des changements et ou des mises à jour à apporter avec une conversion, veuillez sélectionner la description de la transaction : Mise à jour et conversion. Si votre fiche maîtresse existe uniquement en format papier ou si elle a été fermée précédemment, sélectionnez la description de la transaction : Réactivation de la fiche maîtresse. "
     },
     {
@@ -49,14 +49,14 @@
     {
         "id": "10",
         "en": "Master File Reactivation",
-        "fr": "Réactivation de la fiche maîtresse"
+        "fr": "Réactivation de la fiche maîtresse",
+        "defEn": "The Master File is being converted from the paper format to the non - eCTD or eCTD format. The Master File is closed and the Master File Holder wishes to reactivate the Master File. Please note: for either scenario, the entire Master File must be submitted including any changes/updates that have occured since the previous version of the Master File. Fees apply. ",
+        "defFr": " La fiche maîtresse est convertie du format papier au format non-eCTD ou eCTD. La fiche maîtresse est fermée et le titulaire de la fiche maîtresse souhaite la réactiver. Veuillez noter que : pour les deux scénarios, la fiche maîtresse complète doit être soumise y compris tous les changements et toutes les mises à jour qui se sont produits depuis la version précédente de la fiche maîtresse. Des frais s’appliquent"
     },
     {
         "id": "11",
         "en": "New and Letter of Access",
-        "fr": "Nouveau et lettre d'accès",
-        "defEn": "The Master File is being converted from the paper format to the non - eCTD or eCTD format. The Master File is closed and the Master File Holder wishes to reactivate the Master File. Please note: for either scenario, the entire Master File must be submitted including any changes/updates that have occured since the previous version of the Master File. Fees apply. ",
-        "defFr": " La fiche maîtresse est convertie du format papier au format non-eCTD ou eCTD. La fiche maîtresse est fermée et le titulaire de la fiche maîtresse souhaite la réactiver. Veuillez noter que : pour les deux scénarios, la fiche maîtresse complète doit être soumise y compris tous les changements et toutes les mises à jour qui se sont produits depuis la version précédente de la fiche maîtresse. Des frais s’appliquent"
+        "fr": "Nouveau et lettre d'accès"
     },
     {
         "id": "12",
