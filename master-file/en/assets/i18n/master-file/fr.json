@@ -39,7 +39,8 @@
   "fileio.msg.fileTypeError": "fr_File Type Error",
   "fileio.msg.dataTypeError": "fr_Error: the wrong form data was selected for this form.",
   "required": "Ce champ est obligatoire.",
-  "minlength": "fr_Minimum length",
+  "minlength": "Minimum de ",
+  "minlength2": " caractères",
   "error.mgs.number": "fr_Please specify a number.",
   "error.mgs.dossier.id": "Format incorrect. Le numéro de dossier est incorrect.",
   "error.mgs.company.id": "fr_Please specify a valid manufacturer company Identifier.",
@@ -128,13 +129,14 @@
   "business.num": "Numéro d’entreprise de l'Agence du revenu du Canada (le cas échéant)",
   "mf.holder": "Propriétaire de la fiche maîtresse",
   "mf.agent": "Agent autorisé de la fiche maîtresse / Tiers au nom du titulaire autorisé",
+  "contactInfoConfirm": "Confirmation des coordonnées",
   "certify.info": "Je certifie que les informations et le matériel contenus dans cette demande/transaction de la fiche maîtresse sont exacts et complets.",
-  "certifyAccurateComplete": "Certify Accurate and Complete",
+  "certifyAccurateComplete": "Attestation de l’exactitude et de la complétude",
   "full.name": "Nom complet",
   "fullName": "Nom complet",
   "submit.date": "Date (AAAA-MM-JJ)",
   "submitDate": "Date (AAAA-MM-JJ)",
   "agent.warning": "Si le signataire officiel est un agent autorisé de la fiche maîtresse ou un tiers autorisé agissant au nom du propriétaire de la fiche maîtresse, une lettre d’autorisation signée par le propriétaire de la fiche maîtresse doit être soumise au module 1.2.1 Formulaire de demande. La lettre de nomination de l’agent ou du tiers est requise en même temps que la transaction d’inscription initiale de la fiche maîtresse ou toute autre transaction pour laquelle un nouvel agent ou un tiers est désigné ou en cas de changement du rôle de l’agent ou du tiers.",
   "consent.privacy": "En soumettant vos renseignements personnels, vous consentez à sa collecte, à son utilisation et à sa divulgation conformément à l'énoncé de confidentialité.",
-  "consentPrivacy": "Consent Privacy"
+  "consentPrivacy": "Consentement de confidentialité"
 }
