@@ -39,6 +39,7 @@
   "fileio.msg.dataTypeError": "fr_Error: the wrong form data was selected for this form.",
   "required": "Ce champ est obligatoire.",
   "minlength": "Minimum de ",
+  "minlength.number": " numéros",
   "minlength2": " caractères",
   "error.mgs.number": "fr_Please specify a number.",
   "error.mgs.dossier.id": "Format incorrect.",

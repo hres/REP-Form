@@ -39,6 +39,7 @@
   "fileio.msg.dataTypeError": "Error: the wrong form data was selected for this form.",
   "required": "This field is required",
   "minlength": "Minimum length ",
+  "minlength.number": " numbers",
   "error.mgs.number": "Please specify a number.",
   "error.mgs.dossier.id": "Incorrect format.",
   "error.mgs.company.id": "Please specify a valid manufacturer company Identifier.",
