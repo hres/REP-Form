@@ -2,105 +2,125 @@
     {
         "id": "1",
         "en": "Administrative Change",
-        "fr": "Changement administratif"
+        "fr": "Changement administratif",
+        "sortPriority": 14
     },
     {
         "id": "2",
         "en": "Letter of Access",
-        "fr": "Lettre d'accès"
+        "fr": "Lettre d'accès",
+        "sortPriority": 7
     },
     {
         "id": "3",
         "en": "CEP and Attestations",
-        "fr": "Certificats de conformité (CEP) et attestations"
+        "fr": "Certificats de conformité (CEP) et attestations",
+        "sortPriority": 12
     },
     {
         "id": "4",
         "en": "CEP, Attestations and Letter of Access",
-        "fr": "CEP, attestations et lettre d'accès"
+        "fr": "CEP, attestations et lettre d'accès",
+        "sortPriority": 13
     },
     {
         "id": "5",
         "en": "Conversion ",
         "fr": "Conversion",
         "defEn": "The Master File is being converted from the non-eCTD format to the eCTD Format. As a baseline requirement when converting Master Files from the non-eCTD format to the eCTD format, the Master File Holder must include a copy of the entire Master File in their first eCTD transaction. Any changes/updates filed with a conversion will be subject to Update fees. If you have changes/updates to file with your conversion to eCTD format, select Transaction Description: Update and Conversion. If your Master File exists in paper format only or has been closed previously, select Transaction Description Master File Reactivation.",
-        "defFr": "La fiche maîtresse est convertie du format non-eCTD au format eCTD. En tant qu'exigence de base lors de la conversion des fiches maîtresses d'un format non-eCTD au format eCTD, le titulaire de la fiche maîtresse doit inclure une copie de la fiche maîtresse complète dans leur première transaction eCTD. Tout changement et ou mises à jour apportés avec une conversion impliquent des frais. Si vous avez des changements et ou des mises à jour à apporter avec une conversion, veuillez sélectionner la description de la transaction : Mise à jour et conversion. Si votre fiche maîtresse existe uniquement en format papier ou si elle a été fermée précédemment, sélectionnez la description de la transaction : Réactivation de la fiche maîtresse. "
+        "defFr": "La fiche maîtresse est convertie du format non-eCTD au format eCTD. En tant qu'exigence de base lors de la conversion des fiches maîtresses d'un format non-eCTD au format eCTD, le titulaire de la fiche maîtresse doit inclure une copie de la fiche maîtresse complète dans leur première transaction eCTD. Tout changement et ou mises à jour apportés avec une conversion impliquent des frais. Si vous avez des changements et ou des mises à jour à apporter avec une conversion, veuillez sélectionner la description de la transaction : Mise à jour et conversion. Si votre fiche maîtresse existe uniquement en format papier ou si elle a été fermée précédemment, sélectionnez la description de la transaction : Réactivation de la fiche maîtresse. ",
+        "sortPriority": 15
     },
     {
         "id": "6",
         "en": "Conversion and Letter of Access",
-        "fr": "Conversion et lettre d'accès"
+        "fr": "Conversion et lettre d'accès",
+        "sortPriority": 16
     },
     {
         "id": "7",
         "en": "Conversion, Update and Letter of Access",
-        "fr": "Conversion, mise à jour et lettre d'accès"
+        "fr": "Conversion, mise à jour et lettre d'accès",
+        "sortPriority": 17
     },
     {
         "id": "8",
         "en": "eCTD Dossier clean-up",
-        "fr": "Nettoyage du dossier en format Electronic Common Technical Document (eCTD)"
+        "fr": "Nettoyage du dossier en format Electronic Common Technical Document (eCTD)",
+        "sortPriority": 20
     },
     {
         "id": "9",
         "en": "Master File Closure",
-        "fr": "Fermeture de la fiche maîtresse"
+        "fr": "Fermeture de la fiche maîtresse",
+        "sortPriority": 18
     },
     {
         "id": "10",
         "en": "Master File Reactivation",
         "fr": "Réactivation de la fiche maîtresse",
         "defEn": "The Master File is being converted from the paper format to the non - eCTD or eCTD format. The Master File is closed and the Master File Holder wishes to reactivate the Master File. Please note: for either scenario, the entire Master File must be submitted including any changes/updates that have occured since the previous version of the Master File. Fees apply. ",
-        "defFr": " La fiche maîtresse est convertie du format papier au format non-eCTD ou eCTD. La fiche maîtresse est fermée et le titulaire de la fiche maîtresse souhaite la réactiver. Veuillez noter que : pour les deux scénarios, la fiche maîtresse complète doit être soumise y compris tous les changements et toutes les mises à jour qui se sont produits depuis la version précédente de la fiche maîtresse. Des frais s’appliquent"
+        "defFr": " La fiche maîtresse est convertie du format papier au format non-eCTD ou eCTD. La fiche maîtresse est fermée et le titulaire de la fiche maîtresse souhaite la réactiver. Veuillez noter que : pour les deux scénarios, la fiche maîtresse complète doit être soumise y compris tous les changements et toutes les mises à jour qui se sont produits depuis la version précédente de la fiche maîtresse. Des frais s’appliquent",
+        "sortPriority": 19
     },
     {
         "id": "11",
-        "en": "New and Letter of Access",
-        "fr": "Nouveau et lettre d'accès"
-    },
+        "en": "New Master File and Letter of Access",
+        "fr": "Nouveau Nouvelle fiche maîtresse et lettre d'accès",
+        "sortPriority": 1
+    }, 
     {
         "id": "12",
         "en": "Response to Deficiency Letter",
-        "fr": "Réponse à la lettre d'insuffisance"
+        "fr": "Réponse à la lettre d'insuffisance",
+        "sortPriority": 9
     },
     {
         "id": "13",
         "en": "Response to Processing Clarification Request ",
-        "fr": "Réponse au traitement d'une demande d'éclaircissement"
+        "fr": "Réponse au traitement d'une demande d'éclaircissement",
+        "sortPriority": 10
     },
     {
         "id": "14",
         "en": "Response to Quality Clarification Request",
-        "fr": "Réponse aux demandes d'éclaircissements de la qualité"
+        "fr": "Réponse aux demandes d'éclaircissements de la qualité",
+        "sortPriority": 11
     },
     {
         "id": "15",
         "en": "Update",
-        "fr": "Mise à jour"
-    },
+        "fr": "Mise à jour",
+        "sortPriority": 2
+    }, 
     {
         "id": "16",
         "en": "Update and Letter of Access",
-        "fr": "Mise à jour et lettre d'accès"
+        "fr": "Mise à jour et lettre d'accès",
+        "sortPriority": 3
     },
     {
         "id": "17",
         "en": "Update, CEP and Attestations",
-        "fr": "Mise à jour, CEP et attestations"
+        "fr": "Mise à jour, CEP et attestations",
+        "sortPriority": 4
     },
     {
         "id": "18",
         "en": "Update, CEP, Attestations and Letter of Access",
-        "fr": "Mise à jour, CEP, attestations  et lettre d'accès"
+        "fr": "Mise à jour, CEP, attestations  et lettre d'accès",
+        "sortPriority": 5
     },
     {
         "id": "19",
         "en": "Update and Conversion",
-        "fr": "Mise à jour et conversion"
+        "fr": "Mise à jour et conversion",
+        "sortPriority": 6
     },
     {
         "id": "20",
         "en": "Withdrawal of Letter of Access",
-        "fr": "Retrait de la lettre d'accès"
+        "fr": "Retrait de la lettre d'accès",
+        "sortPriority": 8
     }
 ]

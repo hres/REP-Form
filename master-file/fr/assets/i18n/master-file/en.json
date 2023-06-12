@@ -109,7 +109,7 @@
   "lang.French": "French",
   "job.title": "Job Title",
   "contact.email": "Email",
-  "fax.number": "Fax Number (including area code). By not entering a fax number, you authorise receipt of billing communication by email.",
+  "fax.number": "Fax Number (including area code)",
   "phone.number": "Phone Number (including area code)",
   "phone.extension": "Phone Extension",
   "heading.agent.address": "Authorized Agent or Authorized Third Party Name and Address",

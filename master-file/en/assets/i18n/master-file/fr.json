@@ -113,7 +113,7 @@
   "lang.French": "Français",
   "job.title": "Titre du poste",
   "contact.email": "Courriel",
-  "fax.number": "Numéro de télécopieur (y compris le code régional). Si vous n'indiquez pas un numéro de télécopieur, vous autorisez la réception de la communication de facturation par courriel.",
+  "fax.number": "Numéro de télécopieur (y compris le code régional)",
   "phone.number": "Numéro de téléphone (y compris le code régional)",
   "phone.extension": "Numéro de l'extension",
   "heading.agent.address": "Nom et adresse de l’agent autorisé ou du tiers autorisé",
