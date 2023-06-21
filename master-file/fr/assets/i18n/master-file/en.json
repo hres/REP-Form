@@ -16,7 +16,7 @@
   "instruction.dossier.id.line2": "If filing <strong>NEW</strong> master file registration, request a new eCTD dossier ID by completing the online <a href='https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/filing-submissions-electronically/dossier-id-request-form-master-files.html'>Dossier ID request form</a>.",
   "panel.title.regulatoryInfo": "Regulatory Information",
   "masterfile.name": "Master File Name",
-  "masterfile.number": "Master File Number (if issued)",
+  "masterfile.number": "Master File Number (if issued; for example 1234-567)",
   "masterfile.type": "Master File Type",
   "masterfile.use": "Master File Use",
   "transaction.description": "Transaction Description",

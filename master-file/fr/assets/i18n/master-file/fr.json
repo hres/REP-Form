@@ -16,7 +16,7 @@
   "instruction.dossier.id.line2": "En cas de dépôt d'une <strong>NOUVELLE</strong> demande d'enregistrement d'une fiche maîtresse, demander un nouvel ID de dossier eCTD en remplissant <a href='https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/depot-soumissions-electroniques/formulaire-demande-id-dossiers-fiches-maitresses.html'>le Formulaire de demande pour les ID de dossiers Fiches maîtresses</a> en ligne.",
   "panel.title.regulatoryInfo": "Information réglementaire",
   "masterfile.name": "Nom de la fiche maîtresse",
-  "masterfile.number": "Numéro de fiche maîtresse (si attribué)",
+  "masterfile.number": "Numéro de fiche maîtresse (si attribué; par exemple 1234-567)",
   "masterfile.type": "Type de la fiche maîtresse",
   "masterfile.use": "Usage du fiche maîtresse",
   "transaction.description": "Description de la transaction",
