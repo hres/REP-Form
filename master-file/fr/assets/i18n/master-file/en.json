@@ -22,7 +22,7 @@
   "transaction.description": "Transaction Description",
   "dossier.id": "Dossier Identifier ",
   "licence.number": "Licence Number",
-  "request.date": "Date (YYYY-MM-DD)",
+  "request.date": "Date",
   "requester.title": "Requester of solicited information",
   "panel.title.contactInfo": "Contact Information",
   "panel.title.fees": "Master File Fees",
@@ -134,9 +134,10 @@
   "certifyAccurateComplete": "Certify Accurate and Complete",
   "full.name": "Full name",
   "fullName": "Full name",
-  "submitDate": "Date (YYYY-MM-DD)",
-  "submit.date": "Date (YYYY-MM-DD)",
+  "submitDate": "Date",
+  "submit.date": "Date",
   "agent.warning": "If the signing official is an Authorized Master File Agent or Authorized Third Party filing on behalf of the Master File Holder, an authorization letter signed by the Master File Holder must be submitted in Module 1.2.1 Application Form. The Agent appointment letter or Third Party Authorization letter is required with the initial Master File Registration transaction or any transaction where a new agent or third party is appointed or the agent or third party's role has changed.",
   "consent.privacy": "By submitting your personal information, you are consenting to its collection, use and disclosure in accordance with the Privacy Notice Statement.",
-  "consentPrivacy": "Consent Privacy"
+  "consentPrivacy": "Consent Privacy",
+  "alert.info": "Alert information"
 }

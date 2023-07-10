@@ -22,7 +22,7 @@
   "transaction.description": "Description de la transaction",
   "dossier.id": "Numéro de dossier ",
   "regulatory.contact.id": "fr_Regulatory Contact Identifier",
-  "request.date": "Date (JJ-MM-AAAA)",
+  "request.date": "Date",
   "requester.title": "Demandeur d’information sollicitée",
   "panel.title.contactInfo": "Coordonnées",
   "panel.title.fees": "Frais liés à la fiche maîtresse",
@@ -138,9 +138,10 @@
   "certifyAccurateComplete": "Attestation de l’exactitude et de la complétude",
   "full.name": "Nom complet",
   "fullName": "Nom complet",
-  "submit.date": "Date (JJ-MM-AAAA)",
-  "submitDate": "Date (JJ-MM-AAAA)",
+  "submit.date": "Date",
+  "submitDate": "Date",
   "agent.warning": "Si le signataire officiel est un agent autorisé de la fiche maîtresse ou un tiers autorisé agissant au nom du propriétaire de la fiche maîtresse, une lettre d’autorisation signée par le propriétaire de la fiche maîtresse doit être soumise au module 1.2.1 Formulaire de demande. La lettre de nomination de l’agent ou du tiers est requise en même temps que la transaction d’inscription initiale de la fiche maîtresse ou toute autre transaction pour laquelle un nouvel agent ou un tiers est désigné ou en cas de changement du rôle de l’agent ou du tiers.",
   "consent.privacy": "En soumettant vos renseignements personnels, vous consentez à sa collecte, à son utilisation et à sa divulgation conformément à l'énoncé de confidentialité.",
-  "consentPrivacy": "Consentement de confidentialité"
+  "consentPrivacy": "Consentement de confidentialité",
+  "alert.info": "Informations d'alerte"
 }

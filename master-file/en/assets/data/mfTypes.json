@@ -4,34 +4,44 @@
       "en": "Type I",
       "fr": "Type I",
       "defEn": "Active Substance Master Files",
-      "defFr": "Fiches maîtresses sur les substances actives"
+      "defFr": "Fiches maîtresses sur les substances actives",
+      "ariaEn": "Type 1",
+      "ariaFr": "Type 1"
     },
     {
       "id": "B02-20160301-024",
       "en": "Type II",
       "fr": "Type II",
       "defEn": "Container Closure System Master Files",
-      "defFr": "Fiches maîtresses sur les systèmes récipient- fermeture"
+      "defFr": "Fiches maîtresses sur les systèmes récipient- fermeture",
+      "ariaEn": "Type 2",
+      "ariaFr": "Type 2"
     },
     {
       "id": "B02-20160301-025",
       "en": "Type III",
       "fr": "Type III",
       "defEn": "Excipient Master Files",
-      "defFr": "Fiche maîtresses sur les excipients"
+      "defFr": "Fiche maîtresses sur les excipients",
+      "ariaEn": "Type 3",
+      "ariaFr": "Type 3"
     },
     {
       "id": "B02-20160301-026",
       "en": "Type IV",
       "fr": "Type IV",
       "defEn": "Dosage Form Master Files",
-      "defFr": "Fiche maîtresses sur les formes posologiques"
+      "defFr": "Fiche maîtresses sur les formes posologiques",
+      "ariaEn": "Type 4",
+      "ariaFr": "Type 4"
     },
     {
       "id": "B02-20211231-01",
       "en": "Type V",
       "fr": "Type V",
       "defEn": "Facilities and Equipment Master Files",
-      "defFr": "Fiches maîtresses sur les installations et l'équipement"
+      "defFr": "Fiches maîtresses sur les installations et l'équipement",
+      "ariaEn": "Type 5",
+      "ariaFr": "Type 5"
     }
   ]
