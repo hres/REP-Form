@@ -22,7 +22,7 @@
   "transaction.description": "Transaction Description",
   "dossier.id": "Dossier Identifier ",
   "licence.number": "Licence Number",
-  "request.date": "Date",
+  "request.date": "Dated",
   "requester.title": "Requester of solicited information",
   "panel.title.contactInfo": "Contact Information",
   "panel.title.fees": "Master File Fees",
@@ -80,7 +80,7 @@
   "orgManufactureLic": "Orginal Manufacturer's Licence Number",
 
   "hlp_load2": "When continuing with a working copy, the format of the file to load should be .hcsc.",
-  "hlp_load3": "When viewing/updating a final XML file, the format of the file to load should be .xml.",
+  "hlp_load3": "When <div class=\"wb-elps\">viewing/updating</div> a final XML file, the format of the file to load should be .xml.",
   "hlp_holder.address1": "The Master File Application Form should include the Master File Holder's business address or headquarters address. The address provided on this form will also be considered the Master File Holder's billing address. This means all invoices and account statements will be sent to the address provided on the Master File Application Form.",
   "hlp_holder.address2": "Manufacturing site addresses should not be provided on the Master File Application Form unless the manufacturing site address is the same as the business or headquarters address.",
   "hlp_holder.address3": "Additionally, the Master File Holder Address provided on the Master File Application Form must be provided consistently and should be the same for all Master Files held by the Master File Holder including all subsequent transactions for such Master Files. It is not possible to provide  Master File Application Forms with different addresses for different Master Files or for different transactions. Should the Master File Holder's Address entered on the Master File Application Form not be consistent with what was previously provided for other transactions for Master Files held by the Master File Holder, a process hold letter will be issued by the Master File Administration Unit to resolve any discrepancies.",
@@ -139,5 +139,7 @@
   "agent.warning": "If the signing official is an Authorized Master File Agent or Authorized Third Party filing on behalf of the Master File Holder, an authorization letter signed by the Master File Holder must be submitted in Module 1.2.1 Application Form. The Agent appointment letter or Third Party Authorization letter is required with the initial Master File Registration transaction or any transaction where a new agent or third party is appointed or the agent or third party's role has changed.",
   "consent.privacy": "By submitting your personal information, you are consenting to its collection, use and disclosure in accordance with the Privacy Notice Statement.",
   "consentPrivacy": "Consent Privacy",
-  "alert.info": "Alert information"
+  "alert.info": "Alert information",
+  "error":"Error ",
+  "agent.not.applicable":"Authorized Agent or Authorized Third Party Name and Address not applicable"
 }
