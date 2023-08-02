@@ -22,7 +22,7 @@
   "transaction.description": "Description de la transaction",
   "dossier.id": "Numéro de dossier ",
   "regulatory.contact.id": "fr_Regulatory Contact Identifier",
-  "request.date": "Dated",
+  "request.date": "Daté",
   "requester.title": "Demandeur d’information sollicitée",
   "panel.title.contactInfo": "Coordonnées",
   "panel.title.fees": "Frais liés à la fiche maîtresse",
