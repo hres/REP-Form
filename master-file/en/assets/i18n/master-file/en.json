@@ -51,6 +51,8 @@
   "error.msg.phone": "The format is not valid",
   "error.msg.email": "The format is not valid",
   "error.msg.fax": "The format is not valid",
+  "error.msg.account": "The format is not valid",
+  "error.msg.business": "The format is not valid",
   "discard.changes": "Discard Changes",
   "commmon.required.bracket": " (required)",
   "common.saveRevert": "Please save or revert the record",
