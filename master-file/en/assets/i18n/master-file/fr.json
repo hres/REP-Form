@@ -22,7 +22,7 @@
   "transaction.description": "Description de la transaction",
   "dossier.id": "Numéro de dossier ",
   "regulatory.contact.id": "fr_Regulatory Contact Identifier",
-  "request.date": "Daté",
+  "request.date": "Date de la demande",
   "requester.title": "Demandeur d’information sollicitée",
   "panel.title.contactInfo": "Coordonnées",
   "panel.title.fees": "Frais liés à la fiche maîtresse",
@@ -54,6 +54,7 @@
   "error.msg.fax": "Ce format n'est pas valide",
   "error.msg.account": "Ce format n'est pas valide",
   "error.msg.business": "Ce format n'est pas valide",
+  "error.msg.invalidDate": "Cette date n'est pas valide",
   "discard.changes": "fr_Discard Changes",
   "commmon.required.bracket": " (obligatoire)",
   "common.saveRevert": "fr_Please save or revert the record",
@@ -102,8 +103,9 @@
   "addressDetails.country": "Pays",
   "addressDetails.province": "Province",
   "addressDetails.state": "État",
-  "addressDetails.postalCode": "Code Postal/ZIP",
-  "addressDetails.zipCode": "Code Postal/ZIP",
+  "addressDetails.postalZipCode":"Code Postal/ZIP",
+  "addressDetails.postalCode": "Code Postal",
+  "addressDetails.zipCode": "Code ZIP",
   "addressDetails.provState": "Province ou État",
   "company.name.full": "Nom de la compagnie (nom légal complet)",
   "heading.holder.contact": "Coordonnées du propriétaire de la fiche maîtresse",
@@ -147,5 +149,6 @@
   "consentPrivacy": "Consentement de confidentialité",
   "alert.info": "Informations d'alerte",
   "error": "Erreur ",
-  "agent.not.applicable":"Le nom et l'adresse de l’agent autorisé ou du tiers autorisé ne sont pas applicables."
+  "agent.not.applicable":"Le nom et l'adresse de l’agent autorisé ou du tiers autorisé ne sont pas applicables.",
+  "postal.not.applicable":"(Si pas disponible, utilisez «Sans objet »)"
 }
