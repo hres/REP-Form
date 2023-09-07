@@ -76,43 +76,43 @@
         "sortPriority": 9
     },
     {
-        "id": "13",
+        "id": "14",
         "en": "Response to Quality Clarification Request",
         "fr": "Réponse aux demandes d'éclaircissements de la qualité",
         "sortPriority": 11
     },
     {
-        "id": "14",
+        "id": "15",
         "en": "Update",
         "fr": "Mise à jour",
         "sortPriority": 2
     }, 
     {
-        "id": "15",
+        "id": "16",
         "en": "Update and Letter of Access",
         "fr": "Mise à jour et lettre d'accès",
         "sortPriority": 3
     },
     {
-        "id": "16",
+        "id": "17",
         "en": "Update, CEP and Attestations",
         "fr": "Mise à jour, CEP et attestations",
         "sortPriority": 4
     },
     {
-        "id": "17",
+        "id": "18",
         "en": "Update, CEP, Attestations and Letter of Access",
         "fr": "Mise à jour, CEP, attestations  et lettre d'accès",
         "sortPriority": 5
     },
     {
-        "id": "18",
+        "id": "19",
         "en": "Update and Conversion",
         "fr": "Mise à jour et conversion",
         "sortPriority": 6
     },
     {
-        "id": "19",
+        "id": "20",
         "en": "Withdrawal of Letter of Access",
         "fr": "Retrait de la lettre d'accès",
         "sortPriority": 8
