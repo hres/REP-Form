@@ -150,5 +150,5 @@
   "alert.info": "Informations d'alerte",
   "error": "Erreur ",
   "agent.not.applicable":"Le nom et l'adresse de l’agent autorisé ou du tiers autorisé ne sont pas applicables.",
-  "postal.not.applicable":"(Si pas disponible, utilisez « Sans objet »)"
+  "postal.not.applicable":"(Si pas disponible, utilisez « sans objet »)"
 }
