@@ -432,7 +432,7 @@
             record.applicant_name = "";
             record.agent_name = "";
             record.cra_business_number ='';
-            record.csp_company_code ='';
+            record.csp_customer_number ='';
             record.contact = {};
             record.contact.given_name = "";
             record.contact.initials = "";
@@ -479,7 +479,7 @@
                     record.cra_business_number = inputJson[i].craBusinessNumber;
                 }
                 if (inputJson[i].cspCompanyCode) {
-                    record.csp_company_code = inputJson[i].cspCompanyCode;
+                    record.csp_customer_number = inputJson[i].cspCompanyCode;
                 }
                 // if (inputJson[i].contact.salutation) {
                 //     record.contact.salutation = inputJson[i].contact.salutation;
@@ -576,7 +576,7 @@
                 record.applicantName = externalRecord.applicant_name;
                 record.agentName = externalRecord.agent_name;
                 record.craBusinessNumber = externalRecord.cra_business_number;
-                record.cspCompanyCode = externalRecord.csp_company_code;
+                record.cspCompanyCode = externalRecord.csp_customer_number;
                 //record.contact.salutation = externalRecord.contact.salutation;
                 record.contact.givenName = externalRecord.contact.given_name;
                 record.contact.surname = externalRecord.contact.surname;
