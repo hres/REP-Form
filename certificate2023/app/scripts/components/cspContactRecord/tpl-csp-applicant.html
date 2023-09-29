@@ -88,7 +88,7 @@
                                 <strong class="required"> {{::"REQUIRED" |translate}} </strong>
                                 <input type="text" id="{{::cspApplCtrl.cspCompanyCodeId}}" name="{{::cspApplCtrl.cspCompanyCodeId}}"
                                        data-ng-model="cspApplCtrl.model.cspCompanyCode" class="form-control" maxlength="5"
-                                       size="5" minlength="5" only-digits="" required/>
+                                       size="5" only-digits="" required/>
                                 <cmp-error-message field-name="cspApplCtrl.cspCompanyCodeId" form-ref="cspApplCtrl.applForm"
                                                    show-error="cspApplCtrl.showErrors()"
                                                    error-types="cspApplCtrl.min5Error"></cmp-error-message>

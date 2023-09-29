@@ -76,8 +76,7 @@
         vm.type = "_appl"; //sets the type of applicant either applicant or billing
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
         vm.craBusinessNumberError=[{type: "minlength", displayAlias: "MSG_BUSINESS_NUMBER"}];
-        vm.min5Error = [{type: "required", displayAlias: "MSG_ERR_MAND"},
-            {type: "minlength", displayAlias: "MSG_LENGTH_5NUM"}];
+        vm.min5Error = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
 
         vm.isCountryEditable=false;
         vm.alerts = [false,false];
