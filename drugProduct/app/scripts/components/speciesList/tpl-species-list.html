@@ -1,0 +1,24 @@
+<ng-form name="speciesListCtrl.speciesListForm">
+    <cmp-expanding-table pre-id="species_expnd_" reset-to-collapsed="speciesListCtrl.resetToCollapsed"
+                         list-items="speciesListCtrl.model.list"
+                         column-def="speciesListCtrl.columnDef"
+                         select-record="speciesListCtrl.selectRecord"
+                         disable-selection="false">
+
+        <cmp-species-record record="$parent.record"
+                             fieldset-label="{{speciesListCtrl.fieldLabel}}"
+                             on-update="speciesListCtrl.saveRecord(species)"
+                             on-delete="speciesListCtrl.deleteRecord(id)"
+                             show-errors="speciesListCtrl.showDetailErrors" is-focus="speciesListCtrl.isFocus">
+        </cmp-species-record>
+    </cmp-expanding-table>
+    <div class="mrgn-tp-md mrgn-bttm-lg">
+        <div class="btn-group-sm col-md-12">
+            <button class="btn btn-primary" data-ng-click="speciesListCtrl.addNew();speciesListCtrl.setFocus(1);" name="addSpecies_{{::$id}}"
+                    id="addSpecies_{{::$id}}"
+                    data-ng-disabled="speciesListCtrl.disableAddButton()">{{'ADD_SPECIES'|translate}}
+            </button>
+        </div>
+    </div>
+    <!--<pre>RequesterList items: {{speciesListCtrl.model.list}}</pre>-->
+</ng-form>

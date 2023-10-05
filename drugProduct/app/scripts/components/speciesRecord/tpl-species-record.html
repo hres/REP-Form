@@ -1,0 +1,116 @@
+<ng-form name="speciesRecCtrl.speciesForm">
+    <div class="container-fluid">
+        <fieldset>
+            <legend class="legend-rep">{{'VET_SPECIES_SUBTYPES'|translate}}&nbsp;{{speciesRecCtrl.model.speciesId}}</legend>
+            <div class="row">
+                <div class="form-group col-md-6"
+                         data-ng-class="{'has-error':speciesRecCtrl.speciesForm[speciesRecCtrl.speciesId].$invalid}">
+                    <label for="{{::speciesRecCtrl.speciesId}}" class="required">
+                        <span class="field-name">{{::"VET_SPECIES" |translate}}</span>
+                        <strong class="required"> {{::"REQUIRED" |translate}} </strong>
+                        <cmp-error-message field-name="speciesRecCtrl.speciesId" form-ref="speciesRecCtrl.speciesForm"
+                                           show-error="speciesRecCtrl.showError(speciesRecCtrl.speciesForm[speciesRecCtrl.speciesId])" error-types="speciesRecCtrl.requiredOnly">
+                        </cmp-error-message>
+                        <select class="form-control full-width" data-ng-model="speciesRecCtrl.model.species"
+                                id="{{::speciesRecCtrl.speciesId}}" name="{{::speciesRecCtrl.speciesId}}"
+                                data-ng-options="species[speciesRecCtrl.lang] for species in speciesRecCtrl.speciesList track by species.id"
+                                data-ng-required="true">
+                            <option label=" " value="" />
+                        </select>
+                    </label>
+                </div>
+                <div class="form-group col-md-6"
+                     data-ng-class="{'has-error':speciesRecCtrl.speciesForm[speciesRecCtrl.subtypesId].$invalid}">
+                    <label for="{{::speciesRecCtrl.subtypesId}}" class="required">
+                        <span class="field-name">{{::"VET_SUBTYPES" |translate}}</span>
+                        <strong class="required"> {{::"REQUIRED" |translate}} </strong>
+                        <cmp-error-message field-name="speciesRecCtrl.subtypesId" form-ref="speciesRecCtrl.speciesForm"
+                                           show-error="speciesRecCtrl.showError(speciesRecCtrl.speciesForm[speciesRecCtrl.subtypesId])" error-types="speciesRecCtrl.requiredOnly">
+                        </cmp-error-message>
+                        <select class="form-control full-width" data-ng-model="speciesRecCtrl.model.subtypes"
+                                id="{{::speciesRecCtrl.subtypesId}}" name="{{::speciesRecCtrl.subtypesId}}"
+                                data-ng-options="subtypes[speciesRecCtrl.lang] for subtypes in speciesRecCtrl.subtypesList track by subtypes.id"
+                                data-ng-required="true">
+                            <option label=" " value="" />
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <fieldset>
+                <legend class="legend-rep"
+                        data-ng-class="{'has-error':speciesRecCtrl.speciesForm[speciesRecCtrl.isTreatFPAId].$invalid}">
+                    {{'IS_TREAT_FP'|translate}}<strong class="required">{{"REQUIRED" |translate}}</strong>&nbsp;{{speciesRecCtrl.model.isTreatFPAId}}
+                </legend>
+                <div class="form-group col-xs-12">
+                     <!--data-ng-class="{'has-error':speciesRecCtrl.speciesForm[speciesRecCtrl.isTreatFPAId].$invalid}">-->
+                    <!--<label for="{{::speciesRecCtrl.isTreatFPAId}}" class="full-width required">-->
+                        <!--<span class="field-name">{{'IS_TREAT_FP'|translate}}</span>-->
+                        <!--<strong class="required">{{"REQUIRED" |translate}}</strong>-->
+                    <!--</label>-->
+                    <cmp-error-message field-name="speciesRecCtrl.isTreatFPAId"
+                           form-ref="speciesRecCtrl.speciesForm"
+                           show-error="speciesRecCtrl.showError(speciesRecCtrl.speciesForm[speciesRecCtrl.isTreatFPAId])"
+                           error-types="speciesRecCtrl.requiredOnly"></cmp-error-message>
+                    <label class="col-xs-2" for="{{::speciesRecCtrl.isTreatFPAId}}"><input type="radio" id="{{::speciesRecCtrl.isTreatFPAId}}" name="{{::speciesRecCtrl.isTreatFPAId}}" value="Y" data-ng-model="speciesRecCtrl.model.isTreatFPA" required/>&nbsp;{{::'Y'|translate}}</label>
+                    <label class="col-xs-2" for="{{::speciesRecCtrl.isTreatFPAId}}_1"><input type="radio" id="{{::speciesRecCtrl.isTreatFPAId}}_1" name="{{::speciesRecCtrl.isTreatFPAId}}" value="N" data-ng-model="speciesRecCtrl.model.isTreatFPA" required/>&nbsp;{{::'N'|translate}}</label>
+                </div>
+            </fieldset>
+
+            <fieldset data-ng-if="speciesRecCtrl.model.isTreatFPA && speciesRecCtrl.model.isTreatFPA === 'Y'">
+                <legend class="legend-rep">{{'WITHDRAWAL' | translate}}&nbsp;{{speciesRecCtrl.model.withdrawalid}}</legend>
+
+            <!--<div class="row" data-ng-if="speciesRecCtrl.model.isTreatFPA && speciesRecCtrl.model.isTreatFPA === 'Y'">-->
+                <!--<label class="full-width">-->
+                    <!--<span class="field-name">{{'WITHDRAWAL'|translate}}</span>-->
+                <!--</label>-->
+            <!--</div>-->
+            <div class="row" data-ng-if="speciesRecCtrl.model.isTreatFPA && speciesRecCtrl.model.isTreatFPA === 'Y'">
+                <div class="form-group col-md-6"
+                     data-ng-class="{'has-error':speciesRecCtrl.speciesForm[speciesRecCtrl.daysId].$invalid}">
+                    <label for="{{::speciesRecCtrl.daysId}}" class="required full-width">
+                        <span class="field-name">{{'VET_DAYS'|translate}}</span>
+                        <strong class="required">{{'REQUIRED' |translate}}</strong>
+                        <cmp-error-message field-name="speciesRecCtrl.daysId"
+                                           form-ref="speciesRecCtrl.speciesForm"
+                                           show-error="speciesRecCtrl.showError(speciesRecCtrl.speciesForm[speciesRecCtrl.daysId])"
+                                           error-types="speciesRecCtrl.dayError"></cmp-error-message>
+
+                    </label>
+                        <div class="rep-margin-top">
+                            <input type="number" data-ng-model="speciesRecCtrl.model.withdrawalDays" name="{{::speciesRecCtrl.daysId}}"
+                                   data-ng-model-options="{ debounce: $inherit}"
+                                   id="{{::speciesRecCtrl.daysId}}" min="0" max="999"
+                                   class="form-control  full-width" data-only-digits
+                                   data-ng-required="true"/>
+                        </div>
+
+                </div>
+                <div  data-ng-if="speciesRecCtrl.model.isTreatFPA && speciesRecCtrl.model.isTreatFPA === 'Y'"
+                      class="form-group col-md-6" data-ng-class="{'has-error':speciesRecCtrl.speciesForm[speciesRecCtrl.hoursId].$invalid}">
+                    <label for="{{::speciesRecCtrl.hoursId}}" class="required full-width">
+                        <span class="field-name">{{::"VET_HOURS" |translate}}</span>
+                        <strong class="required"> {{::"REQUIRED" |translate}}</strong>
+                        <cmp-error-message field-name="speciesRecCtrl.hoursId" form-ref="speciesRecCtrl.speciesForm"
+                                           show-error="speciesRecCtrl.showError(speciesRecCtrl.speciesForm[speciesRecCtrl.hoursId])"
+                                           error-types="speciesRecCtrl.hourError">
+                        </cmp-error-message>
+                        <input type="number" class="form-control full-width" min="0" max="99" id="{{::speciesRecCtrl.hoursId}}"
+                               name="{{::speciesRecCtrl.hoursId}}" data-only-digits
+                               data-ng-model="speciesRecCtrl.model.withdrawalHours" required/>
+                    </label>
+                </div>
+            </div>
+            </fieldset>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <button data-ng-click="speciesRecCtrl.saveRecord()" name="saveSpecies" onclick="focusOnRow(this, 'addSpecies_')"
+                            class="btn btn-primary btn-sm">{{'SAVE_RECORD'|translate}}
+                    </button>
+                    <button data-ng-click="speciesRecCtrl.deleteRecord()" name="deleteSpecies" onclick="focusOnRow(this, 'addSpecies_')"
+                            class="btn btn-danger btn-sm">{{'DELETE_RECORD'|translate}}
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</ng-form>

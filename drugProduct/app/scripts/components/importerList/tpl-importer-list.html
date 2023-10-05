@@ -1,0 +1,27 @@
+<ng-form name="importerListCtrl.importerListForm">
+    <cmp-expanding-table pre-id="import_expnd_" reset-to-collapsed="importerListCtrl.resetToCollapsed"
+                         list-items="importerListCtrl.model.list"
+                         column-def="importerListCtrl.columnDef"
+                         select-record="importerListCtrl.selectRecord">
+
+        <cmp-importer-record record="$parent.record"
+                             fieldset-label="{{importerListCtrl.fieldLabel}}"
+                             on-update="importerListCtrl.saveRecord(importer)"
+                             on-delete="importerListCtrl.deleteRecord(id)"
+                             ht-indx-list="importerListCtrl.htIndxList"
+                             update-error-summary="importerListCtrl.updateErrorSummary()"
+                             show-errors="importerListCtrl.showDetailErrors"
+                             is-detail-valid="importerListCtrl.setValid(state)"
+                             is-focus="importerListCtrl.isFocus">
+        </cmp-importer-record>
+    </cmp-expanding-table>
+    <div class="mrgn-tp-md mrgn-bttm-lg">
+        <div class="btn-group-sm col-md-12">
+            <button class="btn btn-primary" data-ng-click="importerListCtrl.addNew();importerListCtrl.setFocus(1);" name="addImporter_{{::$id}}"
+                    id="addImporter_{{::$id}}"
+                    data-ng-disabled="importerListCtrl.disableAddButton()">{{'ADD_IMPORTER'|translate}}
+            </button>
+        </div>
+    </div>
+    <!--<pre>RequesterList items: {{importerListCtrl.model.list}}</pre>-->
+</ng-form>

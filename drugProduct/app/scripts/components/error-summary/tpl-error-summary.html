@@ -1,0 +1,63 @@
+<div data-ng-show="errSummaryCtrl.calcIsVisible()" id="errors-summary{{::errSummaryCtrl.nameAddendum}}">
+    <section tabindex="-1" class="alert alert-danger" data-focus-if="errSummaryCtrl.isFocusInput"
+             data-focus-delay="200" data-ng-switch data-on="errSummaryCtrl.headerLevel">
+
+        <h1 data-ng-switch-when="h1">{{'FOR_THE'|translate}}{{errSummaryCtrl.formPreamble
+            |translate}}{{'NOT_SAVED'|translate}}{{errSummaryCtrl.errorArray.length}}
+            <span data-ng-if="errSummaryCtrl.errorArray.length>1">{{'ERRORS_FOUND'|translate}}</span>
+            <span data-ng-if="errSummaryCtrl.errorArray.length==1">{{'ERROR_FOUND'|translate}}</span>
+        </h1>
+        <h2 data-ng-switch-when="h2">{{'FORM_NOT_SAVED'|translate}}{{errSummaryCtrl.errorArray.length}}
+            <span data-ng-if="errSummaryCtrl.errorArray.length>1">{{'ERRORS_FOUND'|translate}}</span>
+            <span data-ng-if="errSummaryCtrl.errorArray.length==1">{{'ERROR_FOUND'|translate}}</span>
+        </h2>
+        <h3 data-ng-switch-when="h3">{{'FOR_THE'|translate}}{{errSummaryCtrl.formPreamble
+            |translate}}{{'NOT_SAVED'|translate}}{{errSummaryCtrl.errorArray.length}}
+            <span data-ng-if="errSummaryCtrl.errorArray.length>1">{{'ERRORS_FOUND'|translate}}</span>
+            <span data-ng-if="errSummaryCtrl.errorArray.length==1">{{'ERROR_FOUND'|translate}}</span>
+        </h3>
+        <h4 data-ng-switch-when="h4">{{'FOR_THE'|translate}}{{errSummaryCtrl.formPreamble
+            |translate}}{{'NOT_SAVED'|translate}}{{errSummaryCtrl.errorArray.length}}
+            <span data-ng-if="errSummaryCtrl.errorArray.length>1">{{'ERRORS_FOUND'|translate}}</span>
+            <span data-ng-if="errSummaryCtrl.errorArray.length==1">{{'ERROR_FOUND'|translate}}</span>
+        </h4>
+        <h5 data-ng-switch-when="h5">{{'FOR_THE'|translate}}{{errSummaryCtrl.formPreamble
+            |translate}}{{'NOT_SAVED'|translate}}{{errSummaryCtrl.errorArray.length}}
+            <span data-ng-if="errSummaryCtrl.errorArray.length>1">{{'ERRORS_FOUND'|translate}}</span>
+            <span data-ng-if="errSummaryCtrl.errorArray.length==1">{{'ERROR_FOUND'|translate}}</span>
+        </h5>
+        <h6 data-ng-switch-when="h6">{{'FOR_THE'|translate}}{{errSummaryCtrl.formPreamble
+            |translate}}{{'NOT_SAVED'|translate}}{{errSummaryCtrl.errorArray.length}}
+            <span data-ng-if="errSummaryCtrl.errorArray.length>1">{{'ERRORS_FOUND'|translate}}</span>
+            <span data-ng-if="errSummaryCtrl.errorArray.length==1">{{'ERROR_FOUND'|translate}}</span>
+        </h6>
+        <ul data-ng-repeat="errorRec in errSummaryCtrl.errorArray">
+                <li data-ng-if="!errSummaryCtrl.isList(errorRec) && !errorRec.isSummary && errorRec.type">
+                    <a  href="#{{errorRec.name}}" target="_self">{{errorRec.translateKey|translate}}&nbsp;&#8208;&nbsp;{{errorRec.type |translate}}</a>
+                </li>
+                <li data-ng-if="!errSummaryCtrl.isList(errorRec) && !errorRec.isSummary && !errorRec.type">
+                    <a  href="#{{errorRec.name}}" target="_self">{{errorRec.translateKey|translate}}</a>
+                </li>
+                <li data-ng-if="errSummaryCtrl.isList(errorRec) && !errorRec.isSummary">
+                    <a  href="#{{errorRec.name}}" target="_self">{{errorRec.translateKey|translate}}</a>
+                </li>
+                <li data-ng-if="errSummaryCtrl.isSummaryLink(errorRec)">
+                    <a href="#errors-summary-{{errorRec.name}}"
+                       data-ng-click="errSummaryCtrl.scrollTo(errorRec)">{{'THERE_ARE_ERRORS'|translate}}&nbsp;{{errorRec.translateKey|translate}}
+                    </a>
+                </li>
+                <li data-ng-if="errSummaryCtrl.isTabLink(errorRec)">
+                  <a href="#errors-summary-{{errorRec.name}}"
+                     data-ng-click="errSummaryCtrl.selectVisibleTab(errorRec)">{{'THERE_ARE_ERRORS'|translate}}&nbsp;{{errorRec.translateKey|translate}}
+                  </a>
+                </li>
+                <li data-ng-if="errSummaryCtrl.isExpanderLink(errorRec)">
+                    <a  href="#errors-summary-{{errorRec.name}}"
+                        data-ng-click="errSummaryCtrl.scrollTo(errorRec)">{{'THERE_ARE_ERRORS'|translate}}&nbsp;{{errorRec.translateKey|translate}}&nbsp;{{errorRec.exIndex+1}}
+                    </a>
+                </li>
+              <!--  <pre> {{errorRec|json}}</pre>-->
+        </ul>
+    </section>
+
+</div>

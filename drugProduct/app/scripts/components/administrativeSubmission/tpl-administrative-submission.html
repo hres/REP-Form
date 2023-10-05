@@ -1,0 +1,84 @@
+<ng-form name="adminSubCtrl.adminSubTypeForm">
+        <div class="row">
+                <div class="col-xs-12 form-group"
+                     data-ng-class="{'has-error':adminSubCtrl.adminSubTypeForm[adminSubCtrl.adminSubTypeId].$invalid}">
+                    <label for="{{::adminSubCtrl.adminSubTypeId}}" class="required">
+                        <span class="field-name">{{::"ADMIN_SUB_TYPE" |translate}}</span>
+                        <strong class="required"> {{::"REQUIRED" |translate}}</strong>
+                        <cmp-error-message field-name="adminSubCtrl.adminSubTypeId"
+                                           form-ref="adminSubCtrl.adminSubTypeForm"
+                                           show-error="adminSubCtrl.showErrorMissing()"
+                                           error-types="adminSubCtrl.requiredOnly"></cmp-error-message>
+                        <select id="{{::adminSubCtrl.adminSubTypeId}}" name="{{::adminSubCtrl.adminSubTypeId}}"
+                                data-ng-model="adminSubCtrl.subType" class="form-control"
+                                data-ng-options="choice[adminSubCtrl.lang] for choice in adminSubCtrl.adminSubTypeList"
+                                data-ng-required="true" data-ng-change="adminSubCtrl.updateSubType()">
+                            <option label=" " value="" data-ng-empty="adminSubCtrl.subType"/>
+                        </select>
+
+                    </label>
+
+                    <div data-ng-if="adminSubCtrl.subType" aria-live="polite" >
+                        <div data-ng-if="!adminSubCtrl.isFrench()" data-ng-switch="adminSubCtrl.subType.id" >
+                            <div data-ng-switch-when="MANUFACT_NAME_CHGE">
+                                <div data-ng-include="'app/scripts/templates/commonAdminSubTypeDesc/tpl-activity-manu-name-change-en.html'"></div>
+                            </div>
+                            <div data-ng-switch-when="PRODUCT_NAME_CHGE">
+                                <div data-ng-include="'app/scripts/templates/commonAdminSubTypeDesc/tpl-activity-product-name-change-en.html'"></div>
+                            </div>
+                            <div data-ng-switch-when="PRODUCT_MANUFACT_NAME_CHGE">
+                                <div data-ng-include="'app/scripts/templates/commonAdminSubTypeDesc/tpl-activity-manuorname-change-en.html'"></div>
+                            </div>
+                            <div data-ng-switch-when="OWNERSHIP_CHGE">
+                                <div data-ng-include="'app/scripts/templates/commonAdminSubTypeDesc/tpl-activity-ownership-change-en.html'"></div>
+                            </div>
+                            <div data-ng-switch-when="MERGER">
+                                <div data-ng-include="'app/scripts/templates/commonAdminSubTypeDesc/tpl-activity-mab-en.html'"></div>
+                            </div>
+                            <div data-ng-switch-when="LICENGSING">
+                                <div data-ng-include="'app/scripts/templates/commonAdminSubTypeDesc/tpl-activity-licensing-en.html'"></div>
+                            </div>
+                            <div data-ng-switch-when="POSTAUTH_LABEL_CHGE">
+                                <div data-ng-include="'app/scripts/templates/commonAdminSubTypeDesc/tpl-activity-labelling-change-en.html'"></div>
+                            </div>
+                            <div data-ng-switch-when="POSTAUTH_CHEMISTRY_CHGE">
+                                <div data-ng-include="'app/scripts/templates/commonAdminSubTypeDesc/tpl-activity-update-en.html'"></div>
+                            </div>
+                            <div data-ng-switch-when="ADDITIONAL_PRODUCT_CHGE">
+                                <div data-ng-include="'app/scripts/templates/commonAdminSubTypeDesc/tpl-activity-additional-en.html'"></div>
+                            </div>
+                        </div>
+
+                        <div data-ng-if="adminSubCtrl.isFrench()" data-ng-switch="adminSubCtrl.subType.id">
+                            <div data-ng-switch-when="MANUFACT_NAME_CHGE">
+                                <div data-ng-include="'app/scripts/templates/commonAdminSubTypeDesc/tpl-activity-manu-name-change-fr.html'"></div>
+                            </div>
+                            <div data-ng-switch-when="PRODUCT_NAME_CHGE">
+                                <div data-ng-include="'app/scripts/templates/commonAdminSubTypeDesc/tpl-activity-product-name-change-fr.html'"></div>
+                            </div>
+                            <div data-ng-switch-when="PRODUCT_MANUFACT_NAME_CHGE">
+                                <div data-ng-include="'app/scripts/templates/commonAdminSubTypeDesc/tpl-activity-manuorname-change-fr.html'"></div>
+                            </div>
+                            <div data-ng-switch-when="OWNERSHIP_CHGE">
+                                <div data-ng-include="'app/scripts/templates/commonAdminSubTypeDesc/tpl-activity-ownership-change-fr.html'"></div>
+                            </div>
+                            <div data-ng-switch-when="MERGER">
+                                <div data-ng-include="'app/scripts/templates/commonAdminSubTypeDesc/tpl-activity-mab-fr.html'"></div>
+                            </div>
+                            <div data-ng-switch-when="LICENGSING">
+                                <div data-ng-include="'app/scripts/templates/commonAdminSubTypeDesc/tpl-activity-licensing-fr.html'"></div>
+                            </div>
+                            <div data-ng-switch-when="POSTAUTH_LABEL_CHGE">
+                                <div data-ng-include="'app/scripts/templates/commonAdminSubTypeDesc/tpl-activity-labelling-change-fr.html'"></div>
+                            </div>
+                            <div data-ng-switch-when="POSTAUTH_CHEMISTRY_CHGE">
+                                <div data-ng-include="'app/scripts/templates/commonAdminSubTypeDesc/tpl-activity-update-fr.html'"></div>
+                            </div>
+                            <div data-ng-switch-when="ADDITIONAL_PRODUCT_CHGE">
+                                <div data-ng-include="'app/scripts/templates/commonAdminSubTypeDesc/tpl-activity-additional-fr.html'"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</ng-form>

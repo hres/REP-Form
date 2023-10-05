@@ -1,0 +1,25 @@
+<section>
+    <div class="row">
+        <div class="form-group">
+            <div>
+                <div id="hpfbFileProcessingZone" class="row">
+                    <label for="fileLoad" class="col-sm-4">
+                        <span class="field-name">{{::'SELECT_LOAD'|translate}}</span>
+                    </label>
+
+                    <div class="col-sm-8">
+                        <input id="fileLoad" type="file" accept=".xml, .hcsc" name="fileLoad"
+                               data-hpfb-file-select="$ctrl.modelCallback(fileContent, filename)"
+                               data-root-tag="{{$ctrl.rootElem}}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12" aria-live='polite'>
+                        <p><br/><span>{{$ctrl.status|translate}}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

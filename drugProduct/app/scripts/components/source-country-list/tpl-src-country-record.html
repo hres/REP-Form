@@ -1,0 +1,73 @@
+<ng-form name="srcCountryRecCtrl.countryForm">
+    <div class="container-fluid">
+        <fieldset>
+            <legend class="legend-rep">
+                {{::srcCountryRecCtrl.fieldsetLabel | translate}}&nbsp;{{srcCountryRecCtrl.model.id}}
+            </legend>
+            <div class="row" data-ng-class="{'has-error':srcCountryRecCtrl.countryForm[srcCountryRecCtrl.countryId].$invalid}">
+                <div class="form-group col-sm-5">
+                    <label for="{{::srcCountryRecCtrl.countryId}}" class="required">
+                        <span class="field-name"> {{::'COUNTRY_NAME'|translate}}</span>
+                        <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                        <cmp-error-message field-name="srcCountryRecCtrl.countryId"
+                                           form-ref="srcCountryRecCtrl.countryForm"
+                                           show-error="srcCountryRecCtrl.showError(srcCountryRecCtrl.countryForm[srcCountryRecCtrl.countryId])"
+                                           error-types="srcCountryRecCtrl.requiredOnly"></cmp-error-message>
+                    </label>
+                        <!--<ui-select data-ng-model="srcCountryRecCtrl.model.country" id="{{::srcCountryRecCtrl.countryId}}" name="{{::srcCountryRecCtrl.countryId}}"-->
+                                   <!--data-ng-model-options="{ debounce: 0}"-->
+                                   <!--class="rep-selectize-dropdown" on-select="srcCountryRecCtrl.countryChanged($item, $model)" data-required="true"-->
+                                    <!--title="Choose a country" class="rep-selectize-font">-->
+                            <!--<ui-select-match data-placeholder="Select or Search for country" name="countryMatch"-->
+                                             <!--class="rep-selectize-font rep-selectize-dropdown"> {{$select.selected[srcCountryRecCtrl.lang]}}-->
+                            <!--</ui-select-match>-->
+                            <!--<ui-select-choices data-repeat="countryRecord in srcCountryRecCtrl.countryList | filter:{[srcCountryRecCtrl.lang]: $select.search} track by countryRecord.id"-->
+                                               <!--class="rep-selectize-font">-->
+                                <!--<span data-ng-bind-html="countryRecord[srcCountryRecCtrl.lang] | highlight: $select.search"></span>-->
+                            <!--</ui-select-choices>-->
+                        <!--</ui-select>-->
+                    <input type="text" id="{{::srcCountryRecCtrl.countryId}}" name="{{::srcCountryRecCtrl.countryId}}"
+                           data-ng-model="srcCountryRecCtrl.model.display" value="srcCountryRecCtrl.model.display"
+                           data-focus-if="srcCountryRecCtrl.isFocus"
+                           data-ng-model-options="{ updateOn: 'blur' }"
+                           data-ng-change="srcCountryRecCtrl.countryChanged(srcCountryRecCtrl.model.display);srcCountryRecCtrl.cancelFocus();"
+                           list="{{::srcCountryRecCtrl.countryListId}}" required="required" class="form-control full-width" />
+                    <datalist id="{{::srcCountryRecCtrl.countryListId}}" class="rep-selectize-dropdown rep-selectize-font">
+                        <option data-ng-repeat="countryRecord in srcCountryRecCtrl.countryList | filter:{[srcCountryRecCtrl.lang]: srcCountryFilter}"
+                                value="{{countryRecord[srcCountryRecCtrl.lang]}}" label="{{countryRecord[srcCountryRecCtrl.lang]}}"/>
+                    </datalist>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12 mrgn-tp-lg has-error" data-ng-if="srcCountryRecCtrl.isUnknown()"
+                     data-ng-class="{'has-error':srcCountryRecCtrl.countryForm[srcCountryRecCtrl.unknownCountryId].$invalid}">
+                    <label for="{{::srcCountryRecCtrl.unknownCountryId}}" class="required">
+                        <span class="field-name">{{::'UNKNOWN_COUNTRY_DETAILS'|translate}}</span>
+                        <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                        <cmp-error-message field-name="srcCountryRecCtrl.unknownCountryId"
+                                           form-ref="srcCountryRecCtrl.countryForm"
+                                           show-error="srcCountryRecCtrl.showError(srcCountryRecCtrl.countryForm[srcCountryRecCtrl.unknownCountryId])"
+                                           error-types="srcCountryRecCtrl.requiredOnly"></cmp-error-message>
+
+                    </label>
+                    <textarea id="{{::srcCountryRecCtrl.unknownCountryId}}" data-focus-if="false"
+                          data-ng-model="srcCountryRecCtrl.model.unknownCountryDetails" maxlength="1024" rows="3" data-ng-model-options="{ updateOn: 'blur'}"
+                          class="form-control full-width" name="{{::srcCountryRecCtrl.unknownCountryId}}" required>
+                    </textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="btn-group-sm col-sm-12">
+                    <button data-ng-click="srcCountryRecCtrl.saveRecord()" name="saveSrcCountry" id="saveSrcCountry_{{::$id}}" onclick="focusOnRow(this, 'addSrcCountry_')"
+                            class="btn btn-primary btn-md">{{'SAVE_RECORD'|translate}}
+                    </button>
+                    <button data-ng-click="srcCountryRecCtrl.deleteRecord(srcCountryRecCtrl.model.id)" name="deleteSrcCountry" id="deleteSrcCountry_{{::$id}}" onclick="focusOnRow(this, 'addSrcCountry_')"
+                            class="btn btn-danger btn-md">{{'DELETE_RECORD'|translate}}
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+       <!-- <pre>{{srcCountryRecCtrl.model|json}}</pre>-->
+    </div>
+</ng-form>

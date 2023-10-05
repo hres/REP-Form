@@ -1,0 +1,210 @@
+<ng-form name="ctaCtrl.ctaForm">
+    <div class="row">
+        <div class="col-xs-12 form-group" data-ng-class="{'has-error':ctaCtrl.ctaForm[ctaCtrl.protocolNumId].$invalid}">
+            <label for="{{::ctaCtrl.protocolNumId}}" class="required">
+                <span class="field-name">{{::'PROTOCOL_NUMBER' |translate}}</span>
+                <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                <sup id="dr13_ref">
+                    <a class="fn-lnk" href="#dr13"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::ctaCtrl.htIndxList.protocolNoIndx}}</a>
+                </sup>
+                <cmp-error-message field-name="ctaCtrl.protocolNumId"
+                                   form-ref="ctaCtrl.ctaForm"
+                                   show-error="ctaCtrl.showError(ctaCtrl.ctaForm[ctaCtrl.protocolNumId])"
+                                   error-types="ctaCtrl.requiredOnly">
+                </cmp-error-message>
+                <input type="text" class="form-control" id="{{::ctaCtrl.protocolNumId}}"
+                       name="{{::ctaCtrl.protocolNumId}}" required  maxlength="30" size="30"
+                       data-ng-change="ctaCtrl.ctaModel.protocolNum=ctaCtrl.ctaModel.protocolNum.toUpperCase()"
+                       data-ng-model="ctaCtrl.ctaModel.protocolNum"/>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 form-group" data-ng-class="{'has-error':ctaCtrl.ctaForm[ctaCtrl.protocolTitleId].$invalid}">
+            <label for="{{::ctaCtrl.protocolTitleId}}" class="required">
+                <span class="field-name">{{::'PROTOCOL_TITLE' |translate}}</span>
+                <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                <cmp-error-message field-name="ctaCtrl.protocolTitleId"
+                                   form-ref="ctaCtrl.ctaForm"
+                                   show-error="ctaCtrl.showError(ctaCtrl.ctaForm[ctaCtrl.protocolTitleId])"
+                                   error-types="ctaCtrl.requiredOnly">
+                </cmp-error-message>
+            </label>
+            <textarea class="form-control full-width" id="{{::ctaCtrl.protocolTitleId}}"
+                      name="{{::ctaCtrl.protocolTitleId}}" maxlength="1000" rows="3"
+                      data-ng-model="ctaCtrl.ctaModel.protocolTitle" required>
+                </textarea>
+        </div>
+    </div>
+    <div class="row col-xs-12 form-group">
+        <fieldset id="cta_composition_{{::$id}}">
+            <legend class="legend-rep required">{{::'CTA_COMPOSITION'|translate}}
+                <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                <cmp-error-message field-name="ctaCtrl.composId"
+                                   form-ref="ctaCtrl.ctaForm"
+                                   show-error="!ctaCtrl.isCompositionSelected() && ctaCtrl.showDetailErrors"
+                                   error-types="ctaCtrl.oneComposError"></cmp-error-message>
+            </legend>
+            <input type="checkbox" name="{{::ctaCtrl.composId}}"
+                   id="composId" required data-ng-model="ctaCtrl.oneComposSelected"
+                   hidden />
+            <div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="checkbox checkbox-pi">
+                            <label for="fmppId">
+                                <input type="checkbox" id="fmppId" name="fmppId"
+                                       data-ng-model="ctaCtrl.ctaModel.composition.fmpp"/>
+                                <span>{{::"FMPP"|translate}}</span>
+
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="checkbox">
+                            <label for="mppId">
+                                <input type="checkbox" id="mppId" name="mppId"
+                                       data-ng-model="ctaCtrl.ctaModel.composition.mpp"/>
+                                <span>{{::"MPP"|translate}}</span>
+
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="checkbox checkbox-pi">
+                            <label for="fmapId">
+                                <input type="checkbox" id="fmapId" name="fmapId"
+                                       data-ng-model="ctaCtrl.ctaModel.composition.fmap"/>
+                                <span>{{::"FMAP"|translate}}</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="checkbox">
+                            <label for="mapId">
+                                <input type="checkbox" id="mapId" name="mapId"
+                                       data-ng-model="ctaCtrl.ctaModel.composition.map"/>
+                                <span>{{::"MAP"|translate}}</span>
+
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="row col-xs-12 form-group">
+        <fieldset id="cta_phase_{{::$id}}">
+            <legend class="legend-rep required">{{::'CTA_PHASE'|translate}}
+                <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                <cmp-error-message field-name="ctaCtrl.phaseId"
+                                   form-ref="ctaCtrl.ctaForm"
+                                   show-error="!ctaCtrl.isPhaseSelected() && ctaCtrl.showDetailErrors"
+                                   error-types="ctaCtrl.onePhaseError"></cmp-error-message>
+            </legend>
+            <input type="checkbox" name="{{::ctaCtrl.phaseId}}"
+                   id="phaseId" required data-ng-model="ctaCtrl.onePhaseSelected"
+                   hidden />
+            <div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="checkbox checkbox-pi">
+                            <label for="phase1BioId">
+                                <input type="checkbox" id="phase1BioId" name="phase1BioId"
+                                       data-ng-model="ctaCtrl.ctaModel.phase.phase1Bio"/>
+                                <span>{{::"CTPHASE1B"|translate}}</span>
+
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="checkbox">
+                            <label for="phase1StudyId">
+                                <input type="checkbox" id="phase1StudyId" name="phase1StudyId"
+                                       data-ng-model="ctaCtrl.ctaModel.phase.phase1Study"/>
+                                <span>{{::"CTPHASE1S"|translate}}</span>
+
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="checkbox checkbox-pi">
+                            <label for="phase1OtherId">
+                                <input type="checkbox" id="phase1OtherId" name="phase1OtherId"
+                                       data-ng-model="ctaCtrl.ctaModel.phase.phase1Other"/>
+                                <span>{{::"CTPHASE1O"|translate}}</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="checkbox">
+                            <label for="phase2Id">
+                                <input type="checkbox" id="phase2Id" name="phase2Id"
+                                       data-ng-model="ctaCtrl.ctaModel.phase.phase2"/>
+                                <span>{{::"CTPHASE2"|translate}}</span>
+
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="checkbox checkbox-pi">
+                            <label for="phase3Id">
+                                <input type="checkbox" id="phase3Id" name="phase3Id"
+                                       data-ng-model="ctaCtrl.ctaModel.phase.phase3"/>
+                                <span>{{::"CTPHASE3"|translate}}</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="checkbox">
+                            <label for="phaseOtherId">
+                                <input type="checkbox" id="phaseOtherId" name="phaseOtherId"
+                                       data-ng-model="ctaCtrl.ctaModel.phase.phaseOther"/>
+                                <span>{{::"CTPHASEOTHER"|translate}}</span>
+
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="row" data-ng-if="ctaCtrl.isPhaseOther()">
+        <div class="col-xs-12 form-group rep-margin-left" data-ng-class="{'has-error':ctaCtrl.ctaForm[ctaCtrl.phaseOtherId].$invalid}">
+            <label for="{{::ctaCtrl.phaseOtherId}}" class="required">
+                <span class="field-name">{{::'CTA_OTHER' |translate}}</span>
+                <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                <cmp-error-message field-name="ctaCtrl.phaseOtherId"
+                                   form-ref="ctaCtrl.ctaForm"
+                                   show-error="ctaCtrl.showError(ctaCtrl.ctaForm[ctaCtrl.phaseOtherId])"
+                                   error-types="ctaCtrl.requiredOnly">
+                </cmp-error-message>
+                <input type="text" class="form-control" id="{{::ctaCtrl.phaseOtherId}}"
+                       name="{{::ctaCtrl.phaseOtherId}}" required  maxlength="256" size="64"
+                       data-ng-model="ctaCtrl.ctaModel.phase.ctaPhaseOtherDetails"/>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-xs-12"
+             data-ng-class="{'has-error':ctaCtrl.ctaForm[ctaCtrl.isInfoRebId].$invalid}">
+            <label for="{{::ctaCtrl.isInfoRebId}}" class="full-width required">
+                <span class="field-name">{{'INFO_REB'|translate}}</span>
+                <strong class="required">{{"REQUIRED" |translate}}</strong>
+            </label>
+            <cmp-error-message field-name="ctaCtrl.isInfoRebId"
+                               form-ref="ctaCtrl.ctaForm"
+                               show-error="ctaCtrl.showError(ctaCtrl.ctaForm[ctaCtrl.isInfoRebId])"
+                               error-types="ctaCtrl.requiredOnly"></cmp-error-message>
+            <label class="col-xs-2" for="{{::ctaCtrl.isInfoRebId}}"><input type="radio" id="{{::ctaCtrl.isInfoRebId}}" name="{{::ctaCtrl.isInfoRebId}}" value="Y" data-ng-model="ctaCtrl.ctaModel.isRefuseInfo" required/>&nbsp;{{::'Y'|translate}}</label>
+            <label class="col-xs-2" for="{{::ctaCtrl.isInfoRebId}}_1"><input type="radio" id="{{::ctaCtrl.isInfoRebId}}_1" name="{{::ctaCtrl.isInfoRebId}}" value="N" data-ng-model="ctaCtrl.ctaModel.isRefuseInfo" required/>&nbsp;{{::'N'|translate}}</label>
+        </div>
+    </div>
+</ng-form>

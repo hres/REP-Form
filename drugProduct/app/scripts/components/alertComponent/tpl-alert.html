@@ -1,0 +1,15 @@
+
+    <div ng-if="alertCtrl.alertVisible" class="alert alert-dismissible {{::alertCtrl.type}}">
+        <button type="button"
+                class="rep-close close rep-info-help"
+                title="{{::'COLLAPSE'|translate}} {{alertCtrl.closeMsgAlias |translate}}"
+                data-ng-click="alertCtrl.close()">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only" aria-live="polite">
+                {{::'COLLAPSE'|translate}}
+                {{alertCtrl.closeMsgAlias | translate }}
+            </span>
+        </button>
+        <div ng-transclude>
+        </div>
+    </div>

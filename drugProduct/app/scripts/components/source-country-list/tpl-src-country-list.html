@@ -1,0 +1,22 @@
+<ng-form name="srcCountryListCtrl.countryListForm">
+      <!--input type="text" required data-ng-show="false" name="{{::srcCountryListCtrl.noCountryId}}" id="{{::srcCountryListCtrl.noCountryId}}"
+                               aria-hidden="true" data-ng-model="srcCountryListCtrl.noCountries"/-->
+    <cmp-expanding-table pre-id="src_country_list_" reset-to-collapsed="srcCountryListCtrl.resetToCollapsed"
+                         list-items="srcCountryListCtrl.model.list" id="list_country_origin"
+                         column-def="srcCountryListCtrl.columnDef" select-record="srcCountryListCtrl.selectRecord"
+                         is-required-record="srcCountryListCtrl.requiredFlag"
+                         disable-selection="srcCountryListCtrl.disableAddButton()">
+
+        <cmp-src-country-record record="$parent.record" fieldset-label="{{srcCountryListCtrl.fieldLabel}}" is-focus="srcCountryListCtrl.isFocus" cancel-focus="srcCountryListCtrl.cancelFocus"
+                            on-delete="srcCountryListCtrl.deleteRecord(id)" show-errors="srcCountryListCtrl.showErrors()"
+                            country-list="srcCountryListCtrl.countryList" update-record="srcCountryListCtrl.updateRecord()" update-country-list="srcCountryListCtrl.updateCountryList"></cmp-src-country-record>
+    </cmp-expanding-table>
+    <div class="mrgn-tp-md mrgn-bttm-lg">
+        <div class="btn-group-sm col-md-12">
+            <button class="btn btn-primary" data-ng-click="srcCountryListCtrl.addNew();srcCountryListCtrl.setFocus();" name="addCountry_{{::$id}}" id="addSrcCountry_{{::$id}}"
+                    data-ng-disabled="srcCountryListCtrl.disableAddButton()">{{'ADD_COUNTRY_ORIGIN'|translate}}
+            </button>
+        </div>
+    </div>
+    <!--<pre>CountryList items: {{srcCountryListCtrl.model.list}}</pre>-->
+</ng-form>

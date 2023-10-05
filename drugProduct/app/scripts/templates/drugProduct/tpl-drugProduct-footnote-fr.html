@@ -1,0 +1,301 @@
+<dl>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>1</dt>
+    <dd id="dr1">
+        <p>{{::'LOAD_DRUGPROD'|translate}}</p>
+        <ul>
+            <li>Lors de la production d’une copie de travail, le fichier doit être chargé en format .hcsc.</li>
+            <li>Lors de la consultation ou de la mise à jour d’une version finale du fichier XML, le fichier doit être chargé en format .xml.</li>
+        </ul>
+        <p class="fn-rtn"><a href="#dr1_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>1
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>2</dt>
+    <dd id="dr2">
+        <p>{{::'DRUG_PRODUCT'|translate}}</p>
+        <ul>
+            <li> Veuillez inclure seulement les renseignements pertinents à cette activité de réglementation (c.-à-d., si le dossier comporte cinq formes posologiques, mais que cette activité de réglementation ne s’applique qu’à l’une d’entre elles, indiquez seulement la formulation correspondante à cette forme posologique dans cette version du fichier d’information sur le produit en format XML).</li>
+            <li>Pour "<b>obtenir le numéro du dossier</b>", consultez les documents délivré par Santé Canada. Le numéro du dossier est composé d’une lettre suivie de six chiffres. (p. ex., HC6-024-x######).</li>
+            <li>Remarque : Toute section comportant un bouton « Enregistrer » doit être sauvegardée individuellement. Autrement, l’information incomplète sera perdue.</li>
+        </ul>
+        <p class="fn-rtn"><a href="#dr2_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>2
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>3</dt>
+    <dd id="dr2a">
+        <p>{{::'COMPANY_ID'|translate}}</p>
+        <p>Pour "<b>obtenir le numéro d’entreprise</b>", consultez la version finale du fichier d’entreprise (en format XML) délivré par Santé Canada.</p>
+        <p>Le numéro d’entreprise doit être composé de 5 chiffres -  ajouter un zéro à la place, si nécessaire.</p>
+        <p class="fn-rtn"><a href="#dr2a_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>3
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>4</dt>
+    <dd id="dr3">
+        <p>{{::'PROD_NAME' |translate}}</p>
+        <ul>
+            <li>Veuillez inclure seulement les noms des produits touchés par cette activité de réglementation.</li>
+            <li>Le nom du produit (également connu comme marque nominative ou marque déposée) est le nom attribué au dossier (produit) par le fabricant ou le promoteur et sous lequel il doit être vendu et annoncé. Le nom du produit est aussi le nom utilisé pour identifier le produit dans toute correspondance portant sur la présentation, ainsi que dans l’étiquette et dans la monographie ou la notice du produit, au besoin. Si le nom du produit n’est pas encore établi, il est possible d’utiliser l’une des options suivantes : la mention « À déterminer », le nom propre ou le nom usuel du médicament ou le code de recherche.</li>
+        </ul>
+        <p class="fn-rtn"><a href="#dr3_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>4
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>5</dt>
+    <dd id="dr4">
+        <p>&nbsp;{{::'PROPER_NAME' |translate}}</p>
+        <ul>
+            <li>Le nom propre d’un produit est le nom qui lui est attribué à l’article C.01.002 du Règlement sur les aliments et drogues ou qui apparaît en caractères gras dans les autres articles du Règlement ou le nom du médicament dans sa forme finie mentionné dans le titre d’une monographie ou dans l’une des publications officielles figurant à l’annexe B de la Loi sur les aliments et drogues. Exemple : Acétaminophène, Comprimés de sulfate ferreux</li>
+            <li>Le nom usuel est le nom sous lequel un médicament à ingrédient unique est communément connu ou désigné dans les revues scientifiques ou techniques autres que les publications mentionnées à l’annexe B de la Loi sur les aliments et drogues. Le nom usuel comprend la forme pharmaceutique lorsqu’il est utilisé pour désigner le médicament dans sa forme finie.</li>
+            <li>En l’absence d’un nom propre, et si le médicament est constitué d’un seul ingrédient médicinal, il faut inscrire le nom usuel.</li>
+            <li>En l’absence d’un nom propre, et si le médicament est constitué de plus d’un ingrédient médicinal, il faut indiquer les noms propres des ingrédients et les séparer par une barre oblique (/). Dans le cadre d’un essai clinique, il faut énumérer tous les principes actifs.</li>
+        </ul>
+        <p class="fn-rtn"><a href="#dr4_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>5
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>6</dt>
+    <dd id="dr5">
+        <p>{{::'ADDRESS_NOC'|translate}}</p>
+        <ul>
+            <li>Si les FDM et les AC doivent être envoyés au fabricant, au promoteur ou à l’importateur, il faut s’assurer que les renseignements fournis dans la version finale du fichier d’entreprise (en format XML) sont à jour. </li>
+            <li>De plus, il faut s’assurer que les importateurs concernés sont nommés à la section 7 ci-dessous.</li>
+            <li>Si les FDM et les AC doivent être envoyés à la personne-ressource associée à cette activité de réglementation, le nom indiqué dans le dernier fichier de transaction réglementaire (en format XML) pour cette activité sera utilisé. </li>
+        </ul>
+        <p class="fn-rtn"><a href="#dr5_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>6
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>7</dt>
+    <dd id="dr6">
+        <p>{{'IMPORTER'|translate}}</p>
+        <ul>
+            <li>Lorsque le fabricant ou le promoteur n’est pas situé au Canada, un importateur canadien doit être nommé. </li>
+            <li>Pour obtenir le numéro d’entreprise de l’importateur, consultez la version finale du fichier d’entreprise délivré par Santé Canada.</li>
+            <li>Indiquez seulement les importateurs associés aux DIN indiqués dans la section ci-dessous.</li>
+        </ul>
+        <p class="fn-rtn"><a href="#dr6_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>7
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>8</dt>
+    <dd id="dr7">
+        <p>{{::'DRUG_USE'|translate}}</p>
+        <p>Indiquez s’il s’agit d’un médicament à usage humain ou vétérinaire, d’un produit radiopharmaceutique, d’un désinfectant ou de la combinaison d’un médicament et d’un instrument médical. </p>
+        <p class="fn-rtn"><a href="#dr7_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>8
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>9</dt>
+    <dd id="dr8">
+        <p>{{::'PROP_INDICATION'|translate}}</p>
+        <ul>
+            <li>Précisez l’indication et l’utilisation proposées du médicament; p. ex., pour le traitement de l’angine de poitrine et de l’hypertension, pour traiter les symptômes du rhume des foins, pour la prophylaxie de l’infection par le virus de la rougeole.</li>
+            <li>Pour un nouveau médicament, l’indication et l’utilisation proposées doivent résumer l’indication décrite dans la monographie de produit. L’utilisation d’une terminologie scientifique clé est nécessaire pour cette section.</li>
+            <li>Une référence à la monographie de produit ne sera accepté que s’il n’y a pas de modification de l’indication.</li>
+            <li>Pour un produit désinfectant, les propositions d’indications telles que « désinfectant/assainisseur » ou « nettoyant pour cuvette » ne sont pas permises.</li>
+            <li>Précisez la posologie proposée - (par âge/espèce– y compris la dose quotidienne maximale).</li>
+        </ul>
+         <p class="fn-rtn"><a href="#dr8_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>9
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>10</dt>
+    <dd id="dr9">
+        <p>{{::'FORMULATIONS'|translate}}</p>
+        <ul>
+            <li>Lorsque vous cliquez sur le bouton « Ajouter une formulation », le numéro de la formulation est généré automatiquement par le modèle.</li>
+            <li>Bouton « Copier » : Après avoir enregistré les renseignements sur l’ingrédient ou la formulation, vous pouvez les copier dans un nouveau dossier d’ingrédient ou de formulation et changer un ou plusieurs champs au besoin. Cela aidera à réduire au minimum la quantité de données saisies pour les ingrédients et les formulations semblables.</li>
+            <li>Lorsqu’un ingrédient ou un matériel est identifié comme étant d’origine animale ou humaine, vous devez fournir des détails supplémentaires en sélectionnant l’onglet « L'ingrédient ou matériel source humaine ou d'animale », situé à côté de l’onglet « Formulations ».</li>
+        </ul>
+        <p class="fn-rtn"><a href="#dr9_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>10
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>10.1</dt>
+    <dd id="dr91">
+        <p>{{'FORMULATION_DETAILS'|translate}}&nbsp;#</p>
+        <ul>
+            <li>Les promoteurs doivent ajouter une formulation au nom pour faciliter le repérage.</li>
+            <li> Bouton « Copier » : Après avoir enregistré les renseignements sur l’ingrédient ou la formulation, les promoteurs peuvent les copier dans un nouveau dossier d’ingrédient ou de formulation et changer un ou plusieurs champs au besoin. Cela aidera à réduire au minimum la quantité de données saisies pour les ingrédients et les formulations semblables.
+            </li>
+        </ul>
+        <p class="fn-rtn"><a href="#dr91_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>10.1
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>10.2</dt>
+    <dd id="dr9c">
+        <p>{{'INGREDIENTS'|translate}}</p>
+        <ul>
+            <li>Le bouton « Copier » permet de dupliquer la section concernant les ingrédients. Ceci est utile pour les ingrédients non médicinaux présents en différentes quantités dans divers types de variantes. Veillez à ce que tous les champs concernés soient mis à jour (p. ex., le nom de la variante, le dosage) et vérifiez que tous les renseignements dans les champs restants sont exacts.</li>
+                <p>Remarque : Cette fonctionnalité n’est disponible qu’après la création et l’ouverture d’une entrée pour l’ingrédient (en utilisant le triangle situé au début de ligne dans le tableau). Le bouton « Copier » se trouve à la fin de cette section, à côté du bouton « Enregistrer ». </p
+            <li>Pour des détails supplémentaires comme les dépassements et les ajustements, sélectionnez  "autre" dans le champ Unité pour compléter un champ de texte libre.</li>
+        </ul>
+        <p class="fn-rtn"><a href="#dr9c_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>10.2
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>10.2.1</dt>
+    <dd id="dr9c1">
+        <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{'ING_NAME'|translate}}</p>
+        <p> Dans la mesure du possible, les promoteurs doivent choisir le nom de l’ingrédient médicinal dans la liste consultable. Si le nom de l’ingrédient médical ne se trouve pas dans la liste, entrez son nouveau nom dans le champ approprié en utilisant la dénomination commune internationale (DCI). Il s’agit de la norme utilisée par Santé Canada pour déterminer le nom qui est privilégié pour les ingrédients. Si aucune DCI n’existe pour l’ingrédient, vous devez utiliser d’autres dénominations normalisées reconnues, dans l’ordre suivant : L’United States Adopted Names, le code de Martindale, le Merck Index, le Hawle’s Condensed Chemical Dictionary, le Handbook of Pharmaceutical Excipient, l’International Cosmetics Ingredient Dictionary and Handbook, ainsi que de l’information disponible en ligne.
+        </p>
+        <p class="fn-rtn" style="width:4.5em;"><a href="#dr9c1_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>10.2.1
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>10.2.2</dt>
+    <dd id="dr9c2">
+        <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{'VARIANT_NAME'|translate}}</p>
+        <p>    Pour les variations de formulation relatives à un même DIN (p. ex., saveurs, couleurs et parfums différents), veuillez indiquer le nom de la variante associée à chaque ingrédient non-médical (INM).
+            Exemple :
+        </p>
+        <ul>
+            <li> Si toutes les variantes contiennent la même quantité d’INM, ce dernier ne doit être énuméré qu’une seule fois et le champ du nom de la variante doit indiquer « Toutes les variantes ». </li>
+            <li> Si une variante contient seulement un INM, le nom de la variante doit être indiqué. </li>
+            <li> Si plusieurs variantes contiennent le même INM, à différentes quantités, le nom de la variante doit être indiqué chaque fois. </li>
+        </ul>
+        <p class="fn-rtn" style="width:4.5em;"><a href="#dr9c2_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>10.2.2
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>10.2.3</dt>
+    <dd id="dr9c3">
+        <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{'PURPOSE'|translate}}</p>
+        <p>Exemples : agents de conservation, agents colorants ou enveloppes des capsules, etc.</p>
+        <p class="fn-rtn" style="width:4.5em;"><a href="#dr9c3_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>10.2.3
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>10.2.4</dt>
+    <dd id="dr9c4">
+        <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{'STANDARD'|translate}}</p>
+        <p>Lorsque la norme de fabrication d’un ingrédient est conforme à une norme officinale mentionnée à l’annexe B, utilisez l’abréviation de cette pharmacopée; p. ex., United States Pharmacopeia (USP), British Pharmacopoeia (BP). Lorsque les spécifications régissant la fabrication de l’ingrédient s’écartent de la norme officinale, et l’excèdent ou sont équivalentes à la même, la norme du fabricant (Mfr Std) peut être indiquée. Veuillez inscrire S.O. si aucune norme officinale n’existe pour l’ingrédient actif.
+        </p>
+        <p class="fn-rtn" style="width:4.5em;"><a href="#dr9c4_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>10.2.4
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>10.2.5</dt>
+    <dd id="dr9c5">
+        <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{'IS_NANO_MATERIAL'|translate}}</p>
+        <p>Faites le choix approprié selon la définition pratique de nanomatériaux de Santé Canada:</p>
+        <ul>
+            <li type="a">Santé Canada estime que tout produit, matériel, substance, ingrédient, dispositif, système ou structure fabriqués constitue un nanomatériau:
+                <ul>
+                    <li>s’il est à l’échelle nanométrique, ou dans les limites de celle-ci, dans au moins une dimension spatiale;</li>
+                    <li>s’il est plus petit ou plus grand que l’échelle nanométrique dans toutes les dimensions spatiales et affiche un ou plusieurs phénomènes à l’échelle nanométrique.
+                    </li>
+                </ul>
+            </li>
+            <li type="a">Aux fins de la présente définition:
+                <ul>
+                    <li>le terme « à l’échelle nanométrique » signifie 1 à 100 nanomètres inclusivement;</li>
+                    <li>le terme « phénomène à l’échelle nanométrique » signifie des propriétés du produit, du matériau, de la substance, de l’ingrédient, du dispositif, du système ou de la structure qui sont attribuables à sa taille et qui sont faciles à distinguer des propriétés chimiques ou physiques des atomes, molécules et matériaux particuliers;
+                    </li>
+                    <li>le terme « fabriqué » comprend les processus techniques et les contrôles de la matière et des processus à l’échelle nanométrique.
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p class="fn-rtn" style="width:4.5em;"><a href="#dr9c5_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>10.2.5
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>10.2.6</dt>
+    <dd id="dr9c6">
+        <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{'ANIMAL_HUMAN_SOURCED'|translate}}</p>
+        <p>Sélectionnez l’option « Oui » si l’ingrédient ou le matériel a été d’origine humaine ou animale à une étape ou une autre de la fabrication du produit, y compris l’excipient ou l’additif provenant de tissus d’origine humaine ou animale.
+        </p>
+        <p class="fn-rtn" style="width:4.5em;"><a href="#dr9c6_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>10.2.6
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>10.3</dt>
+    <dd id="dr9d">
+        <p>{{'IS_ANIMAL_HUMAN_MATERIAL'|translate}}</p>
+        <ul>
+            <li>Indiquez le Chemical Abstracts Service (CAS) (le cas échéant), le nom du matériel et la norme pour le matériel d’origine humaine ou animale (autre que l’ingrédient figurant dans la formulation ci-dessus) utilisé dans la fabrication du produit.
+            </li>
+            <li>Sélectionnez l’option « Oui » pour la question « Présence dans le récipient final » si l’ingrédient est présent dans le contenant final (selon la norme de qualité applicable au produit).</li>
+        </ul>
+        <p class="fn-rtn"><a href="#dr9d_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>10.3
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>10.4.1</dt>
+    <dd id="dr9e1">
+        <p>&nbsp;&nbsp;{{'CONTAINER_TYPE'|translate}}</p>
+        <p>Exemples:</p>
+        <ul>
+            <li> flacon de 100 comprimés</li>
+            <li>tube de 50 g</li>
+            <li>fiole de 5 ml</li>
+        </ul>
+        <p class="fn-rtn" style="width:4.5em;"><a href="#dr9e1_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>10.4.1
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>10.4.2</dt>
+    <dd id="dr9e2">
+        <p>&nbsp;&nbsp;{{'PACKAGE_SIZE'|translate}}</p>
+        <p>Les différents formats pour le type de contenant peuvent être indiqués comme suit: </p>
+        <ul>
+            <li>FLACON – 30</li>
+            <li>CARTONS – 30, 100</li>
+        </ul>
+        <p class="fn-rtn" style="width:4.5em;"><a href="#dr9e2_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>10.4.2
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>10.4.3</dt>
+    <dd id="dr9e3">
+        <p>&nbsp;&nbsp;{{'SHELF_LIFE'| translate}}</p>
+        <p> La date de péremption ou la durée de vie recommandée correspond à la période, en années et en mois, pendant laquelle le produit pharmaceutique conserve son activité, sa pureté et ses caractéristiques physiques indiquées sur l’étiquette.
+        </p>
+        <p class="fn-rtn" style="width:4.5em;"><a href="#dr9e3_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>10.4.3
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+
+
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>10.5</dt>
+    <dd id="dr9g">
+        <p>{{'COUNTRIES_MANUFACT'|translate}}</p>
+        <p>Inscrivez le nom du ou des pays où la forme posologique finale du médicament est fabriquée. Par exemple, si la forme posologique du produit pharmaceutique est un comprimé ou une solution, indiquez le ou les pays où le comprimé ou la solution ont été fabriqués. Cela n’est pas nécessairement le ou les pays où le produit a été emballé ou étiqueté.</p>
+        <p class="fn-rtn"><a href="#dr9g_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>10.5
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+
+
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>11</dt>
+    <dd id="dr10">
+        <p>{{::'APPENDIX4'|translate}}</p>
+        <ul>
+            <li>Énumérez le matériel d’origine animale ou humaine pour chaque ingrédient médicinal ou pour chaque matériel utilisé à une étape ou une autre de la fabrication du produit y compris l’excipient ou l’additif provenant de tissus d’origine humaine ou animale.</li>
+            <li>Dans cette section, le champ « Nom de l’ingrédient ou matériel » est sensible à la case et doit correspondre exactement au nom de l’ingrédient ou du matériel figurant à l’onglet « Formulation ». Dans le cas contraire, les messages d’erreur suivants peuvent s’afficher : « Les dossiers d’origine humaine ou animale comportent des erreurs. Source manquante. » ou « Les dossiers d’origine humaine ou animale comportent des erreurs. Source supplémentaire. » </li>
+        </ul>
+        <p class="fn-rtn"><a href="#dr10_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>11
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>12</dt>
+    <dd id="dr11">
+        <p>{{::'APPROVE_FINAL' |translate}}</p>
+        <ul>
+            <li>Vous pouvez inclure une version finale du fichier d’information sur le produit (en format XML) dans le dossier 1.2.1 de votre transaction du PIR.
+            </li>
+            <li>Consultez les lignes directrices du PIR pour obtenir des renseignements détaillés sur son implantation.</li>
+        </ul>
+        <p class="fn-rtn"><a href="#dr11_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>12
+            <span class="wb-inv"> referrer</span></a>
+        </p>
+    </dd>
+
+
+</dl>

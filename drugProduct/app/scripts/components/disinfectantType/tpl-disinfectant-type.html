@@ -1,0 +1,79 @@
+<ng-form name="disiTypeCtrl.disiTypeForm">
+    <fieldset id="fs_disi_type_missing_{{::$id}}" class="rep-margin-left">
+        <legend class="required legend-rep">
+            <span class="field-name">{{::'DISINFECTANT_TYPE'|translate}}&nbsp;({{::'MSG_ERR_DISITYPE'|translate}})</span>
+            <strong class="required"> {{"REQUIRED" |translate}}</strong>
+            <input id="disi_type_missing_{{::$id}}" type="text" name="disi_type_missing_{{::$id}}" data-ng-show="false"
+                   data-ng-model="disiTypeCtrl.isSelected" required/>
+            <strong id="disinfectant-type-error" class="error" data-ng-show="disiTypeCtrl.showErrorMissing()">
+                        <span class="label label-danger" data-ng-messages="disiTypeCtrl.disiTypeForm.disi_type_missing_{{::$id}}.$error">
+                            <span data-ng-message="required">{{::"TYPE_REQUIRED"|translate}}</span>
+                        </span>
+            </strong>
+        </legend>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="checkbox">
+                    <label for="chk-hospital_{{::$id}}">
+                        <input type="checkbox" data-ng-model="disiTypeCtrl.model.hospital" name="hospital"
+                               data-ng-change="disiTypeCtrl.updateState()"
+                               id="chk-hospital_{{::$id}}"/>
+                        <span>{{::"HOSPITAL"|translate}}</span>
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="checkbox">
+                    <label for="chk-foodProcessing_{{::$id}}">
+                        <input type="checkbox" name="foodProcessing" data-ng-model="disiTypeCtrl.model.foodProcessing"
+                               data-ng-change="disiTypeCtrl.updateState()"
+                               id="chk-foodProcessing_{{::$id}}"/>
+                        <span>{{::"FOOD_PROC"|translate}}</span>
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="checkbox">
+                    <label for="chk-medicalInstruments_{{::$id}}">
+                        <input type="checkbox" data-ng-model="disiTypeCtrl.model.medicalInstruments" name="medicalInstruments"
+                               data-ng-change="disiTypeCtrl.updateState()"
+                               id="chk-medicalInstruments_{{::$id}}"/>
+                        <span>{{::"MEDICAL_INST"|translate}}</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="checkbox">
+                    <label for="chk-domestic_{{::$id}}">
+                        <input type="checkbox" name="domestic" ng-model="disiTypeCtrl.model.domestic"
+                               ng-change="disiTypeCtrl.updateState()"
+                               id="chk-domestic_{{::$id}}"/>
+                        <span>{{::"DOMESTIC"|translate}}</span>
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="checkbox">
+                    <label for="chk-barn_{{::$id}}">
+                        <input type="checkbox" data-ng-model="disiTypeCtrl.model.barn" name="barn"
+                               data-ng-change="disiTypeCtrl.updateState()"
+                               id="chk-barn_{{::$id}}"/>
+                        <span>{{::"BARN"|translate}}</span>
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="checkbox">
+                    <label for="chk-institutionalIndustrial_{{::$id}}">
+                        <input type="checkbox" name="institutionalIndustrial" data-ng-model="disiTypeCtrl.model.institutionalIndustrial"
+                               data-ng-change="disiTypeCtrl.updateState()"
+                               id="chk-institutionalIndustrial_{{::$id}}"/>
+                        <span>{{::"INS_INDUS"|translate}}</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</ng-form>
