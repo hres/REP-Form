@@ -1,0 +1,250 @@
+{
+  "form.title": "Modèle de compagnie: Processus d'inscription réglementaire (PIR)",
+  "version": "Version ",
+  "top.fromHC": "De <a href='https://www.canada.ca/fr/sante-canada.html'>Santé Canada</a>",
+  "top.privacy.statement": "Énoncé de confidentialité",
+  "top.security.declaimer": "Avis de non-responsabilité concernant la sécurité",
+  "top.instruction": "Instructions",
+  "PROTECTED_B": "Protégé \"B\" une fois rempli", 
+  "load.file": "Charger le fichier d'inscription de la compagnie",
+  "company.enrolment": "Inscription d'une compagnie réglementaire",
+  "company.id": "Identifiant de la compagnie",
+  "select.file": "Sélectionnez un fichier à charger",
+  "select.file.line": "Veuillez en tout temps téléchargez le fichier dans le modèle vierge. Actualisez cette page afin de réinitialiser le modèle.",
+  "addressDetails.street": "Rue",
+  "addressDetails.city": "Ville",
+  "addressDetails.country": "Pays",
+  "template.version": "Version du modèle",
+  "summary.repInfo": "Résumé de l'information représentative",
+  "addressDetails.province": "Province",
+  "addressDetails.state": "État",
+  "addressDetails.postalCodeZip": "Code Postal/ZIP (Si pas disponible, utilisez « sans objet »)",
+  "addressDetails.postalCode": "Code Postal",
+  "addressDetails.zipCode": "Code ZIP",
+  "addressDetails.provState": "Province ou État",
+  "addressDetails.cityTown": "Ville",
+  "fileio.msg.success": "Le fichier a été chargé avec succès",
+
+  "fileio.msg.parseFail": "fr_Parsing of the file has failed",
+
+  "fileio.msg.fileTypeError": "Le type de formulaire incorrect a été sélectionné pour ce formulaire.",
+
+  "fileio.msg.dataTypeError": "fr_Error: the wrong form data was selected for this form.",
+
+  "fileio.msg.noFileChoosen": "Aucun fichier choisi",
+  "amend.note": "Le bouton « Modifier l'inscription » doit être sélectionné lors de la modification du fichier XML final de  la compagnie.",
+  "refresh.page": "Veuillez en tout temps téléchargez le fichier dans le modèle vierge. Actualisez cette page afin de réinitialiser le modèle. ",
+  "save.record": "Ajouter l'enregistrement",
+
+  "refresh.file.input": "Actualisez cette page",
+  "delete.record": "Effacer l'enregistrement",
+  "save.contact": "Enregistrer le contact",
+  "discard.record": "Supprimer l'enregistrement",
+  "set.revise.status": "Réviser le contact",
+  "set.remove.status": "Effacer le contact",
+  "set.active.status": "Activer le contact",
+  "remove.contact": "Supprimer le contact",
+  "required": "Ce champ est obligatoire.",
+  "minlength": "Minimum de 10 numéros",
+  "error.msg.phone": "Veuillez spécifier un numéro de téléphone valide",
+  "error.msg.fax": "Veuillez spécifier un numéro de télécopieur valide",
+  "error.msg.email": "Format non valide - Doit être xxxx@xxxx.xxx",
+  "error.msg.postal": "Format non valide - Doit être X#X#X#",
+  "error.mgs.zip": "Entrée non valide: doit contenir 5 chiffres",
+  "error.mgs.company.id": "Entrée non valide: doit contenir 6 chiffres",
+  "error.msg.contactDetails": "fr_Company Representative Details has errors",
+
+  "error.mgs.licence.number": "fr_Please specify a valid licence number.",
+  "error.mgs.contact.id": "fr_Please specify a valid contact Identifier.",
+
+  "error.msg.contact.one.record": "Au moins un représentant de l’entreprise ayant un statut nouveau, actif ou révisé doit être inscrit.",
+  "postal.canada": "Code Postal",
+  "postal.usa": "Code ZIP",
+  "heading.company": "Inscription d'une compagnie réglementaire",
+  "heading.addressInfo": "Information d'adresse",
+
+  "heading.addressDetails": "fr_Address Details",
+  "heading.addressRecord": "fr_Address Record",
+  "add.address": "fr_Add Address",
+
+  "company.name.full": "Nom de la compagnie",
+  "heading.contactInfo": "Information sur les représentants de la compagnie",
+
+  "heading.contactRecord": "fr_Company Representative Record",
+
+  "heading.contactDetails": "Détails du représentant de la compagnie",
+  "contact.id": "Identifiant du contact",
+  "full.name": "Nom complet (Prénom et nom de famille)",
+  "first.name": "Prénom",
+  "last.name": "Nom de famille",
+
+  "initials": "fr_Initials",
+
+  "lang.correspond": "Langue de correspondance",
+  "job.title": "Titre de poste",
+
+  "salutation": "fr_Salutation",
+
+  "salut.mr": "M.",
+  "salut.ms": "Mlle",
+  "salut.dr": "Dr.",
+  "salut.mrs": "Mme",
+  "status": "Statut du contact",
+
+  "hcStatus": "fr_HC Contact Status",
+  "role.primary": "fr_Primary",
+  "role.secondary": "fr_Alternate",
+
+  "contact.email": "Courriel",
+  "fax.number": "Numéro de télécopieur",
+  "phone.ext": "Extension de téléphone ",
+
+  "roles": "fr_Roles",
+
+  "phone.number": "Numéro de téléphone (incluant le code régional)",
+  "phone.extension": "Extension de téléphone",
+
+  "amend": "fr_Amend",
+  "rep.contact": "fr_REP Contact",
+  "one.role": "fr_Role",
+  "contact.details": "fr_Company Representative Details",
+  "add.contact": "fr_Add REP Contact",
+  "contact.role.legend": "fr_Select one or more roles for this company representative",
+  "contact.role.instruct": "fr_Company Representative Role Instructions",
+
+  "add.repres": "Ajouter l'enregistrement",
+  "delete.repres": "Discard record",
+  "save.repres": "Enregistrer le contact",
+  "discard.changes": "Éliminer les modifications",
+  "commmon.required.bracket": " (obligatoire)",
+
+  "save.address": "fr_Save Address",
+  "revert.address": "fr_Revert Address",
+  "delete.address": "fr_Delete Address",
+  "common.saveRevert": "fr_Please save or revert the record",
+
+  "errorSummary.company": "Modèle de compagnie",
+  "error.found.plural": " erreurs ont été trouvées.",
+  "error.found.singular": " erreur a été trouvée.",
+
+  "business.num": "Numéro d’entreprise de l'Agence du revenu du Canada (le cas échéant)",
+
+  "routing.id": "Identificateur d'acheminement",
+
+  "routing.id.rep.contact": "fr_Routing Identifier for REP Contact",
+
+  "appl.status": "Statut de l'inscription",
+  "enrol.version": "Version de l'inscription",
+  "date.saved": "Date de création",
+  "amend.enrol": "Modifier l'inscription",
+
+  "amend.msg": "fr_Edit records to be amended below.",
+
+  "amend.reason": "Motif de la modification",
+
+  "manuname.change": "fr_Change in manufacturer's name",
+  "manuaddr.change": "fr_Change in manufacturer's address",
+  "facility.change": "fr_Change only to the name and/or address of the manufacturing facility",
+  "contact.change": "fr_Changes to company representative information section",
+
+  "other": "Autre",
+  "rationale": "Justification",
+  "ownership.transferred": "Il y a-t-il des licences de propriété en processus d'acheminement?",
+  "admin.changes": "Modifications administratives de l'entreprise",
+  "impacted.licence": "Licence(s) concernée(s)",
+  "all.licence.num": "Tous les numéros de licence concernée(s)",
+
+  "all.dossier.id": "Numéro de dossier",
+  "add.licence": "fr_Add licence",
+
+  "save.licence": "Save licence",
+
+  "licence.num": "fr_Licence number",
+  "dossier.id": "fr_Dossier Identifier",
+  "delete.licence": "fr_Delete licence",
+
+  "is.change": "Y a-t-il un changement de nom et/ou d'adresse du correspondant réglementaire",
+
+  "primary.contact": "fr_Primary REP contact",
+  "is.3rd.party": "fr_Is this enrolment completed by a third party?",
+  "company.id.contact": "fr_Company Identifier for REP Contact",
+  "contact.id.contact": "fr_Contact Identifier for REP Contact",
+  "contact.name": "fr_REP Contact's Name",
+
+  "yes": "Oui",
+  "no": "Non",
+  "new.company.id": "Nouvel identifiant de la compagnie",
+  "new.contact.id": "Nouvel identifiant du contact",
+  "new.contact.name": "Nom du nouveau contact",
+
+  "record.processed": "fr_This content has been processed",
+
+  "save.working.copy": "Enregistrer une copie de travail",
+  "save.draft": "Enregistrer le brouillon XML",
+  "approve.final": "Enregistrer la version finale XML",
+
+  "msg.success.load": "Le fichier a êtê chargê avec succès",
+  "msg.err.parseFail": "Erreur: il y a eu une erreur en analysant le fichier de travail.",
+  "msg.err.jsonparse": "Il y a eu une erreur en analysant le fichier de travail.",
+  "msg.err.xmlparse": "fr_There was an error parsing the draft XML file.",
+  "msg.err.file.load": "Il y a eu un problème lors du chargement du fichier.",
+  "msg.err.file.type": "Erreur: Un type de fichier invalide a été sélectionné.",
+  "msg.err.form.type": "Erreur: le type de formulaire incorrect a été sélectionné pour ce formulaire.",
+  "msg.err.checksum": "Erreur: il y a eu une erreur en analysant le fichier.",
+  "section.show.option": "[ Cette section peut ne pas être visible. ]",
+
+  "minNumber5": "(5 chiffres)",
+  "minNumber6": "(6 chiffres)",
+  "minNumber8": "(8 chiffres)",
+
+  "minAlphanum5": "fr_(5 characters)",
+  "minAlphanum7": "fr_(1 letter and 6 chiffres)",
+
+  "error.found.because":" n’a pas pu être enregistré car ",
+
+  "instruction": "fr_instruction",
+
+  "instruction.help": "Instructions pour compléter les sections du formulaire",
+
+  "return.instruction": "Revenir à la référence de l'instruction",
+
+   "mailto.label": "Soumettre à Santé Canada",
+  "help.load.file.01": "Il n’est pas nécessaire de charger un fichier de compagnie s’il s’agit de la première inscription de la compagnie.",
+  "help.load.file.02": "Lors de la production d’une copie de travail, le fichier doit être chargé en format .hcsc.",
+  "help.load.file.03": "Lors de la consultation ou de la mise à jour d’un brouillon ou d'une version finale du fichier XML, le fichier doit être chargé en format .xml.",
+  "help.load.file.04": "Rafraîchir le modèle avant de charger le fichier. Il est important de charger le fichier dans un modèle vierge.",
+  "help.heading.01": "Les champs « Statut d'inscription » et « Date de génération » sont automatiquement remplis par le formulaire lors de la sélection de « Enregistrer la copie de travail » ou « Enregistrer le brouillon XML » au bas du modèle.",
+  "help.heading.02": "Le champ « Numéro de la compagnie » sera rempli par Santé Canada lors de la génération de la version finale du fichier de la compagnie (en format XML).",
+  "help.heading.03": "Le bouton « Modifier l’inscription » n’est activé que lorsqu’une version définitive finale du fichier de la compagnie (en format XML) est chargée dans le modèle. Pour modifier le fichier de la compagnie (en format XML), il suffit de cliquer sur ce bouton.",
+  
+  "help.business.num.01": "fr_A business number is a unique, 9-digit number (i.e., the standard identifier for businesses). It is unique to a business or legal entity. Information on the business number can be found on the ",
+  "help.business.num.02": "fr_https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/registering-your-business/you-need-a-business-number-a-program-account.html",
+  "help.business.num.03": "fr_Government of Canada website",
+  "help.rationale.01":"Veuillez préciser la nature de la modification proposée, p. Ex., acquisition, déménagement",
+  "help.status.01": "Nouveau - pour ajouter un nouveau contact",
+  "help.status.02": "Réviser - pour demander une révision à un contact actif",
+  "help.status.03": "Supprimer - pour demander la désactivation d'un contact actif",
+  "help.status.04": "Actif  - contact actif de l'entreprise",
+  "help.des.renewal": "Partie à joindre chaque année pour l’aviser du renouvellement de la licence.",
+  "help.des.finance": "Partie à joindre concernant toute question ou problème lié aux frais.",
+  "help.routing.id.01": "L'identificateur d'acheminement est un numéro unique à chaque compte créé sur le Portail commun de demandes électroniques (PCDE). Il est utilisé pour identifier le type de compte sur l'une des deux interfaces du portail soit l'Applicability Statement 2 (AS2) ou le WebTrader.",
+  "help.routing.id.02": "Pour toute question sur l'identificateur d'acheminement, veuillez contacter le service de dépannage de la Food and Drug Administration au ",
+  "help.add.record":"Si le bouton « Ajouter un enregistrement » n'est pas actif, cliquez sur le bouton « Modifier l'inscription » ou assurez-vous que tous les enregistrements de contact sont correctement enregistrés.",  
+  
+  "help.primary.contact": "fr_The Primary REP contact is the person to be contacted by Health Canada if there are any issues or clarifications required for this template when it is submitted for finalization.",
+  "help.is.3rd.party": "fr_Third party companies must obtain their Company Identifier and Contact Identifiers (by enrolling themselves using the REP Company template) prior to enrolling another company on their behalf.",
+  "help.contact.name": "fr_This company representative full contact information should be listed in the company representative table above.",
+ 
+  "help.licence.num": "Répertoriez toutes les licences concernées, séparées par une ligne (peut copier et coller)",
+  "mailto.01": "L’ébauche du fichier CO XML doit être envoyée par courriel.",
+  "mailto.02": "En cliquant sur ce bouton, vous générerez automatiquement un modèle de message électronique à l’aide de votre programme de messagerie par défaut. Avant de soumettre, veuillez joindre votre ébauche du fichier CO XML.",
+  "mailto.03": "Si le message électronique n’a pas été généré automatiquement, vous pouvez en créer un et y inclure les éléments suivants :",
+  "mailto.04": "À : {{email}}",
+  "mailto.05": "Objet : Ébauche du fichier CO XML – [insérer le nom de votre entreprise] [insérer votre code d’entreprise, le cas échéant]",
+  "mailto.06": "Corps : Le fichier ci-joint est l’ébauche du fichier CO XML",
+  "mailto.07": "Pièce jointe : Ébauche du fichier CO XML.",
+  "contact.designation": "Désignation de la personne-ressource de l’entreprise (fabricant uniquement)",
+  "des.renewal": "Personne-ressource désignée pour le renouvellement (fabricant uniquement)",
+  "des.finance": "Contact financier désigné (fabricant uniquement)",
+  "comp.admin.info":"Veuillez inclure la page de couverture de chaque licence concernée, un certificat valide du Programme d’audit unique des matériels médicaux [PAUMM] qui reflète le changement de nom ou d’adresse du fabricant, un formulaire F202 rempli et un formulaire d’attestation signé, le cas échéant."
+}  
