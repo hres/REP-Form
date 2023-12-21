@@ -45,7 +45,7 @@
   "set.active.status": "Activer le contact",
   "remove.contact": "Supprimer le contact",
   "required": "Ce champ est obligatoire.",
-  "minlength": "Minimum de 10 numéros",
+  "error.msg.minlength": "Minimum de {{ requiredLength }} numéros",
   "error.msg.phone": "Veuillez spécifier un numéro de téléphone valide",
   "error.msg.fax": "Veuillez spécifier un numéro de télécopieur valide",
   "error.msg.email": "Format non valide - Doit être xxxx@xxxx.xxx",
@@ -55,7 +55,7 @@
   "error.msg.contactDetails": "fr_Company Representative Details has errors",
 
   "error.mgs.licence.number": "fr_Please specify a valid licence number.",
-  "error.mgs.contact.id": "fr_Please specify a valid contact Identifier.",
+  "error.mgs.contact.id": "Entrée non valide: doit contenir 5 chiffres",
 
   "error.msg.contact.one.record": "Au moins un représentant de l’entreprise ayant un statut nouveau, actif ou révisé doit être inscrit.",
   "postal.canada": "Code Postal",
@@ -246,5 +246,6 @@
   "contact.designation": "Désignation de la personne-ressource de l’entreprise (fabricant uniquement)",
   "des.renewal": "Personne-ressource désignée pour le renouvellement (fabricant uniquement)",
   "des.finance": "Contact financier désigné (fabricant uniquement)",
-  "comp.admin.info":"Veuillez inclure la page de couverture de chaque licence concernée, un certificat valide du Programme d’audit unique des matériels médicaux [PAUMM] qui reflète le changement de nom ou d’adresse du fabricant, un formulaire F202 rempli et un formulaire d’attestation signé, le cas échéant."
+  "comp.admin.info":"Veuillez inclure la page de couverture de chaque licence concernée, un certificat valide du Programme d’audit unique des matériels médicaux [PAUMM] qui reflète le changement de nom ou d’adresse du fabricant, un formulaire F202 rempli et un formulaire d’attestation signé, le cas échéant.",
+  "error":"Erreur {{ number }}:"
 }  
