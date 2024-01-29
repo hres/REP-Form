@@ -4,9 +4,12 @@
     <!--<![endif]-->
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+        <meta http-equiv="Pragma" content="no-cache"/>
+        <meta http-equiv="Expires" content="0"/>
         <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
         wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-        <title>Dev REP forms</title>
+        <title>REP Templates for Health Canada</title>
         <meta content="width=device-width,initial-scale=1" name="viewport">
         <!-- Meta data -->
         <meta name="description"
@@ -20,15 +23,13 @@
         <link href="./GCWeb/assets/favicon.ico" rel="shortcut icon"/>
     
         <link rel="stylesheet" href="./GCWeb/css/ie8-theme.min.css"/>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="./wet-boew/js/ie8-wet-boew.min.js"></script>
         <![endif]-->
         <!--[if lte IE 9]>
     
     
         <![endif]-->
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-        <!--<link rel="stylesheet" href="./app/styles/rep.css ">-->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" integrity="sha384-+2PnMSZobRWHUFuaarq2tDCtf7FFSZpeMRVRe7C0l8bRZMBTjUinKl1AuYRON/A2" crossorigin="anonymous">
         <noscript>
             <link rel="stylesheet" href="./wet-boew/css/noscript.min.css"/>
         </noscript>
@@ -60,20 +61,18 @@
         </li>
     </ul>
     <header role="banner">
-        <section id="wb-lng" class="visible-md visible-lg text-right">
-            <h2 class="wb-inv">Sélection de la langue</h2>
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="list-inline margin-bottom-none">
-                        <li><a lang="en" href="/mds_index_internal-fr.html">
-                    
-                            <span class="hidden-xs" translate="no">Français</span>
-                            <abbr title="Français" class="visible-xs h3 margin-bottom-none text-uppercase" translate="no">fr</abbr>
-                    </a></li>
-                    </ul>
+        <div id="wb-bnr" class="container">
+            <section id="wb-lng" class="visible-md visible-lg text-right">
+                <h2 class="wb-inv">Language selection</h2>
+    
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="list-inline margin-bottom-none">
+                        <li><a lang="fr" href="index-fr.html">Français</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
             <div class="row">
                 <div class="brand col-xs-8 col-sm-9 col-md-6">
                     <a href="http://www.canada.ca/en/index.html">
@@ -92,7 +91,7 @@
                 </section>
                 <section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg">
                     <h2>Search</h2>
-                    <form action="#" method="post" name="cse-search-box" role="search" class="form-inline">
+                    <form action="https://www.canada.ca/en/sr/srb.html" method="get" name="cse-search-box" role="search" class="form-inline">
                         <div class="form-group">
                             <label for="wb-srch-q" class="wb-inv">Search website</label>
                             <input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search"
@@ -135,13 +134,12 @@
             <div class="container">
                 <div class="row">
                     <ol class="breadcrumb">
-                        <li><a href="https://lam-dev.hres.ca/rep-dev/mds_index.html">Home</a></li>
+                        <!-- <li><a href="https://lam-dev.hres.ca/REP-Form/index.html">Home</a></li>-->
                     </ol>
                 </div>
             </div>
         </nav>
     </header>
-
     <main role="main" property="mainContentOfPage" class="container">
     
     
@@ -162,7 +160,7 @@
                             <h2>Outside the Regulatory Transaction Process</h2>
                         </div>
                         <div class="row">
-                            <a href="./mds/company/en/index.html#main">Company Template (Last updated: Dec 9, 2021)</a>
+                            <a href="https://lam-dev.hres.ca/rep-dev/mds/prod_v40/internal/en/index-internal.html#def-top">Company Template (Last updated: Dec 9, 2021)</a>
                             <ul>
                                 <li>Required to obtain a company ID and/or provide updated company information to Health Canada.</li>
                                 <li>Sent via the email.</li>
