@@ -10,7 +10,6 @@
   "company.enrolment": "Inscription d'une compagnie réglementaire",
   "company.id": "Identifiant de la compagnie",
   "select.file": "Sélectionnez un fichier à charger",
-  "select.file.line": "Veuillez en tout temps téléchargez le fichier dans le modèle vierge. Actualisez cette page afin de réinitialiser le modèle.",
   "addressDetails.street": "Rue",
   "addressDetails.city": "Ville",
   "addressDetails.country": "Pays",
@@ -33,7 +32,6 @@
 
   "fileio.msg.noFileChoosen": "Aucun fichier choisi",
   "amend.note": "Le bouton « Modifier l'inscription » doit être sélectionné lors de la modification du fichier XML final de  la compagnie.",
-  "refresh.page": "Veuillez en tout temps téléchargez le fichier dans le modèle vierge. Actualisez cette page afin de réinitialiser le modèle. ",
   "save.record": "Ajouter l'enregistrement",
 
   "refresh.file.input": "Actualisez cette page",
@@ -52,8 +50,9 @@
   "error.msg.postal": "Format non valide - Doit être X#X#X#",
   "error.mgs.zip": "Entrée non valide: doit contenir 5 chiffres",
   "error.mgs.company.id": "Entrée non valide: doit contenir 6 chiffres",
-  "error.msg.contactDetails": "fr_Company Representative Details has errors",
-
+  "error.msg.contactDetails": "Il y a des erreurs dans les détails du représentant de la compagnie.",
+  "error.msg.remove.contact": "Représentant de la compagnie doivent être supprimés.",
+  "error.msg.revise.contact": "Représentant de la compagnie doivent être actif.",
   "error.mgs.licence.number": "fr_Please specify a valid licence number.",
   "error.mgs.contact.id": "Entrée non valide: doit contenir 5 chiffres",
 
@@ -78,7 +77,7 @@
   "job.title": "Titre de poste",
   "status": "Statut du contact",
   "contact.email": "Courriel",
-  "fax.number": "Numéro de télécopieur",
+  "fax.number": "Numéro de télécopieur (incluant le code régional)",
   "phone.ext": "Extension de téléphone ",
   "phone.number": "Numéro de téléphone (incluant le code régional)",
   "phone.extension": "Extension de téléphone",
@@ -125,7 +124,7 @@
   "msg.err.file.type": "Erreur: Un type de fichier invalide a été sélectionné.",
   "msg.err.form.type": "Erreur: le type de formulaire incorrect a été sélectionné pour ce formulaire.",
   "msg.err.checksum": "Erreur: il y a eu une erreur en analysant le fichier.",
-  "section.show.option": "[ Cette section peut ne pas être visible. ]",
+  "section.show.option": "[ Cette section peut ne pas être visible. ] ",
 
   "minNumber5": "(5 chiffres)",
   "minNumber6": "(6 chiffres)",
@@ -152,7 +151,7 @@
   "help.routing.id.02": "Pour toute question sur l'identificateur d'acheminement, veuillez contacter le service de dépannage de la Food and Drug Administration au ",
   "help.add.record":"Si le bouton « Ajouter un enregistrement » n'est pas actif, cliquez sur le bouton « Modifier l'inscription » ou assurez-vous que tous les enregistrements de contact sont correctement enregistrés.",  
   "help.licence.num": "Répertoriez toutes les licences concernées, séparées par une ligne (peut copier et coller).",
-  "mailto.01": "L’ébauche du fichier CO XML doit être envoyée par courriel.",
+  "mailto.01": "L’ébauche du fichier CO XML doit être envoyé par courriel.",
   "mailto.02": "En cliquant sur ce bouton, vous générerez automatiquement un modèle de message électronique à l’aide de votre programme de messagerie par défaut. Avant de soumettre, veuillez joindre votre ébauche du fichier CO XML.",
   "mailto.03": "Si le message électronique n’a pas été généré automatiquement, vous pouvez en créer un et y inclure les éléments suivants :",
   "mailto.04": "À : {{email}}",
