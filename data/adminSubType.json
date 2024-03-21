@@ -16,8 +16,8 @@
   },
   {
     "id": "OWNERSHIP_CHGE",
-    "en": "Changes in Product Ownership / DIN Transfer",
-    "fr": "Changement apporté à la propriété/transfert du DIN"
+    "en": "Changes in Product Ownership (Change in DIN Holder)",
+    "fr": "Changement de propriété du produit"
   },
   {
     "id": "MERGER",
@@ -26,18 +26,18 @@
   },
   {
     "id": "LICENGSING",
-    "en": "Licensing Agreements",
-    "fr": "Contrat de licence"
+    "en": "Licensing Agreements between two Manufacturers",
+    "fr": "Accord de licence entre deux fabricants"
   },
   {
     "id": "POSTAUTH_LABEL_CHGE",
-    "en": "Post-Authorization Labelling Changes",
-    "fr": "Modifications post autorisation d'étiquettes"
+    "en": "Label update (to match licensor)",
+    "fr": "Mise à jour de l'étiquetage (pour correspondre au concédant)"
   },
   {
     "id": "POSTAUTH_CHEMISTRY_CHGE",
-    "en": "Post-Authorization Chemistry and Manufacturing Updates (only for Schedules C and D drug products)",
-    "fr": "Modifications post-autorisation des données sur la chimie et la fabrication [seulement pour les produits visés aux annexes C et D]"
+    "en": "Chemistry and Manufacturing Updates (to match licensor for Schedules C and D products)",
+    "fr": "Mise à jour sur la chimie et la fabrication (pour correspondre au concédant)"
   },
   {
     "id": "ADDITIONAL_PRODUCT_CHGE",

@@ -1,11 +1,11 @@
 [
-  {"id":"2","en":"DENDRIMER","fr":"DENDRIMER"},
-  {"id":"3","en":"LIPOSOMES","fr":"LIPOSOMES"},
-  {"id":"7","en":"METAL COLLOIDS","fr":"METAL COLLOIDS"},
-  {"id":"4","en":"MICELLES","fr":"MICELLES"},
-  {"id":"6","en":"NANOCRYSTAL","fr":"NANOCRYSTAL"},
-  {"id":"5","en":"NANOEMULSIONS","fr":"NANOEMULSIONS"},
-  {"id":"1","en":"NANOPARTICLE","fr":"NANOPARTICLE"},
-  {"id":"8","en":"NOT ASSIGNED","fr":"NOT ASSIGNED"}
+  {"id":"2","en":"Dendrimer","fr":"Dendrimère"},
+  {"id":"3","en":"Liposomes","fr":"Liposomes"},
+  {"id":"7","en":"Metal colloids","fr":"Colloïdes métalliques"},
+  {"id":"4","en":"Micelles","fr":"Micelles"},
+  {"id":"6","en":"Nanocrystal","fr":"Nanocristal"},
+  {"id":"5","en":"Nanoemulsions","fr":"Nanoémulsions"},
+  {"id":"1","en":"Nanoparticle","fr":"Nanoparticule"},
+  {"id":"8","en":"Not assigned","fr":"Non attribué"}
 
 ]
