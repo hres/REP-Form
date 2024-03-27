@@ -1,8 +1,8 @@
-<ul class="dropdown-menu custom-popup-wrapper" ng-show="isOpen() && !moveInProgress"
-    ng-style="{top: position().top+'px', left: position().left+'px'}" role="listbox" aria-hidden="{{!isOpen()}}">
-    <li class="uib-typeahead-match" ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
-        ng-mouseenter="selectActive($index)" ng-click="selectMatch($index, $event)" role="option" id="{{::match.id}}">
+<ul class="dropdown-menu custom-popup-wrapper" data-ng-show="isOpen() && !moveInProgress"
+    data-ng-style="{top: position().top+'px', left: position().left+'px'}" role="listbox" aria-hidden="{{!isOpen()}}">
+    <li class="uib-typeahead-match" data-ng-repeat="match in matches track by $index" data-ng-class="{active: isActive($index) }"
+        ng-mouseenter="selectActive($index)" data-ng-click="selectMatch($index, $event)" role="option" id="{{::match.id}}">
         <div uib-typeahead-match class="custom-dropdown-menu" index="$index" match="match" query="query"
-             template-url="templateUrl"></div>
+             data-template-url="templateUrl"></div>
     </li>
 </ul>

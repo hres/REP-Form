@@ -1,16 +1,16 @@
 
-<div role="tab" id="{{::headingId}}" aria-selected="{{isOpen}}" class="panel-heading" ng-keypress="toggleOpen($event)">
-    <h3 class="panel-title">
+<div role="tab" id="{{::headingId}}" aria-selected="{{isOpen}}" class="panel-heading" data-ng-keypress="toggleOpen($event)">
+
      <!--   <div ng-class="{'fa fa-caret-down fa-lg fa-fw':isOpen ,'fa fa-caret-right fa-lg fa-fw':!isOpen}"></div>-->
-        <div class="rep-expander" role="button"  data-toggle="collapse" href aria-expanded="{{isOpen}}" aria-controls="{{::panelId}}"
-                 tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading"
-                 ng-disabled="isDisabled" uib-tabindex-toggle>
-            <span ng-class="{'fa fa-caret-down fa-lg fa-fw':isOpen ,'fa fa-caret-right fa-lg fa-fw':!isOpen}"></span>
-            <span uib-accordion-header ng-class="{'text-muted': isDisabled}">{{heading}}</span>
+        <div class="panel-title rep-expander" role="button"  data-toggle="collapse" data-href aria-expanded="{{isOpen}}" aria-controls="{{::panelId}}"
+                 tabindex="0" class="accordion-toggle" data-ng-click="toggleOpen()" data-uib-accordion-transclude="heading"
+             data-ng-disabled="isDisabled" data-uib-tabindex-toggle>
+            <span data-ng-class="{'fa fa-caret-down fa-lg fa-fw':isOpen ,'fa fa-caret-right fa-lg fa-fw':!isOpen}"></span>
+            <span data-uib-accordion-header data-ng-class="{'text-muted': isDisabled}">{{heading}}</span>
         </div>
-    </h3>
+
 </div>
 <div id="{{::panelId}}" aria-labelledby="{{::headingId}}" aria-hidden="{{!isOpen}}" role="tabpanel"
-     class="panel-collapse collapse" uib-collapse="!isOpen">
-        <div class="panel-body" ng-transclude></div>
+     class="panel-collapse collapse" data-uib-collapse="!isOpen">
+        <div class="panel-body" data-ng-transclude></div>
 </div>
