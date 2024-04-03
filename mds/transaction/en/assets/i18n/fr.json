@@ -39,6 +39,7 @@
   "minlength": "Minimum de",
   "error.mgs.number": "fr_Please specify a number.",
   "error.mgs.dossier.id": "Numéro de dossier - doit contenir une lettre minuscule suivie de 6 chiffres",
+  "error.mgs.5.numeric": "Doit contenir 5 chiffres",
   "error.mgs.6.numeric": "Doit contenir 6 chiffres",
   "error.mgs.contact.id": "Doit contenir 5 chiffres",
   "error.mgs.licence.number": "Doit contenir 6 chiffres - Ajouter un 0 au début de la séquence si la licence contient moins de 6 chiffres",

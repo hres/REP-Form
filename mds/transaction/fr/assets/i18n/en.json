@@ -39,6 +39,7 @@
   "minlength": "Minimum length",
   "error.mgs.number": "Please specify a number.",
   "error.mgs.dossier.id": "Dossier Identifier - must be lowercase letter followed by 6 numbers",
+  "error.mgs.5.numeric": "Must be 5 numeric value",
   "error.mgs.6.numeric": "Must be 6 numeric value",
   "error.mgs.contact.id": "Must be 5 numeric value",
   "error.mgs.licence.number": "Must be 6 numeric value - Add leading 0 if less than 6 digits",
