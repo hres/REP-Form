@@ -1,0 +1,87 @@
+[
+    {
+        "id": "ACD",
+        "en": "Appeal Comprehensive Document",
+        "fr": "Document d'appel complet"
+    },
+    {
+        "id": "INITIAL",
+        "en": "Initial",
+        "fr": "Initiale"
+    },
+    {
+        "id": "IRSR",
+        "en": "Issue Related Safety Request",
+        "fr": "Demande de sécurité liée à un problème"
+    },
+    {
+        "id": "LIA",
+        "en": "Letter of Intent to Appeal",
+        "fr": "Lettre d'intention de recours"
+    },
+    {
+        "id": "LIOH",
+        "en": "Letter of Intent to Invoke Opportunity to be Heard",
+        "fr": "Lettre d'intention d'invoquer la possibilité d'être entendu"
+    },
+    {
+        "id": "MM",
+        "en": "Minutes of Meeting",
+        "fr": "Procès-verbal de la réunion"
+    },
+    {
+        "id": "OHCD",
+        "en": "Opportunity to be Heard Comprehensive Document",
+        "fr": "Document complet relatif à la possibilité d'être entendu"
+    },
+    {
+        "id": "PSI",
+        "en": "Patient Safety Information (Medication error)",
+        "fr": "Renseignements sur la sécurité des patients (erreur de médication)"
+    },
+    {
+        "id": "PRCI",
+        "en": "Public Release of Clinical Information",
+        "fr": "Diffusion publique de renseignements cliniques"
+    },
+    {
+        "id": "RAIL",
+        "en": "Response to Additional Information Letter",
+        "fr": "Réponse à la lettre d'information supplémentaire"
+    },
+    {
+        "id": "RER",
+        "en": "Response to E-mail Request",
+        "fr": "Réponse à une demande par courriel "
+    },
+    {
+        "id": "RS25L",
+        "en": "Response to S.25 Letter",
+        "fr": "Réponse à la lettre de l'article 25"
+    },
+    {
+        "id": "RS36L",
+        "en": "Response to S.36 Letter",
+        "fr": "Réponse à la lettre de l'article 36"
+    },
+    {
+        "id": "RS39L",
+        "en": "Response to S.39 Letter",
+        "fr": "Réponse à la lettre de l'article 39"
+    },
+    {
+        "id": "RS",
+        "en": "Response to Screening Deficiency Letter",
+        "fr": "Réponse à la lettre de vérification des lacunes"
+    },
+    {
+        "id": "UD",
+        "en": "Unsolicited Information",
+        "fr": "Renseignements non sollicités"
+    },
+    {
+        "id": "WR",
+        "en": "Withdrawal Request",
+        "fr": "Demande de retrait"
+    }
+]

@@ -1,0 +1,111 @@
+[
+    {
+        "raTypeId": "B02-20160301-074",
+        "amendReasons": [
+            {
+                "deviceClassId": "DC2",
+                "values": [
+                    "CLASSIFICATION_CHANGE",
+                    "LICENCE_CHANGE",
+                    "DEVICE_CHANGE",
+                    "PURPOSE_CHANGE",
+                    "ADD_DELETE_CHANGE"
+                ]
+            },
+            {
+                "deviceClassId": "DC3",
+                "values": [
+                    "CLASSIFICATION_CHANGE",
+                    "LICENCE_CHANGE",
+                    "DEVICE_CHANGE",
+                    "PURPOSE_CHANGE",
+                    "ADD_DELETE_CHANGE"
+                ]
+            },
+            {
+                "deviceClassId": "DC4",
+                "values": [
+                    "CLASSIFICATION_CHANGE",
+                    "LICENCE_CHANGE",
+                    "DEVICE_CHANGE",
+                    "PURPOSE_CHANGE",
+                    "ADD_DELETE_CHANGE"
+                ]
+            }
+        ]
+    },
+    {
+        "raTypeId": "B02-20160301-040",
+        "amendReasons": [
+            {
+                "deviceClassId": "DC2",
+                "values": [
+                    "CLASSIFICATION_CHANGE",
+                    "LICENCE_CHANGE",
+                    "DEVICE_CHANGE",
+                    "PURPOSE_CHANGE",
+                    "ADD_DELETE_CHANGE"
+                ]
+            },
+            {
+                "deviceClassId": "DC3",
+                "values": [
+                    "CLASSIFICATION_CHANGE",
+                    "LICENCE_CHANGE",
+                    "DEVICE_CHANGE",
+                    "PROCESS_CHANGE",
+                    "QUALITY_CHANGE",
+                    "DESIGN_CHANGE",
+                    "MATERIALS_CHANGE",
+                    "LABELLING_CHANGE",
+                    "SAFETY_CHANGE",
+                    "ADD_DELETE_CHANGE"
+                ]
+            },
+            {
+                "deviceClassId": "DC4",
+                "values": [
+                    "CLASSIFICATION_CHANGE",
+                    "LICENCE_CHANGE",
+                    "DEVICE_CHANGE",
+                    "PROCESS_CHANGE",
+                    "QUALITY_CHANGE",
+                    "DESIGN_CHANGE",
+                    "MATERIALS_CHANGE",
+                    "LABELLING_CHANGE",
+                    "SAFETY_CHANGE",
+                    "ADD_DELETE_CHANGE"
+                ]
+            }
+        ]
+    },
+    {
+        "raTypeId": "B02-20160301-033",
+        "amendReasons": [
+            {
+                "deviceClassId": "DC2",
+                "values": [
+                    "LICENCE_CHANGE",
+                    "DEVICE_CHANGE",
+                    "ADD_DELETE_CHANGE"
+                ]
+            },
+            {
+                "deviceClassId": "DC3",
+                "values": [
+                    "LICENCE_CHANGE",
+                    "DEVICE_CHANGE",
+                    "ADD_DELETE_CHANGE"
+                ]
+            },
+            {
+                "deviceClassId": "DC4",
+                "values": [
+                    "LICENCE_CHANGE",
+                    "DEVICE_CHANGE",
+                    "ADD_DELETE_CHANGE"
+                ]
+            }
+        ]
+    }
+]

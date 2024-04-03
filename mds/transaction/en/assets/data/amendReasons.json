@@ -1,0 +1,57 @@
+[
+  {
+    "id": "CLASSIFICATION_CHANGE",
+    "en": "Change to the classification of a device",
+    "fr": "Modification de la classification de l’instrument"
+  },
+  {
+    "id": "LICENCE_CHANGE",
+    "en": "Change in the licence",
+    "fr": "Changement du nom de la licence"
+  },
+  {
+    "id": "DEVICE_CHANGE",
+    "en": "Change in the device name",
+    "fr": "Changement du nom de l'instrument"
+  },
+  {
+    "id": "PROCESS_CHANGE",
+    "en": "Significant change in manufacturing process, facility of equipment",
+    "fr": "Modification importante du processus, des installations ou du matériel de fabrication"
+  },
+  {
+    "id": "QUALITY_CHANGE",
+    "en": "Significant change in manufacturing quality control procedures",
+    "fr": "Modification importante des procédures de contrôle de la qualité de la fabrication"
+  },
+  {
+    "id": "DESIGN_CHANGE",
+    "en": "Significant change in design or performance",
+    "fr": "Modification importante des exigences de conception ou de performance"
+  },
+  {
+    "id": "MATERIALS_CHANGE",
+    "en": "Significant change in materials",
+    "fr": "Modification importante des matériaux utilisés"
+  },
+  {
+    "id": "LABELLING_CHANGE",
+    "en": "Significant change in the labelling of the device",
+    "fr": "Modification importante de l’étiquetage de l’instrument"
+  },
+  {
+    "id": "SAFETY_CHANGE",
+    "en": "Any change which could affect the safety and effectiveness of the device",
+    "fr": "Toute modification qui pourrait avoir une incidence sur la sûreté et l’efficacité de l’instrument"
+  },
+  {
+    "id": "PURPOSE_CHANGE",
+    "en": "Change to the purpose/indication of a device",
+    "fr": "Modification de l'objectif / de l'indication d'un instrument"
+  },
+  {
+    "id": "ADD_DELETE_CHANGE",
+    "en": "Addition/Deletion",
+    "fr": "Ajout / Suppression"
+  }
+]

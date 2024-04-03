@@ -1,0 +1,72 @@
+[
+    {
+        "raTypeId": "B02-20160301-033",
+        "txDescIds": [
+            "INITIAL",
+            "RER",
+            "UD",
+            "WR"
+        ]
+    },
+    {
+        "raTypeId": "B02-20160301-039",
+        "txDescIds": [
+            "ACD",
+            "INITIAL",
+            "LIA",
+            "MM",
+            "PRCI",
+            "RAIL",
+            "RER",
+            "RS",
+            "UD",
+            "WR"
+        ]
+    },
+    {
+        "raTypeId": "B02-20160301-040",
+        "txDescIds": [
+            "ACD",
+            "INITIAL",
+            "LIA",
+            "MM",
+            "PRCI",
+            "RAIL",
+            "RER",
+            "RS",
+            "UD",
+            "WR"
+        ]
+    },
+    {
+        "raTypeId": "B02-20160301-073",
+        "txDescIds": [
+            "INITIAL",
+            "RS",
+            "UD",
+            "WR"
+        ]
+    },
+    {
+        "raTypeId": "B02-20160301-074",
+        "txDescIds": [
+            "INITIAL",
+            "RS",
+            "UD",
+            "WR"
+        ]
+    },
+    {
+        "raTypeId": "B02-20160301-081",
+        "txDescIds": [
+            "IRSR",
+            "LIOH",
+            "OHCD",
+            "PSI",
+            "RS25L",
+            "RS36L",
+            "RS39L",
+            "UD"
+        ]
+    }
+]
