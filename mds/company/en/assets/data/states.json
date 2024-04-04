@@ -157,20 +157,20 @@
   {
     "id":"NM",
     "en":"New Mexico",
-    "fr":"Nouveau-mexique"
+    "fr":"Nouveau-Mexique"
   },
   {
     "id":"NY",
     "en":"New York",
-    "fr":"L'état de New York"
+    "fr":"L'État de New York"
   },{
   "id":"NC",
   "en":"North Carolina",
-  "fr":"Caroline du nord"
+  "fr":"Caroline du Nord"
 },{
   "id":"ND",
   "en":"North Dakota",
-  "fr":"Dakota du nord"
+  "fr":"Dakota du Nord"
 },
   {
     "id":"OH",
@@ -200,12 +200,12 @@
   {
     "id":"SC",
     "en":"South Carolina",
-    "fr":"Caroline du sud"
+    "fr":"Caroline du Sud"
   },
   {
     "id":"SD",
     "en":"South Dakota",
-    "fr":"Dakota du sud"
+    "fr":"Dakota du Sud"
   },
   {
     "id":"TN",
@@ -234,12 +234,12 @@
   {
     "id":"WA",
     "en":"Washington",
-    "fr":"L'état de washington"
+    "fr":"L'État de Washington"
   },
   {
     "id":"WV",
     "en":"West Virginia",
-    "fr":"Virginie-occidentale"
+    "fr":"Virginie-Occidentale"
   },
   {
     "id":"WI",
