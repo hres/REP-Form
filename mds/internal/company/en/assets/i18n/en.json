@@ -154,5 +154,6 @@
     "error":"Error {{number}}:",
     "msg.save.xml.popup": "Please save the unsaved input data before generating XML file.",
     "msg.save.data.popup": "Please save the unsaved input data.",
-    "popup.title": "Company Template"
+    "popup.title": "Company Template",
+    "popup.close": "Close"
   }

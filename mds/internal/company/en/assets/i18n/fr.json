@@ -165,5 +165,6 @@
   "error":"Erreur {{number}}:",
   "msg.save.xml.popup": "Veuillez sauvegarder les données d'entrée non enregistrées avant de générer le fichier XML.",
   "msg.save.data.popup": "Veuillez sauvegarder les données d'entrée non enregistrées.",
-  "popup.title": "Modèle de compagnie"
+  "popup.title": "Modèle de compagnie",
+  "popup.close": "Fermer"
 }  
