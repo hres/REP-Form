@@ -1,0 +1,17 @@
+[
+    {
+        "id":"compliance_usp",
+        "en":"United States Pharmacopeia (USP)",
+        "fr":"United States Pharmacopeia (USP) "
+    },
+    {
+        "id":"compliance_gmp",
+        "en":"Good Manufacturing Practices (GMP)",
+        "fr":"Bonnes Pratiques de Fabrication (BPF)"
+    },
+    {
+        "id":"compliance_other",
+        "en":"Other Pharmcopeia",
+        "fr":"Autres pharmacopées"
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "id":"1",
+        "en":"Provides effective treatment or diagnosis of a disease or condition for which no medical device is currently licensed in Canada.",
+        "fr":"Fournit un traitement ou un diagnostic efficace d'une maladie pour laquelle ou d'un état pour lequel aucun instrument médical n'est actuellement homologué au Canada."
+    },
+    {
+        "id":"2",
+        "en":"Provides significant risk-benefit improvement over existing therapeutic or diagnostic devices for a disease or condition that is not adequately managed by existing products marketed in Canada.",
+        "fr":"Fournit une amélioration importante en matière de risques et d’avantages par rapport aux instruments thérapeutiques ou diagnostiques existants pour une maladie ou un état qui ne sont pas gérés adéquatement par les produits commercialisés au Canada."
+    },
+    {
+        "id":"3",
+        "en":"Responds to an unmet urgent healthcare need.",
+        "fr":"Répond à un besoin de soins de santé urgent non satisfait."
+    }
+
+]

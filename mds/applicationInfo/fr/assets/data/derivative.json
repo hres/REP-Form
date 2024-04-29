@@ -1,0 +1,142 @@
+[
+    {
+        "id":"2",
+        "en":"Albumin",
+        "fr":"Albumine"
+    },
+    {
+        "id":"28",
+        "en":"Anorganic Bone Mineral",
+        "fr":"Substance minérale osseuse"
+    },
+    {
+        "id":"19",
+        "en":"Bone Morphogenic Protein (BMP)",
+        "fr":"Protéine morphogénétique osseuse (PMO)"
+    },
+    {
+        "id":"15",
+        "en":"Butyl Stearate",
+        "fr":"Stéarate de butyle"
+    },
+    {
+        "id":"12",
+        "en":"Casein",
+        "fr":"Caséine"
+    },
+    {
+        "id":"7",
+        "en":"Catalese",
+        "fr":"Catalase"
+    },
+    {
+        "id":"24",
+        "en":"Chitosan",
+        "fr":"Chitosane"
+    },
+    {
+        "id":"9",
+        "en":"Chondroitin Sulphate",
+        "fr":"Sulfate de chondroÏtine"
+    },
+    {
+        "id":"1",
+        "en":"Collagen",
+        "fr":"Collagène"
+    },
+    {
+        "id":"21",
+        "en":"Demineralized Bone Matrix",
+        "fr":"Matrice osseuse déminéralisée"
+    },
+    {
+        "id":"29",
+        "en":"Elastin",
+        "fr":"Élastine"
+    },
+    {
+        "id":"13",
+        "en":"Fibrin",
+        "fr":"Filbrine"
+    },
+    {
+        "id":"3",
+        "en":"Gelatin",
+        "fr":"Gélatine"
+    },
+    {
+        "id":"4",
+        "en":"Heparin",
+        "fr":"Héparine"
+    },
+    {
+        "id":"5",
+        "en":"Hyaluronic Acid",
+        "fr":"Acide hyaluronique"
+    },
+    {
+        "id":"27",
+        "en":"Hydroxyapatite",
+        "fr":"Hydroxyapatite"
+    },
+    {
+        "id":"18",
+        "en":"Infusion",
+        "fr":"Infusion"
+    },
+    {
+        "id":"16",
+        "en":"Isobuty Stearate",
+        "fr":"Stéarate d’isobutyle"
+    },
+    {
+        "id":"14",
+        "en":"Magnesium Stearate",
+        "fr":"Stéarate de magnésium"
+    },
+    {
+        "id":"17",
+        "en":"Monostearate",
+        "fr":"Monostéarate"
+    },
+    {
+        "id":"26",
+        "en":"Oil",
+        "fr":"Huile"
+    },
+    {
+        "id":"25",
+        "en":"Pepsin",
+        "fr":"Pepsine"
+    },
+    {
+        "id":"23",
+        "en":"Recombinant Human Albumin",
+        "fr":"Albumine humaine recombinate"
+    },
+    {
+        "id":"20",
+        "en":"Recombinant Human Bone Morphogenic Protein (RHBMP)",
+        "fr":"Protéine morphogénétique osseuse humaine recombinante (PMOHR)"
+    },
+    {
+        "id":"6",
+        "en":"Sodium Hyaluronate",
+        "fr":"Hyaluronate de sodium"
+    },
+    {
+        "id":"22",
+        "en":"Tallow",
+        "fr":"Suif"
+    },
+    {
+        "id":"10",
+        "en":"Thrombin",
+        "fr":"Thrombine"
+    },
+    {
+        "id":"30",
+        "en":"Other",
+        "fr":"Autre"
+    }
+]

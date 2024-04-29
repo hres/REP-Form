@@ -1,0 +1,37 @@
+[
+    {
+        "id":"D",
+        "en":"Single Device",
+        "fr":"Instrument à article unique"
+    },
+    {
+        "id":"S",
+        "en":"System",
+        "fr":"Système"
+    },
+    {
+        "id":"K",
+        "en":"Test Kit",
+        "fr":"Trousse d'essai"
+    },
+    {
+        "id":"F",
+        "en":"Device Family",
+        "fr":"Famille d'instruments"
+    },
+    {
+        "id":"G",
+        "en":"Device Group",
+        "fr":"Groupe d'instruments"
+    },
+    {
+        "id":"Y",
+        "en":"Device Group Family",
+        "fr":"Famille de groupe d'instruments"
+    },
+    {
+        "id":"U",
+        "en":"Unknown",
+        "fr":"Indéterminé"
+    }
+]

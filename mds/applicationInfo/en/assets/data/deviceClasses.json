@@ -1,0 +1,23 @@
+[
+    {
+        "id": "DC2",
+        "en": "Class II",
+        "fr": "Classe II",
+        "ariaEn": "Class 2",
+        "ariaFr": "Classe 2"
+    },
+    {
+        "id": "DC3",
+        "en": "Class III",
+        "fr": "Classe III",
+        "ariaEn": "Class 3",
+        "ariaFr": "Classe 3"
+    },
+    {
+        "id": "DC4",
+        "en": "Class IV",
+        "fr": "Classe IV",
+        "ariaEn": "Class 4",
+        "ariaFr": "Classe 4"
+    }
+]

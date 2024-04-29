@@ -1,0 +1,162 @@
+[
+    {
+        "id":"26",
+        "en":"Amniotic Membrane",
+        "fr":"Membrane amniotique"
+    },
+    {
+        "id":"24",
+        "en":"Animal Fat",
+        "fr":"Gras animal"
+    },
+    {
+        "id":"23",
+        "en":"Artery/Vein",
+        "fr":"Artère/veine"
+    },
+    {
+        "id":"14",
+        "en":"Blood",
+        "fr":"Sang"
+    },
+    {
+        "id":"2",
+        "en":"Bone",
+        "fr":"Os"
+    },
+    {
+        "id":"10",
+        "en":"Cartilage",
+        "fr":"Certilage"
+    },
+    {
+        "id":"11",
+        "en":"Comb",
+        "fr":"Crête"
+    },
+    {
+        "id":"19",
+        "en":"Dermal",
+        "fr":"Cutanée"
+    },
+    {
+        "id":"6",
+        "en":"Dura Mater",
+        "fr":"Dure-mère"
+    },
+    {
+        "id":"7",
+        "en":"Fibroblast",
+        "fr":"Fibroblaste"
+    },
+    {
+        "id":"4",
+        "en":"Heart Valve",
+        "fr":"Valvule cardiaque"
+    },
+    {
+        "id":"5",
+        "en":"Hides or Skin",
+        "fr":"Cuir ou peau"
+    },
+    {
+        "id":"8",
+        "en":"Intestine",
+        "fr":"Intestin"
+    },
+    {
+        "id":"30",
+        "en":"Ligament",
+        "fr":"Ligament"
+    },
+    {
+        "id":"20",
+        "en":"Milk",
+        "fr":"Lait"
+    },
+    {
+        "id":"9",
+        "en":"Mucosa",
+        "fr":"Muqueuse"
+    },
+    {
+        "id":"22",
+        "en":"Non-Specific Meat",
+        "fr":"Viande non spécifique"
+    },
+    {
+        "id":"28",
+        "en":"Not Applicable",
+        "fr":"Sans objet"
+    },
+    {
+        "id":"3",
+        "en":"Pericardium",
+        "fr":"Péricarde"
+    },
+    {
+        "id":"15",
+        "en":"Peritoneum",
+        "fr":"Péritoine"
+    },
+    {
+        "id":"18",
+        "en":"Placenta",
+        "fr":"Placenta"
+    },
+    {
+        "id":"16",
+        "en":"Sclera",
+        "fr":"Sclère"
+    },
+    {
+        "id":"12",
+        "en":"Serosa",
+        "fr":"Séreuse"
+    },
+    {
+        "id":"13",
+        "en":"Serum",
+        "fr":"Sérum"
+    },
+    {
+        "id":"25",
+        "en":"Shrimp Sells",
+        "fr":"Carapaces de crevette"
+    },
+    {
+        "id":"21",
+        "en":"Silk",
+        "fr":"Soie"
+    },
+    {
+        "id":"27",
+        "en":"Teeth",
+        "fr":"Dents"
+    },
+    {
+        "id":"1",
+        "en":"Tendon",
+        "fr":"Tendon"
+    },
+    {
+        "id":"17",
+        "en":"Trachea",
+        "fr":"Trachée"
+    },
+    {
+        "id":"29",
+        "en":"Urinary Bladder Matrix",
+        "fr":"Matrice de la vessie"
+    },
+    {
+        "id":"31",
+        "en":"Forestomach",
+        "fr":"Préestomac"
+    },
+    {
+        "id":"32",
+        "en":"Other",
+        "fr":"Autre"
+    }
+]

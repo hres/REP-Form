@@ -1,0 +1,83 @@
+[
+    {
+        "id":"BSI",
+        "en":"BSI Group America Inc.",
+        "fr":"BSI Group America Inc."
+    },
+    {
+        "id":"DERKA",
+        "en":"DEKRA Certification B.V.",
+        "fr":"DEKRA Certification B.V."
+    },
+    {
+        "id":"DNVPA",
+        "en":"DNV Product Assurance AS",
+        "fr":"DNV Product Assurance AS"
+    },
+    {
+        "id":"DNVMED",
+        "en":"DNV MEDCERT GmbH",
+        "fr":"DNV MEDCERT GmbH"
+    },
+    {
+        "id":"DQS",
+        "en":"DQS Medizinprodukte GmbH",
+        "fr":"DQS Medizinprodukte GmbH"
+    },
+    {
+        "id":"GMED",
+        "en":"G-MED",
+        "fr":"G-MED"
+    },
+    {
+        "id":"IMQ",
+        "en":"IMQ S.p.A.",
+        "fr":"IMQ S.p.A."
+    },
+    {
+        "id":"ITSNA",
+        "en":"Intertek Testing Services NA Inc.",
+        "fr":"Intertek Testing Services NA Inc."
+    },
+    {
+        "id":"NCCCCB",
+        "en":"NCC Certificações do Brasil Ltda.",
+        "fr":"NCC Certificações do Brasil Ltda."
+    },
+    {
+        "id":"NSAI",
+        "en":"National Standards Authority of Ireland",
+        "fr":"National Standards Authority of Ireland"
+    },
+    {
+        "id":"QMISAI",
+        "en":"QMI-SAI Canada Limited",
+        "fr":"QMI-SAI Canada Limited"
+    },
+    {
+        "id":"SGSUK",
+        "en":"SGS United Kingdom Ltd.",
+        "fr":"SGS United Kingdom Ltd."
+    },
+    {
+        "id":"TUVRNA",
+        "en":"TÜV Rheinland of North America, Inc.",
+        "fr":"TÜV Rheinland of North America, Inc."
+    },
+    {
+        "id":"TUVAM",
+        "en":"TÜV SÜD America Inc. (also operating as TÜV America Inc.)",
+        "fr":"TÜV SÜD America Inc. (also operating as TÜV America Inc.)"
+    },
+    {
+        "id":"TUV USA",
+        "en":"TÜV USA, Inc. (TÜV NORD Group)",
+        "fr":"TÜV USA, Inc. (TÜV NORD Group)"
+    },
+    {
+        "id":"UL",
+        "en":"UL LLC, UL Solutions medical regulatory services",
+        "fr":"UL LLC, UL Solutions medical regulatory services"
+    }
+    
+]

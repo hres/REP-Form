@@ -1,0 +1,17 @@
+[
+    {
+        "id":"din",
+        "en":"Drug Identification Number (DIN)",
+        "fr":"Numéro d'identification de drogue (DIN)"
+    },
+    {
+        "id":"npn",
+        "en":"Natural Product Number (NPN)",
+        "fr":"Numéro de produit naturel (NPN)"
+    },
+    {
+        "id":"nodinnpn",
+        "en":"No DIN or NPN",
+        "fr":"Pas de DIN ou NPN"
+    }
+]

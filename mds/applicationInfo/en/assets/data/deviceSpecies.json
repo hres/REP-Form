@@ -1,0 +1,67 @@
+[
+    {
+        "id":"2",
+        "en":"Bovine",
+        "fr":"Bovin"
+    },
+    {
+        "id":"4",
+        "en":"Caprine",
+        "fr":"Caprin"
+    },
+    {
+        "id":"9",
+        "en":"Equine",
+        "fr":"Équidé"
+    },
+    {
+        "id":"11",
+        "en":"Fish",
+        "fr":"Poisson"
+    },
+    {
+        "id":"12",
+        "en":"Honey Bee",
+        "fr":"Abeille"
+    },
+    {
+        "id":"1",
+        "en":"Human",
+        "fr":"Humain"
+    },
+    {
+        "id":"3",
+        "en":"Ovine",
+        "fr":"Ovin"
+    },
+    {
+        "id":"5",
+        "en":"Porcine",
+        "fr":"Porcin"
+    },
+    {
+        "id":"7",
+        "en":"Rooster",
+        "fr":"Coq"
+    },
+    {
+        "id":"6",
+        "en":"Shark",
+        "fr":"Requin"
+    },
+    {
+        "id":"10",
+        "en":"Shrimp-Pandalus Borrealis",
+        "fr":"Crevette - pandalus borealis"
+    },
+    {
+        "id":"8",
+        "en":"Silk Worm",
+        "fr":"Ver à soie"
+    },
+    {
+        "id":"13",
+        "en":"Other",
+        "fr":"Autre"
+    }
+]
