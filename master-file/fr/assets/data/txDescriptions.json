@@ -116,5 +116,12 @@
         "en": "Withdrawal of Letter of Access",
         "fr": "Retrait de la lettre d'accès",
         "sortPriority": 8
+    },
+    {
+        "id": "13",
+        "en": "Response to Processing Clarification Request",
+        "fr": "Réponse au traitement d’une demande d’éclaircissement",
+        "sortPriority": 21
     }
+
 ]
