@@ -2,161 +2,193 @@
     {
         "id":"26",
         "en":"Amniotic Membrane",
-        "fr":"Membrane amniotique"
+        "fr":"Membrane amniotique",
+        "sortPriority":1
     },
     {
         "id":"24",
         "en":"Animal Fat",
-        "fr":"Gras animal"
+        "fr":"Gras animal",
+        "sortPriority":1
     },
     {
         "id":"23",
         "en":"Artery/Vein",
-        "fr":"Artère/veine"
+        "fr":"Artère/veine",
+        "sortPriority":1
     },
     {
         "id":"14",
         "en":"Blood",
-        "fr":"Sang"
+        "fr":"Sang",
+        "sortPriority":1
     },
     {
         "id":"2",
         "en":"Bone",
-        "fr":"Os"
+        "fr":"Os",
+        "sortPriority":1
     },
     {
         "id":"10",
         "en":"Cartilage",
-        "fr":"Certilage"
+        "fr":"Certilage",
+        "sortPriority":1
     },
     {
         "id":"11",
         "en":"Comb",
-        "fr":"Crête"
+        "fr":"Crête",
+        "sortPriority":1
     },
     {
         "id":"19",
         "en":"Dermal",
-        "fr":"Cutanée"
+        "fr":"Cutanée",
+        "sortPriority":1
     },
     {
         "id":"6",
         "en":"Dura Mater",
-        "fr":"Dure-mère"
+        "fr":"Dure-mère",
+        "sortPriority":1
     },
     {
         "id":"7",
         "en":"Fibroblast",
-        "fr":"Fibroblaste"
+        "fr":"Fibroblaste",
+        "sortPriority":1
     },
     {
         "id":"4",
         "en":"Heart Valve",
-        "fr":"Valvule cardiaque"
+        "fr":"Valvule cardiaque",
+        "sortPriority":1
     },
     {
         "id":"5",
         "en":"Hides or Skin",
-        "fr":"Cuir ou peau"
+        "fr":"Cuir ou peau",
+        "sortPriority":1
     },
     {
         "id":"8",
         "en":"Intestine",
-        "fr":"Intestin"
+        "fr":"Intestin",
+        "sortPriority":1
     },
     {
         "id":"30",
         "en":"Ligament",
-        "fr":"Ligament"
+        "fr":"Ligament",
+        "sortPriority":1
     },
     {
         "id":"20",
         "en":"Milk",
-        "fr":"Lait"
+        "fr":"Lait",
+        "sortPriority":1
     },
     {
         "id":"9",
         "en":"Mucosa",
-        "fr":"Muqueuse"
+        "fr":"Muqueuse",
+        "sortPriority":1
     },
     {
         "id":"22",
         "en":"Non-Specific Meat",
-        "fr":"Viande non spécifique"
+        "fr":"Viande non spécifique",
+        "sortPriority":1
     },
     {
         "id":"28",
         "en":"Not Applicable",
-        "fr":"Sans objet"
+        "fr":"Sans objet",
+        "sortPriority":1
     },
     {
         "id":"3",
         "en":"Pericardium",
-        "fr":"Péricarde"
+        "fr":"Péricarde",
+        "sortPriority":1
     },
     {
         "id":"15",
         "en":"Peritoneum",
-        "fr":"Péritoine"
+        "fr":"Péritoine",
+        "sortPriority":1
     },
     {
         "id":"18",
         "en":"Placenta",
-        "fr":"Placenta"
+        "fr":"Placenta",
+        "sortPriority":1
     },
     {
         "id":"16",
         "en":"Sclera",
-        "fr":"Sclère"
+        "fr":"Sclère",
+        "sortPriority":1
     },
     {
         "id":"12",
         "en":"Serosa",
-        "fr":"Séreuse"
+        "fr":"Séreuse",
+        "sortPriority":1
     },
     {
         "id":"13",
         "en":"Serum",
-        "fr":"Sérum"
+        "fr":"Sérum",
+        "sortPriority":1
     },
     {
         "id":"25",
         "en":"Shrimp Sells",
-        "fr":"Carapaces de crevette"
+        "fr":"Carapaces de crevette",
+        "sortPriority":1
     },
     {
         "id":"21",
         "en":"Silk",
-        "fr":"Soie"
+        "fr":"Soie",
+        "sortPriority":1
     },
     {
         "id":"27",
         "en":"Teeth",
-        "fr":"Dents"
+        "fr":"Dents",
+        "sortPriority":1
     },
     {
         "id":"1",
         "en":"Tendon",
-        "fr":"Tendon"
+        "fr":"Tendon",
+        "sortPriority":1
     },
     {
         "id":"17",
         "en":"Trachea",
-        "fr":"Trachée"
+        "fr":"Trachée",
+        "sortPriority":1
     },
     {
         "id":"29",
         "en":"Urinary Bladder Matrix",
-        "fr":"Matrice de la vessie"
+        "fr":"Matrice de la vessie",
+        "sortPriority":1
     },
     {
         "id":"31",
         "en":"Forestomach",
-        "fr":"Préestomac"
+        "fr":"Préestomac",
+        "sortPriority":1
     },
     {
         "id":"32",
         "en":"Other",
-        "fr":"Autre"
+        "fr":"Autre",
+        "sortPriority":99
     }
 ]

@@ -2,141 +2,169 @@
     {
         "id":"2",
         "en":"Albumin",
-        "fr":"Albumine"
+        "fr":"Albumine",
+        "sortPriority":1
     },
     {
         "id":"28",
         "en":"Anorganic Bone Mineral",
-        "fr":"Substance minérale osseuse"
+        "fr":"Substance minérale osseuse",
+        "sortPriority":1
     },
     {
         "id":"19",
         "en":"Bone Morphogenic Protein (BMP)",
-        "fr":"Protéine morphogénétique osseuse (PMO)"
+        "fr":"Protéine morphogénétique osseuse (PMO)",
+        "sortPriority":1
     },
     {
         "id":"15",
         "en":"Butyl Stearate",
-        "fr":"Stéarate de butyle"
+        "fr":"Stéarate de butyle",
+        "sortPriority":1
     },
     {
         "id":"12",
         "en":"Casein",
-        "fr":"Caséine"
+        "fr":"Caséine",
+        "sortPriority":1
     },
     {
         "id":"7",
         "en":"Catalese",
-        "fr":"Catalase"
+        "fr":"Catalase",
+        "sortPriority":1
     },
     {
         "id":"24",
         "en":"Chitosan",
-        "fr":"Chitosane"
+        "fr":"Chitosane",
+        "sortPriority":1
     },
     {
         "id":"9",
         "en":"Chondroitin Sulphate",
-        "fr":"Sulfate de chondroÏtine"
+        "fr":"Sulfate de chondroÏtine",
+        "sortPriority":1
     },
     {
         "id":"1",
         "en":"Collagen",
-        "fr":"Collagène"
+        "fr":"Collagène",
+        "sortPriority":1
     },
     {
         "id":"21",
         "en":"Demineralized Bone Matrix",
-        "fr":"Matrice osseuse déminéralisée"
+        "fr":"Matrice osseuse déminéralisée",
+        "sortPriority":1
     },
     {
         "id":"29",
         "en":"Elastin",
-        "fr":"Élastine"
+        "fr":"Élastine",
+        "sortPriority":1
     },
     {
         "id":"13",
         "en":"Fibrin",
-        "fr":"Filbrine"
+        "fr":"Filbrine",
+        "sortPriority":1
     },
     {
         "id":"3",
         "en":"Gelatin",
-        "fr":"Gélatine"
+        "fr":"Gélatine",
+        "sortPriority":1
     },
     {
         "id":"4",
         "en":"Heparin",
-        "fr":"Héparine"
+        "fr":"Héparine",
+        "sortPriority":1
     },
     {
         "id":"5",
         "en":"Hyaluronic Acid",
-        "fr":"Acide hyaluronique"
+        "fr":"Acide hyaluronique",
+        "sortPriority":1
     },
     {
         "id":"27",
         "en":"Hydroxyapatite",
-        "fr":"Hydroxyapatite"
+        "fr":"Hydroxyapatite",
+        "sortPriority":1
     },
     {
         "id":"18",
         "en":"Infusion",
-        "fr":"Infusion"
+        "fr":"Infusion",
+        "sortPriority":1
     },
     {
         "id":"16",
         "en":"Isobuty Stearate",
-        "fr":"Stéarate d’isobutyle"
+        "fr":"Stéarate d’isobutyle",
+        "sortPriority":1
     },
     {
         "id":"14",
         "en":"Magnesium Stearate",
-        "fr":"Stéarate de magnésium"
+        "fr":"Stéarate de magnésium",
+        "sortPriority":1
     },
     {
         "id":"17",
         "en":"Monostearate",
-        "fr":"Monostéarate"
+        "fr":"Monostéarate",
+        "sortPriority":1
     },
     {
         "id":"26",
         "en":"Oil",
-        "fr":"Huile"
+        "fr":"Huile",
+        "sortPriority":1
     },
     {
         "id":"25",
         "en":"Pepsin",
-        "fr":"Pepsine"
+        "fr":"Pepsine",
+        "sortPriority":1
     },
     {
         "id":"23",
         "en":"Recombinant Human Albumin",
-        "fr":"Albumine humaine recombinate"
+        "fr":"Albumine humaine recombinate",
+        "sortPriority":1
     },
     {
         "id":"20",
         "en":"Recombinant Human Bone Morphogenic Protein (RHBMP)",
-        "fr":"Protéine morphogénétique osseuse humaine recombinante (PMOHR)"
+        "fr":"Protéine morphogénétique osseuse humaine recombinante (PMOHR)",
+        "sortPriority":1
     },
     {
         "id":"6",
         "en":"Sodium Hyaluronate",
-        "fr":"Hyaluronate de sodium"
+        "fr":"Hyaluronate de sodium",
+        "sortPriority":1
     },
     {
         "id":"22",
         "en":"Tallow",
-        "fr":"Suif"
+        "fr":"Suif",
+        "sortPriority":1
     },
     {
         "id":"10",
         "en":"Thrombin",
-        "fr":"Thrombine"
+        "fr":"Thrombine",
+        "sortPriority":1
     },
     {
         "id":"30",
         "en":"Other",
-        "fr":"Autre"
+        "fr":"Autre",
+        "sortPriority":99
     }
 ]

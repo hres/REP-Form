@@ -2,66 +2,79 @@
     {
         "id":"2",
         "en":"Bovine",
-        "fr":"Bovin"
+        "fr":"Bovin",
+        "sortPriority":1
     },
     {
         "id":"4",
         "en":"Caprine",
-        "fr":"Caprin"
+        "fr":"Caprin",
+        "sortPriority":1
     },
     {
         "id":"9",
         "en":"Equine",
-        "fr":"Équidé"
+        "fr":"Équidé",
+        "sortPriority":1
     },
     {
         "id":"11",
         "en":"Fish",
-        "fr":"Poisson"
+        "fr":"Poisson",
+        "sortPriority":1
     },
     {
         "id":"12",
         "en":"Honey Bee",
-        "fr":"Abeille"
+        "fr":"Abeille",
+        "sortPriority":1
     },
     {
         "id":"1",
         "en":"Human",
-        "fr":"Humain"
+        "fr":"Humain",
+        "sortPriority":1
     },
     {
         "id":"3",
         "en":"Ovine",
-        "fr":"Ovin"
+        "fr":"Ovin",
+        "sortPriority":1
     },
     {
         "id":"5",
         "en":"Porcine",
-        "fr":"Porcin"
+        "fr":"Porcin",
+        "sortPriority":1
     },
     {
         "id":"7",
         "en":"Rooster",
-        "fr":"Coq"
+        "fr":"Coq",
+        "sortPriority":1
     },
     {
         "id":"6",
         "en":"Shark",
-        "fr":"Requin"
+        "fr":"Requin",
+        "sortPriority":1
     },
     {
         "id":"10",
         "en":"Shrimp-Pandalus Borrealis",
-        "fr":"Crevette - pandalus borealis"
+        "fr":"Crevette - pandalus borealis",
+        "sortPriority":1
     },
     {
         "id":"8",
         "en":"Silk Worm",
-        "fr":"Ver à soie"
+        "fr":"Ver à soie",
+        "sortPriority":1
     },
     {
         "id":"13",
         "en":"Other",
-        "fr":"Autre"
+        "fr":"Autre",
+        "sortPriority":99
     }
 ]
