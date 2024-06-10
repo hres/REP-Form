@@ -86,5 +86,5 @@
   "help.licence.number.02": "Si le numéro de licence n'a pas encore été attribué, utilisez 000000.",
   "help.device.detail.01": "Les identifiants figurant dans le fichier Excel de détails de l'instrument doivent apparaître sur l'étiquetage soumis et correspondre à l'identifiant figurant sur celui-ci.",
   "help.device.detail.02": "Obligatoire pour toutes les nouvelles demandes d’homologation, ainsi que pour toute demande de modification susceptible d’avoir des répercussions sur le répertoire des fabricants.",
-  "help.device.detail.03": "Le fichier Excel de détails de l'instrument est disponible sur la page <a href='https://lam-dev.hres.ca/REP-Form/mds_index-fr.html'>d’index du PIR pour les instruments médicaux.</a>"
+  "help.device.detail.03": "Le fichier Excel de détails de l'instrument est disponible sur la page <a href='https://health-products.canada.ca/rep-pir/mds-index-fr.html'>d’index du PIR pour les instruments médicaux.</a>"
 }  

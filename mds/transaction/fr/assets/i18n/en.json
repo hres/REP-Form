@@ -19,7 +19,7 @@
   "activity.type": "Regulatory Activity Type",
   "trans.description": "Transaction Description",
   "device.class": "Device Class",
-  "amend.reason": "Reason for filing this Amendment",
+  "amend.reason": "Reason for filing this amendment",
   "licence.number": "Licence Number",
   "application.number": "Application Number",
   "meeting.id": "Meeting Identifier",
@@ -65,7 +65,7 @@
   "return.instruction": "Return to instruction",
   "template.version": "Template version: ",
   "rationale": "Rationale",
-  "proposed.indication": "Proposed purpose/Indication for Use",
+  "proposed.indication": "Proposed Purpose/Indication for Use",
   "section.show.option": "[ This section may not be visible. ] ",
   "PROTECTED_B": "Protected \"B\" when completed",
   "original.manufacturing.company.id": "Original Manufacturer's Company Identifier",
@@ -86,6 +86,6 @@
   "help.licence.number.02": "If the Licence number has not yet been assigned, use 000000.",
   "help.device.detail.01": "The identifiers listed in the Device Details Excel File must appear on and match the identifier listed on the submitted labelling.",
   "help.device.detail.02": "Required for all new licence applications, as well as any amendment applications that may impact a manufacturers catalogue listing.",
-  "help.device.detail.03": "The Device Details Excel File is available on the <a href='https://lam-dev.hres.ca/REP-Form/mds_index.html'>REP Index Page for Medical Devices.</a>"
+  "help.device.detail.03": "The Device Details Excel File is available on the <a href='https://health-products.canada.ca/rep-pir/mds-index.html'>REP Index Page for Medical Devices.</a>"
 
 }
