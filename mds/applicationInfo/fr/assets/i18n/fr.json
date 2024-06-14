@@ -129,7 +129,7 @@
     "minNumber6": "(6 chiffres)",
     "minNumber8": "(8 chiffres)",
     "minAlphanum5": "fr_(5 characters)",
-    "minAlphanum7": "(composé d’un « m » minuscule suivie de 6 chiffres)",
+    "minAlphanum7": "(« m » minuscule suivie de 6 chiffres)",
     "error.found.because":" n’a pas pu être enregistré car ",
     "instruction": "instruction",
     "instruction.help": "fr_Instructions for completing sections on form",
