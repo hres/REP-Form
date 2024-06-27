@@ -85,7 +85,7 @@
     "commmon.required.bracket": " (required)",
     "consist.recombinant": "Does this device consist of recombinant material?",
     "contain.material": "Does this device contain, or is it produced using, any animal or human sourced material?",
-    "is.same.material": "Is the biological material the same for all devices listed in the device details table?",
+    "is.same.material": "Is the biological material the same for all devices listed in the Device Details Excel File?",
     "priority.review":"Priority Review",
     "is.priority.req":"Is priority review requested for this application?",
     "priority.rev.devices":"Priority review is being requested for the subject devices as it is intended for the diagnosis or treatment of a serious, life-threatening or severely debilitating disease or condition and there is substantial clinical evidence that the medical device:",
