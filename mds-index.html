@@ -11,13 +11,13 @@
 		<meta http-equiv="content-security-policy" content="script-src 'self' 'unsafe-inline' www.canada.ca; img-src 'self' www.canada.ca; font-src 'self' www.canada.ca maxcdn.bootstrapcdn.com fonts.gstatic.com; style-src 'self' www.canada.ca maxcdn.bootstrapcdn.com 'unsafe-inline'; default-src 'self' www.canada.ca; ">
 		<meta name="author" content="Health Canada" />
 		<meta property="dcterms.creator" content="Government of Canada, Health Canada">
-		<meta property="dcterms.modified" title="W3CDTF" content="2024-04-03">
+		<meta property="dcterms.modified" title="W3CDTF" content="2024-07-26">
 		<meta property="dcterms.language" title="ISO639-2/T" content="eng">
 		<!-- build:metaData-en.html -->
 		<!-- Meta data-->
 		<!-- Load closure template scripts -->
-		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_46/cdts/compiled/soyutils.js"></script>
-		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_46/cdts/compiled/wet-en.js"></script>
+		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_0/cdts/compiled/soyutils.js"></script>
+		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_0/cdts/compiled/wet-en.js"></script>
 		<noscript>
 			<!-- Write closure fall-back static file -->
 			<!-- build:refTop.html -->
@@ -26,7 +26,7 @@
 		<!-- cssIncludes -->
 		<script>
 			document.write(wet.builder.refTop({
-				"cdnEnv": "dev"
+				"cdnEnv": "prod"
 			}));
 		</script>
 	</head>
@@ -53,8 +53,11 @@
 				}, {
 					"title": "Health Canada",
 					"href": "https://www.canada.ca/en/health-canada.html"
+				}, {
+					"title": "Regulatory enrolment process (REP) - Canada.ca",
+					"href": "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/regulatory-enrolment-process.html"
 				}],
-				"cdnEnv": "dev"
+				"cdnEnv": "prod"
 			});
 		</script>
 		<main property="mainContentOfPage" typeof="WebPageElement" class="container">
@@ -65,11 +68,15 @@
 				
 					
 					<h2>REP Template & Form Links</h2>
+					
+						<div class="alert alert-info"><p>In order to access the most up-to-date version of the template, please be reminded to delete your cache frequently and “refresh” the template links on your web browser prior to each use<p></div>
+					
 				
 				
 					
 					<h2>Outside the Regulatory Transaction Process</h2>
-					<h3><a href="https://lam-dev.hres.ca/rep-dev/mds/company/en/md-company.html">Company Template (April 2, 2024)</a></h3>
+					
+					<h3><a href="https://lam-dev.hres.ca/rep-dev/mds/company/en/md-company.html">Company Template (July 31, 2024)</a></h3>
 					<ul>
 						<li>
 						Required to obtain a company ID and/or provide updated company information to Health Canada.
@@ -94,7 +101,8 @@
 				
 					
 					<h2>Within the Regulatory Transaction Process</h2>
-					<h3><a href="https://lam-dev.hres.ca/rep-dev/mds/transaction/en/md-regulatory-transaction.html">Regulatory Transaction Template (April 4, 2024)</a></h3>
+					
+					<h3><a href="https://lam-dev.hres.ca/rep-dev/mds/transaction/en/md-regulatory-transaction.html">Regulatory Transaction Template (July 31, 2024)</a></h3>
 					<ul>
 						<li>
 						Sent via the CESG within the regulatory transaction (application).
@@ -106,7 +114,7 @@
 						Refer to the REP guidance document for Medical Devices for detailed descriptions of the requirements for the RT template.
 						</li>
 					</ul>
-					<h3><a href="https://lam-dev.hres.ca/rep-dev/mds/applicationInfo/en/index.html">Application Information Template (May 14, 2020)</a></h3>
+					<h3><a href="https://lam-dev.hres.ca/rep-dev/mds/applicationInfo/en/md-application-information.html">Application Information Template (July 31, 2024)</a></h3>
 					<ul>
 						<li>
 						Sent via the CESG within the regulatory transaction (application).
@@ -124,7 +132,7 @@
 						Required for all new licence applications, as well as any amendment applications that may impact a manufacturers catalogue listing.
 						</li>
 						<li>
-						<a href="./mds-test/Device_Details.xlsx" download="">Download Device Details xlsx file.</a>
+						<a href="https://lam-dev.hres.ca/rep-dev/mds-test/Device_Details.xlsx" download="">Download Device Details xlsx file.</a>
 						</li>
 					</ul>
 					<h3>Application Attestation Form (January 15, 2024)</h3>
@@ -136,27 +144,29 @@
 						Required for the initial transaction of a new regulatory activity
 						</li>
 						<li>
-						<a href="./mds-test/Application_Attestation_Form.pdf" download="">Download Application Attestation pdf form.</a>
+						<a href="https://lam-dev.hres.ca/rep-dev/mds-test/Application_Attestation_Form.pdf" download="">Download Application Attestation pdf form.</a>
 						</li>
 					</ul>
 				
 				
 					
 					<h2>Internal User (i.e. HPFB) Links</h2>
+					
 					<h3></h3>
 					<ul>
 						<li>
-						<a href="https://lam-dev.hres.ca/rep-dev/mds/internal/company/en/index-internal.html ">Company Enrolment - Internal version 4.0.0</a>
+						<a href="https://lam-dev.hres.ca/rep-dev/mds/internal/company/en/index-internal.html">Company Enrolment - Internal version 4.0.0</a>
 						</li>
 					</ul>
 				
 				
 					
 					<h2>Stylesheet Download Links</h2>
+					
 					<h3></h3>
 					<ul>
 						<li>
-						<a href="./mds/stylesheet/medicaldevice_stylesheets_en.zip">Download stylesheet zip files (July 31, 2024)</a>
+						<a href="https://lam-dev.hres.ca/rep-dev/mds/stylesheet/medicaldevice_stylesheets_en.zip">Download stylesheet zip files (July 31, 2024)</a>
 						</li>
 					</ul>
 				
@@ -172,8 +182,8 @@
 			<script>
 				var defPreFooter = document.getElementById("def-preFooter");
 				defPreFooter.outerHTML = wet.builder.preFooter({
-					"dateModified": "2024-04-03",
-					"cdnEnv": "dev"
+					"dateModified": "2024-07-26",
+					"cdnEnv": "prod"
 				});
 			</script>
 		</main>
@@ -185,13 +195,13 @@
 		<script>
 			var defFooter = document.getElementById("def-footer");
 			defFooter.outerHTML = wet.builder.footer({
-				"cdnEnv": "dev"
+				"cdnEnv": "prod"
 			});
 		</script>
 		<!-- Write closure template -->
 		<script>
 			document.write(wet.builder.refFooter({
-				"cdnEnv": "dev"
+				"cdnEnv": "prod"
 			}));
 		</script>
 	</body>
