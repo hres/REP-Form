@@ -10,7 +10,7 @@
   "instruction.help": "Instructions pour compléter les sections du formulaire",
   "load.file": "Télécharger un formulaire de demande de fiche maîtresse",
   "select.file": "Sélectionnez un fichier à télécharger",
-  "choose.file":"Choisir le fichier",
+  "choose.file":"Choisir un fichier",
   "no.file.chosen": "Aucun fichier choisi",
   "refresh.file.input": "Actualisez cette page",
   "master.file.enrolment": "fr_Regulatory Master File Transaction and Application Enrolment",

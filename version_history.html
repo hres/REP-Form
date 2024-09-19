@@ -1,524 +1,403 @@
-<!DOCTYPE html><!--[if lt IE 9]>
-<html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
-<html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
-<head>
-    <meta charset="utf-8">
-    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
-    wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title>Regulatory Enrolment Process (REP) Template Revision History</title>
-    <meta content="width=device-width,initial-scale=1" name="viewport">
-    <!-- Meta data -->
-    <meta name="description"
-          content="Web Experience Toolkit (WET) includes reusable components for building and maintaining innovative Web sites that are accessible, usable, and interoperable. These reusable components are open source software and free for use by departments and external Web communities">
-    <!-- Meta data-->
-    <!--[if gte IE 9 | !IE ]><!-->
-    <link href="./GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon">
-    <link rel="stylesheet" href="./GCWeb/css/theme.min.css">
-    <!--<![endif]-->
-    <!--[if lt IE 9]>
-    <link href="./GCWeb/assets/favicon.ico" rel="shortcut icon"/>
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Regulatory Enrolment Process (REP) Template Revision History</title>
+		<meta content="width=device-width,initial-scale=1" name="viewport">
+		<!-- Meta data -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="content-security-policy" content="script-src 'self' 'unsafe-inline' www.canada.ca; img-src 'self' www.canada.ca; font-src 'self' www.canada.ca maxcdn.bootstrapcdn.com fonts.gstatic.com; style-src 'self' www.canada.ca maxcdn.bootstrapcdn.com 'unsafe-inline'; default-src 'self' www.canada.ca; ">
+		<meta name="author" content="Health Canada" />
+		<meta property="dcterms.creator" content="Government of Canada, Health Canada">
+		<meta property="dcterms.modified" title="W3CDTF" content="2024-09-11">
+		<meta property="dcterms.language" title="ISO639-2/T" content="eng">
+		<!-- build:metaData-en.html -->
+		<!-- Meta data-->
+		<!-- Load closure template scripts -->
+		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_0/cdts/compiled/soyutils.js"></script>
+		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_0/cdts/compiled/wet-en.js"></script>
+		<noscript>
+			<!-- Write closure fall-back static file -->
+			<!-- build:refTop.html -->
+		</noscript>
+		<!-- Write closure template -->
+		<!-- cssIncludes -->
+		<script>
+			document.write(wet.builder.refTop({
+				"cdnEnv": "prod"
+			}));
+		</script>
+	</head>
+	<body vocab="https://schema.org/" typeof="WebPage">
+		<div id="def-top">
+			<!-- Write closure fall-back static file -->
+			<!-- build:top-en.html -->
+		</div>
+		<!-- Write closure template -->
+		<script>
+			var defTop = document.getElementById("def-top");
+			defTop.outerHTML = wet.builder.top({
+				"lngLinks": [{
+					"lang": "fr",
+					"href": "historique_revisions.html",
+					"text": "Français"
+				}],
+				"breadcrumbs": [{
+					"title": "Canada.ca",
+					"href": "https://www.canada.ca/en.html"
+				}, {
+					"title": "Departments and agencies",
+					"href": "https://www.canada.ca/en/government/dept.html"
+				}, {
+					"title": "Health Canada",
+					"href": "https://www.canada.ca/en/health-canada.html"
+				}],
+				"cdnEnv": "prod"
+			});
+		</script>
+		<main property="mainContentOfPage" typeof="WebPageElement" class="container">
+			<!--content starts here -->
+			<h1 property="name" id="wb-cont">Regulatory Enrolment Process (REP) Template Revision History</h1>
+			<p>This page outlines changes related to the Regulatory Enrolment Process (REP) templates. Should you have any questions regarding the content of this page, please contact <a href="mailto:ereview@hc-sc.gc.ca" lang="en">ereview@hc-sc.gc.ca</a>.</p>
+			<p><div class="alert alert-info"><p>In order to access the most up-to-date version of the template, please be reminded to delete your cache frequently and “refresh” the template links on your web browser prior to each use.</p></div></p>
 
-    <link rel="stylesheet" href="./GCWeb/css/ie8-theme.min.css"/>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="./wet-boew/js/ie8-wet-boew.min.js"></script>
-    <![endif]-->
-    <!--[if lte IE 9]>
-
-
-    <![endif]-->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/rep.css ">
-    <noscript>
-        <link rel="stylesheet" href="./wet-boew/css/noscript.min.css"/>
-    </noscript>
-    <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
-    <script>dataLayer1 = [];</script>
-    <!-- End Google Tag Manager -->
-</head>
-<body vocab="http://schema.org/" typeof="WebPage">
-<!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
-<noscript>
-    <iframe title="Google Tag Manager" src="//www.googletagmanager.com/ns.html?id=GTM-TLGQ9K" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe>
-</noscript>
-<script>(function (w, d, s, l, i) {
-    w[l] = w[l] || [];
-    w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-    var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer1' ? '&l=' + l : '';
-    j.async = true;
-    j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-    f.parentNode.insertBefore(j, f);
-})(window, document, 'script', 'dataLayer1', 'GTM-TLGQ9K');</script>
-<!-- End Google Tag Manager -->
-<ul id="wb-tphp">
-    <li class="wb-slc">
-        <a class="wb-sl" href="#wb-cont">Skip to main content</a>
-    </li>
-    <li class="wb-slc visible-sm visible-md visible-lg">
-        <a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
-    </li>
-</ul>
-<header role="banner">
-    <div id="wb-bnr" class="container">
-        <section id="wb-lng" class="visible-md visible-lg text-right">
-            <h2 class="wb-inv">Language selection</h2>
-
-            <div class="row">
-                <div class="col-md-12">
-					<ul class="list-inline margin-bottom-none">
-						<li><a lang="fr" href="historique_révisions.html">Français</a></li>
-					</ul>
-                </div>
-            </div>
-        </section>
-        <div class="row">
-            <div class="brand col-xs-8 col-sm-9 col-md-6">
-                <a href="http://www.canada.ca/en/index.html">
-                    <object type="image/svg+xml" tabindex="-1" data="./GCWeb/assets/sig-blk-en.svg"></object>
-                    <span class="wb-inv"> Government of Canada</span></a>
-            </div>
-            <section class="wb-mb-links col-xs-4 col-sm-3 visible-sm visible-xs" id="wb-glb-mn">
-                <h2>Search and menus</h2>
-                <ul class="list-inline text-right chvrn">
-                    <li><a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk"
-                           role="button"><span class="glyphicon glyphicon-search"><span
-                            class="glyphicon glyphicon-th-list"><span
-                            class="wb-inv">Search and menus</span></span></span></a></li>
-                </ul>
-                <div id="mb-pnl"></div>
-            </section>
-            <section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg">
-                <h2>Search</h2>
-                <form action="#" method="post" name="cse-search-box" role="search" class="form-inline">
-                    <div class="form-group">
-                        <label for="wb-srch-q" class="wb-inv">Search website</label>
-                        <input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search"
-                               value="" size="27" maxlength="150" placeholder="Search Canada.ca">
-                        <datalist id="wb-srch-q-ac">
-                            <!--[if lte IE 9]><select><![endif]-->
-                            <!--[if lte IE 9]></select><![endif]-->
-                        </datalist>
-                    </div>
-                    <div class="form-group submit">
-                        <button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub">
-                            <span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
-                    </div>
-                </form>
-            </section>
-        </div>
-    </div>
-    <nav role="navigation" id="wb-sm" data-ajax-replace="./ajax/sitemenu-en.html" data-trgt="mb-pnl"
-         class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
-        <div class="container nvbar">
-            <h2>Topics menu</h2>
-
-            <div class="row">
-                <ul class="list-inline menu">
-                    <li><a href="http://www.esdc.gc.ca/en/jobs/index.page">Jobs</a></li>
-                    <li><a href="http://www.cic.gc.ca/english/index.asp">Immigration</a></li>
-                    <li><a href="http://travel.gc.ca">Travel</a></li>
-                    <li><a href="http://www.canada.ca/en/services/business/index.html">Business</a></li>
-                    <li><a href="http://www.canada.ca/en/services/benefits/index.html">Benefits</a></li>
-                    <li><a href="http://healthycanadians.gc.ca/index-eng.php">Health</a></li>
-                    <li><a href="http://www.canada.ca/en/services/taxes/index.html">Taxes</a></li>
-                    <li><a href="http://www.canada.ca/en/services/index.html">More services</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <nav role="navigation" id="wb-bc" property="breadcrumb">
-        <h2>You are here:</h2>
-
-        <div class="container">
-            <div class="row">
-                <ol class="breadcrumb">
-                    <li><a href="https://lam-dev.hres.ca/rep-dev/index.html">Home</a></li>
-                </ol>
-            </div>
-        </div>
-    </nav>
-</header>
-<main role="main" property="mainContentOfPage" class="container">
-
-
-    <!--content starts here -->
-    <div>
-        <div class="row">
-            <h1 property="name" id="wb-cont">Regulatory Enrolment Process (REP) Template Revision History</h1>
-        </div>
-        <div>
-            <div class="row">
-                <p>Health Canada has updated the Regulatory Enrolment Process (REP) templates to reflect process changes and improvements. Refer to the Guidance Document: Regulatory Enrolment Process (REP) – Drugs for Human and Veterinary Use and Disinfectants for more information on the templates.</p>
-                <br>
-                <p>Should you have any questions regarding the content of this document, please contact <a href="mailto:ereview@hc-sc.gc.ca" lang="en">ereview@hc-sc.gc.ca</a>.</p>
-            </div>
-            <br>
-            <div class="alert alert-info">
-                <p>In order to access the most up-to-date version of the template, please be reminded to delete your cache frequently and “refresh” the template links on your web browser prior to each use.</p>
-            </div>
-            <div class="row">
-				<h3>May 1, 2024 Release</h3>
-			</div>
-			<div class="row">
-				<table class="col-md-12">
-					<tr>
-						<th class="col-md-3">Template</th>
-						<th class="col-md-9">Change</th>
-					</tr>
-					<tr>
-						<td class="col-md-3">Regulatory Transaction (RT) Template <br> <strong>Version 4.4.2</strong></td>
-						<td class="col-md-9">
-							<ul>
-								<li>Updated the definition for Regulatory Activity Type Undefined Regulatory Activity (UDRA)</li>
-                                <li>Updated the picklist options for Regulatory Transaction Description when UDRA is selected as the Regulatory Activity Type</li>
-                                <li>Added definitions for all picklist options for Regulatory Transaction Description when UDRA is selected as the Regulatory Activity Type</li>
-								<li>Updated Regulatory Transaction Description for Discontinuation of Sale Notification and Notification for Interruption of Sale</li>
-								<li>Added definitions for Discontinuation of Sale Notification and Notification for Interruption of Sale</li>
-								<li>Updated the Regulatory Activity Type that appear with the Regulatory Transaction Description for Discontinuation of Sale Notification and Notification for Interruption of Sale</li>
-                            </ul>
-						</td>
-					</tr>
-				</table>
-			</div>	
-			<div class="row">
-				<h3>February 12, 2024 Release</h3>
-			</div>
-			<div class="row">
-				<table class="col-md-12">
-					<tr>
-						<th class="col-md-3">Template</th>
-						<th class="col-md-9">Change</th>
-					</tr>
-					<tr>
-						<td class="col-md-3">Product Information (PI) Template</td>
-						<td class="col-md-9">
-							<ul>
-								<li>Added the Pediatric Pilot Survey</li>
-							</ul>
-						</td>
-					</tr>
-				</table>
-			</div>		
 			
-            <div class="row">
-                <h3>February 28, 2023 Release</h3>
-            </div>
 
+			
+			<h3>October 2, 2024 Release</h3>
+			
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th scope="col">Template</th>
+							<th scope="col">Change</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="col-md-3">Regulatory Transaction (RT) Template<br>Version 4.4.3</td>
+							<td class="col-md-9">
+								<ul>
+									<li>Updated instructions for Control Number</li>
+									<li>Removed Regulatory Activity Lead field for Veterinary dossier</li>
+									<li>Changed Regulatory Activity Lead from Post-Market Vigilance to Post-Market Vigilance (for Marketed Health Products Directorate)</li>
+									<li>Added definitions for various regulatory activity types</li>
+									<li>Added new Regulatory Activity Type Notification of Foreign Action (NFA-PV)</li>
+									<li>Removed the Regulatory Activity Type New Drug Submission with flexibilities for Designated COVID-19 Drugs (NDS CV) from Veterinary Dossier</li>
+									<li>Added the Regulatory Transaction Descriptions: Final Risk Communication Document, Immediate Notification and Request Review Reports</li>
+									<li>Updated info bubble for the third party authorization section</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			<h3>May 1, 2024 Release</h3>
+			
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th scope="col">Template</th>
+							<th scope="col">Change</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="col-md-3">Regulatory Transaction (RT) Template<br>Version 4.4.2</td>
+							<td class="col-md-9">
+								<ul>
+									<li>Updated the definition for Regulatory Activity Type Undefined Regulatory Activity (UDRA)</li>
+									<li>Updated the picklist options for Regulatory Transaction Description when UDRA is selected as the Regulatory Activity Type</li>
+									<li>Added definitions for all picklist options for Regulatory Transaction Description when UDRA is selected as the Regulatory Activity Type</li>
+									<li>Updated Regulatory Transaction Description for Discontinuation of Sale Notification and Notification for Interruption of Sale</li>
+									<li>Added definitions for Discontinuation of Sale Notification and Notification for Interruption of Sale</li>
+									<li>Updated the Regulatory Activity Type that appear with the Regulatory Transaction Description for Discontinuation of Sale Notification and Notification for Interruption of Sale</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td class="col-md-3">Stylesheet Package</td>
+							<td class="col-md-9">
+								<ul>
+									<li>New RT stylesheet to match changes to REP RT template</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			<h3>February 12, 2024 Release</h3>
+			
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th scope="col">Template</th>
+							<th scope="col">Change</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="col-md-3">Product Information (PI) Template</td>
+							<td class="col-md-9">
+								<ul>
+									<li>Added the Pediatric Pilot Survey</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			<h3>February 28, 2023 Release</h3>
+			
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th scope="col">Template</th>
+							<th scope="col">Change</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="col-md-3">Regulatory Transaction (RT) Template</td>
+							<td class="col-md-9">
+								<ul>
+									<li>Updated email address in the Privacy Notice Statement</li>
+									<li>Updated veterinary drugs email address in instructions</li>
+									<li>Increased character limit allowed for Product Name</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td class="col-md-3">Product Information (PI) Template</td>
+							<td class="col-md-9">
+								<ul>
+									<li>Updated email address in the Privacy Notice Statement</li>
+									<li>Updated veterinary drugs email address in instructions</li>
+									<li>Increased character limit allowed for Product Name</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td class="col-md-3">Stylesheet Package</td>
+							<td class="col-md-9">
+								<ul>
+									<li>New RT and PI version 4.4 stylesheets to match changes to REP RT and PI templates</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			<h3>January 4, 2023 Release</h3>
+			
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th scope="col">Template</th>
+							<th scope="col">Change</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="col-md-3">Company (CO) Template</td>
+							<td class="col-md-9">
+								<ul>
+									<li>Added text regarding fax number</li>
+									<li>Updated email address in the Privacy Notice Statement</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			<h3>October 1, 2022 Release</h3>
+			
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th scope="col">Template</th>
+							<th scope="col">Change</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="col-md-3">Regulatory Transaction (RT) Template</td>
+							<td class="col-md-9">
+								<ul>
+									<li>Updated the Pharmaceutical Drugs Directorate name</li>
+									<li>Removal of the fee amounts</li>
+									<li>Updated the instructions regarding the fees</li>
+									<li>Removal of Regulatory Activity Type “DSUR (Developmental Safety Update Report)”</li>
+									<li>Removal of Regulatory Transaction Description “Second Language PM & Final Package Insert” and “Second Language Product Monograph”</li>
+									<li>Added new Regulatory Transaction Description “Product Labelling-Post approval”</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td class="col-md-3">Product Information (PI) Template</td>
+							<td class="col-md-9">
+								<ul>
+									<li>Updated instructions for Cross-licensed Product</li>
+									<li>Removal of the rule requiring at least one medical ingredient in a formulation</li>
+									<li>Updated instructions for dilutes, adjuvants and placebos</li>
+									<li>Added disaggregated data questions</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td class="col-md-3">Stylesheet Package</td>
+							<td class="col-md-9">
+								<ul>
+									<li>New RT and PI version 4.4 stylesheets to match changes to REP RT and PI templates.</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			<h3>March 1, 2022 Release</h3>
+			
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th scope="col">Template</th>
+							<th scope="col">Change</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="col-md-3">Regulatory Transaction (RT) Template</td>
+							<td class="col-md-9">
+								<ul>
+									<li>Updated fees as per section 4.1 of the Fees in Respect of Drugs and Medical Devices Order.</li>
+									<li>Added Submission Class – “Labelling only - with administrative component”</li>
+									<li>Added new Regulatory Activity “Protocol Review” and associated transaction descriptions for dossier type “veterinary”</li>
+									<li>Updated instructions for various fields and added further descriptions for fields.</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td class="col-md-3">Product Information (PI) Template</td>
+							<td class="col-md-9">
+								<ul>
+									<li>Added “Administrative component” question and reason for administrative component picklist.</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td class="col-md-3">Stylesheet Package</td>
+							<td class="col-md-9">
+								<ul>
+									<li>New RT and PI version 4.3 stylesheets to match changes to REP RT and PI templates.</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			<h3>November 22, 2021 Release</h3>
+			
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th scope="col">Template</th>
+							<th scope="col">Change</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="col-md-3">Company (CO) Template</td>
+							<td class="col-md-9">
+								<ul>
+									<li>Added the “Submit to Health Canada” button to generate email template. Refer to section 2.3 of the REP guidance document for more information.</li>
+									<li>Removed Primary REP contact role.</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			<h3>May 3, 2021 Release</h3>
+			
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th scope="col">Template</th>
+							<th scope="col">Change</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="col-md-3">Company (CO) Template</td>
+							<td class="col-md-9">
+								<ul>
+									<li>Added “Reason for Filing” field. Refer to instruction on CO template for more information.</li>
+									<li>Removed importer company role and importer contact role Refer to section 3 of the REP guidance document for more information.</li>
+									<li>Updated instructions for various fields.</li>
+									<li>Revised “Country” picklist.</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td class="col-md-3">Regulatory Transaction (RT) Template</td>
+							<td class="col-md-9">
+								<ul>
+									<li>Updated picklist option for “Dossier Type”, “Regulatory Activity Lead”, “Regulatory Activity Types” and “Associated Transaction Descriptions” to incorporate veterinary drugs.</li>
+									<li>Updated instructions for various fields to include veterinary drugs.</li>
+									<li>Updated instructions for various fields and added further descriptions for fields.</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td class="col-md-3">Product Information (PI) Template</td>
+							<td class="col-md-9">
+								<ul>
+									<li>Resolved bugs</li>
+									<li>Added option for proprietary information under the formulation section and revised associated requirements for non-medicinal ingredient. Refer to section 5 of the REP guidance document for more information.</li>
+									<li>Revised “Calculated as Base” picklist to include the option “ingredient is not a salt”.</li>
+									<li>Updated instructions for various fields.</li>
+									<li>Removed HC6-024 prefix from “Dossier Identifier” field.</li>
+									<li>Removed Importer Company Identifier” field.</li>
+									<li>Updated instructions for various fields specific to veterinary drugs.</li>
+									<li>Revised “Country” picklist.</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td class="col-md-3">Stylesheet Package</td>
+							<td class="col-md-9">
+								<ul>
+									<li>New CO and PI version 4.2 stylesheets to match changes to REP CO and PI templates.</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 
-            <div class="row">
-                <table class="col-md-12">
-                    <tr>
-                        <th class="col-md-3">Template</th>
-                        <th class="col-md-9">Change</th>
-                    </tr>
-                    <tr>
-                        <td class="col-md-3">Regulatory Transaction (RT) Template
-                        </td>
-                        <td class="col-md-9">
-                            <ul>
-                                <li>Updated email address in the Privacy Notice Statement</li>
-                                <li>Updated veterinary drugs email address in instructions</li>
-                                <li>Increased character limit allowed for Product Name</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-3">Product Information (PI) Template
-                        </td>
-                        <td class="col-md-9">
-                            <ul>
-                                <li>Updated email address in the Privacy Notice Statement</li>
-                                <li>Updated veterinary drugs email address in instructions</li>
-                                <li>Increased character limit allowed for Product Name</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-3">Stylesheet Package
-                        </td>
-                        <td class="col-md-9">
-                            <ul>
-                                <li>New RT and PI version 4.4.1 stylesheets to match changes to REP RT and PI templates</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="row">
-                <h3>January 4, 2023 Release</h3>
-            </div>
-
-            <div class="row">
-                <table class="col-md-12">
-                    <tr>
-                        <th class="col-md-3">Template</th>
-                        <th class="col-md-9">Change</th>
-                    </tr>
-                    <tr>
-                        <td class="col-md-3">Company (CO) Template
-                        </td>
-                        <td class="col-md-9">
-                            <ul>
-                                <li>Added text regarding fax number </li>
-                                <li>Updated email address in the Privacy Notice Statement </li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="row">
-                <h3>October 1, 2022 Release</h3>
-            </div>
-
-            <div class="row">
-                <table class="col-md-12">
-                    <tr>
-                        <th class="col-md-3">Template</th>
-                        <th class="col-md-9">Change</th>
-                    </tr>
-                    <tr>
-                        <td class="col-md-3">Regulatory Transaction (RT) Template
-                        </td>
-                        <td class="col-md-9">
-                            <ul>
-                                <li>Updated the Pharmaceutical Drugs Directorate name </li>
-                                <li>Removal of the fee amounts </li>
-                                <li>Updated the instructions regarding the fees</li>
-                                <li>Removal of Regulatory Activity Type “DSUR (Developmental Safety Update Report)”</li>
-                                <li>Removal of Regulatory Transaction Description “Second Language PM & Final Package Insert” and “Second Language Product Monograph”</li>
-                                <li>Added new Regulatory Transaction Description “Product Labelling-Post approval” </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-3">Product Information (PI) Template
-                        </td>
-                        <td class="col-md-9">
-                            <ul>
-                                <li>Updated instructions for Cross-licensed Product</li>
-                                <li>Removal of the rule requiring at least one medical ingredient in a formulation</li>
-                                <li>Updated instructions for dilutes, adjuvants and placebos</li>
-                                <li>Added disaggregated data questions</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-3">Stylesheet Package
-                        </td>
-                        <td class="col-md-9">
-                            <ul>
-                                <li>New RT and PI version 4.4 stylesheets to match changes to REP RT and PI templates.</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="row">
-                <h3>March 1, 2022 Release</h3>
-            </div>
-
-            <div class="row">
-                <table class="col-md-12">
-                    <tr>
-                        <th class="col-md-3">Template</th>
-                        <th class="col-md-9">Change</th>
-                    </tr>
-                    <tr>
-                        <td class="col-md-3">Regulatory Transaction (RT) Template [in effect April 1, 2022]
-                        </td>
-                        <td class="col-md-9">
-                            <ul>
-                                <li>Updated fees as per section 4.1 of the Fees in Respect of Drugs and Medical Devices Order.</li>
-                                <li>Added Submission Class – “Labelling only - with administrative component”</li>
-                                <li>Added new Regulatory Activity “Protocol Review” and associated transaction descriptions for dossier type “veterinary”</li>
-                                <li>Updated instructions for various fields and added further descriptions for fields.</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-3">Product Information (PI) Template
-                        </td>
-                        <td class="col-md-9">
-                            <ul>
-                                <li>Added “Administrative component” question and reason for administrative component picklist.</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-3">Stylesheet Package
-                        </td>
-                        <td class="col-md-9">
-                            <ul>
-                                <li>New RT and PI version 4.3 stylesheets to match changes to REP RT and PI templates.</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="row">
-                <h3>November 22, 2021 Release</h3>
-            </div>
-
-            <div class="row">
-                <table class="col-md-12">
-                    <tr>
-                        <th class="col-md-3">Template</th>
-                        <th class="col-md-9">Change</th>
-                    </tr>
-                    <tr>
-                        <td class="col-md-3">Company (CO) Template
-                        </td>
-                        <td class="col-md-9">
-                            <ul>
-                                <li>Added the “Submit to Health Canada” button to generate email template. Refer to section 2.3 of the REP guidance document for more information.</li>
-                                <li>Removed Primary REP contact role.</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="row">
-                <h3>May 3, 2021 Release</h3>
-            </div>
-
-            <div class="row">
-                <table class="col-md-12">
-                    <tr>
-                        <th class="col-md-3">Template</th>
-                        <th class="col-md-9">Change</th>
-                    </tr>
-                    <tr>
-                        <td class="col-md-3">Company (CO) Template
-                        </td>
-                        <td class="col-md-9">
-                            <ul>
-                                <li>Added “Reason for Filing” field. Refer to instruction on CO template for more information.</li>
-                                <li>Removed importer company role and importer contact role Refer to section 3 of the REP guidance document for more information.</li>
-                                <li>Updated instructions for various fields.</li>
-                                <li>Revised “Country” picklist.</li>
-                            </ul>
-                       </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-3">Regulatory Transaction (RT) Template
-                        </td>
-                        <td class="col-md-9">
-                            <ul>
-                                <li>Updated picklist option for “Dossier Type”, “Regulatory Activity Lead”, “Regulatory Activity Types” and “Associated Transaction Descriptions” to incorporate veterinary drugs.</li>
-                                <li>Updated instructions for various fields to include veterinary drugs.</li>
-                                <li>Updated instructions for various fields and added further descriptions for fields.</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-3">Product Information (PI) Template
-                        </td>
-                        <td class="col-md-9">
-                            <ul>
-                                <li>Resolved bugs</li>
-                                <li>Added option for proprietary information under the formulation section and revised associated requirements for non-medicinal ingredient. Refer to section 5 of the REP guidance document for more information.</li>
-                                <li>Revised “Calculated as Base” picklist to include the option “ingredient is not a salt”.</li>
-                                <li>Updated instructions for various fields.</li>
-                                <li>Removed HC6-024 prefix from “Dossier Identifier” field.</li>
-                                <li>Removed Importer Company Identifier” field.</li>
-                                <li>Updated instructions for various fields specific to veterinary drugs.</li>
-                                <li>Revised “Country” picklist.</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-3">Stylesheet Package
-                        </td>
-                        <td class="col-md-9">
-                            <ul>
-                                <li>New CO and PI version 4.2 stylesheets to match changes to REP CO and PI templates.</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="datemod col-xs-12 mrgn-tp-lg">
-        <dl id="wb-dtmd">
-            <dt>Date modified: 2024-02-12</dt>
-        </dl>
-    </div>
-</main>
-<!--<aside class="gc-nttvs container">-->
-<!--<h2>Government of Canada activities and initiatives</h2>-->
-
-<!--<div id="gcwb_prts" class="wb-eqht row wb-init wb-data-ajax-replace-inited wb-eqht-inited"-->
-<!--data-ajax-append="https://cdn.canada.ca/gcweb-cdn-live/features/features-en.html">-->
-
-<!--</div>-->
-<!--</aside>-->
-<footer role="contentinfo" id="wb-info">
-    <nav role="navigation" class="container wb-navcurr">
-        <h2 class="wb-inv">About government</h2>
-        <ul class="list-unstyled colcount-sm-2 colcount-md-3">
-            <li><a href="https://www.canada.ca/en/contact.html">Contact us</a></li>
-            <li><a href="https://www.canada.ca/en/government/dept.html">Departments and agencies</a></li>
-            <li><a href="https://www.canada.ca/en/government/publicservice.html">Public service and military</a></li>
-            <li><a href="http://news.gc.ca/">News</a></li>
-            <li><a href="https://www.canada.ca/en/government/system/laws.html">Treaties, laws and regulations</a></li>
-            <li><a href="https://www.canada.ca/en/transparency/reporting.html">Government-wide reporting</a></li>
-            <li><a href="http://pm.gc.ca/eng">Prime Minister</a></li>
-            <li><a href="https://www.canada.ca/en/government/system.html">How government works</a></li>
-            <li><a href="http://open.canada.ca/en/">Open government</a></li>
-        </ul>
-    </nav>
-    <div class="brand">
-        <div class="container">
-            <div class="row">
-                <nav class="col-md-10 ftr-urlt-lnk">
-                    <h2 class="wb-inv">About this site</h2>
-                    <ul>
-                        <li><a href="https://www1.canada.ca/en/contact/feedback.html">Feedback</a></li>
-                        <li><a href="https://www.canada.ca/en/social.html">Social media</a></li>
-                        <li><a href="https://www.canada.ca/en/mobile.html">Mobile applications</a></li>
-                        <li><a href="http://www1.canada.ca/en/newsite.html">About Canada.ca</a></li>
-                        <li><a href="https://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></li>
-                        <li><a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a></li>
-                    </ul>
-                </nav>
-                <div class="col-xs-6 visible-sm visible-xs tofpg">
-                    <a href="#wb-cont">Top of Page <span class="glyphicon glyphicon-chevron-up"></span></a>
-                </div>
-                <div class="col-xs-6 col-md-2 text-right">
-                    <object type="image/svg+xml" tabindex="-1" role="img" data="./GCWeb/assets/wmms-blk.svg"
-                            aria-label="Symbol of the Government of Canada"></object>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<!--[if gte IE 9 | !IE ]><!-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-<script src="./wet-boew/js/wet-boew.min.js"></script>
-<!--<![endif]-->
-<!--[if lt IE 9]>
-<script src="./wet-boew/js/ie8-wet-boew2.min.js"></script>
-
-<![endif]-->
-<script src="./GCWeb/js/theme.min.js"></script>
-<!--Start add custom scripts here-->
-
-<!-- inject:js -->
-
-<!-- endinject -->
-<!-- thirdParty:js  -->
-
-<!-- endinject -->
-
-
-</body>
+			<!--content ends here -->
+			<div id="def-preFooter">
+				<!-- Write closure fall-back static file -->
+				<!-- build:preFooter-en.html -->
+			</div>
+			<!-- Write closure template -->
+			<script>
+				var defPreFooter = document.getElementById("def-preFooter");
+				defPreFooter.outerHTML = wet.builder.preFooter({
+					"dateModified": "2024-09-11",
+					"cdnEnv": "prod"
+				});
+			</script>
+		</main>
+		<div id="def-footer">
+			<!-- Write closure fall-back static file -->
+			<!-- build:footer-en.html -->
+		</div>
+		<!-- Write closure template -->
+		<script>
+			var defFooter = document.getElementById("def-footer");
+			defFooter.outerHTML = wet.builder.footer({
+				"cdnEnv": "prod"
+			});
+		</script>
+		<!-- Write closure template -->
+		<script>
+			document.write(wet.builder.refFooter({
+				"cdnEnv": "prod"
+			}));
+		</script>
+	</body>
 </html>
