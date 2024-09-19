@@ -33,7 +33,7 @@
   {"id":"B02-20190627-02","en":"PA-PV (Post-Authorization Commitments)","fr":"AA-VC (Engagements postérieurs à l'autorisation)"},
   {"id":"B02-20190627-03","en":"PSA-PV (Patient Safety/Advertising Ad-Hoc post-market request)","fr":"SPP-VC (Demande sur la sécurité des patients/publicité ad hoc après la commercialisation)"},
   {"id":"B02-20190627-04","en":"RC-PV (Risk Communication)","fr":"CR-VC (Communication des risques)"},
-  {"id":"B02-20190627-05","en":"REG-PV (Post-Authorization Act and Regulations)","fr":"REG-PV REG-VC (Loi et règlements après autorisation)"},
+  {"id":"B02-20190627-05","en":"REG-PV (Post-Authorization Act and Regulations)","fr":"REG-VC (Loi et règlements après autorisation)"},
   {"id":"B02-20190627-06","en":"SANDS-C (Supplement to a New Abbreviated Drug Submission - Confirmatory","fr":"SPADN-C (Supplément à une présentation abrégée de drogue nouvelle - Confirmation)"},
   {"id":"B02-20160819-01","en":"Post-DIN Notification","fr":"Avis après la délivrance d'un DDIN"},
   {"id":"B02-20190627-07","en":"EUANDS (Extraordinary Use Abbreviated New Drug Submission)","fr":"PADN-UE (Présentation abrégée de drogue nouvelle pour usage exceptionnel)"},
