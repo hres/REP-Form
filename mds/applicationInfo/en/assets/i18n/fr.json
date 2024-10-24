@@ -9,6 +9,8 @@
     "select.file": "Sélectionnez un fichier à charger",
     "load.file": "Charger un fichier d'inscription d’information sur les demandes d’homologation",
     "application-info.enrolment": "fr_Regulatory Application Information Enrolment",
+    "choose.file":"Choisir le fichier",
+    "no.file.chosen": "Aucun fichier choisi",
     "heading.app-info": "Information sur le demande d’homologation",
     "company.id": "Identifiant de la compagnie du fabricant",
     "dossier.id": "Numéro de dossier",
