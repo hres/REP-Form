@@ -7,6 +7,8 @@
     "top.instruction": "Instructions",
     "select.file": "Select a file to load",
     "load.file": "Load an Application Information Enrolment File",
+    "choose.file":"Choose File",
+    "no.file.chosen": "No file chosen",
     "application-info.enrolment": "Regulatory Application Information Enrolment",
     "heading.app-info": "Application Information",
     "company.id": "Manufacturer Company Identifier",
