@@ -8,6 +8,8 @@
   "load.file": "Load a Transaction Enrolment File",
   "select.file": "Select a file to load",
   "refresh.file.input": "Refresh this page",
+  "choose.file":"Choose File",
+  "no.file.chosen": "No file chosen",
   "error":"Error {{number}}:",
   "heading.transaction": "Regulatory Transaction Enrolment",
   "dossier.id": "Dossier Identifier (\"m\" followed by 6 numbers)",
