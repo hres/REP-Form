@@ -7,6 +7,8 @@
   "top.instruction": "Instructions",
   "PROTECTED_B": "Protégé \"B\" une fois rempli", 
   "load.file": "Charger le fichier d'inscription de la compagnie",
+  "choose.file":"Choisir le fichier",
+  "no.file.chosen": "Aucun fichier choisi",
   "company.enrolment": "Inscription d'une compagnie réglementaire",
   "company.id": "Identifiant de la compagnie",
   "select.file": "Sélectionnez un fichier à charger",

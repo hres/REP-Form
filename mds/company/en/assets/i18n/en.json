@@ -8,6 +8,8 @@
 
     "load.file": "Load a Company Enrolment File",
     "select.file": "Select a file to load",
+    "choose.file":"Choose File",
+    "no.file.chosen": "No file chosen",
     "company.enrolment": "Regulatory Company Enrolment",
     "company.id": "Company Identifier",
     "addressDetails.street": "Street Address",
