@@ -75,7 +75,7 @@
   "help.load.file.02": "Lorsque vous continuez avec une copie de travail, le format du fichier à charger doit être .hcsc.",
   "help.load.file.03": "Lors de la visualisation / mise à jour d'un fichier XML final, le format du fichier à charger doit être .xml.",
   "help.transaction.01": "L'identifiant de la compagnie doit être obtenu à partir du fichier XML final de la compagnie, émis par Santé Canada.",
-  "help.transaction.02": "L'identifiant du dossier peut être obtenu à partir du fichier XML du dossier final ou d'un autre document émis par Santé Canada. (par exemple : m178974) ",
+  "help.transaction.02": "L'identifiant du dossier peut être obtenu à partir du fichier XML du dossier final ou d'un autre document émis par Santé Canada. (par exemple : m178974)",
   "help.dossierId.01": "Identifiant de dossier - L'identifiant de dossier est un code créé par Santé Canada pour identifier le dossier de façon unique. Si un ID de dossier n’a pas encore été attribué, les fabricants promoteurs doivent en faire la demande en remplissant le formulaire de demande d’ID de dossier de l’instrument médical.",
   "help.dossierId.02": "Le format de l'identifiant de dossier est composé d'un « m » minuscule suivie de six chiffres (par exemple m######). ",
   "help.contactId": "Toute correspondance réglementaire sera envoyée à ce contact, mais la licence sera livrée au fabricant. Une demande d'homologation de l'instrument médical peut être soumise par un tiers.",
