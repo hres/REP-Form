@@ -83,7 +83,10 @@
     "auth.id":"ID d'autorisation ",
     "standards.list": "Normes reconnues respectées dans la fabrication de l'instrument",
     "conformity.declaration": "Le formulaire de déclaration de conformité (disponible sur le site Web de Santé Canada) confirme que le ou les instruments médicaux sont conformes aux normes reconnues ou à des normes équivalentes ou supérieures",
-    "declaration.instruct": "Santé Canada ne peut pas traiter votre demande d'homologation d'instruments médicaux sans la déclaration de conformité",
+    "declaration.instruct1": "Au lieu d'une déclaration de conformité confirmant que le(s) instrument(s) concerné(s) est (sont) fabriqué(s) conformément à des normes reconnues, des informations détaillées doivent être fournies dans la section correspondante de la structure du dossier IMDRF comme preuve que le(s) instrument(s) est (sont) conforme(s) à une norme équivalente ou supérieure.",
+    "declaration.instruct2": "Par ailleurs, si le(s) instrument(s) en question NE sont PAS conformes à une norme reconnue, équivalente ou supérieure, des informations détaillées doivent être fournies comme preuve de la sûreté et de l'efficacité de ces instruments, conformément au document d'orientation sur ",
+    "declaration.instruct.link": "https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/instruments-medicaux/information-demandes/lignes-directrices/ligne-directrice-reconnaissance-utilisation-normes-vertu-reglement-instruments-medicaux.html",
+    "declaration.instruct.tite": "la reconnaissance et l'utilisation des normes dans le cadre du règlement sur les instruments médicaux.",
     "containing.material": "Instruments contenant du matériel biologique",
     "commmon.required.bracket": " (obligatoire)",
     "consist.recombinant": "Cet instrument est-il constitué de matériel recombinant?",
@@ -150,7 +153,7 @@
     "help.device.class_2": " Ligne directrice - Orientation sur le système de classification fondé sur le risque des instruments autres que les instruments diagnostiques in vitro (IDIV)",
     "help.confm.declar_1": "https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/instruments-medicaux/information-demandes/formulaires/declaration-conformite-formulaires-instruments-medicaux.html",
     "help.confm.declar_2": "Déclaration de la conformité",
-    "help.priority.rev": "La section suivante doit être remplie par les fabricants qui souhaitent demander un examen prioritaire pour leur application afin d'assurer un examen rapide des nouveaux dispositifs médicaux critiques pour les maladies ou affections graves, potentiellement mortelles ou gravement débilitantes. Les fabricants seront informés lors de la présélection de l'acceptation si leur demande a été acceptée pour un examen prioritaire."
-    
+    "help.priority.rev": "La section suivante doit être remplie par les fabricants qui souhaitent demander un examen prioritaire pour leur application afin d'assurer un examen rapide des nouveaux dispositifs médicaux critiques pour les maladies ou affections graves, potentiellement mortelles ou gravement débilitantes. Les fabricants seront informés lors de la présélection de l'acceptation si leur demande a été acceptée pour un examen prioritaire.",
+    "alert.info": "Informations d'alerte"
     
   }
