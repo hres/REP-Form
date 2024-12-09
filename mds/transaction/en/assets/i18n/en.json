@@ -75,7 +75,7 @@
   "help.load.file.02": "When continuing with a working copy, the format of the file to load should be .hcsc.",
   "help.load.file.03": "When viewing/updating a final XML file, the format of the file to load should be .xml.",
   "help.transaction.01": "The Company identifier must be obtained from the final company XML file, issued by Health Canada.",
-  "help.transaction.02": "The Dossier identifier can be obtained from the final dossier XML file or other Health Canada issued document.(e.g. m178974).",
+  "help.transaction.02": "The Dossier identifier can be obtained from the final dossier XML file or other Health Canada issued document (e.g. m178974).",
   "help.dossierId.01": "The dossier identifier is a code created by Health Canada to uniquely identify the dossier.  If a dossier ID has not yet been assigned, manufacturers must request for one using the medical device dossier ID request form.",
   "help.dossierId.02": "The format of a Dossier Identifier is a lowercase \"m\" followed by six digits. (e.g. m######).",
   "help.contactId": "All regulatory correspondence will be sent to this contact, but the licence will be issued to the Manufacturer. A medical device licence application can be submitted by a third party.",
