@@ -1,0 +1,27 @@
+[
+    {
+        "id":"GOVERMENT_ORGANIZATION",
+        "en":"Government Organization",
+        "fr":"Organisation gouvernementale"
+    },
+    {
+        "id":"ISAD",
+        "en":"Previously filed under ISAD Interim Order",
+        "fr":"Précédemment déposé en vertu de l'ordonnance provisoire de l'ISAD"
+    },
+    {
+        "id":"FUNDED_INSTITUTION",
+        "en":"Publicly Funded Health Care Institution",
+        "fr":"Établissement public de soins de santé"
+    },
+    {
+        "id":"SMALL_BUSINESS",
+        "en":"Small Business",
+        "fr":"Petite entreprise"
+    },
+    {
+        "id":"URGENT_HEALTH_NEED",
+        "en":"Urgent Public Health Need Drug",
+        "fr":"Médicament utilisé pour des besoins urgents en matière de santé publique"
+    }
+]

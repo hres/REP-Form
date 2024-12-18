@@ -1,0 +1,37 @@
+[
+    {
+        "id": "B14-20160301-09",
+        "en": "Pharmaceutical",
+        "fr": "Pharmaceutique",
+        "defEn": "Pharmaceutical: Includes all regulatory activities and transactions for prescription pharmaceuticals and ethical products under the Pharmaceutical Drugs Directorate (PDD) mandate. This lead is not applicable for non-prescription pharmaceutical or disinfectant products or post-market vigilance regulatory activities.",
+        "defFr": "Pharmaceutique: comprend toutes les activités et transactions réglementaires relatives aux produits pharmaceutiques sur ordonnance et aux produits éthiques sous le mandat de la Direction des médicaments pharmaceutiques (DMP).Cette piste ne s'applique pas aux produits pharmaceutiques ou désinfectants sans ordonnance ni aux activités de réglementation de la vigilance post-commercialisation. "
+    },
+    {
+        "id": "B14-20160301-02",
+        "en": "Biological",
+        "fr": "Biologique",
+        "defEn": "Biological: Includes all regulatory activities and transactions under the Biologics and Radiopharmaceutical Drugs Directorate (BRDD) mandate (biologics/radiopharmaceuticals).",
+        "defFr": "Biologique: Comprend toutes les activités et transactions de réglementation relevant du mandat de la Direction des produits biologiques et des médicaments radiopharmaceutiques (DMBR) (produits biologiques / radiopharmaceutiques)."
+    },
+    {
+        "id": "B14-20160301-10",
+        "en": "Post-Market Vigilance (for Marketed Health Products Directorate(MHPD))",
+        "fr": "Vigilance après la commercialisation (pour la Direction des produits de santé commercialisés(DPSC))",
+        "defEn": "Post-Market Vigilance (for Marketed Health Products Directorate(MHPD)): Includes all regulatory activities and transactions under the Marketed Health Products Directorate (MHPD) mandate (prescription and non-prescription pharmaceuticals for human use, biologics, radiopharmaceuticals).",
+        "defFr": "Vigilance post-commercialisation (pour la Direction des produits de santé commercialisés(DPSC)): Comprend toutes les activités et transactions réglementaires relevant du mandat de la Direction des produits de santé commercialisés (DPSC) (produits pharmaceutiques sur ordonnance et sans ordonnance à usage humain, produits biologiques, radiopharmaceutiques)"
+    },
+    {
+        "id": "B14-20160301-06",
+        "en": "Consumer Health Product",
+        "fr": "Produit de santé destinés aux consommateurs",
+        "defEn": "Consumer Health Products: Includes all regulatory activities and transactions for non-prescription pharmaceuticals and disinfectants under the Natural and Non-Prescription Health Products Directorate (NNHPD) mandate.",
+        "defFr": "Produit de santé destinés aux consommateurs: Comprend toutes les activités et transactions réglementaires concernant les produits pharmaceutiques et désinfectants sans ordonnance sous le mandat de la Direction des produits de santé naturels et sans ordonnance (DPSNSO)."
+    },
+    {
+        "id": "B14-20160301-11",
+        "en": "Veterinary ",
+        "fr": "Vétérinaire",
+        "defEn": "Veterinary: Includes all regulatory activities and transactions for prescription and non-prescription pharmaceuticals under the Veterinary Drugs Directorate (VDD) mandate.",
+        "defFr": "Vétérinaire: Comprend toutes les activités et transactions réglementaires relatives aux produits pharmaceutiques sur ordonnance et en vente libre sous le mandat de la Direction des médicaments vétérinaires (DMV)."
+    }
+]
