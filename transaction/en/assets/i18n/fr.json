@@ -13,6 +13,7 @@
     "dossier.name": "Nom du dossier",
     "product.name": "Nom du produit",
     "ctrl.num": "Numéro de contrôle",
+    "six.digits": "(6 chiffres)",
     "activity.lead": "Responsable de l’activité réglementaire",
     "is.ectd": "Est-ce une transaction eCTD?",
     "is.solicited": "Cette information est-elle sollicitée?",
@@ -97,8 +98,8 @@
     "certify.funded.health.institution.a": "autorisé, approuvé ou désigné par une province en conformité avec les lois de cette province pour fournir des soins ou des traitements à des personnes ou à des animaux souffrant de quelque maladie que ce soit ou",
     "certify.funded.health.institution.b": "la propriété du gouvernement du Canada ou est exploité par ce dernier ou par le gouvernement d’une province et fournit des soins de santé.",
     "certify.isad": "Nous certifions que nous avons déposé une demande pour un médicament COVID-19 désigné en vertu de l'ordonnance provisoire concernant l'importation, la vente et la publicité de médicaments à utiliser en relation avec le COVID-19 (ISAD), et qu'une soumission n'a pas été déposée auparavant pour approbation pour ce même médicament.",
-    "type.min": "La date de fin ne doit pas être antérieure à la date de début.",
-    "fee.pay.notice": "Sélectionnez la catégorie de frais pour votre présentation, supplément ou demande, le cas échéant. N'envoyez aucun paiement avec votre présentation, supplément ou demande. Santé Canada vérifiera le montant des frais et présentera une facture. Pour obtenir des renseignements sur le paiement des factures et les frais actuels, veuillez visiter le siteweb <a href='https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/financement-frais.html'>Financement et frais</a>.<br><br> Si votre présentation n'entraîne pas de frais, ou si Santé Canada ne vous a pas demandé de réviser la catégorie de frais, veuillez sélectionner « Sans objet ».",
+    "error.msg.endDate": "La date de fin ne doit pas être antérieure à la date de début.",
+    "fee.pay.notice": "Sélectionnez la catégorie de frais pour votre présentation, supplément ou demande, le cas échéant. N'envoyez aucun paiement avec votre présentation, supplément ou demande. Santé Canada vérifiera le montant des frais et présentera une facture. Pour obtenir des renseignements sur le paiement des factures et les frais actuels, veuillez visiter le siteweb <a href='https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/financement-frais.html'>Financement et frais</a>.<br><br> Si votre présentation n'entraîne pas de frais, ou si Santé Canada ne vous a pas demandé de réviser la catégorie de frais, veuillez sélectionner « Non applicable ».",
     "heading.mitigation.measures": "Mesures d'atténuation",
     
     "ht.load.file.2": "Lors de la production d’une copie de travail, le fichier doit être chargé en format .hcsc.",
@@ -134,11 +135,11 @@
     "ht.admin.sub.1": " ou la ",
     "ht.admin.sub.2": "Ligne directrice sur la gestion des présentations réglementaires des médicaments vétérinaires",
     "ht.admin.sub.2.url": "https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments-veterinaires/legislation-lignes-directrices/lignes-directrices/gestion-presentations-reglementaires.html",
-    "ht.act.lead.1": "Biologique: Comprend toutes les transactions et les activités appliquées pour les produits biologiques ou radiopharmaceutiques qui relèvent du mandat de la direction des médicaments biologiques et radiopharmaceutiques (anciennement connu sous le nom de la direction des médicaments biologiques et radiopharmaceutiques (DMBR).",
-    "ht.act.lead.4": "Produits de santé destinés aux consommateurs: Comprend toutes les transactions et activités d'activités pour les médicaments sans ordonnance qui relèvent du mandat de la Direction des produits de santé naturels et sans ordonnance (DPSNSO).",
-    "ht.act.lead.5": "Pharmaceutique: Comprend toutes les transactions et activités d'activités pour les médicaments avec ordonnance ou qui sont administrés ou obtenus par le biais d'un professionnel de la santé qui soulève le mandat de la direction des médicaments pharmaceutiques (DMP).",
-    "ht.act.lead.6": "Vigilance après commercialisation: Comprend toutes les transactions et activités d'activités pour les médicaments avec ou sans ordonnance pour l'utilisation humaine et les produits biologiques et radiopharmaceutiques qui relèvent du mandat de la Direction des produits de santé commercialisés (DPSC).",
-    "ht.act.lead.7": "Vétérinaire: Comprend toutes les activités et transactions réglementaires relatives aux produits pharmaceutiques sur ordonnance et sans-ordonnance sous le mandat de la Direction des médicaments vétérinaires (DMV)",
+    "ht.act.lead.1": "Biologique : Comprend toutes les transactions et les activités appliquées pour les produits biologiques ou radiopharmaceutiques qui relèvent du mandat de la direction des médicaments biologiques et radiopharmaceutiques (anciennement connu sous le nom de la direction des médicaments biologiques et radiopharmaceutiques (DMBR).",
+    "ht.act.lead.4": "Produits de santé destinés aux consommateurs : Comprend toutes les transactions et activités d'activités pour les médicaments sans ordonnance qui relèvent du mandat de la Direction des produits de santé naturels et sans ordonnance (DPSNSO).",
+    "ht.act.lead.5": "Pharmaceutique : Comprend toutes les transactions et activités d'activités pour les médicaments avec ordonnance ou qui sont administrés ou obtenus par le biais d'un professionnel de la santé qui soulève le mandat de la direction des médicaments pharmaceutiques (DMP).",
+    "ht.act.lead.6": "Vigilance après commercialisation : Comprend toutes les transactions et activités d'activités pour les médicaments avec ou sans ordonnance pour l'utilisation humaine et les produits biologiques et radiopharmaceutiques qui relèvent du mandat de la Direction des produits de santé commercialisés (DPSC).",
+    "ht.act.lead.7": "Vétérinaire : Comprend toutes les activités et transactions réglementaires relatives aux produits pharmaceutiques sur ordonnance et sans-ordonnance sous le mandat de la Direction des médicaments vétérinaires (DMV)",
     "ht.year.change.1": "Pour les produits pharmaceutiques à usage vétérinaire et humain, les produits biologiques et radiopharmaceutiques, reportez-vous au:",
     "ht.year.change.2": "Changements survenus après l'avis de conformité (AC): ",
     "ht.year.change.3": "Document sur la qualité",
@@ -190,6 +191,7 @@
     "error.msg.zip":"Entrée non valide - doit contenir 5 chiffres",
     "error.msg.postal":"Format non valide - doit être X#X#X#",
     "error.msg.email":"Entrée non valide - doit être xxxx@xxxx.xxx",
+    "error.msg.invalidDate": "Cette date n'est pas valide",
     "consent.privacy": "En soumettant vos renseignements personnels, vous consentez à sa collecte, à son utilisation et à sa divulgation conformément à l'énoncé de confidentialité."
 
 }

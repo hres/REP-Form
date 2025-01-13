@@ -17,7 +17,7 @@
     "error.found.because": " n’a pas pu être sauvegardé car ",
     "error.found.plural": " erreurs ont été trouvées ",
     "error.found.singular": " erreur a été trouvée ",
-    "save.working.copy": "Enregistrer une copie de travail",
+    "save.working.copy": "Enregistrer la copie de travail",
     "generate.final": "Générer le XML",
     "msg.success.load": "Le fichier a été chargé avec succès",
     "msg.err.parseFail": "Erreur: il y a eu une erreur en analysant le fichier de travail.",
