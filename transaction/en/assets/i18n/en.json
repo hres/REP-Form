@@ -13,6 +13,7 @@
     "dossier.name": "Dossier Name",
     "product.name": "Product name",
     "ctrl.num": "Control Number",
+    "six.digits": "(6 digits)",
     "activity.lead": "Regulatory Activity Lead",
     "is.ectd": "Is this an eCTD transaction?",
     "is.solicited": "Is this solicited information?",
@@ -45,7 +46,7 @@
     "addressDetails.country": "Country",
     "addressDetails.province": "Province",
     "addressDetails.state": "State",
-    "addressDetails.postalZipCode":"Postal/ZIP code (Use \"not applicable\" if not available)",
+    "addressDetails.postalZipCode":"Postal/ZIP code (use \"not applicable\" if not available)",
     "addressDetails.postalCode": "Postal code",
     "addressDetails.zipCode": "Zip code",
     "addressDetails.provState": "Province or state",
@@ -69,9 +70,9 @@
     "defer.statement": "The statement supporting the deferral request is included.",
     "fee.remission": "Fee Remission is requested with this transaction",
     "statement.revenue": "A statement signed by the individual responsible for the applicant's financial affairs is included to certify that the fee payable is greater than 10% of the anticipated gross revenue",
-    "sub.class": "Submission Class",
+    "sub.class": "Submission class",
     "panel.title.fees": "Fees",
-    "fee.description": "Submission Description",
+    "fee.description": "Submission description",
     "remission.eligible": "You are eligible to apply for fee remission. The submission fee is greater than 10% of anticipated gross revenues.",
     "remission.ineligible": "You are not eligible to apply for fee remission. The submission fee is less than 10% of anticipated gross revenues.",
     "regulatory.fees": "Fees",
@@ -98,7 +99,7 @@
     "certify.funded.health.institution.a": "licensed, approved or designated by a province in accordance with the laws of the province to provide care or treatment to persons or animals suffering from any form of disease or illness; or",
     "certify.funded.health.institution.b": "owned or operated by the Government of Canada or the government of a province and that provides health services.",
     "certify.isad": "We certify that we have filed an application for a designated COVID-19 drug under the Interim Order Respecting the Importation, Sale and Advertising of Drugs for Use in Relation to COVID-19 (ISAD), and that a submission has not previously been filed seeking approval for that same drug",
-    "type.min": "End date should not be earlier than start date.",
+    "error.msg.endDate": "End date should not be earlier than start date.",
     "fee.pay.notice": "Select the fee classification of your submission, supplement or application, if applicable. Do not send fee payment with your submission. Health Canada will verify the fee and issue an invoice. For information on payment of invoices and current fees, please visit the <a href='https://www.canada.ca/en/health-canada/services/drugs-health-products/funding-fees.html'>Funding and Fees webpage</a>.<br><br>If your submission does not incur fees, or you have not been requested by Health Canda to revise the fee class, please select ‘Not Applicable’.",
     "heading.mitigation.measures": "Mitigation measures",
     
@@ -183,13 +184,14 @@
 
     "rq.review.report": "Request Review Report(s)",
     "help.email": "ESGHelpDesk@fda.hhs.gov",
-    "5digits.only": " (5-digit)",
+    "5digits.only": " (5 digits)",
 
     "error.msg.minlength": "Invalid entry - must be {{ requiredLength }} numbers",
     "error.mgs.dossier.id": "Incorrect format - The dossier identifier is incorrect for this dossier type. Please verify the dossier identifer and dossier type for your product.",
     "error.msg.zip":"Invalid entry - must be 5 numbers",
     "error.msg.postal":"Invalid format - must be X#X#X#",
     "error.msg.email":"Invalid format - Must be xxxx@xxxx.xxx",
+    "error.msg.invalidDate": "The date is not valid",
     "consent.privacy": "By submitting your personal information, you are consenting to its collection, use and disclosure in accordance with the Privacy Notice Statement."
 
 }
