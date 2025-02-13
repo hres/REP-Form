@@ -1,5 +1,5 @@
 {
-    "form.title": "Modèle de transaction réglementaire: Processus d'inscription réglementaire",
+    "form.title": "Modèle de transaction réglementaire: Processus d'inscription réglementaire (PIR)",
     "load.file": "Charger un fichier d'inscription de transaction réglementaire",
     "errorSummary.form.name": "Le formulaire",	
     "panel.title.regulatory.info": "Information réglementaire",
@@ -99,7 +99,7 @@
     "certify.funded.health.institution.b": "la propriété du gouvernement du Canada ou est exploité par ce dernier ou par le gouvernement d’une province et fournit des soins de santé.",
     "certify.isad": "Nous certifions que nous avons déposé une demande pour un médicament COVID-19 désigné en vertu de l'ordonnance provisoire concernant l'importation, la vente et la publicité de médicaments à utiliser en relation avec le COVID-19 (ISAD), et qu'une soumission n'a pas été déposée auparavant pour approbation pour ce même médicament.",
     "error.msg.endDate": "La date de fin ne doit pas être antérieure à la date de début.",
-    "fee.pay.notice": "Sélectionnez la catégorie de frais pour votre présentation, supplément ou demande, le cas échéant. N'envoyez aucun paiement avec votre présentation, supplément ou demande. Santé Canada vérifiera le montant des frais et présentera une facture. Pour obtenir des renseignements sur le paiement des factures et les frais actuels, veuillez visiter le siteweb <a href='https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/financement-frais.html'>Financement et frais</a>.<br><br> Si votre présentation n'entraîne pas de frais, ou si Santé Canada ne vous a pas demandé de réviser la catégorie de frais, veuillez sélectionner « Non applicable ».",
+    "fee.pay.notice": "Sélectionnez la catégorie de frais pour votre présentation, supplément ou demande, le cas échéant. N'envoyez aucun paiement avec votre présentation, supplément ou demande. Santé Canada vérifiera le montant des frais et présentera une facture. Pour obtenir des renseignements sur le paiement des factures et les frais actuels, veuillez visiter le siteweb <a href='https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/financement-frais.html'>Financement et frais</a>.<br><br> Si votre présentation n'entraîne pas de frais, ou si Santé Canada ne vous a pas demandé de réviser la catégorie de frais, veuillez sélectionner « Sans objet ».",
     "heading.mitigation.measures": "Mesures d'atténuation",
     
     "ht.load.file.2": "Lors de la production d’une copie de travail, le fichier doit être chargé en format .hcsc.",
@@ -147,8 +147,8 @@
     "ht.year.change.url.1": "https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/changements-survenus-apres-avis-conformite/document-qualite.html",
     "ht.year.change.url.2": "https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/changements-survenus-apres-avis-conformite/document-innocuite-efficacite.html",
     "ht.year.change.5": "Pour les produits pharmaceutiques à usage vétérinaire, reportez-vous également à:",
-    "ht.year.change.6": "Guide à l'intention de l'industrie - Préparation des présentations de médicaments vétérinaires pour des médicaments innovants",
-    "ht.year.change.7": "Guide à l'intention de l'industrie - Préparation des présentations abrégées de drogues nouvelles vétérinaires - Médicaments génériques pour les médicaments génériques",
+    "ht.year.change.6": "Ligne directrice à l'intention de l'industrie - Préparation des présentations de médicaments vétérinaires pour des médicaments innovants",
+    "ht.year.change.7": "Ligne directrice à l'intention de l'industrie - Préparation des présentations abrégées de drogues nouvelles vétérinaires - Médicaments génériques pour les médicaments génériques",
     "ht.year.change.url.3": "https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments-veterinaires/legislation-lignes-directrices/lignes-directrices/ligne-directrice-intention-industrie-preparation-presentations-drogues-nouvelles-veterinaires-sante-canada-2007.html",
     "ht.year.change.url.4": "https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments-veterinaires/legislation-lignes-directrices/lignes-directrices/ligne-directrice-intention-industrie-preparation-presentations-abregees-drogues-nouvelles-veterinaires-medicaments-generiques-sante-canada-2009.html",
     "ht.year.change.8": "Include l'année au cours duquel le change a été fait, le nom de la ligne directrice et le numéro ou la lettre correspondant au changement dans cette même ligne directrice, lorsqu'applicable. ",
@@ -174,7 +174,7 @@
     "ht.contact.7": "Entrez le nom de la compagnie à laquelle appartient la personne-ressource associée à l’ cette activité. Si la personne-ressource n’est pas associée à cette compagnie, entrez son nom.",
     "ht.xml.1": "Chaque transaction du PIR doit contenir une version finale du fichier de transaction réglementaire (en format XML) dans la section 1.2.1.",
     "ht.xml.2": "Reportez-vous au document d'orientation du PIR pour des informations détaillées.",
-    "ht.xml.3": "Un fichier XML de transaction réglementaire (RT) final doit être inclus dans",
+    "ht.xml.3": "Un fichier XML de transaction réglementaire (TR) final doit être inclus dans:",
     "ht.xml.4": "Drogues humaines - section 1.2.1 de la transaction utilisant le PIR.",
     "ht.xml.5": "Médicaments vétérinaires - section 1.5 de la transaction utilisant le PIR.",
 
@@ -186,7 +186,7 @@
     "help.email": "ESGHelpDesk@fda.hhs.gov",
     "5digits.only": " (5 chiffres)",
 
-    "error.msg.minlength": "Entrée non valide - doit contenir {{ requiredLength }} chiffres",
+    "error.msg.minlength": "Entrée non valide - doit contenir un minimum de {{ requiredLength }} chiffres",
     "error.mgs.dossier.id": "Format incorrect. - Le numéro de dossier est incorrect pour ce type de dossier. Veuillez vérifier le numéro de dossier et le type de dossier pour votre produit.",
     "error.msg.zip":"Entrée non valide - doit contenir 5 chiffres",
     "error.msg.postal":"Format non valide - doit être X#X#X#",
