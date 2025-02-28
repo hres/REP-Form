@@ -82,32 +82,32 @@
     },
     {
         "id": "B02-20160301-041",
-        "en": "MPANDS (Pre-submission meeting information - ANDS)",
-        "fr": "MPPADN(Réunions préalables - PADN)"
+        "en": "MPANDS (Pre-submission meeting - ANDS)",
+        "fr": "MPPADN (Réunions préalables - PADN)"
     },
     {
         "id": "B02-20160301-043",
-        "en": "MPDIN (Pre-submission meeting information - DIN)",
+        "en": "MPDIN (Pre-submission meeting - DIN)",
         "fr": "MPDIN (Réunions préalables - DIN)"
     },
     {
         "id": "B02-20160301-046",
-        "en": "MPNC (Pre-NC meeting)",
+        "en": "MPNC (Pre-submission meeting - NC)",
         "fr": "MPNC (Réunion préalable - PM)"
     },
     {
         "id": "B02-20160301-047",
-        "en": "MPNDS (Pre-NDS meeting)",
+        "en": "MPNDS (Pre-submission meeting - NDS)",
         "fr": "MPPDN (Réunion préalable – PDN)"
     },
     {
         "id": "B02-20160301-048",
-        "en": "MPSANDS (Pre-submission meeting information - SANDS)",
+        "en": "MPSANDS (Pre-submission meeting - SANDS)",
         "fr": "MPSPADN (Réunions préalables - SPADN)"
     },
     {
         "id": "B02-20160301-049",
-        "en": "MPSNDS (Pre-SNDS meeting)",
+        "en": "MPSNDS (Pre-submission meeting - SNDS)",
         "fr": "MPSPDN (Réunion préalable – RPPDN)"
     },
     {
