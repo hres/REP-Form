@@ -1,0 +1,15 @@
+[
+  {
+      "id":"HUMAN",
+      "en": "Human",
+      "fr": "Humain"
+
+  },
+
+  {
+      "id":"VETERINARY",
+      "en": "Veterinary",
+      "fr": "Vétérinaire"
+  }
+
+]
