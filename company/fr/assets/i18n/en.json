@@ -26,7 +26,7 @@
     "ht.address.info.2": "There must be an address associated with each of the following three roles: \"Manufacturer / sponsor mailing address\", \"Billing address\", and \"Regulatory mailing / annual contact address\".",
     "ht.address.info.3": "A single address may be associated to multiple roles, however, each role may only have one address.",
     "business.number": "Canada Revenue Agency business number",
-    "ht.business.number": "<p>A business number (BN): a unique, nine-digit number and the standard identifier for businesses which is unique to a business or legal entity. For more information consult: the <a href='https://www.canada.ca/en/services/taxes/business-number.html'>Business number</a> website</p>",
+    "ht.business.number": "A business number (BN): a unique, nine-digit number and the standard identifier for businesses which is unique to a business or legal entity. For more information consult: the <a href='https://www.canada.ca/en/services/taxes/business-number.html'>Business number</a> website",
     "select.roles.comp": "Select one or more roles for this company",
     "select.roles.rep": "Select one or more roles for this company representative",
     "ht.select.roles.1": "Manufacturer / sponsor: Refers to the name under which the drug and/or biocide submission / application is filed, where a drug identification number (DIN) / notice of compliance (NOC) / market authorization is to be issued, the company in whose name the DIN / NOC / market authorization will be registered, and the name to be included on the product label and product monograph / package insert.",
