@@ -2,7 +2,7 @@
     "form.title": "Company Template: Regulatory Enrolment Process (REP) for human and veterinary drugs and biocides",
     "load.file": "Load a company enrolment file",
     "errorSummary.form.name": "The form",
-    "warning.text": "<p>This template is for company registration for human and veterinary drugs and biocides. One singular CO registration is used to manage company information for prescription and non-prescription pharmaceuticals for human and veterinary use, biologics and radiopharmaceuticals for human use, disinfectants, and biocides.</p><p>This template must not be used for company registration for medical devices. Instead use the <a href='https://health-products.canada.ca/rep-pir/mds/company/en/md-company.html#def-top'>Company Template: Regulatory Enrolment Process (REP) for medical devices.</a></p><p>A company may need to fill out both templates based on the products they sell. </p>",
+    "warning.text": "<p>This template is for company registration for human and veterinary drugs and biocides. One singular company registration is used to manage company information for prescription and non-prescription pharmaceuticals for human and veterinary use, biologics and radiopharmaceuticals for human use, disinfectants, and biocides.</p><br><p>This template must not be used for company registration for medical devices. Instead use the <a href='https://health-products.canada.ca/rep-pir/mds/company/en/md-company.html#def-top'>Company Template: Regulatory Enrolment Process (REP) for medical devices.</a></p><br><p>A company may need to fill out both templates based on the products they sell. </p>",
     "ht.load.file.1": "A file should not be loaded if this is the first time enrolling the company.",
     "ht.load.file.2": "When continuing with a working copy, the format of the file to load should be .hcsc.",
     "ht.load.file.3": "When viewing/updating a final XML file, the format of the file to load should be .xml.",
@@ -109,9 +109,10 @@
     "email.body": "The CO XML file is NOT automatically attached. Attach the draft CO XML file prior to sending.",
     "email.mail.to": "mailto:",
 
-    "msg.save.xml.popup": "Please save the unsaved input data before generating XML file.",
-    "msg.save.data.popup": "Please save the unsaved input data.",
-    "popup.title":"Company Template",
+    "msg.save.xml.popup": "Please save the unsaved input data before saving draft XML file.",
+    "msg.save.addressInfo.popup": "Please save the unsaved input data for address information.",
+    "msg.save.compRepInfo.popup": "Please save the unsaved input data for company representative information.",
+    "popup.title":"Warning",
     "popup.close": "Close",
 
     "error.mgs.5.numeric": "Invalid entry - must be five numbers"
