@@ -114,6 +114,7 @@
     "msg.save.compRepInfo.popup": "Please save the unsaved input data for company representative information.",
     "msg.discard.popup": "Are you sure you want to discard change for {{heading}}?",
     "msg.delete.popup": "Are you sure you want to delete {{heading}}?",
+    "msg.discard.role.popup": "A role cannot be discarded as they are currently assigned to another record.",
     "popup.title":"Warning",
     "popup.close": "Close",
     "popup.cancel": "Cancel",
