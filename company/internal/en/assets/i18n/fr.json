@@ -113,7 +113,7 @@
     "msg.save.compRepInfo.popup": "Veuillez sauvegarder les données d'entrée non enregistrées pour l’information sur les représentants de la compagnie.",
     "msg.discard.popup": "Êtes-vous sûr de vouloir annuler la modification pour {{heading}}?",
     "msg.delete.popup": "Êtes-vous sûr de vouloir supprimer {{heading}}?",
-    "msg.discard.role.popup": "fr_A role cannot be discarded as they are currently assigned to another record.",
+    "msg.discard.role.popup": "Un rôle ne peut pas être éliminé, car il est assigné à un autre enregistrement.",
     "popup.title":"Avertissement",
     "popup.close": "Fermer",
     "popup.cancel": "Annuler",
