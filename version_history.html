@@ -11,7 +11,7 @@
 		<meta http-equiv="content-security-policy" content="script-src 'self' 'unsafe-inline' www.canada.ca; img-src 'self' www.canada.ca; font-src 'self' www.canada.ca maxcdn.bootstrapcdn.com fonts.gstatic.com; style-src 'self' www.canada.ca maxcdn.bootstrapcdn.com 'unsafe-inline'; default-src 'self' www.canada.ca; ">
 		<meta name="author" content="Health Canada" />
 		<meta property="dcterms.creator" content="Government of Canada, Health Canada">
-		<meta property="dcterms.modified" title="W3CDTF" content="2025-02-28">
+		<meta property="dcterms.modified" title="W3CDTF" content="2025-06-03">
 		<meta property="dcterms.language" title="ISO639-2/T" content="eng">
 		<!-- build:metaData-en.html -->
 		<!-- Meta data-->
@@ -54,7 +54,7 @@
 					"title": "Health Canada",
 					"href": "https://www.canada.ca/en/health-canada.html"
 				}, {
-					"title": "Regulatory enrolment process (REP) - Canada.ca",
+					"title": "Regulatory enrolment process (REP)",
 					"href": "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/regulatory-enrolment-process.html"
 				}],
 				"cdnEnv": "prod"
@@ -69,6 +69,30 @@
 			
 
 			
+			<h3>June 3, 2025 Release</h3>
+			
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th scope="col">Template</th>
+							<th scope="col">Change</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="col-md-3">Company (CO) Template<br>Version 5.0.0<br><br><br>Stylesheet package*</td>
+							<td class="col-md-9">
+								<ul>
+									<li>Added info bubble for the company template</li>
+									<li>Added instructions in the “Load a company enrolment file” section</li>
+									<li>Removed routing identifier</li>
+									<li>Added the question “Select one or more of the following regulatory frameworks under which the manufacturer/sponsor company will be filing submissions/applications”<br><br><br></li>
+									<li>*New CO stylesheet to match changes on this template</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			<h3>March 26, 2025 Release</h3>
 			
 				<table class="table table-bordered">
@@ -410,8 +434,9 @@
 			<script>
 				var defPreFooter = document.getElementById("def-preFooter");
 				defPreFooter.outerHTML = wet.builder.preFooter({
-					"dateModified": "2025-02-28",
-					"cdnEnv": "prod"
+					"dateModified": "2025-06-03",
+					"cdnEnv": "prod",
+					"showShare": false
 				});
 			</script>
 		</main>

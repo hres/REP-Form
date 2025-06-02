@@ -77,7 +77,7 @@
     "error.mgs.zip":"Entrée non valide - doit contenir 5 chiffres",
     "error.msg.postal":"Format non valide - doit être X1X1X1",
     "error.msg.minlength": "Entrée non valide - doit contenir un minimum de {{ requiredLength }} chiffres",
-    "error.msg.email":"Entrée non valide - doit être votrenom@domaine.com",
+    "error.msg.email":"Entrée non valide - doit être exemple@domaine.com",
     "error.msg.business": "Entrée non valide - doit contenir 9 chiffres",
     "add.contact": "Ajouter un enregistrement du repésentant de la compagnie",
     "save.contact":"Enregistrer l'enregistrement",

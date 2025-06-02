@@ -11,7 +11,7 @@
 		<meta http-equiv="content-security-policy" content="script-src 'self' 'unsafe-inline' www.canada.ca; img-src 'self' www.canada.ca; font-src 'self' www.canada.ca maxcdn.bootstrapcdn.com fonts.gstatic.com; style-src 'self' www.canada.ca maxcdn.bootstrapcdn.com 'unsafe-inline'; default-src 'self' www.canada.ca; ">
 		<meta name="author" content="Santé Canada"/>
 		<meta property="dcterms.creator" content="Gouvernement du Canada, Santé Canada"/>
-		<meta property="dcterms.modified" title="W3CDTF" content="2025-02-28">
+		<meta property="dcterms.modified" title="W3CDTF" content="2025-06-03">
 		<meta property="dcterms.language" title="ISO639-2/T" content="fra"/>
 		<!-- build:metaData-fr.html -->
 		<!-- Meta data-->
@@ -53,7 +53,7 @@
 					"title": "Santé Canada",
 					"href": "https://www.canada.ca/fr/sante-canada.html"
 				}, {
-					"title": "Processus d’inscription réglementaire (PIR) - Canada.ca",
+					"title": "Processus d’inscription réglementaire (PIR)",
 					"href": "https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/processus-inscription-reglementaire.html"
 				}], 
 				"cdnEnv": "prod"
@@ -68,6 +68,30 @@
 			
 
 			
+			<h3>Publication du 3 juin 2025</h3>
+			
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th scope="col">Modèle</th>
+							<th scope="col">Modification</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="col-md-3">Modèle de compagnie (CO)<br>Version 5.0.0<br><br><br>Ensemble de feuilles de style*</td>
+							<td class="col-md-9">
+								<ul>
+									<li>Ajout de la bulle d’information pour modèle de compagnie</li>
+									<li>Ajout d'instructions concernant la section « Charger un fichier d’inscription de la compagnie »</li>
+									<li>Suppression de l'identificateur d'acheminement</li>
+									<li>Ajout  de la question « Sélectionnez un ou plusieurs des cadres réglementaires suivants en vertu duquel/desquels le fabricant/promoteur pourrait déposer une présentation/demande »<br><br><br></li>
+									<li>*Nouvelle feuille de style CO pour correspondre aux modifications apportées à ce modèle</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			<h3>Publication du 26 mars 2025</h3>
 			
 				<table class="table table-bordered">
@@ -408,8 +432,9 @@
 			<script>
 				var defPreFooter = document.getElementById("def-preFooter");
 				defPreFooter.outerHTML = wet.builder.preFooter({
-					"dateModified": "2025-02-28",
-					"cdnEnv": "prod"
+					"dateModified": "2025-06-03",
+					"cdnEnv": "prod",
+					"showShare": false
 				});
 			</script>
 		</main>
