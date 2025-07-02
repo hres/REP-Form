@@ -184,7 +184,7 @@
     {
         "id": "B02-20160301-078",
         "en": "PSUR-C (Periodic safety update report - confirmatory)",
-        "fr": "RPPV-C (Rapport périodique de pharmacovigilance - Confirmation)",
+        "fr": "RPPV-C (Rapport périodique de pharmacovigilance - confirmation)",
         "defEn": "For NOC/c products",
         "defFr": "Pour les produits AC-C"
     },
@@ -216,7 +216,7 @@
     {
         "id": "B02-20190627-06",
         "en": "SANDS-C (Supplement to a new abbreviated drug submission - confirmatory",
-        "fr": "SPADN-C (Supplément à une présentation abrégée de drogue nouvelle - Confirmation)"
+        "fr": "SPADN-C (Supplément à une présentation abrégée de drogue nouvelle - confirmation)"
     },
     {
         "id": "B02-20160301-084",
@@ -226,7 +226,7 @@
     {
         "id": "B02-20160301-085",
         "en": "SNDS-C (Supplement to a new drug submission - confirmatory)",
-        "fr": "SPDN-C (Supplément à 'une présentation de drogue nouvelle - Confirmation)"
+        "fr": "SPDN-C (Supplément à 'une présentation de drogue nouvelle - confirmation)"
     },
     {
         "id": "B02-20160301-089",
