@@ -111,7 +111,7 @@
     "ht.comp.id.1": "The company identifier can be obtained from the latest Health Canada issued final company XML file, or the 'company code' found on the Annual Drug Notification Form (ADNF).",
     "ht.comp.id.2": "The company identifier must be 5 digits, add leading zero when required.",
     "ht.dossier.id": "Dossier Identifier - The dossier identifier is a code created by Health Canada to uniquely identify the dossier.  For existing dossiers the dossier ID can be verified from the Drug Submission Tracking System \u2013 Industry Access (DSTS-IA).  If a dossier ID has not yet been assigned, sponsors must request for one using the appropriate form, available on the REP information webpage.",
-    "ht.dossier.id.0": "The format of a dossier identifier is a letter followed by six digits. (for example x######). For example in this field you would need to enter one of the following depending on the dossier type:",
+    "ht.dossier.id.0": "The format of a dossier identifier is a letter followed by six digits. For example, in this field you would need to enter one of the following depending on the dossier type:",
     "ht.dossier.id.1": "eCTD formatted dossier - e######",
     "ht.dossier.id.2": "Non-eCTD formatted dossier for division 1 human drugs - d######",
     "ht.dossier.id.3": "Non-eCTD formatted dossier for division 8 human drugs - p######",
@@ -132,7 +132,7 @@
     "ht.admin.sub": "Guidance Administrative Processing of Submissions and Applications Involving Human or Disinfectant Drugs",
     "ht.admin.sub.url": "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/administrative-processing-human-disinfectant-drugs-2019/document.html",
     "ht.admin.sub.1": " or the ",
-    "ht.admin.sub.2": "Guidance document: Veterinary Drugs – Management of Regulatory Submissions",
+    "ht.admin.sub.2": "Guidance document: Veterinary Drugs - Management of Regulatory Submissions",
     "ht.admin.sub.2.url": "https://www.canada.ca/en/health-canada/services/drugs-health-products/veterinary-drugs/legislation-guidelines/guidance-documents/management-regulatory-submissions.html",
     "ht.act.lead.1": "Biological: Includes all regulatory activities and transactions under the Biologics and Radiopharmaceutical Drugs Directorate (BRDD) mandate (biologics/ radiopharmaceuticals).",
     "ht.act.lead.4": "Consumer Health Products: Includes all regulatory activities and transactions for non-prescription pharmaceuticals and disinfectants under the Natural and Non-Prescription Health Products Directorate (NNHPD) mandate.",
@@ -158,8 +158,6 @@
     "ht.year.change.13": "For example: ",
     "ht.desc.change.1": "Reference the applicable appendix or sections of the Post-Notice of Compliance (NOC) Changes Guidance Documents and identify the changes.",
     "ht.desc.change.2": "For example: Quality Document - 3.2.S Drug Substance #1, 2d, 9b, 17",
-    "ht.desc.change.3": "",
-    "ht.desc.change.4": "",
     "ht.req.sol": "If the name of the requester is unknown, enter the generic email the request was sent from.",
     "ht.fees.1": "The fee section is required to be completed in order to properly apply for fee mitigation measures.",
     "ht.fees.2": "Refer to the <a target='_blank' href='https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/fees/fees-review-drug-submissions-applications.html'>Guidance Document: Fees for the Review of Human and Disinfectant Drug Submissions and Applications</a>",
@@ -175,7 +173,7 @@
     "ht.xml.4": "Human Drugs - section 1.2.1 of the transaction using REP",
     "ht.xml.5": "Veterinary Drugs - section 1.5 of the transaction using REP",
     
-    "admin.guide.doc.note":"<p>For biologics, radiopharmaceuticals and pharmaceuticals for human use, refer to the Guidance document: <a target='_blank' href='https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/administrative-processing-human-disinfectant-drugs-2019/document.html'>Administrative Processing of Submissions and Applications Involving Human or Disinfectant Drugs</a>.</p><p>Note: The administrative fee class should be selected. The transaction description “Administrative” should be used for the first transaction for this regulatory activity.</p><br><p>For veterinary drugs, refer to the Guidance document: <a target='_blank' href='https://www.canada.ca/en/health-canada/services/drugs-health-products/veterinary-drugs/legislation-guidelines/guidance-documents/management-regulatory-submissions.html'>Veterinary Drugs – Management of Regulatory Submissions</a> or contact <a href='mailto:vdd.skmd.so-dgps.dmv.cp@hc-sc.gc.ca'>vdd.skmd.so-dgps.dmv.cp@hc-sc.gc.ca</a>.</p><p>Note: The transaction description “Administrative” should be used for the first transaction for this regulatory activity.</p>",
+    "admin.guide.doc.note":"<p>For biologics, radiopharmaceuticals and pharmaceuticals for human use, refer to the Guidance document: <a target='_blank' href='https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/administrative-processing-human-disinfectant-drugs-2019/document.html'>Administrative Processing of Submissions and Applications Involving Human or Disinfectant Drugs</a>.</p><p>Note: The administrative fee class should be selected. The transaction description “Administrative” should be used for the first transaction for this regulatory activity.</p><br><p>For veterinary drugs, refer to the Guidance document: <a target='_blank' href='https://www.canada.ca/en/health-canada/services/drugs-health-products/veterinary-drugs/legislation-guidelines/guidance-documents/management-regulatory-submissions.html'>Veterinary Drugs - Management of Regulatory Submissions</a> or contact <a href='mailto:vdd.skmd.so-dgps.dmv.cp@hc-sc.gc.ca'>vdd.skmd.so-dgps.dmv.cp@hc-sc.gc.ca</a>.</p><p>Note: The transaction description “Administrative” should be used for the first transaction for this regulatory activity.</p>",
     "withdrawal.nof.form": "Withdrawal of Drug Notification Form",
 
     "rq.review.report": "Request Review Report(s)",
@@ -191,5 +189,7 @@
     "consent.privacy": "By submitting your personal information, you are consenting to its collection, use and disclosure in accordance with the privacy notice statement.",
 
     "select.option": "Select an option",
-    "error.mgs.5.numeric": "Invalid entry - must be 5 digits"
-}
+    "error.mgs.5.numeric": "Invalid entry - must be 5 digits",
+    "error.mgs.6.numeric": "Invalid entry - must be 6 digits",
+    "error.mgs.4.numeric": "Invalid entry - must be 4 digits"
+    }

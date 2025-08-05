@@ -3,7 +3,7 @@
         "id": "ADMINISTRATIVE",
         "en": "Administrative",
         "fr": "Administratif",
-		"defEn": "First transaction of a new regulatory activity for an administrative change according to the Guidance Document: <a href='https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/administrative-processing-human-disinfectant-drugs-2019/document.html'>Administrative Processing of Submissions and Applications Involving Human or Disinfectant Drugs</a> or <a href='https://www.canada.ca/en/health-canada/services/drugs-health-products/veterinary-drugs/legislation-guidelines/guidance-documents/management-regulatory-submissions.html'>Veterinary Drugs – Management of Regulatory",
+		"defEn": "First transaction of a new regulatory activity for an administrative change according to the Guidance Document: <a href='https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/administrative-processing-human-disinfectant-drugs-2019/document.html'>Administrative Processing of Submissions and Applications Involving Human or Disinfectant Drugs</a> or <a href='https://www.canada.ca/en/health-canada/services/drugs-health-products/veterinary-drugs/legislation-guidelines/guidance-documents/management-regulatory-submissions.html'>Veterinary Drugs - Management of Regulatory",
         "defFr": "Première transaction d'une nouvelle activité réglementaire pour un changement administratif selon la Ligne directrice : <a href='https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/traitement-administratif-humains-desinfectants-medicaments-2019/document.html'>Traitement administratif des présentations et des demandes concernant les médicaments destinés aux humains ou les désinfectants</a> ou <a href='https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments-veterinaires/legislation-lignes-directrices/lignes-directrices/gestion-presentations-reglementaires.html'>Lignes directrices sur la gestion des présentations réglementaires des médicaments vétérinaires</a>"
     },
     {
@@ -469,7 +469,7 @@
         "en": "GMP compliance issue raised by other regulators",
         "fr": "Problèmes de conformité aux BPF relevés par d'autres organismes de réglementation",
         "defEn": "When notifying Health Canada about issues/concerns with media fill failures, sterility, violation of GMPs, out of specifications results (example: failure of appearance test due to visible particles), potency assay, stability, etc. which are not subject to submission filing.",
-        "defFr": "Lorsqu'il s'agit de notifier à Santé Canada des problèmes/préoccupations concernant des défauts de remplissage du support, la stérilité, le non-respect des BPF, les résultats non conformes (p. ex. échec du test de défaillance d'apparence en raison de particules visibles), les essais de puissance, la stabilité, etc. qui ne sont pas soumis à la présentation."
+        "defFr": "Lorsqu'il s'agit de notifier à Santé Canada des problèmes/préoccupations concernant des défauts de remplissage du support, la stérilité, le non-respect des BPF, les résultats non conformes (exemple: échec du test de défaillance d'apparence en raison de particules visibles), les essais de puissance, la stabilité, etc. qui ne sont pas soumis à la présentation."
     },
     {
         "id": "RECLASS_LOT_RELEASE",
