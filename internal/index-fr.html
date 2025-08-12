@@ -11,7 +11,7 @@
 		<meta http-equiv="content-security-policy" content="script-src 'self' 'unsafe-inline' www.canada.ca; img-src 'self' www.canada.ca; font-src 'self' www.canada.ca maxcdn.bootstrapcdn.com fonts.gstatic.com; style-src 'self' www.canada.ca maxcdn.bootstrapcdn.com 'unsafe-inline'; default-src 'self' www.canada.ca; ">
 		<meta name="author" content="Santé Canada"/>
 		<meta property="dcterms.creator" content="Gouvernement du Canada, Santé Canada"/>
-		<meta property="dcterms.modified" title="W3CDTF" content="2025-04-29">
+		<meta property="dcterms.modified" title="W3CDTF" content="2025-08-01">
 		<meta property="dcterms.language" title="ISO639-2/T" content="fra"/>
 		<!-- build:metaData-fr.html -->
 		<!-- Meta data-->
@@ -25,7 +25,7 @@
 		<!-- Write closure template -->
 		<script>
 			document.write(wet.builder.refTop({
-				"cdnEnv": "dev"
+				"cdnEnv": "prod"
 			}));
 		</script>
 	</head>
@@ -53,10 +53,10 @@
 					"title": "Santé Canada",
 					"href": "https://www.canada.ca/fr/sante-canada.html"
 				}, {
-					"title": "Processus d’inscription réglementaire (PIR) - Canada.ca",
+					"title": "Processus d’inscription réglementaire (PIR)",
 					"href": "https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/processus-inscription-reglementaire.html"
 				}], 
-				"cdnEnv": "dev"
+				"cdnEnv": "prod"
 			});
 		</script>
 		<main property="mainContentOfPage" typeof="WebPageElement" class="container">
@@ -72,7 +72,7 @@
 						
 					<ul>
 						<li>
-						<a href="https://lam-dev.hres.ca/rep-dev/versionHistory/historique_révisions.html">Historique des révisions du modèle (2025-06-03)</a>
+						<a href="https://health-products.canada.ca/rep-pir/historique_révisions.html">Historique des révisions du modèle (2025-09-10)</a>
 						</li>
 					</ul>
 				
@@ -81,7 +81,7 @@
 					<h2>En dehors du processus de transaction réglementaire</h2>
 					
 						
-							<h3><a href="https://lam-dev.hres.ca/rep-dev/company/fr/entreprise.html">Modèle de la compagnie (2025-06-03)</a></h3>
+							<h3><a href="https://health-products.canada.ca/rep-pir/company/fr/entreprise.html">Modèle de la compagnie (2025-06-03)</a></h3>
 						
 					<ul>
 						<li>
@@ -95,7 +95,7 @@
 						</li>
 					</ul>
 						
-							<h3><a href="https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/depot-soumissions-electroniques/modele-dossier-pharmaceutique.html">Formulaire de demande pour l'ID de dossier pour les médicaments à usage humain</a></h3>
+							<h3><a href="https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/depot-soumissions-electroniques/modele-dossier-pharmaceutique.html">Formulaire de demande pour l'ID de dossier pour les médicaments humain</a></h3>
 						
 					<ul>
 						<li>
@@ -133,7 +133,7 @@
 					<h2>Dans le cadre du processus de transaction réglementaire</h2>
 					
 						
-							<h3><a href="https://lam-dev.hres.ca/rep-dev/transaction/fr/réglementaire-transaction.html">Modèle de transaction réglementaire (TR) pour les médicaments à usage humain et désinfectants (2025-03-26)</a></h3>
+							<h3><a href="https://health-products.canada.ca/rep-pir/transaction/fr/réglementaire-transaction.html#def-top">Modèle de transaction réglementaire (TR) (2025-09-10)</a></h3>
 						
 					<ul>
 						<li>
@@ -144,7 +144,7 @@
 						</li>
 					</ul>
 						
-							<h3><a href="https://lam-dev.hres.ca/rep-dev/prod_v44/product/produit.html">Modèle d'information sur le produit (IP) (2024-02-12)</a></h3>
+							<h3><a href="https://health-products.canada.ca/rep-pir/v44/product/produit.html">Modèle d'information sur le produit (IP) (2024-02-12)</a></h3>
 						
 					<ul>
 						<li>
@@ -162,7 +162,7 @@
 						
 					<ul>
 						<li>
-						<a href="https://lam-dev.hres.ca/rep-dev/stylesheet/pharmabio_stylesheets_fr.zip">Télécharger le fichier zip des feuilles de style (2025-06-03)</a>
+						<a href="https://health-products.canada.ca/rep-pir/stylesheet/pharmabio_stylesheets_fr.zip">Télécharger le fichier zip des feuilles de style (2025-09-10)</a>
 						</li>
 					</ul>
 				
@@ -173,7 +173,7 @@
 						
 					<ul>
 						<li>
-						<a href="https://lam-dev.hres.ca/rep-dev/company/internal/fr/companyINT-fr.html">Modèle de compagnie - version interne 5.0.0</a>
+						<a href="https://lam-dev.hres.ca/REP-Form-Internal/company/fr/companyINT-fr.html">Modèle de compagnie - version interne 5.0.0</a>
 						</li>
 						<li>
 						<a href="https://lam-dev.hres.ca/REP-Form-Internal/PROD/repDiff/diffForm-en.html">Comparison tool (2020)</a>
@@ -191,8 +191,8 @@
 			<script>
 				var defPreFooter = document.getElementById("def-preFooter");
 				defPreFooter.outerHTML = wet.builder.preFooter({
-					"dateModified": "2025-04-29",
-					"cdnEnv": "dev",
+					"dateModified": "2025-08-01",
+					"cdnEnv": "prod",
 					"showShare": false
 				});
 			</script>
@@ -205,13 +205,13 @@
 		<script>
 			var defFooter = document.getElementById("def-footer");
 			defFooter.outerHTML = wet.builder.footer({
-				"cdnEnv": "dev"
+				"cdnEnv": "prod"
 			});
 		</script>
 		<!-- Write closure template -->
 		<script>
 			document.write(wet.builder.refFooter({
-				"cdnEnv": "dev"
+				"cdnEnv": "prod"
 			}));
 		</script>
     <!--Start add custom scripts here-->
