@@ -182,7 +182,7 @@
     "5digits.only": " (5 chiffres)",
 
     "error.msg.minlength": "Entrée non valide - doit contenir un minimum de {{ requiredLength }} chiffres",
-    "error.mgs.dossier.id": "Format incorrect. - Le numéro de dossier est incorrect pour ce type de dossier. Veuillez vérifier le numéro de dossier et le type de dossier pour votre produit.",
+    "error.mgs.dossier.id": "Format incorrect - Le numéro de dossier est incorrect pour ce type de dossier. Veuillez vérifier le numéro de dossier et le type de dossier pour votre produit.",
     "error.mgs.zip":"Entrée non valide - doit contenir 5 chiffres",
     "error.msg.postal":"Format non valide - doit être X1X1X1",
     "error.msg.email":"Entrée non valide - doit être exemple@domaine.com",
