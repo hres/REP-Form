@@ -34,12 +34,12 @@
         "data": [
             {
                 "id": "MasterFileHolder",
-                "en": "Master File Holder",
+                "en": "Master file holder",
                 "fr": "Propriétaire de la fiche maîtresse"
             },
             {
                 "id": "AuthorizedMasterFileAgent",
-                "en": "Authorized Master File Agent / Authorized Third Party",
+                "en": "Authorized master file agent / Authorized third party",
                 "fr": "Agent autorisé de la fiche maîtresse / Tiers au nom du titulaire autorisé"
             }
         ]
