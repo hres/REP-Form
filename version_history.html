@@ -11,7 +11,7 @@
 		<meta http-equiv="content-security-policy" content="script-src 'self' 'unsafe-inline' www.canada.ca; img-src 'self' www.canada.ca; font-src 'self' www.canada.ca maxcdn.bootstrapcdn.com fonts.gstatic.com; style-src 'self' www.canada.ca maxcdn.bootstrapcdn.com 'unsafe-inline'; default-src 'self' www.canada.ca; ">
 		<meta name="author" content="Health Canada" />
 		<meta property="dcterms.creator" content="Government of Canada, Health Canada">
-		<meta property="dcterms.modified" title="W3CDTF" content="2025-06-03">
+		<meta property="dcterms.modified" title="W3CDTF" content="2025-09-10">
 		<meta property="dcterms.language" title="ISO639-2/T" content="eng">
 		<!-- build:metaData-en.html -->
 		<!-- Meta data-->
@@ -69,6 +69,31 @@
 			
 
 			
+			<h3>September 10, 2025 Release</h3>
+			
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th scope="col">Template</th>
+							<th scope="col">Change</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="col-md-3">Regulatory Transaction (RT) Template<br>Version 5.1.0<br><br><br>Stylesheet package*</td>
+							<td class="col-md-9">
+								<ul>
+									<li>When regulatory activity type "Level 3 - Notice of change" is selected, the "Control Number" field changes to 000000 and the field is disabled</li>
+									<li>Updated regulatory transaction description definitions for "Minutes of meeting" and "Submission meeting request"</li>
+									<li>Updated info bubble for the "Control Number"</li>
+									<li>Updated the third party question and info bubble in section A. Company information</li>
+									<li>Resolved "end date" that reverted to "start date" when loading existing RT file for RA types: PBRER-C, PBRER-PV, PSUR-C, PSUR PV, YBPR<br><br><br></li>
+									<li>*New RT stylesheet to match changes on this template</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			<h3>June 3, 2025 Release</h3>
 			
 				<table class="table table-bordered">
@@ -434,7 +459,7 @@
 			<script>
 				var defPreFooter = document.getElementById("def-preFooter");
 				defPreFooter.outerHTML = wet.builder.preFooter({
-					"dateModified": "2025-06-03",
+					"dateModified": "2025-09-10",
 					"cdnEnv": "prod",
 					"showShare": false
 				});
