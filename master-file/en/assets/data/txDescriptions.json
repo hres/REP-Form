@@ -14,7 +14,7 @@
     {
         "id": "3",
         "en": "CEP and attestations",
-        "fr": "Certificats de conformité (CEP) et attestations",
+        "fr": "CEP et attestations",
         "sortPriority": 12
     },
     {
@@ -25,7 +25,7 @@
     },
     {
         "id": "5",
-        "en": "Conversion ",
+        "en": "Conversion",
         "fr": "Conversion",
         "defEn": "The master file is being converted from the non-eCTD format to the eCTD format. As a baseline requirement when converting master files from the non-eCTD format to the eCTD format, the master file holder must include a copy of the entire master file in their first eCTD transaction. Any changes/updates filed with a conversion will be subject to update fees. If you have changes/updates to file with your conversion to eCTD format, select transaction description: Update and conversion. If your master file exists in paper format only or has been closed previously, select transaction description: Master file reactivation.",
         "defFr": "La fiche maîtresse est convertie du format non-eCTD au format eCTD. En tant qu'exigence de base lors de la conversion des fiches maîtresses d'un format non-eCTD au format eCTD, le titulaire de la fiche maîtresse doit inclure une copie de la fiche maîtresse complète dans leur première transaction eCTD. Tout changement et\/ou mises à jour apportés avec une conversion impliquent des frais. Si vous avez des changements et\/ou des mises à jour à apporter avec une conversion, veuillez sélectionner la description de la transaction : Mise à jour et conversion. Si votre fiche maîtresse existe uniquement en format papier ou si elle a été fermée précédemment, sélectionnez la description de la transaction : Réactivation de la fiche maîtresse. ",
@@ -46,7 +46,7 @@
     {
         "id": "8",
         "en": "eCTD dossier clean-up",
-        "fr": "Nettoyage du dossier en format Electronic Common Technical Document (eCTD)",
+        "fr": "Nettoyage du dossier en format eCTD",
         "sortPriority": 20
     },
     {
