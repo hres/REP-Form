@@ -25,9 +25,7 @@
   "panel.title.certification": "Certification",
   "required": "Ce champ est obligatoire.",
   "error.msg.minlength": "Minimum de {{ requiredLength }} chiffres",
-  "error.mgs.dossier.id": "Le numéro de dossier est incorrect. Veuillez vérifier le numéro de dossier pour votre fiche maîtresse.",
-  "error.mgs.company.id": "fr_Please specify a valid manufacturer company Identifier.",
-  "error.mgs.regu.contact.id": "fr_Please specify a valid regulatory manufacturer contact Identifier.",
+  "error.mgs.dossier.id": "Format incorrect - Le numéro de dossier est incorrect. Veuillez vérifier le numéro de dossier pour votre fiche maîtresse.",
   "error.mgs.incorrectFormat": "Entrée non valide - doit être en format 1234-567",
   "error.msg.postal":  "Entrée non valide - doit être en format X1X1X1",
   "error.mgs.zip": "Entrée non valide - doit contenir 5 chiffres",
@@ -99,7 +97,7 @@
   "are.access.letters": "Joignez-vous une ou plusieurs lettres d’accès à cette transaction ?",
   "number.of.letters": "Nombre de lettre(s) d’accès ?",
   "who.responsible": "Qui paiera les frais ?",
-  "account.num": "Numéro de compte du client (so attribué)",
+  "account.num": "Numéro de compte du client (si attribué)",
   "business.num": "Numéro d’entreprise de l'Agence du revenu du Canada (le cas échéant)",
   "contactInfoConfirm": "Confirmation des coordonnées",
   "certify.info": "Je certifie que les informations et le matériel contenus dans cette demande/transaction de la fiche maîtresse sont exacts et complets",
@@ -107,7 +105,7 @@
   "full.name": "Nom complet",
   "submit.date": "Date",
   "agent.warning": "Si le signataire officiel est un agent autorisé de la fiche maîtresse ou un tiers autorisé agissant au nom du propriétaire de la fiche maîtresse, une lettre d’autorisation signée par le propriétaire de la fiche maîtresse doit être soumise au module 1.2.1 formulaire de demande. La lettre de nomination de l’agent ou du tiers est requise en même temps que la transaction d’inscription initiale de la fiche maîtresse ou toute autre transaction pour laquelle un nouvel agent ou un tiers est désigné ou en cas de changement du rôle de l’agent ou du tiers.",
-  "consent.privacy": "En soumettant vos renseignements personnels, vous consentez à sa collecte, à son utilisation et à sa divulgation conformément à l'énoncé de confidentialité",
+  "consent.privacy": "En fournissant vos renseignements personnels, vous consentez à leur collecte, utilisation et divulgation conformément à l'énoncé de confidentialité.",
   "alert.info": "Informations d'alerte",
   "error": "Erreur {{number}} :",
   "agent.not.applicable":"Le nom et l'adresse de l’agent autorisé ou du tiers autorisé ne sont pas applicables.",
@@ -116,5 +114,6 @@
   "revised.transaction.description":"Description de la transaction révisée",
   "purpose.of.collection":"Santé Canada a besoin des renseignements personnels pour traiter les formulaires de demande réglementaire. Les informations que vous fournissez peuvent être utilisées pour vous contacter afin de vérifier les informations fournies, d'évaluer la faisabilité de l'inscription d'entreprises, de dossiers et de suivre les activités et transactions réglementaires.",
   "error.mgs.5.numeric": "Entrée non valide - doit contenir 5 chiffres",
-  "select.option": "Sélectionnez une option"
+  "select.option": "Sélectionnez une option",
+  "section.show.option": "[ Cette section peut ne pas être visible. ] "
 }

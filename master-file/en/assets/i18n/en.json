@@ -26,8 +26,6 @@
   "required": "This field is required",
   "error.msg.minlength": "Minimum length {{ requiredLength }} digits",
   "error.mgs.dossier.id": "Incorrect format -  The dossier identifier is incorrect. Please verify the dossier identifier for your master file.",
-  "error.mgs.company.id": "Please specify a valid manufacturer company identifier.",
-  "error.mgs.regu.contact.id": "Please specify a valid regulatory manufacturer contact identifier.",
   "error.mgs.incorrectFormat": "Invalid entry - must be in format 1234-567",
   "error.msg.postal": "Invalid entry - must be in format X1X1X1",
   "error.mgs.zip": "Invalid entry - must be 5 digits",
@@ -106,7 +104,7 @@
   "full.name": "Full name",
   "submit.date": "Date",
   "agent.warning": "If the signing official is an authorized master file agent or authorized third party filing on behalf of the master file holder, an authorization letter signed by the master file holder must be submitted in module 1.2.1 application form. The agent appointment letter or third party authorization letter is required with the initial master file registration transaction or any transaction where a new agent or third party is appointed or the agent or third party's role has changed.",
-  "consent.privacy": "By submitting your personal information, you are consenting to its collection, use and disclosure in accordance with the privacy notice statement.",
+  "consent.privacy": "By providing your personal information, you consent to its collection, use, and disclosure in accordance with the privacy notice statement.",
   "alert.info": "Alert information",
   "error":"Error {{number}}:",
   "agent.not.applicable":"Authorized agent or authorized third party name and address not applicable",
@@ -115,5 +113,6 @@
   "revised.transaction.description":"Revised transaction description",
   "purpose.of.collection":"Health Canada requires the personal information to process regulatory application forms. The information you provide may be used to contact you to verify provided information, to assess the feasibility of enrolling companies, dossiers, and track regulatory activities and transactions.",
   "error.mgs.5.numeric": "Invalid entry - must be exactly 5 digits",
-  "select.option": "Select an option"
+  "select.option": "Select an option",
+  "section.show.option": "[ This section may not be visible. ] "
 }
