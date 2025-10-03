@@ -60,7 +60,7 @@
         "en": "Master file reactivation",
         "fr": "Réactivation de la fiche maîtresse",
         "defEn": "The master file is being converted from the paper format to the non-eCTD or eCTD format. The master file is closed and the master file holder wishes to reactivate the master file. Please note that for either scenario, the entire master file must be submitted including any changes/updates that have occured since the previous version of the master file. Fees apply.",
-        "defFr": "La fiche maîtresse est convertie du format papier au format non-eCTD ou eCTD. La fiche maîtresse est fermée et le titulaire de la fiche maîtresse souhaite la réactiver. Veuillez noter que : pour les deux scénarios, la fiche maîtresse complète doit être soumise y compris tous les changements et toutes les mises à jour qui se sont produits depuis la version précédente de la fiche maîtresse. Des frais s’appliquent",
+        "defFr": "La fiche maîtresse est convertie du format papier au format non-eCTD ou eCTD. La fiche maîtresse est fermée et le titulaire de la fiche maîtresse souhaite la réactiver. Veuillez noter que pour les deux scénarios, la fiche maîtresse complète doit être soumise y compris tous les changements et toutes les mises à jour qui se sont produits depuis la version précédente de la fiche maîtresse. Des frais s’appliquent",
         "sortPriority": 19
     },
     {
@@ -69,7 +69,7 @@
         "fr": "Nouvelle fiche maîtresse et lettre d’accès",
         "sortPriority": 1
 
-    }, 
+    },
     {
         "id": "12",
         "en": "Response to deficiency letter",
@@ -87,7 +87,7 @@
         "en": "Update",
         "fr": "Mise à jour",
         "sortPriority": 2
-    }, 
+    },
     {
         "id": "16",
         "en": "Update and letter of access",

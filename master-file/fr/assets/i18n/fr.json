@@ -16,7 +16,7 @@
   "masterfile.type": "Type de la fiche maîtresse",
   "masterfile.use": "Usage du fiche maîtresse",
   "transaction.description": "Description de la transaction",
-  "dossier.id": "Numéro de dossier ",
+  "dossier.id": "Numéro de dossier",
   "licence.number": "Numéro de licence",
   "request.date": "Date de la demande",
   "requester.title": "Demandeur d’information sollicitée",
