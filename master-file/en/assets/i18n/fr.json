@@ -8,8 +8,8 @@
   "load.file": "Télécharger un formulaire de demande de fiche maîtresse",
   "select.file": "Sélectionnez un fichier à télécharger",
   "refresh.file.input": "Actualisez cette page pour effacer le formulaire",
-  "instruction.dossier.id.line1": "Dossier formaté <span lang=\"en\">Electronic Common Technical Document</span> (eCTD) - e123456<br />Dossier formaté non-eCTD - f1234567",
-  "instruction.dossier.id.line2": "En cas de dépôt d'une <strong>NOUVELLE</strong> demande d'enregistrement d'une fiche maîtresse, demander un nouvel ID de dossier eCTD en remplissant <a href='https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/depot-soumissions-electroniques/formulaire-demande-id-dossiers-fiches-maitresses.html'>le Formulaire de demande pour les ID de dossiers Fiches maîtresses</a> en ligne.",
+  "instruction.dossier.id.line1": "Dossier formaté <span lang=\"en\">electronic Common Technical Document</span> (eCTD) - e123456<br />Dossier formaté non-eCTD - f1234567",
+  "instruction.dossier.id.line2": "En cas de dépôt d'une <strong>NOUVELLE</strong> demande d'enregistrement d'une fiche maîtresse, demander un nouvel ID de dossier eCTD en remplissant <a href='https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/depot-soumissions-electroniques/formulaire-demande-id-dossiers-fiches-maitresses.html' target='_blank' aria-describedby='openNewWindowInstr'>le Formulaire de demande pour les ID de dossiers fiches maîtresses</a> <span aria-hidden='true'><span id=\"openNewWindowInstr\">(s'ouvre dans une nouvelle fenêtre)</span></span> en ligne.",
   "panel.title.regulatoryInfo": "Information réglementaire",
   "masterfile.name": "Nom de la fiche maîtresse",
   "masterfile.number": "Numéro de fiche maîtresse (si attribué; par exemple 1234-567)",
@@ -117,6 +117,6 @@
   "error.mgs.5.numeric": "Entrée non valide - doit contenir 5 chiffres",
   "select.option": "Sélectionnez une option",
   "section.show.option": "[ Cette section peut ne pas être visible. ] ",
-  "warning.text1": "Ce modèle sert à enregistrer une fiche maîtresse auprès de Santé Canada. Le formulaire Web en format « Extensible Markup Language » (XML) pour la demande de fiche maîtresse (formulaire de demande de FM) doit accompagner chaque document technique commun électronique (eCTD) et non-eCTD transaction envoyée par le portail de demandes électroniques (PDE). <br/><br/>Assurez-vous que tous les champs de ce modèle sont complétés dans l’ordre séquentiel. Les sélections faites dans certains champs peuvent affecter la visibilité et la disponibilité d’autres champs et sections tout au long du formulaire.",
+  "warning.text": "Ce modèle sert à enregistrer une fiche maîtresse auprès de Santé Canada. Le formulaire Web en format « Extensible Markup Language » (XML) pour la demande de fiche maîtresse (formulaire de demande de FM) doit accompagner chaque <span lang=\"en\" class='removePadding'>electronic Common Technical Document</span> (eCTD) et non-eCTD transaction envoyée par le portail de demandes électroniques (PDE). <br/><br/>Assurez-vous que tous les champs de ce modèle sont complétés dans l’ordre séquentiel. Les sélections faites dans certains champs peuvent affecter la visibilité et la disponibilité d’autres champs et sections tout au long du formulaire.",
   "transaction.description.default.option": "D'abord, sélectionnez un type de fiche maîtresse parmi les options ci-dessus. "
 }
