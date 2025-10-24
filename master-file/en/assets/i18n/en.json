@@ -8,7 +8,7 @@
   "load.file": "Load a master file application form",
   "select.file": "Select a file to load",
   "refresh.file.input": "Refresh this page to clear form",
-  "instruction.dossier.id.line1": "eCTD formatted dossier – e123456<br />Non-eCTD formatted dossier - f1234567",
+  "instruction.dossier.id.line1": "Electronic Common Technical Document (eCTD) formatted dossier – e123456<br />Non-eCTD formatted dossier - f1234567",
   "instruction.dossier.id.line2": "If filing <strong>NEW</strong> master file registration, request a new eCTD dossier ID by completing the online <a href='https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/filing-submissions-electronically/dossier-id-request-form-master-files.html'>Dossier ID request form</a>.",
   "panel.title.regulatoryInfo": "Regulatory information",
   "masterfile.name": "Master file name",
@@ -89,10 +89,11 @@
   "heading.agent.contact": "Authorized agent or authorized third party contact",
   "info.confirmation": "I confirm that the above information is valid",
   "fee.warning1": "Do not send fee payment with your master file, update or letter of access transactions. Health Canada will verify the fee and issue an invoice accordingly.",
-  "fee.warning2": "For information on master file fees and payment of invoices, please refer to the",
-  "fee.warning.link.title": "Funding and Fees webpage.",
+  "fee.warning2": "For information on master file fees and payment of invoices, please refer to ",
+  "fee.warning.link.title": "Funding and Fees",
   "fee.warning.link.url": "https://www.canada.ca/en/health-canada/services/drugs-health-products/funding-fees.html",
-  "fee.warning3": "Failure to pay fees will result in your master file being denied access and future transactions being placed on hold or rejected.",
+  "open.new.window": " (opens in a new window)",
+  "fee.warning3": ". Failure to pay fees will result in your master file being denied access and future transactions being placed on hold or rejected.",
   "are.access.letters": "Are there letter(s) of access being filed with this transaction?",
   "number.of.letters": "Number of letter(s) of access?",
   "who.responsible": "Who is responsible for payment of fees?",
@@ -114,5 +115,7 @@
   "purpose.of.collection":"Health Canada requires the personal information to process regulatory application forms. The information you provide may be used to contact you to verify provided information, to assess the feasibility of enrolling companies, dossiers, and track regulatory activities and transactions.",
   "error.mgs.5.numeric": "Invalid entry - must be 5 digits",
   "select.option": "Select an option",
-  "section.show.option": "[ This section may not be visible. ] "
+  "section.show.option": "[ This section may not be visible. ] ",
+  "warning.text": "This template is used to register a master file with Health Canada. The web-based Extensible Markup Language (XML) master file application form (MF application form) must accompany every electronic Common Technical Document (eCTD) and non-eCTD transaction sent through the electronic submissions gateway (ESG). <br/><br/>Ensure that all fields in this template are completed in the sequential order. The selections made in certain fields may affect the visibility and availability of other fields and sections throughout the form.",
+  "transaction.description.default.option": "First, select a master file type from the options above."
 }

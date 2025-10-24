@@ -8,7 +8,7 @@
   "load.file": "Télécharger un formulaire de demande de fiche maîtresse",
   "select.file": "Sélectionnez un fichier à télécharger",
   "refresh.file.input": "Actualisez cette page pour effacer le formulaire",
-  "instruction.dossier.id.line1": "Dossier formaté eCTD - e123456<br />Dossier formaté non-eCTD - f1234567",
+  "instruction.dossier.id.line1": "Dossier formaté <span lang=\"en\">Electronic Common Technical Document</span> (eCTD) - e123456<br />Dossier formaté non-eCTD - f1234567",
   "instruction.dossier.id.line2": "En cas de dépôt d'une <strong>NOUVELLE</strong> demande d'enregistrement d'une fiche maîtresse, demander un nouvel ID de dossier eCTD en remplissant <a href='https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/depot-soumissions-electroniques/formulaire-demande-id-dossiers-fiches-maitresses.html'>le Formulaire de demande pour les ID de dossiers Fiches maîtresses</a> en ligne.",
   "panel.title.regulatoryInfo": "Information réglementaire",
   "masterfile.name": "Nom de la fiche maîtresse",
@@ -90,10 +90,11 @@
   "heading.agent.contact": "Coordonnées de l’agent autorisé ou du tiers autorisé",
   "info.confirmation": "J’atteste que les informations ci-dessus sont valides",
   "fee.warning1": "Ne joignez aucun paiement à votre présentation, supplément ou demande. Santé Canada examinera votre document et émettra une facture en conséquence.",
-  "fee.warning2": "Pour plus d’informations sur les frais liés à la fiche maîtresse et sur le paiement des factures, veuillez consulter ",
-  "fee.warning.link.title": "la page Web dédiée au financement et aux frais.",
+  "fee.warning2": "Pour plus d’informations sur les frais liés à la fiche maîtresse et sur le paiement des factures, veuillez consulter au ",
+  "fee.warning.link.title": "financement et frais",
   "fee.warning.link.url": "https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/financement-frais.html",
-  "fee.warning3": " Le non-paiement des frais peut entraîner le non-traitement de votre demande de la fiche maîtresse.",
+  "open.new.window": " (s'ouvre dans une nouvelle fenêtre)",
+  "fee.warning3": ". Le non-paiement des frais peut entraîner le non-traitement de votre demande de la fiche maîtresse.",
   "are.access.letters": "Joignez-vous une ou plusieurs lettres d’accès à cette transaction ?",
   "number.of.letters": "Nombre de lettre(s) d’accès ?",
   "who.responsible": "Qui paiera les frais ?",
@@ -115,5 +116,7 @@
   "purpose.of.collection":"Santé Canada a besoin des renseignements personnels pour traiter les formulaires de demande réglementaire. Les informations que vous fournissez peuvent être utilisées pour vous contacter afin de vérifier les informations fournies, d'évaluer la faisabilité de l'inscription d'entreprises, de dossiers et de suivre les activités et transactions réglementaires.",
   "error.mgs.5.numeric": "Entrée non valide - doit contenir 5 chiffres",
   "select.option": "Sélectionnez une option",
-  "section.show.option": "[ Cette section peut ne pas être visible. ] "
+  "section.show.option": "[ Cette section peut ne pas être visible. ] ",
+  "warning.text1": "Ce modèle sert à enregistrer une fiche maîtresse auprès de Santé Canada. Le formulaire Web en format « Extensible Markup Language » (XML) pour la demande de fiche maîtresse (formulaire de demande de FM) doit accompagner chaque document technique commun électronique (eCTD) et non-eCTD transaction envoyée par le portail de demandes électroniques (PDE). <br/><br/>Assurez-vous que tous les champs de ce modèle sont complétés dans l’ordre séquentiel. Les sélections faites dans certains champs peuvent affecter la visibilité et la disponibilité d’autres champs et sections tout au long du formulaire.",
+  "transaction.description.default.option": "D'abord, sélectionnez un type de fiche maîtresse parmi les options ci-dessus. "
 }
