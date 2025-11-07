@@ -109,7 +109,7 @@
   "minNumber6": "(6 chiffres)",
   "minNumber8": "(8 chiffres)",
   "error.found.because": " n’a pas pu être enregistré car ",
-  "instruction": "instruction",
+  "instruction": "Instruction",
   "return.instruction": "Revenir à la référence de l'instruction",
   "mailto.label": "Soumettre à Santé Canada",
   "help.load.file.01": "Un fichier de compagnie ne devrait pas être chargé s’il s’agit de la première inscription de la compagnie.",
@@ -141,6 +141,7 @@
   "contact.designation": "Désignation de personne-ressource de l’entreprise (fabricant uniquement)",
   "des.renewal": "Personne-ressource désignée pour le renouvellement (fabricant uniquement)",
   "des.finance": "Contact financier désigné (fabricant uniquement)",
+  "des.default.option":"D'abord, créez le(s) enregistrement(s) de représentant de l'entreprise ci-dessus.",
   "comp.admin.info":"Veuillez inclure la page de couverture de chaque homologation visée, une copie de l'étiquette modifiée reflétant les modifications, un certificat valide du Programme d’audit unique des matériels médicaux [PAUMM] qui reflète le changement de nom ou d’adresse du fabricant, un formulaire F202 rempli et un formulaire d’attestation signé, le cas échéant.",
   "error":"Erreur {{number}}:",
   "msg.save.xml.popup": "Veuillez sauvegarder les données d'entrée non enregistrées avant d’enregistrer le brouillon XML.",
@@ -155,6 +156,6 @@
   "msg.company.remove.status.popup": "Cette action changera le statut du contact de {{heading}} en « Supprimer » et désactivera la fiche.",
   "msg.active.and.save.company.popup": "Cette action changera le statut du contact de {{heading}} en « Actif » et enregistrera la fiche.",
   "popup.warning": "Avertissement",
-
+  "popup.title":"Modèle de compagnie",
   "heading.company.contact":"détails du représentant de la compagnie {{seqnumber}}"
 }

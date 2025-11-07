@@ -115,7 +115,7 @@
     "minNumber6": "(6 digits)",
     "minNumber8": "(8 digits)",
     "error.found.because": " could not be saved because ",
-    "instruction": "instruction",
+    "instruction": "Instruction",
     "return.instruction": "Return to instruction reference",
     "privacy.statement": "Privacy Notice Statement",
     "security.declaimer": "Security disclaimer",
@@ -149,6 +149,7 @@
     "contact.designation": "Company contact designation (for manufacturer only)",
     "des.renewal": "Designated renewal contact (for manufacturer only)",
     "des.finance": "Designated finance contact (for manufacturer only)",
+    "des.default.option":"First, create company representative record(s) above.",
     "comp.admin.info":"Please include the cover page of each impacted licence, a copy of updated labelling reflecting the changes, a valid Medical Device Single Audit Program [MDSAP] Certificate that reflects the change in the manufacturer’s name or address, a completed F202 form, and a signed attestation form as applicable.",
     "error":"Error {{number}}:",
     "msg.save.xml.popup": "Please save the unsaved input data before saving draft XML file.",
@@ -163,6 +164,6 @@
     "msg.company.remove.status.popup": "This action will change the contact status of {{heading}} to \"Remove\" and disable the record.",
     "msg.active.and.save.company.popup": "This action will change the contact status of {{heading}} to \"Active\" and save the record.",
     "popup.warning":"Warning",
-
+    "popup.title":"Company Template",
     "heading.company.contact":"company representative details {{seqnumber}}"
   }
