@@ -5,13 +5,17 @@
             "INITIAL",
             "RER",
             "UD",
-            "WR"
+            "WR",
+            "ER",
+            "RS",
+            "RRIR",
+            "RQ_REVIEW_REPORT",
+            "LIA"
         ]
     },
     {
         "raTypeId": "B02-20160301-039",
         "txDescIds": [
-            "ACD",
             "INITIAL",
             "LIA",
             "MM",
@@ -20,13 +24,14 @@
             "RER",
             "RS",
             "UD",
-            "WR"
+            "WR",
+            "ER",
+            "RRIR"
         ]
     },
     {
         "raTypeId": "B02-20160301-040",
         "txDescIds": [
-            "ACD",
             "INITIAL",
             "LIA",
             "MM",
@@ -35,7 +40,10 @@
             "RER",
             "RS",
             "UD",
-            "WR"
+            "WR",
+            "ER",
+            "RRIR",
+            "RQ_REVIEW_REPORT"
         ]
     },
     {
@@ -44,7 +52,11 @@
             "INITIAL",
             "RS",
             "UD",
-            "WR"
+            "WR",
+            "ER",
+            "RRIR",
+            "RER",
+            "LIA"
         ]
     },
     {
@@ -53,20 +65,33 @@
             "INITIAL",
             "RS",
             "UD",
-            "WR"
+            "WR",
+            "ER",
+            "RRIR",
+            "RER",
+            "LIA"
         ]
     },
     {
-        "raTypeId": "B02-20160301-081",
+        "raTypeId": "B02-20250923-01",
         "txDescIds": [
             "IRSR",
             "LIOH",
             "OHCD",
             "PSI",
-            "RS25L",
-            "RS36L",
             "RS39L",
-            "UD"
+            "UD",
+            "ER"
+        ]
+    },
+    {
+        "raTypeId": "B02-20250714-01",
+        "txDescIds": [
+            "RAIL",
+            "RER",
+            "RS36L",
+            "ROHL",
+            "ER"
         ]
     }
 ]

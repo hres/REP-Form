@@ -1,87 +1,98 @@
 [
     {
-        "id": "ACD",
-        "en": "Appeal Comprehensive Document",
-        "fr": "Document d'appel complet"
-    },
-    {
         "id": "INITIAL",
         "en": "Initial",
         "fr": "Initiale"
     },
     {
         "id": "IRSR",
-        "en": "Issue Related Safety Request",
-        "fr": "Demande de sécurité liée à un problème"
+        "en": "Issue related safety request",
+        "fr": "Demande liée à un problème de sûreté"
     },
     {
         "id": "LIA",
-        "en": "Letter of Intent to Appeal",
-        "fr": "Lettre d'intention de recours"
+        "en": "Request for reconsideration",
+        "fr": "Demande de réexamen"
     },
     {
         "id": "LIOH",
-        "en": "Letter of Intent to Invoke Opportunity to be Heard",
+        "en": "Letter of intent to invoke opportunity to be heard",
         "fr": "Lettre d'intention d'invoquer la possibilité d'être entendu"
     },
     {
         "id": "MM",
-        "en": "Minutes of Meeting",
+        "en": "Minutes of meeting",
         "fr": "Procès-verbal de la réunion"
     },
     {
         "id": "OHCD",
-        "en": "Opportunity to be Heard Comprehensive Document",
+        "en": "Opportunity to be heard comprehensive document",
         "fr": "Document complet relatif à la possibilité d'être entendu"
     },
     {
         "id": "PSI",
-        "en": "Patient Safety Information (Medication error)",
+        "en": "Patient safety information (medication error)",
         "fr": "Renseignements sur la sécurité des patients (erreur de médication)"
     },
     {
         "id": "PRCI",
-        "en": "Public Release of Clinical Information",
+        "en": "Public release of clinical information",
         "fr": "Diffusion publique de renseignements cliniques"
     },
     {
         "id": "RAIL",
-        "en": "Response to Additional Information Letter",
+        "en": "Response to additional information letter",
         "fr": "Réponse à la lettre d'information supplémentaire"
     },
     {
         "id": "RER",
-        "en": "Response to E-mail Request",
-        "fr": "Réponse à une demande par courriel "
+        "en": "Response to clarification request",
+        "fr": "Réponse à la demande de clarification"
     },
-    {
-        "id": "RS25L",
-        "en": "Response to S.25 Letter",
-        "fr": "Réponse à la lettre de l'article 25"
-    },
+
     {
         "id": "RS36L",
-        "en": "Response to S.36 Letter",
-        "fr": "Réponse à la lettre de l'article 36"
+        "en": "Terms and conditions letter",
+        "fr": "Conditions imposées"
     },
     {
         "id": "RS39L",
-        "en": "Response to S.39 Letter",
+        "en": "Response to S.39 letter",
         "fr": "Réponse à la lettre de l'article 39"
     },
     {
         "id": "RS",
-        "en": "Response to Screening Deficiency Letter",
+        "en": "Response to screening deficiency letter",
         "fr": "Réponse à la lettre de vérification des lacunes"
     },
     {
         "id": "UD",
-        "en": "Unsolicited Information",
+        "en": "Unsolicited information",
         "fr": "Renseignements non sollicités"
     },
     {
         "id": "WR",
-        "en": "Withdrawal Request",
+        "en": "Withdrawal request",
         "fr": "Demande de retrait"
+    },
+    {
+        "id": "ER",
+        "en": "Extension request",
+        "fr": "Demande de prolongation"
+    },
+    {
+        "id": "ROHL",
+        "en": "Response to opportunity to be heard letter",
+        "fr": "Réponse à la lettre sur la possibilité d'être entendu"
+    },
+    {
+        "id": "RQ_REVIEW_REPORT",
+        "en": "Request for review reports",
+        "fr": "Demande de rapports d'examen"
+    },
+    {
+        "id": "RRIR",
+        "en": "Response to reconsideration information request",
+        "fr": "Réponse à la demande d'information sur le réexamen"
     }
 ]

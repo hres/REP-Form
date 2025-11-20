@@ -7,7 +7,7 @@
   {
     "id": "LICENCE_CHANGE",
     "en": "Change in the licence name",
-    "fr": "Changement du nom de la licence"
+    "fr": "Changement du nom de l'homologation"
   },
   {
     "id": "DEVICE_CHANGE",
@@ -37,7 +37,7 @@
   {
     "id": "LABELLING_CHANGE",
     "en": "Significant change in the labelling of the device",
-    "fr": "Modification importante de l’étiquetage de l’instrument"
+    "fr": "Modification importante de l’étiquette de l’instrument"
   },
   {
     "id": "SAFETY_CHANGE",
@@ -47,11 +47,11 @@
   {
     "id": "PURPOSE_CHANGE",
     "en": "Change to the purpose/indication of a device",
-    "fr": "Modification de l'objectif / de l'indication d'un instrument"
+    "fr": "Modification de l'indication / des fins d'utilisation d'un instrument"
   },
   {
     "id": "ADD_DELETE_CHANGE",
-    "en": "Addition/Deletion",
-    "fr": "Ajout / Suppression"
+    "en": "Addition/deletion",
+    "fr": "Ajout / suppression"
   }
 ]
