@@ -3,22 +3,22 @@
     "id":"NAME_CHANGE",
     "en":"Change in manufacturer's name",
     "fr":"Modification du nom du fabricant seulement",
-    "defEn": "The revised manufacturer's name should be listed in the \"company name\" field in address information section above",
-    "defFr": "Le nom du fabricant révisé doit être indiqué dans le champ « nom de la compagnie » dans la section des détails de l'adresse ci-dessus"
+    "defEn": "The revised manufacturer's name should be listed in the \"company name\" field in address information section above.",
+    "defFr": "Le nom du fabricant révisé doit être indiqué dans le champ « nom de la compagnie » dans la section des détails de l'adresse ci-dessus."
   },
   {
     "id":"ADDR_CHANGE",
     "en":"Change in manufacturer's address",
     "fr":"Modification du nom et de l’adresse du fabricant",
-    "defEn": "The revised manufacturer's address should be listed in the fields in address information section above ",
+    "defEn": "The revised manufacturer's address should be listed in the fields in address information section above.",
     "defFr": "L'adresse révisée du fabricant doit être répertoriée dans les champs de la section des détails de l'adresse ci-dessus."
   },
   {
     "id":"FACILITY_CHANGE",
     "en":"Change only to the name and/or address of the manufacturing facility",
     "fr":"Modification du nom ou de l’adresse des installations de fabrication",
-    "defEn": "Please include a signed attestation for manufacturing facility name/address change",
-    "defFr": "Veuillez inclure une attestation signée pour le changement de nom / d'adresse de l'usine de fabrication"
+    "defEn": "Please include a signed attestation for manufacturing facility name/address change.",
+    "defFr": "Veuillez inclure une attestation signée pour le changement de nom / d'adresse de l'usine de fabrication."
   },
   {
     "id":"CONTACT_CHANGE",
