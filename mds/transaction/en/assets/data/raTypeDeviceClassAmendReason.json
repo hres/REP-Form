@@ -59,7 +59,6 @@
                     "MATERIALS_CHANGE",
                     "LABELLING_CHANGE",
                     "SAFETY_CHANGE",
-                    "PURPOSE_CHANGE",
                     "ADD_DELETE_CHANGE"
                 ]
             },
