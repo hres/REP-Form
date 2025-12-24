@@ -9,7 +9,7 @@
     "select.file": "Select a file to load",
     "choose.file":"Choose file",
     "no.file.chosen": "No file chosen",
-    "warning.text": "<p>This template is for company registration for medical devices.</p><br><p>This template must not be used for company registration for human and veterinary drugs and biocides. Instead use the <a href='https://health-products.canada.ca/rep-pir/company/en/company.html#def-top'>Company Template: Regulatory Enrolment Process (REP) for human and veterinary drugs and biocides</a>.</p><br><p>A company may need to fill out both templates based on the products they sell. </p><br><p>Ensure that all fields in this template are completed in the sequential order. The selections made in certain fields may affect the visibility and availability of other fields and sections throughout the form.</p>",
+    "warning.text": "<p>This template is for company registration for medical devices.</p><br><p>This template must not be used for company registration for human and veterinary drugs and biocides. Instead use the <a href='https://health-products.canada.ca/rep-pir/company/en/company.html#def-top'>Company template: Regulatory enrolment process (REP) for human and veterinary drugs and biocides</a>.</p><br><p>A company may need to fill out both templates based on the products they sell. </p><br><p>Ensure that all fields in this template are completed in the sequential order. The selections made in certain fields may affect the visibility and availability of other fields and sections throughout the form.</p>",
     "company.enrolment": "Regulatory Company Enrolment",
     "company.id": "Company identifier",
     "addressDetails.street": "Street address",
