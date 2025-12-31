@@ -11,7 +11,7 @@
   "choose.file":"Choose File",
   "no.file.chosen": "No file chosen",
   "error":"Error {{number}}:",
-  "warning.text": "<p>This template is used to file medical device licence application to Health Canada.</p><br><p>The web-based Extensible Markup Language regulatory transaction file (REP RT XML) must accompany every medical device transaction sent through the electronic submissions gateway (ESG).</p><br><p>Ensure that all fields in this template are completed in the sequential order. The selections made in certain fields may affect the visibility and availability of other fields and sections throughout the form.</p>",
+  "warning.text": "<p>This template is used to file a medical device licence application to Health Canada.</p><br><p>The web-based Extensible Markup Language regulatory transaction file (REP RT XML) must accompany every medical device transaction sent through the electronic submissions gateway (ESG).</p><br><p>Ensure that all fields in this template are completed in the sequential order. The selections made in certain fields may affect the visibility and availability of other fields and sections throughout the form.</p>",
   "heading.transaction": "Regulatory transaction enrolment",
   "dossier.id": "Dossier identifier",
   "dossier.id.help": " (lowercase \"m\" followed by 6 digits)",
