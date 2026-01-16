@@ -45,7 +45,7 @@
   "error.mgs.5.numeric": "Entrée non valide - doit être 5 chiffres",
   "error.mgs.6.numeric": "Entrée non valide - doit être 6 chiffres",
   "error.mgs.contact.id": "Entrée non valide - doit être 5 chiffres",
-  "error.mgs.licence.number": "Entrée non valide - doit être 6 chiffres - Ajouter un 0 à gauche si le numéro d'homologation contient moins de 6 chiffres",
+  "error.mgs.licence.number": "Entrée non valide - doit être 6 chiffres - ajouter un 0 à gauche si le numéro d'homologation contient moins de 6 chiffres",
   "error.msg.invalidDate": "Cette date n'est pas valide",
   "commmon.required.bracket": " (obligatoire)",
   "sr.required":"obligatoire",

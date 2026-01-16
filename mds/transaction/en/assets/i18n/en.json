@@ -45,7 +45,7 @@
   "error.mgs.5.numeric": "Invalid entry - must be 5 digits",
   "error.mgs.6.numeric": "Invalid entry - must be 6 digits",
   "error.mgs.contact.id": "Invalid entry - must be 5 digits",
-  "error.mgs.licence.number": "Invalid entry - must be 6 digits - Add leading 0 if less than 6 digits",
+  "error.mgs.licence.number": "Invalid entry - must be 6 digits - add leading 0 if less than 6 digits",
   "error.msg.invalidDate": "The date is not valid",
   "commmon.required.bracket": " (required)",
   "sr.required":"required",
