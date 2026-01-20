@@ -134,7 +134,7 @@
   "mailto.07": "Pièce jointe : Ébauche du fichier CO XML.",
   "contact.designation": "Désignation de personne-ressource de l’entreprise (fabricant uniquement)",
   "des.renewal": "Personne-ressource désignée pour le renouvellement (fabricant uniquement)",
-  "des.finance": "Contact financier désigné (fabricant uniquement)",
+  "des.finance": "Personne-ressource désignée pour le financement (fabricant uniquement)",
   "des.default.option":"D'abord, créez le(s) enregistrement(s) de représentant de l'entreprise ci-dessus.",
   "comp.admin.info":"Veuillez inclure la page de couverture de chaque homologation visée, une copie de l'étiquette modifiée reflétant les modifications, un certificat valide du Programme d’audit unique des matériels médicaux (PAUMM) qui reflète le changement de nom ou d’adresse du fabricant, un formulaire F202 rempli et un formulaire d’attestation signé, le cas échéant.",
   "error":"Erreur {{number}} :",
