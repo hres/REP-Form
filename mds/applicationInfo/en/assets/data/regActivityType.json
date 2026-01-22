@@ -1,7 +1,7 @@
 [
     {
         "id":"B02-20160301-033",
-        "en":"Minor Change",
+        "en":"Minor change",
         "fr":"Modification mineure"
     },
     {
@@ -11,22 +11,27 @@
     },
     {
         "id":"B02-20160301-040",
-        "en":"Licence Amendment",
+        "en":"Licence amendment",
         "fr":"Modification d'homologation"
     },
     {
         "id":"B02-20160301-073",
-        "en":"Private Label",
+        "en":"Private label",
         "fr":"Marque privée"
     },
     {
         "id":"B02-20160301-074",
-        "en":"Private Label Amendment",
+        "en":"Private label amendment",
         "fr":"Modification de marque privée"
     },
     {
         "id":"B02-20160301-081",
-        "en":"S.25/36/39/40/41",
-        "fr":"S.25/36/39/40/41"
+        "en":"Section 39/40/41",
+        "fr":"Article 39/40/41"
+    },
+    {
+        "id":"B02-20250714-01",
+        "en":"Terms and conditions (section 36)",
+        "fr":"Conditions imposées (article 36)"
     }
 ]

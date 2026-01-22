@@ -1,19 +1,19 @@
 [
     {
         "id":"26",
-        "en":"Amniotic Membrane",
+        "en":"Amniotic membrane",
         "fr":"Membrane amniotique",
         "sortPriority":1
     },
     {
         "id":"24",
-        "en":"Animal Fat",
+        "en":"Animal fat",
         "fr":"Gras animal",
         "sortPriority":1
     },
     {
         "id":"23",
-        "en":"Artery/Vein",
+        "en":"Artery/vein",
         "fr":"Artère/veine",
         "sortPriority":1
     },
@@ -49,7 +49,7 @@
     },
     {
         "id":"6",
-        "en":"Dura Mater",
+        "en":"Dura mater",
         "fr":"Dure-mère",
         "sortPriority":1
     },
@@ -61,13 +61,13 @@
     },
     {
         "id":"4",
-        "en":"Heart Valve",
+        "en":"Heart valve",
         "fr":"Valvule cardiaque",
         "sortPriority":1
     },
     {
         "id":"5",
-        "en":"Hides or Skin",
+        "en":"Hides or skin",
         "fr":"Cuir ou peau",
         "sortPriority":1
     },
@@ -97,13 +97,13 @@
     },
     {
         "id":"22",
-        "en":"Non-Specific Meat",
+        "en":"Non-specific meat",
         "fr":"Viande non spécifique",
         "sortPriority":1
     },
     {
         "id":"28",
-        "en":"Not Applicable",
+        "en":"Not applicable",
         "fr":"Sans objet",
         "sortPriority":1
     },
@@ -145,7 +145,7 @@
     },
     {
         "id":"25",
-        "en":"Shrimp Sells",
+        "en":"Shrimp shells",
         "fr":"Carapaces de crevette",
         "sortPriority":1
     },
@@ -175,7 +175,7 @@
     },
     {
         "id":"29",
-        "en":"Urinary Bladder Matrix",
+        "en":"Urinary bladder matrix",
         "fr":"Matrice de la vessie",
         "sortPriority":1
     },

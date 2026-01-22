@@ -1,6 +1,6 @@
 [
 {"id": "AF", "en": "Afghanistan", "fr": "Afghanistan"},
-{"id": "AX", "en": "Åland Islands", "fr": "Åland(les Îles)"},
+{"id": "AX", "en": "Åland Islands", "fr": "Åland (les Îles)"},
 {"id": "AL", "en": "Albania", "fr": "Albanie"},
 {"id": "DZ", "en": "Algeria", "fr": "Algérie"},
 {"id": "AS", "en": "American Samoa", "fr": "Samoa américaines"},
@@ -71,7 +71,7 @@
 {"id": "EE", "en": "Estonia", "fr": "Estonie"},
 {"id": "SZ", "en": "Eswatini", "fr": "Eswatini"},
 {"id": "ET", "en": "Ethiopia", "fr": "Éthiopie"},
-{"id": "FK", "en": "Falkland Islands  [Malvinas]", "fr": "Falkland (les Îles)/Malouines (les Îles)"},
+{"id": "FK", "en": "Falkland Islands  (Malvinas)", "fr": "Falkland (les Îles)/Malouines (les Îles)"},
 {"id": "FO", "en": "Faroe Islands", "fr": "Féroé (les Îles)"},
 {"id": "FJ", "en": "Fiji", "fr": "Fidji"},
 {"id": "FI", "en": "Finland", "fr": "Finlande"},
@@ -244,7 +244,7 @@
 {"id": "VG", "en": "Virgin Islands (British)", "fr": "Vierges britanniques (les Îles)"},
 {"id": "VI", "en": "Virgin Islands (U.S.)", "fr": "Vierges des États-Unis (les Îles)"},
 {"id": "WF", "en": "Wallis and Futuna", "fr": "Wallis-et-Futuna"},
-{"id": "EH", "en": "Western Sahara*", "fr": "Sahara occidental *"},
+{"id": "EH", "en": "Western Sahara", "fr": "Sahara occidental"},
 {"id": "YE", "en": "Yemen", "fr": "Yémen"},
 {"id": "ZM", "en": "Zambia", "fr": "Zambie"},
 {"id": "ZW", "en": "Zimbabwe", "fr": "Zimbabwe"}

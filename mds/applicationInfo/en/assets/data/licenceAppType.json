@@ -1,8 +1,8 @@
 [
     {
         "id":"D",
-        "en":"Single Device",
-        "fr":"Instrument à article unique"
+        "en":"Single device",
+        "fr":"Instrument unique"
     },
     {
         "id":"S",
@@ -11,23 +11,23 @@
     },
     {
         "id":"K",
-        "en":"Test Kit",
+        "en":"Test kit",
         "fr":"Trousse d'essai"
     },
     {
         "id":"F",
-        "en":"Device Family",
+        "en":"Device family",
         "fr":"Famille d'instruments"
     },
     {
         "id":"G",
-        "en":"Device Group",
+        "en":"Device group",
         "fr":"Groupe d'instruments"
     },
     {
         "id":"Y",
-        "en":"Device Group Family",
-        "fr":"Famille de groupe d'instruments"
+        "en":"Device group family",
+        "fr":"Famille de groupes d'instruments"
     },
     {
         "id":"U",

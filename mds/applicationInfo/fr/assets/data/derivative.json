@@ -7,19 +7,19 @@
     },
     {
         "id":"28",
-        "en":"Anorganic Bone Mineral",
+        "en":"Anorganic bone mineral",
         "fr":"Substance minérale osseuse",
         "sortPriority":1
     },
     {
         "id":"19",
-        "en":"Bone Morphogenic Protein (BMP)",
+        "en":"Bone morphogenic protein (BMP)",
         "fr":"Protéine morphogénétique osseuse (PMO)",
         "sortPriority":1
     },
     {
         "id":"15",
-        "en":"Butyl Stearate",
+        "en":"Butyl stearate",
         "fr":"Stéarate de butyle",
         "sortPriority":1
     },
@@ -43,7 +43,7 @@
     },
     {
         "id":"9",
-        "en":"Chondroitin Sulphate",
+        "en":"Chondroitin sulphate",
         "fr":"Sulfate de chondroïtine",
         "sortPriority":1
     },
@@ -55,7 +55,7 @@
     },
     {
         "id":"21",
-        "en":"Demineralized Bone Matrix",
+        "en":"Demineralized bone matrix",
         "fr":"Matrice osseuse déminéralisée",
         "sortPriority":1
     },
@@ -85,7 +85,7 @@
     },
     {
         "id":"5",
-        "en":"Hyaluronic Acid",
+        "en":"Hyaluronic acid",
         "fr":"Acide hyaluronique",
         "sortPriority":1
     },
@@ -103,13 +103,13 @@
     },
     {
         "id":"16",
-        "en":"Isobuty Stearate",
+        "en":"Isobuty stearate",
         "fr":"Stéarate d’isobutyle",
         "sortPriority":1
     },
     {
         "id":"14",
-        "en":"Magnesium Stearate",
+        "en":"Magnesium stearate",
         "fr":"Stéarate de magnésium",
         "sortPriority":1
     },
@@ -133,19 +133,19 @@
     },
     {
         "id":"23",
-        "en":"Recombinant Human Albumin",
+        "en":"Recombinant human albumin",
         "fr":"Albumine humaine recombinate",
         "sortPriority":1
     },
     {
         "id":"20",
-        "en":"Recombinant Human Bone Morphogenic Protein (RHBMP)",
+        "en":"Recombinant human bone morphogenic protein (RHBMP)",
         "fr":"Protéine morphogénétique osseuse humaine recombinante (PMOHR)",
         "sortPriority":1
     },
     {
         "id":"6",
-        "en":"Sodium Hyaluronate",
+        "en":"Sodium hyaluronate",
         "fr":"Hyaluronate de sodium",
         "sortPriority":1
     },
