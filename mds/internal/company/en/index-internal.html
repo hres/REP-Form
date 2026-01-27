@@ -251,5 +251,30 @@
 		</script>
     <!--Start add custom scripts here-->
     <script src="./assets/lib/xml2json.js"></script>
-	<script src="polyfills-IOO3XMUJ.js" type="module"></script><script src="main-IXIOMXEB.js" type="module"></script></body>
+	<script src="polyfills-IOO3XMUJ.js" type="module"></script><script src="main-IXIOMXEB.js" type="module"></script>
+	<script>
+		(function waitForFooter() {
+		  var footerNav = document.querySelector("#wb-info .gc-sub-footer nav ul");
+		
+		  if (!footerNav) {
+			// Footer not ready yet – try again
+			setTimeout(waitForFooter, 100);
+			return;
+		  }
+		
+		  // Prevent duplicate links
+		  if (footerNav.querySelector('a[href*="accessibility"]')) {
+			return;
+		  }
+		
+		  var li = document.createElement("li");
+		  var a = document.createElement("a");
+		
+		  a.href = "/mds/accessibility/accessibility-en.html";
+		  a.textContent = "Accessibility statement";
+		
+		  li.appendChild(a);
+		  footerNav.appendChild(li);
+		})();
+	</script></body>
 </html>
