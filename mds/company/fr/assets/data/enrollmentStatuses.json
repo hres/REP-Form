@@ -1,17 +1,17 @@
 [
   {
     "id":"NEW",
-    "en":"NEW",
-    "fr":"NOUVEAU"
+    "en":"New",
+    "fr":"Nouveau"
   },
   {
     "id":"AMEND",
-    "en":"AMEND",
-    "fr":"MODIFIER"
+    "en":"Amend",
+    "fr":"Modifier"
   },
   {
     "id":"FINAL",
-    "en":"FINAL",
-    "fr":"FINAL"
+    "en":"Final",
+    "fr":"Final"
   }
 ]
