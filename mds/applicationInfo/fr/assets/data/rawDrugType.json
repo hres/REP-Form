@@ -1,12 +1,12 @@
 [
     {
         "id":"din",
-        "en":"Drug Identification Number (DIN)",
+        "en":"Drug identification number (DIN)",
         "fr":"Numéro d'identification de drogue (DIN)"
     },
     {
         "id":"npn",
-        "en":"Natural Product Number (NPN)",
+        "en":"Natural product number (NPN)",
         "fr":"Numéro de produit naturel (NPN)"
     },
     {
