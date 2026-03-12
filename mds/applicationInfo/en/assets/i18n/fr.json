@@ -84,7 +84,7 @@
     "lic.number": "Numéro d'homologation",
     "auth.id":"ID d'autorisation ",
     "standards.list": "Normes reconnues respectées dans la conception et fabrication de l'instrument",
-    "conformity.declaration": "Le formulaire de déclaration de conformité confirme que le ou les instruments médicaux sont conformes aux normes reconnues ou à des normes équivalentes ou supérieures",
+    "conformity.declaration": "Le formulaire de déclaration de conformité confirme que le ou les instruments médicaux sont conformes aux normes reconnues ou à des normes équivalentes ou supérieures.",
     "declaration.instruct1": "Au lieu d'une déclaration de conformité confirmant que le(s) instrument(s) concerné(s) est (sont) conçu(s) et fabriqué(s) conformément à des normes reconnues, des informations détaillées doivent être fournies dans la section correspondante de la structure du dossier du Forum international des organismes de réglementation des matériels médicaux (IMDRF) comme preuve que le(s) instrument(s) est (sont) conforme(s) à une norme équivalente ou supérieure.",
     "declaration.instruct2": "Par ailleurs, si le(s) instrument(s) en question NE sont PAS conformes à une norme reconnue, équivalente ou supérieure, des informations détaillées doivent être fournies comme preuve de la sûreté et de l'efficacité de instrument(s), conformément au ",
     "conformity.declaration.medical.device.title.part1":"Les instruments médicaux visés par la demande sont conformes aux normes reconnues établies dans la ",
@@ -170,6 +170,7 @@
     "help.confm.declar_3": "pour trouver la dernière version de la déclaration de la conformité.",
     "help.priority.rev": "Les fabricants peuvent demander un examen prioritaire pour leur application afin d'assurer un examen rapide des nouveaux dispositifs médicaux critiques pour les maladies ou affections graves, potentiellement mortelles ou gravement débilitantes. Les fabricants seront informés lors de la présélection de l'acceptation si leur demande a été acceptée pour un examen prioritaire.",
     "alert.info": "Informations d'alerte",
-    "select.option": "Sélectionnez une option"
+    "select.option": "Sélectionnez une option",
+    "section.accordion": "Section"
 
   }

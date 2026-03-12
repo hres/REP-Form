@@ -172,5 +172,6 @@
     "help.confm.declar_3": "to find the latest version of the declaration of conformity.",
     "help.priority.rev":"Manufacturers can request priority review for their application in order to ensure a timely review of critical new medical devices for serious, life threatening, or severely debilitating diseases or conditions. Manufacturers will be notified at screening acceptance whether their application was accepted for priority review.",
     "alert.info":"Alert information",
-    "select.option": "Select an option"
+    "select.option": "Select an option",
+    "section.accordion": "Section"
     }
