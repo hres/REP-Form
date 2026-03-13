@@ -12,7 +12,7 @@
 		<meta name="author" content="Santé Canada">
 		<meta property="dcterms.creator" content="Gouvernement du Canada, Santé Canada">
 		<meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-		<meta property="dcterms.modified" title="W3CDTF" content="2026-03-12">
+		<meta property="dcterms.modified" title="W3CDTF" content="2026-03-13">
 		<meta property="dcterms.language" title="ISO639-2/T" content="fra">
 		
 		<meta name='description' content="Formularies du processus d'inscription réglementaire pour les instruments médicaux"/>
@@ -56,7 +56,7 @@
 				"cdnEnv": "prod"
 			}));
 		</script>
-	<style>@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0)}to{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}</style><link rel="stylesheet" href="styles-LXHABLTN.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-LXHABLTN.css"></noscript></head>
+	<style>@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0)}to{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}</style><link rel="stylesheet" href="styles-W4U32GTY.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-W4U32GTY.css"></noscript></head>
 	<body vocab="https://schema.org/" typeof="WebPage">
 		<div id="def-top">
 			<!-- Write closure fall-back static file -->
@@ -178,7 +178,7 @@
 			<script>
 				var defPreFooter = document.getElementById("def-preFooter");
 				defPreFooter.outerHTML = wet.builder.preFooter({
-					"dateModified": "2026-03-12",
+					"dateModified": "2026-03-13",
 					"cdnEnv": "prod",
 					"showShare": false
 				});
@@ -256,5 +256,33 @@
 		</script>
     <!--Start add custom scripts here-->
     <script src="./assets/lib/xml2json.js"></script>
-	<link rel="modulepreload" href="chunk-PCGA3GBA.js"><script src="polyfills-IOO3XMUJ.js" type="module"></script><script src="main-DVJS5K3O.js" type="module"></script></body>
+	<link rel="modulepreload" href="chunk-5HA7KFFJ.js">
+	<script src="polyfills-IOO3XMUJ.js" type="module"></script>
+	<script src="main-6GQXG6DZ.js" type="module"></script>
+	<script>
+		(function waitForFooter() {
+		  var footerNav = document.querySelector("#wb-info .gc-sub-footer nav ul");
+		
+		  if (!footerNav) {
+			// Footer not ready yet – try again
+			setTimeout(waitForFooter, 100);
+			return;
+		  }
+		
+		  // Prevent duplicate links
+		  if (footerNav.querySelector('a[href*="accessibility"]')) {
+			return;
+		  }
+		
+		  var li = document.createElement("li");
+		  var a = document.createElement("a");
+		
+		  a.href = "/rep-dev/mds/accessibility/applicationInfo/accessibility-fr.html";
+		  a.textContent = "Déclaration d'accessibilité";
+		
+		  li.appendChild(a);
+		  footerNav.appendChild(li);
+		})();
+	</script>
+</body>
 </html>
