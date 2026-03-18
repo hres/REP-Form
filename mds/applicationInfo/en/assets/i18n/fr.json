@@ -41,7 +41,7 @@
     "save.material": "Enregistrer",
     "delete.material": "Supprimer l'enregistrement",
     "discard.changes": "Rejeter les modifications",
-    "required": "Ce champ est obligatoire.",
+    "required": "Ce champ est obligatoire",
     "heading.device.history": "Historique de l'instrument",
     "heading.interdependent.device": "Instrument interdépendant {{seqnumber}}",
     "heading.device.record": "fr_Device Record",
