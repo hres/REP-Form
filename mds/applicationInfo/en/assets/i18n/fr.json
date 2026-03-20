@@ -117,7 +117,7 @@
     "error.mgs.8.numeric":"Entrée non valide - doit être 8 chiffres",
     "error.mgs.company.id": "Entrée non valide - doit être 6 chiffres",
     "error.mgs.licence.number": "fr_Please specify a valid Licence Number.",
-    "error.msg.materialOneRecord": "Au moins un attribut de matériel biologique doit être inscrit.",
+    "error.msg.materialOneRecord": "Au moins un attribut de matériel biologique doit être inscrit",
     "errorSummary.application-info": "Modèle d’information sur les demandes d’homologation",
     "error.msg.deviceDetails": "L'enregistrement d'instruments interdépendants contient des erreurs",
     "error.msg.bioMaterials": "Le dossier de matériel biologique contient des erreurs",
