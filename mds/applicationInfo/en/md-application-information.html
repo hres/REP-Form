@@ -12,7 +12,7 @@
 		<meta name="author" content="Health Canada">
 		<meta property="dcterms.creator" content="Government of Canada, Health Canada">
 		<meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-		<meta property="dcterms.modified" title="W3CDTF" content="2026-03-26">
+		<meta property="dcterms.modified" title="W3CDTF" content="2026-03-23">
 		<meta property="dcterms.language" title="ISO639-2/T" content="eng">
 		
 			<meta name='description' content="Regulatory Enrolment Process Forms for Medical Devices"/>
@@ -180,7 +180,7 @@
 			<script>
 				var defPreFooter = document.getElementById("def-preFooter");
 				defPreFooter.outerHTML = wet.builder.preFooter({
-					"dateModified": "2026-03-26",
+					"dateModified": "2026-03-23",
 				"cdnEnv": "prod",
 					"showShare": false
 				});
@@ -234,7 +234,6 @@
 <li><a href="https://www.canada.ca/en/government/about.html">About Canada.ca</a></li>
 <li><a href="https://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></li>
 <li><a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a></li>
-<li><a href="https://health-products.canada.ca/rep-pir/mds/accessibility/applicationInfo/accessibility-en.html">Accessibility statement</a></li>
 </ul>
 </nav>
 <div class="wtrmrk align-self-end">
@@ -259,5 +258,32 @@
 		</script>
     <!--Start add custom scripts here-->
     <script src="./assets/lib/xml2json.js"></script>
-	<link rel="modulepreload" href="chunk-INIT5NKH.js"><script src="polyfills-IOO3XMUJ.js" type="module"></script><script src="main-EOXKYGR5.js" type="module"></script></body>
+	<link rel="modulepreload" href="chunk-PVPJ5MLK.js"><script src="polyfills-IOO3XMUJ.js" type="module"></script>
+	<script src="main-4OR3Y4GF.js" type="module"></script>
+	<script>
+		(function waitForFooter() {
+		  var footerNav = document.querySelector("#wb-info .gc-sub-footer nav ul");
+		
+		  if (!footerNav) {
+			// Footer not ready yet – try again
+			setTimeout(waitForFooter, 100);
+			return;
+		  }
+		
+		  // Prevent duplicate links
+		  if (footerNav.querySelector('a[href*="accessibility"]')) {
+			return;
+		  }
+		
+		  var li = document.createElement("li");
+		  var a = document.createElement("a");
+		
+		  a.href = "/rep-dev/mds/accessibility/applicationInfo/accessibility-en.html";
+		  a.textContent = "Accessibility statement";
+		
+		  li.appendChild(a);
+		  footerNav.appendChild(li);
+		})();
+	</script>
+</body>
 </html>
