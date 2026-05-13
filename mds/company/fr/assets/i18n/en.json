@@ -49,7 +49,7 @@
     "error.mgs.licence.number": "Please specify a valid licence number.",
     "error.mgs.primary.contact.id": "Please specify a valid contact Identifier for REP Contact.",
     "error.mgs.primary.company.id": "Please specify a valid company Identifier for REP Contact.",
-    "error.mgs.contact.id": "Invalid entry - must be 5 digits",
+    "error.mgs.contact.id": "Invalid entry - must be 1 to 6 digits",
     "error.msg.contact.one.record": "At least one company representative with new, active, revise status must be listed",
     "error.msg.contactDetails": "Company representative details has errors",
     "error.msg.remove.contact": "Company representative must be removed.",
