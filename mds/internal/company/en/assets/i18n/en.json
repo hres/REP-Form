@@ -93,7 +93,7 @@
     "all.licence.num": "All impacted licence number(s) (hard return between licence numbers)",
     "is.change": "Is there a change to the regulatory correspondent's name and/or address?",
     "new.company.id": "New company identifier (6 digits)",
-    "new.contact.id": "New contact identifier (5 digits)",
+    "new.contact.id": "New contact identifier (1 to 6 digits)",
     "new.contact.name": "New contact name",
     "save.working.copy": "Save working copy",
     "save.draft": "Save draft XML",

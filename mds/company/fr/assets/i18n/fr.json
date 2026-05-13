@@ -87,7 +87,7 @@
   "all.licence.num": "Tous les numéros d'identification des homologations visées (placez un retour forcé entre chaque numéro d'homologation)",
   "is.change": "Y a-t-il un changement de nom et/ou d'adresse du correspondant réglementaire ?",
   "new.company.id": "Nouvel identifiant de la compagnie (6 chiffres)",
-  "new.contact.id": "Nouvel identifiant du contact (5 chiffres)",
+  "new.contact.id": "Nouvel identifiant du contact (1 à 6 chiffres)",
   "new.contact.name": "Nom du nouveau contact",
   "save.working.copy": "Enregistrer la copie de travail",
   "save.draft": "Enregistrer le brouillon XML",
