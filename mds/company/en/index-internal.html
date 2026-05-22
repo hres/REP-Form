@@ -12,7 +12,7 @@
 		<meta name="author" content="Health Canada">
 		<meta property="dcterms.creator" content="Government of Canada, Health Canada">
 		<meta property="dcterms.issued" title="W3CDTF" content="2019-01-01">
-		<meta property="dcterms.modified" title="W3CDTF" content="2026-01-22">
+		<meta property="dcterms.modified" title="W3CDTF" content="2026-05-22">
 		<meta property="dcterms.language" title="ISO639-2/T" content="eng">
 		
 			<meta name='description' content="Regulatory enrolment process Forms for medical devices"/>
@@ -173,7 +173,7 @@
 			<script>
 				var defPreFooter = document.getElementById("def-preFooter");
 				defPreFooter.outerHTML = wet.builder.preFooter({
-					"dateModified": "2026-01-22",
+					"dateModified": "2026-05-22",
 				"cdnEnv": "prod",
 					"showShare": false
 				});
@@ -251,31 +251,30 @@
 		</script>
     <!--Start add custom scripts here-->
     <script src="./assets/lib/xml2json.js"></script>
-	<script src="polyfills-IOO3XMUJ.js" type="module"></script><script src="main-IXIOMXEB.js" type="module"></script>
-	<script>
-		(function waitForFooter() {
-		  var footerNav = document.querySelector("#wb-info .gc-sub-footer nav ul");
-		
-		  if (!footerNav) {
-			// Footer not ready yet – try again
-			setTimeout(waitForFooter, 100);
-			return;
-		  }
-		
-		  // Prevent duplicate links
-		  if (footerNav.querySelector('a[href*="accessibility"]')) {
-			return;
-		  }
-		
-		  var li = document.createElement("li");
-		  var a = document.createElement("a");
-		
-		  a.href = "/REP-Form-Internal/mds/accessibility/accessibility-en.html";
-		  a.textContent = "Accessibility statement";
-		
-		  li.appendChild(a);
-		  footerNav.appendChild(li);
-		})();
-	</script>
-	</body>
+	<script src="polyfills-IOO3XMUJ.js" type="module"></script><script src="main-AJYKYBGH.js" type="module"></script><script>
+(function waitForFooter() {
+    var footerNav = document.querySelector("#wb-info .gc-sub-footer nav ul");
+
+    if (!footerNav) {
+    // Footer not ready yet – try again
+    setTimeout(waitForFooter, 100);
+    return;
+    }
+
+    // Prevent duplicate links
+    if (footerNav.querySelector('a[href*="accessibility"]')) {
+    return;
+    }
+
+    var li = document.createElement("li");
+    var a = document.createElement("a");
+
+    a.href = "/REP-Form-Internal/mds/accessibility/accessibility-en.html";
+    a.textContent = "Accessibility statement";
+
+    li.appendChild(a);
+    footerNav.appendChild(li);
+})();
+</script>
+</body>
 </html>
