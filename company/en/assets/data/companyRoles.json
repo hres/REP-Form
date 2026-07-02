@@ -1,0 +1,17 @@
+[
+    {
+        "id":"MFR",
+        "en":"Manufacturer / sponsor mailing address",
+        "fr":"Adresse postale du fabricant / promoteur"
+    },
+    {
+        "id":"MAIL",
+        "en":"Regulatory mailing / annual contact address",
+        "fr":"Contact pour l'adresse courrier réglementaire / adresse pour l'annuelle"
+    },
+    {
+        "id":"BILL",
+        "en":"Billing address",
+        "fr":"Adresse de facturation"
+    }
+]
