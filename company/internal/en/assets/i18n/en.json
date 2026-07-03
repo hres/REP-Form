@@ -103,7 +103,7 @@
     "mailto.08": "Attachment: The draft CO XML.",
 
     "consent.privacy": "By providing your personal information, you consent to its collection, use, and disclosure in accordance with the privacy notice statement.",
-    "consent.privacy.OnEmail": "By providing the email addresses in this CO XML, you understand and acknowledge that this company will be enrolled in Health Canda’s electronic billing (e-Billing) system. Health Canada does not accept any liability for any errors or omissions in the email addresses provided by the company. Health Canada does not accept any liability for information not delivered or delivered to or intercepted by a third party unintended recipient.",
+    "consent.privacy.onEmail": "By providing the email addresses in this CO XML, you understand and acknowledge that this company will be enrolled in Health Canda’s electronic billing (e-Billing) system. Health Canada does not accept any liability for any errors or omissions in the email addresses provided by the company. Health Canada does not accept any liability for information not delivered or delivered to or intercepted by a third party unintended recipient.",
 
     "email.subject": "Client information",
     "email.to": "(client.information@hc-sc.gc.ca)",
