@@ -1,0 +1,92 @@
+{
+    "title": "Regulatory enrolment process (REP) for human and veterinary drugs and disinfectants",
+    "h1_header": "Regulatory enrolment process (REP) for human and veterinary drugs and disinfectants",
+    "paragraphs": [
+        "<div class=\"alert alert-info\"><p>In order to access the most up-to-date version of the template, please be reminded to delete your cache frequently and “refresh” the template links on your web browser prior to each use.</p></div>"
+    ],
+    "sections": [
+        {
+            "header": "REP template & form links",
+            "groups": [
+                {
+                    "bullets": [
+                        "<a href=\"{{ base_url }}version_history.html\">Template revision history (2026-09-09)</a>"
+                    ]
+                }
+            ]
+        },
+        {
+            "header": "Outside the regulatory transaction process",
+            "groups": [
+                {
+                    "header": "<a href=\"{{ base_url }}{{ template_paths.co.en }}\">Company (CO) template (2026-09-09)</a>",
+                    "bullets": [
+                        "Required to obtain a company ID and/or update company information to Health Canada.",
+                        "Sent via email. <ul><li>Attach draft CO XML file to email prior to sending.</li></ul>",
+                        "Refer to section “2.3 Company Enrolment/Amendment Process” of the REP guidance document."
+                    ]
+                },
+                {
+                    "header": "<a href=\"https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/filing-submissions-electronically/pharmaceutical-dossier-template.html\">Dossier ID request form for human drugs</a>",
+                    "bullets": [
+                        "Required to obtain a dossier ID, prior to filing a regulatory transaction for a new dossier, when converting a dossier from non-eCTD to eCTD format, or when filing a regulatory transaction for a dossier for which you do not know the dossier ID.",
+                        "Refer to section “2.4 Dossier ID Request Process” of the REP guidance document."
+                    ]
+                },
+                {
+                    "header": "<a href=\"https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/filing-submissions-electronically/veterinary-dossier-template.html\">Dossier ID request form for veterinary drugs</a>",
+                    "bullets": [
+                        "Required to obtain a dossier ID, prior to filing a regulatory transaction for a new dossier or a dossier for which you do not know the dossier ID.",
+                        "Refer to section “2.4 Dossier ID Request Process” of the REP guidance document."
+                    ]
+                },
+                {
+                    "header": "<a href=\"https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/filing-submissions-electronically/dossier-id-request-form-biocide.html\">Dossier ID request form for biocides</a>",
+                    "bullets": [
+                        "Required to obtain a dossier ID, prior to filing a regulatory transaction for a new dossier or a dossier for which you do not know the dossier ID.",
+                        "Refer to section “2.4 Dossier ID request process” of the REP guidance document."
+                    ]
+                }
+            ]
+        },
+        {
+            "header": "Within the regulatory transaction process",
+            "groups": [
+                {
+                    "header": "<a href=\"{{ base_url }}{{ template_paths.rt.en }}\">Regulatory transaction (RT) template (2025-09-10)</a>",
+                    "bullets": [
+                        "Required with each regulatory transaction filed to Health Canada.",
+                        "For detailed description of the requirements for the RT template, refer to section “2.5 Regulatory Transaction Filing Process” of the REP guidance document."
+                    ]
+                },
+                {
+                    "header": "<a href=\"{{ base_url }}{{ template_paths.pi.en }}\">Product information (PI) template (2024-02-12)</a>",
+                    "bullets": [
+                        "Required for only a subset of transactions. Refer to section “2.5.2 Product information (PI) Template and Process” of the REP guidance document for list of subset transactions.",
+                        "For detailed description of the requirements for the PI template, refer to section “2.5 Regulatory Transaction Filing Process” of the REP guidance document."
+                    ]
+                }
+            ]
+        },
+        {
+            "header": "Stylesheet download links",
+            "groups": [
+                {
+                    "bullets": [
+                        "<a href=\"{{ base_url }}{{ template_paths.stylesheets.en }}\">Download stylesheet zip file (2026-09-09)</a>"                    ]
+                }
+            ]
+        },
+        {
+            "internal_only": true,
+            "header": "Internal user links",
+            "groups": [
+                {
+                    "bullets": [
+                        "<a href=\"https://lam-dev.hres.ca/REP-Form-Internal/company/en/companyINT-en.html\">Company enrolment - version</a>",
+                        "<a href=\"https://lam-dev.hres.ca/REP-Form-Internal/PROD/repDiff/diffForm-en.html\">Comparison tool (2020)</a>"                       ]
+                }
+            ]
+        }
+    ]
+}
