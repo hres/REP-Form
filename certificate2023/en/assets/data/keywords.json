@@ -18,12 +18,12 @@
         "name": "languages",
         "data": [
             {
-                "id": "EN",
+                "id": "en",
                 "en": "English",
                 "fr": "Anglais"
             },
             {
-                "id": "FR",
+                "id": "fr",
                 "en": "French",
                 "fr": "Français"
             }

@@ -1,0 +1,18 @@
+[
+  {
+    "ariaEn": "OWNER",
+    "ariaFr": "OWNER",
+     "en": " The Applicant is the patentee and is recorded as an owner of the above noted Canadian Patent at the Canadian Intellectual Property Office, or",
+     "fr": " Le demandeur est le titulaire du brevet et est inscrit à ce titre du brevet canadien susmentionné à l’Office de la propriété intellectuelle du Canada."
+  },
+  {
+    "ariaEn": "BEHALF_OWNER",
+    "ariaFr": "BEHALF_OWNER",
+    "en": " the Applicant is a manufacturer who is authorized by the person recorded in the Canadian Intellectual Property Office as the owner of the above noted Canadian Patent to file this application on their behalf and the above noted NDS was issued to the Applicant.",
+    "fr": " Le demandeur est le fabricant autorisé par la personne inscrite à l’Office de la propriété intellectuelle du Canada à titre de titulaire du brevet canadien susmentionné à déposer cette demande en son nom, et la PDN susmentionnée a été délivrée au demandeur."
+  }
+
+
+
+  ]
+
