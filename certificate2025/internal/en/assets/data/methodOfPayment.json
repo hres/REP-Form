@@ -1,0 +1,9 @@
+[
+    {"id":"FINANCIAL2","en":"A payment through a Canadian financial institution","fr":"Paiement par l’intermédiaire d’une institution financière"},
+    {"id":"CHEQUE2","en":"A cheque","fr":"Cheque"},
+    {"id":"MONEY_ORDER2","en":"A money order","fr":"Mandat-poste"},
+    {"id":"BANK_DRAFT2","en":"A bank draft","fr":"Traites bancaires"},
+    {"id":"CREDIT_CARD2","en":"A credit card, interac online","fr":"Carte de crédit, virement interac"},
+    {"id":"CREDIT2","en":"Existing credit on the applicant’s account","fr":"Quantité du crédit existant"},
+    {"id":"WIRE2","en":"A wire transfer","fr":"Virement télégraphique"}
+  ]
