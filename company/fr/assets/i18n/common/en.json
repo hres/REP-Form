@@ -12,7 +12,7 @@
     "refresh.file.input": "Refresh page to clear form",
     "other": "Other",
     "other.specify": "Other - specify",
-    "required": "This field is required",
+    "required": "This field is required.",
     "commmon.required.bracket": " (required)",
     "error.found.because": " could not be saved because ",
     "error.found.plural": " errors were found",

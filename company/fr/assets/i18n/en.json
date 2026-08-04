@@ -1,15 +1,15 @@
 {
-    "form.title": "Company Template: Regulatory Enrolment Process (REP) for human and veterinary drugs and biocides",
+    "form.title": "Company template: Regulatory enrolment process (REP) for human and veterinary drugs and biocides",
     "load.file": "Load a company enrolment file",
     "errorSummary.form.name": "The form",
-    "warning.text": "<p>This template is for company registration for human and veterinary drugs and biocides. One singular company registration is used to manage company information for prescription and non-prescription pharmaceuticals for human and veterinary use, biologics and radiopharmaceuticals for human use, disinfectants, and biocides.</p><br><p>This template must not be used for company registration for medical devices. Instead use the <a href='https://health-products.canada.ca/rep-pir/mds/company/en/md-company.html#def-top'>Company Template: Regulatory Enrolment Process (REP) for medical devices</a>.</p><br><p>A company may need to fill out both templates based on the products they sell. </p><br><p>Ensure that all fields in this template are completed in the sequential order. The selections made in certain fields may affect the visibility and availability of other fields and sections throughout the form.</p>",
+    "warning.text": "<p>This template is for company registration for human and veterinary drugs and biocides. One singular company registration is used to manage company information for prescription and non-prescription pharmaceuticals for human and veterinary use, biologics and radiopharmaceuticals for human use, disinfectants, and biocides.</p><br><p>This template must not be used for company registration for medical devices. Instead use the <a href='https://health-products.canada.ca/rep-pir/mds/company/en/md-company.html#def-top'>Company template: Regulatory enrolment process (REP) for medical devices</a>.</p><br><p>A company may need to fill out both templates based on the products they sell. </p><br><p>Ensure that all fields in this template are completed in the sequential order. The selections made in certain fields may affect the visibility and availability of other fields and sections throughout the form.</p>",
     "ht.load.file.1": "A file should not be loaded if this is the first time enrolling the company.",
     "ht.load.file.2": "When continuing with a working copy, the format of the file to load should be .hcsc.",
-    "ht.load.file.3": "When viewing/updating a final XML file, the format of the file to load should be .xml.",
+    "ht.load.file.3": "When viewing / updating a draft or final XML file, the format of the file to load should be .xml.",
     "amend.alert": "The \"Amend enrolment\" button must be selected when amending a final company XML.",
     "company.enrolment": "Regulatory company enrolment",
     "ht.company.enrolment.1": "The \"Enrolment status\", \"Enrolment version\", and \"Date last saved\" fields are automatically filled by the form upon selecting \"Save working copy\" or \"Save draft XML\" in the bottom of the template.",
-    "ht.company.enrolment.2": "The \"Company Identifier\" field will be filled by Health Canada when they generate the final company XML file.",
+    "ht.company.enrolment.2": "The \"Company identifier\" field will be filled by Health Canada when they generate the final company XML file.",
     "ht.company.enrolment.3": "The \"Amend enrolment\" button is only enabled when a final company XML file is loaded into the template, and must be selected when amending a final company XML file.",
     "enrolment.status": "Enrolment status",
     "enrolment.version": "Enrolment version",
@@ -26,12 +26,14 @@
     "ht.address.info.2": "There must be an address associated with each of the following three roles: \"Manufacturer / sponsor mailing address\", \"Billing address\", and \"Regulatory mailing / annual contact address\".",
     "ht.address.info.3": "A single address may be associated to multiple roles, however, each role may only have one address.",
     "business.number": "Canada Revenue Agency business number",
-    "ht.business.number": "A business number (BN): a unique, nine-digit number issued by the Canada Revenue Agency (CRA) that identifes businesses. For more information consult, the <a href='https://www.canada.ca/en/services/taxes/business-number.html'>Business number</a> (opens in a new window). Do not include any business number not issued by the CRA. If you do not have your business number, this is not a mandatory field.",
-    "select.roles.comp": "Select one or more roles for this company / company representative",
+    "open.new.window": " (opens in a new window)",
+    "ht.business.number": "A business number (BN): a unique, nine-digit number issued by the Canada Revenue Agency (CRA) that identifies businesses. For more information consult, the <a href='https://www.canada.ca/en/services/taxes/business-number.html' target='_blank'  aria-describedby='openNewWindowInstr'>Business number</a><span aria-hidden='true'><span id=\"openNewWindowInstr\"> (opens in a new window)</span></span>. Do not include any business number not issued by the CRA. If you do not have your business number, this is not a mandatory field.",
+    "select.roles.comp.instruction": "Select one or more roles for this company / company representative",
     "select.roles.rep": "Select one or more roles for this company representative",
+    "select.roles.comp": "Select one or more roles for this company",
     "ht.select.roles.1":" Manufacturer / sponsor: Refers to the name under which the drug and/or biocide submission/application is filed, where a drug identification number (DIN) / notice of compliance (NOC) / market authorization is to be issued, the company in whose name the DIN / NOC / market authorization will be registered, and the name to be included on the product label and product monograph / package insert. Also the company / contact to whom statements will be sent electronically via e-billing if a balance exists on the account.",
     "ht.select.roles.2":"Regulatory mailing / annual contact : Pertains to where and to whom Health Canada should direct regulatory mail other than correspondence specific to the subject drug and/or biocide submission/application, for example, annual notification, regulatory / policy amendment notices as they apply to DINs or market authorizations registered to the manufacturer/sponsor. Operational and system requirements dictate that the regulatory mailing name/address must be the same for all DINs and market authorizations registered to the manufacturer / sponsor identified where more than one DIN and/or market authorization is held by that company.",
-    "ht.select.roles.3":"Billing : The company / address to whom invoices  will be issued.The billing contact person will receive invoices electronically via e-billing ",
+    "ht.select.roles.3":"Billing : The company / address to whom invoices  will be issued.The billing contact person will receive invoices electronically via e-billing.",
     "ht.select.roles.4":"Each role corresponds to the company information for all human and veterinary drugs, disinfectants, and biocides.",
     "company.rep": "Company representative information",
     "address.rep": "Address information",
@@ -94,8 +96,8 @@
     "error.msg.companyContacts": "There are errors in the company representative details",
 
     "mailto.01": "The draft CO XML must be sent via email.",
-    "mailto.02": "Click the ‘Submit to Health Canada’ button to create an email template with some pre-filled information.",
-    "mailto.03": "Attach your draft CO XML file to the email prior to sending.",
+    "mailto.02": "By clicking the ‘Submit to Health Canada’ a templated email message should be auto-created using your default email program.",
+    "mailto.03": "Before submitting, please attach your draft CO XML file.",
     "mailto.04": "If an email template was not automatically generated, create an email with the following details:",
     "mailto.05": "To: {{subject}}  {{email}}",
     "mailto.06": "Subject: Draft CO XML - [insert your company name] [insert your company ID, if available]",
@@ -112,6 +114,10 @@
     "email.body": "The CO XML file is NOT automatically attached. Attach the draft CO XML file prior to sending.",
     "email.mail.to": "mailto:",
 
+    "msg.err.file.type": "An invalid file type was selected.",
+    "msg.err.form.type": "The wrong form type was selected for this form.",
+    "msg.err.checksum": "Error: there was an error parsing the file.",
+    "section.show.option": "[ This section may not be visible. ] ",
     "msg.saving.xml.popup": "Please save the unsaved input data before saving draft XML file.",
     "msg.generating.xml.popup": "Please save the unsaved input data before generating XML file.",
     "msg.save.addressInfo.popup": "Please save the unsaved input data for address information.",
@@ -127,5 +133,7 @@
 
     "error.mgs.5.numeric": "Invalid entry - must be five digits",
     "select.option": "Select an option",
-    "minlength": "Invalid entry - must be {{ requiredLength }} digits"
+    "minlength": "Invalid entry - must be {{ requiredLength }} digits",
+    "msg.discard.popup": "Are you sure you want to discard change for {{heading}}?"
+
 }
