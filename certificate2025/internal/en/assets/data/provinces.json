@@ -1,0 +1,57 @@
+[
+  {
+    "id":"AB",
+    "en":"Alberta",
+    "fr":"Alberta"
+  },
+  {
+    "id":"BC",
+    "en":"British Columbia",
+    "fr":"Colombie-Britannique"
+  },
+  {"id":"MB",
+    "en":"Manitoba",
+    "fr":"Manitoba"
+  },
+  {"id":"NB",
+    "en":"New Brunswick",
+    "fr":"Nouveau-Brunswick"
+  },
+  {"id":"NL",
+    "en":"Newfoundland and Labrador",
+    "fr":"Terre-Neuve et Labrador"
+  },
+  {"id":"NT",
+    "en":"Northwest Territories",
+    "fr":"Territoires du Nord-Ouest"
+  },
+  {"id":"NS",
+    "en":"Nova Scotia",
+    "fr":"Nouvelle-Écosse"
+  },
+  {"id":"NU",
+    "en":"Nunavut",
+    "fr":"Nunavut"
+  },
+  {"id":"ON",
+    "en":"Ontario",
+    "fr":"Ontario"
+  },
+  {"id":"PE",
+    "en":"Prince Edward Island",
+    "fr":"Île-du-Prince-Édouard"
+  },
+  {"id":"QC",
+    "en":"Quebec",
+    "fr":"Québec"
+  },
+  {
+    "id":"SK",
+    "en":"Saskatchewan",
+    "fr":"Saskatchewan"
+  },
+  {"id":"YT",
+    "en":"Yukon",
+    "fr":"Yukon"
+  }
+]
