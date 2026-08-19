@@ -32,5 +32,5 @@
     "PROTECTED_B": "Protégé \"B\" une fois rempli",
     "not.applicable": "Sans objet",
     "alert.info": "Informations d'alerte",
-    "error": "Erreur {{number}}:"
+    "error": "Erreur {{number}} :"
 }
