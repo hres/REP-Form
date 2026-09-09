@@ -67,7 +67,7 @@
     "manufacturer.address":"Manufacturer / sponsor mailing address",
     "mailing.address": "Regulatory / annual contact address",
     "billing.address": "Billing address",
-    "error.msg.addressRolesMissing": "For address information, selection of all roles : manufacturer, mailing, and billing",
+    "error.msg.addressRolesMissing": "For address information, selection of all roles: manufacturer, mailing, and billing",
     "error.msg.companyAddress": "There are errors in the address details.",
 
     "heading.company.contact":"Company representative details {{seqnumber}}",
@@ -98,7 +98,7 @@
     "mailing.contact": "Regulatory mailing / annual contact",
     "billing.contact": "Billing contact",
     "error.msg.roleSelected":  "This role has already been selected.",
-    "error.msg.contactRolesMissing": "For company representative, selection of all roles : manufacturer, mailing, and billing",
+    "error.msg.contactRolesMissing": "For company representative, selection of all roles: manufacturer, mailing, and billing",
     "error.msg.companyContacts": "There are errors in the company representative details.",
 
     "mailto.01": "The draft CO XML must be sent via email.",
