@@ -14,7 +14,7 @@
     "other.specify": "Autre détails",
     "required": "Ce champ est obligatoire.",
     "commmon.required.bracket": " (obligatoire)",
-    "error.found.because": " n’a pas pu être sauvegardé car ",
+    "error.found.because": " n'a pas pu être sauvegardé car ",
     "error.found.plural": " erreurs ont été trouvées ",
     "error.found.singular": " erreur a été trouvée ",
     "save.working.copy": "Enregistrer la copie de travail",
